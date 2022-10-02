@@ -4,15 +4,10 @@
 
 The openapi annotation base class.
 
-
-
 * Full name: `\OpenApi\Annotations\SecurityScheme`
 * Parent class: [`\OpenApi\Annotations\AbstractAnnotation`](./AbstractAnnotation.md)
 
-
-
 ## Properties
-
 
 ### ref
 
@@ -21,11 +16,6 @@ $ref See http://json-schema.org/latest/json-schema-core.html#rfc.section.7.
 ```php
 public string $ref
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +27,6 @@ The key into OpenApi->security array.
 public string $securityScheme
 ```
 
-
-
-
-
-
 ***
 
 ### type
@@ -51,11 +36,6 @@ The type of the security scheme.
 ```php
 public string $type
 ```
-
-
-
-
-
 
 ***
 
@@ -67,11 +47,6 @@ A short description for security scheme.
 public string $description
 ```
 
-
-
-
-
-
 ***
 
 ### name
@@ -81,11 +56,6 @@ The name of the header or query parameter to be used.
 ```php
 public string $name
 ```
-
-
-
-
-
 
 ***
 
@@ -97,11 +67,6 @@ Required The location of the API key.
 public string $in
 ```
 
-
-
-
-
-
 ***
 
 ### flows
@@ -111,11 +76,6 @@ The flow used by the OAuth2 security scheme.
 ```php
 public \OpenApi\Annotations\Flow[] $flows
 ```
-
-
-
-
-
 
 ***
 
@@ -128,11 +88,6 @@ authorization server, so this information is primarily for documentation purpose
 public string $bearerFormat
 ```
 
-
-
-
-
-
 ***
 
 ### scheme
@@ -143,13 +98,9 @@ The name of the HTTP Authorization scheme.
 public string $scheme
 ```
 
-
-
-
-
 **See Also:**
 
-* https://tools.ietf.org/html/rfc7235#section-5.1 - 
+* https://tools.ietf.org/html/rfc7235#section-5.1 -
 
 ***
 
@@ -161,25 +112,18 @@ OpenId Connect URL to discover OAuth2 configuration values. This MUST be in the 
 public string $openIdConnectUrl
 ```
 
-
-
-
-
-
 ***
 
 ### _required
 
-The properties which are required by [the spec](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md).
+The properties which are required
+by [the spec](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md).
 
 ```php
 public static array $_required
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -191,10 +135,7 @@ Specify the type of the property.
 public static array $_types
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -206,10 +147,7 @@ Declarative mapping of Annotation types to properties.
 public static array $_nested
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -221,15 +159,11 @@ Reverse mapping of $_nested with the allowed parent annotations.
 public static string[] $_parents
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### merge
 
@@ -239,20 +173,12 @@ Merge given annotations to their mapped properties configured in static::$_neste
 public merge(array $annotations, bool $ignore = false): \OpenApi\Annotations\AbstractAnnotation[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$annotations` | **array** |  |
 | `$ignore` | **bool** | Ignore unmerged annotations |
-
 
 **Return Value:**
 
@@ -262,24 +188,13 @@ The unmerged annotations
 
 ***
 
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $properties): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -287,25 +202,13 @@ public __construct(array $properties): mixed
 |-----------|------|-------------|
 | `$properties` | **array** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $property): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -313,25 +216,13 @@ public __get(mixed $property): mixed
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
 
-
-
-
 ***
 
 ### __set
 
-
-
 ```php
 public __set(mixed $property, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -339,9 +230,6 @@ public __set(mixed $property, mixed $value): mixed
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -355,18 +243,12 @@ public merge(\OpenApi\Annotations\AbstractAnnotation[] $annotations, bool $ignor
 
 Annotations that couldn't be merged are added to the _unmerged array.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$annotations` | **\OpenApi\Annotations\AbstractAnnotation[]** |  |
 | `$ignore` | **bool** | Ignore unmerged annotations |
-
 
 **Return Value:**
 
@@ -386,19 +268,11 @@ public mergeProperties(object $object): void
 
 Prevents overwriting properties that are already configured.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$object` | **object** |  |
-
-
-
 
 ***
 
@@ -410,21 +284,11 @@ Generate the documentation in YAML format.
 public toYaml(mixed $flags = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flags` | **mixed** |  |
-
-
-
 
 ***
 
@@ -436,41 +300,19 @@ Generate the documentation in YAML format.
 public toJson(mixed $flags = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flags` | **mixed** |  |
 
-
-
-
 ***
 
 ### __debugInfo
 
-
-
 ```php
 public __debugInfo(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -482,16 +324,6 @@ Customize the way json_encode() renders the annotations.
 public jsonSerialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### validate
@@ -502,13 +334,6 @@ Validate annotation tree, and log notices & warnings.
 public validate(array $parents = [], array $skip = [], string $ref = &#039;&#039;): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -516,9 +341,6 @@ public validate(array $parents = [], array $skip = [], string $ref = &#039;&#039
 | `$parents` | **array** | the path of annotations above this annotation in the tree |
 | `$skip` | **array** | (prevent stack overflow, when traversing an infinite dependency graph) |
 | `$ref` | **string** |  |
-
-
-
 
 ***
 
@@ -530,12 +352,7 @@ Recursively validate all annotation properties.
 private static _validate(array|object $fields, array $parents, array $skip, string $baseRef): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -545,9 +362,6 @@ private static _validate(array|object $fields, array $parents, array $skip, stri
 | `$parents` | **array** | the path of annotations above this annotation in the tree |
 | `$skip` | **array** | List of objects already validated |
 | `$baseRef` | **string** |  |
-
-
-
 
 ***
 
@@ -579,16 +393,6 @@ An annotation is a root if it is the top-level / outermost annotation in a PHP d
 public isRoot(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### matchNested
@@ -599,19 +403,13 @@ Find matching nested details.
 public static matchNested(string $class): null|object
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** | the class to match |
-
 
 **Return Value:**
 
@@ -629,21 +427,11 @@ Helper for generating the identity().
 protected _identity(array $properties): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$properties` | **array** |  |
-
-
-
 
 ***
 
@@ -655,22 +443,12 @@ Validates the matching of the property value to a annotation type.
 private validateType(string $type, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | The annotations property type |
 | `$value` | **mixed** | The property value |
-
-
-
 
 ***
 
@@ -682,22 +460,12 @@ Validates default Open Api types.
 private validateDefaultTypes(string $type, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | The property type |
 | `$value` | **mixed** | The value to validate |
-
-
-
 
 ***
 
@@ -709,21 +477,11 @@ Validate array type.
 private validateArrayType(mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -735,22 +493,12 @@ Wrap the context with a reference to the annotation it is nested in.
 private nested(\OpenApi\Annotations\AbstractAnnotation $annotation, \OpenApi\Context $nestedContext): \OpenApi\Annotations\AbstractAnnotation
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$annotation` | **\OpenApi\Annotations\AbstractAnnotation** |  |
 | `$nestedContext` | **\OpenApi\Context** |  |
-
-
-
 
 ***
 

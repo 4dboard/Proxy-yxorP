@@ -4,28 +4,21 @@
 
 The openapi annotation base class.
 
-
-
 * Full name: `\OpenApi\Annotations\Xml`
 * Parent class: [`\OpenApi\Annotations\AbstractAnnotation`](./AbstractAnnotation.md)
 
-
-
 ## Properties
-
 
 ### name
 
-Replaces the name of the element/attribute used for the described schema property. When defined within the Items Object (items), it will affect the name of the individual XML elements within the list. When defined alongside type being array (outside the items), it will affect the wrapping element and only if wrapped is true. If wrapped is false, it will be ignored.
+Replaces the name of the element/attribute used for the described schema property. When defined within the Items
+Object (items), it will affect the name of the individual XML elements within the list. When defined alongside type
+being array (outside the items), it will affect the wrapping element and only if wrapped is true. If wrapped is false,
+it will be ignored.
 
 ```php
 public string $name
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +30,6 @@ The URL of the namespace definition. Value SHOULD be in the form of a URL.
 public string $namespace
 ```
 
-
-
-
-
-
 ***
 
 ### prefix
@@ -51,11 +39,6 @@ The prefix to be used for the name.
 ```php
 public string $prefix
 ```
-
-
-
-
-
 
 ***
 
@@ -67,25 +50,17 @@ Declares whether the property definition translates to an attribute instead of a
 public bool $attribute
 ```
 
-
-
-
-
-
 ***
 
 ### wrapped
 
-MAY be used only for an array definition. Signifies whether the array is wrapped (for example, <books><book/><book/></books>) or unwrapped (<book/><book/>). Default value is false. The definition takes effect only when defined alongside type being array (outside the items).
+MAY be used only for an array definition. Signifies whether the array is wrapped (for
+example, <books><book/><book/></books>) or unwrapped (<book/><book/>). Default value is false. The definition takes
+effect only when defined alongside type being array (outside the items).
 
 ```php
 public bool $wrapped
 ```
-
-
-
-
-
 
 ***
 
@@ -97,10 +72,7 @@ Specify the type of the property.
 public static array $_types
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -112,10 +84,7 @@ Reverse mapping of $_nested with the allowed parent annotations.
 public static string[] $_parents
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -127,32 +96,17 @@ Declarative mapping of Annotation types to properties.
 public static array $_nested
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
-
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $properties): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -160,25 +114,13 @@ public __construct(array $properties): mixed
 |-----------|------|-------------|
 | `$properties` | **array** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $property): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -186,25 +128,13 @@ public __get(mixed $property): mixed
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
 
-
-
-
 ***
 
 ### __set
 
-
-
 ```php
 public __set(mixed $property, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -212,9 +142,6 @@ public __set(mixed $property, mixed $value): mixed
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -228,18 +155,12 @@ public merge(\OpenApi\Annotations\AbstractAnnotation[] $annotations, bool $ignor
 
 Annotations that couldn't be merged are added to the _unmerged array.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$annotations` | **\OpenApi\Annotations\AbstractAnnotation[]** |  |
 | `$ignore` | **bool** | Ignore unmerged annotations |
-
 
 **Return Value:**
 
@@ -259,19 +180,11 @@ public mergeProperties(object $object): void
 
 Prevents overwriting properties that are already configured.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$object` | **object** |  |
-
-
-
 
 ***
 
@@ -283,21 +196,11 @@ Generate the documentation in YAML format.
 public toYaml(mixed $flags = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flags` | **mixed** |  |
-
-
-
 
 ***
 
@@ -309,41 +212,19 @@ Generate the documentation in YAML format.
 public toJson(mixed $flags = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flags` | **mixed** |  |
 
-
-
-
 ***
 
 ### __debugInfo
 
-
-
 ```php
 public __debugInfo(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -355,16 +236,6 @@ Customize the way json_encode() renders the annotations.
 public jsonSerialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### validate
@@ -375,13 +246,6 @@ Validate annotation tree, and log notices & warnings.
 public validate(array $parents = [], array $skip = [], string $ref = &#039;&#039;): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -389,9 +253,6 @@ public validate(array $parents = [], array $skip = [], string $ref = &#039;&#039
 | `$parents` | **array** | the path of annotations above this annotation in the tree |
 | `$skip` | **array** | (prevent stack overflow, when traversing an infinite dependency graph) |
 | `$ref` | **string** |  |
-
-
-
 
 ***
 
@@ -403,12 +264,7 @@ Recursively validate all annotation properties.
 private static _validate(array|object $fields, array $parents, array $skip, string $baseRef): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -418,9 +274,6 @@ private static _validate(array|object $fields, array $parents, array $skip, stri
 | `$parents` | **array** | the path of annotations above this annotation in the tree |
 | `$skip` | **array** | List of objects already validated |
 | `$baseRef` | **string** |  |
-
-
-
 
 ***
 
@@ -452,16 +305,6 @@ An annotation is a root if it is the top-level / outermost annotation in a PHP d
 public isRoot(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### matchNested
@@ -472,19 +315,13 @@ Find matching nested details.
 public static matchNested(string $class): null|object
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** | the class to match |
-
 
 **Return Value:**
 
@@ -502,21 +339,11 @@ Helper for generating the identity().
 protected _identity(array $properties): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$properties` | **array** |  |
-
-
-
 
 ***
 
@@ -528,22 +355,12 @@ Validates the matching of the property value to a annotation type.
 private validateType(string $type, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | The annotations property type |
 | `$value` | **mixed** | The property value |
-
-
-
 
 ***
 
@@ -555,22 +372,12 @@ Validates default Open Api types.
 private validateDefaultTypes(string $type, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | The property type |
 | `$value` | **mixed** | The value to validate |
-
-
-
 
 ***
 
@@ -582,21 +389,11 @@ Validate array type.
 private validateArrayType(mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -608,22 +405,12 @@ Wrap the context with a reference to the annotation it is nested in.
 private nested(\OpenApi\Annotations\AbstractAnnotation $annotation, \OpenApi\Context $nestedContext): \OpenApi\Annotations\AbstractAnnotation
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$annotation` | **\OpenApi\Annotations\AbstractAnnotation** |  |
 | `$nestedContext` | **\OpenApi\Context** |  |
-
-
-
 
 ***
 
