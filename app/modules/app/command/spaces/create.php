@@ -3,27 +3,31 @@
 namespace App\Command\Spaces;
 
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class Create extends Command {
+class Create extends Command
+{
 
     protected static $defaultName = 'app:spaces:create';
     protected $app = null;
 
-    public function __construct(\Lime\App $app) {
+    public function __construct(\Lime\App $app)
+    {
         $this->app = $app;
         parent::__construct();
     }
 
-    protected function configure(): void {
+    protected function configure(): void
+    {
         $this
             ->setHelp('This command creates a new app space /.spaces folder')
             ->addArgument('name', InputArgument::REQUIRED, 'What is the name of the new space?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int {
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
 
         $name = $input->getArgument('name');
         $fs = $this->app->helper('fs');
