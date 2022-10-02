@@ -25,9 +25,9 @@ final class SyntaxError extends \JsonException
     /**
      * SyntaxError constructor.
      *
-     * @param string          $message
-     * @param int             $linenumber
-     * @param int             $columnNumber
+     * @param string $message
+     * @param int $linenumber
+     * @param int $columnNumber
      * @param \Throwable|null $previous
      */
     public function __construct($message, $linenumber, $columnNumber, $previous = null)

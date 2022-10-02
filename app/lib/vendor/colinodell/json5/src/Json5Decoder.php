@@ -40,9 +40,9 @@ final class Json5Decoder
      * Private constructor.
      *
      * @param string $json
-     * @param bool   $associative
-     * @param int    $depth
-     * @param bool   $castBigIntToString
+     * @param bool $associative
+     * @param int $depth
+     * @param bool $castBigIntToString
      */
     private function __construct($json, $associative = false, $depth = 512, $castBigIntToString = false)
     {
@@ -56,15 +56,29 @@ final class Json5Decoder
     }
 
     /**
+     * @param int $at
+     *
+     * @return null
+     */
+    private function getByte($at)
+    {
+        if ($at >= $this->length) {
+            return null;
+        }
+
+        return $this->json[$at];
+    }
+
+    /**
      * Takes a JSON encoded string and converts it into a PHP variable.
      *
      * The parameters exactly match PHP's json_decode() function - see
      * http://php.net/manual/en/function.json-decode.php for more information.
      *
-     * @param string $source      The JSON string being decoded.
-     * @param bool   $associative When TRUE, returned objects will be converted into associative arrays.
-     * @param int    $depth       User specified recursion depth.
-     * @param int    $options     Bitmask of JSON decode options.
+     * @param string $source The JSON string being decoded.
+     * @param bool $associative When TRUE, returned objects will be converted into associative arrays.
+     * @param int $depth User specified recursion depth.
+     * @param int $options Bitmask of JSON decode options.
      *
      * @return mixed
      */
@@ -99,17 +113,104 @@ final class Json5Decoder
     }
 
     /**
-     * @param int $at
+     * Parse a JSON value.
      *
-     * @return null
+     * It could be an object, an array, a string, a number,
+     * or a word.
      */
-    private function getByte($at)
+    private function value()
     {
-        if ($at >= $this->length) {
-            return null;
+        $this->white();
+        switch ($this->currentByte) {
+            case '{':
+                return $this->obj();
+            case '[':
+                return $this->arr();
+            case '"':
+            case "'":
+                return $this->string();
+            case '-':
+            case '+':
+            case '.':
+                return $this->number();
+            default:
+                return \is_numeric($this->currentByte) ? $this->number() : $this->word();
+        }
+    }
+
+    /**
+     * Skip whitespace and comments.
+     *
+     * Note that we're detecting comments by only a single / character.
+     * This works since regular expressions are not valid JSON(5), but this will
+     * break if there are other valid values that begin with a / character!
+     */
+    private function white()
+    {
+        while ($this->currentByte !== null) {
+            if ($this->currentByte === '/') {
+                $this->comment();
+            } elseif (\preg_match('/^[ \t\r\n\v\f\xA0]/', $this->currentByte) === 1) {
+                $this->next();
+            } elseif (\ord($this->currentByte) === 0xC2 && \ord($this->peek()) === 0xA0) {
+                // Non-breaking space in UTF-8
+                $this->next();
+                $this->next();
+            } else {
+                return;
+            }
+        }
+    }
+
+    /**
+     * Skip a comment, whether inline or block-level, assuming this is one.
+     */
+    private function comment()
+    {
+        // Comments always begin with a / character.
+        $this->nextOrFail('/');
+
+        if ($this->currentByte === '/') {
+            $this->inlineComment();
+        } elseif ($this->currentByte === '*') {
+            $this->blockComment();
+        } else {
+            $this->throwSyntaxError('Unrecognized comment');
+        }
+    }
+
+    /**
+     * Parse the next character if it matches $c or fail.
+     *
+     * @param string $c
+     *
+     * @return string|null
+     */
+    private function nextOrFail($c)
+    {
+        if ($c !== $this->currentByte) {
+            $this->throwSyntaxError(\sprintf(
+                'Expected %s instead of %s',
+                self::renderChar($c),
+                self::renderChar($this->currentChar())
+            ));
         }
 
-        return $this->json[$at];
+        return $this->next();
+    }
+
+    private function throwSyntaxError($message)
+    {
+        // Calculate the column number
+        $str = \substr($this->json, $this->currentLineStartsAt, $this->at - $this->currentLineStartsAt);
+        $column = \mb_strlen($str) + 1;
+
+        throw new SyntaxError($message, $this->lineNumber, $column);
+    }
+
+    private static function renderChar($chr)
+    {
+        return $chr === null ? 'EOF' : "'" . $chr . "'";
     }
 
     /**
@@ -144,26 +245,6 @@ final class Json5Decoder
     }
 
     /**
-     * Parse the next character if it matches $c or fail.
-     *
-     * @param string $c
-     *
-     * @return string|null
-     */
-    private function nextOrFail($c)
-    {
-        if ($c !== $this->currentByte) {
-            $this->throwSyntaxError(\sprintf(
-                'Expected %s instead of %s',
-                self::renderChar($c),
-                self::renderChar($this->currentChar())
-            ));
-        }
-
-        return $this->next();
-    }
-
-    /**
      * Get the next character without consuming it or
      * assigning it to the ch variable.
      *
@@ -172,6 +253,150 @@ final class Json5Decoder
     private function peek()
     {
         return $this->getByte($this->at + 1);
+    }
+
+    /**
+     * Skip an inline comment, assuming this is one.
+     *
+     * The current character should be the second / character in the // pair that begins this inline comment.
+     * To finish the inline comment, we look for a newline or the end of the text.
+     */
+    private function inlineComment()
+    {
+        do {
+            $this->next();
+            if ($this->currentByte === "\n" || $this->currentByte === "\r") {
+                $this->next();
+
+                return;
+            }
+        } while ($this->currentByte !== null);
+    }
+
+    /**
+     * Skip a block comment, assuming this is one.
+     *
+     * The current character should be the * character in the /* pair that begins this block comment.
+     * To finish the block comment, we look for an ending *​/ pair of characters,
+     * but we also watch for the end of text before the comment is terminated.
+     */
+    private function blockComment()
+    {
+        do {
+            $this->next();
+            while ($this->currentByte === '*') {
+                $this->nextOrFail('*');
+                if ($this->currentByte === '/') {
+                    $this->nextOrFail('/');
+
+                    return;
+                }
+            }
+        } while ($this->currentByte !== null);
+
+        $this->throwSyntaxError('Unterminated block comment');
+    }
+
+    /**
+     * Parse an object value
+     */
+    private function obj()
+    {
+        $object = $this->associative ? [] : new \stdClass;
+
+        if (++$this->depth > $this->maxDepth) {
+            $this->throwSyntaxError('Maximum stack depth exceeded');
+        }
+
+        $this->nextOrFail('{');
+        $this->white();
+        while ($this->currentByte !== null) {
+            if ($this->currentByte === '}') {
+                $this->nextOrFail('}');
+                $this->depth--;
+                return $object; // Potentially empty object
+            }
+
+            // Keys can be unquoted. If they are, they need to be
+            // valid JS identifiers.
+            if ($this->currentByte === '"' || $this->currentByte === "'") {
+                $key = $this->string();
+            } else {
+                $key = $this->identifier();
+            }
+
+            $this->white();
+            $this->nextOrFail(':');
+            if ($this->associative) {
+                $object[$key] = $this->value();
+            } else {
+                $object->{$key} = $this->value();
+            }
+            $this->white();
+            // If there's no comma after this pair, this needs to be
+            // the end of the object.
+            if ($this->currentByte !== ',') {
+                $this->nextOrFail('}');
+                $this->depth--;
+                return $object;
+            }
+            $this->nextOrFail(',');
+            $this->white();
+        }
+
+        $this->throwSyntaxError('Invalid object');
+    }
+
+    private function string()
+    {
+        $string = '';
+
+        $delim = $this->currentByte;
+        $this->next();
+        while ($this->currentByte !== null) {
+            if ($this->currentByte === $delim) {
+                $this->next();
+
+                return $string;
+            }
+
+            if ($this->currentByte === '\\') {
+                if ($this->peek() === 'u' && $unicodeEscaped = $this->match('/^(?:\\\\u[A-Fa-f0-9]{4})+/')) {
+                    try {
+                        $unicodeUnescaped = \json_decode('"' . $unicodeEscaped . '"', false, 1, JSON_THROW_ON_ERROR);
+                        if ($unicodeUnescaped === null && ($err = json_last_error_msg())) {
+                            throw new \JsonException($err);
+                        }
+                        $string .= $unicodeUnescaped;
+                    } catch (\JsonException $e) {
+                        $this->throwSyntaxError($e->getMessage());
+                    }
+                    continue;
+                }
+
+                $this->next();
+                if ($this->currentByte === "\r") {
+                    if ($this->peek() === "\n") {
+                        $this->next();
+                    }
+                } elseif (($escapee = self::getEscapee($this->currentByte)) !== null) {
+                    $string .= $escapee;
+                } else {
+                    break;
+                }
+            } elseif ($this->currentByte === "\n") {
+                // unescaped newlines are invalid; see:
+                // https://github.com/json5/json5/issues/24
+                // @todo this feels special-cased; are there other invalid unescaped chars?
+                break;
+            } else {
+                $string .= $this->currentByte;
+            }
+
+            $this->next();
+        }
+
+        $this->throwSyntaxError('Bad string');
     }
 
     /**
@@ -202,6 +427,41 @@ final class Json5Decoder
     }
 
     /**
+     * @param string $ch
+     *
+     * @return string|null
+     */
+    private static function getEscapee($ch)
+    {
+        switch ($ch) {
+            // @codingStandardsIgnoreStart
+            case "'":
+                return "'";
+            case '"':
+                return '"';
+            case '\\':
+                return '\\';
+            case '/':
+                return '/';
+            case "\n":
+                return '';
+            case 'b':
+                return \chr(8);
+            case 'f':
+                return "\f";
+            case 'n':
+                return "\n";
+            case 'r':
+                return "\r";
+            case 't':
+                return "\t";
+            default:
+                return null;
+            // @codingStandardsIgnoreEnd
+        }
+    }
+
+    /**
      * Parse an identifier.
      *
      * Normally, reserved words are disallowed here, but we
@@ -224,10 +484,49 @@ final class Json5Decoder
 
         // Un-escape escaped Unicode chars
         $unescaped = \preg_replace_callback('/(?:\\\\u[0-9A-Fa-f]{4})+/', function ($m) {
-            return \json_decode('"'.$m[0].'"');
+            return \json_decode('"' . $m[0] . '"');
         }, $match);
 
         return $unescaped;
+    }
+
+    private function arr()
+    {
+        $arr = [];
+
+        if (++$this->depth > $this->maxDepth) {
+            $this->throwSyntaxError('Maximum stack depth exceeded');
+        }
+
+        $this->nextOrFail('[');
+        $this->white();
+        while ($this->currentByte !== null) {
+            if ($this->currentByte === ']') {
+                $this->nextOrFail(']');
+                $this->depth--;
+                return $arr; // Potentially empty array
+            }
+            // ES5 allows omitting elements in arrays, e.g. [,] and
+            // [,null]. We don't allow this in JSON5.
+            if ($this->currentByte === ',') {
+                $this->throwSyntaxError('Missing array element');
+            }
+
+            $arr[] = $this->value();
+
+            $this->white();
+            // If there's no comma after this value, this needs to
+            // be the end of the array.
+            if ($this->currentByte !== ',') {
+                $this->nextOrFail(']');
+                $this->depth--;
+                return $arr;
+            }
+            $this->nextOrFail(',');
+            $this->white();
+        }
+
+        $this->throwSyntaxError('Invalid array');
     }
 
     private function number()
@@ -309,141 +608,6 @@ final class Json5Decoder
         return $asIntOrFloat;
     }
 
-    private function string()
-    {
-        $string = '';
-
-        $delim = $this->currentByte;
-        $this->next();
-        while ($this->currentByte !== null) {
-            if ($this->currentByte === $delim) {
-                $this->next();
-
-                return $string;
-            }
-
-            if ($this->currentByte === '\\') {
-                if ($this->peek() === 'u' && $unicodeEscaped = $this->match('/^(?:\\\\u[A-Fa-f0-9]{4})+/')) {
-                    try {
-                        $unicodeUnescaped = \json_decode('"' . $unicodeEscaped . '"', false, 1, JSON_THROW_ON_ERROR);
-                        if ($unicodeUnescaped === null && ($err = json_last_error_msg())) {
-                            throw new \JsonException($err);
-                        }
-                        $string .= $unicodeUnescaped;
-                    } catch (\JsonException $e) {
-                        $this->throwSyntaxError($e->getMessage());
-                    }
-                    continue;
-                }
-
-                $this->next();
-                if ($this->currentByte === "\r") {
-                    if ($this->peek() === "\n") {
-                        $this->next();
-                    }
-                } elseif (($escapee = self::getEscapee($this->currentByte)) !== null) {
-                    $string .= $escapee;
-                } else {
-                    break;
-                }
-            } elseif ($this->currentByte === "\n") {
-                // unescaped newlines are invalid; see:
-                // https://github.com/json5/json5/issues/24
-                // @todo this feels special-cased; are there other invalid unescaped chars?
-                break;
-            } else {
-                $string .= $this->currentByte;
-            }
-
-            $this->next();
-        }
-
-        $this->throwSyntaxError('Bad string');
-    }
-
-    /**
-     * Skip an inline comment, assuming this is one.
-     *
-     * The current character should be the second / character in the // pair that begins this inline comment.
-     * To finish the inline comment, we look for a newline or the end of the text.
-     */
-    private function inlineComment()
-    {
-        do {
-            $this->next();
-            if ($this->currentByte === "\n" || $this->currentByte === "\r") {
-                $this->next();
-
-                return;
-            }
-        } while ($this->currentByte !== null);
-    }
-
-    /**
-     * Skip a block comment, assuming this is one.
-     *
-     * The current character should be the * character in the /* pair that begins this block comment.
-     * To finish the block comment, we look for an ending *​/ pair of characters,
-     * but we also watch for the end of text before the comment is terminated.
-     */
-    private function blockComment()
-    {
-        do {
-            $this->next();
-            while ($this->currentByte === '*') {
-                $this->nextOrFail('*');
-                if ($this->currentByte === '/') {
-                    $this->nextOrFail('/');
-
-                    return;
-                }
-            }
-        } while ($this->currentByte !== null);
-
-        $this->throwSyntaxError('Unterminated block comment');
-    }
-
-    /**
-     * Skip a comment, whether inline or block-level, assuming this is one.
-     */
-    private function comment()
-    {
-        // Comments always begin with a / character.
-        $this->nextOrFail('/');
-
-        if ($this->currentByte === '/') {
-            $this->inlineComment();
-        } elseif ($this->currentByte === '*') {
-            $this->blockComment();
-        } else {
-            $this->throwSyntaxError('Unrecognized comment');
-        }
-    }
-
-    /**
-     * Skip whitespace and comments.
-     *
-     * Note that we're detecting comments by only a single / character.
-     * This works since regular expressions are not valid JSON(5), but this will
-     * break if there are other valid values that begin with a / character!
-     */
-    private function white()
-    {
-        while ($this->currentByte !== null) {
-            if ($this->currentByte === '/') {
-                $this->comment();
-            } elseif (\preg_match('/^[ \t\r\n\v\f\xA0]/', $this->currentByte) === 1) {
-                $this->next();
-            } elseif (\ord($this->currentByte) === 0xC2 && \ord($this->peek()) === 0xA0) {
-                // Non-breaking space in UTF-8
-                $this->next();
-                $this->next();
-            } else {
-                return;
-            }
-        }
-    }
-
     /**
      * Matches true, false, null, etc
      */
@@ -487,158 +651,5 @@ final class Json5Decoder
         }
 
         $this->throwSyntaxError('Unexpected ' . self::renderChar($this->currentChar()));
-    }
-
-    private function arr()
-    {
-        $arr = [];
-
-        if (++$this->depth > $this->maxDepth) {
-            $this->throwSyntaxError('Maximum stack depth exceeded');
-        }
-
-        $this->nextOrFail('[');
-        $this->white();
-        while ($this->currentByte !== null) {
-            if ($this->currentByte === ']') {
-                $this->nextOrFail(']');
-                $this->depth--;
-                return $arr; // Potentially empty array
-            }
-            // ES5 allows omitting elements in arrays, e.g. [,] and
-            // [,null]. We don't allow this in JSON5.
-            if ($this->currentByte === ',') {
-                $this->throwSyntaxError('Missing array element');
-            }
-
-            $arr[] = $this->value();
-
-            $this->white();
-            // If there's no comma after this value, this needs to
-            // be the end of the array.
-            if ($this->currentByte !== ',') {
-                $this->nextOrFail(']');
-                $this->depth--;
-                return $arr;
-            }
-            $this->nextOrFail(',');
-            $this->white();
-        }
-
-        $this->throwSyntaxError('Invalid array');
-    }
-
-    /**
-     * Parse an object value
-     */
-    private function obj()
-    {
-        $object = $this->associative ? [] : new \stdClass;
-
-        if (++$this->depth > $this->maxDepth) {
-            $this->throwSyntaxError('Maximum stack depth exceeded');
-        }
-
-        $this->nextOrFail('{');
-        $this->white();
-        while ($this->currentByte !== null) {
-            if ($this->currentByte === '}') {
-                $this->nextOrFail('}');
-                $this->depth--;
-                return $object; // Potentially empty object
-            }
-
-            // Keys can be unquoted. If they are, they need to be
-            // valid JS identifiers.
-            if ($this->currentByte === '"' || $this->currentByte === "'") {
-                $key = $this->string();
-            } else {
-                $key = $this->identifier();
-            }
-
-            $this->white();
-            $this->nextOrFail(':');
-            if ($this->associative) {
-                $object[$key] = $this->value();
-            } else {
-                $object->{$key} = $this->value();
-            }
-            $this->white();
-            // If there's no comma after this pair, this needs to be
-            // the end of the object.
-            if ($this->currentByte !== ',') {
-                $this->nextOrFail('}');
-                $this->depth--;
-                return $object;
-            }
-            $this->nextOrFail(',');
-            $this->white();
-        }
-
-        $this->throwSyntaxError('Invalid object');
-    }
-
-    /**
-     * Parse a JSON value.
-     *
-     * It could be an object, an array, a string, a number,
-     * or a word.
-     */
-    private function value()
-    {
-        $this->white();
-        switch ($this->currentByte) {
-            case '{':
-                return $this->obj();
-            case '[':
-                return $this->arr();
-            case '"':
-            case "'":
-                return $this->string();
-            case '-':
-            case '+':
-            case '.':
-                return $this->number();
-            default:
-                return \is_numeric($this->currentByte) ? $this->number() : $this->word();
-        }
-    }
-
-    private function throwSyntaxError($message)
-    {
-        // Calculate the column number
-        $str = \substr($this->json, $this->currentLineStartsAt, $this->at - $this->currentLineStartsAt);
-        $column = \mb_strlen($str) + 1;
-
-        throw new SyntaxError($message, $this->lineNumber, $column);
-    }
-
-    private static function renderChar($chr)
-    {
-        return $chr === null ? 'EOF' : "'" . $chr . "'";
-    }
-
-    /**
-     * @param string $ch
-     *
-     * @return string|null
-     */
-    private static function getEscapee($ch)
-    {
-        switch ($ch) {
-            // @codingStandardsIgnoreStart
-            case "'":  return "'";
-            case '"':  return '"';
-            case '\\': return '\\';
-            case '/':  return '/';
-            case "\n": return '';
-            case 'b':  return \chr(8);
-            case 'f':  return "\f";
-            case 'n':  return "\n";
-            case 'r':  return "\r";
-            case 't':  return "\t";
-            default:   return null;
-            // @codingStandardsIgnoreEnd
-        }
     }
 }

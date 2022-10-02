@@ -8,10 +8,10 @@ if (!function_exists('json5_decode')) {
      * The parameters exactly match PHP's json_decode() function - see
      * http://php.net/manual/en/function.json-decode.php for more information.
      *
-     * @param string $source      The JSON string being decoded.
-     * @param bool   $associative When TRUE, returned objects will be converted into associative arrays.
-     * @param int    $depth       User specified recursion depth.
-     * @param int    $options     Bitmask of JSON decode options.
+     * @param string $source The JSON string being decoded.
+     * @param bool $associative When TRUE, returned objects will be converted into associative arrays.
+     * @param int $depth User specified recursion depth.
+     * @param int $options Bitmask of JSON decode options.
      *
      * @return mixed
      */
