@@ -26,14 +26,12 @@ use MongoDB\Driver\Server;
 use MongoDB\Driver\Session;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\UnsupportedException;
-
 use function is_array;
 use function is_bool;
 use function is_integer;
 use function is_object;
 use function is_string;
 use function trigger_error;
-
 use const E_USER_DEPRECATED;
 
 /**
@@ -148,40 +146,40 @@ class Find implements Executable, Explainable
      *  * typeMap (array): Type map for BSON deserialization. This will be
      *    applied to the returned Cursor (it is not sent to the server).
      *
-     * @param string       $databaseName   Database name
-     * @param string       $collectionName Collection name
-     * @param array|object $filter         Query by which to filter documents
-     * @param array        $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param array|object $filter Query by which to filter documents
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, $filter, array $options = [])
     {
-        if (! is_array($filter) && ! is_object($filter)) {
+        if (!is_array($filter) && !is_object($filter)) {
             throw InvalidArgumentException::invalidType('$filter', $filter, 'array or object');
         }
 
-        if (isset($options['allowDiskUse']) && ! is_bool($options['allowDiskUse'])) {
+        if (isset($options['allowDiskUse']) && !is_bool($options['allowDiskUse'])) {
             throw InvalidArgumentException::invalidType('"allowDiskUse" option', $options['allowDiskUse'], 'boolean');
         }
 
-        if (isset($options['allowPartialResults']) && ! is_bool($options['allowPartialResults'])) {
+        if (isset($options['allowPartialResults']) && !is_bool($options['allowPartialResults'])) {
             throw InvalidArgumentException::invalidType('"allowPartialResults" option', $options['allowPartialResults'], 'boolean');
         }
 
-        if (isset($options['batchSize']) && ! is_integer($options['batchSize'])) {
+        if (isset($options['batchSize']) && !is_integer($options['batchSize'])) {
             throw InvalidArgumentException::invalidType('"batchSize" option', $options['batchSize'], 'integer');
         }
 
-        if (isset($options['collation']) && ! is_array($options['collation']) && ! is_object($options['collation'])) {
+        if (isset($options['collation']) && !is_array($options['collation']) && !is_object($options['collation'])) {
             throw InvalidArgumentException::invalidType('"collation" option', $options['collation'], 'array or object');
         }
 
-        if (isset($options['comment']) && ! is_string($options['comment'])) {
+        if (isset($options['comment']) && !is_string($options['comment'])) {
             throw InvalidArgumentException::invalidType('"comment" option', $options['comment'], 'comment');
         }
 
         if (isset($options['cursorType'])) {
-            if (! is_integer($options['cursorType'])) {
+            if (!is_integer($options['cursorType'])) {
                 throw InvalidArgumentException::invalidType('"cursorType" option', $options['cursorType'], 'integer');
             }
 
@@ -194,83 +192,83 @@ class Find implements Executable, Explainable
             }
         }
 
-        if (isset($options['hint']) && ! is_string($options['hint']) && ! is_array($options['hint']) && ! is_object($options['hint'])) {
+        if (isset($options['hint']) && !is_string($options['hint']) && !is_array($options['hint']) && !is_object($options['hint'])) {
             throw InvalidArgumentException::invalidType('"hint" option', $options['hint'], 'string or array or object');
         }
 
-        if (isset($options['limit']) && ! is_integer($options['limit'])) {
+        if (isset($options['limit']) && !is_integer($options['limit'])) {
             throw InvalidArgumentException::invalidType('"limit" option', $options['limit'], 'integer');
         }
 
-        if (isset($options['max']) && ! is_array($options['max']) && ! is_object($options['max'])) {
+        if (isset($options['max']) && !is_array($options['max']) && !is_object($options['max'])) {
             throw InvalidArgumentException::invalidType('"max" option', $options['max'], 'array or object');
         }
 
-        if (isset($options['maxAwaitTimeMS']) && ! is_integer($options['maxAwaitTimeMS'])) {
+        if (isset($options['maxAwaitTimeMS']) && !is_integer($options['maxAwaitTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxAwaitTimeMS" option', $options['maxAwaitTimeMS'], 'integer');
         }
 
-        if (isset($options['maxScan']) && ! is_integer($options['maxScan'])) {
+        if (isset($options['maxScan']) && !is_integer($options['maxScan'])) {
             throw InvalidArgumentException::invalidType('"maxScan" option', $options['maxScan'], 'integer');
         }
 
-        if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
+        if (isset($options['maxTimeMS']) && !is_integer($options['maxTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxTimeMS" option', $options['maxTimeMS'], 'integer');
         }
 
-        if (isset($options['min']) && ! is_array($options['min']) && ! is_object($options['min'])) {
+        if (isset($options['min']) && !is_array($options['min']) && !is_object($options['min'])) {
             throw InvalidArgumentException::invalidType('"min" option', $options['min'], 'array or object');
         }
 
-        if (isset($options['modifiers']) && ! is_array($options['modifiers']) && ! is_object($options['modifiers'])) {
+        if (isset($options['modifiers']) && !is_array($options['modifiers']) && !is_object($options['modifiers'])) {
             throw InvalidArgumentException::invalidType('"modifiers" option', $options['modifiers'], 'array or object');
         }
 
-        if (isset($options['noCursorTimeout']) && ! is_bool($options['noCursorTimeout'])) {
+        if (isset($options['noCursorTimeout']) && !is_bool($options['noCursorTimeout'])) {
             throw InvalidArgumentException::invalidType('"noCursorTimeout" option', $options['noCursorTimeout'], 'boolean');
         }
 
-        if (isset($options['oplogReplay']) && ! is_bool($options['oplogReplay'])) {
+        if (isset($options['oplogReplay']) && !is_bool($options['oplogReplay'])) {
             throw InvalidArgumentException::invalidType('"oplogReplay" option', $options['oplogReplay'], 'boolean');
         }
 
-        if (isset($options['projection']) && ! is_array($options['projection']) && ! is_object($options['projection'])) {
+        if (isset($options['projection']) && !is_array($options['projection']) && !is_object($options['projection'])) {
             throw InvalidArgumentException::invalidType('"projection" option', $options['projection'], 'array or object');
         }
 
-        if (isset($options['readConcern']) && ! $options['readConcern'] instanceof ReadConcern) {
+        if (isset($options['readConcern']) && !$options['readConcern'] instanceof ReadConcern) {
             throw InvalidArgumentException::invalidType('"readConcern" option', $options['readConcern'], ReadConcern::class);
         }
 
-        if (isset($options['readPreference']) && ! $options['readPreference'] instanceof ReadPreference) {
+        if (isset($options['readPreference']) && !$options['readPreference'] instanceof ReadPreference) {
             throw InvalidArgumentException::invalidType('"readPreference" option', $options['readPreference'], ReadPreference::class);
         }
 
-        if (isset($options['returnKey']) && ! is_bool($options['returnKey'])) {
+        if (isset($options['returnKey']) && !is_bool($options['returnKey'])) {
             throw InvalidArgumentException::invalidType('"returnKey" option', $options['returnKey'], 'boolean');
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['showRecordId']) && ! is_bool($options['showRecordId'])) {
+        if (isset($options['showRecordId']) && !is_bool($options['showRecordId'])) {
             throw InvalidArgumentException::invalidType('"showRecordId" option', $options['showRecordId'], 'boolean');
         }
 
-        if (isset($options['skip']) && ! is_integer($options['skip'])) {
+        if (isset($options['skip']) && !is_integer($options['skip'])) {
             throw InvalidArgumentException::invalidType('"skip" option', $options['skip'], 'integer');
         }
 
-        if (isset($options['snapshot']) && ! is_bool($options['snapshot'])) {
+        if (isset($options['snapshot']) && !is_bool($options['snapshot'])) {
             throw InvalidArgumentException::invalidType('"snapshot" option', $options['snapshot'], 'boolean');
         }
 
-        if (isset($options['sort']) && ! is_array($options['sort']) && ! is_object($options['sort'])) {
+        if (isset($options['sort']) && !is_array($options['sort']) && !is_object($options['sort'])) {
             throw InvalidArgumentException::invalidType('"sort" option', $options['sort'], 'array or object');
         }
 
-        if (isset($options['typeMap']) && ! is_array($options['typeMap'])) {
+        if (isset($options['typeMap']) && !is_array($options['typeMap'])) {
             throw InvalidArgumentException::invalidType('"typeMap" option', $options['typeMap'], 'array');
         }
 
@@ -286,8 +284,8 @@ class Find implements Executable, Explainable
             trigger_error('The "maxScan" option is deprecated and will be removed in a future release', E_USER_DEPRECATED);
         }
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = (string)$collectionName;
         $this->filter = $filter;
         $this->options = $options;
     }
@@ -295,11 +293,11 @@ class Find implements Executable, Explainable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return Cursor
      * @throws UnsupportedException if read concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
     public function execute(Server $server)
     {
@@ -315,80 +313,6 @@ class Find implements Executable, Explainable
         }
 
         return $cursor;
-    }
-
-    /**
-     * Returns the command document for this operation.
-     *
-     * @see Explainable::getCommandDocument()
-     * @param Server $server
-     * @return array
-     */
-    public function getCommandDocument(Server $server)
-    {
-        return $this->createCommandDocument();
-    }
-
-    /**
-     * Construct a command document for Find
-     */
-    private function createCommandDocument(): array
-    {
-        $cmd = ['find' => $this->collectionName, 'filter' => (object) $this->filter];
-
-        $options = $this->createQueryOptions();
-
-        if (empty($options)) {
-            return $cmd;
-        }
-
-        // maxAwaitTimeMS is a Query level option so should not be considered here
-        unset($options['maxAwaitTimeMS']);
-
-        $modifierFallback = [
-            ['allowPartialResults', 'partial'],
-            ['comment', '$comment'],
-            ['hint', '$hint'],
-            ['maxScan', '$maxScan'],
-            ['max', '$max'],
-            ['maxTimeMS', '$maxTimeMS'],
-            ['min', '$min'],
-            ['returnKey', '$returnKey'],
-            ['showRecordId', '$showDiskLoc'],
-            ['sort', '$orderby'],
-            ['snapshot', '$snapshot'],
-        ];
-
-        foreach ($modifierFallback as $modifier) {
-            if (! isset($options[$modifier[0]]) && isset($options['modifiers'][$modifier[1]])) {
-                $options[$modifier[0]] = $options['modifiers'][$modifier[1]];
-            }
-        }
-
-        unset($options['modifiers']);
-
-        return $cmd + $options;
-    }
-
-    /**
-     * Create options for executing the command.
-     *
-     * @see http://php.net/manual/en/mongodb-driver-server.executequery.php
-     * @return array
-     */
-    private function createExecuteOptions()
-    {
-        $options = [];
-
-        if (isset($this->options['readPreference'])) {
-            $options['readPreference'] = $this->options['readPreference'];
-        }
-
-        if (isset($this->options['session'])) {
-            $options['session'] = $this->options['session'];
-        }
-
-        return $options;
     }
 
     /**
@@ -422,16 +346,90 @@ class Find implements Executable, Explainable
 
         foreach (['collation', 'max', 'min'] as $option) {
             if (isset($this->options[$option])) {
-                $options[$option] = (object) $this->options[$option];
+                $options[$option] = (object)$this->options[$option];
             }
         }
 
-        $modifiers = empty($this->options['modifiers']) ? [] : (array) $this->options['modifiers'];
+        $modifiers = empty($this->options['modifiers']) ? [] : (array)$this->options['modifiers'];
 
-        if (! empty($modifiers)) {
+        if (!empty($modifiers)) {
             $options['modifiers'] = $modifiers;
         }
 
         return $options;
+    }
+
+    /**
+     * Create options for executing the command.
+     *
+     * @see http://php.net/manual/en/mongodb-driver-server.executequery.php
+     * @return array
+     */
+    private function createExecuteOptions()
+    {
+        $options = [];
+
+        if (isset($this->options['readPreference'])) {
+            $options['readPreference'] = $this->options['readPreference'];
+        }
+
+        if (isset($this->options['session'])) {
+            $options['session'] = $this->options['session'];
+        }
+
+        return $options;
+    }
+
+    /**
+     * Returns the command document for this operation.
+     *
+     * @param Server $server
+     * @return array
+     * @see Explainable::getCommandDocument()
+     */
+    public function getCommandDocument(Server $server)
+    {
+        return $this->createCommandDocument();
+    }
+
+    /**
+     * Construct a command document for Find
+     */
+    private function createCommandDocument(): array
+    {
+        $cmd = ['find' => $this->collectionName, 'filter' => (object)$this->filter];
+
+        $options = $this->createQueryOptions();
+
+        if (empty($options)) {
+            return $cmd;
+        }
+
+        // maxAwaitTimeMS is a Query level option so should not be considered here
+        unset($options['maxAwaitTimeMS']);
+
+        $modifierFallback = [
+            ['allowPartialResults', 'partial'],
+            ['comment', '$comment'],
+            ['hint', '$hint'],
+            ['maxScan', '$maxScan'],
+            ['max', '$max'],
+            ['maxTimeMS', '$maxTimeMS'],
+            ['min', '$min'],
+            ['returnKey', '$returnKey'],
+            ['showRecordId', '$showDiskLoc'],
+            ['sort', '$orderby'],
+            ['snapshot', '$snapshot'],
+        ];
+
+        foreach ($modifierFallback as $modifier) {
+            if (!isset($options[$modifier[0]]) && isset($options['modifiers'][$modifier[1]])) {
+                $options[$modifier[0]] = $options['modifiers'][$modifier[1]];
+            }
+        }
+
+        unset($options['modifiers']);
+
+        return $cmd + $options;
     }
 }
