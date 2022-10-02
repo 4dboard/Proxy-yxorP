@@ -87,28 +87,28 @@ abstract class Node
         return $cloned;
     }
 
-    public function __toString() : string
+    public function __toString(): string
     {
         $tmp = $this->toArray(true);
 
-        return (string) json_encode($tmp);
+        return (string)json_encode($tmp);
     }
 
     /**
      * @return mixed[]
      */
-    public function toArray(bool $recursive = false) : array
+    public function toArray(bool $recursive = false): array
     {
         if ($recursive) {
             return $this->recursiveToArray($this);
         }
 
-        $tmp = (array) $this;
+        $tmp = (array)$this;
 
         if ($this->loc !== null) {
             $tmp['loc'] = [
                 'start' => $this->loc->start,
-                'end'   => $this->loc->end,
+                'end' => $this->loc->end,
             ];
         }
 
@@ -127,7 +127,7 @@ abstract class Node
         if ($node->loc !== null) {
             $result['loc'] = [
                 'start' => $node->loc->start,
-                'end'   => $node->loc->end,
+                'end' => $node->loc->end,
             ];
         }
 
@@ -143,7 +143,7 @@ abstract class Node
             if (is_array($propValue) || $propValue instanceof NodeList) {
                 $tmp = [];
                 foreach ($propValue as $tmp1) {
-                    $tmp[] = $tmp1 instanceof Node ? $this->recursiveToArray($tmp1) : (array) $tmp1;
+                    $tmp[] = $tmp1 instanceof Node ? $this->recursiveToArray($tmp1) : (array)$tmp1;
                 }
             } elseif ($propValue instanceof Node) {
                 $tmp = $this->recursiveToArray($propValue);
