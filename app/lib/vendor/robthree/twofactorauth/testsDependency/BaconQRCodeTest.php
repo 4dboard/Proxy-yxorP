@@ -5,8 +5,8 @@ namespace TestsDependency;
 use BaconQrCode\Renderer\Image\ImagickImageBackEnd;
 use PHPUnit\Framework\TestCase;
 use RobThree\Auth\Providers\Qr\BaconQrCodeProvider;
-use RobThree\Auth\TwoFactorAuth;
 use RobThree\Auth\Providers\Qr\HandlesDataUri;
+use RobThree\Auth\TwoFactorAuth;
 
 class BaconQRCodeTest extends TestCase
 {
@@ -15,7 +15,7 @@ class BaconQRCodeTest extends TestCase
     public function testDependency()
     {
         // php < 7.1 will install an older Bacon QR Code
-        if (! class_exists(ImagickImageBackEnd::class)) {
+        if (!class_exists(ImagickImageBackEnd::class)) {
             $this->expectException(\RuntimeException::class);
 
             $qr = new BaconQrCodeProvider(1, '#000', '#FFF', 'svg');
