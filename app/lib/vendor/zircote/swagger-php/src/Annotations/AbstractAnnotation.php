@@ -7,16 +7,19 @@
 namespace OpenApi\Annotations;
 
 use Exception;
+use JsonSerializable;
 use OpenApi\Analyser;
 use OpenApi\Context;
 use OpenApi\Generator;
 use OpenApi\Util;
+use ReturnTypeWillChange;
+use stdClass;
 use Symfony\Component\Yaml\Yaml;
 
 /**
  * The openapi annotation base class.
  */
-abstract class AbstractAnnotation implements \JsonSerializable
+abstract class AbstractAnnotation implements JsonSerializable
 {
     /**
      * The properties which are required by [the spec](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md).
@@ -342,10 +345,10 @@ abstract class AbstractAnnotation implements \JsonSerializable
      *
      * @return mixed
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        $data = new \stdClass();
+        $data = new stdClass();
 
         // Strip undefined values.
         foreach (get_object_vars($this) as $property => $value) {
@@ -362,7 +365,7 @@ abstract class AbstractAnnotation implements \JsonSerializable
         // Correct empty array to empty objects.
         foreach (static::$_types as $property => $type) {
             if ($type === 'object' && is_array($data->$property) && empty($data->$property)) {
-                $data->$property = new \stdClass();
+                $data->$property = new stdClass();
             }
         }
 
@@ -385,14 +388,14 @@ abstract class AbstractAnnotation implements \JsonSerializable
                 continue;
             }
             $keyField = $nested[1];
-            $object = new \stdClass();
+            $object = new stdClass();
             foreach ($this->$property as $key => $item) {
                 if (is_numeric($key) === false && is_array($item)) {
                     $object->$key = $item;
                 } else {
                     $key = $item->$keyField;
                     if ($key !== Generator::UNDEFINED && empty($object->$key)) {
-                        if ($item instanceof \JsonSerializable) {
+                        if ($item instanceof JsonSerializable) {
                             $object->$key = $item->jsonSerialize();
                         } else {
                             $object->$key = $item;

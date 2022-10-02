@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace ColorThief;
 
+use function count;
+
 class VBox
 {
     /** @var int */
@@ -72,7 +74,7 @@ class VBox
 
             // Select the fastest way (i.e. with the fewest iterations) to count
             // the number of pixels contained in this vbox.
-            if ($this->volume() > \count($this->histo)) {
+            if ($this->volume() > count($this->histo)) {
                 // Iterate over the histogram if the size of this histogram is lower than the vbox volume
                 foreach ($this->histo as $bucketIndex => $count) {
                     $rgbBuckets = ColorThief::getColorsFromIndex($bucketIndex, ColorThief::SIGBITS);

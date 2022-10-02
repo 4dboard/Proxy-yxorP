@@ -12,6 +12,7 @@ use BaconQrCode\Renderer\RendererStyle\EyeFill;
 use BaconQrCode\Renderer\RendererStyle\Fill;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
+use RuntimeException;
 
 class BaconQrCodeProvider implements IQRCodeProvider
 {
@@ -31,7 +32,7 @@ class BaconQrCodeProvider implements IQRCodeProvider
     public function __construct($borderWidth = 4, $backgroundColour = '#ffffff', $foregroundColour = '#000000', $format = 'png')
     {
         if (!class_exists(ImagickImageBackEnd::class)) {
-            throw new \RuntimeException('Make sure you are using version 2 of Bacon QR Code');
+            throw new RuntimeException('Make sure you are using version 2 of Bacon QR Code');
         }
 
         $this->borderWidth = $borderWidth;
@@ -53,7 +54,7 @@ class BaconQrCodeProvider implements IQRCodeProvider
                 $input = trim($input, '#');
 
                 if (strlen($input) != 3 && strlen($input) != 6) {
-                    throw new \RuntimeException('Colour should be a 3 or 6 character value after the #');
+                    throw new RuntimeException('Colour should be a 3 or 6 character value after the #');
                 }
 
                 // split the array into three chunks
@@ -77,7 +78,7 @@ class BaconQrCodeProvider implements IQRCodeProvider
             return $colour;
         }
 
-        throw new \RuntimeException('Invalid colour value');
+        throw new RuntimeException('Invalid colour value');
     }
 
     /**
@@ -100,7 +101,7 @@ class BaconQrCodeProvider implements IQRCodeProvider
                 return 'application/postscript';
         }
 
-        throw new \RuntimeException(sprintf('Unknown MIME-type: %s', $this->format));
+        throw new RuntimeException(sprintf('Unknown MIME-type: %s', $this->format));
     }
 
     public function getQRCodeImage($qrText, $size)

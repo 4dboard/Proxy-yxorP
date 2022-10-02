@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace ColorThief;
 
+use function count;
+
 /**
  * Simple priority queue.
  *
@@ -84,7 +86,7 @@ class PQueue
 
     public function size(): int
     {
-        return \count($this->contents);
+        return count($this->contents);
     }
 
     /**

@@ -15,9 +15,17 @@ namespace ColorThief\Image\Adapter;
 
 use ColorThief\Exception\InvalidArgumentException;
 use ColorThief\Exception\NotReadableException;
+use GdImage;
+use stdClass;
+use function is_resource;
+use const IMAGETYPE_GIF;
+use const IMAGETYPE_JPEG;
+use const IMAGETYPE_PNG;
+use const IMAGETYPE_WEBP;
+use const PHP_VERSION;
 
 /**
- * @property resource|\GdImage|null $resource
+ * @property resource|GdImage|null $resource
  */
 class GdAdapter extends AbstractAdapter
 {
@@ -38,12 +46,12 @@ class GdAdapter extends AbstractAdapter
 
     public function load($resource): AdapterInterface
     {
-        if (version_compare(\PHP_VERSION, '8.0.0') >= 0) {
-            if (!($resource instanceof \GdImage)) {
+        if (version_compare(PHP_VERSION, '8.0.0') >= 0) {
+            if (!($resource instanceof GdImage)) {
                 throw new InvalidArgumentException('Argument is not an instance of GdImage.');
             }
         } else {
-            if (!\is_resource($resource) || 'gd' != get_resource_type($resource)) {
+            if (!is_resource($resource) || 'gd' != get_resource_type($resource)) {
                 throw new InvalidArgumentException('Argument is not a valid GD resource.');
             }
         }
@@ -60,19 +68,19 @@ class GdAdapter extends AbstractAdapter
         [, , $type] = @getimagesize($file);
 
         switch ($type) {
-            case \IMAGETYPE_GIF:
+            case IMAGETYPE_GIF:
                 $resource = @imagecreatefromgif($file);
                 break;
 
-            case \IMAGETYPE_JPEG:
+            case IMAGETYPE_JPEG:
                 $resource = @imagecreatefromjpeg($file);
                 break;
 
-            case \IMAGETYPE_PNG:
+            case IMAGETYPE_PNG:
                 $resource = @imagecreatefrompng($file);
                 break;
 
-            case \IMAGETYPE_WEBP:
+            case IMAGETYPE_WEBP:
                 if (!function_exists('imagecreatefromwebp')) {
                     throw new NotReadableException('Unsupported image type. GD/PHP installation does not support WebP format.');
                 }
@@ -109,7 +117,7 @@ class GdAdapter extends AbstractAdapter
         return imagesx($this->resource);
     }
 
-    public function getPixelColor(int $x, int $y): \stdClass
+    public function getPixelColor(int $x, int $y): stdClass
     {
         $rgba = imagecolorat($this->resource, $x, $y);
         $color = imagecolorsforindex($this->resource, $rgba);

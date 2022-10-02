@@ -2,22 +2,37 @@
 
 namespace GuzzleHttp\Handler;
 
+use Countable;
+use Exception;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Promise as P;
 use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\TransferStats;
 use GuzzleHttp\Utils;
+use InvalidArgumentException;
+use OutOfBoundsException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
+use Throwable;
+use TypeError;
+use function array_shift;
+use function count;
+use function file_put_contents;
+use function fwrite;
+use function is_callable;
+use function is_numeric;
+use function is_resource;
+use function is_string;
+use function usleep;
 
 /**
  * Handler that returns responses or throw exceptions from a queue.
  *
  * @final
  */
-class MockHandler implements \Countable
+class MockHandler implements Countable
 {
     /**
      * @var array
@@ -74,13 +89,13 @@ class MockHandler implements \Countable
     {
         foreach ($values as $value) {
             if ($value instanceof ResponseInterface
-                || $value instanceof \Throwable
+                || $value instanceof Throwable
                 || $value instanceof PromiseInterface
-                || \is_callable($value)
+                || is_callable($value)
             ) {
                 $this->queue[] = $value;
             } else {
-                throw new \TypeError('Expected a Response, Promise, Throwable or callable. Found ' . Utils::describeType($value));
+                throw new TypeError('Expected a Response, Promise, Throwable or callable. Found ' . Utils::describeType($value));
             }
         }
     }
@@ -101,34 +116,34 @@ class MockHandler implements \Countable
     public function __invoke(RequestInterface $request, array $options): PromiseInterface
     {
         if (!$this->queue) {
-            throw new \OutOfBoundsException('Mock queue is empty');
+            throw new OutOfBoundsException('Mock queue is empty');
         }
 
-        if (isset($options['delay']) && \is_numeric($options['delay'])) {
-            \usleep((int)$options['delay'] * 1000);
+        if (isset($options['delay']) && is_numeric($options['delay'])) {
+            usleep((int)$options['delay'] * 1000);
         }
 
         $this->lastRequest = $request;
         $this->lastOptions = $options;
-        $response = \array_shift($this->queue);
+        $response = array_shift($this->queue);
 
         if (isset($options['on_headers'])) {
-            if (!\is_callable($options['on_headers'])) {
-                throw new \InvalidArgumentException('on_headers must be callable');
+            if (!is_callable($options['on_headers'])) {
+                throw new InvalidArgumentException('on_headers must be callable');
             }
             try {
                 $options['on_headers']($response);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
                 $response = new RequestException($msg, $request, $response, $e);
             }
         }
 
-        if (\is_callable($response)) {
+        if (is_callable($response)) {
             $response = $response($request, $options);
         }
 
-        $response = $response instanceof \Throwable
+        $response = $response instanceof Throwable
             ? P\Create::rejectionFor($response)
             : P\Create::promiseFor($response);
 
@@ -143,10 +158,10 @@ class MockHandler implements \Countable
                     $contents = (string)$value->getBody();
                     $sink = $options['sink'];
 
-                    if (\is_resource($sink)) {
-                        \fwrite($sink, $contents);
-                    } elseif (\is_string($sink)) {
-                        \file_put_contents($sink, $contents);
+                    if (is_resource($sink)) {
+                        fwrite($sink, $contents);
+                    } elseif (is_string($sink)) {
+                        file_put_contents($sink, $contents);
                     } elseif ($sink instanceof StreamInterface) {
                         $sink->write($contents);
                     }
@@ -202,7 +217,7 @@ class MockHandler implements \Countable
      */
     public function count(): int
     {
-        return \count($this->queue);
+        return count($this->queue);
     }
 
     public function reset(): void

@@ -7,6 +7,8 @@
 namespace OpenApi\Annotations;
 
 use OpenApi\Generator;
+use ReturnTypeWillChange;
+use stdClass;
 
 /**
  * Configuration details for a supported OAuth Flow
@@ -78,11 +80,11 @@ class Flow extends AbstractAnnotation
     public $scopes = Generator::UNDEFINED;
 
     /** @inheritdoc */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         if (is_array($this->scopes) && empty($this->scopes)) {
-            $this->scopes = new \stdClass();
+            $this->scopes = new stdClass();
         }
 
         return parent::jsonSerialize();

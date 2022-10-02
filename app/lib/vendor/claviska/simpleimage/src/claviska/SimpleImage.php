@@ -15,6 +15,11 @@
 
 namespace claviska;
 
+use Exception;
+use League\ColorExtractor\Color;
+use League\ColorExtractor\ColorExtractor;
+use League\ColorExtractor\Palette;
+
 /**
  * A PHP class that makes working with images as simple as possible.
  */
@@ -49,7 +54,7 @@ class SimpleImage
    *
    * @param string $image An image file or a data URI to load.
    * @param array $flags Optional override of default flags.
-   * @throws \Exception Thrown if the GD library is not found; file|URI or image data is invalid.
+   * @throws Exception Thrown if the GD library is not found; file|URI or image data is invalid.
    */
   public function __construct($image = '', $flags = [])
   {
@@ -58,7 +63,7 @@ class SimpleImage
       // Ignore JPEG warnings that cause imagecreatefromjpeg() to fail
       ini_set('gd.jpeg_ignore_warning', 1);
     } else {
-      throw new \Exception('Required extension GD is not loaded.', self::ERR_GD_NOT_ENABLED);
+      throw new Exception('Required extension GD is not loaded.', self::ERR_GD_NOT_ENABLED);
     }
 
     // Associative array of flags.
@@ -84,13 +89,13 @@ class SimpleImage
    *
    * @param string $flag Name of the flag to set.
    * @param boolean $value State of the flag.
-   * @throws \Exception Thrown if flag does not exist (no default value).
+   * @throws Exception Thrown if flag does not exist (no default value).
    */
   public function setFlag($flag, $value)
   {
     // Throw if flag does not exist
     if (!in_array($flag, array_keys($this->flags))) {
-      throw new \Exception('Invalid flag.', self::ERR_INVALID_FLAG);
+      throw new Exception('Invalid flag.', self::ERR_INVALID_FLAG);
     }
 
     // Set flag value by name
@@ -105,21 +110,21 @@ class SimpleImage
    * Loads an image from a data URI.
    *
    * @param string $uri A data URI.
-   * @return \claviska\SimpleImage
-   * @throws \Exception Thrown if URI or image data is invalid.
+   * @return SimpleImage
+   * @throws Exception Thrown if URI or image data is invalid.
    */
   public function fromDataUri($uri)
   {
     // Basic formatting check
     preg_match('/^data:(.*?);/', $uri, $matches);
     if (!count($matches)) {
-      throw new \Exception('Invalid data URI.', self::ERR_INVALID_DATA_URI);
+      throw new Exception('Invalid data URI.', self::ERR_INVALID_DATA_URI);
     }
 
     // Determine mime type
     $this->mimeType = $matches[1];
     if (!preg_match('/^image\/(gif|jpeg|png)$/', $this->mimeType)) {
-      throw new \Exception(
+      throw new Exception(
         'Unsupported format: ' . $this->mimeType,
         self::ERR_UNSUPPORTED_FORMAT
       );
@@ -129,7 +134,7 @@ class SimpleImage
     $uri = base64_decode(preg_replace('/^data:(.*?);base64,/', '', $uri));
     $this->image = imagecreatefromstring($uri);
     if (!$this->image) {
-      throw new \Exception("Invalid image data.", self::ERR_INVALID_IMAGE);
+      throw new Exception("Invalid image data.", self::ERR_INVALID_IMAGE);
     }
 
     return $this;
@@ -140,8 +145,8 @@ class SimpleImage
    *
    * @param string $file The image file to load.
    * @param boolean $sslVerify Set to false to skip SSL validation.
-   * @return \claviska\SimpleImage
-   * @throws \Exception Thrown if file or image data is invalid.
+   * @return SimpleImage
+   * @throws Exception Thrown if file or image data is invalid.
    */
   public function fromFile($file)
   {
@@ -157,7 +162,7 @@ class SimpleImage
     // Check if the file exists and is readable.
     $file = @file_get_contents($file, false, stream_context_create($opts));
     if ($file === false) {
-      throw new \Exception("File not found: $file", self::ERR_FILE_NOT_FOUND);
+      throw new Exception("File not found: $file", self::ERR_FILE_NOT_FOUND);
     }
 
     // Create image object from string
@@ -166,12 +171,12 @@ class SimpleImage
     // Get image info
     $info = @getimagesizefromstring($file);
     if ($info === false) {
-      throw new \Exception("Invalid image file: $file", self::ERR_INVALID_IMAGE);
+      throw new Exception("Invalid image file: $file", self::ERR_INVALID_IMAGE);
     }
     $this->mimeType = $info['mime'];
 
     if (!$this->image) {
-      throw new \Exception("Unsupported format: " . $this->mimeType, self::ERR_UNSUPPORTED_FORMAT);
+      throw new Exception("Unsupported format: " . $this->mimeType, self::ERR_UNSUPPORTED_FORMAT);
     }
 
     switch ($this->mimeType) {
@@ -287,7 +292,7 @@ class SimpleImage
    * Creates a new image from a string.
    *
    * @param string $string The raw image data as a string.
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    * @example
    *    $string = file_get_contents('image.jpg');
    */
@@ -316,7 +321,7 @@ class SimpleImage
    * @param string $mimeType The image format to output as a mime type (defaults to the original mime type).
    * @param integer $quality Image quality as a percentage (default 100).
    * @return array Returns an array containing the image data and mime type ['data' => '', 'mimeType' => ''].
-   * @throws \Exception Thrown when WEBP support is not enabled or unsupported format.
+   * @throws Exception Thrown when WEBP support is not enabled or unsupported format.
    */
   protected function generate($mimeType = null, $quality = 100)
   {
@@ -348,7 +353,7 @@ class SimpleImage
       case 'image/webp':
         // Not all versions of PHP will have webp support enabled
         if (!function_exists('imagewebp')) {
-          throw new \Exception(
+          throw new Exception(
             'WEBP support is not enabled in your version of PHP.',
             self::ERR_WEBP_NOT_ENABLED
           );
@@ -361,7 +366,7 @@ class SimpleImage
       case 'image/x-windows-bmp':
         // Not all versions of PHP support bmp
         if (!function_exists('imagebmp')) {
-          throw new \Exception(
+          throw new Exception(
             'BMP support is not available in your version of PHP.',
             self::ERR_UNSUPPORTED_FORMAT
           );
@@ -370,7 +375,7 @@ class SimpleImage
         imagebmp($this->image, null, $quality);
         break;
       default:
-        throw new \Exception('Unsupported format: ' . $mimeType, self::ERR_UNSUPPORTED_FORMAT);
+        throw new Exception('Unsupported format: ' . $mimeType, self::ERR_UNSUPPORTED_FORMAT);
     }
 
     // Stop capturing
@@ -404,7 +409,7 @@ class SimpleImage
    * @param string $filename The filename (without path) to send to the client (e.g. 'image.jpeg').
    * @param string $mimeType The image format to output as a mime type (defaults to the original mime type).
    * @param integer $quality Image quality as a percentage (default 100).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function toDownload($filename, $mimeType = null, $quality = 100)
   {
@@ -433,8 +438,8 @@ class SimpleImage
    * @param string $file The image format to output as a mime type (defaults to the original mime type).
    * @param string $mimeType Image quality as a percentage (default 100).
    * @param integer $quality Image quality as a percentage (default 100).
-   * @return \claviska\SimpleImage
-   * @throws \Exception Thrown if failed write to file.
+   * @return SimpleImage
+   * @throws Exception Thrown if failed write to file.
    */
   public function toFile($file, $mimeType = null, $quality = 100)
   {
@@ -442,7 +447,7 @@ class SimpleImage
 
     // Save the image to file
     if (!file_put_contents($file, $image['data'])) {
-      throw new \Exception("Failed to write image to file: $file", self::ERR_WRITE);
+      throw new Exception("Failed to write image to file: $file", self::ERR_WRITE);
     }
 
     return $this;
@@ -453,7 +458,7 @@ class SimpleImage
    *
    * @param string $mimeType The image format to output as a mime type (defaults to the original mime type).
    * @param integer $quality Image quality as a percentage (default 100).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function toScreen($mimeType = null, $quality = 100)
   {
@@ -502,7 +507,7 @@ class SimpleImage
    * Rotates an image so the orientation will be correct based on its exif data. It is safe to call
    * this method on images that don't have exif data (no changes will be made).
    *
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function autoOrient()
   {
@@ -555,7 +560,7 @@ class SimpleImage
    * Flip the image horizontally or vertically.
    *
    * @param string $direction The direction to flip: x|y|both.
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function flip($direction)
   {
@@ -583,7 +588,7 @@ class SimpleImage
    *
    * @param integer $angle The angle of rotation (-360 - 360).
    * @param string|array $backgroundColor The background color to use for the uncovered zone area after rotation (default 'transparent').
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function rotate($angle, $backgroundColor = 'transparent')
   {
@@ -642,7 +647,7 @@ class SimpleImage
    *        #fff|0.50 <-- 50% white
    *        red|0.25 <-- 25% red
    * @return array [red, green, blue, alpha].
-   * @throws \Exception Thrown if color value is invalid.
+   * @throws Exception Thrown if color value is invalid.
    */
   public static function normalizeColor($color)
   {
@@ -735,7 +740,7 @@ class SimpleImage
           $hex[4] . $hex[5]
         ];
       } else {
-        throw new \Exception("Invalid color value: $color", self::ERR_INVALID_COLOR);
+        throw new Exception("Invalid color value: $color", self::ERR_INVALID_COLOR);
       }
 
       // Turn color into an array
@@ -765,7 +770,7 @@ class SimpleImage
       ];
     }
 
-    throw new \Exception("Invalid color value: $color", self::ERR_INVALID_COLOR);
+    throw new Exception("Invalid color value: $color", self::ERR_INVALID_COLOR);
   }
 
   /**
@@ -773,7 +778,7 @@ class SimpleImage
    *
    * @param integer $maxWidth The maximum width the image can be.
    * @param integer $maxHeight The maximum height the image can be.
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function bestFit($maxWidth, $maxHeight)
   {
@@ -856,7 +861,7 @@ class SimpleImage
    *
    * @param integer $width The new image width.
    * @param integer $height The new image height.
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function resize($width = null, $height = null)
   {
@@ -908,7 +913,7 @@ class SimpleImage
    *
    * @param string|array $lightColor The lightest color in the duotone.
    * @param string|array $darkColor The darkest color in the duotone.
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   function duotone($lightColor, $darkColor)
   {
@@ -973,7 +978,7 @@ class SimpleImage
    * @param integer $x The x coordinate of the dot.
    * @param integer $y The y coordinate of the dot.
    * @param string|array $color The dot color.
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function dot($x, $y, $color)
   {
@@ -987,7 +992,7 @@ class SimpleImage
    * Proportionally resize the image to a specific height.
    *
    * @param integer $height
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    * @deprecated
    *    This method was deprecated in version 3.2.2 and will be removed in version 4.0.
    *    Please use `resize(null, $height)` instead.
@@ -1001,7 +1006,7 @@ class SimpleImage
    * Proportionally resize the image to a specific width.
    *
    * @param integer $width The width to resize the image to.
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    * @deprecated
    *    This method was deprecated in version 3.2.2 and will be removed in version 4.0.
    *    Please use `resize(null, $height)` instead.
@@ -1016,7 +1021,7 @@ class SimpleImage
    *
    * @param integer $max The maximum number of colors to use.
    * @param boolean $dither Whether or not to use a dithering effect (default true).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function maxColors($max, $dither = true)
   {
@@ -1030,7 +1035,7 @@ class SimpleImage
    *
    * @param integer $res_x The horizontal resolution in DPI.
    * @param integer $res_y The vertical resolution in DPI
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function resolution($res_x, $res_y = null)
   {
@@ -1064,8 +1069,8 @@ class SimpleImage
    *     - align (string) - How to align text: 'left', 'right', 'center', 'justify' (default 'left').
    *     - leading (float) - Increase/decrease spacing between lines of text (default 0).
    *     - opacity (float) - The opacity level of the text 0-1 (default 1).
-   * @return \claviska\SimpleImage
-   * @throws \Exception
+   * @return SimpleImage
+   * @throws Exception
    */
   public function textBox($text, $options)
   {
@@ -1272,7 +1277,7 @@ class SimpleImage
    * @param integer $width The width of the image.
    * @param integer $height The height of the image.
    * @param string|array $color Optional fill color for the new image (default 'transparent').
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function fromNew($width, $height, $color = 'transparent')
   {
@@ -1291,7 +1296,7 @@ class SimpleImage
    * Fills the image with a solid color.
    *
    * @param string|array $color The fill color.
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function fill($color)
   {
@@ -1314,7 +1319,7 @@ class SimpleImage
    * @param integer $y2 The bottom right y coordinate.
    * @param string|array $color The rectangle color.
    * @param integer|array $thickness Line thickness in pixels or 'filled' (default 1).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function rectangle($x1, $y1, $x2, $y2, $color, $thickness = 1)
   {
@@ -1354,14 +1359,14 @@ class SimpleImage
    * @param array $boundary
    *    If passed, this variable will contain an array with coordinates that surround the text: [x1, y1, x2, y2, width, height].
    *    This can be used for calculating the text's position after it gets added to the image.
-   * @return \claviska\SimpleImage
-   * @throws \Exception
+   * @return SimpleImage
+   * @throws Exception
    */
   public function text($text, $options, &$boundary = null)
   {
     // Check for freetype support
     if (!function_exists('imagettftext')) {
-      throw new \Exception(
+      throw new Exception(
         'Freetype support is not enabled in your version of PHP.',
         self::ERR_FREETYPE_NOT_ENABLED
       );
@@ -1405,7 +1410,7 @@ class SimpleImage
     //
 
     $boxText = imagettfbbox($size, $angle, $fontFile, $text);
-    if (!$boxText) throw new \Exception("Unable to load font file: $fontFile", self::ERR_FONT_FILE);
+    if (!$boxText) throw new Exception("Unable to load font file: $fontFile", self::ERR_FONT_FILE);
 
     $boxWidth = abs($boxText[4] - $boxText[0]);
     $boxHeight = abs($boxText[5] - $boxText[1]);
@@ -1523,7 +1528,7 @@ class SimpleImage
    * @param integer $xOffset Horizontal offset in pixels (default 0).
    * @param integer $yOffset Vertical offset in pixels (default 0).
    * @param bool $calculateOffsetFromEdge Calculate Offset referring to the edges of the image (default false).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function overlay($overlay, $anchor = 'center', $opacity = 1, $xOffset = 0, $yOffset = 0, $calculateOffsetFromEdge = false)
   {
@@ -1605,7 +1610,7 @@ class SimpleImage
    * @param integer $width The thumbnail width.
    * @param integer $height The thumbnail height.
    * @param string $anchor The anchor point: 'center', 'top', 'bottom', 'left', 'right', 'top left', 'top right', 'bottom left', 'bottom right' (default 'center').
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function thumbnail($width, $height, $anchor = 'center')
   {
@@ -1688,7 +1693,7 @@ class SimpleImage
    * @param integer|float $y1 Top left y coordinate.
    * @param integer|float $x2 Bottom right x coordinate.
    * @param integer|float $y2 Bottom right x coordinate.
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function crop($x1, $y1, $x2, $y2)
   {
@@ -1728,7 +1733,7 @@ class SimpleImage
    *
    * @param string|array $color The border color.
    * @param integer $thickness The thickness of the border (default 1).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function border($color, $thickness = 1)
   {
@@ -1757,7 +1762,7 @@ class SimpleImage
    * @param integer $height The ellipse height.
    * @param string|array $color The ellipse color.
    * @param integer|array $thickness Line thickness in pixels or 'filled' (default 1).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function ellipse($x, $y, $width, $height, $color, $thickness = 1)
   {
@@ -1821,7 +1826,7 @@ class SimpleImage
    * @param integer $y2 The y coordinate for the second point.
    * @param string|array $color The line color.
    * @param integer $thickness The line thickness (default 1).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function line($x1, $y1, $x2, $y2, $color, $thickness = 1)
   {
@@ -1848,7 +1853,7 @@ class SimpleImage
    *        ]
    * @param string|array $color The polygon color.
    * @param integer|array $thickness Line thickness in pixels or 'filled' (default 1).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function polygon($vertices, $color, $thickness = 1)
   {
@@ -1884,7 +1889,7 @@ class SimpleImage
    * @param integer $radius The border radius in pixels.
    * @param string|array $color The rectangle color.
    * @param integer|array $thickness Line thickness in pixels or 'filled' (default 1).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function roundedRectangle($x1, $y1, $x2, $y2, $radius, $color, $thickness = 1)
   {
@@ -1951,7 +1956,7 @@ class SimpleImage
    * @param integer $end The end of the arc in degrees.
    * @param string|array $color The arc color.
    * @param integer|string $thickness Line thickness in pixels or 'filled' (default 1).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function arc($x, $y, $width, $height, $start, $end, $color, $thickness = 1)
   {
@@ -1995,7 +2000,7 @@ class SimpleImage
    *
    * @param string $type The blur algorithm to use: 'selective', 'gaussian' (default 'gaussian').
    * @param number $passes The number of time to apply the filter, enhancing the effect (default 1).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function blur($type = 'selective', $passes = 1)
   {
@@ -2012,7 +2017,7 @@ class SimpleImage
    * Applies the brightness filter to brighten the image.
    *
    * @param integer $percentage Percentage to brighten the image (0 - 100).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function brighten($percentage)
   {
@@ -2027,7 +2032,7 @@ class SimpleImage
    * Applies the colorize filter.
    *
    * @param string|array $color The filter color.
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function colorize($color)
   {
@@ -2049,7 +2054,7 @@ class SimpleImage
    * Applies the contrast filter.
    *
    * @param integer $percentage Percentage to adjust (-100 - 100).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function contrast($percentage)
   {
@@ -2062,7 +2067,7 @@ class SimpleImage
    * Applies the brightness filter to darken the image.
    *
    * @param integer $percentage Percentage to darken the image (0 - 100).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function darken($percentage)
   {
@@ -2076,7 +2081,7 @@ class SimpleImage
   /**
    * Applies the desaturate (grayscale) filter.
    *
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function desaturate()
   {
@@ -2088,7 +2093,7 @@ class SimpleImage
   /**
    * Applies the edge detect filter.
    *
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function edgeDetect()
   {
@@ -2100,7 +2105,7 @@ class SimpleImage
   /**
    * Applies the emboss filter.
    *
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function emboss()
   {
@@ -2116,7 +2121,7 @@ class SimpleImage
   /**
    * Inverts the image's colors.
    *
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function invert()
   {
@@ -2129,7 +2134,7 @@ class SimpleImage
    * Changes the image's opacity level.
    *
    * @param float $opacity The desired opacity level (0 - 1).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function opacity($opacity)
   {
@@ -2155,7 +2160,7 @@ class SimpleImage
    * Applies the pixelate filter.
    *
    * @param integer $size The size of the blocks in pixels (default 10).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function pixelate($size = 10)
   {
@@ -2167,7 +2172,7 @@ class SimpleImage
   /**
    * Simulates a sepia effect by desaturating the image and applying a sepia tone.
    *
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function sepia()
   {
@@ -2181,7 +2186,7 @@ class SimpleImage
    * Sharpens the image.
    *
    * @param integer $amount Sharpening amount (default 50).
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function sharpen($amount = 50)
   {
@@ -2203,7 +2208,7 @@ class SimpleImage
   /**
    * Applies the mean remove filter to produce a sketch effect.
    *
-   * @return \claviska\SimpleImage
+   * @return SimpleImage
    */
   public function sketch()
   {
@@ -2224,13 +2229,13 @@ class SimpleImage
    *    transparent black would be seen white on a white background. So if you want to take
    *    transparency into account, you have to specify a default background color.
    * @return integer[] An array of RGBA colors arrays.
-   * @throws \Exception Thrown if library \League\ColorExtractor is missing.
+   * @throws Exception Thrown if library \League\ColorExtractor is missing.
    */
   public function extractColors($count = 5, $backgroundColor = null)
   {
     // Check for required library
     if (!class_exists('\League\ColorExtractor\ColorExtractor')) {
-      throw new \Exception(
+      throw new Exception(
         'Required library \League\ColorExtractor is missing.',
         self::ERR_LIB_NOT_LOADED
       );
@@ -2239,7 +2244,7 @@ class SimpleImage
     // Convert background color to an integer value
     if ($backgroundColor) {
       $backgroundColor = self::normalizeColor($backgroundColor);
-      $backgroundColor = \League\ColorExtractor\Color::fromRgbToInt([
+      $backgroundColor = Color::fromRgbToInt([
         'r' => $backgroundColor['red'],
         'g' => $backgroundColor['green'],
         'b' => $backgroundColor['blue']
@@ -2247,13 +2252,13 @@ class SimpleImage
     }
 
     // Extract colors from the image
-    $palette = \League\ColorExtractor\Palette::fromGD($this->image, $backgroundColor);
-    $extractor = new \League\ColorExtractor\ColorExtractor($palette);
+    $palette = Palette::fromGD($this->image, $backgroundColor);
+    $extractor = new ColorExtractor($palette);
     $colors = $extractor->extract($count);
 
     // Convert colors to an RGBA color array
     foreach ($colors as $key => $value) {
-      $colors[$key] = self::normalizeColor(\League\ColorExtractor\Color::fromIntToHex($value));
+      $colors[$key] = self::normalizeColor(Color::fromIntToHex($value));
     }
 
     return $colors;

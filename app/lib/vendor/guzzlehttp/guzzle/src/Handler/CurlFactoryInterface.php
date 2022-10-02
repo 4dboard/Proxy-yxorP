@@ -3,6 +3,7 @@
 namespace GuzzleHttp\Handler;
 
 use Psr\Http\Message\RequestInterface;
+use RuntimeException;
 
 interface CurlFactoryInterface
 {
@@ -12,7 +13,7 @@ interface CurlFactoryInterface
      * @param RequestInterface $request Request
      * @param array $options Transfer options
      *
-     * @throws \RuntimeException when an option cannot be applied
+     * @throws RuntimeException when an option cannot be applied
      */
     public function create(RequestInterface $request, array $options): EasyHandle;
 
