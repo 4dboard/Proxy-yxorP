@@ -361,9 +361,9 @@ class SVGSanitizer
     /**
      * Start the cleaning with tags, then we move onto attributes and hrefs later
      *
-     * @param \DOMNodeList $elements
+     * @param DOMNodeList $elements
      */
-    protected function startClean(\DOMNodeList $elements)
+    protected function startClean(DOMNodeList $elements)
     {
         // loop through all elements
         // we do this backwards so we don't skip anything if we delete a node
@@ -395,9 +395,9 @@ class SVGSanitizer
     /**
      * Only allow attributes that are on the whitelist
      *
-     * @param \DOMElement $element
+     * @param DOMElement $element
      */
-    protected function cleanAttributesOnWhitelist(\DOMElement $element)
+    protected function cleanAttributesOnWhitelist(DOMElement $element)
     {
         for ($x = $element->attributes->length - 1; $x >= 0; $x--) {
             // get attribute name
@@ -476,9 +476,9 @@ class SVGSanitizer
     /**
      * Clean the xlink:hrefs of script and data embeds
      *
-     * @param \DOMElement $element
+     * @param DOMElement $element
      */
-    protected function cleanXlinkHrefs(\DOMElement $element)
+    protected function cleanXlinkHrefs(DOMElement $element)
     {
         $xlinks = $element->getAttributeNS('http://www.w3.org/1999/xlink', 'href');
         if (preg_match(self::SCRIPT_REGEX, $xlinks) === 1) {
@@ -498,9 +498,9 @@ class SVGSanitizer
     /**
      * Clean the hrefs of script and data embeds
      *
-     * @param \DOMElement $element
+     * @param DOMElement $element
      */
-    protected function cleanHrefs(\DOMElement $element)
+    protected function cleanHrefs(DOMElement $element)
     {
         $href = $element->getAttribute('href');
         if (preg_match(self::SCRIPT_REGEX, $href) === 1) {
@@ -511,10 +511,10 @@ class SVGSanitizer
     /**
      * Make sure our use tag is only referencing internal resources
      *
-     * @param \DOMElement $element
+     * @param DOMElement $element
      * @return bool
      */
-    protected function isUseTagDirty(\DOMElement $element)
+    protected function isUseTagDirty(DOMElement $element)
     {
         $xlinks = $element->getAttributeNS('http://www.w3.org/1999/xlink', 'href');
         if ($xlinks && substr($xlinks, 0, 1) !== '#') {

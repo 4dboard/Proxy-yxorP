@@ -2,7 +2,11 @@
 
 namespace System\Helper;
 
-class System extends \Lime\Helper
+use Lime\Helper;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+
+class System extends Helper
 {
 
 
@@ -33,7 +37,7 @@ class System extends \Lime\Helper
         foreach ($dirs as $dir) {
 
             $path = $this->app->path($dir);
-            $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path), \RecursiveIteratorIterator::SELF_FIRST);
+            $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path), RecursiveIteratorIterator::SELF_FIRST);
 
             foreach ($files as $file) {
 

@@ -71,7 +71,7 @@ class Client
      */
     public function keyExists(string $collection, string $key): mixed
     {
-        return $this->driver->count($collection, ['key' => $key]);;
+        return $this->driver->count($collection, ['key' => $key]);
     }
 
     /**

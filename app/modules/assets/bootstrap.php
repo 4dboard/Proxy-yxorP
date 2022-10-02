@@ -1,5 +1,7 @@
 <?php
 
+use ColorThief\ColorThief;
+
 include_once(__DIR__ . '/lib/vendor/autoload.php');
 include_once(__DIR__ . '/lib/SVGSanitizer.php');
 
@@ -83,8 +85,8 @@ $this->module('assets')->extend([
                     $_files[] = $_file;
                     $uploaded[] = $files['name'][$i];
 
-                    if (\preg_match('/\.(svg|xml)$/i', $_file)) {
-                        file_put_contents($_file, \SVGSanitizer::clean(\file_get_contents($_file)));
+                    if (preg_match('/\.(svg|xml)$/i', $_file)) {
+                        file_put_contents($_file, SVGSanitizer::clean(file_get_contents($_file)));
                     }
 
                 } else {
@@ -169,8 +171,8 @@ $this->module('assets')->extend([
                 if ($asset['width'] && $asset['height']) {
 
                     try {
-                        $asset['colors'] = \ColorThief\ColorThief::getPalette($file, 5, ceil(($asset['width'] * $asset['height']) / 10000));
-                    } catch (\Exception $e) {
+                        $asset['colors'] = ColorThief::getPalette($file, 5, ceil(($asset['width'] * $asset['height']) / 10000));
+                    } catch (Exception $e) {
                         $asset['colors'] = [];
                     }
 

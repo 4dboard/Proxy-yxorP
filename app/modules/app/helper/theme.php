@@ -2,7 +2,11 @@
 
 namespace App\Helper;
 
-class Theme extends \Lime\Helper
+use Lime\Helper;
+use function pathinfo;
+use function strtolower;
+
+class Theme extends Helper
 {
 
     protected array $vars;
@@ -32,7 +36,7 @@ class Theme extends \Lime\Helper
 
         if ($url) {
             $this->favicon = $this->pathToUrl($url);
-            $ext = \strtolower(\pathinfo($this->favicon, PATHINFO_EXTENSION));
+            $ext = strtolower(pathinfo($this->favicon, PATHINFO_EXTENSION));
 
             if ($ext != 'svg') {
                 return null;

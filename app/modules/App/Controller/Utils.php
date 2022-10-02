@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use ArrayObject;
+
 class Utils extends App
 {
 
@@ -28,7 +30,7 @@ class Utils extends App
 
         $this->helper('session')->close();
 
-        $findings = new \ArrayObject([]);
+        $findings = new ArrayObject([]);
         $search = $this->param('search');
 
         if ($search) {

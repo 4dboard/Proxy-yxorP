@@ -2,7 +2,11 @@
 
 namespace App\RestApi;
 
-class Query extends \Lime\AppAware
+use Lime\AppAware;
+use function call_user_func;
+use function is_callable;
+
+class Query extends AppAware
 {
 
     protected array $endpoints = [];
@@ -28,8 +32,8 @@ class Query extends \Lime\AppAware
             }
         }
 
-        if ($handler && \is_callable($handler)) {
-            return \call_user_func($handler, $params, $this->app);
+        if ($handler && is_callable($handler)) {
+            return call_user_func($handler, $params, $this->app);
         }
 
         // custom file based route

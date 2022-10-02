@@ -3,6 +3,9 @@
 namespace System\Controller;
 
 use App\Controller\App;
+use ArrayObject;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
 class Utils extends App
 {
@@ -54,7 +57,7 @@ class Utils extends App
     public function icons()
     {
 
-        $icons = new \ArrayObject([]);
+        $icons = new ArrayObject([]);
         $dirs = [
             '#config:icons',
         ];
@@ -65,8 +68,8 @@ class Utils extends App
 
             if (!$path) continue;
 
-            $dir = new \RecursiveDirectoryIterator($path);
-            $iterator = new \RecursiveIteratorIterator($dir);
+            $dir = new RecursiveDirectoryIterator($path);
+            $iterator = new RecursiveIteratorIterator($dir);
 
 
             foreach ($iterator as $f) {

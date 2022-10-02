@@ -11,7 +11,12 @@
 
 namespace Symfony\Component\Yaml;
 
+use ArrayObject;
+use InvalidArgumentException;
+use stdClass;
 use Symfony\Component\Yaml\Tag\TaggedValue;
+use function is_array;
+use function is_string;
 
 /**
  * Dumper dumps PHP variables to YAML strings.
@@ -30,7 +35,7 @@ class Dumper
     public function __construct(int $indentation = 4)
     {
         if ($indentation < 1) {
-            throw new \InvalidArgumentException('The indentation must be greater than zero.');
+            throw new InvalidArgumentException('The indentation must be greater than zero.');
         }
 
         $this->indentation = $indentation;
@@ -50,11 +55,11 @@ class Dumper
         $prefix = $indent ? str_repeat(' ', $indent) : '';
         $dumpObjectAsInlineMap = true;
 
-        if (Yaml::DUMP_OBJECT_AS_MAP & $flags && ($input instanceof \ArrayObject || $input instanceof \stdClass)) {
+        if (Yaml::DUMP_OBJECT_AS_MAP & $flags && ($input instanceof ArrayObject || $input instanceof stdClass)) {
             $dumpObjectAsInlineMap = empty((array)$input);
         }
 
-        if ($inline <= 0 || (!\is_array($input) && !$input instanceof TaggedValue && $dumpObjectAsInlineMap) || empty($input)) {
+        if ($inline <= 0 || (!is_array($input) && !$input instanceof TaggedValue && $dumpObjectAsInlineMap) || empty($input)) {
             $output .= $prefix . Inline::dump($input, $flags);
         } else {
             $dumpAsMap = Inline::isHash($input);
@@ -64,7 +69,7 @@ class Dumper
                     $output .= "\n";
                 }
 
-                if (Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK & $flags && \is_string($value) && false !== strpos($value, "\n") && false === strpos($value, "\r")) {
+                if (Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK & $flags && is_string($value) && false !== strpos($value, "\n") && false === strpos($value, "\r")) {
                     // If the first line starts with a space character, the spec requires a blockIndicationIndicator
                     // http://www.yaml.org/spec/1.2/spec.html#id2793979
                     $blockIndentationIndicator = (' ' === substr($value, 0, 1)) ? (string)$this->indentation : '';
@@ -93,7 +98,7 @@ class Dumper
                 if ($value instanceof TaggedValue) {
                     $output .= sprintf('%s%s !%s', $prefix, $dumpAsMap ? Inline::dump($key, $flags) . ':' : '-', $value->getTag());
 
-                    if (Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK & $flags && \is_string($value->getValue()) && false !== strpos($value->getValue(), "\n") && false === strpos($value->getValue(), "\r\n")) {
+                    if (Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK & $flags && is_string($value->getValue()) && false !== strpos($value->getValue(), "\n") && false === strpos($value->getValue(), "\r\n")) {
                         // If the first line starts with a space character, the spec requires a blockIndicationIndicator
                         // http://www.yaml.org/spec/1.2/spec.html#id2793979
                         $blockIndentationIndicator = (' ' === substr($value->getValue(), 0, 1)) ? (string)$this->indentation : '';
@@ -118,11 +123,11 @@ class Dumper
 
                 $dumpObjectAsInlineMap = true;
 
-                if (Yaml::DUMP_OBJECT_AS_MAP & $flags && ($value instanceof \ArrayObject || $value instanceof \stdClass)) {
+                if (Yaml::DUMP_OBJECT_AS_MAP & $flags && ($value instanceof ArrayObject || $value instanceof stdClass)) {
                     $dumpObjectAsInlineMap = empty((array)$value);
                 }
 
-                $willBeInlined = $inline - 1 <= 0 || !\is_array($value) && $dumpObjectAsInlineMap || empty($value);
+                $willBeInlined = $inline - 1 <= 0 || !is_array($value) && $dumpObjectAsInlineMap || empty($value);
 
                 $output .= sprintf('%s%s%s%s',
                         $prefix,

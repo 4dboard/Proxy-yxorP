@@ -2,7 +2,10 @@
 
 namespace App\Helper;
 
-class ResponseCache extends \Lime\Helper
+use Lime\AppAware;
+use Lime\Helper;
+
+class ResponseCache extends Helper
 {
 
     protected $cacheHandler = null;
@@ -77,7 +80,7 @@ class ResponseCache extends \Lime\Helper
     }
 }
 
-class ResponseCacheFileHandler extends \Lime\AppAware
+class ResponseCacheFileHandler extends AppAware
 {
 
     public function cache($request, $response)
@@ -113,7 +116,7 @@ class ResponseCacheFileHandler extends \Lime\AppAware
     }
 }
 
-class ResponseCacheMemoryeHandler extends \Lime\AppAware
+class ResponseCacheMemoryeHandler extends AppAware
 {
 
     public function cache($request, $response)

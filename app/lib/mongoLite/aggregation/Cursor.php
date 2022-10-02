@@ -2,10 +2,12 @@
 
 namespace MongoLite\Aggregation;
 
+use Closure;
+use Iterator;
 use MongoLite\Collection;
 use MongoLite\UtilArrayQuery;
 
-class Cursor implements \Iterator
+class Cursor implements Iterator
 {
 
     protected bool|int $position = false;
@@ -80,7 +82,7 @@ class Cursor implements \Iterator
         return $data;
     }
 
-    protected function make_cmp(array $sortValues): \Closure
+    protected function make_cmp(array $sortValues): Closure
     {
 
         return function ($a, $b) use (&$sortValues) {

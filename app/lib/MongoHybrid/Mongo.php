@@ -4,12 +4,20 @@ namespace MongoHybrid;
 
 use MongoDB\BSON\ObjectID;
 use MongoDB\Client as MongoDBClient;
+use MongoDB\Collection;
+use MongoDB\Database;
+use Throwable;
+use function is_iterable;
+use function is_object;
+use function json_decode;
+use function json_encode;
+use function substr;
 
 class Mongo
 {
 
     protected MongoDBClient $client;
-    protected \MongoDB\Database $db;
+    protected Database $db;
     protected array $options;
 
     public function __construct(string $server, array $options = [], array $driverOptions = [])
@@ -126,7 +134,7 @@ class Mongo
             if ($k === '_id') {
 
                 if (is_string($v)) {
-                    $v = $v[0] === '@' ? \substr($v, 1) : $this->getObjectID($v);
+                    $v = $v[0] === '@' ? substr($v, 1) : $this->getObjectID($v);
                 } elseif (is_array($v)) {
 
                     if (isset($v['$in'])) {
@@ -151,8 +159,8 @@ class Mongo
             }
 
             // eg ArrayObject
-            if (\is_object($v) && \is_iterable($v)) {
-                $v = \json_decode(\json_encode($v), true);
+            if (is_object($v) && is_iterable($v)) {
+                $v = json_decode(json_encode($v), true);
             }
         }
 
@@ -165,14 +173,14 @@ class Mongo
         if (is_string($v)) {
             try {
                 $v = new ObjectID($v);
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
             }
         }
 
         return $v;
     }
 
-    public function getCollection(string $name, ?string $db = null): \MongoDB\Collection
+    public function getCollection(string $name, ?string $db = null): Collection
     {
 
         if ($db) {

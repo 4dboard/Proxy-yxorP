@@ -4,8 +4,9 @@ namespace App\Helper;
 
 use Firebase\JWT\JWT as JWTLIB;
 use Firebase\JWT\Key;
+use Lime\Helper;
 
-class JWT extends \Lime\Helper
+class JWT extends Helper
 {
 
 

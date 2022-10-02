@@ -2,9 +2,10 @@
 
 namespace App\Helper;
 
+use Lime\Helper;
 use SplPriorityQueue;
 
-class Menus extends \Lime\Helper
+class Menus extends Helper
 {
 
     protected array $menus = [];

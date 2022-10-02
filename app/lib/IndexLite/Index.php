@@ -2,7 +2,13 @@
 
 namespace IndexLite;
 
+use Exception;
 use SQLite3;
+use function file_exists;
+use function is_array;
+use function is_numeric;
+use function is_string;
+use const SQLITE3_ASSOC;
 
 class Index
 {
@@ -15,8 +21,8 @@ class Index
 
         $this->path = $path;
 
-        if (!\file_exists($this->path)) {
-            throw new \Exception("Index <{$path}> does not exist.");
+        if (!file_exists($this->path)) {
+            throw new Exception("Index <{$path}> does not exist.");
         }
 
         // speed up adding documents
@@ -56,7 +62,7 @@ class Index
     protected function stringify($value)
     {
 
-        if (\is_string($value)) {
+        if (is_string($value)) {
             return $value;
         }
 
@@ -64,11 +70,11 @@ class Index
             return '';
         }
 
-        if (\is_numeric($value)) {
+        if (is_numeric($value)) {
             return $value . '';
         }
 
-        if (\is_array($value)) {
+        if (is_array($value)) {
 
             $str = [];
 
@@ -100,7 +106,7 @@ class Index
         $result = $stmt->execute();
         $hits = [];
 
-        while ($hit = $result->fetchArray(\SQLITE3_ASSOC)) {
+        while ($hit = $result->fetchArray(SQLITE3_ASSOC)) {
             $hits[] = $hit;
         }
 

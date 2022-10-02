@@ -2,7 +2,9 @@
 
 namespace System\Helper;
 
-class Log extends \Lime\Helper
+use Lime\Helper;
+
+class Log extends Helper
 {
 
     protected array $channels = [];

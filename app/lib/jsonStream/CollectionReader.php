@@ -2,6 +2,9 @@
 
 namespace JSONStream;
 
+use Generator;
+use InvalidArgumentException;
+
 class CollectionReader
 {
 
@@ -16,7 +19,7 @@ class CollectionReader
     {
 
         if (!file_exists($path)) {
-            throw new \InvalidArgumentException('There is no file at given path');
+            throw new InvalidArgumentException('There is no file at given path');
         }
 
         $this->asArray = $asArray;
@@ -24,7 +27,7 @@ class CollectionReader
         $this->resource = fopen($path, 'rb');
     }
 
-    public function get(): \Generator
+    public function get(): Generator
     {
 
         $this->buffer = '';
@@ -38,7 +41,7 @@ class CollectionReader
         }
     }
 
-    private function parseChunk($chunk): \Generator
+    private function parseChunk($chunk): Generator
     {
         // Continue from where we left off
         $this->buffer .= $chunk;

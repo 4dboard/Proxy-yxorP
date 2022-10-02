@@ -32,15 +32,15 @@ class RedisLite
 
         $options = array_merge([
             'storagetable' => 'storage',
-            \PDO::ATTR_TIMEOUT => 0,
-            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_TIMEOUT => 0,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         ], $options);
 
         $dns = "sqlite:{$path}";
 
         $this->path = $path;
         $this->table = $options['storagetable'];
-        $this->connection = new \PDO($dns, null, null, $options);
+        $this->connection = new PDO($dns, null, null, $options);
 
         // some sqlite optimisations
         $this->connection->exec('PRAGMA journal_mode = MEMORY');
@@ -48,7 +48,7 @@ class RedisLite
         $this->connection->exec('PRAGMA PAGE_SIZE = 4096');
 
         $stmt = $this->connection->query("SELECT name FROM sqlite_master WHERE type='table' AND name='{$this->table}';");
-        $table = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $table = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $stmt->closeCursor();
 
@@ -83,7 +83,7 @@ class RedisLite
 
         $keys = [];
         $stmt = $this->connection->query("SELECT `key` FROM {$this->table} ORDER BY `key`;");
-        $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $stmt->closeCursor();
 
@@ -160,7 +160,7 @@ class RedisLite
             return $default;
         }
 
-        $res = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $res = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $stmt->closeCursor();
 
@@ -219,7 +219,7 @@ class RedisLite
 
             $this->connection->exec($sql);
 
-        } catch (\PDOException $e) {
+        } catch (PDOException $e) {
         }
     }
 
@@ -232,7 +232,7 @@ class RedisLite
     {
 
         $stmt = $this->connection->query("SELECT `key` FROM {$this->table} WHERE `key`='{$key}' LIMIT 1;");
-        $res = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $res = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $stmt->closeCursor();
 

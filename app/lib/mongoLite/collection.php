@@ -2,6 +2,15 @@
 
 namespace MongoLite;
 
+use PDO;
+use function array_merge;
+use function count;
+use function implode;
+use function is_array;
+use function is_null;
+use function json_decode;
+use function json_encode;
+
 /**
  * Collection object.
  */
@@ -65,7 +74,7 @@ class Collection
 
             foreach ($document as &$doc) {
 
-                if (!\is_array($doc)) continue;
+                if (!is_array($doc)) continue;
 
                 $res = $this->_insert($doc);
 
@@ -75,7 +84,7 @@ class Collection
                 }
             }
             $this->database->connection->commit();
-            return \count($document);
+            return count($document);
         } else {
             return $this->_insert($document);
         }
@@ -92,18 +101,18 @@ class Collection
 
         $table = $this->name;
         $document['_id'] = isset($document['_id']) ? $document['_id'] : createMongoDbLikeId();
-        $data = ['document' => \json_encode($document, JSON_UNESCAPED_UNICODE)];
+        $data = ['document' => json_encode($document, JSON_UNESCAPED_UNICODE)];
 
         $fields = [];
         $values = [];
 
         foreach ($data as $col => $value) {
             $fields[] = "`{$col}`";
-            $values[] = (\is_null($value) ? 'NULL' : $this->database->connection->quote($value));
+            $values[] = (is_null($value) ? 'NULL' : $this->database->connection->quote($value));
         }
 
-        $fields = \implode(',', $fields);
-        $values = \implode(',', $values);
+        $fields = implode(',', $fields);
+        $values = implode(',', $values);
 
         $sql = "INSERT INTO `{$table}` ({$fields}) VALUES ({$values})";
         $res = $this->database->connection->exec($sql);
@@ -111,7 +120,7 @@ class Collection
         if ($res) {
             return $document['_id'];
         } else {
-            trigger_error('SQL Error: ' . \implode(', ', $this->database->connection->errorInfo()) . ":\n" . $sql);
+            trigger_error('SQL Error: ' . implode(', ', $this->database->connection->errorInfo()) . ":\n" . $sql);
             return false;
         }
     }
@@ -153,12 +162,12 @@ class Collection
         $conn = $this->database->connection;
         $sql = 'SELECT id, document FROM `' . $this->name . '` WHERE document_criteria("' . $this->database->registerCriteriaFunction($criteria) . '", document)';
         $stmt = $conn->query($sql);
-        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($result as &$doc) {
 
-            $_doc = \json_decode($doc['document'], true);
-            $document = $merge ? \array_merge($_doc, isset($data['$set']) ? $data['$set'] : []) : $data;
+            $_doc = json_decode($doc['document'], true);
+            $document = $merge ? array_merge($_doc, isset($data['$set']) ? $data['$set'] : []) : $data;
             $document['_id'] = $_doc['_id'];
 
             $sql = 'UPDATE `' . $this->name . '` SET document=' . $conn->quote(json_encode($document, JSON_UNESCAPED_UNICODE)) . ' WHERE id=' . $doc['id'];

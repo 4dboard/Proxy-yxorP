@@ -2,7 +2,9 @@
 
 namespace App\Helper;
 
-class Admin extends \Lime\Helper
+use Lime\Helper;
+
+class Admin extends Helper
 {
 
     public function lockResourceId($resourceId, $user = null)

@@ -3,6 +3,7 @@
 namespace MongoHybrid;
 
 use MongoLite\Client as MongoLiteClient;
+use MongoLite\Collection;
 
 class MongoLite
 {
@@ -88,7 +89,7 @@ class MongoLite
         return $this->getCollection($collection)->findOne($filter, $projection);
     }
 
-    public function getCollection(string $name, ?string $db = null): \MongoLite\Collection
+    public function getCollection(string $name, ?string $db = null): Collection
     {
 
         if (strpos($name, '/') !== false) {

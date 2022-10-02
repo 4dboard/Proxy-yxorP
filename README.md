@@ -11,15 +11,20 @@
 
 ## _yxorP SAAS(y) Web Proxy Portal Manager + Admin Dashboard (GUI)_
 
-🐱‍👤 Lean & Mean Web-proxy Machine: yxorP is an exceptionally effective Web proxy CMS. Multi-tenancy, Plug-and-Play, Flat-file, Advanced Caching, Multi-threaded, User-defined Extensions, and Content Spinner - PHP CURL & Composer are optional.
+🐱‍👤 Lean & Mean Web-proxy Machine: yxorP is an exceptionally effective Web proxy CMS. Multi-tenancy, Plug-and-Play,
+Flat-file, Advanced Caching, Multi-threaded, User-defined Extensions, and Content Spinner - PHP CURL & Composer are
+optional.
 
 ![image](https://user-images.githubusercontent.com/6468571/193473151-f6e089b8-4930-431c-b7eb-97d686359d96.png)
 
 ### _"Like Glype, KnProxy, or PHP Proxy - on steroids"_
 
-yxorP is an adjustable, flexible, and user-friendly web proxy management solution. Using basic plugins and themes, the plug-and-play program was designed to give a system that is simply extensible and changeable.
+yxorP is an adjustable, flexible, and user-friendly web proxy management solution. Using basic plugins and themes, the
+plug-and-play program was designed to give a system that is simply extensible and changeable.
 
-> The plug-and-play system can quickly process millions of requests since it has flat-file, cache, and database engines. The intuitive graphical user interface (GUI) of the system enables the rendering of several customized webpages from a single instance, and the event-driven yxorP architecture makes it simple to administer and modify.
+> The plug-and-play system can quickly process millions of requests since it has flat-file, cache, and database engines.
+> The intuitive graphical user interface (GUI) of the system enables the rendering of several customized webpages from a
+> single instance, and the event-driven yxorP architecture makes it simple to administer and modify.
 
 ![image](https://user-images.githubusercontent.com/6468571/192428162-1d3fe8b1-a04b-4181-a6da-89327c9121f9.png)
 
@@ -103,17 +108,25 @@ yxorP is an adjustable, flexible, and user-friendly web proxy management solutio
 
 ![image](https://user-images.githubusercontent.com/6468571/179232649-2da011cc-1d8a-4e20-ab01-632d05e56e4c.png)
 
-The plug-and-play yxroP Proxy Management System does not need database administration, PHP CURL, or Composer; nonetheless, they are suggested but optional. The application's event-driven architecture and modular design make it easy to alter and grow. Since the flat-file caching engine does not serialize and deserialize the data, the sophisticated caching system is 500 times quicker than Memcache and Redis. The initial design of yxorP supports both stateless (Standard PHP) and stateful (Swoole) modes, however stateful mode is more efficient. Using the program's proxy interface, you may proxy many editable websites using a single application. The yxorP web proxy centralizes proxy administration.
+The plug-and-play yxroP Proxy Management System does not need database administration, PHP CURL, or Composer;
+nonetheless, they are suggested but optional. The application's event-driven architecture and modular design make it
+easy to alter and grow. Since the flat-file caching engine does not serialize and deserialize the data, the
+sophisticated caching system is 500 times quicker than Memcache and Redis. The initial design of yxorP supports both
+stateless (Standard PHP) and stateful (Swoole) modes, however stateful mode is more efficient. Using the program's proxy
+interface, you may proxy many editable websites using a single application. The yxorP web proxy centralizes proxy
+administration.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177686483-68ab777a-d0cc-497c-b9ff-d981ad8e7037.png)
 
 > ⚠️Requires: Minimum requirement is PHP version 8.0 +\
-> 🔥   GD extension, OpenSSL extension, Curl extension\
-> 🔥   Fileinfo extension, Intl extension and Pdo_sqlite extension
+> 🔥 GD extension, OpenSSL extension, Curl extension\
+> 🔥 Fileinfo extension, Intl extension and Pdo_sqlite extension
 
-Add the following lines to the conclusion of your "php.ini" file to activate the necessary PHP extensions; they should be active by default, but you may need to activate them if the application is not functioning as expected. Even though this allows the required PHP extension, you should still validate your PHP version (8.1 is recommended):
+Add the following lines to the conclusion of your "php.ini" file to activate the necessary PHP extensions; they should
+be active by default, but you may need to activate them if the application is not functioning as expected. Even though
+this allows the required PHP extension, you should still validate your PHP version (8.1 is recommended):
 
 ```
 extension=curl
@@ -265,10 +278,10 @@ docker run
 
 - Verify that the computer has been outfitted with all the necessary PHP extensions, such as the following:
 
-  - PHP Pdo mod, and this is for the sqlite database 'apt install php8.1-common'
+    - PHP Pdo mod, and this is for the sqlite database 'apt install php8.1-common'
 
-  - PHP Intl mod, this is for puny domain names, Punycode or IDN, or install it with 'php-intl' if you want to use it
-    with IDN.
+    - PHP Intl mod, this is for puny domain names, Punycode or IDN, or install it with 'php-intl' if you want to use it
+      with IDN.
 
 - You need to check that the "./app" submodule was properly retrieved; the directory should already be present at the
   top level of the project and have some information. If the directory is not there, you may quickly initialize the
@@ -877,10 +890,10 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 <p align="center">🦄 PLEASE REMEMBER TO SMASH THE ⭐🔨 BUTTON AND <a href="https://github.com/sponsors/donspablo/dashboard">SUPPORT</a> 🌈 THANK YOU.</sub></sup></p>
 <p align="center">📢<sub><sup> <i><b> YOUR SUPPORT IS GREATLY APPRECIATED / </b> <a href="https://www.patreon.com/donPabloNow">PATREON.COM/DONPABLONOW</a> / <b>BTC</b>  3HVNOVVMLHVEWQLSCCQX9DUA26P5PRCTNQ / <b>ETH</b> 0X3D288C7A673501294C9289C6FC42480A2EA61417 </i> </p>
-  
+
 <p align="center"><img src="https://user-images.githubusercontent.com/6468571/191125670-003a61ea-411f-42c0-b820-ad19124307a8.png"></img></p>
 
-  | <p align="center"><img height="150px" src="https://user-images.githubusercontent.com/6468571/191125131-4e76fe43-770b-49e8-aa66-d1c8723f7e7a.png"></img></p><sub><sup><a href="https://github.com/4dboard/Proxy-yxorP">YXORP PROXY</a>: Web Proxy 🐮 yxorP: SAAS(y) Guzzler + App (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play, Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to provide multi-tenancy, multiple threads, caching, and an article spinner service.</sub></sup> | <p align="center"><img height="150px" src="https://user-images.githubusercontent.com/6468571/191125113-9d991af2-f911-43df-8994-a573aaf9a7ac.png"></img></p><sub><sup><a href="https://github.com/meanos/meanOs">MEANOS</a>: The operating system with the smallest memory footprint and the highest performance levels. NEW RELEASE A new version of the Web3 operating system will be released in the near future. https://mean.ơs.com. Operating systems have been subjected to significant revisions; if you would want to be informed when the subsequent version is made available, please subscribe.</sub></sup> |
+| <p align="center"><img height="150px" src="https://user-images.githubusercontent.com/6468571/191125131-4e76fe43-770b-49e8-aa66-d1c8723f7e7a.png"></img></p><sub><sup><a href="https://github.com/4dboard/Proxy-yxorP">YXORP PROXY</a>: Web Proxy 🐮 yxorP: SAAS(y) Guzzler + App (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play, Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to provide multi-tenancy, multiple threads, caching, and an article spinner service.</sub></sup> | <p align="center"><img height="150px" src="https://user-images.githubusercontent.com/6468571/191125113-9d991af2-f911-43df-8994-a573aaf9a7ac.png"></img></p><sub><sup><a href="https://github.com/meanos/meanOs">MEANOS</a>: The operating system with the smallest memory footprint and the highest performance levels. NEW RELEASE A new version of the Web3 operating system will be released in the near future. https://mean.ơs.com. Operating systems have been subjected to significant revisions; if you would want to be informed when the subsequent version is made available, please subscribe.</sub></sup> |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 <p align="center"><img src="https://user-images.githubusercontent.com/6468571/191124256-20415448-9bd5-4879-bfff-cca988bd7bfa.png"></img></p>

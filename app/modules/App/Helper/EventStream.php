@@ -2,7 +2,9 @@
 
 namespace App\Helper;
 
-class EventStream extends \Lime\Helper
+use Lime\Helper;
+
+class EventStream extends Helper
 {
 
     public function cleanup()

@@ -1,7 +1,10 @@
 <?php
 
 namespace System\Helper;
-class Locales extends \Lime\Helper
+use Lime\Helper;
+use Throwable;
+
+class Locales extends Helper
 {
 
     protected array $locales = [];
@@ -122,7 +125,7 @@ class Locales extends \Lime\Helper
                 $cache[$locale['i18n']] = $locale;
             }
 
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $locales = null;
         }
 

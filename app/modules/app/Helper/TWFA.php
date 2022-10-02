@@ -6,10 +6,11 @@ use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use BaconQrCode\Renderer\ImageRenderer;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
+use Lime\Helper;
 use RobThree\Auth\Providers\Qr\IQRCodeProvider;
 use RobThree\Auth\TwoFactorAuth;
 
-class TWFA extends \Lime\Helper
+class TWFA extends Helper
 {
 
     protected TwoFactorAuth $tfa;

@@ -3,7 +3,9 @@
 namespace App\Helper;
 
 
-class Acl extends \Lime\Helper
+use Lime\Helper;
+
+class Acl extends Helper
 {
 
     protected array $roles = [];

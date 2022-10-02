@@ -2,6 +2,9 @@
 
 namespace MongoLite;
 
+use DirectoryIterator;
+use function rtrim;
+
 /**
  * Client object.
  */
@@ -31,7 +34,7 @@ class Client
      */
     public function __construct(string $path, array $options = [])
     {
-        $this->path = \rtrim($path, '\\');
+        $this->path = rtrim($path, '\\');
         $this->options = $options;
     }
 
@@ -51,7 +54,7 @@ class Client
         // Return all databases available on disk
         $databases = [];
 
-        foreach (new \DirectoryIterator($this->path) as $fileInfo) {
+        foreach (new DirectoryIterator($this->path) as $fileInfo) {
             if ($fileInfo->getExtension() === 'sqlite') {
                 $databases[] = $fileInfo->getBasename('.sqlite');
             }

@@ -2,9 +2,16 @@
 
 namespace Lime\Helper;
 
+use Lime\Helper;
 use function Lime\fetch_from_array;
+use function session_destroy;
+use function session_name;
+use function session_regenerate_id;
+use function session_start;
+use function session_status;
+use function session_write_close;
 
-class Session extends \Lime\Helper
+class Session extends Helper
 {
 
     public string $name;
@@ -15,14 +22,14 @@ class Session extends \Lime\Helper
 
         if ($this->initialized) return;
 
-        if (\session_status() != PHP_SESSION_ACTIVE) {
+        if (session_status() != PHP_SESSION_ACTIVE) {
 
             $this->name = $name ? $name : $this->app["session.name"];
 
-            \session_name($this->name);
-            \session_start();
+            session_name($this->name);
+            session_start();
         } else {
-            $this->name = \session_name();
+            $this->name = session_name();
         }
 
         $this->initialized = true;
@@ -45,16 +52,16 @@ class Session extends \Lime\Helper
 
     public function destroy(): void
     {
-        \session_destroy();
+        session_destroy();
     }
 
     public function close(): void
     {
-        \session_write_close();
+        session_write_close();
     }
 
     public function regenerateId(bool $delete_old_session = false): bool
     {
-        return \session_regenerate_id(true);
+        return session_regenerate_id(true);
     }
 }

@@ -2,7 +2,10 @@
 
 namespace IndexLite;
 
+use Exception;
 use SQLite3;
+use function file_exists;
+use function unlink;
 
 class Manager
 {
@@ -18,7 +21,7 @@ class Manager
     {
 
         if ($this->exists($name)) {
-            throw new \Exception("Index <{$name}> already exists.");
+            throw new Exception("Index <{$name}> already exists.");
         }
 
         $options = array_merge([
@@ -42,7 +45,7 @@ class Manager
 
     public function exists(string $name): bool
     {
-        return \file_exists("{$this->path}/$name.idx");
+        return file_exists("{$this->path}/$name.idx");
     }
 
     public function index(string $name): Index
@@ -58,6 +61,6 @@ class Manager
             return;
         }
 
-        \unlink("{$this->path}/$name.idx");
+        unlink("{$this->path}/$name.idx");
     }
 }

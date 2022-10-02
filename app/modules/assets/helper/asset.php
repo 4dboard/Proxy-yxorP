@@ -2,9 +2,16 @@
 
 namespace Assets\Helper;
 
+use Lime\Helper;
 use SimpleImageLib as SimpleImage;
+use function call_user_func_array;
+use function explode;
+use function floor;
+use function preg_match;
+use function str_replace;
+use function strpos;
 
-class Asset extends \Lime\Helper
+class Asset extends Helper
 {
 
     public function image(array $options = [], bool $asPath = false)
@@ -58,8 +65,8 @@ class Asset extends \Lime\Helper
         $src = rawurldecode($src);
         $asset = null;
 
-        if (\strpos($src, 'assets://') === 0) {
-            $asset = ['path' => \str_replace('assets://', '', $src)];
+        if (strpos($src, 'assets://') === 0) {
+            $asset = ['path' => str_replace('assets://', '', $src)];
         } elseif (!preg_match('/\.(png|jpg|jpeg|gif|svg|webp|avif)$/i', $src)) {
             $asset = $this->app->dataStorage->findOne('assets', ['_id' => $src]);
         } else {
@@ -227,7 +234,7 @@ class Img
     {
 
 
-        if (\preg_match('/\d \d/', $anchor)) {
+        if (preg_match('/\d \d/', $anchor)) {
 
             // Determine aspect ratios
             $currentRatio = $this->image->getHeight() / $this->image->getWidth();
@@ -240,11 +247,11 @@ class Img
                 $this->image->resize($width, null);
             }
 
-            $anchor = \explode(' ', $anchor);
+            $anchor = explode(' ', $anchor);
 
-            $x1 = \floor(($this->image->getWidth() * $anchor[0]) - ($width * $anchor[0]));
+            $x1 = floor(($this->image->getWidth() * $anchor[0]) - ($width * $anchor[0]));
             $x2 = $width + $x1;
-            $y1 = \floor(($this->image->getHeight() * $anchor[1]) - ($height * $anchor[1]));
+            $y1 = floor(($this->image->getHeight() * $anchor[1]) - ($height * $anchor[1]));
             $y2 = $height + $y1;
 
             return $this->image->crop($x1, $y1, $x2, $y2);
@@ -256,7 +263,7 @@ class Img
     public function __call($method, $args)
     {
 
-        $ret = \call_user_func_array([$this->image, $method], $args);
+        $ret = call_user_func_array([$this->image, $method], $args);
 
         if ($ret !== $this->image) {
             return $ret;

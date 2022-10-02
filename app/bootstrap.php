@@ -211,7 +211,7 @@ class Cockpit
                 parse_str($options, $options);
             }
 
-            $mailer = new \Mailer($options['transport'] ?? 'mail', $options);
+            $mailer = new Mailer($options['transport'] ?? 'mail', $options);
 
             return $mailer;
         });

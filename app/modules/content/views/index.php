@@ -266,7 +266,7 @@
                             }).catch(rsp => {
                                 App.ui.notify(rsp.error || 'Removing model failed!', 'error');
                             });
-                            ;
+
                         });
                     },
 

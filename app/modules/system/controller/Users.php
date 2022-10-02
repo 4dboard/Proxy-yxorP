@@ -3,6 +3,8 @@
 namespace System\Controller;
 
 use App\Controller\App;
+use Exception;
+use function preg_match;
 
 class Users extends App
 {
@@ -184,11 +186,11 @@ class Users extends App
 
             $filter = null;
 
-            if (\preg_match('/^\{(.*)\}$/', $options['filter'])) {
+            if (preg_match('/^\{(.*)\}$/', $options['filter'])) {
 
                 try {
                     $filter = json5_decode($options['filter'], true);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                 }
             }
 

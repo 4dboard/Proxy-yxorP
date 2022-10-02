@@ -14,6 +14,7 @@ namespace Symfony\Component\String;
 use Symfony\Component\String\Exception\ExceptionInterface;
 use Symfony\Component\String\Exception\InvalidArgumentException;
 use Symfony\Component\String\Exception\RuntimeException;
+use function count;
 
 /**
  * Represents a string of abstract Unicode characters.
@@ -194,7 +195,7 @@ abstract class AbstractUnicodeString extends AbstractString
     {
         $str = clone $this;
 
-        $tail = null !== $lastGlue && 1 < \count($strings) ? $lastGlue . array_pop($strings) : '';
+        $tail = null !== $lastGlue && 1 < count($strings) ? $lastGlue . array_pop($strings) : '';
         $str->string = implode($this->string, $strings) . $tail;
 
         if (!preg_match('//u', $str->string)) {
@@ -563,7 +564,7 @@ abstract class AbstractUnicodeString extends AbstractString
                 self::$tableZero = require __DIR__ . '/Resources/data/wcswidth_table_zero.php';
             }
 
-            if ($codePoint >= self::$tableZero[0][0] && $codePoint <= self::$tableZero[$ubound = \count(self::$tableZero) - 1][1]) {
+            if ($codePoint >= self::$tableZero[0][0] && $codePoint <= self::$tableZero[$ubound = count(self::$tableZero) - 1][1]) {
                 $lbound = 0;
                 while ($ubound >= $lbound) {
                     $mid = floor(($lbound + $ubound) / 2);
@@ -582,7 +583,7 @@ abstract class AbstractUnicodeString extends AbstractString
                 self::$tableWide = require __DIR__ . '/Resources/data/wcswidth_table_wide.php';
             }
 
-            if ($codePoint >= self::$tableWide[0][0] && $codePoint <= self::$tableWide[$ubound = \count(self::$tableWide) - 1][1]) {
+            if ($codePoint >= self::$tableWide[0][0] && $codePoint <= self::$tableWide[$ubound = count(self::$tableWide) - 1][1]) {
                 $lbound = 0;
                 while ($ubound >= $lbound) {
                     $mid = floor(($lbound + $ubound) / 2);

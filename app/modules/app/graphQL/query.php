@@ -6,8 +6,9 @@ use ArrayObject;
 use GraphQL\GraphQL;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Schema;
+use Lime\AppAware;
 
-class Query extends \Lime\AppAware
+class Query extends AppAware
 {
 
     public $queries;
@@ -63,10 +64,10 @@ class Query extends \Lime\AppAware
 
         if ($this->initialized) return;
 
-        $this->queries = new \ArrayObject(['name' => 'Query', 'fields' => []]);
-        $this->mutations = new \ArrayObject(['name' => 'Mutation', 'fields' => []]);
-        $this->types = new \ArrayObject([]);
-        $this->directives = new \ArrayObject(GraphQL::getStandardDirectives());
+        $this->queries = new ArrayObject(['name' => 'Query', 'fields' => []]);
+        $this->mutations = new ArrayObject(['name' => 'Mutation', 'fields' => []]);
+        $this->types = new ArrayObject([]);
+        $this->directives = new ArrayObject(GraphQL::getStandardDirectives());
         $this->app->trigger('graphql.config', [$this]);
         $this->initialized = true;
     }

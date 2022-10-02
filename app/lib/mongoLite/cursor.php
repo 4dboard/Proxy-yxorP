@@ -2,10 +2,16 @@
 
 namespace MongoLite;
 
+use Iterator;
+use PDO;
+use function array_diff_key;
+use function implode;
+use function json_decode;
+
 /**
  * Cursor object.
  */
-class Cursor implements \Iterator
+class Cursor implements Iterator
 {
 
     /**
@@ -83,10 +89,10 @@ class Cursor implements \Iterator
                 $sql[] = 'LIMIT ' . $this->limit;
             }
 
-            $stmt = $this->collection->database->connection->query(\implode(' ', $sql));
+            $stmt = $this->collection->database->connection->query(implode(' ', $sql));
         }
 
-        $res = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $res = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return intval(isset($res['C']) ? $res['C'] : 0);
     }
@@ -190,7 +196,7 @@ class Cursor implements \Iterator
                 $orders[] = 'document_key(' . $conn->quote($field) . ', document) ' . ($direction == -1 ? 'DESC' : 'ASC');
             }
 
-            $sql[] = 'ORDER BY ' . \implode(',', $orders);
+            $sql[] = 'ORDER BY ' . implode(',', $orders);
         }
 
         if ($this->limit) {
@@ -204,13 +210,13 @@ class Cursor implements \Iterator
         $sql = implode(' ', $sql);
 
         $stmt = $conn->query($sql);
-        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $documents = [];
 
         if (!$this->projection) {
 
             foreach ($result as &$doc) {
-                $documents[] = \json_decode($doc['document'], true);
+                $documents[] = json_decode($doc['document'], true);
             }
 
         } else {
@@ -229,11 +235,11 @@ class Cursor implements \Iterator
 
             foreach ($result as &$doc) {
 
-                $item = \json_decode($doc['document'], true);
+                $item = json_decode($doc['document'], true);
                 $id = $item['_id'];
 
                 if ($exclude) {
-                    $item = \array_diff_key($item, $exclude);
+                    $item = array_diff_key($item, $exclude);
                 }
 
                 if ($include) {

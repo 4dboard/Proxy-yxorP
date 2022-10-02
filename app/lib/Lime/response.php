@@ -2,6 +2,15 @@
 
 namespace Lime;
 
+use function fpassthru;
+use function header;
+use function is_array;
+use function is_numeric;
+use function is_object;
+use function is_resource;
+use function json_encode;
+use function ob_start;
+
 class Response
 {
 
@@ -138,8 +147,8 @@ class Response
     public function flush(): void
     {
 
-        if ($this->gzip && !\ob_start('ob_gzhandler')) {
-            \ob_start();
+        if ($this->gzip && !ob_start('ob_gzhandler')) {
+            ob_start();
         }
 
         if (!headers_sent($filename, $linenum)) {
@@ -147,8 +156,8 @@ class Response
             $body = $this->body;
             $headers = [];
 
-            if (\is_array($this->body) || \is_object($this->body)) {
-                $body = \json_encode($this->body);
+            if (is_array($this->body) || is_object($this->body)) {
+                $body = json_encode($this->body);
                 $this->mime = 'json';
             }
 
@@ -165,16 +174,16 @@ class Response
                 $headers['ETag'] = md5($this->body);
             }
 
-            \header('HTTP/1.0 ' . $this->status . ' ' . self::$statusCodes[$this->status]);
+            header('HTTP/1.0 ' . $this->status . ' ' . self::$statusCodes[$this->status]);
 
             $headers = array_merge($headers, $this->headers);
 
             foreach ($headers as $h => $v) {
-                \header(\is_numeric($h) ? $v : "{$h}: {$v}");
+                header(is_numeric($h) ? $v : "{$h}: {$v}");
             }
 
-            if (\is_resource($body)) {
-                \fpassthru($body);
+            if (is_resource($body)) {
+                fpassthru($body);
             } else {
                 echo $body;
             }

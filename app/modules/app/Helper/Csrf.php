@@ -2,7 +2,10 @@
 
 namespace App\Helper;
 
-class Csrf extends \Lime\Helper
+use Exception;
+use Lime\Helper;
+
+class Csrf extends Helper
 {
 
     public function token(string $key, bool $generate = false, ?int $expire = null): string
@@ -44,7 +47,7 @@ class Csrf extends \Lime\Helper
             try {
                 $payload = $this->app->helper('jwt')->decode($token);
                 return isset($payload->csrf) && $payload->csrf == $key;
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 return false;
             }
         }
@@ -57,7 +60,7 @@ class Csrf extends \Lime\Helper
 
         try {
             $token = $this->app->helper('jwt')->decode($token);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return false;
         }
 

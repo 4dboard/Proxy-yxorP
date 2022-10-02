@@ -4,6 +4,10 @@ namespace System\Controller;
 
 use App\Controller\App;
 use ArrayObject;
+use OpenApi\Generator;
+use Symfony\Component\Finder\Finder;
+use function file_exists;
+use function str_replace;
 
 class Api extends App
 {
@@ -151,20 +155,20 @@ class Api extends App
 
         $this->helper('session')->close();
 
-        $paths = [(new \Symfony\Component\Finder\Finder())->files()->in(APP_DIR . '/modules')->notPath('#vendor#')];
+        $paths = [(new Finder())->files()->in(APP_DIR . '/modules')->notPath('#vendor#')];
 
-        if (\file_exists(APP_DIR . '/addons')) {
-            $paths[] = (new \Symfony\Component\Finder\Finder())->files()->in(APP_DIR . '/addons')->notPath('#vendor#');
+        if (file_exists(APP_DIR . '/addons')) {
+            $paths[] = (new Finder())->files()->in(APP_DIR . '/addons')->notPath('#vendor#');
         }
 
-        if (\file_exists(APP_DIR . '/config/api')) {
-            $paths[] = (new \Symfony\Component\Finder\Finder())->files()->in(APP_DIR . '/config/api')->notPath('#vendor#');
+        if (file_exists(APP_DIR . '/config/api')) {
+            $paths[] = (new Finder())->files()->in(APP_DIR . '/config/api')->notPath('#vendor#');
         }
 
-        $yaml = \OpenApi\Generator::scan($paths)->toYaml();
+        $yaml = Generator::scan($paths)->toYaml();
 
         // replace placeholders
-        $yaml = \str_replace([
+        $yaml = str_replace([
             APP_DIR,
             '{{ app.name }}',
             '{{ app.version }}',

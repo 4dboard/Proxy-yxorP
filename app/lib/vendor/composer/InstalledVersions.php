@@ -4,6 +4,7 @@
 namespace Composer;
 
 use Composer\Semver\VersionParser;
+use OutOfBoundsException;
 
 
 class InstalledVersions
@@ -411,7 +412,7 @@ class InstalledVersions
     public static function getVersionRanges($packageName)
     {
         if (!isset(self::$installed['versions'][$packageName])) {
-            throw new \OutOfBoundsException('Package "' . $packageName . '" is not installed');
+            throw new OutOfBoundsException('Package "' . $packageName . '" is not installed');
         }
 
         $ranges = array();
@@ -435,7 +436,7 @@ class InstalledVersions
     public static function getVersion($packageName)
     {
         if (!isset(self::$installed['versions'][$packageName])) {
-            throw new \OutOfBoundsException('Package "' . $packageName . '" is not installed');
+            throw new OutOfBoundsException('Package "' . $packageName . '" is not installed');
         }
 
         if (!isset(self::$installed['versions'][$packageName]['version'])) {
@@ -449,7 +450,7 @@ class InstalledVersions
     public static function getPrettyVersion($packageName)
     {
         if (!isset(self::$installed['versions'][$packageName])) {
-            throw new \OutOfBoundsException('Package "' . $packageName . '" is not installed');
+            throw new OutOfBoundsException('Package "' . $packageName . '" is not installed');
         }
 
         if (!isset(self::$installed['versions'][$packageName]['pretty_version'])) {
@@ -463,7 +464,7 @@ class InstalledVersions
     public static function getReference($packageName)
     {
         if (!isset(self::$installed['versions'][$packageName])) {
-            throw new \OutOfBoundsException('Package "' . $packageName . '" is not installed');
+            throw new OutOfBoundsException('Package "' . $packageName . '" is not installed');
         }
 
         if (!isset(self::$installed['versions'][$packageName]['reference'])) {

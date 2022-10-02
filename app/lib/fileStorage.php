@@ -38,12 +38,12 @@ class FileStorage
         static $mountMethod;
 
         if (!$mountMethod) {
-            $mountMethod = new \ReflectionMethod('League\Flysystem\MountManager', 'mountFilesystem');
+            $mountMethod = new ReflectionMethod('League\Flysystem\MountManager', 'mountFilesystem');
             $mountMethod->setAccessible(true);
         }
 
         $config = $this->config[$name];
-        $adapter = new \ReflectionClass($config['adapter']);
+        $adapter = new ReflectionClass($config['adapter']);
         $this->storages[$name] = new Filesystem($adapter->newInstanceArgs($config['args'] ?: []));
 
         if (isset($config['mount']) && $config['mount']) {

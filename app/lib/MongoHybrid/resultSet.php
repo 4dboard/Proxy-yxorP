@@ -2,7 +2,9 @@
 
 namespace MongoHybrid;
 
-class ResultSet extends \ArrayObject
+use ArrayObject;
+
+class ResultSet extends ArrayObject
 {
 
     /** Driver */

@@ -3,6 +3,7 @@
 namespace Content\Controller;
 
 use App\Controller\App;
+use function in_array;
 
 class Models extends App
 {
@@ -16,7 +17,7 @@ class Models extends App
 
         $type = $this->param('type', 'collection');
 
-        if (!\in_array($type, ['collection', 'singleton'])) {
+        if (!in_array($type, ['collection', 'singleton'])) {
             $type = 'collection';
         }
 
@@ -46,7 +47,7 @@ class Models extends App
 
         foreach ($this->module('content')->models() as $name => $meta) {
 
-            if ($meta['group'] && !\in_array($meta['group'], $groups)) {
+            if ($meta['group'] && !in_array($meta['group'], $groups)) {
                 $groups[] = $meta['group'];
             }
         }

@@ -3,10 +3,14 @@
 
 namespace App\Helper;
 
+use Lime\Helper;
+use function array_merge;
+use function vsprintf;
+
 /**
  * I18n class. Manage translations
  */
-class i18n extends \Lime\Helper
+class i18n extends Helper
 {
 
     public static array $locales = [
@@ -567,7 +571,7 @@ class i18n extends \Lime\Helper
             $alternative = $key;
         }
 
-        return \vsprintf(isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative, $params);
+        return vsprintf(isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative, $params);
     }
 
     /**
@@ -591,7 +595,7 @@ class i18n extends \Lime\Helper
 
             $langtable = include($path);
 
-            $this->_languages[$lang] = \array_merge($this->_languages[$lang], (array)$langtable);
+            $this->_languages[$lang] = array_merge($this->_languages[$lang], (array)$langtable);
 
             return true;
         }

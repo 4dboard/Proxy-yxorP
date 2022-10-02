@@ -2,11 +2,16 @@
 
 namespace App\Controller;
 
+use Lime\AppAware;
+use function get_class;
+use function str_replace;
+use function strtolower;
+
 /**
  * Class Controller
  * @package App
  */
-class Base extends \Lime\AppAware
+class Base extends AppAware
 {
 
     protected $layout = false;
@@ -25,7 +30,7 @@ class Base extends \Lime\AppAware
     protected function initialize()
     {
 
-        $controller = \strtolower(\str_replace('\\', '.', \get_class($this)));
+        $controller = strtolower(str_replace('\\', '.', get_class($this)));
 
         $this->app->trigger("app.{$controller}.init", [$this]);
 

@@ -2,6 +2,11 @@
 
 namespace MemoryStorage;
 
+use Redis;
+use RedisLite;
+use function call_user_func;
+use function is_callable;
+
 class Client
 {
 
@@ -22,7 +27,7 @@ class Client
                 'timeout' => 1,
             ], $options);
 
-            $this->driver = new \Redis();
+            $this->driver = new Redis();
 
             if (isset($options['auth'])) {
                 $this->driver->connect($options['host'], $options['port'], $options['timeout'], NULL, 0, 0, ['auth' => $options['auth']]);
@@ -32,7 +37,7 @@ class Client
 
             // use custom prefix on all keys
             if (isset($options['prefix']) && $options['prefix']) {
-                $this->driver->setOption(\Redis::OPT_PREFIX, $options['prefix']);
+                $this->driver->setOption(Redis::OPT_PREFIX, $options['prefix']);
             }
 
             // select database
@@ -40,10 +45,10 @@ class Client
                 $this->driver->select($options['db']);
             }
 
-            $this->driver->setOption(\Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP);
+            $this->driver->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
 
         } elseif (strpos($server, 'redislite://') === 0) {
-            $this->driver = new \RedisLite(str_replace('redislite://', '', $server), $options);
+            $this->driver = new RedisLite(str_replace('redislite://', '', $server), $options);
         }
 
         if (isset($options['key']) && is_string($options['key'])) {
@@ -66,7 +71,7 @@ class Client
         }
 
         if ($value === false) {
-            return \is_callable($default) ? \call_user_func($default) : $default;
+            return is_callable($default) ? call_user_func($default) : $default;
         }
 
         return $value;
