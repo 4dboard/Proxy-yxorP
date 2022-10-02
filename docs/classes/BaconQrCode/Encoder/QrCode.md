@@ -4,12 +4,9 @@
 
 QR code.
 
-
-
 * Full name: `\BaconQrCode\Encoder\QrCode`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
-
 
 ## Constants
 
@@ -19,7 +16,6 @@ QR code.
 
 ## Properties
 
-
 ### mode
 
 Mode of the QR code.
@@ -27,11 +23,6 @@ Mode of the QR code.
 ```php
 private \BaconQrCode\Common\Mode $mode
 ```
-
-
-
-
-
 
 ***
 
@@ -43,11 +34,6 @@ EC level of the QR code.
 private \BaconQrCode\Common\ErrorCorrectionLevel $errorCorrectionLevel
 ```
 
-
-
-
-
-
 ***
 
 ### version
@@ -57,11 +43,6 @@ Version of the QR code.
 ```php
 private \BaconQrCode\Common\Version $version
 ```
-
-
-
-
-
 
 ***
 
@@ -73,11 +54,6 @@ Mask pattern of the QR code.
 private int $maskPattern
 ```
 
-
-
-
-
-
 ***
 
 ### matrix
@@ -88,30 +64,15 @@ Matrix of the QR code.
 private \BaconQrCode\Encoder\ByteMatrix $matrix
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\BaconQrCode\Common\Mode $mode, \BaconQrCode\Common\ErrorCorrectionLevel $errorCorrectionLevel, \BaconQrCode\Common\Version $version, int $maskPattern, \BaconQrCode\Encoder\ByteMatrix $matrix): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -123,9 +84,6 @@ public __construct(\BaconQrCode\Common\Mode $mode, \BaconQrCode\Common\ErrorCorr
 | `$maskPattern` | **int** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
 
-
-
-
 ***
 
 ### getMode
@@ -135,16 +93,6 @@ Gets the mode.
 ```php
 public getMode(): \BaconQrCode\Common\Mode
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -156,16 +104,6 @@ Gets the EC level.
 public getErrorCorrectionLevel(): \BaconQrCode\Common\ErrorCorrectionLevel
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getVersion
@@ -175,16 +113,6 @@ Gets the version.
 ```php
 public getVersion(): \BaconQrCode\Common\Version
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -196,16 +124,6 @@ Gets the mask pattern.
 public getMaskPattern(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getMatrix
@@ -215,16 +133,6 @@ Gets the matrix.
 ```php
 public getMatrix(): \BaconQrCode\Encoder\ByteMatrix
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -236,21 +144,13 @@ Validates whether a mask pattern is valid.
 public static isValidMaskPattern(int $maskPattern): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$maskPattern` | **int** |  |
-
-
-
 
 ***
 
@@ -261,16 +161,6 @@ Returns a string representation of the QR code.
 ```php
 public __toString(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

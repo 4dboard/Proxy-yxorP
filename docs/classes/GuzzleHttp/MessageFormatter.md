@@ -10,7 +10,7 @@ The following variable substitutions are supported:
 - {request}:        Full HTTP request message
 - {response}:       Full HTTP response message
 - {ts}:             ISO 8601 date in GMT
-- {date_iso_8601}   ISO 8601 date in GMT
+- {date_iso_8601} ISO 8601 date in GMT
 - {date_common_log} Apache common log date using the configured timezone.
 - {host}:           Host of the request
 - {method}:         Method of the request
@@ -30,8 +30,7 @@ The following variable substitutions are supported:
 
 * Full name: `\GuzzleHttp\MessageFormatter`
 * This class implements:
-[`\GuzzleHttp\MessageFormatterInterface`](./MessageFormatterInterface.md)
-
+  [`\GuzzleHttp\MessageFormatterInterface`](./MessageFormatterInterface.md)
 
 ## Constants
 
@@ -43,48 +42,27 @@ The following variable substitutions are supported:
 
 ## Properties
 
-
 ### template
-
-
 
 ```php
 private string $template
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $template = self::CLF): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$template` | **string** | Log message template |
-
-
-
 
 ***
 
@@ -96,13 +74,6 @@ Returns a formatted message string.
 public format(\Psr\Http\Message\RequestInterface $request, \Psr\Http\Message\ResponseInterface|null $response = null, \Throwable|null $error = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -110,9 +81,6 @@ public format(\Psr\Http\Message\RequestInterface $request, \Psr\Http\Message\Res
 | `$request` | **\Psr\Http\Message\RequestInterface** | Request that was sent |
 | `$response` | **\Psr\Http\Message\ResponseInterface&#124;null** | Response that was received |
 | `$error` | **\Throwable&#124;null** | Exception that was received |
-
-
-
 
 ***
 
@@ -124,21 +92,11 @@ Get headers from message as string
 private headers(\Psr\Http\Message\MessageInterface $message): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **\Psr\Http\Message\MessageInterface** |  |
-
-
-
 
 ***
 

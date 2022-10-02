@@ -2,19 +2,11 @@
 
 # Utils
 
-
-
-
-
 * Full name: `\GuzzleHttp\Promise\Utils`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
-
-
-
 ## Methods
-
 
 ### queue
 
@@ -36,17 +28,11 @@ while ($eventLoop->isRunning()) {
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$assign` | **\GuzzleHttp\Promise\TaskQueueInterface** | Optionally specify a new queue instance. |
-
-
-
 
 ***
 
@@ -59,21 +45,13 @@ returns a promise that is fulfilled or rejected with the result.
 public static task(callable $task): \GuzzleHttp\Promise\PromiseInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$task` | **callable** | Task function to run. |
-
-
-
 
 ***
 
@@ -94,17 +72,11 @@ key mapping to the rejection reason of the promise.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$promise` | **\GuzzleHttp\Promise\PromiseInterface** | Promise or value. |
-
-
-
 
 ***
 
@@ -121,16 +93,11 @@ Returns an array of inspection state arrays.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$promises` | **\GuzzleHttp\Promise\PromiseInterface[]** | Traversable of promises to wait upon. |
-
-
 
 **See Also:**
 
@@ -152,17 +119,11 @@ promises are rejected.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$promises` | **iterable<\GuzzleHttp\Promise\PromiseInterface>** | Iterable of PromiseInterface objects to wait on. |
-
-
-
 
 ***
 
@@ -181,18 +142,12 @@ rejects, the returned promise is rejected with the rejection reason.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$promises` | **mixed** | Promises or values. |
 | `$recursive` | **bool** | If true, resolves new promises that might have been added to the stack during its own resolution. |
-
-
-
 
 ***
 
@@ -214,18 +169,12 @@ of fulfilled promises is less than the desired $count.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$count` | **int** | Total number of promises. |
 | `$promises` | **mixed** | Promises or values. |
-
-
-
 
 ***
 
@@ -238,21 +187,13 @@ fulfillment value is not an array of 1 but the value directly.
 public static any(mixed $promises): \GuzzleHttp\Promise\PromiseInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$promises` | **mixed** | Promises or values. |
-
-
-
 
 ***
 
@@ -269,16 +210,11 @@ The returned promise is fulfilled with an array of inspection state arrays.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$promises` | **mixed** | Promises or values. |
-
-
 
 **See Also:**
 

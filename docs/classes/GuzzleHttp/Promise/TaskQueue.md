@@ -12,69 +12,39 @@ by calling the `run()` function of the global task queue in an event loop.
 
 * Full name: `\GuzzleHttp\Promise\TaskQueue`
 * This class implements:
-[`\GuzzleHttp\Promise\TaskQueueInterface`](./TaskQueueInterface.md)
-
-
+  [`\GuzzleHttp\Promise\TaskQueueInterface`](./TaskQueueInterface.md)
 
 ## Properties
 
-
 ### enableShutdown
-
-
 
 ```php
 private $enableShutdown
 ```
 
-
-
-
-
-
 ***
 
 ### queue
-
-
 
 ```php
 private $queue
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $withShutdown = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$withShutdown` | **mixed** |  |
-
-
-
 
 ***
 
@@ -85,16 +55,6 @@ Returns true if the queue is empty.
 ```php
 public isEmpty(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -107,21 +67,11 @@ called.
 public add(callable $task): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$task` | **callable** |  |
-
-
-
 
 ***
 
@@ -132,16 +82,6 @@ Execute all of the pending task in the queue.
 ```php
 public run(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

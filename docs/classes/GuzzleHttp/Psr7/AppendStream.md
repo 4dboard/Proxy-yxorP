@@ -9,100 +9,56 @@ This is a read-only stream decorator.
 * Full name: `\GuzzleHttp\Psr7\AppendStream`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
+  [`\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
 * This class is a **Final class**
-
-
 
 ## Properties
 
-
 ### streams
-
-
 
 ```php
 private \Psr\Http\Message\StreamInterface[] $streams
 ```
 
-
-
-
-
-
 ***
 
 ### seekable
-
-
 
 ```php
 private bool $seekable
 ```
 
-
-
-
-
-
 ***
 
 ### current
-
-
 
 ```php
 private int $current
 ```
 
-
-
-
-
-
 ***
 
 ### pos
-
-
 
 ```php
 private int $pos
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Psr\Http\Message\StreamInterface[] $streams = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$streams` | **\Psr\Http\Message\StreamInterface[]** | Streams to decorate. Each stream must<br />be readable. |
-
-
-
 
 ***
 
@@ -140,21 +96,11 @@ Add a stream to the AppendStream
 public addStream(\Psr\Http\Message\StreamInterface $stream): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$stream` | **\Psr\Http\Message\StreamInterface** | Stream to append. Must be readable. |
-
-
-
 
 ***
 
@@ -166,16 +112,6 @@ Returns the remaining contents in a string
 public getContents(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### close
@@ -185,16 +121,6 @@ Closes each attached stream.
 ```php
 public close(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -207,12 +133,6 @@ public detach(): resource|null
 ```
 
 Returns null as it's not clear which underlying stream resource to return.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -229,14 +149,6 @@ Returns the current position of the file read/write pointer
 ```php
 public tell(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -257,12 +169,6 @@ public getSize(): int|null
 If any of the streams do not return a valid number, then the size of the
 append stream cannot be determined and null is returned.
 
-
-
-
-
-
-
 **Return Value:**
 
 Returns the size in bytes if known, or null if unknown.
@@ -278,16 +184,6 @@ Returns true if the stream is at the end of the stream.
 ```php
 public eof(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -320,22 +216,12 @@ Attempts to seek to the given position. Only supports SEEK_SET.
 public seek(mixed $offset, mixed $whence = SEEK_SET): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | Stream offset |
 | `$whence` | **mixed** | Specifies how the cursor position will be calculated<br />based on the seek offset. Valid values are identical to the built-in<br />PHP $whence values for `fseek()`.  SEEK_SET: Set position equal to<br />offset bytes SEEK_CUR: Set position to current location plus offset<br />SEEK_END: Set position to end-of-stream plus offset. |
-
-
-
 
 ***
 
@@ -347,19 +233,11 @@ Reads from all of the appended streams until the length is met or EOF.
 public read(mixed $length): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$length` | **mixed** | Read up to $length bytes from the object and return<br />them. Fewer than $length bytes may be returned if underlying stream<br />call returns fewer bytes. |
-
 
 **Return Value:**
 
@@ -378,16 +256,6 @@ Returns whether or not the stream is readable.
 public isReadable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isWritable
@@ -397,16 +265,6 @@ Returns whether or not the stream is writable.
 ```php
 public isWritable(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -418,16 +276,6 @@ Returns whether or not the stream is seekable.
 public isSeekable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### write
@@ -438,19 +286,11 @@ Write data to the stream.
 public write(mixed $string): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** | The string that is to be written. |
-
 
 **Return Value:**
 
@@ -468,21 +308,11 @@ Get stream metadata as an associative array or retrieve a specific key.
 public getMetadata(mixed $key = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** | Specific metadata to retrieve. |
-
-
-
 
 ***
 
