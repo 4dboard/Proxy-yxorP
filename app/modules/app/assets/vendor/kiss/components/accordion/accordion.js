@@ -1,11 +1,11 @@
 customElements.define('kiss-accordion', class extends HTMLElement {
 
-    static get observedAttributes() {
-        return [];
-    }
-
     constructor() {
         super();
+    }
+
+    static get observedAttributes() {
+        return [];
     }
 
     connectedCallback() {
@@ -38,7 +38,7 @@ customElements.define('kiss-accordion', class extends HTMLElement {
 
             if (idx == index) {
                 t.setAttribute('active', (!t.getAttribute('active') || t.getAttribute('active') == 'false') ? 'true' : 'false');
-            } else if(!multiple) {
+            } else if (!multiple) {
                 t.setAttribute('active', 'false');
             }
         });
