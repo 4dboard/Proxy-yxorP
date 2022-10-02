@@ -13,6 +13,18 @@ class Pizza extends AbstractProduct implements ProductInterface, JsonSerializabl
     use ReviewableTrait;
 
     /**
+     * Product price.
+     *
+     * @var float
+     */
+    protected float $price;
+    /**
+     * Pizza base.
+     *
+     * @var Base|null
+     */
+    protected ?Base $base;
+    /**
      * Product name.
      *
      * @var string
@@ -20,29 +32,15 @@ class Pizza extends AbstractProduct implements ProductInterface, JsonSerializabl
     private string $name;
 
     /**
-     * Product price.
-     *
-     * @var float
-     */
-    protected float $price;
-
-    /**
-     * Pizza base.
-     *
-     * @var Base|null
-     */
-    protected ?Base $base;
-
-    /**
-     * @param  string  $name  Product name.
-     * @param  float  $price  Product price.
-     * @param  Base|null  $base  Pizza base.
+     * @param string $name Product name.
+     * @param float $price Product price.
+     * @param Base|null $base Pizza base.
      */
     public function __construct(string $name, float $price, ?Base $base = null)
     {
-        $this->name  = $name;
+        $this->name = $name;
         $this->price = $price;
-        $this->base  = $base;
+        $this->base = $base;
     }
 
     /**

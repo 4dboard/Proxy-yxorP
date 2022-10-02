@@ -28,7 +28,7 @@ class JsonExtension extends AbstractExtension
      */
     public function objectToJson($object): string
     {
-        if ( ! is_object($object) && ! is_array($object)) {
+        if (!is_object($object) && !is_array($object)) {
             throw new RuntimeError('The object_to_json filter only accepts objects and arrays.');
         }
 
