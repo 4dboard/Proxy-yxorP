@@ -2,105 +2,55 @@
 
 # FileStorage
 
-
-
-
-
 * Full name: `\FileStorage`
-
-
 
 ## Properties
 
-
 ### config
-
-
 
 ```php
 protected array $config
 ```
 
-
-
-
-
-
 ***
 
 ### storages
-
-
 
 ```php
 protected array $storages
 ```
 
-
-
-
-
-
 ***
 
 ### manager
-
-
 
 ```php
 protected \League\Flysystem\MountManager $manager
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $config = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **array** |  |
-
-
-
 
 ***
 
 ### addStorage
 
-
-
 ```php
 public addStorage(string $name, array $config): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -109,25 +59,13 @@ public addStorage(string $name, array $config): self
 | `$name` | **string** |  |
 | `$config` | **array** |  |
 
-
-
-
 ***
 
 ### use
 
-
-
 ```php
 public use(string $name): ?\League\Flysystem\Filesystem
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -135,25 +73,13 @@ public use(string $name): ?\League\Flysystem\Filesystem
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
-
 ***
 
 ### getURL
 
-
-
 ```php
 public getURL(string $file): ?string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -161,25 +87,13 @@ public getURL(string $file): ?string
 |-----------|------|-------------|
 | `$file` | **string** |  |
 
-
-
-
 ***
 
 ### initStorage
 
-
-
 ```php
 protected initStorage(string $name): \League\Flysystem\Filesystem
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -187,25 +101,13 @@ protected initStorage(string $name): \League\Flysystem\Filesystem
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $args): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -213,9 +115,6 @@ public __call(mixed $name, mixed $args): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 | `$args` | **mixed** |  |
-
-
-
 
 ***
 
