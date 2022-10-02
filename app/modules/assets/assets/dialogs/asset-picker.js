@@ -3,9 +3,7 @@ import assetsManager from "../vue-components/assets-manager.js";
 export default {
 
     data() {
-        return {
-
-        }
+        return {}
     },
 
     props: {

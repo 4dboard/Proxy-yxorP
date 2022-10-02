@@ -6,21 +6,21 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c
 {
-    public static $prefixLengthsPsr4 = array (
-        'C' => 
-        array (
-            'ColorThief\\' => 11,
-        ),
+    public static $prefixLengthsPsr4 = array(
+        'C' =>
+            array(
+                'ColorThief\\' => 11,
+            ),
     );
 
-    public static $prefixDirsPsr4 = array (
-        'ColorThief\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/ksubileau/color-thief-php/src/ColorThief',
-        ),
+    public static $prefixDirsPsr4 = array(
+        'ColorThief\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/ksubileau/color-thief-php/src/ColorThief',
+            ),
     );
 
-    public static $classMap = array (
+    public static $classMap = array(
         'ColorThief\\Color' => __DIR__ . '/..' . '/ksubileau/color-thief-php/src/ColorThief/Color.php',
         'ColorThief\\ColorThief' => __DIR__ . '/..' . '/ksubileau/color-thief-php/src/ColorThief/ColorThief.php',
         'ColorThief\\Exception\\Exception' => __DIR__ . '/..' . '/ksubileau/color-thief-php/src/ColorThief/Exception/Exception.php',

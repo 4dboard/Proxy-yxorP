@@ -6,14 +6,24 @@ namespace App\Controller;
  * Class Controller
  * @package App
  */
-class Base extends \Lime\AppAware {
+class Base extends \Lime\AppAware
+{
 
     protected $layout = false;
 
     /**
+     * @return string
+     */
+    public function index()
+    {
+        return 'Please implement the index action';
+    }
+
+    /**
      * @param $app
      */
-    protected function initialize() {
+    protected function initialize()
+    {
 
         $controller = \strtolower(\str_replace('\\', '.', \get_class($this)));
 
@@ -23,25 +33,21 @@ class Base extends \Lime\AppAware {
     }
 
     /**
-     * @return string
-     */
-    public function index() {
-        return 'Please implement the index action';
-    }
-
-    /**
      *
      */
-    protected function before() { }
+    protected function before()
+    {
+    }
 
     /**
      * @param $view
      * @param array $params
      * @return mixed
      */
-    protected function render(string $view, array $params = []): mixed {
+    protected function render(string $view, array $params = []): mixed
+    {
 
-        $view .= $this->layout ? " with ".$this->layout:"";
+        $view .= $this->layout ? " with " . $this->layout : "";
 
         return $this->app->render($view, $params);
     }
@@ -50,7 +56,8 @@ class Base extends \Lime\AppAware {
      * @param $path
      * @return mixed
      */
-    protected function path(string $path): mixed {
+    protected function path(string $path): mixed
+    {
         return $this->app->path($path);
     }
 
@@ -59,7 +66,8 @@ class Base extends \Lime\AppAware {
      * @param null $default
      * @return Mixed
      */
-    protected function param(string $key, mixed $default = null) {
+    protected function param(string $key, mixed $default = null)
+    {
         return $this->app->request->param($key, $default);
     }
 
@@ -67,7 +75,8 @@ class Base extends \Lime\AppAware {
      * @param $module
      * @return mixed
      */
-    protected function module(string $module): mixed {
+    protected function module(string $module): mixed
+    {
         return $this->app->module($module);
     }
 
@@ -75,14 +84,16 @@ class Base extends \Lime\AppAware {
      * @param $name
      * @return mixed
      */
-    protected function helper(string $name): mixed {
+    protected function helper(string $name): mixed
+    {
         return $this->app->helper($name);
     }
 
     /**
      *
      */
-    protected function stop(mixed $data = null, mixed $status = null) {
+    protected function stop(mixed $data = null, mixed $status = null)
+    {
         return $this->app->stop($data, $status);
     }
 }

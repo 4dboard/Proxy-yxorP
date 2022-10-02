@@ -2,29 +2,21 @@
 
 namespace App\RestApi;
 
-use ArrayObject;
-
-class Query extends \Lime\AppAware {
+class Query extends \Lime\AppAware
+{
 
     protected array $endpoints = [];
     protected bool $initialized = false;
 
-    public function init() {
-
-        if ($this->initialized) return;
-
-        $this->app->trigger('restApi.config', [$this]);
-        $this->initialized = true;
-    }
-
-    public function process(string $path, string $method = 'GET', ?string $apiKey = null) {
+    public function process(string $path, string $method = 'GET', ?string $apiKey = null)
+    {
 
         if (!$this->initialized) {
             $this->init();
         }
 
         $handler = false;
-        $params  = [];
+        $params = [];
         $idx = $method;
 
         foreach ($this->endpoints as $pattern => $endpoint) {
@@ -46,9 +38,9 @@ class Query extends \Lime\AppAware {
             $path = implode('/', array_filter(explode('/', $path), fn($s) => trim($s, '.')));
         }
 
-        if ($file = $this->app->path('#config:api/'.trim($path, '/').'.php')) {
+        if ($file = $this->app->path('#config:api/' . trim($path, '/') . '.php')) {
 
-            $handler = (function() use($file) {
+            $handler = (function () use ($file) {
                 return include($file);
             })->bindTo($this->app, $this->app);
 
@@ -58,12 +50,17 @@ class Query extends \Lime\AppAware {
         return false;
     }
 
-    public function addEndPoint(string $path, array $methods = []) {
+    public function init()
+    {
 
-        $this->endpoints[$path] = $methods;
+        if ($this->initialized) return;
+
+        $this->app->trigger('restApi.config', [$this]);
+        $this->initialized = true;
     }
 
-    protected function isPathMatching($path, $pattern, &$params = null) {
+    protected function isPathMatching($path, $pattern, &$params = null)
+    {
 
         $params = [];
 
@@ -87,7 +84,8 @@ class Query extends \Lime\AppAware {
         return false;
     }
 
-    protected function getRegex($pattern) {
+    protected function getRegex($pattern)
+    {
 
         if (preg_match('/[^-:\/_{}()a-zA-Z\d]/', $pattern)) return false; // Invalid pattern
 
@@ -104,7 +102,7 @@ class Query extends \Lime\AppAware {
 
         // Create capture group for '{parameter}'
         $pattern = preg_replace(
-            '/{('. $allowedParamChars .')}/',    # Replace "{parameter}"
+            '/{(' . $allowedParamChars . ')}/',    # Replace "{parameter}"
             '(?<$1>' . $allowedParamChars . ')', # with "(?<parameter>[a-zA-Z0-9\_\-]+)"
             $pattern
         );
@@ -113,5 +111,11 @@ class Query extends \Lime\AppAware {
         $patternAsRegex = "@^" . $pattern . "$@D";
 
         return $patternAsRegex;
+    }
+
+    public function addEndPoint(string $path, array $methods = [])
+    {
+
+        $this->endpoints[$path] = $methods;
     }
 }

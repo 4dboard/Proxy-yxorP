@@ -1,8 +1,8 @@
-let ready = new Promise(function(resolve) {
+let ready = new Promise(function (resolve) {
 
     App.assets.require([
         'app:assets/vendor/tinymce/tinymce.min.js'
-    ], function() {
+    ], function () {
         resolve(window.tinymce);
     });
 });
@@ -78,7 +78,7 @@ export default {
                 content_style: '',
 
                 skin_url: App.base('app:assets/css/vendor/tinymce'),
-                relative_urls : false,
+                relative_urls: false,
                 paste_as_text: true
 
             }, this.tinymce || {});
@@ -105,7 +105,10 @@ export default {
 
                     editor.on('focus blur', e => {
                         editor.isFocused = !editor.isFocused;
-                        this.$el.dispatchEvent(new Event(editor.isFocused ? 'focusin':'focusout', { bubbles: true, cancelable: true }));
+                        this.$el.dispatchEvent(new Event(editor.isFocused ? 'focusin' : 'focusout', {
+                            bubbles: true,
+                            cancelable: true
+                        }));
                     });
                 });
 

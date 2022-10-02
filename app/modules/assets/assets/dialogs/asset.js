@@ -28,14 +28,14 @@ export default {
             this.uppy = true;
         })
 
-        this.$request(`/assets/asset/${this.asset._id}`, {asset:this.asset}).then(asset => {
+        this.$request(`/assets/asset/${this.asset._id}`, {asset: this.asset}).then(asset => {
             this.item = asset;
             this.loading = false;
         }).catch(rsp => {
             App.ui.notify(rsp.error || 'Asset not found!', 'error');
         });
 
-        this.$request(`/assets/folders`, {nc:Math.random()}).then(folders => {
+        this.$request(`/assets/folders`, {nc: Math.random()}).then(folders => {
             this.folders = folders;
         }).catch(rsp => {
             App.ui.notify(rsp.error || 'Loading folders failed!', 'error');
@@ -63,7 +63,7 @@ export default {
                 return {left: '50%', top: '50%'};
             }
 
-            return {left: (this.item.fp.x * 100)+'%', top: (this.item.fp.y * 100)+'%'}
+            return {left: (this.item.fp.x * 100) + '%', top: (this.item.fp.y * 100) + '%'}
         }
     },
 
@@ -172,15 +172,15 @@ export default {
     methods: {
 
         copyID() {
-            App.utils.copyText(this.item._id, () =>  App.ui.notify('ID copied!'));
+            App.utils.copyText(this.item._id, () => App.ui.notify('ID copied!'));
         },
 
         copyAssetLinkID() {
-            App.utils.copyText(location.origin + App.base(`/assets/link/${this.item._id}`), () =>  App.ui.notify('Asset link copied!'));
+            App.utils.copyText(location.origin + App.base(`/assets/link/${this.item._id}`), () => App.ui.notify('Asset link copied!'));
         },
 
         copyColor(color) {
-            App.utils.copyText(color, () =>  App.ui.notify('Color copied!'));
+            App.utils.copyText(color, () => App.ui.notify('Color copied!'));
         },
 
         setFocalPoint(e) {
@@ -213,9 +213,9 @@ export default {
             }).use(Uppy.XHRUpload, {
                 endpoint: App.route('/assets/replace'),
                 bundle: true
-            }).use(Uppy.Webcam, { target: Uppy.Dashboard, showVideoSourceDropdown: true })
-            .use(Uppy.ScreenCapture, { target: Uppy.Dashboard })
-            .use(Uppy.ImageEditor, { target: Uppy.Dashboard });
+            }).use(Uppy.Webcam, {target: Uppy.Dashboard, showVideoSourceDropdown: true})
+                .use(Uppy.ScreenCapture, {target: Uppy.Dashboard})
+                .use(Uppy.ImageEditor, {target: Uppy.Dashboard});
 
             this.uppy.on('complete', result => {
                 Object.assign(this.item, result.successful[0].response.body)

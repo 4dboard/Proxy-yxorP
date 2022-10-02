@@ -28,6 +28,18 @@ class ImagickAdapter extends AbstractAdapter
         return extension_loaded('imagick') && class_exists('Imagick');
     }
 
+    public function loadFromBinary(string $data): AdapterInterface
+    {
+        $resource = new Imagick();
+        try {
+            $resource->readImageBlob($data);
+        } catch (\ImagickException $e) {
+            throw new NotReadableException('Unable to read image from binary data.', 0, $e);
+        }
+
+        return $this->load($resource);
+    }
+
     public function load($resource): AdapterInterface
     {
         if (!($resource instanceof Imagick)) {
@@ -54,18 +66,6 @@ class ImagickAdapter extends AbstractAdapter
         }
 
         return parent::load($resource);
-    }
-
-    public function loadFromBinary(string $data): AdapterInterface
-    {
-        $resource = new Imagick();
-        try {
-            $resource->readImageBlob($data);
-        } catch (\ImagickException $e) {
-            throw new NotReadableException('Unable to read image from binary data.', 0, $e);
-        }
-
-        return $this->load($resource);
     }
 
     public function loadFromPath(string $file): AdapterInterface
@@ -106,10 +106,10 @@ class ImagickAdapter extends AbstractAdapter
         // So we ask for normalized values, and then we un-normalize it ourselves.
         $colorArray = $pixel->getColor(1);
         $color = new \stdClass();
-        $color->red = (int) round($colorArray['r'] * 255);
-        $color->green = (int) round($colorArray['g'] * 255);
-        $color->blue = (int) round($colorArray['b'] * 255);
-        $color->alpha = (int) (127 - round($colorArray['a'] * 127));
+        $color->red = (int)round($colorArray['r'] * 255);
+        $color->green = (int)round($colorArray['g'] * 255);
+        $color->blue = (int)round($colorArray['b'] * 255);
+        $color->alpha = (int)(127 - round($colorArray['a'] * 127));
 
         return $color;
     }

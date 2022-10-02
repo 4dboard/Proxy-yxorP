@@ -3,28 +3,32 @@
 namespace App\Command\i18n;
 
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CreateTranslation extends Command {
+class CreateTranslation extends Command
+{
 
     protected static $defaultName = 'app:i18n:create';
     protected $app = null;
 
-    public function __construct(\Lime\App $app) {
+    public function __construct(\Lime\App $app)
+    {
         $this->app = $app;
         parent::__construct();
     }
 
-    protected function configure(): void {
+    protected function configure(): void
+    {
         $this
             ->setHelp('This command creates a language file')
             ->addArgument('locale', InputArgument::REQUIRED, 'What is the target language (e.g. de or fr?')
             ->addArgument('module', InputArgument::OPTIONAL, 'Create a language file for a module');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int {
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
 
         $translator = null;
         $locale = $input->getArgument('locale');
@@ -41,7 +45,7 @@ class CreateTranslation extends Command {
             return Command::FAILURE;
         }
 
-        $modules = array_filter($this->app['modules']->getArrayCopy(), function($m) use($module) {
+        $modules = array_filter($this->app['modules']->getArrayCopy(), function ($m) use ($module) {
 
             $name = basename($m->_dir);
 
@@ -58,7 +62,7 @@ class CreateTranslation extends Command {
 
         foreach ($modules as $m) {
 
-            $dir= $m->_dir;
+            $dir = $m->_dir;
             $name = basename($m->_dir);
 
             $strings = [];
@@ -113,12 +117,12 @@ class CreateTranslation extends Command {
 
                 if ($this->app->path("#config:i18n/{$name}/{$locale}.php")) {
                     $langfile = include($this->app->path("#config:i18n/{$name}/{$locale}.php"));
-                    $strings  = array_merge($strings, $langfile);
+                    $strings = array_merge($strings, $langfile);
                 }
 
                 ksort($strings);
 
-                $this->app->helper('fs')->write("#config:i18n/{$name}/{$locale}.php", '<?php return '.$this->app->helper('utils')->var_export($strings, true).';');
+                $this->app->helper('fs')->write("#config:i18n/{$name}/{$locale}.php", '<?php return ' . $this->app->helper('utils')->var_export($strings, true) . ';');
             }
 
         }

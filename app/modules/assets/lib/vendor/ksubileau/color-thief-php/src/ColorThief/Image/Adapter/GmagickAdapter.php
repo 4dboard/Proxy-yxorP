@@ -27,6 +27,18 @@ class GmagickAdapter extends AbstractAdapter
         return extension_loaded('gmagick') && class_exists('Gmagick');
     }
 
+    public function loadFromBinary(string $data): AdapterInterface
+    {
+        $resource = new Gmagick();
+        try {
+            $resource->readImageBlob($data);
+        } catch (\GmagickException $e) {
+            throw new NotReadableException('Unable to read image from binary data.', 0, $e);
+        }
+
+        return $this->load($resource);
+    }
+
     public function load($resource): AdapterInterface
     {
         if (!($resource instanceof Gmagick)) {
@@ -40,18 +52,6 @@ class GmagickAdapter extends AbstractAdapter
         }
 
         return parent::load($resource);
-    }
-
-    public function loadFromBinary(string $data): AdapterInterface
-    {
-        $resource = new Gmagick();
-        try {
-            $resource->readImageBlob($data);
-        } catch (\GmagickException $e) {
-            throw new NotReadableException('Unable to read image from binary data.', 0, $e);
-        }
-
-        return $this->load($resource);
     }
 
     public function loadFromPath(string $file): AdapterInterface
@@ -95,10 +95,10 @@ class GmagickAdapter extends AbstractAdapter
         // So we ask for normalized values, and then we un-normalize it ourselves.
         $colorArray = $pixel->getColor(true, true);
         $color = new \stdClass();
-        $color->red = (int) round($colorArray['r'] * 255);
-        $color->green = (int) round($colorArray['g'] * 255);
-        $color->blue = (int) round($colorArray['b'] * 255);
-        $color->alpha = (int) round($pixel->getcolorvalue(\Gmagick::COLOR_OPACITY) * 127);
+        $color->red = (int)round($colorArray['r'] * 255);
+        $color->green = (int)round($colorArray['g'] * 255);
+        $color->blue = (int)round($colorArray['b'] * 255);
+        $color->alpha = (int)round($pixel->getcolorvalue(\Gmagick::COLOR_OPACITY) * 127);
 
         return $color;
     }

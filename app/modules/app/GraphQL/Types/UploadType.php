@@ -21,6 +21,17 @@ class UploadType extends ScalarType
         'The `Upload` special type represents a file to be uploaded in the same HTTP request as specified by
  [graphql-multipart-request-spec](https://github.com/jaydenseric/graphql-multipart-request-spec).';
 
+    public static function instance()
+    {
+        static $instance;
+
+        if (is_null($instance)) {
+            $instance = new static();
+        }
+
+        return $instance;
+    }
+
     /**
      * Serializes an internal value to include in a response.
      *
@@ -60,15 +71,5 @@ class UploadType extends ScalarType
     public function parseLiteral($valueNode, array $variables = null)
     {
         throw new Error('`Upload` cannot be hardcoded in query, be sure to conform to GraphQL multipart request specification. Instead got: ' . $valueNode->kind, $valueNode);
-    }
-
-    public static function instance() {
-        static $instance;
-
-        if (is_null($instance)) {
-            $instance = new static();
-        }
-
-        return $instance;
     }
 }

@@ -6,13 +6,8 @@ namespace App\Helper;
 /**
  * I18n class. Manage translations
  */
-class i18n extends \Lime\Helper {
-
-    /**
-     * @var $locale current language
-     */
-    public string $locale     = 'en';
-    private array $_languages = [];
+class i18n extends \Lime\Helper
+{
 
     public static array $locales = [
 
@@ -201,8 +196,6 @@ class i18n extends \Lime\Helper {
         'zh' => 'Chinese',
         'zu' => 'Zulu'
     ];
-
-
     public static array $countries = [
 
         'AF' => 'Afghanistan',
@@ -445,7 +438,6 @@ class i18n extends \Lime\Helper {
         'ZM' => 'Zambia',
         'ZW' => 'Zimbabwe'
     ];
-
     public static array $currencies = [
         'ALL' => 'Lek',
         'ARS' => '$',
@@ -529,27 +521,21 @@ class i18n extends \Lime\Helper {
         'VEF' => 'Bs',
         'ZWD' => 'Z$'
     ];
-
     /**
-     * @inherit
+     * @var $locale current language
      */
-    protected function initialize() {
-
-        $locale = $this->app->getClientLang();
-
-        if ($locale) {
-            $this->locale = $locale;
-        }
-    }
+    public string $locale = 'en';
+    private array $_languages = [];
 
     /**
      * Get translated string by key
      *
-     * @param   string $key translation key
-     * @param   string $alternative  returns if $key doesn't exist
+     * @param string $key translation key
+     * @param string $alternative returns if $key doesn't exist
      * @return  string
      */
-    public function get(string $key, ?string $alternative = null, ?string $lang = null): ?string {
+    public function get(string $key, ?string $alternative = null, ?string $lang = null): ?string
+    {
 
         if (!$lang) {
             $lang = $this->locale;
@@ -565,12 +551,13 @@ class i18n extends \Lime\Helper {
     /**
      * Get translated string by key and params
      *
-     * @param   string $key translation key
-     * @param   array $params
-     * @param   array $alternative  returns if $key doesn''t exist
+     * @param string $key translation key
+     * @param array $params
+     * @param array $alternative returns if $key doesn''t exist
      * @return  string
      */
-    public function getstr(string $key, array $params = [], ?string $alternative = null, ?string $lang = null): ?string {
+    public function getstr(string $key, array $params = [], ?string $alternative = null, ?string $lang = null): ?string
+    {
 
         if (!$lang) {
             $lang = $this->locale;
@@ -583,14 +570,14 @@ class i18n extends \Lime\Helper {
         return \vsprintf(isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative, $params);
     }
 
-
     /**
      * Load language files
-     * @param  string $langfile path to language file
-     * @param  string $lang     language to merge to
+     * @param string $langfile path to language file
+     * @param string $lang language to merge to
      * @return boolean
      */
-    public function load(string $langfile, ?string $lang = null): bool {
+    public function load(string $langfile, ?string $lang = null): bool
+    {
 
         if (!$lang) {
             $lang = $this->locale;
@@ -614,15 +601,29 @@ class i18n extends \Lime\Helper {
 
     /**
      * Get language data
-     * @param  string $lang     language
+     * @param string $lang language
      * @return array
      */
-    public function data(?string $lang = null): array {
+    public function data(?string $lang = null): array
+    {
 
         if ($lang) {
             return isset($this->_languages[$lang]) ? $this->_languages[$lang] : [];
         }
 
         return $this->_languages;
+    }
+
+    /**
+     * @inherit
+     */
+    protected function initialize()
+    {
+
+        $locale = $this->app->getClientLang();
+
+        if ($locale) {
+            $this->locale = $locale;
+        }
     }
 }

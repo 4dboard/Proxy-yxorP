@@ -26,6 +26,16 @@ class GdAdapter extends AbstractAdapter
         return extension_loaded('gd') && function_exists('gd_info');
     }
 
+    public function loadFromBinary(string $data): AdapterInterface
+    {
+        $resource = @imagecreatefromstring($data);
+        if (false === $resource) {
+            throw new NotReadableException('Unable to read image from binary data.');
+        }
+
+        return parent::load($resource);
+    }
+
     public function load($resource): AdapterInterface
     {
         if (version_compare(\PHP_VERSION, '8.0.0') >= 0) {
@@ -36,16 +46,6 @@ class GdAdapter extends AbstractAdapter
             if (!\is_resource($resource) || 'gd' != get_resource_type($resource)) {
                 throw new InvalidArgumentException('Argument is not a valid GD resource.');
             }
-        }
-
-        return parent::load($resource);
-    }
-
-    public function loadFromBinary(string $data): AdapterInterface
-    {
-        $resource = @imagecreatefromstring($data);
-        if (false === $resource) {
-            throw new NotReadableException('Unable to read image from binary data.');
         }
 
         return parent::load($resource);
@@ -114,6 +114,6 @@ class GdAdapter extends AbstractAdapter
         $rgba = imagecolorat($this->resource, $x, $y);
         $color = imagecolorsforindex($this->resource, $rgba);
 
-        return (object) $color;
+        return (object)$color;
     }
 }

@@ -1,4 +1,3 @@
-
 let instanceCount = 0;
 
 export default {

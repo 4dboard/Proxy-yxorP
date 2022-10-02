@@ -3,18 +3,13 @@
 namespace App\Helper;
 
 
-class Acl extends \Lime\Helper {
+class Acl extends \Lime\Helper
+{
 
     protected array $roles = [];
 
-    protected function initialize() {
-
-        $this->roles = $this->app->memory->get('app.roles.permissions', function() {
-            return $this->cache();
-        });
-    }
-
-    public function roles(): array {
+    public function roles(): array
+    {
 
         $roles = [
             ['appid' => 'admin', 'name' => 'Admin']
@@ -31,7 +26,8 @@ class Acl extends \Lime\Helper {
         return $roles;
     }
 
-    public function isAllowed(string $permission, ?string $role = null): bool {
+    public function isAllowed(string $permission, ?string $role = null): bool
+    {
 
         $role = $role ?? $this->app->helper('auth')->getUser('role');
 
@@ -42,7 +38,8 @@ class Acl extends \Lime\Helper {
         return isset($this->roles[$role]['permissions'][$permission]) && $this->roles[$role]['permissions'][$permission];
     }
 
-    public function isSuperAdmin($role = null) {
+    public function isSuperAdmin($role = null)
+    {
 
         $role = $role ?? $this->app->helper('auth')->getUser('role');
 
@@ -53,7 +50,16 @@ class Acl extends \Lime\Helper {
         return false;
     }
 
-    public function cache(): array {
+    protected function initialize()
+    {
+
+        $this->roles = $this->app->memory->get('app.roles.permissions', function () {
+            return $this->cache();
+        });
+    }
+
+    public function cache(): array
+    {
 
         $cache = [];
 
