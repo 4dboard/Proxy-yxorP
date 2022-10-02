@@ -44,13 +44,14 @@ class FileAttributes implements StorageAttributes
     private $extraMetadata;
 
     public function __construct(
-        string $path,
-        ?int $fileSize = null,
+        string  $path,
+        ?int    $fileSize = null,
         ?string $visibility = null,
-        ?int $lastModified = null,
+        ?int    $lastModified = null,
         ?string $mimeType = null,
-        array $extraMetadata = []
-    ) {
+        array   $extraMetadata = []
+    )
+    {
         $this->path = ltrim($path, '/');
         $this->fileSize = $fileSize;
         $this->visibility = $visibility;
