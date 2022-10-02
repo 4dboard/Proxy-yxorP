@@ -17,7 +17,9 @@ export default {
 
     watch: {
         val: {
-            handler() { this.update() },
+            handler() {
+                this.update()
+            },
             deep: true
         },
         modelValue(val) {

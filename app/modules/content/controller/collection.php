@@ -3,44 +3,13 @@
 namespace Content\Controller;
 
 use App\Controller\App;
-use ArrayObject;
 
-class Collection extends App {
+class Collection extends App
+{
 
 
-    public function items($model = null) {
-
-        if (!$model) {
-            return false;
-        }
-
-        $model = $this->module('content')->model($model);
-
-        if (!$model || $model['type'] != 'collection') {
-            return $this->stop(404);
-        }
-
-        if (!$this->isAllowed("content/{$model['name']}/read")) {
-            return $this->stop(401);
-        }
-
-        $fields = $model['fields'];
-
-        $locales = $this->helper('locales')->locales();
-
-        if (count($locales) == 1) {
-            $locales = [];
-        } else {
-            $locales[0]['visible'] = true;
-        }
-
-        $this->helper('theme')->favicon(isset($model['icon']) && $model['icon'] ? $model['icon'] : 'content:assets/icons/collection.svg', $model['color'] ?? '#000');
-
-        return $this->render('content:views/collection/items.php', compact('model', 'fields', 'locales'));
-
-    }
-
-    public function item($model = null, $id = null) {
+    public function item($model = null, $id = null)
+    {
 
         if (!$model) {
             return false;
@@ -84,7 +53,8 @@ class Collection extends App {
         return $this->render('content:views/collection/item.php', compact('model', 'fields', 'locales', 'item'));
     }
 
-    public function find($model = null) {
+    public function find($model = null)
+    {
 
         $this->helper('session')->close();
 
@@ -109,7 +79,8 @@ class Collection extends App {
 
                 try {
                     $filter = json5_decode($options['filter'], true);
-                } catch (\Exception $e) {}
+                } catch (\Exception $e) {
+                }
             }
 
             if (!$filter) {
@@ -119,7 +90,7 @@ class Collection extends App {
 
                 if (count($fields)) {
 
-                    $terms  = str_getcsv(trim($options['filter']), ' ');
+                    $terms = str_getcsv(trim($options['filter']), ' ');
                     $filter = ['$or' => []];
 
                     foreach ($fields as $field) {
@@ -141,7 +112,7 @@ class Collection extends App {
         $items = $this->app->module('content')->items($model['name'], $options, $process);
         $count = $this->app->module('content')->count($model['name'], $options['filter'] ?? []);
         $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
-        $page  = 1;
+        $page = 1;
 
         if ($pages > 1 && isset($options['skip'])) {
             $page = ceil($options['skip'] / $options['limit']) + 1;
@@ -150,7 +121,41 @@ class Collection extends App {
         return compact('items', 'count', 'pages', 'page');
     }
 
-    public function remove($model = null) {
+    public function items($model = null)
+    {
+
+        if (!$model) {
+            return false;
+        }
+
+        $model = $this->module('content')->model($model);
+
+        if (!$model || $model['type'] != 'collection') {
+            return $this->stop(404);
+        }
+
+        if (!$this->isAllowed("content/{$model['name']}/read")) {
+            return $this->stop(401);
+        }
+
+        $fields = $model['fields'];
+
+        $locales = $this->helper('locales')->locales();
+
+        if (count($locales) == 1) {
+            $locales = [];
+        } else {
+            $locales[0]['visible'] = true;
+        }
+
+        $this->helper('theme')->favicon(isset($model['icon']) && $model['icon'] ? $model['icon'] : 'content:assets/icons/collection.svg', $model['color'] ?? '#000');
+
+        return $this->render('content:views/collection/items.php', compact('model', 'fields', 'locales'));
+
+    }
+
+    public function remove($model = null)
+    {
 
         $this->helper('session')->close();
 

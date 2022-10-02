@@ -2,7 +2,7 @@
 
 // Register routes
 
-$this->bind('/assets/link/:id', function($params) {
+$this->bind('/assets/link/:id', function ($params) {
 
     $this->helper('session')->close();
 
@@ -24,19 +24,19 @@ $this->bind('/assets/link/:id', function($params) {
 $this->bindClass('Assets\\Controller\\Assets', '/assets');
 
 $this->helper('menus')->addLink('modules', [
-    'label'  => 'Assets',
-    'icon'   => 'assets:icon.svg',
-    'route'  => '/assets',
+    'label' => 'Assets',
+    'icon' => 'assets:icon.svg',
+    'route' => '/assets',
     'active' => false,
-    'prio'   => 1
+    'prio' => 1
 ]);
 
 // events
-$this->on('app.layout.assets', function(array &$assets) {
+$this->on('app.layout.assets', function (array &$assets) {
     $assets[] = ['src' => 'assets:assets/js/assets.js', 'type' => 'module'];
 });
 
-$this->on('app.permissions.collect', function($permissions) {
+$this->on('app.permissions.collect', function ($permissions) {
 
     $permissions['Assets'] = [
         'assets/upload' => 'Upload assets',

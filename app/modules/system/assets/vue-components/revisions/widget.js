@@ -1,6 +1,6 @@
 export default {
 
-    data()  {
+    data() {
         return {
             loading: true,
             revisions: []

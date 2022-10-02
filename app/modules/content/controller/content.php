@@ -3,11 +3,12 @@
 namespace Content\Controller;
 
 use App\Controller\App;
-use ArrayObject;
 
-class Content extends App {
+class Content extends App
+{
 
-    public function index() {
+    public function index()
+    {
 
         $this->helper('theme')->favicon('content:icon.svg');
 

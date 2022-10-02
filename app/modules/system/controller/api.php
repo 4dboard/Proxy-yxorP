@@ -5,29 +5,25 @@ namespace System\Controller;
 use App\Controller\App;
 use ArrayObject;
 
-class Api extends App {
+class Api extends App
+{
 
-    protected function before() {
-
-        if (!$this->isAllowed('app/api/manage')) {
-            return $this->stop(401);
-        }
-    }
-
-    public function index() {
+    public function index()
+    {
         return $this->render('system:views/api/index.php');
     }
 
-    public function public() {
+    public function public()
+    {
 
         $key = $this->app->dataStorage->findOne('system/api_keys', ['key' => 'public']);
 
         if (!$key) {
 
             $key = [
-                'key'  => 'public',
-                'name'  => 'public',
-                'role'  => null,
+                'key' => 'public',
+                'name' => 'public',
+                'role' => null,
                 'meta' => new ArrayObject([])
             ];
         }
@@ -37,7 +33,8 @@ class Api extends App {
         return $this->render('system:views/api/key.php', compact('key'));
     }
 
-    public function key($id = null) {
+    public function key($id = null)
+    {
 
         if (!$id) {
             return $this->stop(['error' => 'key id is missing'], 412);
@@ -51,24 +48,26 @@ class Api extends App {
 
         $this->checkAndLockResource($id);
 
-        $key['meta'] = new ArrayObject( $key['meta']);
+        $key['meta'] = new ArrayObject($key['meta']);
 
         return $this->render('system:views/api/key.php', compact('key'));
     }
 
-    public function create() {
+    public function create()
+    {
 
         $key = [
-            'key'  => '',
-            'name'  => '',
-            'role'  => null,
+            'key' => '',
+            'name' => '',
+            'role' => null,
             'meta' => new ArrayObject([])
         ];
 
         return $this->render('system:views/api/key.php', compact('key'));
     }
 
-    public function remove() {
+    public function remove()
+    {
 
         $key = $this->param('key');
 
@@ -85,7 +84,13 @@ class Api extends App {
         return ['success' => true];
     }
 
-    public function save() {
+    protected function cache()
+    {
+        $this->helper('api')->cache();
+    }
+
+    public function save()
+    {
 
         $key = $this->param('key');
 
@@ -128,7 +133,8 @@ class Api extends App {
         return $key;
     }
 
-    public function load() {
+    public function load()
+    {
 
         $this->helper('session')->close();
 
@@ -140,18 +146,19 @@ class Api extends App {
         return $keys;
     }
 
-    public function openapi() {
+    public function openapi()
+    {
 
         $this->helper('session')->close();
 
-        $paths = [(new \Symfony\Component\Finder\Finder())->files()->in(APP_DIR.'/modules')->notPath('#vendor#')];
+        $paths = [(new \Symfony\Component\Finder\Finder())->files()->in(APP_DIR . '/modules')->notPath('#vendor#')];
 
-        if (\file_exists(APP_DIR.'/addons')) {
-            $paths[] = (new \Symfony\Component\Finder\Finder())->files()->in(APP_DIR.'/addons')->notPath('#vendor#');
+        if (\file_exists(APP_DIR . '/addons')) {
+            $paths[] = (new \Symfony\Component\Finder\Finder())->files()->in(APP_DIR . '/addons')->notPath('#vendor#');
         }
 
-        if (\file_exists(APP_DIR.'/config/api')) {
-            $paths[] = (new \Symfony\Component\Finder\Finder())->files()->in(APP_DIR.'/config/api')->notPath('#vendor#');
+        if (\file_exists(APP_DIR . '/config/api')) {
+            $paths[] = (new \Symfony\Component\Finder\Finder())->files()->in(APP_DIR . '/config/api')->notPath('#vendor#');
         }
 
         $yaml = \OpenApi\Generator::scan($paths)->toYaml();
@@ -162,7 +169,7 @@ class Api extends App {
             '{{ app.name }}',
             '{{ app.version }}',
         ], [
-            $this->app->getSiteUrl(true).'/api',
+            $this->app->getSiteUrl(true) . '/api',
             $this->app->retrieve('app.name'),
             $this->app->retrieve('app.version'),
         ], $yaml);
@@ -172,7 +179,8 @@ class Api extends App {
         return $yaml;
     }
 
-    public function restApiViewer() {
+    public function restApiViewer()
+    {
 
         $this->helper('session')->close();
 
@@ -188,7 +196,8 @@ class Api extends App {
         return $this->render('system:views/api/rest-api-viewer.php', compact('openApiUrl', 'apiKey', 'bgColor', 'primaryColor', 'textColor'));
     }
 
-    public function graphqlViewer() {
+    public function graphqlViewer()
+    {
 
         $this->helper('session')->close();
 
@@ -202,7 +211,11 @@ class Api extends App {
         return $this->render('system:views/api/graphql-viewer.php', compact('apiKey', 'bgColor', 'primaryColor', 'textColor'));
     }
 
-    protected function cache() {
-        $this->helper('api')->cache();
+    protected function before()
+    {
+
+        if (!$this->isAllowed('app/api/manage')) {
+            return $this->stop(401);
+        }
     }
 }

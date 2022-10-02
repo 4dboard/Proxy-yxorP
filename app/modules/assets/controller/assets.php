@@ -3,19 +3,21 @@
 namespace Assets\Controller;
 
 use App\Controller\App;
-use ArrayObject;
 
-class Assets extends App {
+class Assets extends App
+{
 
 
-    public function index() {
+    public function index()
+    {
 
         $this->helper('theme')->favicon('assets:icon.svg');
 
         return $this->render('assets:views/index.php');
     }
 
-    public function assets() {
+    public function assets()
+    {
 
         $this->helper('session')->close();
 
@@ -23,9 +25,9 @@ class Assets extends App {
             'sort' => ['_created' => -1]
         ], $this->param('options', []));
 
-        if ($limit  = $this->param('limit' , null)) $options['limit']  = $limit;
-        if ($sort   = $this->param('sort'  , null)) $options['sort']   = $sort;
-        if ($skip   = $this->param('skip'  , null)) $options['skip']   = $skip;
+        if ($limit = $this->param('limit', null)) $options['limit'] = $limit;
+        if ($sort = $this->param('sort', null)) $options['sort'] = $sort;
+        if ($skip = $this->param('skip', null)) $options['skip'] = $skip;
         if ($folder = $this->param('folder', null)) $options['folder'] = $folder;
 
         if (isset($options['filter']) && (is_string($options['filter']) || \is_countable($options['filter']))) {
@@ -45,7 +47,8 @@ class Assets extends App {
 
                     try {
                         $f = json5_decode($f, true);
-                    } catch (\Exception $e) {}
+                    } catch (\Exception $e) {
+                    }
 
                 } else {
 
@@ -79,11 +82,11 @@ class Assets extends App {
         $assets = $this->module('assets')->assets($options);
 
         $count = (!isset($options['skip']) && !isset($options['limit']))
-                    ? count($assets)
-                    : $this->app->dataStorage->count('assets', ($options['filter'] ?? null));
+            ? count($assets)
+            : $this->app->dataStorage->count('assets', ($options['filter'] ?? null));
 
         $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
-        $page  = 1;
+        $page = 1;
 
         if ($pages > 1 && isset($options['skip'])) {
             $page = ceil($options['skip'] / $options['limit']) + 1;
@@ -100,7 +103,17 @@ class Assets extends App {
         return compact('assets', 'count', 'pages', 'page', 'folders');
     }
 
-    public function asset($id = null) {
+    public function folders()
+    {
+
+        $folders = $this->module('assets')->folders(['sort' => ['name' => 1]]);
+        $folders = $this->helper('utils')->buildTreeList($folders, ['parent_id_column_name' => '_p']);
+
+        return $folders;
+    }
+
+    public function asset($id = null)
+    {
 
         if (!$id) {
             return false;
@@ -111,7 +124,8 @@ class Assets extends App {
         return $asset ?? false;
     }
 
-    public function update() {
+    public function update()
+    {
 
         $this->helper('session')->close();
 
@@ -126,20 +140,8 @@ class Assets extends App {
         return false;
     }
 
-    public function upload() {
-
-        $this->helper('session')->close();
-
-        if (!$this->isAllowed('assets/upload')) {
-            return $this->stop(['error' => 'Upload not allowed'], 401);
-        }
-
-        $meta = ['folder' => $this->param('folder', '')];
-
-        return $this->module('assets')->upload('files', $meta);
-    }
-
-    public function replace() {
+    public function replace()
+    {
 
         $this->helper('session')->close();
 
@@ -170,8 +172,8 @@ class Assets extends App {
         }
 
         // remove old asset file
-        if ($this->app->fileStorage->fileExists('uploads://'.trim($asset['path'], '/'))) {
-            $this->app->fileStorage->delete('uploads://'.trim($asset['path'], '/'));
+        if ($this->app->fileStorage->fileExists('uploads://' . trim($asset['path'], '/'))) {
+            $this->app->fileStorage->delete('uploads://' . trim($asset['path'], '/'));
         }
 
         $asset = $result['assets'][0];
@@ -181,32 +183,24 @@ class Assets extends App {
         return $asset;
     }
 
-    public function remove() {
+    public function upload()
+    {
 
         $this->helper('session')->close();
 
-        if (!$this->isAllowed('assets/delete')) {
-            return $this->stop(['error' => 'Deleting assets not allowed'], 401);
+        if (!$this->isAllowed('assets/upload')) {
+            return $this->stop(['error' => 'Upload not allowed'], 401);
         }
 
-        if ($assets = $this->param('assets', false)) {
-            return $this->module('assets')->remove($assets);
-        }
+        $meta = ['folder' => $this->param('folder', '')];
 
-        return false;
+        return $this->module('assets')->upload('files', $meta);
     }
 
-    public function folders() {
+    public function saveFolder()
+    {
 
-        $folders = $this->module('assets')->folders(['sort' => ['name' => 1]]);
-        $folders = $this->helper('utils')->buildTreeList($folders, ['parent_id_column_name' => '_p']);
-
-        return $folders;
-    }
-
-    public function saveFolder() {
-
-        $name   = $this->param('name', null);
+        $name = $this->param('name', null);
         $parent = $this->param('parent', '');
 
         if (!$name) return;
@@ -228,7 +222,8 @@ class Assets extends App {
         return $folder;
     }
 
-    public function removeFolder() {
+    public function removeFolder()
+    {
 
         if (!$this->isAllowed('assets/folders/delete')) {
             return $this->stop(['error' => 'Deleting folders not allowed'], 401);
@@ -241,7 +236,7 @@ class Assets extends App {
         }
 
         $ids = [$folder['_id']];
-        $f   = ['_id' => $folder['_id']];
+        $f = ['_id' => $folder['_id']];
 
         while ($f = $this->app->dataStorage->findOne('assets/folders', ['_p' => $f['_id']])) {
             $ids[] = $f['_id'];
@@ -252,7 +247,24 @@ class Assets extends App {
         return $ids;
     }
 
-    public function thumbnail($id = null) {
+    public function remove()
+    {
+
+        $this->helper('session')->close();
+
+        if (!$this->isAllowed('assets/delete')) {
+            return $this->stop(['error' => 'Deleting assets not allowed'], 401);
+        }
+
+        if ($assets = $this->param('assets', false)) {
+            return $this->module('assets')->remove($assets);
+        }
+
+        return false;
+    }
+
+    public function thumbnail($id = null)
+    {
 
         $this->helper('session')->close();
 
@@ -278,7 +290,7 @@ class Assets extends App {
             'fp' => $this->param('fp', null),
             'mode' => $this->param('m', 'thumbnail'),
             'mime' => $mime,
-            'filters' => (array) $this->param('f', []),
+            'filters' => (array)$this->param('f', []),
             'width' => intval($this->param('w', null)),
             'height' => intval($this->param('h', null)),
             'quality' => intval($this->param('q', 30)),

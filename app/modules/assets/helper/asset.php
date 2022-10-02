@@ -4,9 +4,11 @@ namespace Assets\Helper;
 
 use SimpleImageLib as SimpleImage;
 
-class Asset extends \Lime\Helper {
+class Asset extends \Lime\Helper
+{
 
-    public function image(array $options = [], bool $asPath = false) {
+    public function image(array $options = [], bool $asPath = false)
+    {
 
         $options = array_merge([
             'cachefolder' => 'tmp://thumbs',
@@ -35,13 +37,13 @@ class Asset extends \Lime\Helper {
 
         if (!$rebuild && $mime) {
 
-            $hash = md5(json_encode($options))."_{$quality}_{$mode}.{$mime}";
-            $thumbpath = $cachefolder."/{$hash}";
+            $hash = md5(json_encode($options)) . "_{$quality}_{$mode}.{$mime}";
+            $thumbpath = $cachefolder . "/{$hash}";
 
             if ($this->app->fileStorage->fileExists($thumbpath)) {
 
                 if ($base64) {
-                    return "data:image/{$mime};base64,".base64_encode($this->app->fileStorage->read($thumbpath));
+                    return "data:image/{$mime};base64," . base64_encode($this->app->fileStorage->read($thumbpath));
                 }
 
                 return $asPath ? $thumbpath : $this->app->fileStorage->getURL($thumbpath);
@@ -50,10 +52,10 @@ class Asset extends \Lime\Helper {
 
         // normalize path
         if (strpos($src, '../') !== false) {
-            $src = implode('/', array_filter(explode('/', $src), fn ($s) => trim($s, '.')));
+            $src = implode('/', array_filter(explode('/', $src), fn($s) => trim($s, '.')));
         }
 
-        $src   = rawurldecode($src);
+        $src = rawurldecode($src);
         $asset = null;
 
         if (\strpos($src, 'assets://') === 0) {
@@ -87,7 +89,7 @@ class Asset extends \Lime\Helper {
         }
 
         if (isset($asset['fp']) && !$fp) {
-            $fp = $asset['fp']['x'].' '.$asset['fp']['y'];
+            $fp = $asset['fp']['x'] . ' ' . $asset['fp']['y'];
         }
 
         $ext = strtolower(pathinfo($src, PATHINFO_EXTENSION));
@@ -96,7 +98,7 @@ class Asset extends \Lime\Helper {
         if ($ext == 'svg') {
 
             if ($base64) {
-                return 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($src));
+                return 'data:image/svg+xml;base64,' . base64_encode(file_get_contents($src));
             }
 
             return $asPath ? "uploads://{$path}" : $srcUrl;
@@ -109,7 +111,7 @@ class Asset extends \Lime\Helper {
 
         if (!$width || !$height || $width == 'original' || $height == 'original') {
 
-            list($w, $h, $type, $attr)  = getimagesize($src);
+            list($w, $h, $type, $attr) = getimagesize($src);
 
             if ($width == 'original') $width = $w;
             if ($height == 'original') $height = $h;
@@ -139,8 +141,8 @@ class Asset extends \Lime\Helper {
 
         $method = $mode;
 
-        $hash = md5(json_encode($options))."_{$quality}_{$mode}.{$ext}";
-        $thumbpath = $cachefolder."/{$hash}";
+        $hash = md5(json_encode($options)) . "_{$quality}_{$mode}.{$ext}";
+        $thumbpath = $cachefolder . "/{$hash}";
 
         if ($rebuild || !$this->app->fileStorage->fileExists($thumbpath)) {
 
@@ -166,7 +168,7 @@ class Asset extends \Lime\Helper {
                     'edgeDetect', 'emboss',
                     'flip', 'invert', 'opacity', 'pixelate', 'sepia', 'sharpen', 'sketch'
                 ])) {
-                    call_user_func_array([$img, $filter], (array) $opts);
+                    call_user_func_array([$img, $filter], (array)$opts);
                 }
             }
 
@@ -176,45 +178,53 @@ class Asset extends \Lime\Helper {
         }
 
         if ($base64) {
-            return "data:image/{$ext};base64,".base64_encode($this->app->fileStorage->read($thumbpath));
+            return "data:image/{$ext};base64," . base64_encode($this->app->fileStorage->read($thumbpath));
         }
 
         return $asPath ? $thumbpath : $this->app->fileStorage->getURL($thumbpath);
     }
 }
 
-class Img {
+class Img
+{
 
     protected $image;
 
-    public function __construct($img) {
+    public function __construct($img)
+    {
 
         $this->image = new SimpleImage($img);
     }
 
-    public function negative() {
+    public function negative()
+    {
         $this->image->invert();
         return $this;
     }
 
-    public function grayscale() {
+    public function grayscale()
+    {
         $this->image->desaturate();
         return $this;
     }
 
-    public function base64data($format = null, $quality = 100) {
+    public function base64data($format = null, $quality = 100)
+    {
         return $this->image->toDataUri($format, $quality);
     }
 
-    public function show($format = null, $quality = 100) {
+    public function show($format = null, $quality = 100)
+    {
         $this->image->toScreen($format, $quality);
     }
 
-    public function blur($passes = 1, $type = 'gaussian') {
+    public function blur($passes = 1, $type = 'gaussian')
+    {
         return $this->image->blur($type, $passes);
     }
 
-    public function thumbnail($width, $height, $anchor = 'center') {
+    public function thumbnail($width, $height, $anchor = 'center')
+    {
 
 
         if (\preg_match('/\d \d/', $anchor)) {
@@ -243,7 +253,8 @@ class Img {
         return $this->image->thumbnail($width, $height, $anchor);
     }
 
-    public function __call($method, $args) {
+    public function __call($method, $args)
+    {
 
         $ret = \call_user_func_array([$this->image, $method], $args);
 
