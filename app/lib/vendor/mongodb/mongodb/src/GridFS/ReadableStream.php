@@ -21,7 +21,6 @@ use MongoDB\Driver\CursorInterface;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\GridFS\Exception\CorruptFileException;
 use stdClass;
-
 use function ceil;
 use function floor;
 use function is_integer;
@@ -71,31 +70,31 @@ class ReadableStream
      * Constructs a readable GridFS stream.
      *
      * @param CollectionWrapper $collectionWrapper GridFS collection wrapper
-     * @param stdClass          $file              GridFS file document
+     * @param stdClass $file GridFS file document
      * @throws CorruptFileException
      */
     public function __construct(CollectionWrapper $collectionWrapper, stdClass $file)
     {
-        if (! isset($file->chunkSize) || ! is_integer($file->chunkSize) || $file->chunkSize < 1) {
+        if (!isset($file->chunkSize) || !is_integer($file->chunkSize) || $file->chunkSize < 1) {
             throw new CorruptFileException('file.chunkSize is not an integer >= 1');
         }
 
-        if (! isset($file->length) || ! is_integer($file->length) || $file->length < 0) {
+        if (!isset($file->length) || !is_integer($file->length) || $file->length < 0) {
             throw new CorruptFileException('file.length is not an integer > 0');
         }
 
-        if (! isset($file->_id) && ! property_exists($file, '_id')) {
+        if (!isset($file->_id) && !property_exists($file, '_id')) {
             throw new CorruptFileException('file._id does not exist');
         }
 
         $this->file = $file;
-        $this->chunkSize = (integer) $file->chunkSize;
-        $this->length = (integer) $file->length;
+        $this->chunkSize = (integer)$file->chunkSize;
+        $this->length = (integer)$file->length;
 
         $this->collectionWrapper = $collectionWrapper;
 
         if ($this->length > 0) {
-            $this->numChunks = (integer) ceil($this->length / $this->chunkSize);
+            $this->numChunks = (integer)ceil($this->length / $this->chunkSize);
             $this->expectedLastChunkSize = $this->length - (($this->numChunks - 1) * $this->chunkSize);
         }
     }
@@ -174,14 +173,14 @@ class ReadableStream
             $this->initChunksIterator();
         }
 
-        if ($this->buffer === null && ! $this->initBufferFromCurrentChunk()) {
+        if ($this->buffer === null && !$this->initBufferFromCurrentChunk()) {
             return '';
         }
 
         $data = '';
 
         while (strlen($data) < $length) {
-            if ($this->bufferOffset >= strlen($this->buffer) && ! $this->initBufferFromNextChunk()) {
+            if ($this->bufferOffset >= strlen($this->buffer) && !$this->initBufferFromNextChunk()) {
                 break;
             }
 
@@ -194,65 +193,12 @@ class ReadableStream
     }
 
     /**
-     * Seeks the chunk and buffer offsets for the next read operation.
-     *
-     * @param integer $offset
-     * @throws InvalidArgumentException if $offset is out of range
+     * Initializes the chunk iterator starting from the current offset.
      */
-    public function seek($offset)
+    private function initChunksIterator()
     {
-        if ($offset < 0 || $offset > $this->file->length) {
-            throw new InvalidArgumentException(sprintf('$offset must be >= 0 and <= %d; given: %d', $this->file->length, $offset));
-        }
-
-        /* Compute the offsets for the chunk and buffer (i.e. chunk data) from
-         * which we will expect to read after seeking. If the chunk offset
-         * changed, we'll also need to reset the buffer.
-         */
-        $lastChunkOffset = $this->chunkOffset;
-        $this->chunkOffset = (integer) floor($offset / $this->chunkSize);
-        $this->bufferOffset = $offset % $this->chunkSize;
-
-        if ($lastChunkOffset === $this->chunkOffset) {
-            return;
-        }
-
-        if ($this->chunksIterator === null) {
-            return;
-        }
-
-        // Clear the buffer since the current chunk will be changed
-        $this->buffer = null;
-
-        /* If we are seeking to a previous chunk, we need to reinitialize the
-         * chunk iterator.
-         */
-        if ($lastChunkOffset > $this->chunkOffset) {
-            $this->chunksIterator = null;
-
-            return;
-        }
-
-        /* If we are seeking to a subsequent chunk, we do not need to
-         * reinitalize the chunk iterator. Instead, we can simply move forward
-         * to $this->chunkOffset.
-         */
-        $numChunks = $this->chunkOffset - $lastChunkOffset;
-        for ($i = 0; $i < $numChunks; $i++) {
-            $this->chunksIterator->next();
-        }
-    }
-
-    /**
-     * Return the current position of the stream.
-     *
-     * This is the offset within the stream where the next byte would be read.
-     *
-     * @return integer
-     */
-    public function tell()
-    {
-        return ($this->chunkOffset * $this->chunkSize) + $this->bufferOffset;
+        $this->chunksIterator = $this->collectionWrapper->findChunksByFileId($this->file->_id, $this->chunkOffset);
+        $this->chunksIterator->rewind();
     }
 
     /**
@@ -267,7 +213,7 @@ class ReadableStream
             return false;
         }
 
-        if (! $this->chunksIterator->valid()) {
+        if (!$this->chunksIterator->valid()) {
             throw CorruptFileException::missingChunk($this->chunkOffset);
         }
 
@@ -312,11 +258,64 @@ class ReadableStream
     }
 
     /**
-     * Initializes the chunk iterator starting from the current offset.
+     * Seeks the chunk and buffer offsets for the next read operation.
+     *
+     * @param integer $offset
+     * @throws InvalidArgumentException if $offset is out of range
      */
-    private function initChunksIterator()
+    public function seek($offset)
     {
-        $this->chunksIterator = $this->collectionWrapper->findChunksByFileId($this->file->_id, $this->chunkOffset);
-        $this->chunksIterator->rewind();
+        if ($offset < 0 || $offset > $this->file->length) {
+            throw new InvalidArgumentException(sprintf('$offset must be >= 0 and <= %d; given: %d', $this->file->length, $offset));
+        }
+
+        /* Compute the offsets for the chunk and buffer (i.e. chunk data) from
+         * which we will expect to read after seeking. If the chunk offset
+         * changed, we'll also need to reset the buffer.
+         */
+        $lastChunkOffset = $this->chunkOffset;
+        $this->chunkOffset = (integer)floor($offset / $this->chunkSize);
+        $this->bufferOffset = $offset % $this->chunkSize;
+
+        if ($lastChunkOffset === $this->chunkOffset) {
+            return;
+        }
+
+        if ($this->chunksIterator === null) {
+            return;
+        }
+
+        // Clear the buffer since the current chunk will be changed
+        $this->buffer = null;
+
+        /* If we are seeking to a previous chunk, we need to reinitialize the
+         * chunk iterator.
+         */
+        if ($lastChunkOffset > $this->chunkOffset) {
+            $this->chunksIterator = null;
+
+            return;
+        }
+
+        /* If we are seeking to a subsequent chunk, we do not need to
+         * reinitalize the chunk iterator. Instead, we can simply move forward
+         * to $this->chunkOffset.
+         */
+        $numChunks = $this->chunkOffset - $lastChunkOffset;
+        for ($i = 0; $i < $numChunks; $i++) {
+            $this->chunksIterator->next();
+        }
+    }
+
+    /**
+     * Return the current position of the stream.
+     *
+     * This is the offset within the stream where the next byte would be read.
+     *
+     * @return integer
+     */
+    public function tell()
+    {
+        return ($this->chunkOffset * $this->chunkSize) + $this->bufferOffset;
     }
 }

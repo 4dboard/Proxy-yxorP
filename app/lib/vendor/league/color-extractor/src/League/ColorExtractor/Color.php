@@ -5,14 +5,14 @@ namespace League\ColorExtractor;
 class Color
 {
     /**
-     * @param int  $color
+     * @param int $color
      * @param bool $prependHash = true
      *
      * @return string
      */
     public static function fromIntToHex($color, $prependHash = true)
     {
-        return ($prependHash ? '#' : '').sprintf('%06X', $color);
+        return ($prependHash ? '#' : '') . sprintf('%06X', $color);
     }
 
     /**

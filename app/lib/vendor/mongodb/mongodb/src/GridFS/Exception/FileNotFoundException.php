@@ -18,7 +18,6 @@
 namespace MongoDB\GridFS\Exception;
 
 use MongoDB\Exception\RuntimeException;
-
 use function MongoDB\BSON\fromPHP;
 use function MongoDB\BSON\toJSON;
 use function sprintf;
@@ -28,9 +27,9 @@ class FileNotFoundException extends RuntimeException
     /**
      * Thrown when a file cannot be found by its filename and revision.
      *
-     * @param string  $filename  Filename
-     * @param integer $revision  Revision
-     * @param string  $namespace Namespace for the files collection
+     * @param string $filename Filename
+     * @param integer $revision Revision
+     * @param string $namespace Namespace for the files collection
      * @return self
      */
     public static function byFilenameAndRevision($filename, $revision, $namespace)
@@ -41,7 +40,7 @@ class FileNotFoundException extends RuntimeException
     /**
      * Thrown when a file cannot be found by its ID.
      *
-     * @param mixed  $id        File ID
+     * @param mixed $id File ID
      * @param string $namespace Namespace for the files collection
      * @return self
      */

@@ -7,44 +7,13 @@ class Palette implements \Countable, \IteratorAggregate
     /** @var array */
     protected $colors;
 
-    /**
-     * @return int
-     */
-    public function count()
+    protected function __construct()
     {
-        return count($this->colors);
+        $this->colors = [];
     }
 
     /**
-     * @return \ArrayIterator
-     */
-    public function getIterator()
-    {
-        return new \ArrayIterator($this->colors);
-    }
-
-    /**
-     * @param int $color
-     *
-     * @return int
-     */
-    public function getColorCount($color)
-    {
-        return $this->colors[$color];
-    }
-
-    /**
-     * @param int $limit = null
-     *
-     * @return array
-     */
-    public function getMostUsedColors($limit = null)
-    {
-        return array_slice($this->colors, 0, $limit, true);
-    }
-
-    /**
-     * @param string   $filename
+     * @param string $filename
      * @param int|null $backgroundColor
      *
      * @return Palette
@@ -92,9 +61,9 @@ class Palette implements \Countable, \IteratorAggregate
                 if ($areColorsIndexed) {
                     $colorComponents = imagecolorsforindex($image, $color);
                     $color = ($colorComponents['alpha'] * 16777216) +
-                             ($colorComponents['red'] * 65536) +
-                             ($colorComponents['green'] * 256) +
-                             ($colorComponents['blue']);
+                        ($colorComponents['red'] * 65536) +
+                        ($colorComponents['green'] * 256) +
+                        ($colorComponents['blue']);
                 }
 
                 if ($alpha = $color >> 24) {
@@ -103,9 +72,9 @@ class Palette implements \Countable, \IteratorAggregate
                     }
 
                     $alpha /= 127;
-                    $color = (int) (($color >> 16 & 0xFF) * (1 - $alpha) + $backgroundColorRed * $alpha) * 65536 +
-                             (int) (($color >> 8 & 0xFF) * (1 - $alpha) + $backgroundColorGreen * $alpha) * 256 +
-                             (int) (($color & 0xFF) * (1 - $alpha) + $backgroundColorBlue * $alpha);
+                    $color = (int)(($color >> 16 & 0xFF) * (1 - $alpha) + $backgroundColorRed * $alpha) * 65536 +
+                        (int)(($color >> 8 & 0xFF) * (1 - $alpha) + $backgroundColorGreen * $alpha) * 256 +
+                        (int)(($color & 0xFF) * (1 - $alpha) + $backgroundColorBlue * $alpha);
                 }
 
                 isset($palette->colors[$color]) ?
@@ -119,8 +88,39 @@ class Palette implements \Countable, \IteratorAggregate
         return $palette;
     }
 
-    protected function __construct()
+    /**
+     * @return int
+     */
+    public function count()
     {
-        $this->colors = [];
+        return count($this->colors);
+    }
+
+    /**
+     * @return \ArrayIterator
+     */
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->colors);
+    }
+
+    /**
+     * @param int $color
+     *
+     * @return int
+     */
+    public function getColorCount($color)
+    {
+        return $this->colors[$color];
+    }
+
+    /**
+     * @param int $limit = null
+     *
+     * @return array
+     */
+    public function getMostUsedColors($limit = null)
+    {
+        return array_slice($this->colors, 0, $limit, true);
     }
 }

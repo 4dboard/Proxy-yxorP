@@ -32,10 +32,10 @@ class UnsupportedException extends RuntimeException
     /**
      * Thrown when array filters are not supported by a server.
      *
-     * @deprecated 1.12
+     * @return self
      * @todo Remove this in 2.0 (see: PHPLIB-797)
      *
-     * @return self
+     * @deprecated 1.12
      */
     public static function arrayFiltersNotSupported()
     {
@@ -45,10 +45,10 @@ class UnsupportedException extends RuntimeException
     /**
      * Thrown when collations are not supported by a server.
      *
-     * @deprecated 1.12
+     * @return self
      * @todo Remove this in 2.0 (see: PHPLIB-797)
      *
-     * @return self
+     * @deprecated 1.12
      */
     public static function collationNotSupported()
     {

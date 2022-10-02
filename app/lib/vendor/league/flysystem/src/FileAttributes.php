@@ -60,6 +60,18 @@ class FileAttributes implements StorageAttributes
         $this->extraMetadata = $extraMetadata;
     }
 
+    public static function fromArray(array $attributes): StorageAttributes
+    {
+        return new FileAttributes(
+            $attributes[StorageAttributes::ATTRIBUTE_PATH],
+            $attributes[StorageAttributes::ATTRIBUTE_FILE_SIZE] ?? null,
+            $attributes[StorageAttributes::ATTRIBUTE_VISIBILITY] ?? null,
+            $attributes[StorageAttributes::ATTRIBUTE_LAST_MODIFIED] ?? null,
+            $attributes[StorageAttributes::ATTRIBUTE_MIME_TYPE] ?? null,
+            $attributes[StorageAttributes::ATTRIBUTE_EXTRA_METADATA] ?? []
+        );
+    }
+
     public function type(): string
     {
         return $this->type;
@@ -111,18 +123,6 @@ class FileAttributes implements StorageAttributes
         $clone->path = $path;
 
         return $clone;
-    }
-
-    public static function fromArray(array $attributes): StorageAttributes
-    {
-        return new FileAttributes(
-            $attributes[StorageAttributes::ATTRIBUTE_PATH],
-            $attributes[StorageAttributes::ATTRIBUTE_FILE_SIZE] ?? null,
-            $attributes[StorageAttributes::ATTRIBUTE_VISIBILITY] ?? null,
-            $attributes[StorageAttributes::ATTRIBUTE_LAST_MODIFIED] ?? null,
-            $attributes[StorageAttributes::ATTRIBUTE_MIME_TYPE] ?? null,
-            $attributes[StorageAttributes::ATTRIBUTE_EXTRA_METADATA] ?? []
-        );
     }
 
     public function jsonSerialize(): array
