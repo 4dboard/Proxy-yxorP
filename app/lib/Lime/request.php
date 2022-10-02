@@ -2,7 +2,8 @@
 
 namespace Lime;
 
-class Request {
+class Request
+{
 
     public array $request = [];
     public array $post = [];
@@ -22,40 +23,8 @@ class Request {
 
     public bool $stopped = false;
 
-    public static function fromGlobalRequest(array $config = []): self {
-
-        $config = array_merge([
-            'site_url'   => '',
-            'base_url'   => '/',
-            'base_route' => '',
-            'route' => $_SERVER['PATH_INFO'] ?? '/',
-            'request' => $_REQUEST,
-            'method' => $_SERVER['REQUEST_METHOD'] ?? 'GET',
-            'post' => $_POST,
-            'cookies' => $_COOKIE,
-            'query' => $_GET,
-            'files' => $_FILES,
-            'server' => $_SERVER,
-            'headers' => function_exists('getallheaders') ? \getallheaders() : self::getAllHeaders($_SERVER)
-        ], $config);
-
-        // check for php://input and merge with $_REQUEST
-        if (
-            (isset($_SERVER['CONTENT_TYPE']) && \stripos($_SERVER['CONTENT_TYPE'],'application/json')!==false) ||
-            (isset($_SERVER['HTTP_CONTENT_TYPE']) && \stripos($_SERVER['HTTP_CONTENT_TYPE'],'application/json')!==false) // PHP build in Webserver !?
-        ) {
-            if ($json = json_decode(@\file_get_contents('php://input'), true)) {
-                $config['body'] = $json;
-                $config['request'] = \array_merge($config['request'], $json);
-            }
-        }
-
-        $request = new self($config);
-
-        return $request;
-    }
-
-    public function __construct(array $config = []) {
+    public function __construct(array $config = [])
+    {
 
         $this->request = $config['request'] ?? [];
         $this->method = $config['method'] ?? 'GET';
@@ -72,7 +41,83 @@ class Request {
         $this->route = $config['route'] ?? '/';
     }
 
-    public function param(?string $index = null, mixed $default = null, mixed $source = null): mixed {
+    public static function fromGlobalRequest(array $config = []): self
+    {
+
+        $config = array_merge([
+            'site_url' => '',
+            'base_url' => '/',
+            'base_route' => '',
+            'route' => $_SERVER['PATH_INFO'] ?? '/',
+            'request' => $_REQUEST,
+            'method' => $_SERVER['REQUEST_METHOD'] ?? 'GET',
+            'post' => $_POST,
+            'cookies' => $_COOKIE,
+            'query' => $_GET,
+            'files' => $_FILES,
+            'server' => $_SERVER,
+            'headers' => function_exists('getallheaders') ? \getallheaders() : self::getAllHeaders($_SERVER)
+        ], $config);
+
+        // check for php://input and merge with $_REQUEST
+        if (
+            (isset($_SERVER['CONTENT_TYPE']) && \stripos($_SERVER['CONTENT_TYPE'], 'application/json') !== false) ||
+            (isset($_SERVER['HTTP_CONTENT_TYPE']) && \stripos($_SERVER['HTTP_CONTENT_TYPE'], 'application/json') !== false) // PHP build in Webserver !?
+        ) {
+            if ($json = json_decode(@\file_get_contents('php://input'), true)) {
+                $config['body'] = $json;
+                $config['request'] = \array_merge($config['request'], $json);
+            }
+        }
+
+        $request = new self($config);
+
+        return $request;
+    }
+
+    public static function getAllHeaders(array $server): array
+    {
+
+        if (!$server) {
+            $server = $_SERVER;
+        }
+
+        $headers = [];
+
+        $copy_server = [
+            'CONTENT_TYPE' => 'Content-Type',
+            'CONTENT_LENGTH' => 'Content-Length',
+            'CONTENT_MD5' => 'Content-Md5',
+        ];
+
+        foreach ($server as $key => $value) {
+            if (substr($key, 0, 5) === 'HTTP_') {
+                $key = substr($key, 5);
+                if (!isset($copy_server[$key]) || !isset($server[$key])) {
+                    $key = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', $key))));
+                    $headers[$key] = $value;
+                }
+            } elseif (isset($copy_server[$key])) {
+                $headers[$copy_server[$key]] = $value;
+            }
+        }
+
+        if (!isset($headers['Authorization'])) {
+            if (isset($server['REDIRECT_HTTP_AUTHORIZATION'])) {
+                $headers['Authorization'] = $server['REDIRECT_HTTP_AUTHORIZATION'];
+            } elseif (isset($server['PHP_AUTH_USER'])) {
+                $basic_pass = isset($server['PHP_AUTH_PW']) ? $server['PHP_AUTH_PW'] : '';
+                $headers['Authorization'] = 'Basic ' . base64_encode($server['PHP_AUTH_USER'] . ':' . $basic_pass);
+            } elseif (isset($server['PHP_AUTH_DIGEST'])) {
+                $headers['Authorization'] = $server['PHP_AUTH_DIGEST'];
+            }
+        }
+
+        return $headers;
+    }
+
+    public function param(?string $index = null, mixed $default = null, mixed $source = null): mixed
+    {
 
         $src = $source ? $source : $this->request;
         $cast = null;
@@ -95,18 +140,18 @@ class Request {
         return $value;
     }
 
-    public function getClientIp(): ?string {
+    public function getClientIp(): ?string
+    {
 
-        if (isset($this->server['HTTP_X_FORWARDED_FOR'])){
+        if (isset($this->server['HTTP_X_FORWARDED_FOR'])) {
             // Use the forwarded IP address, typically set when the
             // client is using a proxy server.
             return $this->server['HTTP_X_FORWARDED_FOR'];
-        }elseif (isset($this->server['HTTP_CLIENT_IP'])){
+        } elseif (isset($this->server['HTTP_CLIENT_IP'])) {
             // Use the forwarded IP address, typically set when the
             // client is using a proxy server.
             return $this->server['HTTP_CLIENT_IP'];
-        }
-        elseif (isset($this->server['REMOTE_ADDR'])){
+        } elseif (isset($this->server['REMOTE_ADDR'])) {
             // The remote IP address
             return $this->server['REMOTE_ADDR'];
         }
@@ -114,51 +159,35 @@ class Request {
         return null;
     }
 
-    public function getClientLang(string $default = 'en'): string {
+    public function getClientLang(string $default = 'en'): string
+    {
         if (!isset($this->server['HTTP_ACCEPT_LANGUAGE'])) {
             return $default;
         }
         return \strtolower(\substr($this->server['HTTP_ACCEPT_LANGUAGE'], 0, 2));
     }
 
-    public function getSiteUrl(bool $withpath = false): string {
+    public function is(string $type): bool
+    {
 
-        $url = $this->site_url;
-
-        if ($withpath) {
-
-            $path = dirname($this->server['SCRIPT_NAME']);
-
-            if ($path == '/' || \substr($url, -1 * \strlen($path)) === $path) {
-                $path = '';
-            }
-
-            $url .= $path;
-        }
-
-        return \rtrim($url, '/');
-    }
-
-    public function is(string $type): bool {
-
-        switch (\strtolower($type)){
+        switch (\strtolower($type)) {
             case 'ajax':
                 return (
-                    (isset($this->server['HTTP_X_REQUESTED_WITH']) && ($this->server['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'))        ||
-                    (isset($this->server['CONTENT_TYPE']) && \stripos($this->server['CONTENT_TYPE'],'application/json')!==false)           ||
-                    (isset($this->server['HTTP_CONTENT_TYPE']) && \stripos($this->server['HTTP_CONTENT_TYPE'],'application/json')!==false)
+                    (isset($this->server['HTTP_X_REQUESTED_WITH']) && ($this->server['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')) ||
+                    (isset($this->server['CONTENT_TYPE']) && \stripos($this->server['CONTENT_TYPE'], 'application/json') !== false) ||
+                    (isset($this->server['HTTP_CONTENT_TYPE']) && \stripos($this->server['HTTP_CONTENT_TYPE'], 'application/json') !== false)
                 );
                 break;
 
             case 'mobile':
 
                 $mobileDevices = [
-                    'midp','240x320','blackberry','netfront','nokia','panasonic','portalmmm','sharp','sie-','sonyericsson',
-                    'symbian','windows ce','benq','mda','mot-','opera mini','philips','pocket pc','sagem','samsung',
-                    'sda','sgh-','vodafone','xda','iphone', 'ipod','android'
+                    'midp', '240x320', 'blackberry', 'netfront', 'nokia', 'panasonic', 'portalmmm', 'sharp', 'sie-', 'sonyericsson',
+                    'symbian', 'windows ce', 'benq', 'mda', 'mot-', 'opera mini', 'philips', 'pocket pc', 'sagem', 'samsung',
+                    'sda', 'sgh-', 'vodafone', 'xda', 'iphone', 'ipod', 'android'
                 ];
 
-                return \preg_match('/(' . \implode('|', $mobileDevices). ')/i', \strtolower($this->server['HTTP_USER_AGENT']));
+                return \preg_match('/(' . \implode('|', $mobileDevices) . ')/i', \strtolower($this->server['HTTP_USER_AGENT']));
                 break;
 
             case 'post':
@@ -198,11 +227,31 @@ class Request {
         return false;
     }
 
-    public function getBearerToken(): ?string {
+    public function getSiteUrl(bool $withpath = false): string
+    {
+
+        $url = $this->site_url;
+
+        if ($withpath) {
+
+            $path = dirname($this->server['SCRIPT_NAME']);
+
+            if ($path == '/' || \substr($url, -1 * \strlen($path)) === $path) {
+                $path = '';
+            }
+
+            $url .= $path;
+        }
+
+        return \rtrim($url, '/');
+    }
+
+    public function getBearerToken(): ?string
+    {
 
         $headers = null;
-        $token   = null;
-        $server  = $this->server;
+        $token = null;
+        $server = $this->server;
 
         if (isset($server['Authorization'])) {
             $headers = \trim($server['Authorization']);
@@ -225,45 +274,5 @@ class Request {
         }
 
         return $token;
-    }
-
-    public static function getAllHeaders(array $server): array {
-
-        if (!$server) {
-            $server = $_SERVER;
-        }
-
-        $headers = [];
-
-        $copy_server = [
-            'CONTENT_TYPE'   => 'Content-Type',
-            'CONTENT_LENGTH' => 'Content-Length',
-            'CONTENT_MD5'    => 'Content-Md5',
-        ];
-
-        foreach ($server as $key => $value) {
-            if (substr($key, 0, 5) === 'HTTP_') {
-                $key = substr($key, 5);
-                if (!isset($copy_server[$key]) || !isset($server[$key])) {
-                    $key = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', $key))));
-                    $headers[$key] = $value;
-                }
-            } elseif (isset($copy_server[$key])) {
-                $headers[$copy_server[$key]] = $value;
-            }
-        }
-
-        if (!isset($headers['Authorization'])) {
-            if (isset($server['REDIRECT_HTTP_AUTHORIZATION'])) {
-                $headers['Authorization'] = $server['REDIRECT_HTTP_AUTHORIZATION'];
-            } elseif (isset($server['PHP_AUTH_USER'])) {
-                $basic_pass = isset($server['PHP_AUTH_PW']) ? $server['PHP_AUTH_PW'] : '';
-                $headers['Authorization'] = 'Basic ' . base64_encode($server['PHP_AUTH_USER'] . ':' . $basic_pass);
-            } elseif (isset($server['PHP_AUTH_DIGEST'])) {
-                $headers['Authorization'] = $server['PHP_AUTH_DIGEST'];
-            }
-        }
-
-        return $headers;
     }
 }
