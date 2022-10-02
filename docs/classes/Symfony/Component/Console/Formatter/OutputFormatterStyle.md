@@ -4,109 +4,61 @@
 
 Formatter style class for defining styles.
 
-
-
 * Full name: `\Symfony\Component\Console\Formatter\OutputFormatterStyle`
 * This class implements:
-[`\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface`](./OutputFormatterStyleInterface.md)
-
-
+  [`\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface`](./OutputFormatterStyleInterface.md)
 
 ## Properties
 
-
 ### color
-
-
 
 ```php
 private $color
 ```
 
-
-
-
-
-
 ***
 
 ### foreground
-
-
 
 ```php
 private $foreground
 ```
 
-
-
-
-
-
 ***
 
 ### background
-
-
 
 ```php
 private $background
 ```
 
-
-
-
-
-
 ***
 
 ### options
-
-
 
 ```php
 private $options
 ```
 
-
-
-
-
-
 ***
 
 ### href
-
-
 
 ```php
 private $href
 ```
 
-
-
-
-
-
 ***
 
 ### handlesHrefGracefully
-
-
 
 ```php
 private $handlesHrefGracefully
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -116,13 +68,6 @@ Initializes output formatter style.
 public __construct(string|null $foreground = null, string|null $background = null, array $options = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -130,9 +75,6 @@ public __construct(string|null $foreground = null, string|null $background = nul
 | `$foreground` | **string&#124;null** | The style foreground color name |
 | `$background` | **string&#124;null** | The style background color name |
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -144,21 +86,11 @@ Sets style foreground color.
 public setForeground(string $color = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$color` | **string** |  |
-
-
-
 
 ***
 
@@ -170,47 +102,25 @@ Sets style background color.
 public setBackground(string $color = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$color` | **string** |  |
 
-
-
-
 ***
 
 ### setHref
 
-
-
 ```php
 public setHref(string $url): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$url` | **string** |  |
-
-
-
 
 ***
 
@@ -222,21 +132,11 @@ Sets some specific style option.
 public setOption(string $option): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **string** |  |
-
-
-
 
 ***
 
@@ -248,21 +148,11 @@ Unsets some specific style option.
 public unsetOption(string $option): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **string** |  |
-
-
-
 
 ***
 
@@ -274,21 +164,11 @@ Sets multiple style options at once.
 public setOptions(array $options): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -300,21 +180,11 @@ Applies the style to a given text.
 public apply(string $text): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$text` | **string** |  |
-
-
-
 
 ***
 
