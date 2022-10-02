@@ -28,211 +28,116 @@ This class is loosely based on the Symfony UniversalClassLoader.
 
 **See Also:**
 
-* https://www.php-fig.org/psr/psr-0/ - 
-* https://www.php-fig.org/psr/psr-4/ - 
-
-
+* https://www.php-fig.org/psr/psr-0/ -
+* https://www.php-fig.org/psr/psr-4/ -
 
 ## Properties
 
-
 ### vendorDir
-
-
 
 ```php
 private $vendorDir
 ```
 
-
-
-
-
-
 ***
 
 ### prefixLengthsPsr4
-
-
 
 ```php
 private $prefixLengthsPsr4
 ```
 
-
-
-
-
-
 ***
 
 ### prefixDirsPsr4
-
-
 
 ```php
 private $prefixDirsPsr4
 ```
 
-
-
-
-
-
 ***
 
 ### fallbackDirsPsr4
-
-
 
 ```php
 private $fallbackDirsPsr4
 ```
 
-
-
-
-
-
 ***
 
 ### prefixesPsr0
-
-
 
 ```php
 private $prefixesPsr0
 ```
 
-
-
-
-
-
 ***
 
 ### fallbackDirsPsr0
-
-
 
 ```php
 private $fallbackDirsPsr0
 ```
 
-
-
-
-
-
 ***
 
 ### useIncludePath
-
-
 
 ```php
 private $useIncludePath
 ```
 
-
-
-
-
-
 ***
 
 ### classMap
-
-
 
 ```php
 private $classMap
 ```
 
-
-
-
-
-
 ***
 
 ### classMapAuthoritative
-
-
 
 ```php
 private $classMapAuthoritative
 ```
 
-
-
-
-
-
 ***
 
 ### missingClasses
-
-
 
 ```php
 private $missingClasses
 ```
 
-
-
-
-
-
 ***
 
 ### apcuPrefix
-
-
 
 ```php
 private $apcuPrefix
 ```
 
-
-
-
-
-
 ***
 
 ### registeredLoaders
-
-
 
 ```php
 private static $registeredLoaders
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $vendorDir = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -240,134 +145,59 @@ public __construct(mixed $vendorDir = null): mixed
 |-----------|------|-------------|
 | `$vendorDir` | **mixed** |  |
 
-
-
-
 ***
 
 ### getPrefixes
-
-
 
 ```php
 public getPrefixes(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getPrefixesPsr4
-
-
 
 ```php
 public getPrefixesPsr4(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getFallbackDirs
-
-
 
 ```php
 public getFallbackDirs(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getFallbackDirsPsr4
-
-
 
 ```php
 public getFallbackDirsPsr4(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getClassMap
-
-
 
 ```php
 public getClassMap(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### addClassMap
 
-
-
 ```php
 public addClassMap(array $classMap): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$classMap` | **array** | Class to filename map |
-
-
-
 
 ***
 
@@ -380,13 +210,6 @@ appending or prepending to the ones previously set for this prefix.
 public add(string $prefix, array|string $paths, bool $prepend = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -394,9 +217,6 @@ public add(string $prefix, array|string $paths, bool $prepend = false): mixed
 | `$prefix` | **string** | The prefix |
 | `$paths` | **array&#124;string** | The PSR-0 root directories |
 | `$prepend` | **bool** | Whether to prepend the directories |
-
-
-
 
 ***
 
@@ -409,13 +229,6 @@ appending or prepending to the ones previously set for this namespace.
 public addPsr4(string $prefix, array|string $paths, bool $prepend = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -423,9 +236,6 @@ public addPsr4(string $prefix, array|string $paths, bool $prepend = false): mixe
 | `$prefix` | **string** | The prefix/namespace, with trailing &#039;\\&#039; |
 | `$paths` | **array&#124;string** | The PSR-4 base directories |
 | `$prepend` | **bool** | Whether to prepend the directories |
-
-
-
 
 ***
 
@@ -438,22 +248,12 @@ replacing any others previously set for this prefix.
 public set(string $prefix, array|string $paths): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** | The prefix |
 | `$paths` | **array&#124;string** | The PSR-0 base directories |
-
-
-
 
 ***
 
@@ -466,22 +266,12 @@ replacing any others previously set for this namespace.
 public setPsr4(string $prefix, array|string $paths): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** | The prefix/namespace, with trailing &#039;\\&#039; |
 | `$paths` | **array&#124;string** | The PSR-4 base directories |
-
-
-
 
 ***
 
@@ -493,21 +283,11 @@ Turns on searching the include path for class files.
 public setUseIncludePath(bool $useIncludePath): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$useIncludePath` | **bool** |  |
-
-
-
 
 ***
 
@@ -520,16 +300,6 @@ for classes.
 public getUseIncludePath(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setClassMapAuthoritative
@@ -541,21 +311,11 @@ that have not been registered with the class map.
 public setClassMapAuthoritative(bool $classMapAuthoritative): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$classMapAuthoritative` | **bool** |  |
-
-
-
 
 ***
 
@@ -567,16 +327,6 @@ Should class lookup fail if not found in the current class map?
 public isClassMapAuthoritative(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setApcuPrefix
@@ -587,21 +337,11 @@ APCu prefix to use to cache found/not-found classes, if the extension is enabled
 public setApcuPrefix(string|null $apcuPrefix): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$apcuPrefix` | **string&#124;null** |  |
-
-
-
 
 ***
 
@@ -613,16 +353,6 @@ The APCu prefix in use, or null if APCu caching is not enabled.
 public getApcuPrefix(): string|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### register
@@ -633,21 +363,11 @@ Registers this instance as an autoloader.
 public register(bool $prepend = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prepend` | **bool** | Whether to prepend the autoloader or not |
-
-
-
 
 ***
 
@@ -659,16 +379,6 @@ Unregisters this instance as an autoloader.
 public unregister(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadClass
@@ -679,19 +389,11 @@ Loads the given class or interface.
 public loadClass(string $class): bool|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** | The name of the class |
-
 
 **Return Value:**
 
@@ -709,19 +411,11 @@ Finds the path to the file where the class is defined.
 public findFile(string $class): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** | The name of the class |
-
 
 **Return Value:**
 
@@ -739,32 +433,15 @@ Returns the currently registered loaders indexed by their corresponding vendor d
 public static getRegisteredLoaders(): self[]
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### findFileWithExtension
 
-
-
 ```php
 private findFileWithExtension(mixed $class, mixed $ext): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -772,9 +449,6 @@ private findFileWithExtension(mixed $class, mixed $ext): mixed
 |-----------|------|-------------|
 | `$class` | **mixed** |  |
 | `$ext` | **mixed** |  |
-
-
-
 
 ***
 

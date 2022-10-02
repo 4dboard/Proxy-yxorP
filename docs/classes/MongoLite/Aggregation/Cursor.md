@@ -2,96 +2,51 @@
 
 # Cursor
 
-
-
-
-
 * Full name: `\MongoLite\Aggregation\Cursor`
 * This class implements:
-[`\Iterator`](../../Iterator.md)
-
-
+  [`\Iterator`](../../Iterator.md)
 
 ## Properties
 
-
 ### position
-
-
 
 ```php
 protected bool|int $position
 ```
 
-
-
-
-
-
 ***
 
 ### data
-
-
 
 ```php
 protected array $data
 ```
 
-
-
-
-
-
 ***
 
 ### pipeline
-
-
 
 ```php
 protected array $pipeline
 ```
 
-
-
-
-
-
 ***
 
 ### collection
-
-
 
 ```php
 protected \MongoLite\Collection $collection
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\MongoLite\Collection $collection, array $pipeline): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -99,9 +54,6 @@ public __construct(\MongoLite\Collection $collection, array $pipeline): mixed
 |-----------|------|-------------|
 | `$collection` | **\MongoLite\Collection** |  |
 | `$pipeline` | **array** |  |
-
-
-
 
 ***
 
@@ -113,16 +65,6 @@ Get documents matching criteria
 public toArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getData
@@ -132,16 +74,6 @@ Get documents matching criteria
 ```php
 protected getData(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -153,121 +85,51 @@ Iterator implementation
 public rewind(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### current
-
-
 
 ```php
 public current(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### key
-
-
 
 ```php
 public key(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### next
-
-
 
 ```php
 public next(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### valid
-
-
 
 ```php
 public valid(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### make_cmp
 
-
-
 ```php
 protected make_cmp(array $sortValues): \Closure
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$sortValues` | **array** |  |
-
-
-
 
 ***
 

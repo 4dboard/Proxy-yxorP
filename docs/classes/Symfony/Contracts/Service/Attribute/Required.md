@@ -11,10 +11,5 @@ considered during the instantiation process of the containing class.
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
-
-
-
-
-
 ***
 
