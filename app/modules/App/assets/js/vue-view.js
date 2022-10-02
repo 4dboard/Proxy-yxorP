@@ -3,11 +3,11 @@ import ui from "./vue-view/ui.js";
 /**
  * Dynamic vue template (Vue 3.x)
  */
-(function() {
+(function () {
 
     let VueView = {
 
-        ready: new Promise(function(resolve) {
+        ready: new Promise(function (resolve) {
             document.addEventListener('DOMContentLoaded', e => resolve())
         }),
 
@@ -23,7 +23,7 @@ import ui from "./vue-view/ui.js";
             });
         },
 
-        _compile: async function(el, definition) {
+        _compile: async function (el, definition) {
 
             let script = definition ? null : el.querySelector('script');
             let template = definition ? null : el.querySelector('template');
@@ -46,8 +46,8 @@ import ui from "./vue-view/ui.js";
 
             Object.keys(def.components).forEach(name => {
 
-                if (typeof(def.components[name]) == 'string') {
-                    def.components[name] = (function(url) {
+                if (typeof (def.components[name]) == 'string') {
+                    def.components[name] = (function (url) {
                         return Vue.defineAsyncComponent(() => App.utils.import(url));
                     })(def.components[name]);
                 }
@@ -57,7 +57,7 @@ import ui from "./vue-view/ui.js";
 
             Object.keys(VueView.components).forEach(name => {
 
-                if (typeof(VueView.components[name]) == 'string') {
+                if (typeof (VueView.components[name]) == 'string') {
                     app.component(name, Vue.defineAsyncComponent(() => App.utils.import(VueView.components[name])));
                 } else {
                     app.component(name, VueView.components[name]);
@@ -100,8 +100,8 @@ import ui from "./vue-view/ui.js";
 
                 def.$router.routes.forEach(route => {
 
-                    if (typeof(route.component) == 'string') {
-                        route.component = (function(url) {
+                    if (typeof (route.component) == 'string') {
+                        route.component = (function (url) {
                             return Vue.defineAsyncComponent(() => App.utils.import(url));
                         })(route.component);
                     }

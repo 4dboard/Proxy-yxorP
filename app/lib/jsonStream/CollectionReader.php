@@ -2,7 +2,8 @@
 
 namespace JSONStream;
 
-class CollectionReader {
+class CollectionReader
+{
 
     const CHUNK_SIZE = 8192;
 
@@ -11,7 +12,8 @@ class CollectionReader {
     protected string $buffer = '';
     protected int $nestingLevel = 0;
 
-    public function __construct(string $path, bool $asArray = true) {
+    public function __construct(string $path, bool $asArray = true)
+    {
 
         if (!file_exists($path)) {
             throw new \InvalidArgumentException('There is no file at given path');
@@ -22,13 +24,8 @@ class CollectionReader {
         $this->resource = fopen($path, 'rb');
     }
 
-    public function close(): void {
-        if (is_resource($this->resource)) {
-            fclose($this->resource);
-        }
-    }
-
-    public function get(): \Generator {
+    public function get(): \Generator
+    {
 
         $this->buffer = '';
         $this->nestingLevel = 0;
@@ -41,7 +38,8 @@ class CollectionReader {
         }
     }
 
-    private function parseChunk($chunk): \Generator {
+    private function parseChunk($chunk): \Generator
+    {
         // Continue from where we left off
         $this->buffer .= $chunk;
 
@@ -100,7 +98,15 @@ class CollectionReader {
         $this->buffer = mb_substr($this->buffer, $keepFrom);
     }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         $this->close();
+    }
+
+    public function close(): void
+    {
+        if (is_resource($this->resource)) {
+            fclose($this->resource);
+        }
     }
 }
