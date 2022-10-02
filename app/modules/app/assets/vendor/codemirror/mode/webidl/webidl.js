@@ -13,7 +13,7 @@
 
     function wordRegexp(words) {
         return new RegExp("^((" + words.join(")|(") + "))\\b");
-    };
+    }
 
     var builtinArray = [
         "Clamp",
@@ -156,7 +156,7 @@
         // unrecognized
         stream.next();
         return null;
-    };
+    }
 
     CodeMirror.defineMode("webidl", function () {
         return {

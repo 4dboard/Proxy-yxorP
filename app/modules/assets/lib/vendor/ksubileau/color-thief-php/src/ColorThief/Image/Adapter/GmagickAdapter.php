@@ -16,6 +16,8 @@ namespace ColorThief\Image\Adapter;
 use ColorThief\Exception\InvalidArgumentException;
 use ColorThief\Exception\NotReadableException;
 use Gmagick;
+use GmagickException;
+use stdClass;
 
 /**
  * @property ?Gmagick $resource
@@ -32,7 +34,7 @@ class GmagickAdapter extends AbstractAdapter
         $resource = new Gmagick();
         try {
             $resource->readImageBlob($data);
-        } catch (\GmagickException $e) {
+        } catch (GmagickException $e) {
             throw new NotReadableException('Unable to read image from binary data.', 0, $e);
         }
 
@@ -59,7 +61,7 @@ class GmagickAdapter extends AbstractAdapter
         $resource = null;
         try {
             $resource = new Gmagick($file);
-        } catch (\GmagickException $e) {
+        } catch (GmagickException $e) {
             throw new NotReadableException("Unable to read image from path ({$file}).", 0, $e);
         }
 
@@ -85,7 +87,7 @@ class GmagickAdapter extends AbstractAdapter
         return $this->resource->getimagewidth();
     }
 
-    public function getPixelColor(int $x, int $y): \stdClass
+    public function getPixelColor(int $x, int $y): stdClass
     {
         $cropped = clone $this->resource;    // No need to modify the original object.
         $histogram = $cropped->cropImage(1, 1, $x, $y)->getImageHistogram();
@@ -94,11 +96,11 @@ class GmagickAdapter extends AbstractAdapter
         // Un-normalized values don't give a full range 0-1 alpha channel
         // So we ask for normalized values, and then we un-normalize it ourselves.
         $colorArray = $pixel->getColor(true, true);
-        $color = new \stdClass();
+        $color = new stdClass();
         $color->red = (int)round($colorArray['r'] * 255);
         $color->green = (int)round($colorArray['g'] * 255);
         $color->blue = (int)round($colorArray['b'] * 255);
-        $color->alpha = (int)round($pixel->getcolorvalue(\Gmagick::COLOR_OPACITY) * 127);
+        $color->alpha = (int)round($pixel->getcolorvalue(Gmagick::COLOR_OPACITY) * 127);
 
         return $color;
     }

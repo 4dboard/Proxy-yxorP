@@ -2,16 +2,19 @@
 
 namespace League\ColorExtractor;
 
+use SplFixedArray;
+use SplPriorityQueue;
+
 class ColorExtractor
 {
-    /** @var \League\ColorExtractor\Palette */
+    /** @var Palette */
     protected $palette;
 
-    /** @var \SplFixedArray */
+    /** @var SplFixedArray */
     protected $sortedColors;
 
     /**
-     * @param \League\ColorExtractor\Palette $palette
+     * @param Palette $palette
      */
     public function __construct(Palette $palette)
     {
@@ -42,8 +45,8 @@ class ColorExtractor
 
     protected function initialize()
     {
-        $queue = new \SplPriorityQueue();
-        $this->sortedColors = new \SplFixedArray(count($this->palette));
+        $queue = new SplPriorityQueue();
+        $this->sortedColors = new SplFixedArray(count($this->palette));
 
         $i = 0;
         foreach ($this->palette as $color => $count) {
@@ -158,19 +161,19 @@ class ColorExtractor
     }
 
     /**
-     * @param \SplFixedArray $colors
+     * @param SplFixedArray $colors
      * @param int $limit
      * @param int $maxDelta
      *
      * @return array
      */
-    protected static function mergeColors(\SplFixedArray $colors, $limit, $maxDelta)
+    protected static function mergeColors(SplFixedArray $colors, $limit, $maxDelta)
     {
         $limit = min(count($colors), $limit);
         if ($limit === 1) {
             return [$colors[0]];
         }
-        $labCache = new \SplFixedArray($limit - 1);
+        $labCache = new SplFixedArray($limit - 1);
         $mergedColors = [];
 
         foreach ($colors as $color) {

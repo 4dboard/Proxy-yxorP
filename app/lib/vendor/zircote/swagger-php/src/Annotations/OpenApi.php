@@ -6,6 +6,7 @@
 
 namespace OpenApi\Annotations;
 
+use Exception;
 use OpenApi\Analysis;
 use OpenApi\Generator;
 use OpenApi\Util;
@@ -141,7 +142,7 @@ class OpenApi extends AbstractAnnotation
         }
 
         if (file_put_contents($filename, $content) === false) {
-            throw new \Exception('Failed to saveAs("' . $filename . '", "' . $format . '")');
+            throw new Exception('Failed to saveAs("' . $filename . '", "' . $format . '")');
         }
     }
 
@@ -154,7 +155,7 @@ class OpenApi extends AbstractAnnotation
     {
         if (substr($ref, 0, 2) !== '#/') {
             // @todo Add support for external (http) refs?
-            throw new \Exception('Unsupported $ref "' . $ref . '", it should start with "#/"');
+            throw new Exception('Unsupported $ref "' . $ref . '", it should start with "#/"');
         }
 
         return $this->resolveRef($ref, '#/', $this, []);
@@ -177,7 +178,7 @@ class OpenApi extends AbstractAnnotation
 
         if (is_object($container)) {
             if (property_exists($container, $property) === false) {
-                throw new \Exception('$ref "' . $ref . '" not found');
+                throw new Exception('$ref "' . $ref . '" not found');
             }
             if ($slash === false) {
                 return $container->$property;
@@ -205,6 +206,6 @@ class OpenApi extends AbstractAnnotation
             }
         }
 
-        throw new \Exception('$ref "' . $unresolved . '" not found');
+        throw new Exception('$ref "' . $unresolved . '" not found');
     }
 }

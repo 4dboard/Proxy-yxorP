@@ -124,7 +124,7 @@
                 state.tokenize = tokenBase;
             }
             return 'string';
-        };
+        }
 
         function tokenComment(stream, state) {
             var prev, next;
