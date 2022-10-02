@@ -64,7 +64,7 @@
 
     function m(a, b) {
         g(a, "transition", b ? "" : "none")
-    };var n = "theme download play page close autofit zoom-in zoom-out prev next fullscreen".split(" "),
+    }var n = "theme download play page close autofit zoom-in zoom-out prev next fullscreen".split(" "),
         ha = {page: 1, close: 1, autofit: 1, "zoom-in": 1, "zoom-out": 1, prev: 1, next: 1, fullscreen: 1};
     var p = document.createElement("div");
     p.id = "spotlight";
@@ -89,7 +89,7 @@
             Ga = c[w]
         }
         return Ga || c.src || c.href || a.src || a.href
-    };var q = {}, la = navigator.connection, ma = window.devicePixelRatio || 1, r, t, na, oa, u, pa, qa, ra, v, sa, ta,
+    }var q = {}, la = navigator.connection, ma = window.devicePixelRatio || 1, r, t, na, oa, u, pa, qa, ra, v, sa, ta,
         ua, x, y, z, B, C, D, va, E, G, wa, xa, ya, za, Aa, Ba, H, Ca, Da, Ea, Fa, I, Ha, Ia, Ja, Ka, J, K, L, M, N,
         La = document.createElement("img"), Ma, Na, Oa, Pa, Qa, Ra, Sa, Ta, Ua, Va, Wa, O, Xa, P, Q, R, S, Ya, T, Za;
     h(document, "click", $a);
@@ -558,7 +558,7 @@
         fa(Ta, G || z < B);
         Va.firstChild.nodeValue = 1 < B ? z + " / " + B : "";
         ya && ya(z, D)
-    };window.Spotlight = {
+    }window.Spotlight = {
         init: ab,
         theme: fb,
         fullscreen: cb,

@@ -6,6 +6,8 @@
 
 namespace OpenApi;
 
+use Closure;
+use Exception;
 use OpenApi\Annotations\AbstractAnnotation;
 use OpenApi\Annotations\OpenApi;
 use OpenApi\Annotations\Schema;
@@ -23,6 +25,8 @@ use OpenApi\Processors\MergeIntoOpenApi;
 use OpenApi\Processors\MergeJsonContent;
 use OpenApi\Processors\MergeXmlContent;
 use OpenApi\Processors\OperationId;
+use SplObjectStorage;
+use stdClass;
 
 /**
  * Result of the analyser.
@@ -39,7 +43,7 @@ class Analysis
      */
     private static $processors;
     /**
-     * @var \SplObjectStorage
+     * @var SplObjectStorage
      */
     public $annotations;
     /**
@@ -73,7 +77,7 @@ class Analysis
 
     public function __construct(array $annotations = [], Context $context = null)
     {
-        $this->annotations = new \SplObjectStorage();
+        $this->annotations = new SplObjectStorage();
         $this->context = $context;
 
         $this->addAnnotations($annotations, $context);
@@ -129,7 +133,7 @@ class Analysis
     /**
      * Register a processor.
      *
-     * @param \Closure $processor
+     * @param Closure $processor
      *
      * @deprecated Superseded by `Generator` methods
      */
@@ -141,7 +145,7 @@ class Analysis
     /**
      * Unregister a processor.
      *
-     * @param \Closure $processor
+     * @param Closure $processor
      *
      * @deprecated Superseded by `Generator` methods
      */
@@ -150,7 +154,7 @@ class Analysis
         $processors = &self::processors();
         $key = array_search($processor, $processors, true);
         if ($key === false) {
-            throw new \Exception('Given processor was not registered');
+            throw new Exception('Given processor was not registered');
         }
         unset($processors[$key]);
     }
@@ -384,7 +388,7 @@ class Analysis
     /**
      * @param object $annotation
      *
-     * @return \OpenApi\Context
+     * @return Context
      */
     public function getContext($annotation): Context
     {
@@ -392,14 +396,14 @@ class Analysis
             return $annotation->_context;
         }
         if ($this->annotations->contains($annotation) === false) {
-            throw new \Exception('Annotation not found');
+            throw new Exception('Annotation not found');
         }
         $context = $this->annotations[$annotation];
         if ($context instanceof Context) {
             return $context;
         }
         // Weird, did you use the addAnnotation/addAnnotations methods?
-        throw new \Exception('Annotation has no context');
+        throw new Exception('Annotation has no context');
     }
 
     /**
@@ -418,7 +422,7 @@ class Analysis
      */
     public function split()
     {
-        $result = new \stdClass();
+        $result = new stdClass();
         $result->merged = $this->merged();
         $result->unmerged = new Analysis([], $this->context);
         foreach ($this->annotations as $annotation) {
@@ -436,7 +440,7 @@ class Analysis
     public function merged(): Analysis
     {
         if ($this->openapi === null) {
-            throw new \Exception('No openapi target set. Run the MergeIntoOpenApi processor');
+            throw new Exception('No openapi target set. Run the MergeIntoOpenApi processor');
         }
         $unmerged = $this->openapi->_unmerged;
         $this->openapi->_unmerged = [];
@@ -449,7 +453,7 @@ class Analysis
     /**
      * Apply the processor(s).
      *
-     * @param \Closure|\Closure[] $processors One or more processors
+     * @param Closure|Closure[] $processors One or more processors
      */
     public function process($processors = null): void
     {

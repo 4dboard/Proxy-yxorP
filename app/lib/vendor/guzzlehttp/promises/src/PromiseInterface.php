@@ -2,6 +2,9 @@
 
 namespace GuzzleHttp\Promise;
 
+use LogicException;
+use RuntimeException;
+
 /**
  * A promise represents the eventual result of an asynchronous operation.
  *
@@ -58,7 +61,7 @@ interface PromiseInterface
      *
      * @param mixed $value
      *
-     * @throws \RuntimeException if the promise is already resolved.
+     * @throws RuntimeException if the promise is already resolved.
      */
     public function resolve($value);
 
@@ -67,7 +70,7 @@ interface PromiseInterface
      *
      * @param mixed $reason
      *
-     * @throws \RuntimeException if the promise is already resolved.
+     * @throws RuntimeException if the promise is already resolved.
      */
     public function reject($reason);
 
@@ -90,7 +93,7 @@ interface PromiseInterface
      *
      * @return mixed
      *
-     * @throws \LogicException if the promise has no wait function or if the
+     * @throws LogicException if the promise has no wait function or if the
      *                         promise does not settle after waiting.
      */
     public function wait($unwrap = true);

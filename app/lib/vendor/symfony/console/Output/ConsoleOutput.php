@@ -12,6 +12,11 @@
 namespace Symfony\Component\Console\Output;
 
 use Symfony\Component\Console\Formatter\OutputFormatterInterface;
+use function defined;
+use function function_exists;
+use const PHP_OS;
+use const STDERR;
+use const STDOUT;
 
 /**
  * ConsoleOutput is the default class for all CLI output. It uses STDOUT and STDERR.
@@ -66,7 +71,7 @@ class ConsoleOutput extends StreamOutput implements ConsoleOutputInterface
         }
 
         // Use STDOUT when possible to prevent from opening too many file descriptors
-        return \defined('STDOUT') ? \STDOUT : (@fopen('php://stdout', 'w') ?: fopen('php://output', 'w'));
+        return defined('STDOUT') ? STDOUT : (@fopen('php://stdout', 'w') ?: fopen('php://output', 'w'));
     }
 
     /**
@@ -87,9 +92,9 @@ class ConsoleOutput extends StreamOutput implements ConsoleOutputInterface
     private function isRunningOS400(): bool
     {
         $checks = [
-            \function_exists('php_uname') ? php_uname('s') : '',
+            function_exists('php_uname') ? php_uname('s') : '',
             getenv('OSTYPE'),
-            \PHP_OS,
+            PHP_OS,
         ];
 
         return false !== stripos(implode(';', $checks), 'OS400');
@@ -105,7 +110,7 @@ class ConsoleOutput extends StreamOutput implements ConsoleOutputInterface
         }
 
         // Use STDERR when possible to prevent from opening too many file descriptors
-        return \defined('STDERR') ? \STDERR : (@fopen('php://stderr', 'w') ?: fopen('php://output', 'w'));
+        return defined('STDERR') ? STDERR : (@fopen('php://stderr', 'w') ?: fopen('php://output', 'w'));
     }
 
     /**

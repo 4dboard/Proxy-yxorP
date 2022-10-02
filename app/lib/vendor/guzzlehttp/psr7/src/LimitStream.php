@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace GuzzleHttp\Psr7;
 
 use Psr\Http\Message\StreamInterface;
+use RuntimeException;
 
 /**
  * Decorator used to return only a subset of a stream.
@@ -57,7 +58,7 @@ final class LimitStream implements StreamInterface
      *
      * @param int $offset Offset to seek to and begin byte limiting from
      *
-     * @throws \RuntimeException if the stream cannot be seeked.
+     * @throws RuntimeException if the stream cannot be seeked.
      */
     public function setOffset(int $offset): void
     {
@@ -68,7 +69,7 @@ final class LimitStream implements StreamInterface
             if ($this->stream->isSeekable()) {
                 $this->stream->seek($offset);
             } elseif ($current > $offset) {
-                throw new \RuntimeException("Could not seek to stream offset $offset");
+                throw new RuntimeException("Could not seek to stream offset $offset");
             } else {
                 $this->stream->read($offset - $current);
             }
@@ -91,7 +92,7 @@ final class LimitStream implements StreamInterface
     public function seek($offset, $whence = SEEK_SET): void
     {
         if ($whence !== SEEK_SET || $offset < 0) {
-            throw new \RuntimeException(sprintf(
+            throw new RuntimeException(sprintf(
                 'Cannot seek to offset %s with whence %s',
                 $offset,
                 $whence

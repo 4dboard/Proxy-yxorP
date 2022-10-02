@@ -6,7 +6,11 @@ use GuzzleHttp\Promise as P;
 use GuzzleHttp\Promise\EachPromise;
 use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Promise\PromisorInterface;
+use InvalidArgumentException;
+use Iterator;
 use Psr\Http\Message\RequestInterface;
+use function is_callable;
+use function ksort;
 
 /**
  * Sends an iterator of requests concurrently using a capped pool size.
@@ -30,7 +34,7 @@ class Pool implements PromisorInterface
 
     /**
      * @param ClientInterface $client Client used to send the requests.
-     * @param array|\Iterator $requests Requests or functions that return
+     * @param array|Iterator $requests Requests or functions that return
      *                                  requests to send concurrently.
      * @param array $config Associative array of options
      *                                  - concurrency: (int) Maximum number of requests to send concurrently
@@ -56,10 +60,10 @@ class Pool implements PromisorInterface
             foreach ($iterable as $key => $rfn) {
                 if ($rfn instanceof RequestInterface) {
                     yield $key => $client->sendAsync($rfn, $opts);
-                } elseif (\is_callable($rfn)) {
+                } elseif (is_callable($rfn)) {
                     yield $key => $rfn($opts);
                 } else {
-                    throw new \InvalidArgumentException('Each value yielded by the iterator must be a Psr7\Http\Message\RequestInterface or a callable that returns a promise that fulfills with a Psr7\Message\Http\ResponseInterface object.');
+                    throw new InvalidArgumentException('Each value yielded by the iterator must be a Psr7\Http\Message\RequestInterface or a callable that returns a promise that fulfills with a Psr7\Message\Http\ResponseInterface object.');
                 }
             }
         };
@@ -76,14 +80,14 @@ class Pool implements PromisorInterface
      * indeterminate number of requests concurrently.
      *
      * @param ClientInterface $client Client used to send the requests
-     * @param array|\Iterator $requests Requests to send concurrently.
+     * @param array|Iterator $requests Requests to send concurrently.
      * @param array $options Passes through the options available in
      *                                  {@see \GuzzleHttp\Pool::__construct}
      *
      * @return array Returns an array containing the response or an exception
      *               in the same order that the requests were sent.
      *
-     * @throws \InvalidArgumentException if the event format is incorrect.
+     * @throws InvalidArgumentException if the event format is incorrect.
      */
     public static function batch(ClientInterface $client, $requests, array $options = []): array
     {
@@ -92,7 +96,7 @@ class Pool implements PromisorInterface
         self::cmpCallback($options, 'rejected', $res);
         $pool = new static($client, $requests, $options);
         $pool->promise()->wait();
-        \ksort($res);
+        ksort($res);
 
         return $res;
     }

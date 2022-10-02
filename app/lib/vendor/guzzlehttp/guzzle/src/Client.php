@@ -2,6 +2,7 @@
 
 namespace GuzzleHttp;
 
+use Exception;
 use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\InvalidArgumentException;
@@ -10,6 +11,26 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use function array_key_exists;
+use function array_keys;
+use function base64_encode;
+use function count;
+use function explode;
+use function http_build_query;
+use function is_array;
+use function is_bool;
+use function is_callable;
+use function is_string;
+use function str_replace;
+use function strtolower;
+use function substr;
+use const CURLAUTH_DIGEST;
+use const CURLAUTH_NTLM;
+use const CURLOPT_HTTPAUTH;
+use const CURLOPT_USERPWD;
+use const IDNA_DEFAULT;
+use const PHP_QUERY_RFC3986;
+use const PHP_SAPI;
 
 /**
  * @final
@@ -58,7 +79,7 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
     {
         if (!isset($config['handler'])) {
             $config['handler'] = HandlerStack::create();
-        } elseif (!\is_callable($config['handler'])) {
+        } elseif (!is_callable($config['handler'])) {
             throw new InvalidArgumentException('handler must be a callable');
         }
 
@@ -89,7 +110,7 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
         // We can only trust the HTTP_PROXY environment variable in a CLI
         // process due to the fact that PHP has no reliable mechanism to
         // get environment variables that start with "HTTP_".
-        if (\PHP_SAPI === 'cli' && ($proxy = Utils::getenv('HTTP_PROXY'))) {
+        if (PHP_SAPI === 'cli' && ($proxy = Utils::getenv('HTTP_PROXY'))) {
             $defaults['proxy']['http'] = $proxy;
         }
 
@@ -98,8 +119,8 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
         }
 
         if ($noProxy = Utils::getenv('NO_PROXY')) {
-            $cleanedNoProxy = \str_replace(' ', '', $noProxy);
-            $defaults['proxy']['no'] = \explode(',', $cleanedNoProxy);
+            $cleanedNoProxy = str_replace(' ', '', $noProxy);
+            $defaults['proxy']['no'] = explode(',', $cleanedNoProxy);
         }
 
         $this->config = $config + $defaults;
@@ -113,8 +134,8 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
             $this->config['headers'] = ['User-Agent' => Utils::defaultUserAgent()];
         } else {
             // Add the User-Agent header if one was not already set.
-            foreach (\array_keys($this->config['headers']) as $name) {
-                if (\strtolower($name) === 'user-agent') {
+            foreach (array_keys($this->config['headers']) as $name) {
+                if (strtolower($name) === 'user-agent') {
                     return;
                 }
             }
@@ -132,15 +153,15 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
      */
     public function __call($method, $args)
     {
-        if (\count($args) < 1) {
+        if (count($args) < 1) {
             throw new InvalidArgumentException('Magic request methods require a URI and optional options array');
         }
 
         $uri = $args[0];
         $opts = $args[1] ?? [];
 
-        return \substr($method, -5) === 'Async'
-            ? $this->requestAsync(\substr($method, 0, -5), $uri, $opts)
+        return substr($method, -5) === 'Async'
+            ? $this->requestAsync(substr($method, 0, -5), $uri, $opts)
             : $this->request($method, $uri, $opts);
     }
 
@@ -165,7 +186,7 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
         $version = $options['version'] ?? '1.1';
         // Merge the URI into the base URI.
         $uri = $this->buildUri(Psr7\Utils::uriFor($uri), $options);
-        if (\is_array($body)) {
+        if (is_array($body)) {
             throw $this->invalidBody();
         }
         $request = new Psr7\Request($method, $uri, $headers, $body, $version);
@@ -192,12 +213,12 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
 
         // Special handling for headers is required as they are added as
         // conditional headers and as headers passed to a request ctor.
-        if (\array_key_exists('headers', $options)) {
+        if (array_key_exists('headers', $options)) {
             // Allows default headers to be unset.
             if ($options['headers'] === null) {
                 $defaults['_conditional'] = [];
                 unset($options['headers']);
-            } elseif (!\is_array($options['headers'])) {
+            } elseif (!is_array($options['headers'])) {
                 throw new InvalidArgumentException('headers must be an array');
             }
         }
@@ -222,7 +243,7 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
         }
 
         if (isset($config['idn_conversion']) && ($config['idn_conversion'] !== false)) {
-            $idnOptions = ($config['idn_conversion'] === true) ? \IDNA_DEFAULT : $config['idn_conversion'];
+            $idnOptions = ($config['idn_conversion'] === true) ? IDNA_DEFAULT : $config['idn_conversion'];
             $uri = Utils::idnUriConvert($uri, $idnOptions);
         }
 
@@ -257,7 +278,7 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
 
         try {
             return P\Create::promiseFor($handler($request, $options));
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return P\Create::rejectionFor($e);
         }
     }
@@ -287,7 +308,7 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
                     . 'x-www-form-urlencoded requests, and the multipart '
                     . 'option to send multipart/form-data requests.');
             }
-            $options['body'] = \http_build_query($options['form_params'], '', '&');
+            $options['body'] = http_build_query($options['form_params'], '', '&');
             unset($options['form_params']);
             // Ensure that we don't have the header in different case and set the new value.
             $options['_conditional'] = Psr7\Utils::caselessRemove(['Content-Type'], $options['_conditional']);
@@ -316,41 +337,41 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
         }
 
         if (isset($options['body'])) {
-            if (\is_array($options['body'])) {
+            if (is_array($options['body'])) {
                 throw $this->invalidBody();
             }
             $modify['body'] = Psr7\Utils::streamFor($options['body']);
             unset($options['body']);
         }
 
-        if (!empty($options['auth']) && \is_array($options['auth'])) {
+        if (!empty($options['auth']) && is_array($options['auth'])) {
             $value = $options['auth'];
-            $type = isset($value[2]) ? \strtolower($value[2]) : 'basic';
+            $type = isset($value[2]) ? strtolower($value[2]) : 'basic';
             switch ($type) {
                 case 'basic':
                     // Ensure that we don't have the header in different case and set the new value.
                     $modify['set_headers'] = Psr7\Utils::caselessRemove(['Authorization'], $modify['set_headers']);
                     $modify['set_headers']['Authorization'] = 'Basic '
-                        . \base64_encode("$value[0]:$value[1]");
+                        . base64_encode("$value[0]:$value[1]");
                     break;
                 case 'digest':
                     // @todo: Do not rely on curl
-                    $options['curl'][\CURLOPT_HTTPAUTH] = \CURLAUTH_DIGEST;
-                    $options['curl'][\CURLOPT_USERPWD] = "$value[0]:$value[1]";
+                    $options['curl'][CURLOPT_HTTPAUTH] = CURLAUTH_DIGEST;
+                    $options['curl'][CURLOPT_USERPWD] = "$value[0]:$value[1]";
                     break;
                 case 'ntlm':
-                    $options['curl'][\CURLOPT_HTTPAUTH] = \CURLAUTH_NTLM;
-                    $options['curl'][\CURLOPT_USERPWD] = "$value[0]:$value[1]";
+                    $options['curl'][CURLOPT_HTTPAUTH] = CURLAUTH_NTLM;
+                    $options['curl'][CURLOPT_USERPWD] = "$value[0]:$value[1]";
                     break;
             }
         }
 
         if (isset($options['query'])) {
             $value = $options['query'];
-            if (\is_array($value)) {
-                $value = \http_build_query($value, '', '&', \PHP_QUERY_RFC3986);
+            if (is_array($value)) {
+                $value = http_build_query($value, '', '&', PHP_QUERY_RFC3986);
             }
-            if (!\is_string($value)) {
+            if (!is_string($value)) {
                 throw new InvalidArgumentException('query must be a string or array');
             }
             $modify['query'] = $value;
@@ -360,7 +381,7 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
         // Ensure that sink is not an invalid value.
         if (isset($options['sink'])) {
             // TODO: Add more sink validation?
-            if (\is_bool($options['sink'])) {
+            if (is_bool($options['sink'])) {
                 throw new InvalidArgumentException('sink must not be a boolean');
             }
         }

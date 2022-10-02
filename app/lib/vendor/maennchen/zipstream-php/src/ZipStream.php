@@ -248,8 +248,8 @@ class ZipStream
      *   ));
      *
      * @return void
-     * @throws \ZipStream\Exception\FileNotFoundException
-     * @throws \ZipStream\Exception\FileNotReadableException
+     * @throws FileNotFoundException
+     * @throws FileNotReadableException
      */
     public function addFileFromPath($name, $path, $opt = array(), $storage_method = "deflate")
     {
@@ -291,7 +291,7 @@ class ZipStream
      * @param String $path
      * @param array $opt
      * @return void
-     * @throws \ZipStream\Exception\InvalidOptionException
+     * @throws InvalidOptionException
      */
     protected function addLargeFile($name, $path, $opt = array())
     {

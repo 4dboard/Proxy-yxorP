@@ -2,6 +2,10 @@
 
 namespace GuzzleHttp\Promise;
 
+use Exception;
+use Iterator;
+use Throwable;
+
 /**
  * Get the global task queue used for promise resolution.
  *
@@ -75,7 +79,7 @@ function rejection_for($reason)
  *
  * @param mixed $reason
  *
- * @return \Exception|\Throwable
+ * @return Exception|Throwable
  *
  * @deprecated exception_for will be removed in guzzlehttp/promises:2.0. Use Create::exceptionFor instead.
  */
@@ -89,7 +93,7 @@ function exception_for($reason)
  *
  * @param mixed $value
  *
- * @return \Iterator
+ * @return Iterator
  *
  * @deprecated iter_for will be removed in guzzlehttp/promises:2.0. Use Create::iterFor instead.
  */
@@ -149,8 +153,8 @@ function inspect_all($promises)
  *
  * @return array
  *
- * @throws \Exception on error
- * @throws \Throwable on error in PHP >=7
+ * @throws Exception on error
+ * @throws Throwable on error in PHP >=7
  *
  * @deprecated unwrap will be removed in guzzlehttp/promises:2.0. Use Utils::unwrap instead.
  */

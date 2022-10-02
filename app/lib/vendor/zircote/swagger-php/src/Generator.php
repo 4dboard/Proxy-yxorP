@@ -6,9 +6,11 @@
 
 namespace OpenApi;
 
+use InvalidArgumentException;
 use OpenApi\Annotations\OpenApi;
 use OpenApi\Logger\DefaultLogger;
 use Psr\Log\LoggerInterface;
+use SplFileInfo;
 
 /**
  * OpenApi spec generator.
@@ -185,7 +187,7 @@ class Generator
             if (is_iterable($source)) {
                 $this->scanSources($source, $analysis, $rootContext);
             } else {
-                $resolvedSource = $source instanceof \SplFileInfo ? $source->getPathname() : realpath($source);
+                $resolvedSource = $source instanceof SplFileInfo ? $source->getPathname() : realpath($source);
                 if (!$resolvedSource) {
                     $rootContext->logger->warning(sprintf('Skipping invalid source: %s', $source));
                     continue;
@@ -245,7 +247,7 @@ class Generator
             if ($silent) {
                 return $this;
             }
-            throw new \InvalidArgumentException('Processor not found');
+            throw new InvalidArgumentException('Processor not found');
         }
         unset($processors[$key]);
         $this->setProcessors($processors);

@@ -6,6 +6,7 @@
 
 namespace OpenApi\Annotations;
 
+use Exception;
 use OpenApi\Analyser;
 use OpenApi\Context;
 use OpenApi\Generator;
@@ -479,7 +480,7 @@ abstract class AbstractAnnotation implements \JsonSerializable
                 // Internal reference
                 try {
                     $parents[0]->ref($this->ref);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     $this->_context->logger->warning($e->getMessage() . ' for ' . $this->identity() . ' in ' . $this->_context, ['exception' => $e]);
                 }
             }
@@ -522,7 +523,7 @@ abstract class AbstractAnnotation implements \JsonSerializable
                     $this->_context->logger->warning($this->identity() . '->' . $property . ' "' . $value . '" is invalid, expecting "' . implode('", "', $type) . '" in ' . $this->_context);
                 }
             } else {
-                throw new \Exception('Invalid ' . get_class($this) . '::$_types[' . $property . ']');
+                throw new Exception('Invalid ' . get_class($this) . '::$_types[' . $property . ']');
             }
         }
         $parents[] = $this;
@@ -583,7 +584,7 @@ abstract class AbstractAnnotation implements \JsonSerializable
             case 'scheme':
                 return in_array($value, ['http', 'https', 'ws', 'wss'], true);
             default:
-                throw new \Exception('Invalid type "' . $type . '"');
+                throw new Exception('Invalid type "' . $type . '"');
         }
     }
 

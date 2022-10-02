@@ -3,8 +3,22 @@
 namespace GuzzleHttp;
 
 use GuzzleHttp\Promise\PromiseInterface;
+use InvalidArgumentException;
+use LogicException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use function array_filter;
+use function array_keys;
+use function array_reverse;
+use function array_splice;
+use function array_unshift;
+use function array_values;
+use function count;
+use function get_class;
+use function is_array;
+use function is_callable;
+use function is_string;
+use function spl_object_hash;
 
 /**
  * Creates a composed Guzzle handler function by stacking middlewares on top of
@@ -96,10 +110,10 @@ class HandlerStack
     {
         if ($this->cached === null) {
             if (($prev = $this->handler) === null) {
-                throw new \LogicException('No handler has been specified');
+                throw new LogicException('No handler has been specified');
             }
 
-            foreach (\array_reverse($this->stack) as $fn) {
+            foreach (array_reverse($this->stack) as $fn) {
                 /** @var callable(RequestInterface, array): PromiseInterface $prev */
                 $prev = $fn[0]($prev);
             }
@@ -125,7 +139,7 @@ class HandlerStack
         }
 
         $result = '';
-        foreach (\array_reverse($this->stack) as $tuple) {
+        foreach (array_reverse($this->stack) as $tuple) {
             $depth++;
             $str = "{$depth}) Name: '{$tuple[1]}', ";
             $str .= "Function: " . $this->debugCallable($tuple[0]);
@@ -133,7 +147,7 @@ class HandlerStack
             $stack[] = $str;
         }
 
-        foreach (\array_keys($stack) as $k) {
+        foreach (array_keys($stack) as $k) {
             $result .= "< {$stack[$k]}\n";
         }
 
@@ -147,18 +161,18 @@ class HandlerStack
      */
     private function debugCallable($fn): string
     {
-        if (\is_string($fn)) {
+        if (is_string($fn)) {
             return "callable({$fn})";
         }
 
-        if (\is_array($fn)) {
-            return \is_string($fn[0])
+        if (is_array($fn)) {
+            return is_string($fn[0])
                 ? "callable({$fn[0]}::{$fn[1]})"
-                : "callable(['" . \get_class($fn[0]) . "', '{$fn[1]}'])";
+                : "callable(['" . get_class($fn[0]) . "', '{$fn[1]}'])";
         }
 
         /** @var object $fn */
-        return 'callable(' . \spl_object_hash($fn) . ')';
+        return 'callable(' . spl_object_hash($fn) . ')';
     }
 
     /**
@@ -189,7 +203,7 @@ class HandlerStack
      */
     public function unshift(callable $middleware, ?string $name = null): void
     {
-        \array_unshift($this->stack, [$middleware, $name]);
+        array_unshift($this->stack, [$middleware, $name]);
         $this->cached = null;
     }
 
@@ -216,16 +230,16 @@ class HandlerStack
 
         if ($before) {
             if ($idx === 0) {
-                \array_unshift($this->stack, $tuple);
+                array_unshift($this->stack, $tuple);
             } else {
                 $replacement = [$tuple, $this->stack[$idx]];
-                \array_splice($this->stack, $idx, 1, $replacement);
+                array_splice($this->stack, $idx, 1, $replacement);
             }
-        } elseif ($idx === \count($this->stack) - 1) {
+        } elseif ($idx === count($this->stack) - 1) {
             $this->stack[] = $tuple;
         } else {
             $replacement = [$this->stack[$idx], $tuple];
-            \array_splice($this->stack, $idx, 1, $replacement);
+            array_splice($this->stack, $idx, 1, $replacement);
         }
     }
 
@@ -237,7 +251,7 @@ class HandlerStack
             }
         }
 
-        throw new \InvalidArgumentException("Middleware not found: $name");
+        throw new InvalidArgumentException("Middleware not found: $name");
     }
 
     /**
@@ -264,8 +278,8 @@ class HandlerStack
         }
 
         $this->cached = null;
-        $idx = \is_callable($remove) ? 0 : 1;
-        $this->stack = \array_values(\array_filter(
+        $idx = is_callable($remove) ? 0 : 1;
+        $this->stack = array_values(array_filter(
             $this->stack,
             static function ($tuple) use ($idx, $remove) {
                 return $tuple[$idx] !== $remove;

@@ -11,6 +11,7 @@
 
 namespace Symfony\Component\Console\Command;
 
+use Closure;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Completion\CompletionInput;
 use Symfony\Component\Console\Completion\CompletionSuggestions;
@@ -27,7 +28,7 @@ final class LazyCommand extends Command
     private $command;
     private $isEnabled;
 
-    public function __construct(string $name, array $aliases, string $description, bool $isHidden, \Closure $commandFactory, ?bool $isEnabled = true)
+    public function __construct(string $name, array $aliases, string $description, bool $isHidden, Closure $commandFactory, ?bool $isEnabled = true)
     {
         $this->setName($name)
             ->setAliases($aliases)
@@ -45,7 +46,7 @@ final class LazyCommand extends Command
 
     public function getCommand(): parent
     {
-        if (!$this->command instanceof \Closure) {
+        if (!$this->command instanceof Closure) {
             return $this->command;
         }
 

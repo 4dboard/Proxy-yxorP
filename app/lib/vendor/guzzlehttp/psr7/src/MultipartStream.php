@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace GuzzleHttp\Psr7;
 
+use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
+use UnexpectedValueException;
+use function is_string;
+use function substr;
 
 /**
  * Stream that when read returns bytes for a streaming multipart or
@@ -30,7 +34,7 @@ final class MultipartStream implements StreamInterface
      *                         string to send as the filename in the part.
      * @param string $boundary You can optionally provide a specific boundary
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function __construct(array $elements = [], string $boundary = null)
     {
@@ -47,7 +51,7 @@ final class MultipartStream implements StreamInterface
 
         foreach ($elements as $element) {
             if (!is_array($element)) {
-                throw new \UnexpectedValueException("An array is expected");
+                throw new UnexpectedValueException("An array is expected");
             }
             $this->addElement($stream, $element);
         }
@@ -62,7 +66,7 @@ final class MultipartStream implements StreamInterface
     {
         foreach (['contents', 'name'] as $key) {
             if (!array_key_exists($key, $element)) {
-                throw new \InvalidArgumentException("A '{$key}' key is required");
+                throw new InvalidArgumentException("A '{$key}' key is required");
             }
         }
 
@@ -70,7 +74,7 @@ final class MultipartStream implements StreamInterface
 
         if (empty($element['filename'])) {
             $uri = $element['contents']->getMetadata('uri');
-            if ($uri && \is_string($uri) && \substr($uri, 0, 6) !== 'php://' && \substr($uri, 0, 7) !== 'data://') {
+            if ($uri && is_string($uri) && substr($uri, 0, 6) !== 'php://' && substr($uri, 0, 7) !== 'data://') {
                 $element['filename'] = $uri;
             }
         }

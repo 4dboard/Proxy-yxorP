@@ -14,6 +14,7 @@ namespace Symfony\Component\Console\Output;
 use Symfony\Component\Console\Formatter\OutputFormatterInterface;
 use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\Console\Terminal;
+use const PHP_EOL;
 
 /**
  * @author Pierre du Plessis <pdples@gmail.com>
@@ -129,10 +130,10 @@ class ConsoleSectionOutput extends StreamOutput
      */
     public function addContent(string $input)
     {
-        foreach (explode(\PHP_EOL, $input) as $lineContent) {
+        foreach (explode(PHP_EOL, $input) as $lineContent) {
             $this->lines += ceil($this->getDisplayLength($lineContent) / $this->terminal->getWidth()) ?: 1;
             $this->content[] = $lineContent;
-            $this->content[] = \PHP_EOL;
+            $this->content[] = PHP_EOL;
         }
     }
 

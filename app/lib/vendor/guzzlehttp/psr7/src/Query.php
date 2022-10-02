@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace GuzzleHttp\Psr7;
 
+use InvalidArgumentException;
+
 final class Query
 {
     /**
@@ -83,7 +85,7 @@ final class Query
         } elseif ($encoding === PHP_QUERY_RFC1738) {
             $encoder = 'urlencode';
         } else {
-            throw new \InvalidArgumentException('Invalid type');
+            throw new InvalidArgumentException('Invalid type');
         }
 
         $qs = '';

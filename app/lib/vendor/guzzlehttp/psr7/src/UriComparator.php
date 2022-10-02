@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace GuzzleHttp\Psr7;
 
 use Psr\Http\Message\UriInterface;
+use function strcasecmp;
 
 /**
  * Provides methods to determine if a modified URL should be considered cross-origin.
@@ -24,7 +25,7 @@ final class UriComparator
      */
     public static function isCrossOrigin(UriInterface $original, UriInterface $modified): bool
     {
-        if (\strcasecmp($original->getHost(), $modified->getHost()) !== 0) {
+        if (strcasecmp($original->getHost(), $modified->getHost()) !== 0) {
             return true;
         }
 

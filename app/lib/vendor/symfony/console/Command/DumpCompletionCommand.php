@@ -19,6 +19,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
+use const PATHINFO_EXTENSION;
 
 /**
  * Dumps the completion script for the current shell.
@@ -43,7 +44,7 @@ final class DumpCompletionCommand extends Command
     private function getSupportedShells(): array
     {
         return array_map(function ($f) {
-            return pathinfo($f, \PATHINFO_EXTENSION);
+            return pathinfo($f, PATHINFO_EXTENSION);
         }, glob(__DIR__ . '/../Resources/completion.*'));
     }
 

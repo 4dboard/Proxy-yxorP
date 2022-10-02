@@ -2,6 +2,11 @@
 
 namespace GuzzleHttp\Promise;
 
+use Exception;
+use InvalidArgumentException;
+use LogicException;
+use Throwable;
+
 /**
  * A promise that has been rejected.
  *
@@ -15,7 +20,7 @@ class RejectedPromise implements PromiseInterface
     public function __construct($reason)
     {
         if (is_object($reason) && method_exists($reason, 'then')) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'You cannot create a RejectedPromise with a promise.'
             );
         }
@@ -46,10 +51,10 @@ class RejectedPromise implements PromiseInterface
                 try {
                     // Return a resolved promise if onRejected does not throw.
                     $p->resolve($onRejected($reason));
-                } catch (\Throwable $e) {
+                } catch (Throwable $e) {
                     // onRejected threw, so return a rejected promise.
                     $p->reject($e);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     // onRejected threw, so return a rejected promise.
                     $p->reject($e);
                 }
@@ -61,13 +66,13 @@ class RejectedPromise implements PromiseInterface
 
     public function resolve($value)
     {
-        throw new \LogicException("Cannot resolve a rejected promise");
+        throw new LogicException("Cannot resolve a rejected promise");
     }
 
     public function reject($reason)
     {
         if ($reason !== $this->reason) {
-            throw new \LogicException("Cannot reject a rejected promise");
+            throw new LogicException("Cannot reject a rejected promise");
         }
     }
 

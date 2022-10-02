@@ -11,11 +11,13 @@
 
 namespace Symfony\Component\Console\Exception;
 
+use Throwable;
+
 /**
  * ExceptionInterface.
  *
  * @author Jérôme Tamarelle <jerome@tamarelle.net>
  */
-interface ExceptionInterface extends \Throwable
+interface ExceptionInterface extends Throwable
 {
 }

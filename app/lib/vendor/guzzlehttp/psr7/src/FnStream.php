@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace GuzzleHttp\Psr7;
 
+use AllowDynamicProperties;
+use BadMethodCallException;
+use LogicException;
 use Psr\Http\Message\StreamInterface;
+use Throwable;
+use const PHP_VERSION_ID;
 
 /**
  * Compose stream implementations based on a hash of functions.
@@ -12,7 +17,7 @@ use Psr\Http\Message\StreamInterface;
  * Allows for easy testing and extension of a provided stream without needing
  * to create a concrete class for a simple extension point.
  */
-#[\AllowDynamicProperties]
+#[AllowDynamicProperties]
 final class FnStream implements StreamInterface
 {
     private const SLOTS = [
@@ -62,11 +67,11 @@ final class FnStream implements StreamInterface
     /**
      * Lazily determine which methods are not implemented.
      *
-     * @throws \BadMethodCallException
+     * @throws BadMethodCallException
      */
     public function __get(string $name): void
     {
-        throw new \BadMethodCallException(str_replace('_fn_', '', $name)
+        throw new BadMethodCallException(str_replace('_fn_', '', $name)
             . '() is not implemented in the FnStream');
     }
 
@@ -83,19 +88,19 @@ final class FnStream implements StreamInterface
     /**
      * An unserialize would allow the __destruct to run when the unserialized value goes out of scope.
      *
-     * @throws \LogicException
+     * @throws LogicException
      */
     public function __wakeup(): void
     {
-        throw new \LogicException('FnStream should never be unserialized');
+        throw new LogicException('FnStream should never be unserialized');
     }
 
     public function __toString(): string
     {
         try {
             return call_user_func($this->_fn___toString);
-        } catch (\Throwable $e) {
-            if (\PHP_VERSION_ID >= 70400) {
+        } catch (Throwable $e) {
+            if (PHP_VERSION_ID >= 70400) {
                 throw $e;
             }
             trigger_error(sprintf('%s::__toString exception: %s', self::class, (string)$e), E_USER_ERROR);

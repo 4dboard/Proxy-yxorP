@@ -21,6 +21,17 @@
 
 namespace PHPMailer\PHPMailer;
 
+use Psr\Log\LoggerInterface;
+use const IDNA_CHECK_BIDI;
+use const IDNA_CHECK_CONTEXTJ;
+use const IDNA_DEFAULT;
+use const IDNA_NONTRANSITIONAL_TO_ASCII;
+use const IDNA_USE_STD3_RULES;
+use const INTL_IDNA_VARIANT_2003;
+use const INTL_IDNA_VARIANT_UTS46;
+use const PHP_MAJOR_VERSION;
+use const PHP_VERSION_ID;
+
 /**
  * PHPMailer - PHP email creation and transport class.
  *
@@ -433,7 +444,7 @@ class PHPMailer
      *
      * @see SMTP::$Debugoutput
      *
-     * @var string|callable|\Psr\Log\LoggerInterface
+     * @var string|callable|LoggerInterface
      */
     public $Debugoutput = 'echo';
     /**
@@ -1283,7 +1294,7 @@ class PHPMailer
     {
         if (
             'smtp' === $this->Mailer
-            || ('mail' === $this->Mailer && (\PHP_VERSION_ID >= 80000 || stripos(PHP_OS, 'WIN') === 0))
+            || ('mail' === $this->Mailer && (PHP_VERSION_ID >= 80000 || stripos(PHP_OS, 'WIN') === 0))
         ) {
             //SMTP mandates RFC-compliant line endings
             //and it's also used with mail() on Windows
@@ -1295,8 +1306,8 @@ class PHPMailer
         //Check for buggy PHP versions that add a header with an incorrect line break
         if (
             'mail' === $this->Mailer
-            && ((\PHP_VERSION_ID >= 70000 && \PHP_VERSION_ID < 70017)
-                || (\PHP_VERSION_ID >= 70100 && \PHP_VERSION_ID < 70103))
+            && ((PHP_VERSION_ID >= 70000 && PHP_VERSION_ID < 70017)
+                || (PHP_VERSION_ID >= 70100 && PHP_VERSION_ID < 70103))
             && ini_get('mail.add_x_header') === '1'
             && stripos(PHP_OS, 'WIN') === 0
         ) {
@@ -1440,13 +1451,13 @@ class PHPMailer
                     //Use the current punycode standard (appeared in PHP 7.2)
                     $punycode = idn_to_ascii(
                         $domain,
-                        \IDNA_DEFAULT | \IDNA_USE_STD3_RULES | \IDNA_CHECK_BIDI |
-                        \IDNA_CHECK_CONTEXTJ | \IDNA_NONTRANSITIONAL_TO_ASCII,
-                        \INTL_IDNA_VARIANT_UTS46
+                        IDNA_DEFAULT | IDNA_USE_STD3_RULES | IDNA_CHECK_BIDI |
+                        IDNA_CHECK_CONTEXTJ | IDNA_NONTRANSITIONAL_TO_ASCII,
+                        INTL_IDNA_VARIANT_UTS46
                     );
                 } elseif (defined('INTL_IDNA_VARIANT_2003')) {
                     //Fall back to this old, deprecated/removed encoding
-                    $punycode = idn_to_ascii($domain, $errorcode, \INTL_IDNA_VARIANT_2003);
+                    $punycode = idn_to_ascii($domain, $errorcode, INTL_IDNA_VARIANT_2003);
                 } else {
                     //Fall back to a default we don't know about
                     $punycode = idn_to_ascii($domain, $errorcode);
@@ -2722,13 +2733,13 @@ class PHPMailer
             $privKey = openssl_pkey_get_private($privKeyStr);
         }
         if (openssl_sign($signHeader, $signature, $privKey, 'sha256WithRSAEncryption')) {
-            if (\PHP_MAJOR_VERSION < 8) {
+            if (PHP_MAJOR_VERSION < 8) {
                 openssl_pkey_free($privKey);
             }
 
             return base64_encode($signature);
         }
-        if (\PHP_MAJOR_VERSION < 8) {
+        if (PHP_MAJOR_VERSION < 8) {
             openssl_pkey_free($privKey);
         }
 
@@ -3846,7 +3857,7 @@ class PHPMailer
             return;
         }
         //Is this a PSR-3 logger?
-        if ($this->Debugoutput instanceof \Psr\Log\LoggerInterface) {
+        if ($this->Debugoutput instanceof LoggerInterface) {
             $this->Debugoutput->debug($str);
 
             return;

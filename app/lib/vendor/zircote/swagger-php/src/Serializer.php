@@ -6,7 +6,9 @@
 
 namespace OpenApi;
 
+use Exception;
 use OpenApi\Annotations as OA;
+use stdClass;
 
 /**
  * Allows to serialize/de-serialize annotations from/to JSON.
@@ -74,7 +76,7 @@ class Serializer
     public function deserialize(string $jsonString, string $className)
     {
         if (!$this->isValidAnnotationClass($className)) {
-            throw new \Exception($className . ' is not defined in OpenApi PHP Annotations');
+            throw new Exception($className . ' is not defined in OpenApi PHP Annotations');
         }
 
         return $this->doDeserialize(json_decode($jsonString), $className);
@@ -90,7 +92,7 @@ class Serializer
      *
      * @return OA\AbstractAnnotation
      */
-    protected function doDeserialize(\stdClass $c, string $class)
+    protected function doDeserialize(stdClass $c, string $class)
     {
         $annotation = new $class(['_context' => new Context(['generated' => true])]);
         foreach ((array)$c as $property => $value) {
@@ -201,7 +203,7 @@ class Serializer
     public function deserializeFile(string $filename, string $className = OA\OpenApi::class)
     {
         if (!$this->isValidAnnotationClass($className)) {
-            throw new \Exception($className . ' is not defined in OpenApi PHP Annotations');
+            throw new Exception($className . ' is not defined in OpenApi PHP Annotations');
         }
 
         return $this->doDeserialize(json_decode(file_get_contents($filename)), $className);

@@ -6,6 +6,7 @@ use GuzzleHttp\Promise as P;
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use function pow;
 
 /**
  * Middleware that retries requests based on the boolean result of
@@ -54,7 +55,7 @@ class RetryMiddleware
      */
     public static function exponentialDelay(int $retries): int
     {
-        return (int)\pow(2, $retries - 1) * 1000;
+        return (int)pow(2, $retries - 1) * 1000;
     }
 
     public function __invoke(RequestInterface $request, array $options): PromiseInterface

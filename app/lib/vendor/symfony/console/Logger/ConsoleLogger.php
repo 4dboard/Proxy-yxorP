@@ -11,11 +11,16 @@
 
 namespace Symfony\Component\Console\Logger;
 
+use DateTime;
+use DateTimeInterface;
 use Psr\Log\AbstractLogger;
 use Psr\Log\InvalidArgumentException;
 use Psr\Log\LogLevel;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use function get_class;
+use function gettype;
+use function is_object;
 
 /**
  * PSR-3 compliant console logger.
@@ -100,14 +105,14 @@ class ConsoleLogger extends AbstractLogger
 
         $replacements = [];
         foreach ($context as $key => $val) {
-            if (null === $val || is_scalar($val) || (\is_object($val) && method_exists($val, '__toString'))) {
+            if (null === $val || is_scalar($val) || (is_object($val) && method_exists($val, '__toString'))) {
                 $replacements["{{$key}}"] = $val;
-            } elseif ($val instanceof \DateTimeInterface) {
-                $replacements["{{$key}}"] = $val->format(\DateTime::RFC3339);
-            } elseif (\is_object($val)) {
-                $replacements["{{$key}}"] = '[object ' . \get_class($val) . ']';
+            } elseif ($val instanceof DateTimeInterface) {
+                $replacements["{{$key}}"] = $val->format(DateTime::RFC3339);
+            } elseif (is_object($val)) {
+                $replacements["{{$key}}"] = '[object ' . get_class($val) . ']';
             } else {
-                $replacements["{{$key}}"] = '[' . \gettype($val) . ']';
+                $replacements["{{$key}}"] = '[' . gettype($val) . ']';
             }
         }
 

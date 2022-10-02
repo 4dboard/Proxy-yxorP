@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-if (\PHP_VERSION_ID < 70300) {
+if (PHP_VERSION_ID < 70300) {
     class JsonException extends Exception
     {
     }

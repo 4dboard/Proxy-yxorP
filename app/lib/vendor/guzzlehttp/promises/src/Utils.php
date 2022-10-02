@@ -2,6 +2,9 @@
 
 namespace GuzzleHttp\Promise;
 
+use Exception;
+use Throwable;
+
 final class Utils
 {
     /**
@@ -21,9 +24,9 @@ final class Utils
                 if (Is::pending($promise)) {
                     $promise->resolve($task());
                 }
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 $promise->reject($e);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $promise->reject($e);
             }
         });
@@ -84,9 +87,9 @@ final class Utils
             ];
         } catch (RejectionException $e) {
             return ['state' => PromiseInterface::REJECTED, 'reason' => $e->getReason()];
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
         }
     }
@@ -124,8 +127,8 @@ final class Utils
      *
      * @return array
      *
-     * @throws \Exception on error
-     * @throws \Throwable on error in PHP >=7
+     * @throws Exception on error
+     * @throws Throwable on error in PHP >=7
      */
     public static function unwrap($promises)
     {

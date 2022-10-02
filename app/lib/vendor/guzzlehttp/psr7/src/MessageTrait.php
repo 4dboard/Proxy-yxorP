@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace GuzzleHttp\Psr7;
 
+use InvalidArgumentException;
 use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\StreamInterface;
 
@@ -92,14 +93,14 @@ trait MessageTrait
     private function assertHeader($header): void
     {
         if (!is_string($header)) {
-            throw new \InvalidArgumentException(sprintf(
+            throw new InvalidArgumentException(sprintf(
                 'Header name must be a string but %s provided.',
                 is_object($header) ? get_class($header) : gettype($header)
             ));
         }
 
         if (!preg_match('/^[a-zA-Z0-9\'`#$%&*+.^_|~!-]+$/', $header)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     '"%s" is not valid header name',
                     $header
@@ -120,7 +121,7 @@ trait MessageTrait
         }
 
         if (count($value) === 0) {
-            throw new \InvalidArgumentException('Header value can not be an empty array.');
+            throw new InvalidArgumentException('Header value can not be an empty array.');
         }
 
         return $this->trimAndValidateHeaderValues($value);
@@ -144,7 +145,7 @@ trait MessageTrait
     {
         return array_map(function ($value) {
             if (!is_scalar($value) && null !== $value) {
-                throw new \InvalidArgumentException(sprintf(
+                throw new InvalidArgumentException(sprintf(
                     'Header value must be scalar or null but %s provided.',
                     is_object($value) ? get_class($value) : gettype($value)
                 ));
@@ -181,7 +182,7 @@ trait MessageTrait
         // likely very rare. Line folding is a fairly obscure feature of HTTP/1.1 and thus not accepting
         // folding is not likely to break any legitimate use case.
         if (!preg_match('/^[\x20\x09\x21-\x7E\x80-\xFF]*$/', $value)) {
-            throw new \InvalidArgumentException(sprintf('"%s" is not valid header value', $value));
+            throw new InvalidArgumentException(sprintf('"%s" is not valid header value', $value));
         }
     }
 

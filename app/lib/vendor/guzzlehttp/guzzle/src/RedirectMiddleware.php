@@ -5,9 +5,19 @@ namespace GuzzleHttp;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\TooManyRedirectsException;
 use GuzzleHttp\Promise\PromiseInterface;
+use InvalidArgumentException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use function array_unshift;
+use function implode;
+use function in_array;
+use function is_array;
+use function sprintf;
+use function strpos;
+use const CURLOPT_HTTPAUTH;
+use const CURLOPT_USERPWD;
+use const IDNA_DEFAULT;
 
 /**
  * Request redirect middleware.
@@ -57,8 +67,8 @@ class RedirectMiddleware
 
         if ($options['allow_redirects'] === true) {
             $options['allow_redirects'] = self::$defaultSettings;
-        } elseif (!\is_array($options['allow_redirects'])) {
-            throw new \InvalidArgumentException('allow_redirects must be true, false, or array');
+        } elseif (!is_array($options['allow_redirects'])) {
+            throw new InvalidArgumentException('allow_redirects must be true, false, or array');
         } else {
             // Merge the default settings with the provided settings
             $options['allow_redirects'] += self::$defaultSettings;
@@ -79,7 +89,7 @@ class RedirectMiddleware
      */
     public function checkRedirect(RequestInterface $request, array $options, ResponseInterface $response)
     {
-        if (\strpos((string)$response->getStatusCode(), '3') !== 0
+        if (strpos((string)$response->getStatusCode(), '3') !== 0
             || !$response->hasHeader('Location')
         ) {
             return $response;
@@ -91,8 +101,8 @@ class RedirectMiddleware
         // If authorization is handled by curl, unset it if URI is cross-origin.
         if (Psr7\UriComparator::isCrossOrigin($request->getUri(), $nextRequest->getUri()) && defined('\CURLOPT_HTTPAUTH')) {
             unset(
-                $options['curl'][\CURLOPT_HTTPAUTH],
-                $options['curl'][\CURLOPT_USERPWD]
+                $options['curl'][CURLOPT_HTTPAUTH],
+                $options['curl'][CURLOPT_USERPWD]
             );
         }
 
@@ -157,7 +167,7 @@ class RedirectMiddleware
 
         $uri = self::redirectUri($request, $response, $protocols);
         if (isset($options['idn_conversion']) && ($options['idn_conversion'] !== false)) {
-            $idnOptions = ($options['idn_conversion'] === true) ? \IDNA_DEFAULT : $options['idn_conversion'];
+            $idnOptions = ($options['idn_conversion'] === true) ? IDNA_DEFAULT : $options['idn_conversion'];
             $uri = Utils::idnUriConvert($uri, $idnOptions);
         }
 
@@ -199,8 +209,8 @@ class RedirectMiddleware
         );
 
         // Ensure that the redirect URI is allowed based on the protocols.
-        if (!\in_array($location->getScheme(), $protocols)) {
-            throw new BadResponseException(\sprintf('Redirect URI, %s, does not use one of the allowed redirect protocols: %s', $location, \implode(', ', $protocols)), $request, $response);
+        if (!in_array($location->getScheme(), $protocols)) {
+            throw new BadResponseException(sprintf('Redirect URI, %s, does not use one of the allowed redirect protocols: %s', $location, implode(', ', $protocols)), $request, $response);
         }
 
         return $location;
@@ -218,8 +228,8 @@ class RedirectMiddleware
                 // in the history header.
                 $historyHeader = $response->getHeader(self::HISTORY_HEADER);
                 $statusHeader = $response->getHeader(self::STATUS_HISTORY_HEADER);
-                \array_unshift($historyHeader, $uri);
-                \array_unshift($statusHeader, (string)$statusCode);
+                array_unshift($historyHeader, $uri);
+                array_unshift($statusHeader, (string)$statusCode);
 
                 return $response->withHeader(self::HISTORY_HEADER, $historyHeader)
                     ->withHeader(self::STATUS_HISTORY_HEADER, $statusHeader);

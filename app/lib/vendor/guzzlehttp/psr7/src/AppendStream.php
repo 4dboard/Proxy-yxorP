@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace GuzzleHttp\Psr7;
 
+use Exception;
+use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
+use RuntimeException;
+use Throwable;
+use const PHP_VERSION_ID;
 
 /**
  * Reads from multiple streams, one after the other.
@@ -41,12 +46,12 @@ final class AppendStream implements StreamInterface
      *
      * @param StreamInterface $stream Stream to append. Must be readable.
      *
-     * @throws \InvalidArgumentException if the stream is not readable
+     * @throws InvalidArgumentException if the stream is not readable
      */
     public function addStream(StreamInterface $stream): void
     {
         if (!$stream->isReadable()) {
-            throw new \InvalidArgumentException('Each stream must be readable');
+            throw new InvalidArgumentException('Each stream must be readable');
         }
 
         // The stream is only seekable if all streams are seekable
@@ -72,8 +77,8 @@ final class AppendStream implements StreamInterface
         try {
             $this->rewind();
             return $this->getContents();
-        } catch (\Throwable $e) {
-            if (\PHP_VERSION_ID >= 70400) {
+        } catch (Throwable $e) {
+            if (PHP_VERSION_ID >= 70400) {
                 throw $e;
             }
             trigger_error(sprintf('%s::__toString exception: %s', self::class, (string)$e), E_USER_ERROR);
@@ -92,9 +97,9 @@ final class AppendStream implements StreamInterface
     public function seek($offset, $whence = SEEK_SET): void
     {
         if (!$this->seekable) {
-            throw new \RuntimeException('This AppendStream is not seekable');
+            throw new RuntimeException('This AppendStream is not seekable');
         } elseif ($whence !== SEEK_SET) {
-            throw new \RuntimeException('The AppendStream can only seek with SEEK_SET');
+            throw new RuntimeException('The AppendStream can only seek with SEEK_SET');
         }
 
         $this->pos = $this->current = 0;
@@ -103,8 +108,8 @@ final class AppendStream implements StreamInterface
         foreach ($this->streams as $i => $stream) {
             try {
                 $stream->rewind();
-            } catch (\Exception $e) {
-                throw new \RuntimeException('Unable to seek stream '
+            } catch (Exception $e) {
+                throw new RuntimeException('Unable to seek stream '
                     . $i . ' of the AppendStream', 0, $e);
             }
         }
@@ -234,7 +239,7 @@ final class AppendStream implements StreamInterface
 
     public function write($string): int
     {
-        throw new \RuntimeException('Cannot write to an AppendStream');
+        throw new RuntimeException('Cannot write to an AppendStream');
     }
 
     /**
