@@ -10,10 +10,10 @@ import "./components/tabs/tabs.js";
 import "./components/tooltip/tooltip.js";
 import {on, onMutation} from "./js/events.js";
 
-HTMLElement.prototype.on = function(event, selector, handler) {
+HTMLElement.prototype.on = function (event, selector, handler) {
     return on(this, event, selector, handler)
 };
 
-HTMLElement.prototype.onMutation = function(cb) {
+HTMLElement.prototype.onMutation = function (cb) {
     return onMutation(cb, this)
 };
