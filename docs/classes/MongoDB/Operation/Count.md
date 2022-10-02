@@ -4,84 +4,50 @@
 
 Operation for the count command.
 
-
-
 * Full name: `\MongoDB\Operation\Count`
 * This class implements:
-[`\MongoDB\Operation\Executable`](./Executable.md), [`\MongoDB\Operation\Explainable`](./Explainable.md)
+  [`\MongoDB\Operation\Executable`](./Executable.md), [`\MongoDB\Operation\Explainable`](./Explainable.md)
 
 **See Also:**
 
-* \MongoDB\Collection::count() - 
-* http://docs.mongodb.org/manual/reference/command/count/ - 
-
-
+* \MongoDB\Collection::count() -
+* http://docs.mongodb.org/manual/reference/command/count/ -
 
 ## Properties
 
-
 ### databaseName
-
-
 
 ```php
 private string $databaseName
 ```
 
-
-
-
-
-
 ***
 
 ### collectionName
-
-
 
 ```php
 private string $collectionName
 ```
 
-
-
-
-
-
 ***
 
 ### filter
-
-
 
 ```php
 private array|object $filter
 ```
 
-
-
-
-
-
 ***
 
 ### options
-
-
 
 ```php
 private array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -113,11 +79,6 @@ Supported options:
 * skip (integer): The number of documents to skip before returning the
   documents.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -126,9 +87,6 @@ Supported options:
 | `$collectionName` | **string** | Collection name |
 | `$filter` | **array&#124;object** | Query by which to filter documents |
 | `$options` | **array** | Command options |
-
-
-
 
 ***
 
@@ -140,24 +98,15 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() - 
+* \MongoDB\Operation\Executable::execute() -
 
 ***
 
@@ -169,24 +118,15 @@ Returns the command document for this operation.
 public getCommandDocument(\MongoDB\Driver\Server $server): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\Explainable::getCommandDocument() - 
+* \MongoDB\Operation\Explainable::getCommandDocument() -
 
 ***
 
@@ -198,16 +138,6 @@ Create the count command document.
 private createCommandDocument(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createOptions
@@ -218,18 +148,9 @@ Create options for executing the command.
 private createOptions(): array
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/mongodb-driver-server.executereadcommand.php - 
+* http://php.net/manual/en/mongodb-driver-server.executereadcommand.php -
 
 ***
 

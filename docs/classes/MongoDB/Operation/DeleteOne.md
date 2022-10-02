@@ -4,39 +4,26 @@
 
 Operation for deleting a single document with the delete command.
 
-
-
 * Full name: `\MongoDB\Operation\DeleteOne`
 * This class implements:
-[`\MongoDB\Operation\Executable`](./Executable.md), [`\MongoDB\Operation\Explainable`](./Explainable.md)
+  [`\MongoDB\Operation\Executable`](./Executable.md), [`\MongoDB\Operation\Explainable`](./Explainable.md)
 
 **See Also:**
 
-* \MongoDB\Collection::deleteOne() - 
-* http://docs.mongodb.org/manual/reference/command/delete/ - 
-
-
+* \MongoDB\Collection::deleteOne() -
+* http://docs.mongodb.org/manual/reference/command/delete/ -
 
 ## Properties
 
-
 ### delete
-
-
 
 ```php
 private \MongoDB\Operation\Delete $delete
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -61,11 +48,6 @@ Supported options:
 
 * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -74,9 +56,6 @@ Supported options:
 | `$collectionName` | **string** | Collection name |
 | `$filter` | **array&#124;object** | Query by which to delete documents |
 | `$options` | **array** | Command options |
-
-
-
 
 ***
 
@@ -88,24 +67,15 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): \MongoDB\DeleteResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() - 
+* \MongoDB\Operation\Executable::execute() -
 
 ***
 
@@ -117,24 +87,15 @@ Returns the command document for this operation.
 public getCommandDocument(\MongoDB\Driver\Server $server): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\Explainable::getCommandDocument() - 
+* \MongoDB\Operation\Explainable::getCommandDocument() -
 
 ***
 

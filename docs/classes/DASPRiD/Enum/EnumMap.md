@@ -17,13 +17,10 @@ to the map that occur while the iteration is in progress.
 * Full name: `\DASPRiD\Enum\EnumMap`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\Serializable`](../../Serializable.md), [`\IteratorAggregate`](../../IteratorAggregate.md)
+  [`\Serializable`](../../Serializable.md), [`\IteratorAggregate`](../../IteratorAggregate.md)
 * This class is a **Final class**
 
-
-
 ## Properties
-
 
 ### keyType
 
@@ -32,11 +29,6 @@ The class name of the key.
 ```php
 private string $keyType
 ```
-
-
-
-
-
 
 ***
 
@@ -48,25 +40,13 @@ The type of the value.
 private string $valueType
 ```
 
-
-
-
-
-
 ***
 
 ### allowNullValues
 
-
-
 ```php
 private bool $allowNullValues
 ```
-
-
-
-
-
 
 ***
 
@@ -77,11 +57,6 @@ All of the constants comprising the enum, cached for performance.
 ```php
 private array&lt;int,\DASPRiD\Enum\AbstractEnum&gt; $keyUniverse
 ```
-
-
-
-
-
 
 ***
 
@@ -94,30 +69,17 @@ if it isn't mapped to anything, or NullValue if it's mapped to null.
 private array&lt;int,mixed&gt; $values
 ```
 
-
-
-
-
-
 ***
 
 ### size
-
-
 
 ```php
 private int $size
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -127,13 +89,6 @@ Creates a new enum map.
 public __construct(string $keyType, string $valueType, bool $allowNullValues): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -141,9 +96,6 @@ public __construct(string $keyType, string $valueType, bool $allowNullValues): m
 | `$keyType` | **string** | the type of the keys, must extend AbstractEnum |
 | `$valueType` | **string** | the type of the values |
 | `$allowNullValues` | **bool** | whether to allow null values |
-
-
-
 
 ***
 
@@ -158,11 +110,6 @@ public expect(string $keyType, string $valueType, bool $allowNullValues): void
 You should call this method when an EnumMap is passed to you and you want to ensure that it's made up of the
 correct types.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -170,9 +117,6 @@ correct types.
 | `$keyType` | **string** |  |
 | `$valueType` | **string** |  |
 | `$allowNullValues` | **bool** |  |
-
-
-
 
 ***
 
@@ -184,16 +128,6 @@ Returns the number of key-value mappings in this map.
 public size(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### containsValue
@@ -204,21 +138,11 @@ Returns true if this map maps one or more keys to the specified value.
 public containsValue(mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -230,21 +154,11 @@ Returns true if this map contains a mapping for the specified key.
 public containsKey(\DASPRiD\Enum\AbstractEnum $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **\DASPRiD\Enum\AbstractEnum** |  |
-
-
-
 
 ***
 
@@ -263,19 +177,11 @@ A return value of null does not necessarily indicate that the map contains no ma
 possible that hte map explicitly maps the key to null. The {@see} operation may be used to
 distinguish these two cases.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **\DASPRiD\Enum\AbstractEnum** |  |
-
-
-
 
 ***
 
@@ -289,18 +195,12 @@ public put(\DASPRiD\Enum\AbstractEnum $key, mixed $value): mixed
 
 If the map previously contained a mapping for this key, the old value is replaced.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **\DASPRiD\Enum\AbstractEnum** |  |
 | `$value` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -319,19 +219,11 @@ Removes the mapping for this key frm this map if present.
 public remove(\DASPRiD\Enum\AbstractEnum $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **\DASPRiD\Enum\AbstractEnum** |  |
-
 
 **Return Value:**
 
@@ -350,16 +242,6 @@ Removes all mappings from this map.
 public clear(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### equals
@@ -372,19 +254,11 @@ public equals(self $other): bool
 
 Returns true if the two maps represent the same mappings.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$other` | **self** |  |
-
-
-
 
 ***
 
@@ -411,38 +285,17 @@ order (the order in which the num constants are declared).
 
 ### serialize
 
-
-
 ```php
 public serialize(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### unserialize
 
-
-
 ```php
 public unserialize(mixed $serialized): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -450,71 +303,35 @@ public unserialize(mixed $serialized): void
 |-----------|------|-------------|
 | `$serialized` | **mixed** |  |
 
-
-
-
 ***
 
 ### getIterator
-
-
 
 ```php
 public getIterator(): \Traversable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### maskNull
-
-
 
 ```php
 private maskNull(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### unmaskNull
 
-
-
 ```php
 private unmaskNull(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -522,25 +339,13 @@ private unmaskNull(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### checkKeyType
 
-
-
 ```php
 private checkKeyType(\DASPRiD\Enum\AbstractEnum $key): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -548,34 +353,19 @@ private checkKeyType(\DASPRiD\Enum\AbstractEnum $key): void
 |-----------|------|-------------|
 | `$key` | **\DASPRiD\Enum\AbstractEnum** |  |
 
-
-
-
 ***
 
 ### isValidValue
 
-
-
 ```php
 private isValidValue(mixed $value): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 

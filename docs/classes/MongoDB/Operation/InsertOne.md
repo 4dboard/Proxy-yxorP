@@ -4,84 +4,50 @@
 
 Operation for inserting a single document with the insert command.
 
-
-
 * Full name: `\MongoDB\Operation\InsertOne`
 * This class implements:
-[`\MongoDB\Operation\Executable`](./Executable.md)
+  [`\MongoDB\Operation\Executable`](./Executable.md)
 
 **See Also:**
 
-* \MongoDB\Collection::insertOne() - 
-* http://docs.mongodb.org/manual/reference/command/insert/ - 
-
-
+* \MongoDB\Collection::insertOne() -
+* http://docs.mongodb.org/manual/reference/command/insert/ -
 
 ## Properties
 
-
 ### databaseName
-
-
 
 ```php
 private string $databaseName
 ```
 
-
-
-
-
-
 ***
 
 ### collectionName
-
-
 
 ```php
 private string $collectionName
 ```
 
-
-
-
-
-
 ***
 
 ### document
-
-
 
 ```php
 private array|object $document
 ```
 
-
-
-
-
-
 ***
 
 ### options
-
-
 
 ```php
 private array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -100,11 +66,6 @@ Supported options:
 
 * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -113,9 +74,6 @@ Supported options:
 | `$collectionName` | **string** | Collection name |
 | `$document` | **array&#124;object** | Document to insert |
 | `$options` | **array** | Command options |
-
-
-
 
 ***
 
@@ -127,24 +85,15 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): \MongoDB\InsertOneResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() - 
+* \MongoDB\Operation\Executable::execute() -
 
 ***
 
@@ -156,18 +105,9 @@ Create options for constructing the bulk write.
 private createBulkWriteOptions(): array
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* https://www.php.net/manual/en/mongodb-driver-bulkwrite.construct.php - 
+* https://www.php.net/manual/en/mongodb-driver-bulkwrite.construct.php -
 
 ***
 
@@ -179,18 +119,9 @@ Create options for executing the bulk write.
 private createExecuteOptions(): array
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/mongodb-driver-server.executebulkwrite.php - 
+* http://php.net/manual/en/mongodb-driver-server.executebulkwrite.php -
 
 ***
 

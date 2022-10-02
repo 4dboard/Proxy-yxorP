@@ -2,79 +2,43 @@
 
 # Source
 
-
-
-
-
 * Full name: `\GraphQL\Language\Source`
-
-
 
 ## Properties
 
-
 ### body
-
-
 
 ```php
 public string $body
 ```
 
-
-
-
-
-
 ***
 
 ### length
-
-
 
 ```php
 public int $length
 ```
 
-
-
-
-
-
 ***
 
 ### name
-
-
 
 ```php
 public string $name
 ```
 
-
-
-
-
-
 ***
 
 ### locationOffset
-
-
 
 ```php
 public \GraphQL\Language\SourceLocation $locationOffset
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -90,11 +54,6 @@ starts at line 40 in a file named Foo.graphql, it might be useful for name to
 be "Foo.graphql" and location to be `{ line: 40, column: 0 }`.
 line and column in locationOffset are 1-indexed
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -103,34 +62,19 @@ line and column in locationOffset are 1-indexed
 | `$name` | **string&#124;null** |  |
 | `$location` | **?\GraphQL\Language\SourceLocation** |  |
 
-
-
-
 ***
 
 ### getLocation
 
-
-
 ```php
 public getLocation(int $position): \GraphQL\Language\SourceLocation
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$position` | **int** |  |
-
-
-
 
 ***
 

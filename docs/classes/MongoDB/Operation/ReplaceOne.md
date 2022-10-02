@@ -4,39 +4,26 @@
 
 Operation for replacing a single document with the update command.
 
-
-
 * Full name: `\MongoDB\Operation\ReplaceOne`
 * This class implements:
-[`\MongoDB\Operation\Executable`](./Executable.md)
+  [`\MongoDB\Operation\Executable`](./Executable.md)
 
 **See Also:**
 
-* \MongoDB\Collection::replaceOne() - 
-* http://docs.mongodb.org/manual/reference/command/update/ - 
-
-
+* \MongoDB\Collection::replaceOne() -
+* http://docs.mongodb.org/manual/reference/command/update/ -
 
 ## Properties
 
-
 ### update
-
-
 
 ```php
 private \MongoDB\Operation\Update $update
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -67,11 +54,6 @@ Supported options:
 
 * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -81,9 +63,6 @@ Supported options:
 | `$filter` | **array&#124;object** | Query by which to filter documents |
 | `$replacement` | **array&#124;object** | Replacement document |
 | `$options` | **array** | Command options |
-
-
-
 
 ***
 
@@ -95,24 +74,15 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): \MongoDB\UpdateResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() - 
+* \MongoDB\Operation\Executable::execute() -
 
 ***
 

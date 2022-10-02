@@ -16,11 +16,7 @@ $printed = GraphQL\Language\Printer::doPrint($ast);
 
 * Full name: `\GraphQL\Language\Printer`
 
-
-
-
 ## Methods
-
 
 ### doPrint
 
@@ -30,12 +26,7 @@ Prints AST to string. Capable of printing GraphQL queries and Type definition la
 public static doPrint(\GraphQL\Language\AST\Node $ast): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -43,28 +34,13 @@ public static doPrint(\GraphQL\Language\AST\Node $ast): string
 |-----------|------|-------------|
 | `$ast` | **\GraphQL\Language\AST\Node** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 protected __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -79,45 +55,25 @@ public printAST(mixed $ast): mixed
 That means the AST is manipulated in such a way that it no longer
 resembles the well-formed result of parsing.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ast` | **mixed** |  |
 
-
-
-
 ***
 
 ### addDescription
 
-
-
 ```php
 public addDescription(callable $cb): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cb` | **callable** |  |
-
-
-
 
 ***
 
@@ -130,13 +86,6 @@ print an empty string.
 public wrap(mixed $start, mixed $maybeString, mixed $end = &#039;&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -144,9 +93,6 @@ public wrap(mixed $start, mixed $maybeString, mixed $end = &#039;&#039;): mixed
 | `$start` | **mixed** |  |
 | `$maybeString` | **mixed** |  |
 | `$end` | **mixed** |  |
-
-
-
 
 ***
 
@@ -159,38 +105,19 @@ indented "{ }" block.
 public block(mixed $array): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$array` | **mixed** |  |
 
-
-
-
 ***
 
 ### indent
 
-
-
 ```php
 public indent(mixed $maybeString): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -198,25 +125,13 @@ public indent(mixed $maybeString): mixed
 |-----------|------|-------------|
 | `$maybeString` | **mixed** |  |
 
-
-
-
 ***
 
 ### manyList
 
-
-
 ```php
 public manyList(mixed $start, mixed $list, mixed $separator, mixed $end): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -227,25 +142,13 @@ public manyList(mixed $start, mixed $list, mixed $separator, mixed $end): mixed
 | `$separator` | **mixed** |  |
 | `$end` | **mixed** |  |
 
-
-
-
 ***
 
 ### length
 
-
-
 ```php
 public length(mixed $maybeArray): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -253,25 +156,13 @@ public length(mixed $maybeArray): mixed
 |-----------|------|-------------|
 | `$maybeArray` | **mixed** |  |
 
-
-
-
 ***
 
 ### join
 
-
-
 ```php
 public join(mixed $maybeArray, mixed $separator = &#039;&#039;): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -279,9 +170,6 @@ public join(mixed $maybeArray, mixed $separator = &#039;&#039;): string
 |-----------|------|-------------|
 | `$maybeArray` | **mixed** |  |
 | `$separator` | **mixed** |  |
-
-
-
 
 ***
 
@@ -295,22 +183,12 @@ a single-line, adding a leading blank line would strip that whitespace.
 private printBlockString(mixed $value, mixed $isDescription): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 | `$isDescription` | **mixed** |  |
-
-
-
 
 ***
 

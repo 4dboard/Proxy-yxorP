@@ -2,12 +2,7 @@
 
 # BreakingChangesFinder
 
-
-
-
-
 * Full name: `\GraphQL\Utils\BreakingChangesFinder`
-
 
 ## Constants
 
@@ -37,9 +32,7 @@
 |`BREAKING_CHANGE_INTERFACE_REMOVED_FROM_OBJECT`|public| |&#039;IMPLEMENTED_INTERFACE_REMOVED&#039;|
 |`DANGEROUS_CHANGE_INTERFACE_ADDED_TO_OBJECT`|public| |&#039;IMPLEMENTED_INTERFACE_ADDED&#039;|
 
-
 ## Methods
-
 
 ### findBreakingChanges
 
@@ -50,12 +43,7 @@ of breaking changes covered by the other functions down below.
 public static findBreakingChanges(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -63,9 +51,6 @@ public static findBreakingChanges(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type
 |-----------|------|-------------|
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
-
-
-
 
 ***
 
@@ -78,12 +63,7 @@ changes in the newSchema related to removing an entire type.
 public static findRemovedTypes(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -91,9 +71,6 @@ public static findRemovedTypes(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Sc
 |-----------|------|-------------|
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
-
-
-
 
 ***
 
@@ -106,12 +83,7 @@ changes in the newSchema related to changing the type of a type.
 public static findTypesThatChangedKind(\GraphQL\Type\Schema $schemaA, \GraphQL\Type\Schema $schemaB): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -120,25 +92,15 @@ public static findTypesThatChangedKind(\GraphQL\Type\Schema $schemaA, \GraphQL\T
 | `$schemaA` | **\GraphQL\Type\Schema** |  |
 | `$schemaB` | **\GraphQL\Type\Schema** |  |
 
-
-
-
 ***
 
 ### typeKindName
-
-
 
 ```php
 private static typeKindName(\GraphQL\Type\Definition\Type $type): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -146,25 +108,15 @@ private static typeKindName(\GraphQL\Type\Definition\Type $type): string
 |-----------|------|-------------|
 | `$type` | **\GraphQL\Type\Definition\Type** |  |
 
-
-
-
 ***
 
 ### findFieldsThatChangedTypeOnObjectOrInterfaceTypes
-
-
 
 ```php
 public static findFieldsThatChangedTypeOnObjectOrInterfaceTypes(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -172,26 +124,16 @@ public static findFieldsThatChangedTypeOnObjectOrInterfaceTypes(\GraphQL\Type\Sc
 |-----------|------|-------------|
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
-
-
-
 
 ***
 
 ### isChangeSafeForObjectOrInterfaceField
 
-
-
 ```php
 private static isChangeSafeForObjectOrInterfaceField(\GraphQL\Type\Definition\Type $oldType, \GraphQL\Type\Definition\Type $newType): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -200,25 +142,15 @@ private static isChangeSafeForObjectOrInterfaceField(\GraphQL\Type\Definition\Ty
 | `$oldType` | **\GraphQL\Type\Definition\Type** |  |
 | `$newType` | **\GraphQL\Type\Definition\Type** |  |
 
-
-
-
 ***
 
 ### findFieldsThatChangedTypeOnInputObjectTypes
-
-
 
 ```php
 public static findFieldsThatChangedTypeOnInputObjectTypes(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): array&lt;string,array&lt;int,array&lt;string,string&gt;&gt;&gt;
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -227,25 +159,15 @@ public static findFieldsThatChangedTypeOnInputObjectTypes(\GraphQL\Type\Schema $
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
 
-
-
-
 ***
 
 ### isChangeSafeForInputObjectFieldOrFieldArg
-
-
 
 ```php
 private static isChangeSafeForInputObjectFieldOrFieldArg(\GraphQL\Type\Definition\Type $oldType, \GraphQL\Type\Definition\Type $newType): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -253,9 +175,6 @@ private static isChangeSafeForInputObjectFieldOrFieldArg(\GraphQL\Type\Definitio
 |-----------|------|-------------|
 | `$oldType` | **\GraphQL\Type\Definition\Type** |  |
 | `$newType` | **\GraphQL\Type\Definition\Type** |  |
-
-
-
 
 ***
 
@@ -268,12 +187,7 @@ changes in the newSchema related to removing types from a union type.
 public static findTypesRemovedFromUnions(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -281,9 +195,6 @@ public static findTypesRemovedFromUnions(\GraphQL\Type\Schema $oldSchema, \Graph
 |-----------|------|-------------|
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
-
-
-
 
 ***
 
@@ -296,12 +207,7 @@ changes in the newSchema related to removing values from an enum type.
 public static findValuesRemovedFromEnums(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -309,9 +215,6 @@ public static findValuesRemovedFromEnums(\GraphQL\Type\Schema $oldSchema, \Graph
 |-----------|------|-------------|
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
-
-
-
 
 ***
 
@@ -326,12 +229,7 @@ argument's default value).
 public static findArgChanges(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): array&lt;string,array&lt;int,array&lt;string,string&gt;&gt;&gt;
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -339,26 +237,16 @@ public static findArgChanges(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Sche
 |-----------|------|-------------|
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
-
-
-
 
 ***
 
 ### findInterfacesRemovedFromObjectTypes
 
-
-
 ```php
 public static findInterfacesRemovedFromObjectTypes(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -366,26 +254,16 @@ public static findInterfacesRemovedFromObjectTypes(\GraphQL\Type\Schema $oldSche
 |-----------|------|-------------|
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
-
-
-
 
 ***
 
 ### findRemovedDirectives
 
-
-
 ```php
 public static findRemovedDirectives(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -394,25 +272,15 @@ public static findRemovedDirectives(\GraphQL\Type\Schema $oldSchema, \GraphQL\Ty
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
 
-
-
-
 ***
 
 ### getDirectiveMapForSchema
-
-
 
 ```php
 private static getDirectiveMapForSchema(\GraphQL\Type\Schema $schema): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -420,25 +288,15 @@ private static getDirectiveMapForSchema(\GraphQL\Type\Schema $schema): mixed
 |-----------|------|-------------|
 | `$schema` | **\GraphQL\Type\Schema** |  |
 
-
-
-
 ***
 
 ### findRemovedDirectiveArgs
-
-
 
 ```php
 public static findRemovedDirectiveArgs(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -447,25 +305,15 @@ public static findRemovedDirectiveArgs(\GraphQL\Type\Schema $oldSchema, \GraphQL
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
 
-
-
-
 ***
 
 ### findRemovedArgsForDirectives
-
-
 
 ```php
 public static findRemovedArgsForDirectives(\GraphQL\Type\Definition\Directive $oldDirective, \GraphQL\Type\Definition\Directive $newDirective): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -474,25 +322,15 @@ public static findRemovedArgsForDirectives(\GraphQL\Type\Definition\Directive $o
 | `$oldDirective` | **\GraphQL\Type\Definition\Directive** |  |
 | `$newDirective` | **\GraphQL\Type\Definition\Directive** |  |
 
-
-
-
 ***
 
 ### getArgumentMapForDirective
-
-
 
 ```php
 private static getArgumentMapForDirective(\GraphQL\Type\Definition\Directive $directive): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -500,25 +338,15 @@ private static getArgumentMapForDirective(\GraphQL\Type\Definition\Directive $di
 |-----------|------|-------------|
 | `$directive` | **\GraphQL\Type\Definition\Directive** |  |
 
-
-
-
 ***
 
 ### findAddedNonNullDirectiveArgs
-
-
 
 ```php
 public static findAddedNonNullDirectiveArgs(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -526,26 +354,16 @@ public static findAddedNonNullDirectiveArgs(\GraphQL\Type\Schema $oldSchema, \Gr
 |-----------|------|-------------|
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
-
-
-
 
 ***
 
 ### findAddedArgsForDirective
 
-
-
 ```php
 public static findAddedArgsForDirective(\GraphQL\Type\Definition\Directive $oldDirective, \GraphQL\Type\Definition\Directive $newDirective): \GraphQL\Type\Definition\FieldArgument[]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -554,25 +372,15 @@ public static findAddedArgsForDirective(\GraphQL\Type\Definition\Directive $oldD
 | `$oldDirective` | **\GraphQL\Type\Definition\Directive** |  |
 | `$newDirective` | **\GraphQL\Type\Definition\Directive** |  |
 
-
-
-
 ***
 
 ### findRemovedDirectiveLocations
-
-
 
 ```php
 public static findRemovedDirectiveLocations(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -581,25 +389,15 @@ public static findRemovedDirectiveLocations(\GraphQL\Type\Schema $oldSchema, \Gr
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
 
-
-
-
 ***
 
 ### findRemovedLocationsForDirective
-
-
 
 ```php
 public static findRemovedLocationsForDirective(\GraphQL\Type\Definition\Directive $oldDirective, \GraphQL\Type\Definition\Directive $newDirective): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -607,9 +405,6 @@ public static findRemovedLocationsForDirective(\GraphQL\Type\Definition\Directiv
 |-----------|------|-------------|
 | `$oldDirective` | **\GraphQL\Type\Definition\Directive** |  |
 | `$newDirective` | **\GraphQL\Type\Definition\Directive** |  |
-
-
-
 
 ***
 
@@ -622,12 +417,7 @@ of potentially dangerous changes covered by the other functions down below.
 public static findDangerousChanges(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -635,9 +425,6 @@ public static findDangerousChanges(\GraphQL\Type\Schema $oldSchema, \GraphQL\Typ
 |-----------|------|-------------|
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
-
-
-
 
 ***
 
@@ -650,12 +437,7 @@ changes in the newSchema related to adding values to an enum type.
 public static findValuesAddedToEnums(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -663,26 +445,16 @@ public static findValuesAddedToEnums(\GraphQL\Type\Schema $oldSchema, \GraphQL\T
 |-----------|------|-------------|
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
-
-
-
 
 ***
 
 ### findInterfacesAddedToObjectTypes
 
-
-
 ```php
 public static findInterfacesAddedToObjectTypes(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -690,9 +462,6 @@ public static findInterfacesAddedToObjectTypes(\GraphQL\Type\Schema $oldSchema, 
 |-----------|------|-------------|
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
-
-
-
 
 ***
 
@@ -705,12 +474,7 @@ changes in the newSchema related to adding types to a union type.
 public static findTypesAddedToUnions(\GraphQL\Type\Schema $oldSchema, \GraphQL\Type\Schema $newSchema): string[][]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -718,9 +482,6 @@ public static findTypesAddedToUnions(\GraphQL\Type\Schema $oldSchema, \GraphQL\T
 |-----------|------|-------------|
 | `$oldSchema` | **\GraphQL\Type\Schema** |  |
 | `$newSchema` | **\GraphQL\Type\Schema** |  |
-
-
-
 
 ***
 

@@ -12,7 +12,6 @@ Algorithm is O(N) both on memory and time
 
 * Full name: `\GraphQL\Language\Lexer`
 
-
 ## Constants
 
 | Constant | Visibility | Type | Value |
@@ -35,34 +34,19 @@ Algorithm is O(N) both on memory and time
 
 ## Properties
 
-
 ### source
-
-
 
 ```php
 public \GraphQL\Language\Source $source
 ```
 
-
-
-
-
-
 ***
 
 ### options
 
-
-
 ```php
 public bool[] $options
 ```
-
-
-
-
-
 
 ***
 
@@ -74,11 +58,6 @@ The previously focused non-ignored token.
 public \GraphQL\Language\Token $lastToken
 ```
 
-
-
-
-
-
 ***
 
 ### token
@@ -88,11 +67,6 @@ The currently focused non-ignored token.
 ```php
 public \GraphQL\Language\Token $token
 ```
-
-
-
-
-
 
 ***
 
@@ -104,11 +78,6 @@ The (1-indexed) line containing the current token.
 public int $line
 ```
 
-
-
-
-
-
 ***
 
 ### lineStart
@@ -118,11 +87,6 @@ The character offset at which the current line begins.
 ```php
 public int $lineStart
 ```
-
-
-
-
-
 
 ***
 
@@ -134,11 +98,6 @@ Current cursor position for UTF8 encoding of the source
 private int $position
 ```
 
-
-
-
-
-
 ***
 
 ### byteStreamPosition
@@ -149,30 +108,15 @@ Current cursor position for ASCII representation of the source
 private int $byteStreamPosition
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\GraphQL\Language\Source $source, bool[] $options = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -181,65 +125,29 @@ public __construct(\GraphQL\Language\Source $source, bool[] $options = []): mixe
 | `$source` | **\GraphQL\Language\Source** |  |
 | `$options` | **bool[]** |  |
 
-
-
-
 ***
 
 ### advance
-
-
 
 ```php
 public advance(): \GraphQL\Language\Token
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### lookahead
-
-
 
 ```php
 public lookahead(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### readToken
 
-
-
 ```php
 private readToken(\GraphQL\Language\Token $prev): \GraphQL\Language\Token
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -247,34 +155,19 @@ private readToken(\GraphQL\Language\Token $prev): \GraphQL\Language\Token
 |-----------|------|-------------|
 | `$prev` | **\GraphQL\Language\Token** |  |
 
-
-
-
 ***
 
 ### unexpectedCharacterMessage
 
-
-
 ```php
 private unexpectedCharacterMessage(mixed $code): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$code` | **mixed** |  |
-
-
-
 
 ***
 
@@ -288,11 +181,6 @@ private readName(int $line, int $col, \GraphQL\Language\Token $prev): \GraphQL\L
 
 [_A-Za-z][_0-9A-Za-z]*
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -300,9 +188,6 @@ private readName(int $line, int $col, \GraphQL\Language\Token $prev): \GraphQL\L
 | `$line` | **int** |  |
 | `$col` | **int** |  |
 | `$prev` | **\GraphQL\Language\Token** |  |
-
-
-
 
 ***
 
@@ -318,11 +203,6 @@ private readNumber(int $line, int $col, \GraphQL\Language\Token $prev): \GraphQL
 Int:   -?(0|[1-9][0-9]*)
 Float: -?(0|[1-9][0-9]*)(\.[0-9]+)?((E|e)(+|-)?[0-9]+)?
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -330,9 +210,6 @@ Float: -?(0|[1-9][0-9]*)(\.[0-9]+)?((E|e)(+|-)?[0-9]+)?
 | `$line` | **int** |  |
 | `$col` | **int** |  |
 | `$prev` | **\GraphQL\Language\Token** |  |
-
-
-
 
 ***
 
@@ -344,32 +221,13 @@ Returns string with all digits + changes current string cursor position to point
 private readDigits(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### readString
 
-
-
 ```php
 private readString(int $line, int $col, \GraphQL\Language\Token $prev): \GraphQL\Language\Token
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -378,9 +236,6 @@ private readString(int $line, int $col, \GraphQL\Language\Token $prev): \GraphQL
 | `$line` | **int** |  |
 | `$col` | **int** |  |
 | `$prev` | **\GraphQL\Language\Token** |  |
-
-
-
 
 ***
 
@@ -394,11 +249,6 @@ private readBlockString(mixed $line, mixed $col, \GraphQL\Language\Token $prev):
 
 """("?"?(\\"""|\\(?!=""")|[^"\\]))*"""
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -407,52 +257,28 @@ private readBlockString(mixed $line, mixed $col, \GraphQL\Language\Token $prev):
 | `$col` | **mixed** |  |
 | `$prev` | **\GraphQL\Language\Token** |  |
 
-
-
-
 ***
 
 ### assertValidStringCharacterCode
-
-
 
 ```php
 private assertValidStringCharacterCode(mixed $code, mixed $position): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$code` | **mixed** |  |
 | `$position` | **mixed** |  |
-
-
-
 
 ***
 
 ### assertValidBlockStringCharacterCode
 
-
-
 ```php
 private assertValidBlockStringCharacterCode(mixed $code, mixed $position): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -460,9 +286,6 @@ private assertValidBlockStringCharacterCode(mixed $code, mixed $position): mixed
 |-----------|------|-------------|
 | `$code` | **mixed** |  |
 | `$position` | **mixed** |  |
-
-
-
 
 ***
 
@@ -474,16 +297,6 @@ or commented character, then places cursor to the position of that character.
 ```php
 private positionAfterWhitespace(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -497,11 +310,6 @@ private readComment(int $line, int $col, \GraphQL\Language\Token $prev): \GraphQ
 
 #[\u0009\u0020-\uFFFF]*
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -509,9 +317,6 @@ private readComment(int $line, int $col, \GraphQL\Language\Token $prev): \GraphQ
 | `$line` | **int** |  |
 | `$col` | **int** |  |
 | `$prev` | **\GraphQL\Language\Token** |  |
-
-
-
 
 ***
 
@@ -523,22 +328,12 @@ Reads next UTF8Character from the byte stream, starting from $byteStreamPosition
 private readChar(bool $advance = false, int $byteStreamPosition = null): (string|int)[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$advance` | **bool** |  |
 | `$byteStreamPosition` | **int** |  |
-
-
-
 
 ***
 
@@ -550,13 +345,6 @@ Reads next $numberOfChars UTF8 characters from the byte stream, starting from $b
 private readChars(int $charCount, bool $advance = false, null $byteStreamPosition = null): (string|int)[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -564,9 +352,6 @@ private readChars(int $charCount, bool $advance = false, null $byteStreamPositio
 | `$charCount` | **int** |  |
 | `$advance` | **bool** |  |
 | `$byteStreamPosition` | **null** |  |
-
-
-
 
 ***
 
@@ -578,22 +363,12 @@ Moves internal string cursor position
 private moveStringCursor(int $positionOffset, int $byteStreamOffset): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$positionOffset` | **int** |  |
 | `$byteStreamOffset` | **int** |  |
-
-
-
 
 ***
 

@@ -9,28 +9,19 @@ and provides tools for error debugging.
 
 * Full name: `\GraphQL\Error\FormattedError`
 
-
-
 ## Properties
 
-
 ### internalErrorMessage
-
-
 
 ```php
 private static string $internalErrorMessage
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### setInternalErrorMessage
 
@@ -44,17 +35,11 @@ This value can be overridden by passing 3rd argument to `createFormattedError()`
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$msg` | **string** |  |
-
-
-
 
 ***
 
@@ -67,21 +52,13 @@ about the error's position in the source.
 public static printError(\GraphQL\Error\Error $error): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$error` | **\GraphQL\Error\Error** |  |
-
-
-
 
 ***
 
@@ -94,12 +71,7 @@ Source document.
 private static highlightSourceAtLocation(\GraphQL\Language\Source $source, \GraphQL\Language\SourceLocation $location): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -107,26 +79,16 @@ private static highlightSourceAtLocation(\GraphQL\Language\Source $source, \Grap
 |-----------|------|-------------|
 | `$source` | **\GraphQL\Language\Source** |  |
 | `$location` | **\GraphQL\Language\SourceLocation** |  |
-
-
-
 
 ***
 
 ### getColumnOffset
 
-
-
 ```php
 private static getColumnOffset(\GraphQL\Language\Source $source, \GraphQL\Language\SourceLocation $location): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -135,25 +97,15 @@ private static getColumnOffset(\GraphQL\Language\Source $source, \GraphQL\Langua
 | `$source` | **\GraphQL\Language\Source** |  |
 | `$location` | **\GraphQL\Language\SourceLocation** |  |
 
-
-
-
 ***
 
 ### whitespace
-
-
 
 ```php
 private static whitespace(int $len): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -161,25 +113,15 @@ private static whitespace(int $len): string
 |-----------|------|-------------|
 | `$len` | **int** |  |
 
-
-
-
 ***
 
 ### lpad
-
-
 
 ```php
 private static lpad(int $len, mixed $str): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -187,9 +129,6 @@ private static lpad(int $len, mixed $str): string
 |-----------|------|-------------|
 | `$len` | **int** |  |
 | `$str` | **mixed** |  |
-
-
-
 
 ***
 
@@ -209,9 +148,6 @@ For a list of available debug flags @see \GraphQL\Error\DebugFlag constants.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -219,9 +155,6 @@ For a list of available debug flags @see \GraphQL\Error\DebugFlag constants.
 | `$exception` | **\Throwable** |  |
 | `$debug` | **int** |  |
 | `$internalErrorMessage` | **string** |  |
-
-
-
 
 ***
 
@@ -234,12 +167,7 @@ Decorates spec-compliant $formattedError with debug entries according to $debug 
 public static addDebugEntries(array $formattedError, \Throwable $e, int $debugFlag): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -248,9 +176,6 @@ public static addDebugEntries(array $formattedError, \Throwable $e, int $debugFl
 | `$formattedError` | **array** |  |
 | `$e` | **\Throwable** |  |
 | `$debugFlag` | **int** |  |
-
-
-
 
 ***
 
@@ -266,18 +191,12 @@ If initial formatter is not set, FormattedError::createFromException is used
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **?callable** |  |
 | `$debug` | **int** |  |
-
-
-
 
 ***
 
@@ -289,12 +208,7 @@ Returns error trace as serializable array
 public static toSafeTrace(\Throwable $error): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -302,25 +216,15 @@ public static toSafeTrace(\Throwable $error): array
 |-----------|------|-------------|
 | `$error` | **\Throwable** |  |
 
-
-
-
 ***
 
 ### printVar
-
-
 
 ```php
 public static printVar(mixed $var): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -328,27 +232,18 @@ public static printVar(mixed $var): string
 |-----------|------|-------------|
 | `$var` | **mixed** |  |
 
-
-
-
 ***
 
 ### create
-
-
 
 ```php
 public static create(string $error, \GraphQL\Language\SourceLocation[] $locations = []): array
 ```
 
-
-
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -357,36 +252,24 @@ public static create(string $error, \GraphQL\Language\SourceLocation[] $location
 | `$error` | **string** |  |
 | `$locations` | **\GraphQL\Language\SourceLocation[]** |  |
 
-
-
-
 ***
 
 ### createFromPHPError
 
-
-
 ```php
 public static createFromPHPError(\ErrorException $e): array
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **\ErrorException** |  |
-
-
-
 
 ***
 
