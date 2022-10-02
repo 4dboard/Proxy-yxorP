@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BaconQrCode\Encoder;
 
@@ -41,7 +41,7 @@ final class BlockPair
      *
      * @return SplFixedArray<int>
      */
-    public function getDataBytes() : SplFixedArray
+    public function getDataBytes(): SplFixedArray
     {
         return $this->dataBytes;
     }
@@ -51,7 +51,7 @@ final class BlockPair
      *
      * @return SplFixedArray<int>
      */
-    public function getErrorCorrectionBytes() : SplFixedArray
+    public function getErrorCorrectionBytes(): SplFixedArray
     {
         return $this->errorCorrectionBytes;
     }
