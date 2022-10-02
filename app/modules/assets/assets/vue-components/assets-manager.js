@@ -155,7 +155,7 @@ export default {
                 }).catch(rsp => {
                     App.ui.notify(rsp.error || 'Deleting asset failed!', 'error');
                 });
-                ;
+
             });
         },
 

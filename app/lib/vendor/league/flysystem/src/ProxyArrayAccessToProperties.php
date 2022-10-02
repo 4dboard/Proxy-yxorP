@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace League\Flysystem;
 
+use ReturnTypeWillChange;
 use RuntimeException;
 
 /**
@@ -33,7 +34,7 @@ trait ProxyArrayAccessToProperties
      *
      * @return mixed
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         $property = $this->formatPropertyName((string)$offset);
@@ -45,7 +46,7 @@ trait ProxyArrayAccessToProperties
      * @param mixed $offset
      * @param mixed $value
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         throw new RuntimeException('Properties can not be manipulated');
@@ -54,7 +55,7 @@ trait ProxyArrayAccessToProperties
     /**
      * @param mixed $offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         throw new RuntimeException('Properties can not be manipulated');

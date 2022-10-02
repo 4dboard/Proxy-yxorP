@@ -15,6 +15,7 @@ use Symfony\Component\Console\Formatter\OutputFormatterInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use const PHP_EOL;
 
 /**
  * Decorates output to add console style guide helpers.
@@ -35,7 +36,7 @@ abstract class OutputStyle implements OutputInterface, StyleInterface
      */
     public function newLine(int $count = 1)
     {
-        $this->output->write(str_repeat(\PHP_EOL, $count));
+        $this->output->write(str_repeat(PHP_EOL, $count));
     }
 
     /**

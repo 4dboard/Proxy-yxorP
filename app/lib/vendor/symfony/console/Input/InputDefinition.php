@@ -13,6 +13,9 @@ namespace Symfony\Component\Console\Input;
 
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Exception\LogicException;
+use function count;
+use function is_int;
+use const PHP_INT_MAX;
 
 /**
  * A InputDefinition represents a set of valid command line arguments and options.
@@ -122,7 +125,7 @@ class InputDefinition
             throw new InvalidArgumentException(sprintf('The "%s" argument does not exist.', $name));
         }
 
-        $arguments = \is_int($name) ? array_values($this->arguments) : $this->arguments;
+        $arguments = is_int($name) ? array_values($this->arguments) : $this->arguments;
 
         return $arguments[$name];
     }
@@ -136,7 +139,7 @@ class InputDefinition
      */
     public function hasArgument($name)
     {
-        $arguments = \is_int($name) ? array_values($this->arguments) : $this->arguments;
+        $arguments = is_int($name) ? array_values($this->arguments) : $this->arguments;
 
         return isset($arguments[$name]);
     }
@@ -148,7 +151,7 @@ class InputDefinition
      */
     public function getArgumentCount()
     {
-        return null !== $this->lastArrayArgument ? \PHP_INT_MAX : \count($this->arguments);
+        return null !== $this->lastArrayArgument ? PHP_INT_MAX : count($this->arguments);
     }
 
     /**
@@ -353,7 +356,7 @@ class InputDefinition
             }
         }
 
-        if (\count($elements) && $this->getArguments()) {
+        if (count($elements) && $this->getArguments()) {
             $elements[] = '[--]';
         }
 

@@ -14,6 +14,7 @@ namespace Symfony\Component\Console\Helper;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Exception\LogicException;
 use Symfony\Component\Console\Output\OutputInterface;
+use function count;
 
 /**
  * @author Kevin Bond <kevinbond@gmail.com>
@@ -62,7 +63,7 @@ class ProgressIndicator
 
         $indicatorValues = array_values($indicatorValues);
 
-        if (2 > \count($indicatorValues)) {
+        if (2 > count($indicatorValues)) {
             throw new InvalidArgumentException('Must have at least 2 indicator value characters.');
         }
 
@@ -166,7 +167,7 @@ class ProgressIndicator
     {
         return [
             'indicator' => function (self $indicator) {
-                return $indicator->indicatorValues[$indicator->indicatorCurrent % \count($indicator->indicatorValues)];
+                return $indicator->indicatorValues[$indicator->indicatorCurrent % count($indicator->indicatorValues)];
             },
             'message' => function (self $indicator) {
                 return $indicator->message;

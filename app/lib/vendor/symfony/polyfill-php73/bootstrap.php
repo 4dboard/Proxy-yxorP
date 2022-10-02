@@ -11,7 +11,7 @@
 
 use Symfony\Polyfill\Php73 as p;
 
-if (\PHP_VERSION_ID >= 70300) {
+if (PHP_VERSION_ID >= 70300) {
     return;
 }
 

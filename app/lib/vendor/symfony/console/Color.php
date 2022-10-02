@@ -12,6 +12,8 @@
 namespace Symfony\Component\Console;
 
 use Symfony\Component\Console\Exception\InvalidArgumentException;
+use function count;
+use function strlen;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
@@ -76,11 +78,11 @@ final class Color
         if ('#' === $color[0]) {
             $color = substr($color, 1);
 
-            if (3 === \strlen($color)) {
+            if (3 === strlen($color)) {
                 $color = $color[0] . $color[0] . $color[1] . $color[1] . $color[2] . $color[2];
             }
 
-            if (6 !== \strlen($color)) {
+            if (6 !== strlen($color)) {
                 throw new InvalidArgumentException(sprintf('Invalid "%s" color.', $color));
             }
 
@@ -152,7 +154,7 @@ final class Color
         foreach ($this->options as $option) {
             $setCodes[] = $option['set'];
         }
-        if (0 === \count($setCodes)) {
+        if (0 === count($setCodes)) {
             return '';
         }
 
@@ -171,7 +173,7 @@ final class Color
         foreach ($this->options as $option) {
             $unsetCodes[] = $option['unset'];
         }
-        if (0 === \count($unsetCodes)) {
+        if (0 === count($unsetCodes)) {
             return '';
         }
 

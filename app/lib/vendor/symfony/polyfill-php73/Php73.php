@@ -11,6 +11,8 @@
 
 namespace Symfony\Polyfill\Php73;
 
+use const PHP_INT_SIZE;
+
 /**
  * @author Gabriel Caruso <carusogabriel34@gmail.com>
  * @author Ion Bazan <ion.bazan@gmail.com>
@@ -35,7 +37,7 @@ final class Php73
         if ($asNum) {
             $ns += $s * 1E9;
 
-            return \PHP_INT_SIZE === 4 ? $ns : (int)$ns;
+            return PHP_INT_SIZE === 4 ? $ns : (int)$ns;
         }
 
         return [$s, (int)$ns];

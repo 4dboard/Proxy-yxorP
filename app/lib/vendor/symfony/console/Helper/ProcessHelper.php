@@ -11,10 +11,15 @@
 
 namespace Symfony\Component\Console\Helper;
 
+use InvalidArgumentException;
+use LogicException;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
+use TypeError;
+use function is_array;
+use function is_string;
 
 /**
  * The ProcessHelper class provides helpers to run external processes.
@@ -60,7 +65,7 @@ class ProcessHelper extends Helper
     public function run(OutputInterface $output, $cmd, string $error = null, callable $callback = null, int $verbosity = OutputInterface::VERBOSITY_VERY_VERBOSE): Process
     {
         if (!class_exists(Process::class)) {
-            throw new \LogicException('The ProcessHelper cannot be run as the Process component is not installed. Try running "compose require symfony/process".');
+            throw new LogicException('The ProcessHelper cannot be run as the Process component is not installed. Try running "compose require symfony/process".');
         }
 
         if ($output instanceof ConsoleOutputInterface) {
@@ -73,18 +78,18 @@ class ProcessHelper extends Helper
             $cmd = [$cmd];
         }
 
-        if (!\is_array($cmd)) {
-            throw new \TypeError(sprintf('The "command" argument of "%s()" must be an array or a "%s" instance, "%s" given.', __METHOD__, Process::class, get_debug_type($cmd)));
+        if (!is_array($cmd)) {
+            throw new TypeError(sprintf('The "command" argument of "%s()" must be an array or a "%s" instance, "%s" given.', __METHOD__, Process::class, get_debug_type($cmd)));
         }
 
-        if (\is_string($cmd[0] ?? null)) {
+        if (is_string($cmd[0] ?? null)) {
             $process = new Process($cmd);
             $cmd = [];
         } elseif (($cmd[0] ?? null) instanceof Process) {
             $process = $cmd[0];
             unset($cmd[0]);
         } else {
-            throw new \InvalidArgumentException(sprintf('Invalid command provided to "%s()": the command should be an array whose first element is either the path to the binary to run or a "Process" object.', __METHOD__));
+            throw new InvalidArgumentException(sprintf('Invalid command provided to "%s()": the command should be an array whose first element is either the path to the binary to run or a "Process" object.', __METHOD__));
         }
 
         if ($verbosity <= $output->getVerbosity()) {

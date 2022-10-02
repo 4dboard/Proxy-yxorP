@@ -13,6 +13,7 @@ namespace Symfony\Component\Console\Input;
 
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Exception\LogicException;
+use function is_array;
 
 /**
  * Represents a command line argument.
@@ -109,7 +110,7 @@ class InputArgument
         if ($this->isArray()) {
             if (null === $default) {
                 $default = [];
-            } elseif (!\is_array($default)) {
+            } elseif (!is_array($default)) {
                 throw new LogicException('A default value for an array argument must be an array.');
             }
         }

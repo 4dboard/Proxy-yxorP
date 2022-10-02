@@ -4,6 +4,8 @@ namespace System\Controller\Users;
 
 use App\Controller\App;
 use ArrayObject;
+use function is_array;
+use function strtolower;
 
 class Roles extends App
 {
@@ -81,7 +83,7 @@ class Roles extends App
         $isUpdate = isset($role['_id']);
 
         if (!$isUpdate) {
-            $role['appid'] = \strtolower($role['appid']);
+            $role['appid'] = strtolower($role['appid']);
             $role['_created'] = $role['_modified'];
         }
 
@@ -107,7 +109,7 @@ class Roles extends App
         }
 
         // cleanup permissions
-        if (isset($role['permissions']) && \is_array($role['permissions'])) {
+        if (isset($role['permissions']) && is_array($role['permissions'])) {
 
             foreach ($role['permissions'] as $key => $value) {
                 if (!$value) unset($role['permissions'][$key]);

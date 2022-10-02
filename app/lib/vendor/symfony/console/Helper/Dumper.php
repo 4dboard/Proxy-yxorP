@@ -15,6 +15,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\VarDumper\Cloner\ClonerInterface;
 use Symfony\Component\VarDumper\Cloner\VarCloner;
 use Symfony\Component\VarDumper\Dumper\CliDumper;
+use function is_string;
 
 /**
  * @author Roland Franssen <franssen.roland@gmail.com>
@@ -48,7 +49,7 @@ final class Dumper
                         return 'true';
                     case false === $var:
                         return 'false';
-                    case \is_string($var):
+                    case is_string($var):
                         return '"' . $var . '"';
                     default:
                         return rtrim(print_r($var, true));

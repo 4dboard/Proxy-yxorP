@@ -11,6 +11,7 @@
 
 namespace Symfony\Component\Finder\Iterator;
 
+use SplFileInfo;
 use Symfony\Component\Finder\Glob;
 
 /**
@@ -18,7 +19,7 @@ use Symfony\Component\Finder\Glob;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
- * @extends MultiplePcreFilterIterator<string, \SplFileInfo>
+ * @extends MultiplePcreFilterIterator<string, SplFileInfo>
  */
 class FilenameFilterIterator extends MultiplePcreFilterIterator
 {

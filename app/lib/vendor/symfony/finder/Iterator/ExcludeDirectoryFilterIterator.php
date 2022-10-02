@@ -11,29 +11,34 @@
 
 namespace Symfony\Component\Finder\Iterator;
 
+use FilterIterator;
+use Iterator;
+use RecursiveIterator;
+use SplFileInfo;
+
 /**
  * ExcludeDirectoryFilterIterator filters out directories.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
- * @extends \FilterIterator<string, \SplFileInfo>
- * @implements \RecursiveIterator<string, \SplFileInfo>
+ * @extends FilterIterator<string, SplFileInfo>
+ * @implements RecursiveIterator<string, SplFileInfo>
  */
-class ExcludeDirectoryFilterIterator extends \FilterIterator implements \RecursiveIterator
+class ExcludeDirectoryFilterIterator extends FilterIterator implements RecursiveIterator
 {
-    private \Iterator $iterator;
+    private Iterator $iterator;
     private bool $isRecursive;
     private array $excludedDirs = [];
     private ?string $excludedPattern = null;
 
     /**
-     * @param \Iterator $iterator The Iterator to filter
+     * @param Iterator $iterator The Iterator to filter
      * @param string[] $directories An array of directories to exclude
      */
-    public function __construct(\Iterator $iterator, array $directories)
+    public function __construct(Iterator $iterator, array $directories)
     {
         $this->iterator = $iterator;
-        $this->isRecursive = $iterator instanceof \RecursiveIterator;
+        $this->isRecursive = $iterator instanceof RecursiveIterator;
         $patterns = [];
         foreach ($directories as $directory) {
             $directory = rtrim($directory, '/');

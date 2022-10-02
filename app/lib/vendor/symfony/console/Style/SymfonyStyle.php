@@ -28,6 +28,12 @@ use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Terminal;
+use function count;
+use function is_array;
+use function is_string;
+use function strlen;
+use const DIRECTORY_SEPARATOR;
+use const PHP_EOL;
 
 /**
  * Output decorator helpers for the Symfony Style Guide.
@@ -48,10 +54,10 @@ class SymfonyStyle extends OutputStyle
     public function __construct(InputInterface $input, OutputInterface $output)
     {
         $this->input = $input;
-        $this->bufferedOutput = new TrimmedBufferOutput(\DIRECTORY_SEPARATOR === '\\' ? 4 : 2, $output->getVerbosity(), false, clone $output->getFormatter());
+        $this->bufferedOutput = new TrimmedBufferOutput(DIRECTORY_SEPARATOR === '\\' ? 4 : 2, $output->getVerbosity(), false, clone $output->getFormatter());
         // Windows cmd wraps lines as soon as the terminal width is reached, whether there are following chars or not.
         $width = (new Terminal())->getWidth() ?: self::MAX_LINE_LENGTH;
-        $this->lineLength = min($width - (int)(\DIRECTORY_SEPARATOR === '\\'), self::MAX_LINE_LENGTH);
+        $this->lineLength = min($width - (int)(DIRECTORY_SEPARATOR === '\\'), self::MAX_LINE_LENGTH);
 
         parent::__construct($this->output = $output);
     }
@@ -71,7 +77,7 @@ class SymfonyStyle extends OutputStyle
 
     private function autoPrependBlock(): void
     {
-        $chars = substr(str_replace(\PHP_EOL, "\n", $this->bufferedOutput->fetch()), -2);
+        $chars = substr(str_replace(PHP_EOL, "\n", $this->bufferedOutput->fetch()), -2);
 
         if (!isset($chars[0])) {
             $this->newLine(); //empty history, so we should start with a new line.
@@ -157,7 +163,7 @@ class SymfonyStyle extends OutputStyle
     {
         $this->autoPrependText();
 
-        $messages = \is_array($message) ? array_values($message) : [$message];
+        $messages = is_array($message) ? array_values($message) : [$message];
         foreach ($messages as $message) {
             $this->writeln(sprintf(' %s', $message));
         }
@@ -180,7 +186,7 @@ class SymfonyStyle extends OutputStyle
      */
     public function block($messages, string $type = null, string $style = null, string $prefix = ' ', bool $padding = false, bool $escape = true)
     {
-        $messages = \is_array($messages) ? array_values($messages) : [$messages];
+        $messages = is_array($messages) ? array_values($messages) : [$messages];
 
         $this->autoPrependBlock();
         $this->writeln($this->createBlock($messages, $type, $style, $prefix, $padding, $escape));
@@ -195,7 +201,7 @@ class SymfonyStyle extends OutputStyle
 
         if (null !== $type) {
             $type = sprintf('[%s] ', $type);
-            $indentLength = \strlen($type);
+            $indentLength = strlen($type);
             $lineIndentation = str_repeat(' ', $indentLength);
         }
 
@@ -207,12 +213,12 @@ class SymfonyStyle extends OutputStyle
 
             $decorationLength = Helper::width($message) - Helper::width(Helper::removeDecoration($this->getFormatter(), $message));
             $messageLineLength = min($this->lineLength - $prefixLength - $indentLength + $decorationLength, $this->lineLength);
-            $messageLines = explode(\PHP_EOL, wordwrap($message, $messageLineLength, \PHP_EOL, true));
+            $messageLines = explode(PHP_EOL, wordwrap($message, $messageLineLength, PHP_EOL, true));
             foreach ($messageLines as $messageLine) {
                 $lines[] = $messageLine;
             }
 
-            if (\count($messages) > 1 && $key < \count($messages) - 1) {
+            if (count($messages) > 1 && $key < count($messages) - 1) {
                 $lines[] = '';
             }
         }
@@ -345,12 +351,12 @@ class SymfonyStyle extends OutputStyle
                 $row[] = $value;
                 continue;
             }
-            if (\is_string($value)) {
+            if (is_string($value)) {
                 $headers[] = new TableCell($value, ['colspan' => 2]);
                 $row[] = null;
                 continue;
             }
-            if (!\is_array($value)) {
+            if (!is_array($value)) {
                 throw new InvalidArgumentException('Value should be an array, string, or an instance of TableSeparator.');
             }
             $headers[] = key($value);
@@ -458,7 +464,7 @@ class SymfonyStyle extends OutputStyle
     {
         $progressBar = parent::createProgressBar($max);
 
-        if ('\\' !== \DIRECTORY_SEPARATOR || 'Hyper' === getenv('TERM_PROGRAM')) {
+        if ('\\' !== DIRECTORY_SEPARATOR || 'Hyper' === getenv('TERM_PROGRAM')) {
             $progressBar->setEmptyBarCharacter('░'); // light shade character \u2591
             $progressBar->setProgressCharacter('');
             $progressBar->setBarCharacter('▓'); // dark shade character \u2593
