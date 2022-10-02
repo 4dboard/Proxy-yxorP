@@ -2,6 +2,10 @@
 
 namespace App\Command\i18n;
 
+use App\Helper\i18n;
+use Lime\App;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,7 +17,7 @@ class CreateTranslation extends Command
     protected static $defaultName = 'app:i18n:create';
     protected $app = null;
 
-    public function __construct(\Lime\App $app)
+    public function __construct(App $app)
     {
         $this->app = $app;
         parent::__construct();
@@ -66,7 +70,7 @@ class CreateTranslation extends Command
             $name = basename($m->_dir);
 
             $strings = [];
-            $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($dir), \RecursiveIteratorIterator::SELF_FIRST);
+            $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir), RecursiveIteratorIterator::SELF_FIRST);
 
             $output->writeln("<info>-></info> {$name}");
 
@@ -112,7 +116,7 @@ class CreateTranslation extends Command
                 }
 
                 $strings = array_merge([
-                    '@meta' => ['language' => \App\Helper\i18n::$locales[$locale] ?? strtoupper($locale)]
+                    '@meta' => ['language' => i18n::$locales[$locale] ?? strtoupper($locale)]
                 ], $strings);
 
                 if ($this->app->path("#config:i18n/{$name}/{$locale}.php")) {

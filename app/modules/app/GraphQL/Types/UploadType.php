@@ -4,6 +4,7 @@ namespace App\GraphQL\Types;
 
 use GraphQL\Error\Error;
 use GraphQL\Error\InvariantViolation;
+use GraphQL\Language\AST\Node;
 use GraphQL\Type\Definition\ScalarType;
 use Psr\Http\Message\UploadedFileInterface;
 
@@ -63,7 +64,7 @@ class UploadType extends ScalarType
     /**
      * Parses an externally provided literal value (hardcoded in GraphQL query) to use as an input
      *
-     * @param \GraphQL\Language\AST\Node $valueNode
+     * @param Node $valueNode
      * @param null|array $variables
      *
      * @return mixed

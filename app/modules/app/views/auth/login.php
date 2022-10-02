@@ -164,7 +164,7 @@
 
                         if (rsp && rsp.success) {
                             setTimeout(() => window.location = '<?=$redirectTo?>', 1500);
-                            return;
+
                         }
 
                     }, rsp => {

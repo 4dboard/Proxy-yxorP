@@ -12,6 +12,7 @@
 namespace Symfony\Component\Console\Input;
 
 use Symfony\Component\Console\Exception\InvalidArgumentException;
+use function strlen;
 
 /**
  * StringInput represents an input provided as a string.
@@ -46,7 +47,7 @@ class StringInput extends ArgvInput
     private function tokenize(string $input): array
     {
         $tokens = [];
-        $length = \strlen($input);
+        $length = strlen($input);
         $cursor = 0;
         $token = null;
         while ($cursor < $length) {
@@ -72,7 +73,7 @@ class StringInput extends ArgvInput
                 throw new InvalidArgumentException(sprintf('Unable to parse input near "... %s ...".', substr($input, $cursor, 10)));
             }
 
-            $cursor += \strlen($match[0]);
+            $cursor += strlen($match[0]);
         }
 
         if (null !== $token) {

@@ -11,7 +11,7 @@
 
 use Symfony\Polyfill\Php81 as p;
 
-if (\PHP_VERSION_ID >= 80100) {
+if (PHP_VERSION_ID >= 80100) {
     return;
 }
 

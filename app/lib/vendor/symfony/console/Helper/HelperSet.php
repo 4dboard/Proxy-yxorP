@@ -11,17 +11,22 @@
 
 namespace Symfony\Component\Console\Helper;
 
+use ArrayIterator;
+use IteratorAggregate;
+use ReturnTypeWillChange;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
+use Traversable;
+use function is_int;
 
 /**
  * HelperSet represents a set of helpers to be used with a command.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
- * @implements \IteratorAggregate<string, Helper>
+ * @implements IteratorAggregate<string, Helper>
  */
-class HelperSet implements \IteratorAggregate
+class HelperSet implements IteratorAggregate
 {
     /** @var array<string, Helper> */
     private $helpers = [];
@@ -33,7 +38,7 @@ class HelperSet implements \IteratorAggregate
     public function __construct(array $helpers = [])
     {
         foreach ($helpers as $alias => $helper) {
-            $this->set($helper, \is_int($alias) ? null : $alias);
+            $this->set($helper, is_int($alias) ? null : $alias);
         }
     }
 
@@ -98,11 +103,11 @@ class HelperSet implements \IteratorAggregate
     }
 
     /**
-     * @return \Traversable<string, Helper>
+     * @return Traversable<string, Helper>
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function getIterator()
     {
-        return new \ArrayIterator($this->helpers);
+        return new ArrayIterator($this->helpers);
     }
 }

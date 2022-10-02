@@ -2,6 +2,8 @@
 
 namespace Psr\Log;
 
+use Stringable;
+
 /**
  * This Logger can be used to avoid conditional log calls.
  *
@@ -16,14 +18,14 @@ class NullLogger extends AbstractLogger
      * Logs with an arbitrary level.
      *
      * @param mixed $level
-     * @param string|\Stringable $message
+     * @param string|Stringable $message
      * @param array $context
      *
      * @return void
      *
-     * @throws \Psr\Log\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
-    public function log($level, string|\Stringable $message, array $context = [])
+    public function log($level, string|Stringable $message, array $context = [])
     {
         // noop
     }

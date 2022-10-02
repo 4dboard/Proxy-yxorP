@@ -2,6 +2,8 @@
 
 namespace App\Command\Spaces;
 
+use Cockpit;
+use Lime\App;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,7 +15,7 @@ class Create extends Command
     protected static $defaultName = 'app:spaces:create';
     protected $app = null;
 
-    public function __construct(\Lime\App $app)
+    public function __construct(App $app)
     {
         $this->app = $app;
         parent::__construct();
@@ -46,7 +48,7 @@ class Create extends Command
 
         $path = $this->app->path("#app:.spaces/{$name}");
         $created = time();
-        $instance = \Cockpit::instance($path);
+        $instance = Cockpit::instance($path);
 
         $user = [
             'active' => true,

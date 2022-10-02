@@ -11,6 +11,10 @@
 
 namespace Symfony\Component\Console;
 
+use function function_exists;
+use function is_resource;
+use const DIRECTORY_SEPARATOR;
+
 class Terminal
 {
     private static $width;
@@ -38,7 +42,7 @@ class Terminal
 
     private static function initDimensions()
     {
-        if ('\\' === \DIRECTORY_SEPARATOR) {
+        if ('\\' === DIRECTORY_SEPARATOR) {
             if (preg_match('/^(\d+)x(\d+)(?: \((\d+)x(\d+)\))?$/', trim(getenv('ANSICON')), $matches)) {
                 // extract [w, H] from "wxh (WxH)"
                 // or [w, h] from "wxh"
@@ -63,7 +67,7 @@ class Terminal
      */
     private static function hasVt100Support(): bool
     {
-        return \function_exists('sapi_windows_vt100_support') && sapi_windows_vt100_support(fopen('php://stdout', 'w'));
+        return function_exists('sapi_windows_vt100_support') && sapi_windows_vt100_support(fopen('php://stdout', 'w'));
     }
 
     /**
@@ -76,7 +80,7 @@ class Terminal
         }
 
         // skip check if exec function is disabled
-        if (!\function_exists('exec')) {
+        if (!function_exists('exec')) {
             return false;
         }
 
@@ -113,7 +117,7 @@ class Terminal
 
     private static function readFromProcess(string $command): ?string
     {
-        if (!\function_exists('proc_open')) {
+        if (!function_exists('proc_open')) {
             return null;
         }
 
@@ -123,7 +127,7 @@ class Terminal
         ];
 
         $process = proc_open($command, $descriptorspec, $pipes, null, null, ['suppress_errors' => true]);
-        if (!\is_resource($process)) {
+        if (!is_resource($process)) {
             return null;
         }
 

@@ -17,6 +17,9 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\ConsoleSectionOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Terminal;
+use function count;
+use const PHP_EOL;
+use const STR_PAD_LEFT;
 
 /**
  * The ProgressBar provides helpers to display progress output.
@@ -149,7 +152,7 @@ final class ProgressBar
                 return Helper::formatMemory(memory_get_usage(true));
             },
             'current' => function (self $bar) {
-                return str_pad($bar->getProgress(), $bar->getStepWidth(), ' ', \STR_PAD_LEFT);
+                return str_pad($bar->getProgress(), $bar->getStepWidth(), ' ', STR_PAD_LEFT);
             },
             'max' => function (self $bar) {
                 return $bar->getMaxSteps();
@@ -335,7 +338,7 @@ final class ProgressBar
      */
     public function iterate(iterable $iterable, int $max = null): iterable
     {
-        $this->start($max ?? (is_countable($iterable) ? \count($iterable) : 0));
+        $this->start($max ?? (is_countable($iterable) ? count($iterable) : 0));
 
         foreach ($iterable as $key => $value) {
             yield $key => $value;
@@ -438,7 +441,7 @@ final class ProgressBar
             if (null !== $this->previousMessage) {
                 if ($this->output instanceof ConsoleSectionOutput) {
                     $messageLines = explode("\n", $message);
-                    $lineCount = \count($messageLines);
+                    $lineCount = count($messageLines);
                     foreach ($messageLines as $messageLine) {
                         $messageLineLength = Helper::width(Helper::removeDecoration($this->output->getFormatter(), $messageLine));
                         if ($messageLineLength > $this->terminal->getWidth()) {
@@ -458,7 +461,7 @@ final class ProgressBar
                 }
             }
         } elseif ($this->step > 0) {
-            $message = \PHP_EOL . $message;
+            $message = PHP_EOL . $message;
         }
 
         $this->previousMessage = $originalMessage;
