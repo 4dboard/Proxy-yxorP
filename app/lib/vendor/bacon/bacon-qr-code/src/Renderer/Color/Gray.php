@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BaconQrCode\Renderer\Color;
 
@@ -21,25 +21,25 @@ final class Gray implements ColorInterface
             throw new Exception\InvalidArgumentException('Gray must be between 0 and 100');
         }
 
-        $this->gray = (int) $gray;
+        $this->gray = (int)$gray;
     }
 
-    public function getGray() : int
+    public function getGray(): int
     {
         return $this->gray;
     }
 
-    public function toRgb() : Rgb
+    public function toRgb(): Rgb
     {
-        return new Rgb((int) ($this->gray * 2.55), (int) ($this->gray * 2.55), (int) ($this->gray * 2.55));
+        return new Rgb((int)($this->gray * 2.55), (int)($this->gray * 2.55), (int)($this->gray * 2.55));
     }
 
-    public function toCmyk() : Cmyk
+    public function toCmyk(): Cmyk
     {
         return new Cmyk(0, 0, 0, 100 - $this->gray);
     }
 
-    public function toGray() : Gray
+    public function toGray(): Gray
     {
         return $this;
     }

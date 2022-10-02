@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BaconQrCode\Renderer\Path;
 
@@ -21,12 +21,12 @@ final class Move implements OperationInterface
         $this->y = $y;
     }
 
-    public function getX() : float
+    public function getX(): float
     {
         return $this->x;
     }
 
-    public function getY() : float
+    public function getY(): float
     {
         return $this->y;
     }
@@ -34,7 +34,7 @@ final class Move implements OperationInterface
     /**
      * @return self
      */
-    public function translate(float $x, float $y) : OperationInterface
+    public function translate(float $x, float $y): OperationInterface
     {
         return new self($this->x + $x, $this->y + $y);
     }

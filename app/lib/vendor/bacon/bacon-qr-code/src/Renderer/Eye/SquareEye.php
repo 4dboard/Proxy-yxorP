@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BaconQrCode\Renderer\Eye;
 
@@ -19,12 +19,12 @@ final class SquareEye implements EyeInterface
     {
     }
 
-    public static function instance() : self
+    public static function instance(): self
     {
         return self::$instance ?: self::$instance = new self();
     }
 
-    public function getExternalPath() : Path
+    public function getExternalPath(): Path
     {
         return (new Path())
             ->move(-3.5, -3.5)
@@ -36,18 +36,16 @@ final class SquareEye implements EyeInterface
             ->line(-2.5, 2.5)
             ->line(2.5, 2.5)
             ->line(2.5, -2.5)
-            ->close()
-        ;
+            ->close();
     }
 
-    public function getInternalPath() : Path
+    public function getInternalPath(): Path
     {
         return (new Path())
             ->move(-1.5, -1.5)
             ->line(1.5, -1.5)
             ->line(1.5, 1.5)
             ->line(-1.5, 1.5)
-            ->close()
-        ;
+            ->close();
     }
 }
