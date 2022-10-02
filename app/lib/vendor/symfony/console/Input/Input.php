@@ -80,22 +80,6 @@ abstract class Input implements InputInterface, StreamableInputInterface
     /**
      * {@inheritdoc}
      */
-    public function isInteractive()
-    {
-        return $this->interactive;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setInteractive(bool $interactive)
-    {
-        $this->interactive = $interactive;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getArguments()
     {
         return array_merge($this->definition->getArgumentDefaults(), $this->arguments);
@@ -116,6 +100,30 @@ abstract class Input implements InputInterface, StreamableInputInterface
     /**
      * {@inheritdoc}
      */
+    public function hasArgument(string $name)
+    {
+        return $this->definition->hasArgument($name);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isInteractive()
+    {
+        return $this->interactive;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setInteractive(bool $interactive)
+    {
+        $this->interactive = $interactive;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function setArgument(string $name, $value)
     {
         if (!$this->definition->hasArgument($name)) {
@@ -123,14 +131,6 @@ abstract class Input implements InputInterface, StreamableInputInterface
         }
 
         $this->arguments[$name] = $value;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasArgument(string $name)
-    {
-        return $this->definition->hasArgument($name);
     }
 
     /**
@@ -164,6 +164,14 @@ abstract class Input implements InputInterface, StreamableInputInterface
     /**
      * {@inheritdoc}
      */
+    public function hasOption(string $name)
+    {
+        return $this->definition->hasOption($name) || $this->definition->hasNegation($name);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function setOption(string $name, $value)
     {
         if ($this->definition->hasNegation($name)) {
@@ -175,14 +183,6 @@ abstract class Input implements InputInterface, StreamableInputInterface
         }
 
         $this->options[$name] = $value;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasOption(string $name)
-    {
-        return $this->definition->hasOption($name) || $this->definition->hasNegation($name);
     }
 
     /**
@@ -198,16 +198,16 @@ abstract class Input implements InputInterface, StreamableInputInterface
     /**
      * {@inheritdoc}
      */
-    public function setStream($stream)
+    public function getStream()
     {
-        $this->stream = $stream;
+        return $this->stream;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getStream()
+    public function setStream($stream)
     {
-        return $this->stream;
+        $this->stream = $stream;
     }
 }

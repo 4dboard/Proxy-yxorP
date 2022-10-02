@@ -49,7 +49,7 @@ final class Dumper
                     case false === $var:
                         return 'false';
                     case \is_string($var):
-                        return '"'.$var.'"';
+                        return '"' . $var . '"';
                     default:
                         return rtrim(print_r($var, true));
                 }

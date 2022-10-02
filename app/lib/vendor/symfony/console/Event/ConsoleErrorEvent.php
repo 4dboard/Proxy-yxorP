@@ -42,6 +42,11 @@ final class ConsoleErrorEvent extends ConsoleEvent
         $this->error = $error;
     }
 
+    public function getExitCode(): int
+    {
+        return $this->exitCode ?? (\is_int($this->error->getCode()) && 0 !== $this->error->getCode() ? $this->error->getCode() : 1);
+    }
+
     public function setExitCode(int $exitCode): void
     {
         $this->exitCode = $exitCode;
@@ -49,10 +54,5 @@ final class ConsoleErrorEvent extends ConsoleEvent
         $r = new \ReflectionProperty($this->error, 'code');
         $r->setAccessible(true);
         $r->setValue($this->error, $this->exitCode);
-    }
-
-    public function getExitCode(): int
-    {
-        return $this->exitCode ?? (\is_int($this->error->getCode()) && 0 !== $this->error->getCode() ? $this->error->getCode() : 1);
     }
 }

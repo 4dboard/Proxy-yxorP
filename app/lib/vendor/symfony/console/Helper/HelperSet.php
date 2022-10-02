@@ -48,16 +48,6 @@ class HelperSet implements \IteratorAggregate
     }
 
     /**
-     * Returns true if the helper if defined.
-     *
-     * @return bool
-     */
-    public function has(string $name)
-    {
-        return isset($this->helpers[$name]);
-    }
-
-    /**
      * Gets a helper value.
      *
      * @return HelperInterface
@@ -74,13 +64,13 @@ class HelperSet implements \IteratorAggregate
     }
 
     /**
-     * @deprecated since Symfony 5.4
+     * Returns true if the helper if defined.
+     *
+     * @return bool
      */
-    public function setCommand(Command $command = null)
+    public function has(string $name)
     {
-        trigger_deprecation('symfony/console', '5.4', 'Method "%s()" is deprecated.', __METHOD__);
-
-        $this->command = $command;
+        return isset($this->helpers[$name]);
     }
 
     /**
@@ -95,6 +85,16 @@ class HelperSet implements \IteratorAggregate
         trigger_deprecation('symfony/console', '5.4', 'Method "%s()" is deprecated.', __METHOD__);
 
         return $this->command;
+    }
+
+    /**
+     * @deprecated since Symfony 5.4
+     */
+    public function setCommand(Command $command = null)
+    {
+        trigger_deprecation('symfony/console', '5.4', 'Method "%s()" is deprecated.', __METHOD__);
+
+        $this->command = $command;
     }
 
     /**

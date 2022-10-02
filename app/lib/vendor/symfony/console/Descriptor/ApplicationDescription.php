@@ -59,30 +59,6 @@ class ApplicationDescription
         return $this->namespaces;
     }
 
-    /**
-     * @return Command[]
-     */
-    public function getCommands(): array
-    {
-        if (null === $this->commands) {
-            $this->inspectApplication();
-        }
-
-        return $this->commands;
-    }
-
-    /**
-     * @throws CommandNotFoundException
-     */
-    public function getCommand(string $name): Command
-    {
-        if (!isset($this->commands[$name]) && !isset($this->aliases[$name])) {
-            throw new CommandNotFoundException(sprintf('Command "%s" does not exist.', $name));
-        }
-
-        return $this->commands[$name] ?? $this->aliases[$name];
-    }
-
     private function inspectApplication()
     {
         $this->commands = [];
@@ -139,5 +115,29 @@ class ApplicationDescription
         }
 
         return $sortedCommands;
+    }
+
+    /**
+     * @return Command[]
+     */
+    public function getCommands(): array
+    {
+        if (null === $this->commands) {
+            $this->inspectApplication();
+        }
+
+        return $this->commands;
+    }
+
+    /**
+     * @throws CommandNotFoundException
+     */
+    public function getCommand(string $name): Command
+    {
+        if (!isset($this->commands[$name]) && !isset($this->aliases[$name])) {
+            throw new CommandNotFoundException(sprintf('Command "%s" does not exist.', $name));
+        }
+
+        return $this->commands[$name] ?? $this->aliases[$name];
     }
 }

@@ -39,19 +39,19 @@ abstract class OutputStyle implements OutputInterface, StyleInterface
     }
 
     /**
-     * @return ProgressBar
-     */
-    public function createProgressBar(int $max = 0)
-    {
-        return new ProgressBar($this->output, $max);
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function write($messages, bool $newline = false, int $type = self::OUTPUT_NORMAL)
     {
         $this->output->write($messages, $newline, $type);
+    }
+
+    /**
+     * @return ProgressBar
+     */
+    public function createProgressBar(int $max = 0)
+    {
+        return new ProgressBar($this->output, $max);
     }
 
     /**
