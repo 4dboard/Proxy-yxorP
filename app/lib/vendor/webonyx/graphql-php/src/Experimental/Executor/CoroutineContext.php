@@ -34,24 +34,25 @@ class CoroutineContext
     public $nullFence;
 
     /**
-     * @param mixed         $value
-     * @param object        $result
-     * @param string[]      $path
+     * @param mixed $value
+     * @param object $result
+     * @param string[] $path
      * @param string[]|null $nullFence
      */
     public function __construct(
         CoroutineContextShared $shared,
-        ObjectType $type,
-        $value,
-        $result,
-        array $path,
-        ?array $nullFence = null
-    ) {
-        $this->shared    = $shared;
-        $this->type      = $type;
-        $this->value     = $value;
-        $this->result    = $result;
-        $this->path      = $path;
+        ObjectType             $type,
+                               $value,
+                               $result,
+        array                  $path,
+        ?array                 $nullFence = null
+    )
+    {
+        $this->shared = $shared;
+        $this->type = $type;
+        $this->value = $value;
+        $this->result = $result;
+        $this->path = $path;
         $this->nullFence = $nullFence;
     }
 }

@@ -25,23 +25,18 @@ class UniqueArgumentNames extends ValidationRule
         return $this->getASTVisitor($context);
     }
 
-    public function getVisitor(ValidationContext $context)
-    {
-        return $this->getASTVisitor($context);
-    }
-
     public function getASTVisitor(ASTValidationContext $context)
     {
         $this->knownArgNames = [];
 
         return [
-            NodeKind::FIELD     => function () : void {
+            NodeKind::FIELD => function (): void {
                 $this->knownArgNames = [];
             },
-            NodeKind::DIRECTIVE => function () : void {
+            NodeKind::DIRECTIVE => function (): void {
                 $this->knownArgNames = [];
             },
-            NodeKind::ARGUMENT  => function (ArgumentNode $node) use ($context) : VisitorOperation {
+            NodeKind::ARGUMENT => function (ArgumentNode $node) use ($context): VisitorOperation {
                 $argName = $node->name->value;
                 if ($this->knownArgNames[$argName] ?? false) {
                     $context->reportError(new Error(
@@ -60,5 +55,10 @@ class UniqueArgumentNames extends ValidationRule
     public static function duplicateArgMessage($argName)
     {
         return sprintf('There can be only one argument named "%s".', $argName);
+    }
+
+    public function getVisitor(ValidationContext $context)
+    {
+        return $this->getASTVisitor($context);
     }
 }

@@ -14,12 +14,11 @@ class Put extends Operation
     /**
      * @inheritdoc
      */
-    public $method = 'put';
-
-    /**
-     * @inheritdoc
-     */
     public static $_parents = [
         PathItem::class,
     ];
+    /**
+     * @inheritdoc
+     */
+    public $method = 'put';
 }

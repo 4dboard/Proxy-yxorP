@@ -40,7 +40,6 @@ use GraphQL\Utils\Utils;
 use GraphQL\Validator\ASTValidationContext;
 use GraphQL\Validator\SDLValidationContext;
 use GraphQL\Validator\ValidationContext;
-use function array_map;
 use function count;
 use function get_class;
 use function in_array;
@@ -53,15 +52,10 @@ class KnownDirectives extends ValidationRule
         return $this->getASTVisitor($context);
     }
 
-    public function getSDLVisitor(SDLValidationContext $context)
-    {
-        return $this->getASTVisitor($context);
-    }
-
     public function getASTVisitor(ASTValidationContext $context)
     {
-        $locationsMap      = [];
-        $schema            = $context->getSchema();
+        $locationsMap = [];
+        $schema = $context->getSchema();
         $definedDirectives = $schema
             ? $schema->getDirectives()
             : Directive::getInternalDirectives();
@@ -73,13 +67,13 @@ class KnownDirectives extends ValidationRule
         $astDefinition = $context->getDocument()->definitions;
 
         foreach ($astDefinition as $def) {
-            if (! ($def instanceof DirectiveDefinitionNode)) {
+            if (!($def instanceof DirectiveDefinitionNode)) {
                 continue;
             }
 
             $locationsMap[$def->name->value] = Utils::map(
                 $def->locations,
-                static function ($name) : string {
+                static function ($name): string {
                     return $name->value;
                 }
             );
@@ -88,18 +82,18 @@ class KnownDirectives extends ValidationRule
         return [
             NodeKind::DIRECTIVE => function (
                 DirectiveNode $node,
-                $key,
-                $parent,
-                $path,
-                $ancestors
+                              $key,
+                              $parent,
+                              $path,
+                              $ancestors
             ) use (
                 $context,
                 $locationsMap
-            ) : void {
-                $name      = $node->name->value;
+            ): void {
+                $name = $node->name->value;
                 $locations = $locationsMap[$name] ?? null;
 
-                if (! $locations) {
+                if (!$locations) {
                     $context->reportError(new Error(
                         self::unknownDirectiveMessage($name),
                         [$node]
@@ -110,7 +104,7 @@ class KnownDirectives extends ValidationRule
 
                 $candidateLocation = $this->getDirectiveLocationForASTPath($ancestors);
 
-                if (! $candidateLocation || in_array($candidateLocation, $locations, true)) {
+                if (!$candidateLocation || in_array($candidateLocation, $locations, true)) {
                     return;
                 }
                 $context->reportError(
@@ -196,5 +190,10 @@ class KnownDirectives extends ValidationRule
     public static function misplacedDirectiveMessage($directiveName, $location)
     {
         return sprintf('Directive "%s" may not be used on "%s".', $directiveName, $location);
+    }
+
+    public function getSDLVisitor(SDLValidationContext $context)
+    {
+        return $this->getASTVisitor($context);
     }
 }

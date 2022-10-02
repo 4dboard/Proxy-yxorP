@@ -42,10 +42,10 @@ class NoFragmentCycles extends ValidationRule
         $this->spreadPathIndexByName = [];
 
         return [
-            NodeKind::OPERATION_DEFINITION => static function () : VisitorOperation {
+            NodeKind::OPERATION_DEFINITION => static function (): VisitorOperation {
                 return Visitor::skipNode();
             },
-            NodeKind::FRAGMENT_DEFINITION  => function (FragmentDefinitionNode $node) use ($context) : VisitorOperation {
+            NodeKind::FRAGMENT_DEFINITION => function (FragmentDefinitionNode $node) use ($context): VisitorOperation {
                 $this->detectCycleRecursive($node, $context);
 
                 return Visitor::skipNode();
@@ -59,7 +59,7 @@ class NoFragmentCycles extends ValidationRule
             return;
         }
 
-        $fragmentName                      = $fragment->name->value;
+        $fragmentName = $fragment->name->value;
         $this->visitedFrags[$fragmentName] = true;
 
         $spreadNodes = $context->getFragmentSpreads($fragment);
@@ -82,7 +82,7 @@ class NoFragmentCycles extends ValidationRule
                     $this->detectCycleRecursive($spreadFragment, $context);
                 }
             } else {
-                $cyclePath     = array_slice($this->spreadPath, $cycleIndex);
+                $cyclePath = array_slice($this->spreadPath, $cycleIndex);
                 $fragmentNames = Utils::map(array_slice($cyclePath, 0, -1), static function ($s) {
                     return $s->name->value;
                 });

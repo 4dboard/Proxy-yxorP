@@ -25,7 +25,7 @@ class ExecutableDefinitions extends ValidationRule
     public function getVisitor(ValidationContext $context)
     {
         return [
-            NodeKind::DOCUMENT => static function (DocumentNode $node) use ($context) : VisitorOperation {
+            NodeKind::DOCUMENT => static function (DocumentNode $node) use ($context): VisitorOperation {
                 /** @var ExecutableDefinitionNode|TypeSystemDefinitionNode $definition */
                 foreach ($node->definitions as $definition) {
                     if ($definition instanceof ExecutableDefinitionNode) {

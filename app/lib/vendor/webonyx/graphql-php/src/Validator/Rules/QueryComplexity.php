@@ -54,14 +54,14 @@ class QueryComplexity extends QuerySecurityRule
     {
         $this->context = $context;
 
-        $this->variableDefs     = new ArrayObject();
+        $this->variableDefs = new ArrayObject();
         $this->fieldNodeAndDefs = new ArrayObject();
-        $this->complexity       = 0;
+        $this->complexity = 0;
 
         return $this->invokeIfNeeded(
             $context,
             [
-                NodeKind::SELECTION_SET        => function (SelectionSetNode $selectionSet) use ($context) : void {
+                NodeKind::SELECTION_SET => function (SelectionSetNode $selectionSet) use ($context): void {
                     $this->fieldNodeAndDefs = $this->collectFieldASTsAndDefs(
                         $context,
                         $context->getParentType(),
@@ -70,13 +70,13 @@ class QueryComplexity extends QuerySecurityRule
                         $this->fieldNodeAndDefs
                     );
                 },
-                NodeKind::VARIABLE_DEFINITION  => function ($def) : VisitorOperation {
+                NodeKind::VARIABLE_DEFINITION => function ($def): VisitorOperation {
                     $this->variableDefs[] = $def;
 
                     return Visitor::skipNode();
                 },
                 NodeKind::OPERATION_DEFINITION => [
-                    'leave' => function (OperationDefinitionNode $operationDefinition) use ($context, &$complexity) : void {
+                    'leave' => function (OperationDefinitionNode $operationDefinition) use ($context, &$complexity): void {
                         $errors = $context->getErrors();
 
                         if (count($errors) > 0) {
@@ -117,7 +117,7 @@ class QueryComplexity extends QuerySecurityRule
         switch (true) {
             case $node instanceof FieldNode:
                 // default values
-                $args         = [];
+                $args = [];
                 $complexityFn = FieldDefinition::DEFAULT_COMPLEXITY_FN;
 
                 // calculate children complexity if needed
@@ -129,7 +129,7 @@ class QueryComplexity extends QuerySecurityRule
                 }
 
                 $astFieldInfo = $this->astFieldInfo($node);
-                $fieldDef     = $astFieldInfo[1];
+                $fieldDef = $astFieldInfo[1];
 
                 if ($fieldDef instanceof FieldDefinition) {
                     if ($this->directiveExcludesField($node)) {
@@ -167,7 +167,7 @@ class QueryComplexity extends QuerySecurityRule
 
     private function astFieldInfo(FieldNode $field)
     {
-        $fieldName    = $this->getFieldName($field);
+        $fieldName = $this->getFieldName($field);
         $astFieldInfo = [null, null];
         if (isset($this->fieldNodeAndDefs[$fieldName])) {
             foreach ($this->fieldNodeAndDefs[$fieldName] as $astAndDef) {
@@ -208,7 +208,7 @@ class QueryComplexity extends QuerySecurityRule
                 /** @var bool $directiveArgsIf */
                 $directiveArgsIf = Values::getArgumentValues($directive, $directiveNode, $variableValues)['if'];
 
-                return ! $directiveArgsIf;
+                return !$directiveArgsIf;
             }
             if ($directiveNode->name->value === Directive::SKIP_NAME) {
                 $directive = Directive::skipDirective();
@@ -238,8 +238,8 @@ class QueryComplexity extends QuerySecurityRule
     private function buildFieldArguments(FieldNode $node)
     {
         $rawVariableValues = $this->getRawVariableValues();
-        $astFieldInfo      = $this->astFieldInfo($node);
-        $fieldDef          = $astFieldInfo[1];
+        $astFieldInfo = $this->astFieldInfo($node);
+        $fieldDef = $astFieldInfo[1];
 
         $args = [];
 
@@ -285,7 +285,7 @@ class QueryComplexity extends QuerySecurityRule
     {
         $this->checkIfGreaterOrEqualToZero('maxQueryComplexity', $maxQueryComplexity);
 
-        $this->maxQueryComplexity = (int) $maxQueryComplexity;
+        $this->maxQueryComplexity = (int)$maxQueryComplexity;
     }
 
     public static function maxQueryComplexityErrorMessage($max, $count)

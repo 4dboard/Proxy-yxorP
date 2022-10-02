@@ -11,16 +11,16 @@ class Deferred extends SyncPromise
     /**
      * @param callable() : mixed $executor
      */
-    public static function create(callable $executor) : self
+    public function __construct(callable $executor)
     {
-        return new self($executor);
+        parent::__construct($executor);
     }
 
     /**
      * @param callable() : mixed $executor
      */
-    public function __construct(callable $executor)
+    public static function create(callable $executor): self
     {
-        parent::__construct($executor);
+        return new self($executor);
     }
 }
