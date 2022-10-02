@@ -2,33 +2,16 @@
 
 # aggregateException
 
-
-
-
-
 * Full name: `\yxorP\app\lib\proxy\promise\aggregateException`
 * Parent class: [`\yxorP\app\lib\proxy\promise\aRejectionException`](./aRejectionException.md)
 
-
-
-
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $msg, array $reasons): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -37,29 +20,15 @@ public __construct(mixed $msg, array $reasons): mixed
 | `$msg` | **mixed** |  |
 | `$reasons` | **array** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $reason, mixed $description = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -68,28 +37,13 @@ public __construct(mixed $reason, mixed $description = null): mixed
 | `$reason` | **mixed** |  |
 | `$description` | **mixed** |  |
 
-
-
-
 ***
 
 ### getReason
 
-
-
 ```php
 public getReason(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

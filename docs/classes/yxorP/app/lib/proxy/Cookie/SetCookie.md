@@ -2,64 +2,35 @@
 
 # setCookie
 
-
-
-
-
 * Full name: `\yxorP\app\lib\proxy\cookie\setCookie`
-
-
 
 ## Properties
 
-
 ### defaults
-
-
 
 ```php
 private static $defaults
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### data
 
-
-
 ```php
 private $data
 ```
-
-
-
-
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $data = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -67,65 +38,29 @@ public __construct(array $data = []): mixed
 |-----------|------|-------------|
 | `$data` | **array** |  |
 
-
-
-
 ***
 
 ### getExpires
-
-
 
 ```php
 public getExpires(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getMaxAge
-
-
 
 ```php
 public getMaxAge(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setExpires
 
-
-
 ```php
 public setExpires(mixed $timestamp): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -133,25 +68,15 @@ public setExpires(mixed $timestamp): mixed
 |-----------|------|-------------|
 | `$timestamp` | **mixed** |  |
 
-
-
-
 ***
 
 ### fromString
-
-
 
 ```php
 public static fromString(mixed $cookie): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -159,65 +84,29 @@ public static fromString(mixed $cookie): mixed
 |-----------|------|-------------|
 | `$cookie` | **mixed** |  |
 
-
-
-
 ***
 
 ### __toString
-
-
 
 ```php
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toArray
-
-
 
 ```php
 public toArray(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setName
 
-
-
 ```php
 public setName(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -225,25 +114,13 @@ public setName(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### setValue
 
-
-
 ```php
 public setValue(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -251,25 +128,13 @@ public setValue(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### setDomain
 
-
-
 ```php
 public setDomain(mixed $domain): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -277,25 +142,13 @@ public setDomain(mixed $domain): mixed
 |-----------|------|-------------|
 | `$domain` | **mixed** |  |
 
-
-
-
 ***
 
 ### setPath
 
-
-
 ```php
 public setPath(mixed $path): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -303,25 +156,13 @@ public setPath(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
-
-
-
 ***
 
 ### setMaxAge
 
-
-
 ```php
 public setMaxAge(mixed $maxAge): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -329,45 +170,21 @@ public setMaxAge(mixed $maxAge): mixed
 |-----------|------|-------------|
 | `$maxAge` | **mixed** |  |
 
-
-
-
 ***
 
 ### getSecure
-
-
 
 ```php
 public getSecure(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setSecure
 
-
-
 ```php
 public setSecure(mixed $secure): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -375,45 +192,21 @@ public setSecure(mixed $secure): mixed
 |-----------|------|-------------|
 | `$secure` | **mixed** |  |
 
-
-
-
 ***
 
 ### getDiscard
-
-
 
 ```php
 public getDiscard(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDiscard
 
-
-
 ```php
 public setDiscard(mixed $discard): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -421,45 +214,21 @@ public setDiscard(mixed $discard): mixed
 |-----------|------|-------------|
 | `$discard` | **mixed** |  |
 
-
-
-
 ***
 
 ### getHttpOnly
-
-
 
 ```php
 public getHttpOnly(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setHttpOnly
 
-
-
 ```php
 public setHttpOnly(mixed $httpOnly): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -467,25 +236,13 @@ public setHttpOnly(mixed $httpOnly): mixed
 |-----------|------|-------------|
 | `$httpOnly` | **mixed** |  |
 
-
-
-
 ***
 
 ### matchesPath
 
-
-
 ```php
 public matchesPath(mixed $requestPath): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -493,45 +250,21 @@ public matchesPath(mixed $requestPath): mixed
 |-----------|------|-------------|
 | `$requestPath` | **mixed** |  |
 
-
-
-
 ***
 
 ### getPath
-
-
 
 ```php
 public getPath(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### matchesDomain
 
-
-
 ```php
 public matchesDomain(mixed $domain): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -539,108 +272,45 @@ public matchesDomain(mixed $domain): mixed
 |-----------|------|-------------|
 | `$domain` | **mixed** |  |
 
-
-
-
 ***
 
 ### getDomain
-
-
 
 ```php
 public getDomain(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isExpired
-
-
 
 ```php
 public isExpired(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### validate
-
-
 
 ```php
 public validate(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getName
-
-
 
 ```php
 public getName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getValue
 
-
-
 ```php
 public getValue(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

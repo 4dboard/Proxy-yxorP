@@ -4,95 +4,42 @@
 
 Class Controller
 
-
-
 * Full name: `\System\Controller\Logs`
 * Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
 
-
-
-
 ## Methods
 
-
 ### before
-
-
 
 ```php
 protected before(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### index
-
-
 
 ```php
 public index(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### load
-
-
 
 ```php
 public load(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### render
-
-
 
 ```php
 protected render( $view, array $params = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -101,45 +48,21 @@ protected render( $view, array $params = []): mixed
 | `$view` | **** |  |
 | `$params` | **array** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 protected initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isAllowed
 
-
-
 ```php
 protected isAllowed(string $permission): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -147,51 +70,27 @@ protected isAllowed(string $permission): bool
 |-----------|------|-------------|
 | `$permission` | **string** |  |
 
-
-
-
 ***
 
 ### checkAndLockResource
-
-
 
 ```php
 protected checkAndLockResource(mixed $resourceId): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resourceId` | **mixed** |  |
-
-
-
 
 ***
 
 ### unlockResource
 
-
-
 ```php
 public unlockResource(mixed $resourceId): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -199,65 +98,29 @@ public unlockResource(mixed $resourceId): mixed
 |-----------|------|-------------|
 | `$resourceId` | **mixed** |  |
 
-
-
-
 ***
 
 ### index
-
-
 
 ```php
 public index(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### before
-
-
 
 ```php
 protected before(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### path
 
-
-
 ```php
 protected path( $path): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -265,25 +128,13 @@ protected path( $path): mixed
 |-----------|------|-------------|
 | `$path` | **** |  |
 
-
-
-
 ***
 
 ### param
 
-
-
 ```php
 protected param( $key, null $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -292,25 +143,13 @@ protected param( $key, null $default = null): mixed
 | `$key` | **** |  |
 | `$default` | **null** |  |
 
-
-
-
 ***
 
 ### module
 
-
-
 ```php
 protected module( $module): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -318,25 +157,13 @@ protected module( $module): mixed
 |-----------|------|-------------|
 | `$module` | **** |  |
 
-
-
-
 ***
 
 ### helper
 
-
-
 ```php
 protected helper( $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -344,25 +171,13 @@ protected helper( $name): mixed
 |-----------|------|-------------|
 | `$name` | **** |  |
 
-
-
-
 ***
 
 ### stop
 
-
-
 ```php
 protected stop(mixed $data = null, mixed $status = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -371,25 +186,13 @@ protected stop(mixed $data = null, mixed $status = null): mixed
 | `$data` | **mixed** |  |
 | `$status` | **mixed** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -398,25 +201,13 @@ public __construct(\Lime\App $app, mixed $context = null): mixed
 | `$app` | **\Lime\App** |  |
 | `$context` | **mixed** |  |
 
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -425,25 +216,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -451,34 +230,19 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 

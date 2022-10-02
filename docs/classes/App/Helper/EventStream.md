@@ -2,53 +2,24 @@
 
 # EventStream
 
-
-
-
-
 * Full name: `\App\Helper\EventStream`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
-
-
-
 ## Methods
 
-
 ### cleanup
-
-
 
 ```php
 public cleanup(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getEvents
 
-
-
 ```php
 public getEvents(int $sinceTime): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -56,25 +27,13 @@ public getEvents(int $sinceTime): mixed
 |-----------|------|-------------|
 | `$sinceTime` | **int** |  |
 
-
-
-
 ***
 
 ### add
 
-
-
 ```php
 public add(string $event, mixed $data, array $options): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -84,29 +43,15 @@ public add(string $event, mixed $data, array $options): mixed
 | `$data` | **mixed** |  |
 | `$options` | **array** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -115,45 +60,21 @@ public __construct(\Lime\App $app, mixed $context = null): mixed
 | `$app` | **\Lime\App** |  |
 | `$context` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 protected initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -162,25 +83,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -188,34 +97,19 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 

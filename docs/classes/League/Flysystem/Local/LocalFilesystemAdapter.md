@@ -2,14 +2,9 @@
 
 # LocalFilesystemAdapter
 
-
-
-
-
 * Full name: `\League\Flysystem\Local\LocalFilesystemAdapter`
 * This class implements:
-[`\League\Flysystem\FilesystemAdapter`](../FilesystemAdapter.md)
-
+  [`\League\Flysystem\FilesystemAdapter`](../FilesystemAdapter.md)
 
 ## Constants
 
@@ -20,129 +15,69 @@
 
 ## Properties
 
-
 ### prefixer
-
-
 
 ```php
 private \League\Flysystem\PathPrefixer $prefixer
 ```
 
-
-
-
-
-
 ***
 
 ### writeFlags
-
-
 
 ```php
 private int $writeFlags
 ```
 
-
-
-
-
-
 ***
 
 ### linkHandling
-
-
 
 ```php
 private int $linkHandling
 ```
 
-
-
-
-
-
 ***
 
 ### visibility
-
-
 
 ```php
 private \League\Flysystem\UnixVisibility\VisibilityConverter $visibility
 ```
 
-
-
-
-
-
 ***
 
 ### mimeTypeDetector
-
-
 
 ```php
 private \League\MimeTypeDetection\MimeTypeDetector $mimeTypeDetector
 ```
 
-
-
-
-
-
 ***
 
 ### rootLocation
-
-
 
 ```php
 private string $rootLocation
 ```
 
-
-
-
-
-
 ***
 
 ### rootLocationIsSetup
-
-
 
 ```php
 private bool $rootLocationIsSetup
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $location, \League\Flysystem\UnixVisibility\VisibilityConverter $visibility = null, int $writeFlags = LOCK_EX, int $linkHandling = self::DISALLOW_LINKS, \League\MimeTypeDetection\MimeTypeDetector $mimeTypeDetector = null, bool $lazyRootCreation = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -155,45 +90,21 @@ public __construct(string $location, \League\Flysystem\UnixVisibility\Visibility
 | `$mimeTypeDetector` | **\League\MimeTypeDetection\MimeTypeDetector** |  |
 | `$lazyRootCreation` | **bool** |  |
 
-
-
-
 ***
 
 ### ensureRootDirectoryExists
-
-
 
 ```php
 private ensureRootDirectoryExists(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### write
 
-
-
 ```php
 public write(string $path, string $contents, \League\Flysystem\Config $config): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -203,25 +114,13 @@ public write(string $path, string $contents, \League\Flysystem\Config $config): 
 | `$contents` | **string** |  |
 | `$config` | **\League\Flysystem\Config** |  |
 
-
-
-
 ***
 
 ### writeStream
 
-
-
 ```php
 public writeStream(string $path, mixed $contents, \League\Flysystem\Config $config): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -231,25 +130,13 @@ public writeStream(string $path, mixed $contents, \League\Flysystem\Config $conf
 | `$contents` | **mixed** |  |
 | `$config` | **\League\Flysystem\Config** |  |
 
-
-
-
 ***
 
 ### writeToFile
 
-
-
 ```php
 private writeToFile(string $path, resource|string $contents, \League\Flysystem\Config $config): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -259,25 +146,13 @@ private writeToFile(string $path, resource|string $contents, \League\Flysystem\C
 | `$contents` | **resource&#124;string** |  |
 | `$config` | **\League\Flysystem\Config** |  |
 
-
-
-
 ***
 
 ### delete
 
-
-
 ```php
 public delete(string $path): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -285,25 +160,13 @@ public delete(string $path): void
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
-
-
-
 ***
 
 ### deleteDirectory
 
-
-
 ```php
 public deleteDirectory(string $prefix): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -311,25 +174,13 @@ public deleteDirectory(string $prefix): void
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
 
-
-
-
 ***
 
 ### listDirectoryRecursively
 
-
-
 ```php
 private listDirectoryRecursively(string $path, int $mode = RecursiveIteratorIterator::SELF_FIRST): \Generator
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -338,25 +189,13 @@ private listDirectoryRecursively(string $path, int $mode = RecursiveIteratorIter
 | `$path` | **string** |  |
 | `$mode` | **int** |  |
 
-
-
-
 ***
 
 ### deleteFileInfoObject
 
-
-
 ```php
 protected deleteFileInfoObject(\SplFileInfo $file): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -364,25 +203,13 @@ protected deleteFileInfoObject(\SplFileInfo $file): bool
 |-----------|------|-------------|
 | `$file` | **\SplFileInfo** |  |
 
-
-
-
 ***
 
 ### listContents
 
-
-
 ```php
 public listContents(string $path, bool $deep): iterable&lt;\League\Flysystem\StorageAttributes&gt;
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -391,26 +218,14 @@ public listContents(string $path, bool $deep): iterable&lt;\League\Flysystem\Sto
 | `$path` | **string** |  |
 | `$deep` | **bool** |  |
 
-
-
-
 ***
 
 ### move
-
-
 
 ```php
 public move(string $source, string $destination, \League\Flysystem\Config $config): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -418,26 +233,14 @@ public move(string $source, string $destination, \League\Flysystem\Config $confi
 | `$source` | **string** |  |
 | `$destination` | **string** |  |
 | `$config` | **\League\Flysystem\Config** |  |
-
-
-
 
 ***
 
 ### copy
 
-
-
 ```php
 public copy(string $source, string $destination, \League\Flysystem\Config $config): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -447,51 +250,27 @@ public copy(string $source, string $destination, \League\Flysystem\Config $confi
 | `$destination` | **string** |  |
 | `$config` | **\League\Flysystem\Config** |  |
 
-
-
-
 ***
 
 ### read
-
-
 
 ```php
 public read(string $path): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
 ### readStream
 
-
-
 ```php
 public readStream(string $path): resource
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -499,25 +278,13 @@ public readStream(string $path): resource
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
-
-
-
 ***
 
 ### ensureDirectoryExists
 
-
-
 ```php
 protected ensureDirectoryExists(string $dirname, int $visibility): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -526,51 +293,27 @@ protected ensureDirectoryExists(string $dirname, int $visibility): void
 | `$dirname` | **string** |  |
 | `$visibility` | **int** |  |
 
-
-
-
 ***
 
 ### fileExists
-
-
 
 ```php
 public fileExists(string $location): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$location` | **string** |  |
-
-
-
 
 ***
 
 ### directoryExists
 
-
-
 ```php
 public directoryExists(string $location): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -578,25 +321,13 @@ public directoryExists(string $location): bool
 |-----------|------|-------------|
 | `$location` | **string** |  |
 
-
-
-
 ***
 
 ### createDirectory
 
-
-
 ```php
 public createDirectory(string $path, \League\Flysystem\Config $config): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -605,25 +336,13 @@ public createDirectory(string $path, \League\Flysystem\Config $config): void
 | `$path` | **string** |  |
 | `$config` | **\League\Flysystem\Config** |  |
 
-
-
-
 ***
 
 ### setVisibility
 
-
-
 ```php
 public setVisibility(string $path, string $visibility): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -632,25 +351,13 @@ public setVisibility(string $path, string $visibility): void
 | `$path` | **string** |  |
 | `$visibility` | **string** |  |
 
-
-
-
 ***
 
 ### visibility
 
-
-
 ```php
 public visibility(string $path): \League\Flysystem\FileAttributes
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -658,25 +365,13 @@ public visibility(string $path): \League\Flysystem\FileAttributes
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
-
-
-
 ***
 
 ### resolveDirectoryVisibility
 
-
-
 ```php
 private resolveDirectoryVisibility(?string $visibility): int
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -684,77 +379,41 @@ private resolveDirectoryVisibility(?string $visibility): int
 |-----------|------|-------------|
 | `$visibility` | **?string** |  |
 
-
-
-
 ***
 
 ### mimeType
-
-
 
 ```php
 public mimeType(string $path): \League\Flysystem\FileAttributes
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
 ### lastModified
 
-
-
 ```php
 public lastModified(string $path): \League\Flysystem\FileAttributes
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
 ### fileSize
 
-
-
 ```php
 public fileSize(string $path): \League\Flysystem\FileAttributes
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -762,25 +421,13 @@ public fileSize(string $path): \League\Flysystem\FileAttributes
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
-
-
-
 ***
 
 ### listDirectory
 
-
-
 ```php
 private listDirectory(string $location): \Generator
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -788,25 +435,13 @@ private listDirectory(string $location): \Generator
 |-----------|------|-------------|
 | `$location` | **string** |  |
 
-
-
-
 ***
 
 ### setPermissions
 
-
-
 ```php
 private setPermissions(string $location, int $visibility): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -814,9 +449,6 @@ private setPermissions(string $location, int $visibility): void
 |-----------|------|-------------|
 | `$location` | **string** |  |
 | `$visibility` | **int** |  |
-
-
-
 
 ***
 

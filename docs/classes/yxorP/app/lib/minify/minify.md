@@ -2,51 +2,27 @@
 
 # minify
 
-
-
-
-
 * Full name: `\yxorP\app\lib\minify\minify`
 * This class implements:
-[`\yxorP\app\lib\minify\minfyInterface`](./minfyInterface.md)
-
-
+  [`\yxorP\app\lib\minify\minfyInterface`](./minfyInterface.md)
 
 ## Properties
 
-
 ### processors
-
-
 
 ```php
 private array $processors
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\yxorP\app\lib\minify\minfyInterface $processors): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -54,45 +30,23 @@ public __construct(\yxorP\app\lib\minify\minfyInterface $processors): mixed
 |-----------|------|-------------|
 | `$processors` | **\yxorP\app\lib\minify\minfyInterface** |  |
 
-
-
-
 ***
 
 ### createDefault
-
-
 
 ```php
 public static createDefault(): self
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### process
 
-
-
 ```php
 public process(string $buffer): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -100,34 +54,19 @@ public process(string $buffer): string
 |-----------|------|-------------|
 | `$buffer` | **string** |  |
 
-
-
-
 ***
 
 ### addProcessor
 
-
-
 ```php
 public addProcessor(\yxorP\app\lib\minify\minfyInterface $processor): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$processor` | **\yxorP\app\lib\minify\minfyInterface** |  |
-
-
-
 
 ***
 

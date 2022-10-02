@@ -2,12 +2,7 @@
 
 # messageFormatter
 
-
-
-
-
 * Full name: `\yxorP\app\lib\proxy\messageFormatter`
-
 
 ## Constants
 
@@ -19,39 +14,21 @@
 
 ## Properties
 
-
 ### template
-
-
 
 ```php
 private $template
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $template = self::CLF): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -59,25 +36,13 @@ public __construct(mixed $template = self::CLF): mixed
 |-----------|------|-------------|
 | `$template` | **mixed** |  |
 
-
-
-
 ***
 
 ### format
 
-
-
 ```php
 public format(\yxorP\app\lib\psr\http\message\requestInterface $request, \yxorP\app\lib\psr\http\message\responseInterface $response = null, \Exception $error = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -87,34 +52,19 @@ public format(\yxorP\app\lib\psr\http\message\requestInterface $request, \yxorP\
 | `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
 | `$error` | **\Exception** |  |
 
-
-
-
 ***
 
 ### headers
 
-
-
 ```php
 private headers(\yxorP\app\lib\psr\http\message\messageInterface $message): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **\yxorP\app\lib\psr\http\message\messageInterface** |  |
-
-
-
 
 ***
 

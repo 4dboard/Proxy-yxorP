@@ -2,81 +2,43 @@
 
 # request
 
-
-
-
-
 * Full name: `\yxorP\app\lib\proxy\psr7\request`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\requestInterface`](../../psr/http/message/requestInterface.md)
-
-
+  [`\yxorP\app\lib\psr\http\message\requestInterface`](../../psr/http/message/requestInterface.md)
 
 ## Properties
 
-
 ### method
-
-
 
 ```php
 private $method
 ```
 
-
-
-
-
-
 ***
 
 ### requestTarget
-
-
 
 ```php
 private $requestTarget
 ```
 
-
-
-
-
-
 ***
 
 ### uri
-
-
 
 ```php
 private $uri
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $method, mixed $uri, array $headers = [], mixed $body = null, mixed $version = &#039;1.1&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -88,25 +50,13 @@ public __construct(mixed $method, mixed $uri, array $headers = [], mixed $body =
 | `$body` | **mixed** |  |
 | `$version` | **mixed** |  |
 
-
-
-
 ***
 
 ### assertMethod
 
-
-
 ```php
 private assertMethod(mixed $method): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -114,28 +64,13 @@ private assertMethod(mixed $method): mixed
 |-----------|------|-------------|
 | `$method` | **mixed** |  |
 
-
-
-
 ***
 
 ### updateHostFromUri
 
-
-
 ```php
 private updateHostFromUri(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -185,19 +120,11 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 changed request target.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$requestTarget` | **mixed** |  |
-
-
-
 
 ***
 
@@ -208,14 +135,6 @@ Retrieves the HTTP method of the request.
 ```php
 public getMethod(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -241,19 +160,11 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 changed request method.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **mixed** | Case-sensitive method. |
-
-
-
 
 ***
 
@@ -266,12 +177,6 @@ public getUri(): \yxorP\app\lib\psr\http\message\uriInterface
 ```
 
 This method MUST return a UriInterface instance.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -312,11 +217,6 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 new UriInterface instance.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -324,49 +224,23 @@ new UriInterface instance.
 | `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** | New request URI to use. |
 | `$preserveHost` | **mixed** | Preserve the original state of the Host header. |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### getProtocolVersion
-
-
 
 ```php
 public getProtocolVersion(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### withProtocolVersion
 
-
-
 ```php
 public withProtocolVersion(mixed $version): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -374,123 +248,63 @@ public withProtocolVersion(mixed $version): mixed
 |-----------|------|-------------|
 | `$version` | **mixed** |  |
 
-
-
-
 ***
 
 ### getHeaders
-
-
 
 ```php
 public getHeaders(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasHeader
-
-
 
 ```php
 public hasHeader(mixed $header): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
-
-
-
 
 ***
 
 ### getHeaderLine
 
-
-
 ```php
 public getHeaderLine(mixed $header): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
-
-
-
 
 ***
 
 ### getHeader
 
-
-
 ```php
 public getHeader(mixed $header): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
-
-
-
 
 ***
 
 ### withHeader
 
-
-
 ```php
 public withHeader(mixed $header, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -498,26 +312,14 @@ public withHeader(mixed $header, mixed $value): mixed
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### withAddedHeader
 
-
-
 ```php
 public withAddedHeader(mixed $header, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -526,25 +328,13 @@ public withAddedHeader(mixed $header, mixed $value): mixed
 | `$header` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### withoutHeader
 
-
-
 ```php
 public withoutHeader(mixed $header): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -552,45 +342,21 @@ public withoutHeader(mixed $header): mixed
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 
-
-
-
 ***
 
 ### getBody
-
-
 
 ```php
 public getBody(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### withBody
 
-
-
 ```php
 public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -598,25 +364,13 @@ public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
 |-----------|------|-------------|
 | `$body` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
 
-
-
-
 ***
 
 ### assertHeader
 
-
-
 ```php
 private assertHeader(mixed $header): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -624,25 +378,13 @@ private assertHeader(mixed $header): mixed
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 
-
-
-
 ***
 
 ### normalizeHeaderValue
 
-
-
 ```php
 private normalizeHeaderValue(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -650,25 +392,13 @@ private normalizeHeaderValue(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### trimHeaderValues
 
-
-
 ```php
 private trimHeaderValues(array $values): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -676,34 +406,19 @@ private trimHeaderValues(array $values): mixed
 |-----------|------|-------------|
 | `$values` | **array** |  |
 
-
-
-
 ***
 
 ### setHeaders
 
-
-
 ```php
 private setHeaders(array $headers): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$headers` | **array** |  |
-
-
-
 
 ***
 
