@@ -1,4 +1,5 @@
 <?php
+
 namespace RobThree\Auth\Providers\Qr;
 
 use Endroid\QrCode\Logo\Logo;
@@ -40,7 +41,8 @@ class EndroidQrCodeWithLogoProvider extends EndroidQrCodeProvider
         return $writer->write($this->qrCodeInstance($qrtext, $size), $logo)->getString();
     }
 
-    protected function qrCodeInstance($qrtext, $size) {
+    protected function qrCodeInstance($qrtext, $size)
+    {
         $qrCode = parent::qrCodeInstance($qrtext, $size);
 
         if (!$this->endroid4 && $this->logoPath) {

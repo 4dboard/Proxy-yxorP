@@ -94,29 +94,6 @@ class OAuth implements OAuthTokenProvider
     }
 
     /**
-     * Get a new RefreshToken.
-     *
-     * @return RefreshToken
-     */
-    protected function getGrant()
-    {
-        return new RefreshToken();
-    }
-
-    /**
-     * Get a new AccessToken.
-     *
-     * @return AccessToken
-     */
-    protected function getToken()
-    {
-        return $this->provider->getAccessToken(
-            $this->getGrant(),
-            ['refresh_token' => $this->oauthRefreshToken]
-        );
-    }
-
-    /**
      * Generate a base64-encoded OAuth token.
      *
      * @return string
@@ -135,5 +112,28 @@ class OAuth implements OAuthTokenProvider
             $this->oauthToken .
             "\001\001"
         );
+    }
+
+    /**
+     * Get a new AccessToken.
+     *
+     * @return AccessToken
+     */
+    protected function getToken()
+    {
+        return $this->provider->getAccessToken(
+            $this->getGrant(),
+            ['refresh_token' => $this->oauthRefreshToken]
+        );
+    }
+
+    /**
+     * Get a new RefreshToken.
+     *
+     * @return RefreshToken
+     */
+    protected function getGrant()
+    {
+        return new RefreshToken();
     }
 }

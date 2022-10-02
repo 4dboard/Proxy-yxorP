@@ -4,7 +4,6 @@ namespace Doctrine\Common\Annotations;
 
 use Exception;
 use Throwable;
-
 use function get_class;
 use function gettype;
 use function implode;
@@ -29,18 +28,6 @@ class AnnotationException extends Exception
     }
 
     /**
-     * Creates a new AnnotationException describing a Semantical error.
-     *
-     * @param string $message Exception message
-     *
-     * @return AnnotationException
-     */
-    public static function semanticalError($message)
-    {
-        return new self('[Semantical Error] ' . $message);
-    }
-
-    /**
      * Creates a new AnnotationException describing an error which occurred during
      * the creation of the annotation.
      *
@@ -51,18 +38,6 @@ class AnnotationException extends Exception
     public static function creationError($message, ?Throwable $previous = null)
     {
         return new self('[Creation Error] ' . $message, 0, $previous);
-    }
-
-    /**
-     * Creates a new AnnotationException describing a type error.
-     *
-     * @param string $message
-     *
-     * @return AnnotationException
-     */
-    public static function typeError($message)
-    {
-        return new self('[Type Error] ' . $message);
     }
 
     /**
@@ -83,13 +58,25 @@ class AnnotationException extends Exception
     }
 
     /**
+     * Creates a new AnnotationException describing a Semantical error.
+     *
+     * @param string $message Exception message
+     *
+     * @return AnnotationException
+     */
+    public static function semanticalError($message)
+    {
+        return new self('[Semantical Error] ' . $message);
+    }
+
+    /**
      * Creates a new AnnotationException describing an type error of an attribute.
      *
      * @param string $attributeName
      * @param string $annotationName
      * @param string $context
      * @param string $expected
-     * @param mixed  $actual
+     * @param mixed $actual
      *
      * @return AnnotationException
      */
@@ -103,6 +90,18 @@ class AnnotationException extends Exception
             $expected,
             is_object($actual) ? 'an instance of ' . get_class($actual) : gettype($actual)
         ));
+    }
+
+    /**
+     * Creates a new AnnotationException describing a type error.
+     *
+     * @param string $message
+     *
+     * @return AnnotationException
+     */
+    public static function typeError($message)
+    {
+        return new self('[Type Error] ' . $message);
     }
 
     /**
@@ -132,11 +131,11 @@ class AnnotationException extends Exception
      * @param string $attributeName
      * @param string $annotationName
      * @param string $context
-     * @param mixed  $given
+     * @param mixed $given
      *
      * @return AnnotationException
      *
-     * @phpstan-param list<string>        $available
+     * @phpstan-param list<string> $available
      */
     public static function enumeratorError($attributeName, $annotationName, $context, $available, $given)
     {

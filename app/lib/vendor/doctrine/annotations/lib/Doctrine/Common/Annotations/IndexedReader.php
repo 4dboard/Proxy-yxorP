@@ -5,7 +5,6 @@ namespace Doctrine\Common\Annotations;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
-
 use function call_user_func_array;
 use function get_class;
 
@@ -88,7 +87,7 @@ class IndexedReader implements Reader
     /**
      * Proxies all methods to the delegate.
      *
-     * @param string  $method
+     * @param string $method
      * @param mixed[] $args
      *
      * @return mixed

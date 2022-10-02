@@ -101,90 +101,6 @@ class Generator
         return $this;
     }
 
-    public function getAnalyser(): StaticAnalyser
-    {
-        return $this->analyser ?: new StaticAnalyser();
-    }
-
-    public function setAnalyser(?StaticAnalyser $analyser): Generator
-    {
-        $this->analyser = $analyser;
-
-        return $this;
-    }
-
-    /**
-     * @return callable[]
-     */
-    public function getProcessors(): array
-    {
-        return null !== $this->processors ? $this->processors : Analysis::processors();
-    }
-
-    /**
-     * @param null|callable[] $processors
-     */
-    public function setProcessors(?array $processors): Generator
-    {
-        $this->processors = $processors;
-
-        return $this;
-    }
-
-    public function addProcessor(callable $processor): Generator
-    {
-        $processors = $this->getProcessors();
-        $processors[] = $processor;
-        $this->setProcessors($processors);
-
-        return $this;
-    }
-
-    public function removeProcessor(callable $processor, bool $silent = false): Generator
-    {
-        $processors = $this->getProcessors();
-        if (false === ($key = array_search($processor, $processors, true))) {
-            if ($silent) {
-                return $this;
-            }
-            throw new \InvalidArgumentException('Processor not found');
-        }
-        unset($processors[$key]);
-        $this->setProcessors($processors);
-
-        return $this;
-    }
-
-    /**
-     * Update/replace an existing processor with a new one.
-     *
-     * @param callable      $processor the new processor
-     * @param null|callable $matcher   Optional matcher callable to identify the processor to replace.
-     *                                 If none given, matching is based on the processors class.
-     */
-    public function updateProcessor(callable $processor, ?callable $matcher = null): Generator
-    {
-        if (!$matcher) {
-            $matcher = $matcher ?: function ($other) use ($processor) {
-                $otherClass = get_class($other);
-
-                return $processor instanceof $otherClass;
-            };
-        }
-
-        $processors = array_map(function ($other) use ($processor, $matcher) {
-            return $matcher($other) ? $processor : $other;
-        }, $this->getProcessors());
-        $this->setProcessors($processors);
-
-        return $this;
-    }
-
-    public function getLogger(): ?LoggerInterface
-    {
-        return $this->logger ?: new DefaultLogger();
-    }
-
     /**
      * Static  wrapper around `Generator::generate()`.
      *
@@ -193,7 +109,7 @@ class Generator
      *                          * string
      *                          * \SplFileInfo
      *                          * \Symfony\Component\Finder\Finder
-     * @param array    $options
+     * @param array $options
      *                          aliases:    null|array                    Defaults to `Analyser::$defaultImports`.
      *                          namespaces: null|array                    Defaults to `Analyser::$whitelist`.
      *                          analyser:   null|StaticAnalyser           Defaults to a new `StaticAnalyser`.
@@ -226,13 +142,13 @@ class Generator
     /**
      * Generate OpenAPI spec by scanning the given source files.
      *
-     * @param iterable      $sources  PHP source files to scan.
+     * @param iterable $sources PHP source files to scan.
      *                                Supported sources:
      *                                * string - file / directory name
      *                                * \SplFileInfo
      *                                * \Symfony\Component\Finder\Finder
      * @param null|Analysis $analysis custom analysis instance
-     * @param bool          $validate flag to enable/disable validation of the returned spec
+     * @param bool $validate flag to enable/disable validation of the returned spec
      */
     public function generate(iterable $sources, ?Analysis $analysis = null, bool $validate = true): OpenApi
     {
@@ -257,6 +173,11 @@ class Generator
         return $analysis->openapi;
     }
 
+    public function getLogger(): ?LoggerInterface
+    {
+        return $this->logger ?: new DefaultLogger();
+    }
+
     protected function scanSources(iterable $sources, Analysis $analysis, Context $rootContext): void
     {
         $analyser = $this->getAnalyser();
@@ -276,5 +197,84 @@ class Generator
                 }
             }
         }
+    }
+
+    public function getAnalyser(): StaticAnalyser
+    {
+        return $this->analyser ?: new StaticAnalyser();
+    }
+
+    public function setAnalyser(?StaticAnalyser $analyser): Generator
+    {
+        $this->analyser = $analyser;
+
+        return $this;
+    }
+
+    public function addProcessor(callable $processor): Generator
+    {
+        $processors = $this->getProcessors();
+        $processors[] = $processor;
+        $this->setProcessors($processors);
+
+        return $this;
+    }
+
+    /**
+     * @return callable[]
+     */
+    public function getProcessors(): array
+    {
+        return null !== $this->processors ? $this->processors : Analysis::processors();
+    }
+
+    /**
+     * @param null|callable[] $processors
+     */
+    public function setProcessors(?array $processors): Generator
+    {
+        $this->processors = $processors;
+
+        return $this;
+    }
+
+    public function removeProcessor(callable $processor, bool $silent = false): Generator
+    {
+        $processors = $this->getProcessors();
+        if (false === ($key = array_search($processor, $processors, true))) {
+            if ($silent) {
+                return $this;
+            }
+            throw new \InvalidArgumentException('Processor not found');
+        }
+        unset($processors[$key]);
+        $this->setProcessors($processors);
+
+        return $this;
+    }
+
+    /**
+     * Update/replace an existing processor with a new one.
+     *
+     * @param callable $processor the new processor
+     * @param null|callable $matcher Optional matcher callable to identify the processor to replace.
+     *                                 If none given, matching is based on the processors class.
+     */
+    public function updateProcessor(callable $processor, ?callable $matcher = null): Generator
+    {
+        if (!$matcher) {
+            $matcher = $matcher ?: function ($other) use ($processor) {
+                $otherClass = get_class($other);
+
+                return $processor instanceof $otherClass;
+            };
+        }
+
+        $processors = array_map(function ($other) use ($processor, $matcher) {
+            return $matcher($other) ? $processor : $other;
+        }, $this->getProcessors());
+        $this->setProcessors($processors);
+
+        return $this;
     }
 }

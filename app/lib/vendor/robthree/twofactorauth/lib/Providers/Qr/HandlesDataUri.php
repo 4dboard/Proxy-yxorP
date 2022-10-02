@@ -4,7 +4,7 @@ namespace RobThree\Auth\Providers\Qr;
 
 trait HandlesDataUri
 {
-	/**
+    /**
      * @param string $datauri
      *
      * @return null|array

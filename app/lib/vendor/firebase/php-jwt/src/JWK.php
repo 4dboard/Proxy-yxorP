@@ -24,7 +24,7 @@ class JWK
      * Parse a set of JWK keys
      *
      * @param array<mixed> $jwks The JSON Web Key Set as an associative array
-     * @param string       $defaultAlg The algorithm for the Key object if "alg" is not set in the
+     * @param string $defaultAlg The algorithm for the Key object if "alg" is not set in the
      *                                 JSON Web Key Set
      *
      * @return array<string, Key> An associative array of key IDs (kid) to Key objects
@@ -50,7 +50,7 @@ class JWK
         foreach ($jwks['keys'] as $k => $v) {
             $kid = isset($v['kid']) ? $v['kid'] : $k;
             if ($key = self::parseKey($v, $defaultAlg)) {
-                $keys[(string) $kid] = $key;
+                $keys[(string)$kid] = $key;
             }
         }
 
@@ -65,7 +65,7 @@ class JWK
      * Parse a JWK key
      *
      * @param array<mixed> $jwk An individual JWK
-     * @param string       $defaultAlg The algorithm for the Key object if "alg" is not set in the
+     * @param string $defaultAlg The algorithm for the Key object if "alg" is not set in the
      *                                 JSON Web Key Set
      *
      * @return Key The key object for the JWK
@@ -135,7 +135,8 @@ class JWK
     private static function createPemFromModulusAndExponent(
         string $n,
         string $e
-    ): string {
+    ): string
+    {
         $mod = JWT::urlsafeB64Decode($n);
         $exp = JWT::urlsafeB64Decode($e);
 

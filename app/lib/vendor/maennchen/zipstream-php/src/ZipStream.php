@@ -701,12 +701,9 @@ class ZipStream
         $crc = $zlen = $len = 0;
         $hash_ctx = hash_init($algo);
 
-        if ($storage_method == self::METHOD_DEFLATE)
-        {
+        if ($storage_method == self::METHOD_DEFLATE) {
             $deflateCtx = deflate_init(ZLIB_ENCODING_RAW, ['level' => 6]);
-        }
-        else
-        {
+        } else {
             $deflateCtx = null;
         }
 
@@ -725,12 +722,9 @@ class ZipStream
                 break;
             }
 
-            if ($deflateCtx !== null)
-            {
+            if ($deflateCtx !== null) {
                 $zdata = deflate_add($deflateCtx, $data, ZLIB_NO_FLUSH);
-            }
-            else
-            {
+            } else {
                 $zdata = $data;
             }
 
@@ -742,8 +736,7 @@ class ZipStream
             $zlen += strlen($zdata);
         }
 
-        if ($deflateCtx !== null)
-        {
+        if ($deflateCtx !== null) {
             //finalize the compressed data
             $zdata = deflate_add($deflateCtx, '', ZLIB_FINISH);
             $zlen += strlen($zdata);

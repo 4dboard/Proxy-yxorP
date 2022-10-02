@@ -55,11 +55,6 @@ class Serializer
         OA\XmlContent::class,
     ];
 
-    public static function isValidAnnotationClass($className)
-    {
-        return in_array($className, static::$VALID_ANNOTATIONS);
-    }
-
     /**
      * Serialize.
      *
@@ -85,18 +80,9 @@ class Serializer
         return $this->doDeserialize(json_decode($jsonString), $className);
     }
 
-    /**
-     * Deserialize a file.
-     *
-     * @return OA\AbstractAnnotation
-     */
-    public function deserializeFile(string $filename, string $className = OA\OpenApi::class)
+    public static function isValidAnnotationClass($className)
     {
-        if (!$this->isValidAnnotationClass($className)) {
-            throw new \Exception($className . ' is not defined in OpenApi PHP Annotations');
-        }
-
-        return $this->doDeserialize(json_decode(file_get_contents($filename)), $className);
+        return in_array($className, static::$VALID_ANNOTATIONS);
     }
 
     /**
@@ -107,7 +93,7 @@ class Serializer
     protected function doDeserialize(\stdClass $c, string $class)
     {
         $annotation = new $class(['_context' => new Context(['generated' => true])]);
-        foreach ((array) $c as $property => $value) {
+        foreach ((array)$c as $property => $value) {
             if ($property === '$ref') {
                 $property = 'ref';
             }
@@ -178,8 +164,8 @@ class Serializer
     /**
      * Deserialize base annotation property.
      *
-     * @param array|string $type  The property type
-     * @param mixed        $value The value to deserialization
+     * @param array|string $type The property type
+     * @param mixed $value The value to deserialization
      *
      * @return array|OA\AbstractAnnotation
      */
@@ -205,5 +191,19 @@ class Serializer
         }
 
         return $value;
+    }
+
+    /**
+     * Deserialize a file.
+     *
+     * @return OA\AbstractAnnotation
+     */
+    public function deserializeFile(string $filename, string $className = OA\OpenApi::class)
+    {
+        if (!$this->isValidAnnotationClass($className)) {
+            throw new \Exception($className . ' is not defined in OpenApi PHP Annotations');
+        }
+
+        return $this->doDeserialize(json_decode(file_get_contents($filename)), $className);
     }
 }

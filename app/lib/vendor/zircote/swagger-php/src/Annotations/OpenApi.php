@@ -19,6 +19,30 @@ use OpenApi\Util;
 class OpenApi extends AbstractAnnotation
 {
     /**
+     * @inheritdoc
+     */
+    public static $_blacklist = ['_context', '_unmerged', '_analysis'];
+    /**
+     * @inheritdoc
+     */
+    public static $_required = ['openapi', 'info', 'paths'];
+    /**
+     * @inheritdoc
+     */
+    public static $_nested = [
+        Info::class => 'info',
+        Server::class => ['servers'],
+        PathItem::class => ['paths', 'path'],
+        Components::class => 'components',
+        Tag::class => ['tags'],
+        ExternalDocumentation::class => 'externalDocs',
+        Attachable::class => ['attachables'],
+    ];
+    /**
+     * @inheritdoc
+     */
+    public static $_types = [];
+    /**
      * The semantic version number of the OpenAPI Specification version that the OpenAPI document uses.
      * The openapi field should be used by tooling specifications and clients to interpret the OpenAPI document.
      * This is not related to the API info.version string.
@@ -26,14 +50,12 @@ class OpenApi extends AbstractAnnotation
      * @var string
      */
     public $openapi = '3.0.0';
-
     /**
      * Provides metadata about the API. The metadata may be used by tooling as required.
      *
      * @var Info
      */
     public $info = Generator::UNDEFINED;
-
     /**
      * An array of Server Objects, which provide connectivity information to a target server.
      * If the servers property is not provided, or is an empty array, the default value would be a Server Object with a url value of /.
@@ -41,21 +63,18 @@ class OpenApi extends AbstractAnnotation
      * @var Server[]
      */
     public $servers = Generator::UNDEFINED;
-
     /**
      * The available paths and operations for the API.
      *
      * @var PathItem[]
      */
     public $paths = Generator::UNDEFINED;
-
     /**
      * An element to hold various components for the specification.
      *
      * @var Components
      */
     public $components = Generator::UNDEFINED;
-
     /**
      * Lists the required security schemes to execute this operation.
      * The name used for each property must correspond to a security scheme declared
@@ -71,7 +90,6 @@ class OpenApi extends AbstractAnnotation
      * @var array
      */
     public $security = Generator::UNDEFINED;
-
     /**
      * A list of tags used by the specification with additional metadata.
      * The order of the tags can be used to reflect on their order by the parsing tools.
@@ -82,46 +100,16 @@ class OpenApi extends AbstractAnnotation
      * @var Tag[]
      */
     public $tags = Generator::UNDEFINED;
-
     /**
      * Additional external documentation.
      *
      * @var ExternalDocumentation
      */
     public $externalDocs = Generator::UNDEFINED;
-
     /**
      * @var Analysis
      */
     public $_analysis = Generator::UNDEFINED;
-
-    /**
-     * @inheritdoc
-     */
-    public static $_blacklist = ['_context', '_unmerged', '_analysis'];
-
-    /**
-     * @inheritdoc
-     */
-    public static $_required = ['openapi', 'info', 'paths'];
-
-    /**
-     * @inheritdoc
-     */
-    public static $_nested = [
-        Info::class => 'info',
-        Server::class => ['servers'],
-        PathItem::class => ['paths', 'path'],
-        Components::class => 'components',
-        Tag::class => ['tags'],
-        ExternalDocumentation::class => 'externalDocs',
-        Attachable::class => ['attachables'],
-    ];
-
-    /**
-     * @inheritdoc
-     */
-    public static $_types = [];
 
     /**
      * @inheritdoc
@@ -210,7 +198,7 @@ class OpenApi extends AbstractAnnotation
             }
             foreach ($mapping as $nestedClass => $keyField) {
                 foreach ($container as $key => $item) {
-                    if (is_numeric($key) && is_object($item) && $item instanceof $nestedClass && (string) $item->$keyField === $property) {
+                    if (is_numeric($key) && is_object($item) && $item instanceof $nestedClass && (string)$item->$keyField === $property) {
                         return self::resolveRef($ref, $unresolved, $item, []);
                     }
                 }

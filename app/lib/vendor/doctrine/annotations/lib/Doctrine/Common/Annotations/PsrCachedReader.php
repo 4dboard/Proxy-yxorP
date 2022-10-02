@@ -7,7 +7,6 @@ use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
 use Reflector;
-
 use function array_map;
 use function array_merge;
 use function assert;
@@ -39,24 +38,8 @@ final class PsrCachedReader implements Reader
     public function __construct(Reader $reader, CacheItemPoolInterface $cache, bool $debug = false)
     {
         $this->delegate = $reader;
-        $this->cache    = $cache;
-        $this->debug    = (bool) $debug;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getClassAnnotations(ReflectionClass $class)
-    {
-        $cacheKey = $class->getName();
-
-        if (isset($this->loadedAnnotations[$cacheKey])) {
-            return $this->loadedAnnotations[$cacheKey];
-        }
-
-        $annots = $this->fetchFromCache($cacheKey, $class, 'getClassAnnotations', $class);
-
-        return $this->loadedAnnotations[$cacheKey] = $annots;
+        $this->cache = $cache;
+        $this->debug = (bool)$debug;
     }
 
     /**
@@ -76,82 +59,31 @@ final class PsrCachedReader implements Reader
     /**
      * {@inheritDoc}
      */
-    public function getPropertyAnnotations(ReflectionProperty $property)
+    public function getClassAnnotations(ReflectionClass $class)
     {
-        $class    = $property->getDeclaringClass();
-        $cacheKey = $class->getName() . '$' . $property->getName();
+        $cacheKey = $class->getName();
 
         if (isset($this->loadedAnnotations[$cacheKey])) {
             return $this->loadedAnnotations[$cacheKey];
         }
 
-        $annots = $this->fetchFromCache($cacheKey, $class, 'getPropertyAnnotations', $property);
+        $annots = $this->fetchFromCache($cacheKey, $class, 'getClassAnnotations', $class);
 
         return $this->loadedAnnotations[$cacheKey] = $annots;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getPropertyAnnotation(ReflectionProperty $property, $annotationName)
-    {
-        foreach ($this->getPropertyAnnotations($property) as $annot) {
-            if ($annot instanceof $annotationName) {
-                return $annot;
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getMethodAnnotations(ReflectionMethod $method)
-    {
-        $class    = $method->getDeclaringClass();
-        $cacheKey = $class->getName() . '#' . $method->getName();
-
-        if (isset($this->loadedAnnotations[$cacheKey])) {
-            return $this->loadedAnnotations[$cacheKey];
-        }
-
-        $annots = $this->fetchFromCache($cacheKey, $class, 'getMethodAnnotations', $method);
-
-        return $this->loadedAnnotations[$cacheKey] = $annots;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getMethodAnnotation(ReflectionMethod $method, $annotationName)
-    {
-        foreach ($this->getMethodAnnotations($method) as $annot) {
-            if ($annot instanceof $annotationName) {
-                return $annot;
-            }
-        }
-
-        return null;
-    }
-
-    public function clearLoadedAnnotations(): void
-    {
-        $this->loadedAnnotations = [];
-        $this->loadedFilemtimes  = [];
     }
 
     /** @return mixed[] */
     private function fetchFromCache(
-        string $cacheKey,
+        string          $cacheKey,
         ReflectionClass $class,
-        string $method,
-        Reflector $reflector
-    ): array {
+        string          $method,
+        Reflector       $reflector
+    ): array
+    {
         $cacheKey = rawurlencode($cacheKey);
 
         $item = $this->cache->getItem($cacheKey);
-        if (($this->debug && ! $this->refresh($cacheKey, $class)) || ! $item->isHit()) {
+        if (($this->debug && !$this->refresh($cacheKey, $class)) || !$item->isHit()) {
             $this->cache->save($item->set($this->delegate->{$method}($reflector)));
         }
 
@@ -194,7 +126,7 @@ final class PsrCachedReader implements Reader
 
         $parent = $class->getParentClass();
 
-        $lastModification =  max(array_merge(
+        $lastModification = max(array_merge(
             [$filename ? filemtime($filename) : 0],
             array_map(function (ReflectionClass $reflectionTrait): int {
                 return $this->getTraitLastModificationTime($reflectionTrait);
@@ -228,5 +160,73 @@ final class PsrCachedReader implements Reader
         assert($lastModificationTime !== false);
 
         return $this->loadedFilemtimes[$fileName] = $lastModificationTime;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPropertyAnnotation(ReflectionProperty $property, $annotationName)
+    {
+        foreach ($this->getPropertyAnnotations($property) as $annot) {
+            if ($annot instanceof $annotationName) {
+                return $annot;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPropertyAnnotations(ReflectionProperty $property)
+    {
+        $class = $property->getDeclaringClass();
+        $cacheKey = $class->getName() . '$' . $property->getName();
+
+        if (isset($this->loadedAnnotations[$cacheKey])) {
+            return $this->loadedAnnotations[$cacheKey];
+        }
+
+        $annots = $this->fetchFromCache($cacheKey, $class, 'getPropertyAnnotations', $property);
+
+        return $this->loadedAnnotations[$cacheKey] = $annots;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMethodAnnotation(ReflectionMethod $method, $annotationName)
+    {
+        foreach ($this->getMethodAnnotations($method) as $annot) {
+            if ($annot instanceof $annotationName) {
+                return $annot;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMethodAnnotations(ReflectionMethod $method)
+    {
+        $class = $method->getDeclaringClass();
+        $cacheKey = $class->getName() . '#' . $method->getName();
+
+        if (isset($this->loadedAnnotations[$cacheKey])) {
+            return $this->loadedAnnotations[$cacheKey];
+        }
+
+        $annots = $this->fetchFromCache($cacheKey, $class, 'getMethodAnnotations', $method);
+
+        return $this->loadedAnnotations[$cacheKey] = $annots;
+    }
+
+    public function clearLoadedAnnotations(): void
+    {
+        $this->loadedAnnotations = [];
+        $this->loadedFilemtimes = [];
     }
 }

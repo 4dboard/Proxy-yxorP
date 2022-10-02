@@ -15,8 +15,8 @@ use OpenApi\Processors\AugmentSchemas;
 use OpenApi\Processors\BuildPaths;
 use OpenApi\Processors\CleanUnmerged;
 use OpenApi\Processors\DocBlockDescriptions;
-use OpenApi\Processors\ExpandInterfaces;
 use OpenApi\Processors\ExpandClasses;
+use OpenApi\Processors\ExpandInterfaces;
 use OpenApi\Processors\ExpandTraits;
 use OpenApi\Processors\MergeIntoComponents;
 use OpenApi\Processors\MergeIntoOpenApi;
@@ -33,49 +33,43 @@ use OpenApi\Processors\OperationId;
 class Analysis
 {
     /**
+     * Registry for the post-processing operations.
+     *
+     * @var callable[]
+     */
+    private static $processors;
+    /**
      * @var \SplObjectStorage
      */
     public $annotations;
-
     /**
      * Class definitions.
      *
      * @var array
      */
     public $classes = [];
-
     /**
      * Trait definitions.
      *
      * @var array
      */
     public $traits = [];
-
     /**
      * Interface definitions.
      *
      * @var array
      */
     public $interfaces = [];
-
     /**
      * The target OpenApi annotation.
      *
      * @var OpenApi
      */
     public $openapi;
-
     /**
      * @var Context
      */
     public $context;
-
-    /**
-     * Registry for the post-processing operations.
-     *
-     * @var callable[]
-     */
-    private static $processors;
 
     public function __construct(array $annotations = [], Context $context = null)
     {
@@ -83,6 +77,13 @@ class Analysis
         $this->context = $context;
 
         $this->addAnnotations($annotations, $context);
+    }
+
+    public function addAnnotations(array $annotations, ?Context $context): void
+    {
+        foreach ($annotations as $annotation) {
+            $this->addAnnotation($annotation, $context);
+        }
     }
 
     public function addAnnotation($annotation, ?Context $context): void
@@ -125,11 +126,33 @@ class Analysis
         }
     }
 
-    public function addAnnotations(array $annotations, ?Context $context): void
+    /**
+     * Register a processor.
+     *
+     * @param \Closure $processor
+     *
+     * @deprecated Superseded by `Generator` methods
+     */
+    public static function registerProcessor($processor): void
     {
-        foreach ($annotations as $annotation) {
-            $this->addAnnotation($annotation, $context);
+        array_push(self::processors(), $processor);
+    }
+
+    /**
+     * Unregister a processor.
+     *
+     * @param \Closure $processor
+     *
+     * @deprecated Superseded by `Generator` methods
+     */
+    public static function unregisterProcessor($processor): void
+    {
+        $processors = &self::processors();
+        $key = array_search($processor, $processors, true);
+        if ($key === false) {
+            throw new \Exception('Given processor was not registered');
         }
+        unset($processors[$key]);
     }
 
     public function addClassDefinition(array $definition): void
@@ -184,41 +207,10 @@ class Analysis
     }
 
     /**
-     * Get a list of all super classes for the given class.
-     *
-     * @param string $class  the class name
-     * @param bool   $direct flag to find only the actual class parents
-     *
-     * @return array map of class => definition pairs of parent classes
-     */
-    public function getSuperClasses(string $class, bool $direct = false): array
-    {
-        $classDefinition = isset($this->classes[$class]) ? $this->classes[$class] : null;
-        if (!$classDefinition || empty($classDefinition['extends'])) {
-            // unknown class, or no inheritance
-            return [];
-        }
-
-        $extends = $classDefinition['extends'];
-        $extendsDefinition = isset($this->classes[$extends]) ? $this->classes[$extends] : null;
-        if (!$extendsDefinition) {
-            return [];
-        }
-
-        $parentDetails = [$extends => $extendsDefinition];
-
-        if ($direct) {
-            return $parentDetails;
-        }
-
-        return array_merge($parentDetails, $this->getSuperClasses($extends));
-    }
-
-    /**
      * Get the list of interfaces used by the given class or by classes which it extends.
      *
-     * @param string $class  the class name
-     * @param bool   $direct flag to find only the actual class interfaces
+     * @param string $class the class name
+     * @param bool $direct flag to find only the actual class interfaces
      *
      * @return array map of class => definition pairs of interfaces
      */
@@ -261,10 +253,41 @@ class Analysis
     }
 
     /**
+     * Get a list of all super classes for the given class.
+     *
+     * @param string $class the class name
+     * @param bool $direct flag to find only the actual class parents
+     *
+     * @return array map of class => definition pairs of parent classes
+     */
+    public function getSuperClasses(string $class, bool $direct = false): array
+    {
+        $classDefinition = isset($this->classes[$class]) ? $this->classes[$class] : null;
+        if (!$classDefinition || empty($classDefinition['extends'])) {
+            // unknown class, or no inheritance
+            return [];
+        }
+
+        $extends = $classDefinition['extends'];
+        $extendsDefinition = isset($this->classes[$extends]) ? $this->classes[$extends] : null;
+        if (!$extendsDefinition) {
+            return [];
+        }
+
+        $parentDetails = [$extends => $extendsDefinition];
+
+        if ($direct) {
+            return $parentDetails;
+        }
+
+        return array_merge($parentDetails, $this->getSuperClasses($extends));
+    }
+
+    /**
      * Get the list of traits used by the given class/trait or by classes which it extends.
      *
      * @param string $source the source name
-     * @param bool   $direct flag to find only the actual class traits
+     * @param bool $direct flag to find only the actual class traits
      *
      * @return array map of class => definition pairs of traits
      */
@@ -380,22 +403,6 @@ class Analysis
     }
 
     /**
-     * Build an analysis with only the annotations that are merged into the OpenAPI annotation.
-     */
-    public function merged(): Analysis
-    {
-        if ($this->openapi === null) {
-            throw new \Exception('No openapi target set. Run the MergeIntoOpenApi processor');
-        }
-        $unmerged = $this->openapi->_unmerged;
-        $this->openapi->_unmerged = [];
-        $analysis = new Analysis([$this->openapi], $this->context);
-        $this->openapi->_unmerged = $unmerged;
-
-        return $analysis;
-    }
-
-    /**
      * Analysis with only the annotations that not merged.
      */
     public function unmerged(): Analysis
@@ -421,6 +428,22 @@ class Analysis
         }
 
         return $result;
+    }
+
+    /**
+     * Build an analysis with only the annotations that are merged into the OpenAPI annotation.
+     */
+    public function merged(): Analysis
+    {
+        if ($this->openapi === null) {
+            throw new \Exception('No openapi target set. Run the MergeIntoOpenApi processor');
+        }
+        $unmerged = $this->openapi->_unmerged;
+        $this->openapi->_unmerged = [];
+        $analysis = new Analysis([$this->openapi], $this->context);
+        $this->openapi->_unmerged = $unmerged;
+
+        return $analysis;
     }
 
     /**
@@ -472,35 +495,6 @@ class Analysis
         }
 
         return self::$processors;
-    }
-
-    /**
-     * Register a processor.
-     *
-     * @param \Closure $processor
-     *
-     * @deprecated Superseded by `Generator` methods
-     */
-    public static function registerProcessor($processor): void
-    {
-        array_push(self::processors(), $processor);
-    }
-
-    /**
-     * Unregister a processor.
-     *
-     * @param \Closure $processor
-     *
-     * @deprecated Superseded by `Generator` methods
-     */
-    public static function unregisterProcessor($processor): void
-    {
-        $processors = &self::processors();
-        $key = array_search($processor, $processors, true);
-        if ($key === false) {
-            throw new \Exception('Given processor was not registered');
-        }
-        unset($processors[$key]);
     }
 
     public function validate(): bool

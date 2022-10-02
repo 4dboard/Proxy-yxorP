@@ -17,15 +17,9 @@ use OpenApi\Generator;
 class XmlContent extends Schema
 {
     /**
-     * @var object
-     */
-    public $examples = Generator::UNDEFINED;
-
-    /**
      * @inheritdoc
      */
     public static $_parents = [];
-
     /**
      * @inheritdoc
      */
@@ -39,4 +33,8 @@ class XmlContent extends Schema
         Examples::class => ['examples', 'example'],
         Attachable::class => ['attachables'],
     ];
+    /**
+     * @var object
+     */
+    public $examples = Generator::UNDEFINED;
 }

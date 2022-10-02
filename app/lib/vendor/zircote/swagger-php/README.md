@@ -4,9 +4,11 @@
 
 # swagger-php
 
-Generate interactive [OpenAPI](https://www.openapis.org) documentation for your RESTful API using [doctrine annotations](https://www.doctrine-project.org/projects/doctrine-annotations/en/latest/index.html).
+Generate interactive [OpenAPI](https://www.openapis.org) documentation for your RESTful API
+using [doctrine annotations](https://www.doctrine-project.org/projects/doctrine-annotations/en/latest/index.html).
 
-For a full list of supported annotations, please have look at the [`OpenApi\Annotations` namespace](src/Annotations) or the [documentation website](https://zircote.github.io/swagger-php/Supported-annotations.html).
+For a full list of supported annotations, please have look at the [`OpenApi\Annotations` namespace](src/Annotations) or
+the [documentation website](https://zircote.github.io/swagger-php/Supported-annotations.html).
 
 ## Features
 
@@ -22,7 +24,8 @@ For a full list of supported annotations, please have look at the [`OpenApi\Anno
 composer require zircote/swagger-php
 ```
 
-For cli usage from anywhere install swagger-php globally and make sure to place the `~/.composer/vendor/bin` directory in your PATH so the `openapi` executable can be located by your system.
+For cli usage from anywhere install swagger-php globally and make sure to place the `~/.composer/vendor/bin` directory
+in your PATH so the `openapi` executable can be located by your system.
 
 ```bash
 composer global require zircote/swagger-php
@@ -45,7 +48,9 @@ Add annotations to your php files.
  */
 ```
 
-Visit the [Documentation website](https://zircote.github.io/swagger-php/) for the [Getting started guide](https://zircote.github.io/swagger-php/Getting-started.html) or look at the [Examples directory](Examples/) for more examples.
+Visit the [Documentation website](https://zircote.github.io/swagger-php/) for
+the [Getting started guide](https://zircote.github.io/swagger-php/Getting-started.html) or look at
+the [Examples directory](Examples/) for more examples.
 
 ### Usage from php
 
@@ -58,7 +63,9 @@ $openapi = \OpenApi\Generator::scan(['/path/to/project']);
 header('Content-Type: application/x-yaml');
 echo $openapi->toYaml();
 ```
-Documentation of how to use the `Generator` class can be found in the [Generator Migration](https://zircote.github.io/swagger-php/Generator-migration.html) guide.
+
+Documentation of how to use the `Generator` class can be found in
+the [Generator Migration](https://zircote.github.io/swagger-php/Generator-migration.html) guide.
 
 ### Usage from the Command Line Interface
 
@@ -109,21 +116,25 @@ Make sure pull requests pass [PHPUnit](https://phpunit.de/)
 and [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) (PSR-2) tests.
 
 ### To run both unit tests and linting execute:
+
 ```bash
 composer test
 ```
 
 ### Running unit tests only:
+
 ```bash
 ./bin/phpunit
 ```
 
 ### Running linting only:
+
 ```bash
 composer lint
 ```
 
 ### To make `php-cs-fixer` fix linting errors:
+
 ```bash
 composer cs
 ```

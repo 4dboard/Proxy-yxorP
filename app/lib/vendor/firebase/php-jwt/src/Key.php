@@ -21,7 +21,8 @@ class Key
     public function __construct(
         $keyMaterial,
         string $algorithm
-    ) {
+    )
+    {
         if (
             !\is_string($keyMaterial)
             && !$keyMaterial instanceof OpenSSLAsymmetricKey
