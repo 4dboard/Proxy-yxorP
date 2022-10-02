@@ -20,7 +20,6 @@ namespace MongoDB\Model;
 use IteratorIterator;
 use ReturnTypeWillChange;
 use Traversable;
-
 use function array_key_exists;
 
 /**
@@ -54,16 +53,16 @@ class IndexInfoIteratorIterator extends IteratorIterator implements IndexInfoIte
     /**
      * Return the current element as an IndexInfo instance.
      *
-     * @see IndexInfoIterator::current()
-     * @see http://php.net/iterator.current
      * @return IndexInfo
+     * @see http://php.net/iterator.current
+     * @see IndexInfoIterator::current()
      */
     #[ReturnTypeWillChange]
     public function current()
     {
         $info = parent::current();
 
-        if (! array_key_exists('ns', $info) && $this->ns !== null) {
+        if (!array_key_exists('ns', $info) && $this->ns !== null) {
             $info['ns'] = $this->ns;
         }
 

@@ -22,7 +22,6 @@ use MongoDB\Driver\Server;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\UnsupportedException;
 use MongoDB\UpdateResult;
-
 use function is_array;
 use function is_object;
 use function MongoDB\is_first_key_operator;
@@ -67,20 +66,20 @@ class UpdateMany implements Executable, Explainable
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param string       $databaseName   Database name
-     * @param string       $collectionName Collection name
-     * @param array|object $filter         Query by which to filter documents
-     * @param array|object $update         Update to apply to the matched documents
-     * @param array        $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param array|object $filter Query by which to filter documents
+     * @param array|object $update Update to apply to the matched documents
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, $filter, $update, array $options = [])
     {
-        if (! is_array($update) && ! is_object($update)) {
+        if (!is_array($update) && !is_object($update)) {
             throw InvalidArgumentException::invalidType('$update', $update, 'array or object');
         }
 
-        if (! is_first_key_operator($update) && ! is_pipeline($update)) {
+        if (!is_first_key_operator($update) && !is_pipeline($update)) {
             throw new InvalidArgumentException('Expected an update document with operator as first key or a pipeline');
         }
 
@@ -96,11 +95,11 @@ class UpdateMany implements Executable, Explainable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return UpdateResult
      * @throws UnsupportedException if collation is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
     public function execute(Server $server)
     {
@@ -110,9 +109,9 @@ class UpdateMany implements Executable, Explainable
     /**
      * Returns the command document for this operation.
      *
-     * @see Explainable::getCommandDocument()
      * @param Server $server
      * @return array
+     * @see Explainable::getCommandDocument()
      */
     public function getCommandDocument(Server $server)
     {
