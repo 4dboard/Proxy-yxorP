@@ -31,23 +31,12 @@ class SyncPromiseAdapter implements PromiseAdapter
      */
     public function convertThenable($thenable)
     {
-        if (! $thenable instanceof SyncPromise) {
+        if (!$thenable instanceof SyncPromise) {
             // End-users should always use Deferred (and don't use SyncPromise directly)
             throw new InvariantViolation('Expected instance of GraphQL\Deferred, got ' . Utils::printSafe($thenable));
         }
 
         return new Promise($thenable, $this);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function then(Promise $promise, ?callable $onFulfilled = null, ?callable $onRejected = null)
-    {
-        /** @var SyncPromise $adoptedPromise */
-        $adoptedPromise = $promise->adoptedPromise;
-
-        return new Promise($adoptedPromise->then($onFulfilled, $onRejected), $this);
     }
 
     /**
@@ -102,15 +91,15 @@ class SyncPromiseAdapter implements PromiseAdapter
     {
         $all = new SyncPromise();
 
-        $total  = count($promisesOrValues);
-        $count  = 0;
+        $total = count($promisesOrValues);
+        $count = 0;
         $result = [];
 
         foreach ($promisesOrValues as $index => $promiseOrValue) {
             if ($promiseOrValue instanceof Promise) {
                 $result[$index] = null;
                 $promiseOrValue->then(
-                    static function ($value) use ($index, &$count, $total, &$result, $all) : void {
+                    static function ($value) use ($index, &$count, $total, &$result, $all): void {
                         $result[$index] = $value;
                         $count++;
                         if ($count < $total) {
@@ -134,6 +123,17 @@ class SyncPromiseAdapter implements PromiseAdapter
     }
 
     /**
+     * @inheritdoc
+     */
+    public function then(Promise $promise, ?callable $onFulfilled = null, ?callable $onRejected = null)
+    {
+        /** @var SyncPromise $adoptedPromise */
+        $adoptedPromise = $promise->adoptedPromise;
+
+        return new Promise($adoptedPromise->then($onFulfilled, $onRejected), $this);
+    }
+
+    /**
      * Synchronously wait when promise completes
      *
      * @return ExecutionResult
@@ -144,7 +144,7 @@ class SyncPromiseAdapter implements PromiseAdapter
         $taskQueue = SyncPromise::getQueue();
 
         while ($promise->adoptedPromise->state === SyncPromise::PENDING &&
-            ! $taskQueue->isEmpty()
+            !$taskQueue->isEmpty()
         ) {
             SyncPromise::runQueue();
             $this->onWait($promise);

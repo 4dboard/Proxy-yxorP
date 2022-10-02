@@ -25,9 +25,9 @@ use function method_exists;
  */
 class SyncPromise
 {
-    const PENDING   = 'pending';
+    const PENDING = 'pending';
     const FULFILLED = 'fulfilled';
-    const REJECTED  = 'rejected';
+    const REJECTED = 'rejected';
 
     /** @var SplQueue */
     public static $queue;
@@ -45,15 +45,6 @@ class SyncPromise
      */
     private $waiting = [];
 
-    public static function runQueue() : void
-    {
-        $q = self::$queue;
-        while ($q !== null && ! $q->isEmpty()) {
-            $task = $q->dequeue();
-            $task();
-        }
-    }
-
     /**
      * @param callable() : mixed $executor
      */
@@ -62,7 +53,7 @@ class SyncPromise
         if ($executor === null) {
             return;
         }
-        self::getQueue()->enqueue(function () use ($executor) : void {
+        self::getQueue()->enqueue(function () use ($executor): void {
             try {
                 $this->resolve($executor());
             } catch (Throwable $e) {
@@ -71,7 +62,12 @@ class SyncPromise
         });
     }
 
-    public function resolve($value) : self
+    public static function getQueue(): SplQueue
+    {
+        return self::$queue ?? self::$queue = new SplQueue();
+    }
+
+    public function resolve($value): self
     {
         switch ($this->state) {
             case self::PENDING:
@@ -80,10 +76,10 @@ class SyncPromise
                 }
                 if (is_object($value) && method_exists($value, 'then')) {
                     $value->then(
-                        function ($resolvedValue) : void {
+                        function ($resolvedValue): void {
                             $this->resolve($resolvedValue);
                         },
-                        function ($reason) : void {
+                        function ($reason): void {
                             $this->reject($reason);
                         }
                     );
@@ -91,7 +87,7 @@ class SyncPromise
                     return $this;
                 }
 
-                $this->state  = self::FULFILLED;
+                $this->state = self::FULFILLED;
                 $this->result = $value;
                 $this->enqueueWaitingPromises();
                 break;
@@ -107,31 +103,29 @@ class SyncPromise
         return $this;
     }
 
-    public function reject($reason) : self
+    /**
+     * @param callable(mixed) : mixed $onFulfilled
+     * @param callable(Throwable) : mixed $onRejected
+     */
+    public function then(?callable $onFulfilled = null, ?callable $onRejected = null): self
     {
-        if (! $reason instanceof Throwable) {
-            throw new Exception('SyncPromise::reject() has to be called with an instance of \Throwable');
+        if ($this->state === self::REJECTED && $onRejected === null) {
+            return $this;
+        }
+        if ($this->state === self::FULFILLED && $onFulfilled === null) {
+            return $this;
+        }
+        $tmp = new self();
+        $this->waiting[] = [$tmp, $onFulfilled, $onRejected];
+
+        if ($this->state !== self::PENDING) {
+            $this->enqueueWaitingPromises();
         }
 
-        switch ($this->state) {
-            case self::PENDING:
-                $this->state  = self::REJECTED;
-                $this->result = $reason;
-                $this->enqueueWaitingPromises();
-                break;
-            case self::REJECTED:
-                if ($reason !== $this->result) {
-                    throw new Exception('Cannot change rejection reason');
-                }
-                break;
-            case self::FULFILLED:
-                throw new Exception('Cannot reject fulfilled promise');
-        }
-
-        return $this;
+        return $tmp;
     }
 
-    private function enqueueWaitingPromises() : void
+    private function enqueueWaitingPromises(): void
     {
         Utils::invariant(
             $this->state !== self::PENDING,
@@ -139,7 +133,7 @@ class SyncPromise
         );
 
         foreach ($this->waiting as $descriptor) {
-            self::getQueue()->enqueue(function () use ($descriptor) : void {
+            self::getQueue()->enqueue(function () use ($descriptor): void {
                 /** @var self $promise */
                 [$promise, $onFulfilled, $onRejected] = $descriptor;
 
@@ -165,37 +159,43 @@ class SyncPromise
         $this->waiting = [];
     }
 
-    public static function getQueue() : SplQueue
+    public function reject($reason): self
     {
-        return self::$queue ?? self::$queue = new SplQueue();
+        if (!$reason instanceof Throwable) {
+            throw new Exception('SyncPromise::reject() has to be called with an instance of \Throwable');
+        }
+
+        switch ($this->state) {
+            case self::PENDING:
+                $this->state = self::REJECTED;
+                $this->result = $reason;
+                $this->enqueueWaitingPromises();
+                break;
+            case self::REJECTED:
+                if ($reason !== $this->result) {
+                    throw new Exception('Cannot change rejection reason');
+                }
+                break;
+            case self::FULFILLED:
+                throw new Exception('Cannot reject fulfilled promise');
+        }
+
+        return $this;
+    }
+
+    public static function runQueue(): void
+    {
+        $q = self::$queue;
+        while ($q !== null && !$q->isEmpty()) {
+            $task = $q->dequeue();
+            $task();
+        }
     }
 
     /**
-     * @param callable(mixed) : mixed     $onFulfilled
      * @param callable(Throwable) : mixed $onRejected
      */
-    public function then(?callable $onFulfilled = null, ?callable $onRejected = null) : self
-    {
-        if ($this->state === self::REJECTED && $onRejected === null) {
-            return $this;
-        }
-        if ($this->state === self::FULFILLED && $onFulfilled === null) {
-            return $this;
-        }
-        $tmp             = new self();
-        $this->waiting[] = [$tmp, $onFulfilled, $onRejected];
-
-        if ($this->state !== self::PENDING) {
-            $this->enqueueWaitingPromises();
-        }
-
-        return $tmp;
-    }
-
-    /**
-     * @param callable(Throwable) : mixed $onRejected
-     */
-    public function catch(callable $onRejected) : self
+    public function catch(callable $onRejected): self
     {
         return $this->then(null, $onRejected);
     }

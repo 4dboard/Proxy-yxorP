@@ -10,7 +10,7 @@ use function sprintf;
 class SyntaxError extends Error
 {
     /**
-     * @param int    $position
+     * @param int $position
      * @param string $description
      */
     public function __construct(Source $source, $position, $description)

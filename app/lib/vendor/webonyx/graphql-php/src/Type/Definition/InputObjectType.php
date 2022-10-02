@@ -9,7 +9,6 @@ use GraphQL\Language\AST\InputObjectTypeDefinitionNode;
 use GraphQL\Language\AST\InputObjectTypeExtensionNode;
 use GraphQL\Utils\Utils;
 use function count;
-use function is_array;
 use function is_callable;
 use function is_iterable;
 use function is_string;
@@ -19,7 +18,8 @@ class InputObjectType extends Type implements InputType, NullableType, NamedType
 {
     /** @var InputObjectTypeDefinitionNode|null */
     public $astNode;
-
+    /** @var InputObjectTypeExtensionNode[] */
+    public $extensionASTNodes;
     /**
      * Lazily initialized.
      *
@@ -27,33 +27,30 @@ class InputObjectType extends Type implements InputType, NullableType, NamedType
      */
     private $fields;
 
-    /** @var InputObjectTypeExtensionNode[] */
-    public $extensionASTNodes;
-
     /**
      * @param mixed[] $config
      */
     public function __construct(array $config)
     {
-        if (! isset($config['name'])) {
+        if (!isset($config['name'])) {
             $config['name'] = $this->tryInferName();
         }
 
         Utils::invariant(is_string($config['name']), 'Must provide name.');
 
-        $this->config            = $config;
-        $this->name              = $config['name'];
-        $this->astNode           = $config['astNode'] ?? null;
-        $this->description       = $config['description'] ?? null;
+        $this->config = $config;
+        $this->name = $config['name'];
+        $this->astNode = $config['astNode'] ?? null;
+        $this->description = $config['description'] ?? null;
         $this->extensionASTNodes = $config['extensionASTNodes'] ?? null;
     }
 
     /**
      * @throws InvariantViolation
      */
-    public function getField(string $name) : InputObjectField
+    public function getField(string $name): InputObjectField
     {
-        if (! isset($this->fields)) {
+        if (!isset($this->fields)) {
             $this->initializeFields();
         }
         Utils::invariant(isset($this->fields[$name]), "Field '%s' is not defined for type '%s'", $name, $this->name);
@@ -61,27 +58,15 @@ class InputObjectType extends Type implements InputType, NullableType, NamedType
         return $this->fields[$name];
     }
 
-    /**
-     * @return InputObjectField[]
-     */
-    public function getFields() : array
-    {
-        if (! isset($this->fields)) {
-            $this->initializeFields();
-        }
-
-        return $this->fields;
-    }
-
-    protected function initializeFields() : void
+    protected function initializeFields(): void
     {
         $this->fields = [];
-        $fields       = $this->config['fields'] ?? [];
+        $fields = $this->config['fields'] ?? [];
         if (is_callable($fields)) {
             $fields = $fields();
         }
 
-        if (! is_iterable($fields)) {
+        if (!is_iterable($fields)) {
             throw new InvariantViolation(
                 sprintf('%s fields must be an iterable or a callable which returns such an iterable.', $this->name)
             );
@@ -91,7 +76,7 @@ class InputObjectType extends Type implements InputType, NullableType, NamedType
             if ($field instanceof Type || is_callable($field)) {
                 $field = ['type' => $field];
             }
-            $field                      = new InputObjectField($field + ['name' => $name]);
+            $field = new InputObjectField($field + ['name' => $name]);
             $this->fields[$field->name] = $field;
         }
     }
@@ -102,7 +87,7 @@ class InputObjectType extends Type implements InputType, NullableType, NamedType
      *
      * @throws InvariantViolation
      */
-    public function assertValid() : void
+    public function assertValid(): void
     {
         parent::assertValid();
 
@@ -117,5 +102,17 @@ class InputObjectType extends Type implements InputType, NullableType, NamedType
         foreach ($this->getFields() as $field) {
             $field->assertValid($this);
         }
+    }
+
+    /**
+     * @return InputObjectField[]
+     */
+    public function getFields(): array
+    {
+        if (!isset($this->fields)) {
+            $this->initializeFields();
+        }
+
+        return $this->fields;
     }
 }

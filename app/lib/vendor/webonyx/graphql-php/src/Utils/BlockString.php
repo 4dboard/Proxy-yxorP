@@ -28,10 +28,10 @@ class BlockString
 
         // Remove common indentation from all lines but first.
         $commonIndent = null;
-        $linesLength  = count($lines);
+        $linesLength = count($lines);
 
         for ($i = 1; $i < $linesLength; $i++) {
-            $line   = $lines[$i];
+            $line = $lines[$i];
             $indent = self::leadingWhitespace($line);
 
             if ($indent >= mb_strlen($line) ||
@@ -48,7 +48,7 @@ class BlockString
 
         if ($commonIndent) {
             for ($i = 1; $i < $linesLength; $i++) {
-                $line      = $lines[$i];
+                $line = $lines[$i];
                 $lines[$i] = mb_substr($line, $commonIndent);
             }
         }

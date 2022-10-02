@@ -37,7 +37,7 @@ class Value
      * Given a type and any value, return a runtime value coerced to match the type.
      *
      * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
-     * @param mixed[]                                                $path
+     * @param mixed[] $path
      */
     public static function coerceValue($value, InputType $type, $blameNode = null, ?array $path = null)
     {
@@ -90,7 +90,7 @@ class Value
             $suggestions = Utils::suggestionList(
                 Utils::printSafe($value),
                 array_map(
-                    static function ($enumValue) : string {
+                    static function ($enumValue): string {
                         return $enumValue->name;
                     },
                     $type->getValues()
@@ -114,7 +114,7 @@ class Value
         if ($type instanceof ListOfType) {
             $itemType = $type->getWrappedType();
             if (is_array($value) || $value instanceof Traversable) {
-                $errors       = [];
+                $errors = [];
                 $coercedValue = [];
                 foreach ($value as $index => $itemValue) {
                     $coercedItem = self::coerceValue(
@@ -139,7 +139,7 @@ class Value
         }
 
         if ($type instanceof InputObjectType) {
-            if (! is_object($value) && ! is_array($value) && ! $value instanceof Traversable) {
+            if (!is_object($value) && !is_array($value) && !$value instanceof Traversable) {
                 return self::ofErrors([
                     self::coercionError(
                         sprintf('Expected type %s to be an object', $type->name),
@@ -151,15 +151,15 @@ class Value
 
             // Cast \stdClass to associative array before checking the fields. Note that the coerced value will be an array.
             if ($value instanceof stdClass) {
-                $value = (array) $value;
+                $value = (array)$value;
             }
 
-            $errors       = [];
+            $errors = [];
             $coercedValue = [];
-            $fields       = $type->getFields();
+            $fields = $type->getFields();
             foreach ($fields as $fieldName => $field) {
                 if (array_key_exists($fieldName, $value)) {
-                    $fieldValue   = $value[$fieldName];
+                    $fieldValue = $value[$fieldName];
                     $coercedField = self::coerceValue(
                         $fieldValue,
                         $field->getType(),
@@ -175,7 +175,7 @@ class Value
                     $coercedValue[$fieldName] = $field->defaultValue;
                 } elseif ($field->getType() instanceof NonNull) {
                     $fieldPath = self::printPath(self::atPath($path, $fieldName));
-                    $errors    = self::add(
+                    $errors = self::add(
                         $errors,
                         self::coercionError(
                             sprintf(
@@ -196,13 +196,13 @@ class Value
                 }
 
                 $suggestions = Utils::suggestionList(
-                    (string) $fieldName,
+                    (string)$fieldName,
                     array_keys($fields)
                 );
-                $didYouMean  = $suggestions
+                $didYouMean = $suggestions
                     ? 'did you mean ' . Utils::orList($suggestions) . '?'
                     : null;
-                $errors      = self::add(
+                $errors = self::add(
                     $errors,
                     self::coercionError(
                         sprintf('Field "%s" is not defined by type %s', $fieldName, $type->name),
@@ -225,10 +225,10 @@ class Value
     }
 
     /**
-     * @param string                   $message
-     * @param Node                     $blameNode
-     * @param mixed[]|null             $path
-     * @param string                   $subMessage
+     * @param string $message
+     * @param Node $blameNode
+     * @param mixed[]|null $path
+     * @param string $subMessage
      * @param Exception|Throwable|null $originalError
      *
      * @return Error
@@ -239,7 +239,8 @@ class Value
         ?array $path = null,
         $subMessage = null,
         $originalError = null
-    ) {
+    )
+    {
         $pathStr = self::printPath($path);
 
         // Return a GraphQLError instance
@@ -264,10 +265,10 @@ class Value
      */
     private static function printPath(?array $path = null)
     {
-        $pathStr     = '';
+        $pathStr = '';
         $currentPath = $path;
         while ($currentPath) {
-            $pathStr     =
+            $pathStr =
                 (is_string($currentPath['key'])
                     ? '.' . $currentPath['key']
                     : '[' . $currentPath['key'] . ']') . $pathStr;
@@ -299,7 +300,7 @@ class Value
     }
 
     /**
-     * @param Error[]       $errors
+     * @param Error[] $errors
      * @param Error|Error[] $moreErrors
      *
      * @return Error[]

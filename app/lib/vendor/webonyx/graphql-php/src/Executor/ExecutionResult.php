@@ -62,8 +62,8 @@ class ExecutionResult implements JsonSerializable
      */
     public function __construct($data = null, array $errors = [], array $extensions = [])
     {
-        $this->data       = $data;
-        $this->errors     = $errors;
+        $this->data = $data;
+        $this->errors = $errors;
         $this->extensions = $extensions;
     }
 
@@ -115,7 +115,7 @@ class ExecutionResult implements JsonSerializable
     /**
      * @return mixed[]
      */
-    public function jsonSerialize() : array
+    public function jsonSerialize(): array
     {
         return $this->toArray();
     }
@@ -127,18 +127,18 @@ class ExecutionResult implements JsonSerializable
      * If debug argument is passed, output of error formatter is enriched which debugging information
      * ("debugMessage", "trace" keys depending on flags).
      *
-     * $debug argument must sum of flags from @see \GraphQL\Error\DebugFlag
+     * $debug argument must sum of flags from @return mixed[]
      *
-     * @return mixed[]
+     * @see \GraphQL\Error\DebugFlag
      *
      * @api
      */
-    public function toArray(int $debug = DebugFlag::NONE) : array
+    public function toArray(int $debug = DebugFlag::NONE): array
     {
         $result = [];
 
         if (count($this->errors ?? []) > 0) {
-            $errorsHandler = $this->errorsHandler ?? static function (array $errors, callable $formatter) : array {
+            $errorsHandler = $this->errorsHandler ?? static function (array $errors, callable $formatter): array {
                 return array_map($formatter, $errors);
             };
 

@@ -27,11 +27,11 @@ use const E_USER_DEPRECATED;
  */
 abstract class Type implements JsonSerializable
 {
-    public const STRING  = 'String';
-    public const INT     = 'Int';
+    public const STRING = 'String';
+    public const INT = 'Int';
     public const BOOLEAN = 'Boolean';
-    public const FLOAT   = 'Float';
-    public const ID      = 'ID';
+    public const FLOAT = 'Float';
+    public const ID = 'ID';
 
     /** @var array<string, ScalarType> */
     protected static $standardTypes;
@@ -57,67 +57,7 @@ abstract class Type implements JsonSerializable
     /**
      * @api
      */
-    public static function id() : ScalarType
-    {
-        if (! isset(static::$standardTypes[self::ID])) {
-            static::$standardTypes[self::ID] = new IDType();
-        }
-
-        return static::$standardTypes[self::ID];
-    }
-
-    /**
-     * @api
-     */
-    public static function string() : ScalarType
-    {
-        if (! isset(static::$standardTypes[self::STRING])) {
-            static::$standardTypes[self::STRING] = new StringType();
-        }
-
-        return static::$standardTypes[self::STRING];
-    }
-
-    /**
-     * @api
-     */
-    public static function boolean() : ScalarType
-    {
-        if (! isset(static::$standardTypes[self::BOOLEAN])) {
-            static::$standardTypes[self::BOOLEAN] = new BooleanType();
-        }
-
-        return static::$standardTypes[self::BOOLEAN];
-    }
-
-    /**
-     * @api
-     */
-    public static function int() : ScalarType
-    {
-        if (! isset(static::$standardTypes[self::INT])) {
-            static::$standardTypes[self::INT] = new IntType();
-        }
-
-        return static::$standardTypes[self::INT];
-    }
-
-    /**
-     * @api
-     */
-    public static function float() : ScalarType
-    {
-        if (! isset(static::$standardTypes[self::FLOAT])) {
-            static::$standardTypes[self::FLOAT] = new FloatType();
-        }
-
-        return static::$standardTypes[self::FLOAT];
-    }
-
-    /**
-     * @api
-     */
-    public static function listOf(Type $wrappedType) : ListOfType
+    public static function listOf(Type $wrappedType): ListOfType
     {
         return new ListOfType($wrappedType);
     }
@@ -127,7 +67,7 @@ abstract class Type implements JsonSerializable
      *
      * @api
      */
-    public static function nonNull($wrappedType) : NonNull
+    public static function nonNull($wrappedType): NonNull
     {
         return new NonNull($wrappedType);
     }
@@ -135,7 +75,7 @@ abstract class Type implements JsonSerializable
     /**
      * Checks if the type is a builtin type
      */
-    public static function isBuiltInType(Type $type) : bool
+    public static function isBuiltInType(Type $type): bool
     {
         return in_array($type->name, array_keys(self::getAllBuiltInTypes()), true);
     }
@@ -175,11 +115,71 @@ abstract class Type implements JsonSerializable
     }
 
     /**
-     * @deprecated Use method getStandardTypes() instead
-     *
+     * @api
+     */
+    public static function id(): ScalarType
+    {
+        if (!isset(static::$standardTypes[self::ID])) {
+            static::$standardTypes[self::ID] = new IDType();
+        }
+
+        return static::$standardTypes[self::ID];
+    }
+
+    /**
+     * @api
+     */
+    public static function string(): ScalarType
+    {
+        if (!isset(static::$standardTypes[self::STRING])) {
+            static::$standardTypes[self::STRING] = new StringType();
+        }
+
+        return static::$standardTypes[self::STRING];
+    }
+
+    /**
+     * @api
+     */
+    public static function float(): ScalarType
+    {
+        if (!isset(static::$standardTypes[self::FLOAT])) {
+            static::$standardTypes[self::FLOAT] = new FloatType();
+        }
+
+        return static::$standardTypes[self::FLOAT];
+    }
+
+    /**
+     * @api
+     */
+    public static function int(): ScalarType
+    {
+        if (!isset(static::$standardTypes[self::INT])) {
+            static::$standardTypes[self::INT] = new IntType();
+        }
+
+        return static::$standardTypes[self::INT];
+    }
+
+    /**
+     * @api
+     */
+    public static function boolean(): ScalarType
+    {
+        if (!isset(static::$standardTypes[self::BOOLEAN])) {
+            static::$standardTypes[self::BOOLEAN] = new BooleanType();
+        }
+
+        return static::$standardTypes[self::BOOLEAN];
+    }
+
+    /**
      * @return Type[]
      *
      * @codeCoverageIgnore
+     * @deprecated Use method getStandardTypes() instead
+     *
      */
     public static function getInternalTypes()
     {
@@ -216,7 +216,7 @@ abstract class Type implements JsonSerializable
      *
      * @api
      */
-    public static function isInputType($type) : bool
+    public static function isInputType($type): bool
     {
         return self::getNamedType($type) instanceof InputType;
     }
@@ -226,7 +226,7 @@ abstract class Type implements JsonSerializable
      *
      * @api
      */
-    public static function getNamedType($type) : ?Type
+    public static function getNamedType($type): ?Type
     {
         if ($type === null) {
             return null;
@@ -243,7 +243,7 @@ abstract class Type implements JsonSerializable
      *
      * @api
      */
-    public static function isOutputType($type) : bool
+    public static function isOutputType($type): bool
     {
         return self::getNamedType($type) instanceof OutputType;
     }
@@ -253,7 +253,7 @@ abstract class Type implements JsonSerializable
      *
      * @api
      */
-    public static function isLeafType($type) : bool
+    public static function isLeafType($type): bool
     {
         return $type instanceof LeafType;
     }
@@ -263,7 +263,7 @@ abstract class Type implements JsonSerializable
      *
      * @api
      */
-    public static function isCompositeType($type) : bool
+    public static function isCompositeType($type): bool
     {
         return $type instanceof CompositeType;
     }
@@ -273,7 +273,7 @@ abstract class Type implements JsonSerializable
      *
      * @api
      */
-    public static function isAbstractType($type) : bool
+    public static function isAbstractType($type): bool
     {
         return $type instanceof AbstractType;
     }
@@ -281,7 +281,7 @@ abstract class Type implements JsonSerializable
     /**
      * @param mixed $type
      */
-    public static function assertType($type) : Type
+    public static function assertType($type): Type
     {
         assert($type instanceof Type, new InvariantViolation('Expected ' . Utils::printSafe($type) . ' to be a GraphQL type.'));
 
@@ -291,7 +291,7 @@ abstract class Type implements JsonSerializable
     /**
      * @api
      */
-    public static function getNullableType(Type $type) : Type
+    public static function getNullableType(Type $type): Type
     {
         return $type instanceof NonNull
             ? $type->getWrappedType()
@@ -343,7 +343,7 @@ abstract class Type implements JsonSerializable
         // If class is extended - infer name from className
         // QueryType -> Type
         // SomeOtherType -> SomeOther
-        $tmp  = new ReflectionClass($this);
+        $tmp = new ReflectionClass($this);
         $name = $tmp->getShortName();
 
         if ($tmp->getNamespaceName() !== __NAMESPACE__) {
