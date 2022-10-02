@@ -120,7 +120,6 @@ extension=curl
 extension=fileinfo
 extension=gd
 extension=intl
-extension=mysqli
 extension=openssl
 extension=pdo_sqlite
 ```
