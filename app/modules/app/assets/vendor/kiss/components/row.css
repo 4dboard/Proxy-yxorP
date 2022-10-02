@@ -11,7 +11,10 @@ kiss-row {
 kiss-row > * {
     margin: 0;
 }
-kiss-row > * > :last-child { margin-bottom: 0; }
+
+kiss-row > * > :last-child {
+    margin-bottom: 0;
+}
 
 
 /*
