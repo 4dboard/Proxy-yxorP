@@ -87,7 +87,7 @@
                         state.literal = true;
                         return 'meta';
                     }
-                    ;
+
                     /* references */
                     if (stream.match(/^\s*(\&|\*)[a-z0-9\._-]+\b/i)) {
                         return 'variable-2';

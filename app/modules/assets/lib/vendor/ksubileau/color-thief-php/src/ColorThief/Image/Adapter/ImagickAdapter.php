@@ -17,6 +17,9 @@ use ColorThief\Exception\InvalidArgumentException;
 use ColorThief\Exception\NotReadableException;
 use ColorThief\Exception\NotSupportedException;
 use Imagick;
+use ImagickException;
+use ImagickPixel;
+use stdClass;
 
 /**
  * @property ?Imagick $resource
@@ -33,7 +36,7 @@ class ImagickAdapter extends AbstractAdapter
         $resource = new Imagick();
         try {
             $resource->readImageBlob($data);
-        } catch (\ImagickException $e) {
+        } catch (ImagickException $e) {
             throw new NotReadableException('Unable to read image from binary data.', 0, $e);
         }
 
@@ -72,7 +75,7 @@ class ImagickAdapter extends AbstractAdapter
     {
         try {
             $resource = new Imagick($file);
-        } catch (\ImagickException $e) {
+        } catch (ImagickException $e) {
             throw new NotReadableException("Unable to read image from path ({$file}).", 0, $e);
         }
 
@@ -97,15 +100,15 @@ class ImagickAdapter extends AbstractAdapter
         return $this->resource->getImageWidth();
     }
 
-    public function getPixelColor(int $x, int $y): \stdClass
+    public function getPixelColor(int $x, int $y): stdClass
     {
-        /** @var \ImagickPixel $pixel */
+        /** @var ImagickPixel $pixel */
         $pixel = $this->resource->getImagePixelColor($x, $y);
 
         // Un-normalized values don't give a full range 0-1 alpha channel
         // So we ask for normalized values, and then we un-normalize it ourselves.
         $colorArray = $pixel->getColor(1);
-        $color = new \stdClass();
+        $color = new stdClass();
         $color->red = (int)round($colorArray['r'] * 255);
         $color->green = (int)round($colorArray['g'] * 255);
         $color->blue = (int)round($colorArray['b'] * 255);

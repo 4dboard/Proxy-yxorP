@@ -57,7 +57,7 @@
             for (var i = 0, l = basic.length; i < l; i++) {
                 kwObj[basic[i]] = kw(basic[i]);
             }
-            ;
+
 
             // a list of types. For each add a property to kwObj with the value of
             // {type: "atom", style: "atom"}
@@ -74,14 +74,14 @@
             for (var i = 0, l = types.length; i < l; i++) {
                 kwObj[types[i]] = atom;
             }
-            ;
+
 
             // each operator will add a property to kwObj with value of {type: "operator", style: "keyword"}
             var operators = ['eq', 'ne', 'lt', 'le', 'gt', 'ge', ':=', '=', '>', '>=', '<', '<=', '.', '|', '?', 'and', 'or', 'div', 'idiv', 'mod', '*', '/', '+', '-'];
             for (var i = 0, l = operators.length; i < l; i++) {
                 kwObj[operators[i]] = operator;
             }
-            ;
+
 
             // each axis_specifiers will add a property to kwObj with value of {type: "axis_specifier", style: "qualifier"}
             var axis_specifiers = ["self::", "attribute::", "child::", "descendant::", "descendant-or-self::", "parent::",
@@ -89,7 +89,7 @@
             for (var i = 0, l = axis_specifiers.length; i < l; i++) {
                 kwObj[axis_specifiers[i]] = qualifier;
             }
-            ;
+
 
             return kwObj;
         }();
@@ -301,7 +301,7 @@
             if (stream.eat("\"")) {
                 while (stream.next() !== '\"') {
                 }
-                ;
+
                 stream.eat(":");
             } else {
                 stream.eatWhile(isVariableChar);

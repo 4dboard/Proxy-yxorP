@@ -403,7 +403,7 @@
                 if (type == wanted) return cont();
                 else if (wanted == ";" || type == "}" || type == ")" || type == "]") return pass();
                 else return cont(exp);
-            };
+            }
             return exp;
         }
 

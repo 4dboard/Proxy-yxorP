@@ -1046,7 +1046,7 @@
                 var n = this.alignable[i]
                 if (n == from && (this.alignable[i + 1] & F_WIDGET_BELOW)) widgetFrom = i
                 if (n == to && (this.alignable[i + 1] & F_WIDGET_BELOW)) widgetTo = i
-                if (n <= from) continue
+                if (n <= from)
                 else if (n < to) this.alignable.splice(i--, 2)
                 else this.alignable[i] += diff
             }

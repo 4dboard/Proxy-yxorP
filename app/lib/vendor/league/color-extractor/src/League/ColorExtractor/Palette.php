@@ -2,7 +2,12 @@
 
 namespace League\ColorExtractor;
 
-class Palette implements \Countable, \IteratorAggregate
+use ArrayIterator;
+use Countable;
+use InvalidArgumentException;
+use IteratorAggregate;
+
+class Palette implements Countable, IteratorAggregate
 {
     /** @var array */
     protected $colors;
@@ -33,15 +38,15 @@ class Palette implements \Countable, \IteratorAggregate
      *
      * @return Palette
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public static function fromGD($image, $backgroundColor = null)
     {
         if (!is_resource($image) || get_resource_type($image) != 'gd') {
-            throw new \InvalidArgumentException('Image must be a gd resource');
+            throw new InvalidArgumentException('Image must be a gd resource');
         }
         if ($backgroundColor !== null && (!is_numeric($backgroundColor) || $backgroundColor < 0 || $backgroundColor > 16777215)) {
-            throw new \InvalidArgumentException(sprintf('"%s" does not represent a valid color', $backgroundColor));
+            throw new InvalidArgumentException(sprintf('"%s" does not represent a valid color', $backgroundColor));
         }
 
         $palette = new self();
@@ -97,11 +102,11 @@ class Palette implements \Countable, \IteratorAggregate
     }
 
     /**
-     * @return \ArrayIterator
+     * @return ArrayIterator
      */
     public function getIterator()
     {
-        return new \ArrayIterator($this->colors);
+        return new ArrayIterator($this->colors);
     }
 
     /**

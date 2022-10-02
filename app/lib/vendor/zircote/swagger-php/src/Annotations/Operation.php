@@ -7,6 +7,7 @@
 namespace OpenApi\Annotations;
 
 use OpenApi\Generator;
+use ReturnTypeWillChange;
 
 /**
  * @Annotation
@@ -111,7 +112,7 @@ abstract class Operation extends AbstractAnnotation
     /**
      * The list of possible responses as they are returned from executing this operation.
      *
-     * @var \OpenApi\Annotations\Response[]
+     * @var Response[]
      */
     public $responses = Generator::UNDEFINED;
     /**
@@ -154,7 +155,7 @@ abstract class Operation extends AbstractAnnotation
      *
      * @return mixed
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = parent::jsonSerialize();

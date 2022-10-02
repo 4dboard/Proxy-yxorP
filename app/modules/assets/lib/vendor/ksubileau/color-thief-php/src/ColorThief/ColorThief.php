@@ -42,6 +42,10 @@ use ColorThief\Exception\RuntimeException;
 use ColorThief\Image\Adapter\AdapterInterface;
 use ColorThief\Image\ImageLoader;
 use SplFixedArray;
+use function count;
+use function is_array;
+use function is_string;
+use const PHP_INT_MAX;
 
 class ColorThief
 {
@@ -235,7 +239,7 @@ class ColorThief
         // Don't destroy a resource passed by the user !
         // TODO Add a method in ImageLoader to know if the image should be destroy
         // (or to know the detected image source type)
-        if (\is_string($sourceImage)) {
+        if (is_string($sourceImage)) {
             $image->destroy();
         }
 
@@ -265,7 +269,7 @@ class ColorThief
         if ($maxColors < 2 || $maxColors > 256) {
             throw new InvalidArgumentException('The maxColors parameter must be between 2 and 256 inclusive.');
         }
-        if (0 === \count($histo)) {
+        if (0 === count($histo)) {
             throw new InvalidArgumentException('Image produced an empty histogram.');
         }
 
@@ -307,8 +311,8 @@ class ColorThief
      */
     private static function vboxFromHistogram(array $histo): VBox
     {
-        $rgbMin = [\PHP_INT_MAX, \PHP_INT_MAX, \PHP_INT_MAX];
-        $rgbMax = [-\PHP_INT_MAX, -\PHP_INT_MAX, -\PHP_INT_MAX];
+        $rgbMin = [PHP_INT_MAX, PHP_INT_MAX, PHP_INT_MAX];
+        $rgbMax = [-PHP_INT_MAX, -PHP_INT_MAX, -PHP_INT_MAX];
 
         // find min/max
         foreach ($histo as $bucketIndex => $count) {
@@ -374,7 +378,7 @@ class ColorThief
             // do the cut
             $vBoxes = self::medianCutApply($histo, $vBox);
 
-            if (!(\is_array($vBoxes) && isset($vBoxes[0]))) {
+            if (!(is_array($vBoxes) && isset($vBoxes[0]))) {
                 // Expect an array of VBox
                 throw new RuntimeException('Unexpected result from the medianCutApply function.');
             }

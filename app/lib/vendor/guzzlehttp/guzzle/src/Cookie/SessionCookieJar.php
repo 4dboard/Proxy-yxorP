@@ -2,6 +2,12 @@
 
 namespace GuzzleHttp\Cookie;
 
+use RuntimeException;
+use function is_array;
+use function json_decode;
+use function json_encode;
+use function strlen;
+
 /**
  * Persists cookies in the client session
  */
@@ -41,13 +47,13 @@ class SessionCookieJar extends CookieJar
         if (!isset($_SESSION[$this->sessionKey])) {
             return;
         }
-        $data = \json_decode($_SESSION[$this->sessionKey], true);
-        if (\is_array($data)) {
+        $data = json_decode($_SESSION[$this->sessionKey], true);
+        if (is_array($data)) {
             foreach ($data as $cookie) {
                 $this->setCookie(new SetCookie($cookie));
             }
-        } elseif (\strlen($data)) {
-            throw new \RuntimeException("Invalid cookie data");
+        } elseif (strlen($data)) {
+            throw new RuntimeException("Invalid cookie data");
         }
     }
 
@@ -72,6 +78,6 @@ class SessionCookieJar extends CookieJar
             }
         }
 
-        $_SESSION[$this->sessionKey] = \json_encode($json);
+        $_SESSION[$this->sessionKey] = json_encode($json);
     }
 }

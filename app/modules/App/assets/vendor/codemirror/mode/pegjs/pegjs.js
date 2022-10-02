@@ -93,7 +93,7 @@
                                 state.braced--;
                             }
                         }
-                        ;
+
                     }
                     return token;
                 } else if (identifier(stream)) {

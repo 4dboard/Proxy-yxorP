@@ -16,6 +16,13 @@ namespace ColorThief\Image;
 use ColorThief\Exception\NotReadableException;
 use ColorThief\Exception\NotSupportedException;
 use ColorThief\Image\Adapter\AdapterInterface;
+use ColorThief\Image\Adapter\GdAdapter;
+use ColorThief\Image\Adapter\GmagickAdapter;
+use ColorThief\Image\Adapter\ImagickAdapter;
+use Exception;
+use GdImage;
+use function is_resource;
+use const PHP_VERSION;
 
 class ImageLoader
 {
@@ -82,11 +89,11 @@ class ImageLoader
      */
     public function isGdImage($data): bool
     {
-        if (version_compare(\PHP_VERSION, '8.0.0') >= 0) {
-            return $data instanceof \GdImage;
+        if (version_compare(PHP_VERSION, '8.0.0') >= 0) {
+            return $data instanceof GdImage;
         }
 
-        return \is_resource($data) && 'gd' == get_resource_type($data);
+        return is_resource($data) && 'gd' == get_resource_type($data);
     }
 
     /**
@@ -118,11 +125,11 @@ class ImageLoader
     {
         if (null === $preferredAdapter) {
             // Select first available adapter
-            if (\ColorThief\Image\Adapter\ImagickAdapter::isAvailable()) {
+            if (ImagickAdapter::isAvailable()) {
                 $preferredAdapter = 'Imagick';
-            } elseif (\ColorThief\Image\Adapter\GmagickAdapter::isAvailable()) {
+            } elseif (GmagickAdapter::isAvailable()) {
                 $preferredAdapter = 'Gmagick';
-            } elseif (\ColorThief\Image\Adapter\GdAdapter::isAvailable()) {
+            } elseif (GdAdapter::isAvailable()) {
                 $preferredAdapter = 'Gd';
             } else {
                 throw new NotSupportedException('At least one of GD, Imagick or Gmagick extension must be installed. None of them was found.');
@@ -185,7 +192,7 @@ class ImageLoader
         if (is_string($data)) {
             try {
                 return is_file($data);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 return false;
             }
         }

@@ -3,6 +3,13 @@
 namespace GuzzleHttp\Cookie;
 
 use GuzzleHttp\Utils;
+use RuntimeException;
+use function file_exists;
+use function file_get_contents;
+use function file_put_contents;
+use function is_array;
+use function is_scalar;
+use const LOCK_EX;
 
 /**
  * Persists non-session cookies using a JSON formatted file
@@ -26,7 +33,7 @@ class FileCookieJar extends CookieJar
      * @param bool $storeSessionCookies Set to true to store session cookies
      *                                    in the cookie jar.
      *
-     * @throws \RuntimeException if the file cannot be found or created
+     * @throws RuntimeException if the file cannot be found or created
      */
     public function __construct(string $cookieFile, bool $storeSessionCookies = false)
     {
@@ -34,7 +41,7 @@ class FileCookieJar extends CookieJar
         $this->filename = $cookieFile;
         $this->storeSessionCookies = $storeSessionCookies;
 
-        if (\file_exists($cookieFile)) {
+        if (file_exists($cookieFile)) {
             $this->load($cookieFile);
         }
     }
@@ -46,25 +53,25 @@ class FileCookieJar extends CookieJar
      *
      * @param string $filename Cookie file to load.
      *
-     * @throws \RuntimeException if the file cannot be loaded.
+     * @throws RuntimeException if the file cannot be loaded.
      */
     public function load(string $filename): void
     {
-        $json = \file_get_contents($filename);
+        $json = file_get_contents($filename);
         if (false === $json) {
-            throw new \RuntimeException("Unable to load file {$filename}");
+            throw new RuntimeException("Unable to load file {$filename}");
         }
         if ($json === '') {
             return;
         }
 
         $data = Utils::jsonDecode($json, true);
-        if (\is_array($data)) {
+        if (is_array($data)) {
             foreach ($data as $cookie) {
                 $this->setCookie(new SetCookie($cookie));
             }
-        } elseif (\is_scalar($data) && !empty($data)) {
-            throw new \RuntimeException("Invalid cookie file: {$filename}");
+        } elseif (is_scalar($data) && !empty($data)) {
+            throw new RuntimeException("Invalid cookie file: {$filename}");
         }
     }
 
@@ -81,7 +88,7 @@ class FileCookieJar extends CookieJar
      *
      * @param string $filename File to save
      *
-     * @throws \RuntimeException if the file cannot be found or created
+     * @throws RuntimeException if the file cannot be found or created
      */
     public function save(string $filename): void
     {
@@ -94,8 +101,8 @@ class FileCookieJar extends CookieJar
         }
 
         $jsonStr = Utils::jsonEncode($json);
-        if (false === \file_put_contents($filename, $jsonStr, \LOCK_EX)) {
-            throw new \RuntimeException("Unable to save file {$filename}");
+        if (false === file_put_contents($filename, $jsonStr, LOCK_EX)) {
+            throw new RuntimeException("Unable to save file {$filename}");
         }
     }
 }

@@ -4,6 +4,9 @@ namespace GuzzleHttp\Handler;
 
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
+use function curl_errno;
+use function curl_exec;
+use function usleep;
 
 /**
  * HTTP handler that uses cURL easy handles as a transport layer.
@@ -37,12 +40,12 @@ class CurlHandler
     public function __invoke(RequestInterface $request, array $options): PromiseInterface
     {
         if (isset($options['delay'])) {
-            \usleep($options['delay'] * 1000);
+            usleep($options['delay'] * 1000);
         }
 
         $easy = $this->factory->create($request, $options);
-        \curl_exec($easy->handle);
-        $easy->errno = \curl_errno($easy->handle);
+        curl_exec($easy->handle);
+        $easy->errno = curl_errno($easy->handle);
 
         return CurlFactory::finish($this, $easy, $this->factory);
     }

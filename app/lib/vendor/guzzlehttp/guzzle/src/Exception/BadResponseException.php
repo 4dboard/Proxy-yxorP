@@ -4,6 +4,7 @@ namespace GuzzleHttp\Exception;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
 /**
  * Exception when an HTTP error occurs (4xx or 5xx error)
@@ -14,7 +15,7 @@ class BadResponseException extends RequestException
         string            $message,
         RequestInterface  $request,
         ResponseInterface $response,
-        \Throwable        $previous = null,
+        Throwable        $previous = null,
         array             $handlerContext = []
     )
     {
