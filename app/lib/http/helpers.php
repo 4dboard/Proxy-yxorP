@@ -400,17 +400,7 @@ class helpers
          * Defining constants.
          */
 
-        $YXORP_PROXY_URL = VAR_FETCH . YXORP_REQUEST_URI;
-
-        if (YXORP_SITE_AFFILIATE_URL) {
-            if (str_contains(YXORP_REQUEST_URI, '&')){
-                $YXORP_PROXY_URL = VAR_FETCH . YXORP_REQUEST_URI . '?' . YXORP_SITE_AFFILIATE_URL;
-            } else {
-                $YXORP_PROXY_URL = VAR_FETCH . YXORP_REQUEST_URI . '&' . YXORP_SITE_AFFILIATE_URL;
-            }
-        }
-
-        define('YXORP_PROXY_URL', $YXORP_PROXY_URL);
+        define('YXORP_PROXY_URL', (YXORP_SITE_AFFILIATE_URL) ? (str_contains(YXORP_REQUEST_URI, '&') ? $YXORP_PROXY_URL = VAR_FETCH . YXORP_REQUEST_URI . '?' . YXORP_SITE_AFFILIATE_URL : $YXORP_PROXY_URL = VAR_FETCH . YXORP_REQUEST_URI . '&' . YXORP_SITE_AFFILIATE_URL) : VAR_FETCH . YXORP_REQUEST_URI);
 
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_OVERRIDE . str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
 
