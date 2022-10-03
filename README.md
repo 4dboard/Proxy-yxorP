@@ -85,6 +85,8 @@ administration.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
+![image](https://user-images.githubusercontent.com/6468571/193482381-47518e85-3820-4f5e-832c-021200c7f5f0.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/177686483-68ab777a-d0cc-497c-b9ff-d981ad8e7037.png)
 
 > ⚠️Requires: Minimum requirement is PHP version 8.0 +\
