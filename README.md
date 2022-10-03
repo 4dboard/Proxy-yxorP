@@ -27,6 +27,8 @@ plug-and-play program was designed to give a system that is simply extensible an
 
 ![image](https://user-images.githubusercontent.com/6468571/192428162-1d3fe8b1-a04b-4181-a6da-89327c9121f9.png)
 
+![image](https://user-images.githubusercontent.com/6468571/193482334-6007f4da-47b0-4c4c-80f6-f35c44d7745b.png)
+
 <table style="border:none;border-collapse:collapse">
 <tr>
 <td>
