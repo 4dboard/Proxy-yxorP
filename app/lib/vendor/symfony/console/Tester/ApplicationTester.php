@@ -13,7 +13,6 @@ namespace Symfony\Component\Console\Tester;
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
-use function function_exists;
 
 /**
  * Eases the testing of console applications.
@@ -69,14 +68,14 @@ class ApplicationTester
             // SHELL_VERBOSITY is set by Application::configureIO so we need to unset/reset it
             // to its previous value to avoid one test's verbosity to spread to the following tests
             if (false === $prevShellVerbosity) {
-                if (function_exists('putenv')) {
+                if (\function_exists('putenv')) {
                     @putenv('SHELL_VERBOSITY');
                 }
                 unset($_ENV['SHELL_VERBOSITY']);
                 unset($_SERVER['SHELL_VERBOSITY']);
             } else {
-                if (function_exists('putenv')) {
-                    @putenv('SHELL_VERBOSITY=' . $prevShellVerbosity);
+                if (\function_exists('putenv')) {
+                    @putenv('SHELL_VERBOSITY='.$prevShellVerbosity);
                 }
                 $_ENV['SHELL_VERBOSITY'] = $prevShellVerbosity;
                 $_SERVER['SHELL_VERBOSITY'] = $prevShellVerbosity;

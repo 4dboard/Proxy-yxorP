@@ -11,33 +11,15 @@
 
 namespace Symfony\Component\Console\SignalRegistry;
 
-use function count;
-use function function_exists;
-use function in_array;
-use function is_callable;
-
 final class SignalRegistry
 {
     private $signalHandlers = [];
 
     public function __construct()
     {
-        if (function_exists('pcntl_async_signals')) {
+        if (\function_exists('pcntl_async_signals')) {
             pcntl_async_signals(true);
         }
-    }
-
-    public static function isSupported(): bool
-    {
-        if (!function_exists('pcntl_signal')) {
-            return false;
-        }
-
-        if (in_array('pcntl_signal', explode(',', ini_get('disable_functions')))) {
-            return false;
-        }
-
-        return true;
     }
 
     public function register(int $signal, callable $signalHandler): void
@@ -45,7 +27,7 @@ final class SignalRegistry
         if (!isset($this->signalHandlers[$signal])) {
             $previousCallback = pcntl_signal_get_handler($signal);
 
-            if (is_callable($previousCallback)) {
+            if (\is_callable($previousCallback)) {
                 $this->signalHandlers[$signal][] = $previousCallback;
             }
         }
@@ -55,12 +37,25 @@ final class SignalRegistry
         pcntl_signal($signal, [$this, 'handle']);
     }
 
+    public static function isSupported(): bool
+    {
+        if (!\function_exists('pcntl_signal')) {
+            return false;
+        }
+
+        if (\in_array('pcntl_signal', explode(',', ini_get('disable_functions')))) {
+            return false;
+        }
+
+        return true;
+    }
+
     /**
      * @internal
      */
     public function handle(int $signal): void
     {
-        $count = count($this->signalHandlers[$signal]);
+        $count = \count($this->signalHandlers[$signal]);
 
         foreach ($this->signalHandlers[$signal] as $i => $signalHandler) {
             $hasNext = $i !== $count - 1;

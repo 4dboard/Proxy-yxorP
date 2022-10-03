@@ -45,9 +45,7 @@ export default {
 
     watch: {
         val: {
-            handler() {
-                this.update()
-            },
+            handler() { this.update() },
             deep: true
         },
         modelValue: {
@@ -55,7 +53,7 @@ export default {
 
                 if (this.code.editor && !this.code.editor.hasFocus()) {
 
-                    if (this.asString && typeof (val) == 'string') {
+                    if (this.asString && typeof(val) == 'string') {
                         this.val = val;
                     } else {
                         this.val = JSON5.stringify(val, null, 2);
@@ -74,14 +72,13 @@ export default {
 
             let val = this.modelValue;
 
-            if (this.asString && typeof (val) == 'string') {
+            if (this.asString && typeof(val) == 'string') {
                 val = JSON5.parse(val);
             }
 
             this.val = JSON5.stringify(val, null, 2);
 
-        } catch (e) {
-        }
+        } catch (e) {}
     },
 
     methods: {

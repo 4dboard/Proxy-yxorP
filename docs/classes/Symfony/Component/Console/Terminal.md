@@ -2,41 +2,64 @@
 
 # Terminal
 
+
+
+
+
 * Full name: `\Symfony\Component\Console\Terminal`
+
+
 
 ## Properties
 
+
 ### width
+
+
 
 ```php
 private static $width
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### height
 
+
+
 ```php
 private static $height
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### stty
 
+
+
 ```php
 private static $stty
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ## Methods
+
 
 ### getWidth
 
@@ -45,6 +68,16 @@ Gets the terminal width.
 ```php
 public getWidth(): int
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -56,15 +89,35 @@ Gets the terminal height.
 public getHeight(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### initDimensions
+
+
 
 ```php
 private static initDimensions(): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -76,7 +129,15 @@ Returns whether STDOUT has vt100 support (some Windows 10+ configurations).
 private static hasVt100Support(): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -88,7 +149,15 @@ Initializes dimensions using the output of an stty columns line.
 private static initDimensionsUsingStty(): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -100,7 +169,13 @@ Runs and parses mode CON if it's available, suppressing any error output.
 private static getConsoleMode(): int[]|null
 ```
 
+
+
 * This method is **static**.
+
+
+
+
 
 **Return Value:**
 
@@ -118,23 +193,41 @@ Runs and parses stty -a if it's available, suppressing any error output.
 private static getSttyColumns(): ?string
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
 ### readFromProcess
 
+
+
 ```php
 private static readFromProcess(string $command): ?string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$command` | **string** |  |
+
+
+
 
 ***
 

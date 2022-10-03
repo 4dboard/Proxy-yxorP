@@ -26,6 +26,7 @@ use MongoDB\Driver\Session;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\UnexpectedValueException;
 use MongoDB\Exception\UnsupportedException;
+
 use function current;
 use function is_array;
 use function is_integer;
@@ -74,40 +75,40 @@ class Distinct implements Executable, Explainable
      *
      *  * typeMap (array): Type map for BSON deserialization.
      *
-     * @param string $databaseName Database name
-     * @param string $collectionName Collection name
-     * @param string $fieldName Field for which to return distinct values
-     * @param array|object $filter Query by which to filter documents
-     * @param array $options Command options
+     * @param string       $databaseName   Database name
+     * @param string       $collectionName Collection name
+     * @param string       $fieldName      Field for which to return distinct values
+     * @param array|object $filter         Query by which to filter documents
+     * @param array        $options        Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, $fieldName, $filter = [], array $options = [])
     {
-        if (!is_array($filter) && !is_object($filter)) {
+        if (! is_array($filter) && ! is_object($filter)) {
             throw InvalidArgumentException::invalidType('$filter', $filter, 'array or object');
         }
 
-        if (isset($options['collation']) && !is_array($options['collation']) && !is_object($options['collation'])) {
+        if (isset($options['collation']) && ! is_array($options['collation']) && ! is_object($options['collation'])) {
             throw InvalidArgumentException::invalidType('"collation" option', $options['collation'], 'array or object');
         }
 
-        if (isset($options['maxTimeMS']) && !is_integer($options['maxTimeMS'])) {
+        if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxTimeMS" option', $options['maxTimeMS'], 'integer');
         }
 
-        if (isset($options['readConcern']) && !$options['readConcern'] instanceof ReadConcern) {
+        if (isset($options['readConcern']) && ! $options['readConcern'] instanceof ReadConcern) {
             throw InvalidArgumentException::invalidType('"readConcern" option', $options['readConcern'], ReadConcern::class);
         }
 
-        if (isset($options['readPreference']) && !$options['readPreference'] instanceof ReadPreference) {
+        if (isset($options['readPreference']) && ! $options['readPreference'] instanceof ReadPreference) {
             throw InvalidArgumentException::invalidType('"readPreference" option', $options['readPreference'], ReadPreference::class);
         }
 
-        if (isset($options['session']) && !$options['session'] instanceof Session) {
+        if (isset($options['session']) && ! $options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['typeMap']) && !is_array($options['typeMap'])) {
+        if (isset($options['typeMap']) && ! is_array($options['typeMap'])) {
             throw InvalidArgumentException::invalidType('"typeMap" option', $options['typeMap'], 'array');
         }
 
@@ -115,9 +116,9 @@ class Distinct implements Executable, Explainable
             unset($options['readConcern']);
         }
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = (string)$collectionName;
-        $this->fieldName = (string)$fieldName;
+        $this->databaseName = (string) $databaseName;
+        $this->collectionName = (string) $collectionName;
+        $this->fieldName = (string) $fieldName;
         $this->filter = $filter;
         $this->options = $options;
     }
@@ -125,12 +126,12 @@ class Distinct implements Executable, Explainable
     /**
      * Execute the operation.
      *
+     * @see Executable::execute()
      * @param Server $server
      * @return mixed[]
      * @throws UnexpectedValueException if the command response was malformed
      * @throws UnsupportedException if read concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
-     * @see Executable::execute()
      */
     public function execute(Server $server)
     {
@@ -147,11 +148,23 @@ class Distinct implements Executable, Explainable
 
         $result = current($cursor->toArray());
 
-        if (!isset($result->values) || !is_array($result->values)) {
+        if (! isset($result->values) || ! is_array($result->values)) {
             throw new UnexpectedValueException('distinct command did not return a "values" array');
         }
 
         return $result->values;
+    }
+
+    /**
+     * Returns the command document for this operation.
+     *
+     * @see Explainable::getCommandDocument()
+     * @param Server $server
+     * @return array
+     */
+    public function getCommandDocument(Server $server)
+    {
+        return $this->createCommandDocument();
     }
 
     /**
@@ -166,12 +179,12 @@ class Distinct implements Executable, Explainable
             'key' => $this->fieldName,
         ];
 
-        if (!empty($this->filter)) {
-            $cmd['query'] = (object)$this->filter;
+        if (! empty($this->filter)) {
+            $cmd['query'] = (object) $this->filter;
         }
 
         if (isset($this->options['collation'])) {
-            $cmd['collation'] = (object)$this->options['collation'];
+            $cmd['collation'] = (object) $this->options['collation'];
         }
 
         if (isset($this->options['maxTimeMS'])) {
@@ -204,17 +217,5 @@ class Distinct implements Executable, Explainable
         }
 
         return $options;
-    }
-
-    /**
-     * Returns the command document for this operation.
-     *
-     * @param Server $server
-     * @return array
-     * @see Explainable::getCommandDocument()
-     */
-    public function getCommandDocument(Server $server)
-    {
-        return $this->createCommandDocument();
     }
 }

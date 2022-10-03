@@ -34,6 +34,17 @@ class ReactPromiseAdapter implements PromiseAdapter
     /**
      * @inheritdoc
      */
+    public function then(Promise $promise, ?callable $onFulfilled = null, ?callable $onRejected = null)
+    {
+        /** @var ReactPromiseInterface $adoptedPromise */
+        $adoptedPromise = $promise->adoptedPromise;
+
+        return new Promise($adoptedPromise->then($onFulfilled, $onRejected), $this);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function create(callable $resolver)
     {
         $promise = new ReactPromise($resolver);
@@ -74,7 +85,7 @@ class ReactPromiseAdapter implements PromiseAdapter
             }
         );
 
-        $promise = all($promisesOrValues)->then(static function ($values) use ($promisesOrValues): array {
+        $promise = all($promisesOrValues)->then(static function ($values) use ($promisesOrValues) : array {
             $orderedResults = [];
 
             foreach ($promisesOrValues as $key => $value) {
@@ -85,16 +96,5 @@ class ReactPromiseAdapter implements PromiseAdapter
         });
 
         return new Promise($promise, $this);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function then(Promise $promise, ?callable $onFulfilled = null, ?callable $onRejected = null)
-    {
-        /** @var ReactPromiseInterface $adoptedPromise */
-        $adoptedPromise = $promise->adoptedPromise;
-
-        return new Promise($adoptedPromise->then($onFulfilled, $onRejected), $this);
     }
 }

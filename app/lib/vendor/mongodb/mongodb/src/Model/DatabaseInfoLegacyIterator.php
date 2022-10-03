@@ -18,6 +18,7 @@
 namespace MongoDB\Model;
 
 use ReturnTypeWillChange;
+
 use function current;
 use function key;
 use function next;
@@ -49,9 +50,9 @@ class DatabaseInfoLegacyIterator implements DatabaseInfoIterator
     /**
      * Return the current element as a DatabaseInfo instance.
      *
-     * @return DatabaseInfo
-     * @see http://php.net/iterator.current
      * @see DatabaseInfoIterator::current()
+     * @see http://php.net/iterator.current
+     * @return DatabaseInfo
      */
     public function current()
     {

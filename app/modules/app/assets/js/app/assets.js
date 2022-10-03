@@ -1,13 +1,12 @@
+
 export default {
 
     _ress: {},
 
     require: function (ress, onSuccess, onError) {
 
-        onSuccess = onSuccess || function () {
-        };
-        onError = onError || function () {
-        };
+        onSuccess = onSuccess || function () { };
+        onError = onError || function () { };
 
         var req = [],
             ress = Array.isArray(ress) ? ress : [ress];
@@ -85,12 +84,8 @@ export default {
 
             var img = document.createElement('img');
 
-            img.onload = function () {
-                resolve(url);
-            };
-            img.onerror = function () {
-                reject(url);
-            };
+            img.onload = function () { resolve(url); };
+            img.onerror = function () { reject(url); };
 
             img.src = (url.match(/^(\/\/|http)/) ? url : App.base(url)) + '?v=' + App.version;
         });

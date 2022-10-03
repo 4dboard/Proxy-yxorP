@@ -2,27 +2,51 @@
 
 # multipartStream
 
+
+
+
+
 * Full name: `\yxorP\app\lib\proxy\psr7\multipartStream`
 * This class implements:
-  [`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
+[`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
+
+
 
 ## Properties
 
+
 ### boundary
+
+
 
 ```php
 private $boundary
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(array $elements = [], mixed $boundary = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -31,13 +55,25 @@ public __construct(array $elements = [], mixed $boundary = null): mixed
 | `$elements` | **array** |  |
 | `$boundary` | **mixed** |  |
 
+
+
+
 ***
 
 ### createStream
 
+
+
 ```php
 protected createStream(array $elements): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -45,13 +81,25 @@ protected createStream(array $elements): mixed
 |-----------|------|-------------|
 | `$elements` | **array** |  |
 
+
+
+
 ***
 
 ### addElement
 
+
+
 ```php
 private addElement(\yxorP\app\lib\proxy\psr7\appendStream $stream, array $element): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -60,13 +108,25 @@ private addElement(\yxorP\app\lib\proxy\psr7\appendStream $stream, array $elemen
 | `$stream` | **\yxorP\app\lib\proxy\psr7\appendStream** |  |
 | `$element` | **array** |  |
 
+
+
+
 ***
 
 ### createElement
 
+
+
 ```php
 private createElement(mixed $name, \yxorP\app\lib\psr\http\message\streamInterface $stream, mixed $filename, array $headers): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -77,13 +137,25 @@ private createElement(mixed $name, \yxorP\app\lib\psr\http\message\streamInterfa
 | `$filename` | **mixed** |  |
 | `$headers` | **array** |  |
 
+
+
+
 ***
 
 ### getHeader
 
+
+
 ```php
 private getHeader(array $headers, mixed $key): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -92,13 +164,25 @@ private getHeader(array $headers, mixed $key): mixed
 | `$headers` | **array** |  |
 | `$key` | **mixed** |  |
 
+
+
+
 ***
 
 ### getHeaders
 
+
+
 ```php
 private getHeaders(array $headers): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -106,13 +190,28 @@ private getHeaders(array $headers): mixed
 |-----------|------|-------------|
 | `$headers` | **array** |  |
 
+
+
+
 ***
 
 ### getBoundary
 
+
+
 ```php
 public getBoundary(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -124,15 +223,36 @@ Returns whether or not the stream is writable.
 public isWritable(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -140,13 +260,25 @@ public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mix
 |-----------|------|-------------|
 | `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -154,29 +286,65 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### __toString
+
+
 
 ```php
 public __toString(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isSeekable
+
+
 
 ```php
 public isSeekable(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### seek
 
+
+
 ```php
 public seek(mixed $offset, mixed $whence = SEEK_SET): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -185,21 +353,45 @@ public seek(mixed $offset, mixed $whence = SEEK_SET): mixed
 | `$offset` | **mixed** |  |
 | `$whence` | **mixed** |  |
 
+
+
+
 ***
 
 ### getContents
+
+
 
 ```php
 public getContents(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $method, array $args): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -208,21 +400,45 @@ public __call(mixed $method, array $args): mixed
 | `$method` | **mixed** |  |
 | `$args` | **array** |  |
 
+
+
+
 ***
 
 ### close
+
+
 
 ```php
 public close(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getMetadata
 
+
+
 ```php
 public getMetadata(mixed $key = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -230,69 +446,165 @@ public getMetadata(mixed $key = null): mixed
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
+
+
+
 ***
 
 ### detach
+
+
 
 ```php
 public detach(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getSize
+
+
 
 ```php
 public getSize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### eof
+
+
 
 ```php
 public eof(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### tell
+
+
 
 ```php
 public tell(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isReadable
+
+
 
 ```php
 public isReadable(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isWritable
+
+
 
 ```php
 public isWritable(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### rewind
+
+
 
 ```php
 public rewind(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### read
 
+
+
 ```php
 public read(mixed $length): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -300,13 +612,25 @@ public read(mixed $length): mixed
 |-----------|------|-------------|
 | `$length` | **mixed** |  |
 
+
+
+
 ***
 
 ### write
 
+
+
 ```php
 public write(mixed $string): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -314,13 +638,28 @@ public write(mixed $string): mixed
 |-----------|------|-------------|
 | `$string` | **mixed** |  |
 
+
+
+
 ***
 
 ### createStream
 
+
+
 ```php
 protected createStream(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

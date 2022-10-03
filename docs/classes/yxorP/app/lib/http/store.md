@@ -4,9 +4,15 @@
 
 It's a class that's used to dispatch events.
 
+
+
 * Full name: `\yxorP\app\lib\http\store`
 
+
+
+
 ## Methods
+
 
 ### handler
 
@@ -16,9 +22,12 @@ Try get perm else store value or execute function, set perm and return values
 final public static handler(string $name, mixed $value = null, string|null $func = null, array $varibles = []): mixed
 ```
 
+
+
 * This method is **static**.
 
 * This method is **final**.
+
 
 **Parameters:**
 
@@ -28,6 +37,9 @@ final public static handler(string $name, mixed $value = null, string|null $func
 | `$value` | **mixed** |  |
 | `$func` | **string&#124;null** |  |
 | `$varibles` | **array** |  |
+
+
+
 
 ***
 
@@ -39,7 +51,12 @@ Try get perm else store value or execute function, set perm and return values
 private static check(string $name, mixed $value = null, string|null $func = null, array $varibles = []): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -49,6 +66,9 @@ private static check(string $name, mixed $value = null, string|null $func = null
 | `$value` | **mixed** |  |
 | `$func` | **string&#124;null** |  |
 | `$varibles` | **array** |  |
+
+
+
 
 ***
 
@@ -60,13 +80,21 @@ It's setting the value of the variable $name to the value of the variable $_valu
 private static get(string $name): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 
@@ -78,7 +106,12 @@ It's setting the value of the variable $name to the value of the variable $_valu
 private static set(string $name, mixed $value, string|null $func = null, array $varibles = []): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -88,6 +121,9 @@ private static set(string $name, mixed $value, string|null $func = null, array $
 | `$value` | **mixed** |  |
 | `$func` | **string&#124;null** |  |
 | `$varibles` | **array** |  |
+
+
+
 
 ***
 

@@ -6,6 +6,7 @@ use Exception;
 use MongoDB\Driver\Exception\RuntimeException;
 use MongoDB\Driver\Session;
 use Throwable;
+
 use function call_user_func;
 use function time;
 
@@ -21,10 +22,10 @@ class WithTransaction
     private $transactionOptions;
 
     /**
-     * @param callable $callback A callback that will be invoked within the transaction
-     * @param array $transactionOptions Additional options that are passed to Session::startTransaction
      * @see Session::startTransaction for supported transaction options
      *
+     * @param callable $callback           A callback that will be invoked within the transaction
+     * @param array    $transactionOptions Additional options that are passed to Session::startTransaction
      */
     public function __construct(callable $callback, array $transactionOptions = [])
     {
@@ -48,12 +49,12 @@ class WithTransaction
      * from the initial call have elapsed. After that, no retries will happen and
      * the helper will throw the last exception received from the driver.
      *
+     * @see Client::startSession
+     *
      * @param Session $session A session object as retrieved by Client::startSession
      * @return void
      * @throws RuntimeException for driver errors while committing the transaction
      * @throws Exception for any other errors, including those thrown in the callback
-     * @see Client::startSession
-     *
      */
     public function execute(Session $session)
     {
@@ -72,7 +73,7 @@ class WithTransaction
                 if (
                     $e instanceof RuntimeException &&
                     $e->hasErrorLabel('TransientTransactionError') &&
-                    !$this->isTransactionTimeLimitExceeded($startTime)
+                    ! $this->isTransactionTimeLimitExceeded($startTime)
                 ) {
                     continue;
                 }
@@ -80,7 +81,7 @@ class WithTransaction
                 throw $e;
             }
 
-            if (!$session->isInTransaction()) {
+            if (! $session->isInTransaction()) {
                 // Assume callback intentionally ended the transaction
                 return;
             }
@@ -92,7 +93,7 @@ class WithTransaction
                     if (
                         $e->getCode() !== 50 /* MaxTimeMSExpired */ &&
                         $e->hasErrorLabel('UnknownTransactionCommitResult') &&
-                        !$this->isTransactionTimeLimitExceeded($startTime)
+                        ! $this->isTransactionTimeLimitExceeded($startTime)
                     ) {
                         // Retry committing the transaction
                         continue;
@@ -100,7 +101,7 @@ class WithTransaction
 
                     if (
                         $e->hasErrorLabel('TransientTransactionError') &&
-                        !$this->isTransactionTimeLimitExceeded($startTime)
+                        ! $this->isTransactionTimeLimitExceeded($startTime)
                     ) {
                         // Restart the transaction, invoking the callback again
                         continue 2;

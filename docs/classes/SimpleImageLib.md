@@ -4,8 +4,11 @@
 
 A PHP class that makes working with images as simple as possible.
 
+
+
 * Full name: `\SimpleImageLib`
 * Parent class: [`\claviska\SimpleImage`](./claviska/SimpleImage.md)
+
 
 ## Constants
 
@@ -13,7 +16,9 @@ A PHP class that makes working with images as simple as possible.
 |:---------|:-----------|:-----|:------|
 |`ERR_AVIF_NOT_ENABLED`|public| |12|
 
+
 ## Methods
+
 
 ### fromDataUri
 
@@ -23,11 +28,21 @@ Loads an image from a data URI.
 public fromDataUri(string $uri): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string** | A data URI. |
+
+
+
 
 ***
 
@@ -39,11 +54,21 @@ Loads an image from a file.
 public fromFile(string $file): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** | The image file to load. |
+
+
+
 
 ***
 
@@ -55,12 +80,20 @@ Generates an image.
 protected generate(string $mimeType = null, int $quality = 100): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$mimeType` | **string** | The image format to output as a mime type (defaults to the original mime type). |
 | `$quality` | **int** | Image quality as a percentage (default 100). |
+
 
 **Return Value:**
 
@@ -70,7 +103,9 @@ Returns an array containing the image data and mime type ['data' => '', 'mimeTyp
 
 ***
 
+
 ## Inherited methods
+
 
 ### __construct
 
@@ -80,12 +115,22 @@ Creates a new SimpleImage object.
 public __construct(string $image = &#039;&#039;, array $flags = []): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$image` | **string** | An image file or a data URI to load. |
 | `$flags` | **array** | Optional override of default flags. |
+
+
+
 
 ***
 
@@ -97,6 +142,16 @@ Destroys the image resource.
 public __destruct(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setFlag
@@ -107,12 +162,22 @@ Set flag value.
 public setFlag(string $flag, bool $value): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flag` | **string** | Name of the flag to set. |
 | `$value` | **bool** | State of the flag. |
+
+
+
 
 ***
 
@@ -124,11 +189,21 @@ Get flag value.
 public getFlag(string $flag): bool|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flag` | **string** | Name of the flag to get. |
+
+
+
 
 ***
 
@@ -140,11 +215,21 @@ Loads an image from a data URI.
 public fromDataUri(string $uri): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string** | A data URI. |
+
+
+
 
 ***
 
@@ -156,11 +241,21 @@ Loads an image from a file.
 public fromFile(string $file): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** | The image file to load. |
+
+
+
 
 ***
 
@@ -172,6 +267,13 @@ Creates a new image.
 public fromNew(int $width, int $height, string|array $color = &#039;transparent&#039;): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -179,6 +281,9 @@ public fromNew(int $width, int $height, string|array $color = &#039;transparent&
 | `$width` | **int** | The width of the image. |
 | `$height` | **int** | The height of the image. |
 | `$color` | **string&#124;array** | Optional fill color for the new image (default &#039;transparent&#039;). |
+
+
+
 
 ***
 
@@ -190,11 +295,21 @@ Creates a new image from a string.
 public fromString(string $string): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** | The raw image data as a string. |
+
+
+
 
 ***
 
@@ -206,12 +321,20 @@ Generates an image.
 protected generate(string $mimeType = null, int $quality = 100): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$mimeType` | **string** | The image format to output as a mime type (defaults to the original mime type). |
 | `$quality` | **int** | Image quality as a percentage (default 100). |
+
 
 **Return Value:**
 
@@ -229,12 +352,20 @@ Generates a data URI.
 public toDataUri(string $mimeType = null, int $quality = 100): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$mimeType` | **string** | The image format to output as a mime type (defaults to the original mime type). |
 | `$quality` | **int** | Image quality as a percentage (default 100). |
+
 
 **Return Value:**
 
@@ -252,6 +383,13 @@ Forces the image to be downloaded to the clients machine. Must be called before 
 public toDownload(string $filename, string $mimeType = null, int $quality = 100): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -259,6 +397,9 @@ public toDownload(string $filename, string $mimeType = null, int $quality = 100)
 | `$filename` | **string** | The filename (without path) to send to the client (e.g. &#039;image.jpeg&#039;). |
 | `$mimeType` | **string** | The image format to output as a mime type (defaults to the original mime type). |
 | `$quality` | **int** | Image quality as a percentage (default 100). |
+
+
+
 
 ***
 
@@ -270,6 +411,13 @@ Writes the image to a file.
 public toFile(string $file, string $mimeType = null, int $quality = 100): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -277,6 +425,9 @@ public toFile(string $file, string $mimeType = null, int $quality = 100): \clavi
 | `$file` | **string** | The image format to output as a mime type (defaults to the original mime type). |
 | `$mimeType` | **string** | Image quality as a percentage (default 100). |
 | `$quality` | **int** | Image quality as a percentage (default 100). |
+
+
+
 
 ***
 
@@ -288,12 +439,22 @@ Outputs the image to the screen. Must be called before any output is sent to the
 public toScreen(string $mimeType = null, int $quality = 100): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$mimeType` | **string** | The image format to output as a mime type (defaults to the original mime type). |
 | `$quality` | **int** | Image quality as a percentage (default 100). |
+
+
+
 
 ***
 
@@ -305,12 +466,22 @@ Generates an image string.
 public toString(string $mimeType = null, int $quality = 100): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$mimeType` | **string** | The image format to output as a mime type (defaults to the original mime type). |
 | `$quality` | **int** | Image quality as a percentage (default 100). |
+
+
+
 
 ***
 
@@ -322,7 +493,12 @@ Ensures a numeric value is always within the min and max range.
 protected static keepWithin(int|float $value, int|float $min, int|float $max): int|float
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -331,6 +507,9 @@ protected static keepWithin(int|float $value, int|float $min, int|float $max): i
 | `$value` | **int&#124;float** | A numeric value to test. |
 | `$min` | **int&#124;float** | The minimum allowed value. |
 | `$max` | **int&#124;float** | The maximum allowed value. |
+
+
+
 
 ***
 
@@ -341,6 +520,14 @@ Gets the image's current aspect ratio.
 ```php
 public getAspectRatio(): float
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -358,6 +545,14 @@ Gets the image's exif data.
 public getExif(): array|null
 ```
 
+
+
+
+
+
+
+
+
 **Return Value:**
 
 Returns an array of exif data or null if no data is available.
@@ -374,6 +569,16 @@ Gets the image's current height.
 public getHeight(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getMimeType
@@ -384,6 +589,16 @@ Gets the mime type of the loaded image.
 public getMimeType(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getOrientation
@@ -393,6 +608,14 @@ Gets the image's current orientation.
 ```php
 public getOrientation(): string
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -410,6 +633,14 @@ Gets the resolution of the image
 public getResolution(): mixed
 ```
 
+
+
+
+
+
+
+
+
 **Return Value:**
 
 The resolution as an array of integers: [96, 96]
@@ -426,6 +657,16 @@ Gets the image's current width.
 public getWidth(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### imageCopyMergeAlpha
@@ -436,7 +677,12 @@ Same as PHP's imagecopymerge, but works with transparent images. Used internally
 protected static imageCopyMergeAlpha(resource $dstIm, resource $srcIm, int $dstX, int $dstY, int $srcX, int $srcY, int $srcW, int $srcH, int $pct): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -451,6 +697,7 @@ protected static imageCopyMergeAlpha(resource $dstIm, resource $srcIm, int $dstX
 | `$srcW` | **int** | Source width. |
 | `$srcH` | **int** | Source height. |
 | `$pct` | **int** |  |
+
 
 **Return Value:**
 
@@ -469,6 +716,16 @@ this method on images that don't have exif data (no changes will be made).
 public autoOrient(): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### bestFit
@@ -479,12 +736,22 @@ Proportionally resize the image to fit inside a specific width and height.
 public bestFit(int $maxWidth, int $maxHeight): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$maxWidth` | **int** | The maximum width the image can be. |
 | `$maxHeight` | **int** | The maximum height the image can be. |
+
+
+
 
 ***
 
@@ -496,6 +763,13 @@ Crop the image.
 public crop(int|float $x1, int|float $y1, int|float $x2, int|float $y2): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -504,6 +778,9 @@ public crop(int|float $x1, int|float $y1, int|float $x2, int|float $y2): \clavis
 | `$y1` | **int&#124;float** | Top left y coordinate. |
 | `$x2` | **int&#124;float** | Bottom right x coordinate. |
 | `$y2` | **int&#124;float** | Bottom right x coordinate. |
+
+
+
 
 ***
 
@@ -515,12 +792,22 @@ Applies a duotone filter to the image.
 public duotone(string|array $lightColor, string|array $darkColor): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$lightColor` | **string&#124;array** | The lightest color in the duotone. |
 | `$darkColor` | **string&#124;array** | The darkest color in the duotone. |
+
+
+
 
 ***
 
@@ -532,13 +819,23 @@ Proportionally resize the image to a specific height.
 public fitToHeight(int $height): \claviska\SimpleImage
 ```
 
+
+
+
+
+
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$height` | **int** |  |
+
+
+
 
 ***
 
@@ -550,13 +847,23 @@ Proportionally resize the image to a specific width.
 public fitToWidth(int $width): \claviska\SimpleImage
 ```
 
+
+
+
+
+
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$width` | **int** | The width to resize the image to. |
+
+
+
 
 ***
 
@@ -568,11 +875,21 @@ Flip the image horizontally or vertically.
 public flip(string $direction): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$direction` | **string** | The direction to flip: x&amp;#124;y&amp;#124;both. |
+
+
+
 
 ***
 
@@ -584,12 +901,22 @@ Reduces the image to a maximum number of colors.
 public maxColors(int $max, bool $dither = true): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$max` | **int** | The maximum number of colors to use. |
 | `$dither` | **bool** | Whether or not to use a dithering effect (default true). |
+
+
+
 
 ***
 
@@ -600,6 +927,13 @@ Place an image on top of the current image.
 ```php
 public overlay(string|\claviska\SimpleImage $overlay, string $anchor = &#039;center&#039;, float $opacity = 1, int $xOffset, int $yOffset, bool $calculateOffsetFromEdge = false): \claviska\SimpleImage
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -612,16 +946,25 @@ public overlay(string|\claviska\SimpleImage $overlay, string $anchor = &#039;cen
 | `$yOffset` | **int** | Vertical offset in pixels (default 0). |
 | `$calculateOffsetFromEdge` | **bool** | Calculate Offset referring to the edges of the image (default false). |
 
+
+
+
 ***
 
 ### resize
 
-Resize an image to the specified dimensions. If only one dimension is specified, the image will be resized
-proportionally.
+Resize an image to the specified dimensions. If only one dimension is specified, the image will be resized proportionally.
 
 ```php
 public resize(int $width = null, int $height = null): \claviska\SimpleImage
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -629,6 +972,9 @@ public resize(int $width = null, int $height = null): \claviska\SimpleImage
 |-----------|------|-------------|
 | `$width` | **int** | The new image width. |
 | `$height` | **int** | The new image height. |
+
+
+
 
 ***
 
@@ -640,12 +986,22 @@ Sets an image's resolution, as per https://www.php.net/manual/en/function.imager
 public resolution(int $res_x, int $res_y = null): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$res_x` | **int** | The horizontal resolution in DPI. |
 | `$res_y` | **int** | The vertical resolution in DPI |
+
+
+
 
 ***
 
@@ -657,12 +1013,22 @@ Rotates the image.
 public rotate(int $angle, string|array $backgroundColor = &#039;transparent&#039;): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$angle` | **int** | The angle of rotation (-360 - 360). |
 | `$backgroundColor` | **string&#124;array** | The background color to use for the uncovered zone area after rotation (default &#039;transparent&#039;). |
+
+
+
 
 ***
 
@@ -674,6 +1040,13 @@ Adds text to the image.
 public text(string $text, array $options, array& $boundary = null): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -681,6 +1054,9 @@ public text(string $text, array $options, array& $boundary = null): \claviska\Si
 | `$text` | **string** | The desired text. |
 | `$options` | **array** | An array of options.<br />- fontFile* (string) - The TrueType (or compatible) font file to use.<br />- size (integer) - The size of the font in pixels (default 12).<br />- color (string&amp;#124;array) - The text color (default black).<br />- anchor (string) - The anchor point: &#039;center&#039;, &#039;top&#039;, &#039;bottom&#039;, &#039;left&#039;, &#039;right&#039;, &#039;top left&#039;, &#039;top right&#039;, &#039;bottom left&#039;, &#039;bottom right&#039; (default &#039;center&#039;).<br />- xOffset (integer) - The horizontal offset in pixels (default 0).<br />- yOffset (integer) - The vertical offset in pixels (default 0).<br />- shadow (array) - Text shadow params.<br />   - x* (integer) - Horizontal offset in pixels.<br />   - y* (integer) - Vertical offset in pixels.<br />   - color* (string&amp;#124;array) - The text shadow color.<br />- $calculateOffsetFromEdge (bool) - Calculate offsets from the edge of the image (default false).<br />- $baselineAlign (bool) - Align the text font with the baseline. (default true). |
 | `$boundary` | **array** | If passed, this variable will contain an array with coordinates that surround the text: [x1, y1, x2, y2, width, height].<br />This can be used for calculating the text&#039;s position after it gets added to the image. |
+
+
+
 
 ***
 
@@ -692,12 +1068,22 @@ Adds text with a line break to the image.
 public textBox(string $text, array $options): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$text` | **string** | The desired text. |
 | `$options` | **array** | An array of options.<br />- fontFile* (string) - The TrueType (or compatible) font file to use.<br />- size (integer) - The size of the font in pixels (default 12).<br />- color (string&amp;#124;array) - The text color (default black).<br />- anchor (string) - The anchor point: &#039;center&#039;, &#039;top&#039;, &#039;bottom&#039;, &#039;left&#039;, &#039;right&#039;, &#039;top left&#039;, &#039;top right&#039;, &#039;bottom left&#039;, &#039;bottom right&#039; (default &#039;center&#039;).<br />- xOffset (integer) - The horizontal offset in pixels (default 0). Has no effect when anchor is &#039;center&#039;.<br />- yOffset (integer) - The vertical offset in pixels (default 0). Has no effect when anchor is &#039;center&#039;.<br />- shadow (array) - Text shadow params.<br />  - x* (integer) - Horizontal offset in pixels.<br />  - y* (integer) - Vertical offset in pixels.<br />  - color* (string&amp;#124;array) - The text shadow color.<br />- $calculateOffsetFromEdge (bool) - Calculate offsets from the edge of the image (default false).<br />- width (int) - Width of text box (default image width).<br />- align (string) - How to align text: &#039;left&#039;, &#039;right&#039;, &#039;center&#039;, &#039;justify&#039; (default &#039;left&#039;).<br />- leading (float) - Increase/decrease spacing between lines of text (default 0).<br />- opacity (float) - The opacity level of the text 0-1 (default 1). |
+
+
+
 
 ***
 
@@ -709,6 +1095,13 @@ Receives a text and breaks into LINES.
 private textSeparateLines(int $text, string $fontFile, int $fontSize, int $maxWidth): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -717,6 +1110,9 @@ private textSeparateLines(int $text, string $fontFile, int $fontSize, int $maxWi
 | `$fontFile` | **string** |  |
 | `$fontSize` | **int** |  |
 | `$maxWidth` | **int** |  |
+
+
+
 
 ***
 
@@ -728,11 +1124,21 @@ Receives a text and breaks into WORD / SPACE / NEW LINE.
 private textSeparateWords(int $text): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$text` | **int** |  |
+
+
+
 
 ***
 
@@ -746,6 +1152,13 @@ for generating thumbnail images.
 public thumbnail(int $width, int $height, string $anchor = &#039;center&#039;): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -753,6 +1166,9 @@ public thumbnail(int $width, int $height, string $anchor = &#039;center&#039;): 
 | `$width` | **int** | The thumbnail width. |
 | `$height` | **int** | The thumbnail height. |
 | `$anchor` | **string** | The anchor point: &#039;center&#039;, &#039;top&#039;, &#039;bottom&#039;, &#039;left&#039;, &#039;right&#039;, &#039;top left&#039;, &#039;top right&#039;, &#039;bottom left&#039;, &#039;bottom right&#039; (default &#039;center&#039;). |
+
+
+
 
 ***
 
@@ -763,6 +1179,13 @@ Draws an arc.
 ```php
 public arc(int $x, int $y, int $width, int $height, int $start, int $end, string|array $color, int|string $thickness = 1): \claviska\SimpleImage
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -777,6 +1200,9 @@ public arc(int $x, int $y, int $width, int $height, int $start, int $end, string
 | `$color` | **string&#124;array** | The arc color. |
 | `$thickness` | **int&#124;string** | Line thickness in pixels or &#039;filled&#039; (default 1). |
 
+
+
+
 ***
 
 ### border
@@ -787,12 +1213,22 @@ Draws a border around the image.
 public border(string|array $color, int $thickness = 1): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$color` | **string&#124;array** | The border color. |
 | `$thickness` | **int** | The thickness of the border (default 1). |
+
+
+
 
 ***
 
@@ -804,6 +1240,13 @@ Draws a single pixel dot.
 public dot(int $x, int $y, string|array $color): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -811,6 +1254,9 @@ public dot(int $x, int $y, string|array $color): \claviska\SimpleImage
 | `$x` | **int** | The x coordinate of the dot. |
 | `$y` | **int** | The y coordinate of the dot. |
 | `$color` | **string&#124;array** | The dot color. |
+
+
+
 
 ***
 
@@ -821,6 +1267,13 @@ Draws an ellipse.
 ```php
 public ellipse(int $x, int $y, int $width, int $height, string|array $color, int|array $thickness = 1): \claviska\SimpleImage
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -833,6 +1286,9 @@ public ellipse(int $x, int $y, int $width, int $height, string|array $color, int
 | `$color` | **string&#124;array** | The ellipse color. |
 | `$thickness` | **int&#124;array** | Line thickness in pixels or &#039;filled&#039; (default 1). |
 
+
+
+
 ***
 
 ### fill
@@ -843,11 +1299,21 @@ Fills the image with a solid color.
 public fill(string|array $color): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$color` | **string&#124;array** | The fill color. |
+
+
+
 
 ***
 
@@ -858,6 +1324,13 @@ Draws a line.
 ```php
 public line(int $x1, int $y1, int $x2, int $y2, string|array $color, int $thickness = 1): \claviska\SimpleImage
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -870,6 +1343,9 @@ public line(int $x1, int $y1, int $x2, int $y2, string|array $color, int $thickn
 | `$color` | **string&#124;array** | The line color. |
 | `$thickness` | **int** | The line thickness (default 1). |
 
+
+
+
 ***
 
 ### polygon
@@ -880,6 +1356,13 @@ Draws a polygon.
 public polygon(array $vertices, string|array $color, int|array $thickness = 1): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -887,6 +1370,9 @@ public polygon(array $vertices, string|array $color, int|array $thickness = 1): 
 | `$vertices` | **array** | The polygon&#039;s vertices in an array of x/y arrays.<br />Example:<br />    [<br />        [&#039;x&#039; =&gt; x1, &#039;y&#039; =&gt; y1],<br />        [&#039;x&#039; =&gt; x2, &#039;y&#039; =&gt; y2],<br />        [&#039;x&#039; =&gt; xN, &#039;y&#039; =&gt; yN]<br />    ] |
 | `$color` | **string&#124;array** | The polygon color. |
 | `$thickness` | **int&#124;array** | Line thickness in pixels or &#039;filled&#039; (default 1). |
+
+
+
 
 ***
 
@@ -897,6 +1383,13 @@ Draws a rectangle.
 ```php
 public rectangle(int $x1, int $y1, int $x2, int $y2, string|array $color, int|array $thickness = 1): \claviska\SimpleImage
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -909,6 +1402,9 @@ public rectangle(int $x1, int $y1, int $x2, int $y2, string|array $color, int|ar
 | `$color` | **string&#124;array** | The rectangle color. |
 | `$thickness` | **int&#124;array** | Line thickness in pixels or &#039;filled&#039; (default 1). |
 
+
+
+
 ***
 
 ### roundedRectangle
@@ -918,6 +1414,13 @@ Draws a rounded rectangle.
 ```php
 public roundedRectangle(int $x1, int $y1, int $x2, int $y2, int $radius, string|array $color, int|array $thickness = 1): \claviska\SimpleImage
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -931,6 +1434,9 @@ public roundedRectangle(int $x1, int $y1, int $x2, int $y2, int $radius, string|
 | `$color` | **string&#124;array** | The rectangle color. |
 | `$thickness` | **int&#124;array** | Line thickness in pixels or &#039;filled&#039; (default 1). |
 
+
+
+
 ***
 
 ### excludeInsideColor
@@ -943,6 +1449,11 @@ private excludeInsideColor(\claviska\number $x, \claviska\number $y, string|arra
 
 Used for roundedRectangle(), ellipse() and arc()
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -950,6 +1461,9 @@ Used for roundedRectangle(), ellipse() and arc()
 | `$x` | **\claviska\number** | certer x of rectangle. |
 | `$y` | **\claviska\number** | certer y of rectangle. |
 | `$borderColor` | **string&#124;array** | The color of border. |
+
+
+
 
 ***
 
@@ -961,12 +1475,22 @@ Applies the blur filter.
 public blur(string $type = &#039;selective&#039;, \claviska\number $passes = 1): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | The blur algorithm to use: &#039;selective&#039;, &#039;gaussian&#039; (default &#039;gaussian&#039;). |
 | `$passes` | **\claviska\number** | The number of time to apply the filter, enhancing the effect (default 1). |
+
+
+
 
 ***
 
@@ -978,11 +1502,21 @@ Applies the brightness filter to brighten the image.
 public brighten(int $percentage): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$percentage` | **int** | Percentage to brighten the image (0 - 100). |
+
+
+
 
 ***
 
@@ -994,11 +1528,21 @@ Applies the colorize filter.
 public colorize(string|array $color): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$color` | **string&#124;array** | The filter color. |
+
+
+
 
 ***
 
@@ -1010,11 +1554,21 @@ Applies the contrast filter.
 public contrast(int $percentage): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$percentage` | **int** | Percentage to adjust (-100 - 100). |
+
+
+
 
 ***
 
@@ -1026,11 +1580,21 @@ Applies the brightness filter to darken the image.
 public darken(int $percentage): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$percentage` | **int** | Percentage to darken the image (0 - 100). |
+
+
+
 
 ***
 
@@ -1042,6 +1606,16 @@ Applies the desaturate (grayscale) filter.
 public desaturate(): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### edgeDetect
@@ -1051,6 +1625,16 @@ Applies the edge detect filter.
 ```php
 public edgeDetect(): \claviska\SimpleImage
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -1062,6 +1646,16 @@ Applies the emboss filter.
 public emboss(): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### invert
@@ -1071,6 +1665,16 @@ Inverts the image's colors.
 ```php
 public invert(): \claviska\SimpleImage
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -1082,11 +1686,21 @@ Changes the image's opacity level.
 public opacity(float $opacity): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$opacity` | **float** | The desired opacity level (0 - 1). |
+
+
+
 
 ***
 
@@ -1098,11 +1712,21 @@ Applies the pixelate filter.
 public pixelate(int $size = 10): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$size` | **int** | The size of the blocks in pixels (default 10). |
+
+
+
 
 ***
 
@@ -1114,6 +1738,16 @@ Simulates a sepia effect by desaturating the image and applying a sepia tone.
 public sepia(): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### sharpen
@@ -1124,11 +1758,21 @@ Sharpens the image.
 public sharpen(int $amount = 50): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$amount` | **int** | Sharpening amount (default 50). |
+
+
+
 
 ***
 
@@ -1140,6 +1784,16 @@ Applies the mean remove filter to produce a sketch effect.
 public sketch(): \claviska\SimpleImage
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### allocateColor
@@ -1150,11 +1804,21 @@ Converts a "friendly color" into a color identifier for use with GD's image func
 protected allocateColor(string|array $color): int
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$color` | **string&#124;array** | The color to allocate. |
+
+
+
 
 ***
 
@@ -1166,7 +1830,12 @@ Adjusts a color by increasing/decreasing red/green/blue/alpha values independent
 public static adjustColor(string|array $color, int $red, int $green, int $blue, int $alpha): int[]
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -1177,6 +1846,7 @@ public static adjustColor(string|array $color, int $red, int $green, int $blue, 
 | `$green` | **int** | Green adjustment (-255 - 255). |
 | `$blue` | **int** | Blue adjustment (-255 - 255). |
 | `$alpha` | **int** | Alpha adjustment (-1 - 1). |
+
 
 **Return Value:**
 
@@ -1194,7 +1864,12 @@ Darkens a color.
 public static darkenColor(string|array $color, int $amount): int[]
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -1202,6 +1877,7 @@ public static darkenColor(string|array $color, int $amount): int[]
 |-----------|------|-------------|
 | `$color` | **string&#124;array** | The color to darken. |
 | `$amount` | **int** | Amount to darken (0 - 255). |
+
 
 **Return Value:**
 
@@ -1221,12 +1897,20 @@ automatically.
 public extractColors(int $count = 5, string|array $backgroundColor = null): int[]
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$count` | **int** | The max number of colors to extract (default 5). |
 | `$backgroundColor` | **string&#124;array** | By default any pixel with alpha value greater than zero will<br />be discarded. This is because transparent colors are not perceived as is. For example, fully<br />transparent black would be seen white on a white background. So if you want to take<br />transparency into account, you have to specify a default background color. |
+
 
 **Return Value:**
 
@@ -1244,12 +1928,20 @@ Gets the RGBA value of a single pixel.
 public getColorAt(int $x, int $y): int[]
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$x` | **int** | The horizontal position of the pixel. |
 | `$y` | **int** | The vertical position of the pixel. |
+
 
 **Return Value:**
 
@@ -1267,7 +1959,12 @@ Lightens a color.
 public static lightenColor(string|array $color, int $amount): int[]
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -1275,6 +1972,7 @@ public static lightenColor(string|array $color, int $amount): int[]
 |-----------|------|-------------|
 | `$color` | **string&#124;array** | The color to lighten. |
 | `$amount` | **int** | Amount to lighten (0 - 255). |
+
 
 **Return Value:**
 
@@ -1292,13 +1990,19 @@ Normalizes a hex or array color value to a well-formatted RGBA array.
 public static normalizeColor(string|array $color): array
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$color` | **string&#124;array** | A CSS color name, hex string, or an array [red, green, blue, alpha].<br />You can pipe alpha transparency through hex strings and color names. For example:<br />    #fff&amp;#124;0.50 &lt;-- 50% white<br />    red&amp;#124;0.25 &lt;-- 25% red |
+
 
 **Return Value:**
 

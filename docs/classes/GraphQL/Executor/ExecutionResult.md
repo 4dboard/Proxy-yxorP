@@ -12,9 +12,12 @@ serializable array using `toArray()`
 
 * Full name: `\GraphQL\Executor\ExecutionResult`
 * This class implements:
-  [`\JsonSerializable`](../../JsonSerializable.md)
+[`\JsonSerializable`](../../JsonSerializable.md)
+
+
 
 ## Properties
+
 
 ### data
 
@@ -23,6 +26,11 @@ Data collected from resolvers during query execution
 ```php
 public array $data
 ```
+
+
+
+
+
 
 ***
 
@@ -59,27 +67,51 @@ Conforms to
 
 ### errorFormatter
 
+
+
 ```php
 private callable $errorFormatter
 ```
+
+
+
+
+
 
 ***
 
 ### errorsHandler
 
+
+
 ```php
 private callable $errorsHandler
 ```
+
+
+
+
+
 
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(array $data = null, \GraphQL\Error\Error[] $errors = [], array $extensions = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -88,6 +120,9 @@ public __construct(array $data = null, \GraphQL\Error\Error[] $errors = [], arra
 | `$data` | **array** |  |
 | `$errors` | **\GraphQL\Error\Error[]** |  |
 | `$extensions` | **array** |  |
+
+
+
 
 ***
 
@@ -105,15 +140,23 @@ Default formatter is "GraphQL\Error\FormattedError::createFromException"
 
 Expected returned value must be an array:
 array(
-'message' => 'errorMessage',
-// ... other keys
+   'message' => 'errorMessage',
+   // ... other keys
 );
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$errorFormatter` | **callable** |  |
+
+
+
 
 ***
 
@@ -129,8 +172,13 @@ Expected handler signature is: function (array $errors, callable $formatter): ar
 
 Default handler is:
 function (array $errors, callable $formatter) {
-return array_map($formatter, $errors);
+    return array_map($formatter, $errors);
 }
+
+
+
+
+
 
 **Parameters:**
 
@@ -138,13 +186,28 @@ return array_map($formatter, $errors);
 |-----------|------|-------------|
 | `$handler` | **callable** |  |
 
+
+
+
 ***
 
 ### jsonSerialize
 
+
+
 ```php
 public jsonSerialize(): array
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -162,11 +225,19 @@ If debug argument is passed, output of error formatter is enriched which debuggi
 
 $debug argument must sum of flags from @see \GraphQL\Error\DebugFlag
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$debug` | **int** |  |
+
+
+
 
 ***
 

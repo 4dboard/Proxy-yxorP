@@ -2,83 +2,154 @@
 
 # request
 
+
+
+
+
 * Full name: `\yxorP\app\lib\http\request`
+
+
 
 ## Properties
 
+
 ### params
+
+
 
 ```php
 public \yxorP\app\lib\http\ParamStore $params
 ```
 
+
+
+
+
+
 ***
 
 ### headers
+
+
 
 ```php
 public \yxorP\app\lib\http\ParamStore $headers
 ```
 
+
+
+
+
+
 ***
 
 ### post
+
+
 
 ```php
 public \yxorP\app\lib\http\ParamStore $post
 ```
 
+
+
+
+
+
 ***
 
 ### get
+
+
 
 ```php
 public \yxorP\app\lib\http\ParamStore $get
 ```
 
+
+
+
+
+
 ***
 
 ### files
+
+
 
 ```php
 public \yxorP\app\lib\http\ParamStore $files
 ```
 
+
+
+
+
+
 ***
 
 ### method
+
+
 
 ```php
 private string $method
 ```
 
+
+
+
+
+
 ***
 
 ### protocol_version
+
+
 
 ```php
 private string $protocol_version
 ```
 
+
+
+
+
+
 ***
 
 ### body
+
+
 
 ```php
 private $body
 ```
 
+
+
+
+
+
 ***
 
 ### prepared_body
+
+
 
 ```php
 private $prepared_body
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -88,6 +159,13 @@ The constructor of the class.
 public __construct(mixed $method, mixed $url, mixed $body = null): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -95,6 +173,9 @@ public __construct(mixed $method, mixed $url, mixed $body = null): mixed
 | `$method` | **mixed** |  |
 | `$url` | **mixed** |  |
 | `$body` | **mixed** |  |
+
+
+
 
 ***
 
@@ -106,11 +187,21 @@ Setting the URL of the request.
 public setUrl(mixed $url): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$url` | **mixed** |  |
+
+
+
 
 ***
 
@@ -122,13 +213,21 @@ Parsing a query string into an array.
 public static parseQuery(mixed $query): array
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$query` | **mixed** |  |
+
+
+
 
 ***
 
@@ -140,12 +239,22 @@ A method that is called by the wrapper class.
 public setBody(mixed $body, mixed $content_type): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$body` | **mixed** |  |
 | `$content_type` | **mixed** |  |
+
+
+
 
 ***
 
@@ -157,6 +266,16 @@ Setting the body of the request.
 public prepare(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### generateBoundary
@@ -167,7 +286,15 @@ Preparing the body of the request.
 private static generateBoundary(): string
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -179,7 +306,12 @@ Generating a boundary for the multipart/form-data request.
 public static buildPostBody(mixed $fields, mixed $files, mixed $boundary = null): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -188,6 +320,9 @@ public static buildPostBody(mixed $fields, mixed $files, mixed $boundary = null)
 | `$fields` | **mixed** |  |
 | `$files` | **mixed** |  |
 | `$boundary` | **mixed** |  |
+
+
+
 
 ***
 
@@ -199,11 +334,21 @@ Building the body of the request.
 private detectContentType(mixed $data): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
+
+
+
 
 ***
 
@@ -215,7 +360,15 @@ Detecting the content type of the request.
 public static createFromGlobals(): \yxorP\app\lib\http\request
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -227,6 +380,16 @@ A getter method for the `$method` property.
 public getMethod(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setMethod
@@ -237,11 +400,21 @@ Setting the method of the request.
 public setMethod(mixed $method): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **mixed** |  |
+
+
+
 
 ***
 
@@ -253,6 +426,16 @@ A getter method for the `$url` property.
 public getUrl(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getProtocolVersion
@@ -262,6 +445,16 @@ A getter method for the `$protocol_version` property.
 ```php
 public getProtocolVersion(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -273,6 +466,16 @@ Getting the raw headers of the request.
 public getRawHeaders(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getRawBody
@@ -283,6 +486,16 @@ Returning the prepared body of the request.
 public getRawBody(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getUri
@@ -292,6 +505,16 @@ An alias for `public function getUrl()`.
 ```php
 public getUri(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

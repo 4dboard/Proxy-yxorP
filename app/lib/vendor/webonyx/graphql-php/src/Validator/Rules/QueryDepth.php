@@ -31,7 +31,7 @@ class QueryDepth extends QuerySecurityRule
             $context,
             [
                 NodeKind::OPERATION_DEFINITION => [
-                    'leave' => function (OperationDefinitionNode $operationDefinition) use ($context): void {
+                    'leave' => function (OperationDefinitionNode $operationDefinition) use ($context) : void {
                         $maxDepth = $this->fieldDepth($operationDefinition);
 
                         if ($maxDepth <= $this->getMaxQueryDepth()) {
@@ -103,7 +103,7 @@ class QueryDepth extends QuerySecurityRule
     {
         $this->checkIfGreaterOrEqualToZero('maxQueryDepth', $maxQueryDepth);
 
-        $this->maxQueryDepth = (int)$maxQueryDepth;
+        $this->maxQueryDepth = (int) $maxQueryDepth;
     }
 
     public static function maxQueryDepthErrorMessage($max, $count)

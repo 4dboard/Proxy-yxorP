@@ -87,9 +87,28 @@ class FormatInformation
     }
 
     /**
+     * Checks how many bits are different between two integers.
+     */
+    public static function numBitsDiffering(int $a, int $b) : int
+    {
+        $a ^= $b;
+
+        return (
+            self::BITS_SET_IN_HALF_BYTE[$a & 0xf]
+            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 4) & 0xf)]
+            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 8) & 0xf)]
+            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 12) & 0xf)]
+            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 16) & 0xf)]
+            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 20) & 0xf)]
+            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 24) & 0xf)]
+            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 28) & 0xf)]
+        );
+    }
+
+    /**
      * Decodes format information.
      */
-    public static function decodeFormatInformation(int $maskedFormatInfo1, int $maskedFormatInfo2): ?self
+    public static function decodeFormatInformation(int $maskedFormatInfo1, int $maskedFormatInfo2) : ?self
     {
         $formatInfo = self::doDecodeFormatInformation($maskedFormatInfo1, $maskedFormatInfo2);
 
@@ -108,7 +127,7 @@ class FormatInformation
     /**
      * Internal method for decoding format information.
      */
-    private static function doDecodeFormatInformation(int $maskedFormatInfo1, int $maskedFormatInfo2): ?self
+    private static function doDecodeFormatInformation(int $maskedFormatInfo1, int $maskedFormatInfo2) : ?self
     {
         $bestDifference = PHP_INT_MAX;
         $bestFormatInfo = 0;
@@ -148,28 +167,9 @@ class FormatInformation
     }
 
     /**
-     * Checks how many bits are different between two integers.
-     */
-    public static function numBitsDiffering(int $a, int $b): int
-    {
-        $a ^= $b;
-
-        return (
-            self::BITS_SET_IN_HALF_BYTE[$a & 0xf]
-            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 4) & 0xf)]
-            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 8) & 0xf)]
-            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 12) & 0xf)]
-            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 16) & 0xf)]
-            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 20) & 0xf)]
-            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 24) & 0xf)]
-            + self::BITS_SET_IN_HALF_BYTE[(BitUtils::unsignedRightShift($a, 28) & 0xf)]
-        );
-    }
-
-    /**
      * Returns the error correction level.
      */
-    public function getErrorCorrectionLevel(): ErrorCorrectionLevel
+    public function getErrorCorrectionLevel() : ErrorCorrectionLevel
     {
         return $this->ecLevel;
     }
@@ -177,7 +177,7 @@ class FormatInformation
     /**
      * Returns the data mask.
      */
-    public function getDataMask(): int
+    public function getDataMask() : int
     {
         return $this->dataMask;
     }
@@ -185,7 +185,7 @@ class FormatInformation
     /**
      * Hashes the code of the EC level.
      */
-    public function hashCode(): int
+    public function hashCode() : int
     {
         return ($this->ecLevel->getBits() << 3) | $this->dataMask;
     }
@@ -193,7 +193,7 @@ class FormatInformation
     /**
      * Verifies if this instance equals another one.
      */
-    public function equals(self $other): bool
+    public function equals(self $other) : bool
     {
         return (
             $this->ecLevel === $other->ecLevel

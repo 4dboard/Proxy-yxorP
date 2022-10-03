@@ -8,12 +8,6 @@ namespace PhpDocumentorMarkdown\Example\Pizza;
 class Sauce
 {
     /**
-     * Tomato supplier.
-     *
-     * @var string
-     */
-    public static string $tomatoSupplier;
-    /**
      * Sauce name.
      *
      * @var string
@@ -21,7 +15,14 @@ class Sauce
     protected string $name;
 
     /**
-     * @param string $name
+     * Tomato supplier.
+     *
+     * @var string
+     */
+    public static string $tomatoSupplier;
+
+    /**
+     * @param  string  $name
      */
     public function __construct(string $name)
     {

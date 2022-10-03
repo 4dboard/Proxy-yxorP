@@ -5,14 +5,24 @@ namespace App\GraphQL\Types;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 
-class FieldTypes
-{
+class FieldTypes {
 
     protected static $types = [];
     protected static $names = [];
 
-    public static function buildFieldsDefinitions($meta)
-    {
+    private static function getName($name) {
+
+        if (!isset(self::$names[$name])) {
+            self::$names[$name] = 0;
+        } else {
+            self::$names[$name]++;
+            $name .= self::$names[$name];
+        }
+
+        return $name;
+    }
+
+    public static function buildFieldsDefinitions($meta) {
 
         $fields = [];
 
@@ -37,8 +47,7 @@ class FieldTypes
         return $fields;
     }
 
-    protected static function getType($field)
-    {
+    protected static function getType($field) {
 
         $def = [];
 
@@ -64,7 +73,7 @@ class FieldTypes
                 break;
             case 'set':
                 $def['type'] = new ObjectType([
-                    'name' => self::getName('Set' . ucfirst($field['name'])),
+                    'name' => self::getName('Set'.ucfirst($field['name'])),
                     'fields' => self::buildFieldsDefinitions($field['opts'])
                 ]);
                 break;
@@ -76,21 +85,8 @@ class FieldTypes
         return count($def) ? $def : null;
     }
 
-    public static function instance($field)
-    {
+
+    public static function instance($field) {
         self::getType($field);
-    }
-
-    private static function getName($name)
-    {
-
-        if (!isset(self::$names[$name])) {
-            self::$names[$name] = 0;
-        } else {
-            self::$names[$name]++;
-            $name .= self::$names[$name];
-        }
-
-        return $name;
     }
 }

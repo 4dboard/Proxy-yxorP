@@ -2,7 +2,12 @@
 
 # ProgressIndicator
 
+
+
+
+
 * Full name: `\Symfony\Component\Console\Helper\ProgressIndicator`
+
 
 ## Constants
 
@@ -12,95 +17,174 @@
 
 ## Properties
 
+
 ### output
+
+
 
 ```php
 private $output
 ```
 
+
+
+
+
+
 ***
 
 ### startTime
+
+
 
 ```php
 private $startTime
 ```
 
+
+
+
+
+
 ***
 
 ### format
+
+
 
 ```php
 private $format
 ```
 
+
+
+
+
+
 ***
 
 ### message
+
+
 
 ```php
 private $message
 ```
 
+
+
+
+
+
 ***
 
 ### indicatorValues
+
+
 
 ```php
 private $indicatorValues
 ```
 
+
+
+
+
+
 ***
 
 ### indicatorCurrent
+
+
 
 ```php
 private $indicatorCurrent
 ```
 
+
+
+
+
+
 ***
 
 ### indicatorChangeInterval
+
+
 
 ```php
 private $indicatorChangeInterval
 ```
 
+
+
+
+
+
 ***
 
 ### indicatorUpdateTime
+
+
 
 ```php
 private $indicatorUpdateTime
 ```
 
+
+
+
+
+
 ***
 
 ### started
+
+
 
 ```php
 private $started
 ```
 
+
+
+
+
+
 ***
 
 ### formatters
+
+
 
 ```php
 private static array&lt;string,callable&gt; $formatters
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Symfony\Component\Console\Output\OutputInterface $output, string $format = null, int $indicatorChangeInterval = 100, array|null $indicatorValues = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -110,6 +194,9 @@ public __construct(\Symfony\Component\Console\Output\OutputInterface $output, st
 | `$format` | **string** |  |
 | `$indicatorChangeInterval` | **int** | Change interval in milliseconds |
 | `$indicatorValues` | **array&#124;null** | Animated indicator characters |
+
+
+
 
 ***
 
@@ -121,11 +208,21 @@ Sets the current indicator message.
 public setMessage(?string $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **?string** |  |
+
+
+
 
 ***
 
@@ -137,11 +234,21 @@ Starts the indicator output.
 public start(string $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
+
+
+
 
 ***
 
@@ -153,6 +260,16 @@ Advances the indicator.
 public advance(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### finish
@@ -163,11 +280,21 @@ Finish the indicator with message.
 public finish( $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **** |  |
+
+
+
 
 ***
 
@@ -179,13 +306,21 @@ Gets the format for a given name.
 public static getFormatDefinition(string $name): string|null
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 
@@ -201,12 +336,18 @@ This method also allow you to override an existing placeholder.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$callable` | **callable** |  |
+
+
+
 
 ***
 
@@ -218,7 +359,12 @@ Gets the placeholder formatter for a given name (including the delimiter char li
 public static getPlaceholderFormatterDefinition(string $name): callable|null
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -226,21 +372,48 @@ public static getPlaceholderFormatterDefinition(string $name): callable|null
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
+
+
+
 ***
 
 ### display
+
+
 
 ```php
 private display(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### determineBestFormat
 
+
+
 ```php
 private determineBestFormat(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -252,29 +425,61 @@ Overwrites a previous message to the output.
 private overwrite(string $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
 
+
+
+
 ***
 
 ### getCurrentTimeInMilliseconds
+
+
 
 ```php
 private getCurrentTimeInMilliseconds(): float
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### initPlaceholderFormatters
+
+
 
 ```php
 private static initPlaceholderFormatters(): array
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 

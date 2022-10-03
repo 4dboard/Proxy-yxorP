@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace BaconQrCode\Renderer;
 
@@ -32,7 +32,7 @@ final class ImageRenderer implements RendererInterface
     /**
      * @throws InvalidArgumentException if matrix width doesn't match height
      */
-    public function render(QrCode $qrCode): string
+    public function render(QrCode $qrCode) : string
     {
         $size = $this->rendererStyle->getSize();
         $margin = $this->rendererStyle->getMargin();
@@ -48,8 +48,8 @@ final class ImageRenderer implements RendererInterface
         $fill = $this->rendererStyle->getFill();
 
         $this->imageBackEnd->new($size, $fill->getBackgroundColor());
-        $this->imageBackEnd->scale((float)$moduleSize);
-        $this->imageBackEnd->translate((float)$margin, (float)$margin);
+        $this->imageBackEnd->scale((float) $moduleSize);
+        $this->imageBackEnd->translate((float) $margin, (float) $margin);
 
         $module = $this->rendererStyle->getModule();
         $moduleMatrix = clone $matrix;
@@ -72,7 +72,7 @@ final class ImageRenderer implements RendererInterface
         return $this->imageBackEnd->done();
     }
 
-    private function drawEyes(int $matrixSize, Path $modulePath): Path
+    private function drawEyes(int $matrixSize, Path $modulePath) : Path
     {
         $fill = $this->rendererStyle->getFill();
 
@@ -112,15 +112,14 @@ final class ImageRenderer implements RendererInterface
     }
 
     private function drawEye(
-        Path    $externalPath,
-        Path    $internalPath,
+        Path $externalPath,
+        Path $internalPath,
         EyeFill $fill,
-        float   $xTranslation,
-        float   $yTranslation,
-        int     $rotation,
-        Path    $modulePath
-    ): Path
-    {
+        float $xTranslation,
+        float $yTranslation,
+        int $rotation,
+        Path $modulePath
+    ) : Path {
         if ($fill->inheritsBothColors()) {
             return $modulePath
                 ->append($externalPath->translate($xTranslation, $yTranslation))

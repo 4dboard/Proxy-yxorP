@@ -25,6 +25,7 @@ use MongoDB\Driver\WriteConcern;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\UnsupportedException;
 use MongoDB\Model\IndexInput;
+
 use function array_map;
 use function is_array;
 use function is_integer;
@@ -73,10 +74,10 @@ class CreateIndexes implements Executable
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param string $databaseName Database name
-     * @param string $collectionName Collection name
-     * @param array[] $indexes List of index specifications
-     * @param array $options Command options
+     * @param string  $databaseName   Database name
+     * @param string  $collectionName Collection name
+     * @param array[] $indexes        List of index specifications
+     * @param array   $options        Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, array $indexes, array $options = [])
@@ -92,7 +93,7 @@ class CreateIndexes implements Executable
                 throw new InvalidArgumentException(sprintf('$indexes is not a list (unexpected index: "%s")', $i));
             }
 
-            if (!is_array($index)) {
+            if (! is_array($index)) {
                 throw InvalidArgumentException::invalidType(sprintf('$index[%d]', $i), $index, 'array');
             }
 
@@ -101,19 +102,19 @@ class CreateIndexes implements Executable
             $expectedIndex += 1;
         }
 
-        if (isset($options['commitQuorum']) && !is_string($options['commitQuorum']) && !is_integer($options['commitQuorum'])) {
+        if (isset($options['commitQuorum']) && ! is_string($options['commitQuorum']) && ! is_integer($options['commitQuorum'])) {
             throw InvalidArgumentException::invalidType('"commitQuorum" option', $options['commitQuorum'], ['integer', 'string']);
         }
 
-        if (isset($options['maxTimeMS']) && !is_integer($options['maxTimeMS'])) {
+        if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxTimeMS" option', $options['maxTimeMS'], 'integer');
         }
 
-        if (isset($options['session']) && !$options['session'] instanceof Session) {
+        if (isset($options['session']) && ! $options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['writeConcern']) && !$options['writeConcern'] instanceof WriteConcern) {
+        if (isset($options['writeConcern']) && ! $options['writeConcern'] instanceof WriteConcern) {
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
@@ -121,19 +122,19 @@ class CreateIndexes implements Executable
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = (string)$collectionName;
+        $this->databaseName = (string) $databaseName;
+        $this->collectionName = (string) $collectionName;
         $this->options = $options;
     }
 
     /**
      * Execute the operation.
      *
+     * @see Executable::execute()
      * @param Server $server
      * @return string[] The names of the created indexes
      * @throws UnsupportedException if write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
-     * @see Executable::execute()
      */
     public function execute(Server $server)
     {
@@ -145,39 +146,8 @@ class CreateIndexes implements Executable
         $this->executeCommand($server);
 
         return array_map(function (IndexInput $index) {
-            return (string)$index;
+            return (string) $index;
         }, $this->indexes);
-    }
-
-    /**
-     * Create one or more indexes for the collection using the createIndexes
-     * command.
-     *
-     * @param Server $server
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
-     */
-    private function executeCommand(Server $server)
-    {
-        $cmd = [
-            'createIndexes' => $this->collectionName,
-            'indexes' => $this->indexes,
-        ];
-
-        if (isset($this->options['commitQuorum'])) {
-            /* Drivers MUST manually raise an error if this option is specified
-             * when creating an index on a pre 4.4 server. */
-            if (!server_supports_feature($server, self::$wireVersionForCommitQuorum)) {
-                throw UnsupportedException::commitQuorumNotSupported();
-            }
-
-            $cmd['commitQuorum'] = $this->options['commitQuorum'];
-        }
-
-        if (isset($this->options['maxTimeMS'])) {
-            $cmd['maxTimeMS'] = $this->options['maxTimeMS'];
-        }
-
-        $server->executeWriteCommand($this->databaseName, new Command($cmd), $this->createOptions());
     }
 
     /**
@@ -199,5 +169,36 @@ class CreateIndexes implements Executable
         }
 
         return $options;
+    }
+
+    /**
+     * Create one or more indexes for the collection using the createIndexes
+     * command.
+     *
+     * @param Server $server
+     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     */
+    private function executeCommand(Server $server)
+    {
+        $cmd = [
+            'createIndexes' => $this->collectionName,
+            'indexes' => $this->indexes,
+        ];
+
+        if (isset($this->options['commitQuorum'])) {
+            /* Drivers MUST manually raise an error if this option is specified
+             * when creating an index on a pre 4.4 server. */
+            if (! server_supports_feature($server, self::$wireVersionForCommitQuorum)) {
+                throw UnsupportedException::commitQuorumNotSupported();
+            }
+
+            $cmd['commitQuorum'] = $this->options['commitQuorum'];
+        }
+
+        if (isset($this->options['maxTimeMS'])) {
+            $cmd['maxTimeMS'] = $this->options['maxTimeMS'];
+        }
+
+        $server->executeWriteCommand($this->databaseName, new Command($cmd), $this->createOptions());
     }
 }

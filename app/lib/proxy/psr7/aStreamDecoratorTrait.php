@@ -21,11 +21,6 @@ trait aStreamDecoratorTrait
         throw new UnexpectedValueException("$name not found on class");
     }
 
-    protected function createStream()
-    {
-        throw new BadMethodCallException('Not implemented');
-    }
-
     public function __toString()
     {
         try {
@@ -113,5 +108,10 @@ trait aStreamDecoratorTrait
     public function write($string)
     {
         return $this->stream->write($string);
+    }
+
+    protected function createStream()
+    {
+        throw new BadMethodCallException('Not implemented');
     }
 }

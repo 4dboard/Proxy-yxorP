@@ -4,27 +4,40 @@
 
 Operation for finding a single document with the find command.
 
+
+
 * Full name: `\MongoDB\Operation\FindOne`
 * This class implements:
-  [`\MongoDB\Operation\Executable`](./Executable.md), [`\MongoDB\Operation\Explainable`](./Explainable.md)
+[`\MongoDB\Operation\Executable`](./Executable.md), [`\MongoDB\Operation\Explainable`](./Explainable.md)
 
 **See Also:**
 
-* \MongoDB\Collection::findOne() -
-* http://docs.mongodb.org/manual/tutorial/query-documents/ -
-* http://docs.mongodb.org/manual/reference/operator/query-modifier/ -
+* \MongoDB\Collection::findOne() - 
+* http://docs.mongodb.org/manual/tutorial/query-documents/ - 
+* http://docs.mongodb.org/manual/reference/operator/query-modifier/ - 
+
+
 
 ## Properties
 
+
 ### find
+
+
 
 ```php
 private \MongoDB\Operation\Find $find
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -85,6 +98,11 @@ Supported options:
 
 * typeMap (array): Type map for BSON deserialization.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -93,6 +111,9 @@ Supported options:
 | `$collectionName` | **string** | Collection name |
 | `$filter` | **array&#124;object** | Query by which to filter documents |
 | `$options` | **array** | Command options |
+
+
+
 
 ***
 
@@ -104,15 +125,24 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): array|object|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
+
+
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() -
+* \MongoDB\Operation\Executable::execute() - 
 
 ***
 
@@ -124,15 +154,24 @@ Returns the command document for this operation.
 public getCommandDocument(\MongoDB\Driver\Server $server): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
+
+
 **See Also:**
 
-* \MongoDB\Operation\Explainable::getCommandDocument() -
+* \MongoDB\Operation\Explainable::getCommandDocument() - 
 
 ***
 

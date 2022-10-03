@@ -4,41 +4,77 @@
 
 Result class for a bulk write operation.
 
+
+
 * Full name: `\MongoDB\BulkWriteResult`
+
+
 
 ## Properties
 
+
 ### writeResult
+
+
 
 ```php
 private \MongoDB\Driver\WriteResult $writeResult
 ```
 
+
+
+
+
+
 ***
 
 ### insertedIds
+
+
 
 ```php
 private array $insertedIds
 ```
 
+
+
+
+
+
 ***
 
 ### isAcknowledged
+
+
 
 ```php
 private bool $isAcknowledged
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\MongoDB\Driver\WriteResult $writeResult, array $insertedIds): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -46,6 +82,9 @@ public __construct(\MongoDB\Driver\WriteResult $writeResult, array $insertedIds)
 |-----------|------|-------------|
 | `$writeResult` | **\MongoDB\Driver\WriteResult** |  |
 | `$insertedIds` | **array** |  |
+
+
+
 
 ***
 
@@ -59,9 +98,16 @@ public getDeletedCount(): int
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\BulkWriteResult::isAcknowledged() -
+* \MongoDB\BulkWriteResult::isAcknowledged() - 
 
 ***
 
@@ -75,9 +121,16 @@ public getInsertedCount(): int
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\BulkWriteResult::isAcknowledged() -
+* \MongoDB\BulkWriteResult::isAcknowledged() - 
 
 ***
 
@@ -115,9 +168,16 @@ public getMatchedCount(): int
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\BulkWriteResult::isAcknowledged() -
+* \MongoDB\BulkWriteResult::isAcknowledged() - 
 
 ***
 
@@ -134,9 +194,16 @@ operation instead of command.
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\BulkWriteResult::isAcknowledged() -
+* \MongoDB\BulkWriteResult::isAcknowledged() - 
 
 ***
 
@@ -150,9 +217,16 @@ public getUpsertedCount(): int
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\BulkWriteResult::isAcknowledged() -
+* \MongoDB\BulkWriteResult::isAcknowledged() - 
 
 ***
 
@@ -171,9 +245,16 @@ server-generated ID will be a MongoDB\BSON\ObjectId instance.
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\BulkWriteResult::isAcknowledged() -
+* \MongoDB\BulkWriteResult::isAcknowledged() - 
 
 ***
 

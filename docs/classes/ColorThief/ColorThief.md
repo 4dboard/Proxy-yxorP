@@ -2,7 +2,12 @@
 
 # ColorThief
 
+
+
+
+
 * Full name: `\ColorThief\ColorThief`
+
 
 ## Constants
 
@@ -15,7 +20,9 @@
 |`THRESHOLD_ALPHA`|public| |62|
 |`THRESHOLD_WHITE`|public| |250|
 
+
 ## Methods
+
 
 ### getColorIndex
 
@@ -25,7 +32,12 @@ Get combined color index (3 colors as one integer) from RGB values (0-255) or RG
 public static getColorIndex(int $red, int $green, int $blue, int $sigBits = self::SIGBITS): int
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -35,6 +47,9 @@ public static getColorIndex(int $red, int $green, int $blue, int $sigBits = self
 | `$green` | **int** |  |
 | `$blue` | **int** |  |
 | `$sigBits` | **int** |  |
+
+
+
 
 ***
 
@@ -46,7 +61,12 @@ Get RGB values (0-255) or RGB Histogram Buckets from a combined color index (3 c
 public static getColorsFromIndex(int $index, int $sigBits = 8): array
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -54,6 +74,9 @@ public static getColorsFromIndex(int $index, int $sigBits = 8): array
 |-----------|------|-------------|
 | `$index` | **int** |  |
 | `$sigBits` | **int** |  |
+
+
+
 
 ***
 
@@ -65,7 +88,12 @@ Gets the dominant color from the image using the median cut algorithm to cluster
 public static getColor(mixed $sourceImage, int $quality = 10, array|null $area = null, string $outputFormat = &#039;array&#039;, \ColorThief\Image\Adapter\AdapterInterface|string|null $adapter = null): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -77,6 +105,9 @@ public static getColor(mixed $sourceImage, int $quality = 10, array|null $area =
 | `$outputFormat` | **string** | By default, color is returned as an array of three integers representing<br />red, green, and blue values.<br />You can choose another output format by passing one of the following values:<br />&#039;rgb&#039;   : RGB string notation (ex: rgb(253, 42, 152)).<br />&#039;hex&#039;   : String of the hexadecimal representation (ex: #fd2a98).<br />&#039;int&#039;   : Integer color value (ex: 16591512).<br />&#039;array&#039; : Default format (ex: [253, 42, 152]).<br />&#039;obj&#039;   : Instance of ColorThief\Color, for custom processing. |
 | `$adapter` | **\ColorThief\Image\Adapter\AdapterInterface&#124;string&#124;null** | Optional argument to choose a preferred image adapter to use for loading the image.<br />By default, the adapter is automatically chosen depending on the available extensions<br />and the type of $sourceImage (for example Imagick is used if $sourceImage is an Imagick instance).<br />You can pass one of the &#039;Imagick&#039;, &#039;Gmagick&#039; or &#039;Gd&#039; string to use the corresponding<br />underlying image extension, or you can pass an instance of any class implementing<br />the AdapterInterface interface to use a custom image loader. |
 
+
+
+
 ***
 
 ### getPalette
@@ -87,7 +118,12 @@ Gets a palette of dominant colors from the image using the median cut algorithm 
 public static getPalette(mixed $sourceImage, int $colorCount = 10, int $quality = 10, array|null $area = null, string $outputFormat = &#039;array&#039;, \ColorThief\Image\Adapter\AdapterInterface|string|null $adapter = null): array
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -100,15 +136,25 @@ public static getPalette(mixed $sourceImage, int $colorCount = 10, int $quality 
 | `$outputFormat` | **string** | By default, colors are returned as an array of three integers representing<br />red, green, and blue values.<br />You can choose another output format by passing one of the following values:<br />&#039;rgb&#039;   : RGB string notation (ex: rgb(253, 42, 152)).<br />&#039;hex&#039;   : String of the hexadecimal representation (ex: #fd2a98).<br />&#039;int&#039;   : Integer color value (ex: 16591512).<br />&#039;array&#039; : Default format (ex: [253, 42, 152]).<br />&#039;obj&#039;   : Instance of ColorThief\Color, for custom processing. |
 | `$adapter` | **\ColorThief\Image\Adapter\AdapterInterface&#124;string&#124;null** | Optional argument to choose a preferred image adapter to use for loading the image.<br />By default, the adapter is automatically chosen depending on the available extensions<br />and the type of $sourceImage (e.g. Imagick is used if $sourceImage is an Imagick instance).<br />You can pass one of the &#039;Imagick&#039;, &#039;Gmagick&#039; or &#039;Gd&#039; string to use the corresponding<br />underlying image extension, or you can pass an instance of any class implementing<br />the AdapterInterface interface to use a custom image loader. |
 
+
+
+
 ***
 
 ### loadImage
+
+
 
 ```php
 private static loadImage(mixed $sourceImage, int $quality, array&lt;int,int&gt;& $histo, array $area = null, \ColorThief\Image\Adapter\AdapterInterface|string|null $adapter = null): int
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -120,15 +166,25 @@ private static loadImage(mixed $sourceImage, int $quality, array&lt;int,int&gt;&
 | `$area` | **array** |  |
 | `$adapter` | **\ColorThief\Image\Adapter\AdapterInterface&#124;string&#124;null** | Image adapter to use for loading the image |
 
+
+
+
 ***
 
 ### vboxFromHistogram
+
+
 
 ```php
 private static vboxFromHistogram(array&lt;int,int&gt; $histo): \ColorThief\VBox
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -136,15 +192,25 @@ private static vboxFromHistogram(array&lt;int,int&gt; $histo): \ColorThief\VBox
 |-----------|------|-------------|
 | `$histo` | **array<int,int>** |  |
 
+
+
+
 ***
 
 ### doCut
+
+
 
 ```php
 private static doCut(string $color, \ColorThief\VBox $vBox, int[] $partialSum, int $total): ?array
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -155,15 +221,25 @@ private static doCut(string $color, \ColorThief\VBox $vBox, int[] $partialSum, i
 | `$partialSum` | **int[]** |  |
 | `$total` | **int** |  |
 
+
+
+
 ***
 
 ### medianCutApply
+
+
 
 ```php
 private static medianCutApply(array&lt;int,int&gt; $histo, \ColorThief\VBox $vBox): \ColorThief\VBox[]|null
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -171,6 +247,9 @@ private static medianCutApply(array&lt;int,int&gt; $histo, \ColorThief\VBox $vBo
 |-----------|------|-------------|
 | `$histo` | **array<int,int>** |  |
 | `$vBox` | **\ColorThief\VBox** |  |
+
+
+
 
 ***
 
@@ -182,7 +261,12 @@ Find the partial sum arrays along the selected axis.
 private static sumColors(string $axis, array&lt;int,int&gt; $histo, \ColorThief\VBox $vBox): array
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -192,15 +276,25 @@ private static sumColors(string $axis, array&lt;int,int&gt; $histo, \ColorThief\
 | `$histo` | **array<int,int>** |  |
 | `$vBox` | **\ColorThief\VBox** |  |
 
+
+
+
 ***
 
 ### getVBoxColorRanges
+
+
 
 ```php
 private static getVBoxColorRanges(\ColorThief\VBox $vBox, array $order): int[][]
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -208,6 +302,9 @@ private static getVBoxColorRanges(\ColorThief\VBox $vBox, array $order): int[][]
 |-----------|------|-------------|
 | `$vBox` | **\ColorThief\VBox** |  |
 | `$order` | **array** |  |
+
+
+
 
 ***
 
@@ -219,7 +316,12 @@ Inner function to do the iteration.
 private static quantizeIter(\ColorThief\PQueue&lt;\ColorThief\VBox&gt;& $priorityQueue, float $target, array&lt;int,int&gt; $histo): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -229,15 +331,25 @@ private static quantizeIter(\ColorThief\PQueue&lt;\ColorThief\VBox&gt;& $priorit
 | `$target` | **float** |  |
 | `$histo` | **array<int,int>** |  |
 
+
+
+
 ***
 
 ### quantize
+
+
 
 ```php
 private static quantize(int $numPixels, int $maxColors, array&lt;int,int&gt;& $histo): \ColorThief\Color[]
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -246,6 +358,9 @@ private static quantize(int $numPixels, int $maxColors, array&lt;int,int&gt;& $h
 | `$numPixels` | **int** | Number of image pixels analyzed |
 | `$maxColors` | **int** |  |
 | `$histo` | **array<int,int>** | Histogram |
+
+
+
 
 ***
 

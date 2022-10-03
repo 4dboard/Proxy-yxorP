@@ -27,7 +27,7 @@ html {
 }
 
 body {
-    font-family: var(--kiss-base-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif);
+    font-family: var(--kiss-base-font-family, -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif);
 }
 
 h1,
@@ -44,11 +44,11 @@ h6 {
 }
 
 a {
-    text-decoration: var(--kiss-link-text-decoration, none);
-    -webkit-text-decoration-skip: objects;
-    color: var(--kiss-link-color, var(--kiss-color-primary, hsl(210, 100%, 50%)));
-    transition: color var(--kiss-speed, 0.1s) var(--kiss-easing, ease-out);
-    cursor: pointer;
+  text-decoration: var(--kiss-link-text-decoration, none);
+  -webkit-text-decoration-skip: objects;
+  color: var(--kiss-link-color, var(--kiss-color-primary, hsl(210, 100%, 50%)));
+  transition: color var(--kiss-speed, 0.1s) var(--kiss-easing, ease-out);
+  cursor: pointer;
 }
 
 a:hover {
@@ -73,24 +73,22 @@ canvas,
 svg,
 audio,
 video {
-    border-style: none;
-    vertical-align: middle;
-    max-width: 100%;
-    height: auto;
+  border-style: none;
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
 }
 
-img {
-    display: block;
-}
+img { display: block; }
 
 svg:not(:root) {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 iframe {
-    margin: 0;
-    padding: 0;
-    border: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 p {
@@ -108,7 +106,7 @@ hr {
     margin-right: auto;
     padding: 0;
     border: 0;
-    background-color: var(--kiss-hr-color, rgba(0, 0, 0, .1));
+    background-color: var(--kiss-hr-color, rgba(0,0,0,.1));
 }
 
 table {
@@ -143,6 +141,4 @@ th {
     text-shadow: none;
 }
 
-template {
-    display: none;
-}
+template { display: none; }

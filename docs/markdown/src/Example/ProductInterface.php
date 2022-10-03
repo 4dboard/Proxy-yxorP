@@ -9,7 +9,7 @@ interface ProductInterface
 {
     /**
      * @param string $name Product name.
-     * @param float $price Product price.
+     * @param float  $price Product price.
      */
     public function __construct(string $name, float $price);
 

@@ -70,6 +70,11 @@ class pumpStream implements streamInterface
         return false;
     }
 
+    public function write($string)
+    {
+        throw new RuntimeException('Cannot write to a PumpStream');
+    }
+
     public function isReadable()
     {
         return true;
@@ -116,11 +121,6 @@ class pumpStream implements streamInterface
                 $length -= strlen($data);
             } while ($length > 0);
         }
-    }
-
-    public function write($string)
-    {
-        throw new RuntimeException('Cannot write to a PumpStream');
     }
 
     public function getMetadata($key = null)

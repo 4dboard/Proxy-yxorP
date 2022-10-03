@@ -4,41 +4,77 @@
 
 Result class for a multi-document insert operation.
 
+
+
 * Full name: `\MongoDB\InsertManyResult`
+
+
 
 ## Properties
 
+
 ### writeResult
+
+
 
 ```php
 private \MongoDB\Driver\WriteResult $writeResult
 ```
 
+
+
+
+
+
 ***
 
 ### insertedIds
+
+
 
 ```php
 private array $insertedIds
 ```
 
+
+
+
+
+
 ***
 
 ### isAcknowledged
+
+
 
 ```php
 private bool $isAcknowledged
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\MongoDB\Driver\WriteResult $writeResult, array $insertedIds): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -46,6 +82,9 @@ public __construct(\MongoDB\Driver\WriteResult $writeResult, array $insertedIds)
 |-----------|------|-------------|
 | `$writeResult` | **\MongoDB\Driver\WriteResult** |  |
 | `$insertedIds` | **array** |  |
+
+
+
 
 ***
 
@@ -59,9 +98,16 @@ public getInsertedCount(): int
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\InsertManyResult::isAcknowledged() -
+* \MongoDB\InsertManyResult::isAcknowledged() - 
 
 ***
 

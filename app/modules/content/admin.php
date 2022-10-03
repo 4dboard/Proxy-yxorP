@@ -7,21 +7,21 @@ $this->bindClass('Content\\Controller\\Models', '/content/models');
 $this->bindClass('Content\\Controller\\Content', '/content');
 
 $this->helper('menus')->addLink('modules', [
-    'label' => 'Content',
-    'icon' => 'content:icon.svg',
-    'route' => '/content',
+    'label'  => 'Content',
+    'icon'   => 'content:icon.svg',
+    'route'  => '/content',
     'active' => false,
-    'group' => 'Content',
-    'prio' => 3
+    'group'  => 'Content',
+    'prio'   => 3
 ]);
 
 
 // events
-$this->on('app.layout.assets', function (array &$assets) {
+$this->on('app.layout.assets', function(array &$assets) {
     $assets[] = ['src' => 'content:assets/js/content.js', 'type' => 'module'];
 });
 
-$this->on('app.permissions.collect', function ($permissions) {
+$this->on('app.permissions.collect', function($permissions) {
 
     $permissions['Content'] = [
         'component' => 'ContentModelSettings',
@@ -32,7 +32,7 @@ $this->on('app.permissions.collect', function ($permissions) {
     ];
 });
 
-$this->on('app.search', function ($search, $findings) {
+$this->on('app.search', function($search, $findings) {
 
     $models = array_values($this->module('content')->models());
 

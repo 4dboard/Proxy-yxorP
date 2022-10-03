@@ -1,4 +1,4 @@
-import {on} from '../../js/events.js';
+import { on } from '../../js/events.js';
 
 let Animations = {
     default(resolve, current, next) {
@@ -19,7 +19,7 @@ let Animations = {
             {opacity: 1}
         ], {
             duration: 250,
-        }).addEventListener('finish', function (e) {
+        }).addEventListener('finish', function(e) {
             resolve();
         }, false);
     },
@@ -44,7 +44,7 @@ let Animations = {
         ], {
             duration: 250,
             easing: 'ease-in-out',
-        }).addEventListener('finish', function (e) {
+        }).addEventListener('finish', function(e) {
             resolve();
             next.classList.remove('visible');
         }, false);
@@ -83,11 +83,11 @@ customElements.define('kiss-carousel', class extends HTMLElement {
         this.setActive(0)
 
         // events
-        on(this, 'click', '[kiss-slide]', function (e) {
+        on(this, 'click', '[kiss-slide]', function(e) {
 
             const goto = this.getAttribute('kiss-slide');
 
-            switch (goto) {
+            switch(goto) {
                 case 'next':
                     $this.nextSlide();
                     break;
@@ -131,7 +131,7 @@ customElements.define('kiss-carousel', class extends HTMLElement {
 
             if (pointerStart.clientX < e.clientX) {
                 this.prevSlide();
-            } else if (pointerStart.clientX > e.clientX) {
+            } else if(pointerStart.clientX > e.clientX) {
                 this.nextSlide();
             }
 

@@ -10,15 +10,14 @@ and inject the instance of this class multiple times.
 * Full name: `\GuzzleHttp\Psr7\HttpFactory`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-  [`\Psr\Http\Message\RequestFactoryInterface`](../../Psr/Http/Message/RequestFactoryInterface.md)
-  , [`\Psr\Http\Message\ResponseFactoryInterface`](../../Psr/Http/Message/ResponseFactoryInterface.md)
-  , [`\Psr\Http\Message\ServerRequestFactoryInterface`](../../Psr/Http/Message/ServerRequestFactoryInterface.md)
-  , [`\Psr\Http\Message\StreamFactoryInterface`](../../Psr/Http/Message/StreamFactoryInterface.md)
-  , [`\Psr\Http\Message\UploadedFileFactoryInterface`](../../Psr/Http/Message/UploadedFileFactoryInterface.md)
-  , [`\Psr\Http\Message\UriFactoryInterface`](../../Psr/Http/Message/UriFactoryInterface.md)
+[`\Psr\Http\Message\RequestFactoryInterface`](../../Psr/Http/Message/RequestFactoryInterface.md), [`\Psr\Http\Message\ResponseFactoryInterface`](../../Psr/Http/Message/ResponseFactoryInterface.md), [`\Psr\Http\Message\ServerRequestFactoryInterface`](../../Psr/Http/Message/ServerRequestFactoryInterface.md), [`\Psr\Http\Message\StreamFactoryInterface`](../../Psr/Http/Message/StreamFactoryInterface.md), [`\Psr\Http\Message\UploadedFileFactoryInterface`](../../Psr/Http/Message/UploadedFileFactoryInterface.md), [`\Psr\Http\Message\UriFactoryInterface`](../../Psr/Http/Message/UriFactoryInterface.md)
 * This class is a **Final class**
 
+
+
+
 ## Methods
+
 
 ### createUploadedFile
 
@@ -31,6 +30,11 @@ public createUploadedFile(\Psr\Http\Message\StreamInterface $stream, int $size =
 If a size is not provided it will be determined by checking the size of
 the file.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -40,6 +44,9 @@ the file.
 | `$error` | **int** | PHP file upload error |
 | `$clientFilename` | **string** | Filename as provided by the client, if any. |
 | `$clientMediaType` | **string** | Media type as provided by the client, if any. |
+
+
+
 
 ***
 
@@ -53,11 +60,19 @@ public createStream(string $content = &#039;&#039;): \Psr\Http\Message\StreamInt
 
 The stream SHOULD be created with a temporary resource.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** | String content with which to populate the stream. |
+
+
+
 
 ***
 
@@ -74,12 +89,20 @@ supported by the `fopen` function.
 
 The `$filename` MAY be any string supported by `fopen()`.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
 | `$mode` | **string** | Mode with which to open the underlying filename/stream. |
+
+
+
 
 ***
 
@@ -93,11 +116,19 @@ public createStreamFromResource(mixed $resource): \Psr\Http\Message\StreamInterf
 
 The stream MUST be readable and may be writable.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **mixed** | PHP resource to use as basis of stream. |
+
+
+
 
 ***
 
@@ -113,6 +144,11 @@ Note that server-params are taken precisely as given - no parsing/processing
 of the given values is performed, and, in particular, no attempt is made to
 determine the HTTP method or URI, which must be provided explicitly.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -120,6 +156,9 @@ determine the HTTP method or URI, which must be provided explicitly.
 | `$method` | **string** | The HTTP method associated with the request. |
 | `$uri` | **mixed** | The URI associated with the request. If<br />the value is a string, the factory MUST create a UriInterface<br />instance based on it. |
 | `$serverParams` | **array** | Array of SAPI parameters with which to seed<br />the generated request instance. |
+
+
+
 
 ***
 
@@ -131,12 +170,22 @@ Create a new response.
 public createResponse(int $code = 200, string $reasonPhrase = &#039;&#039;): \Psr\Http\Message\ResponseInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$code` | **int** | HTTP status code; defaults to 200 |
 | `$reasonPhrase` | **string** | Reason phrase to associate with status code<br />in generated response; if none is provided implementations MAY use<br />the defaults as suggested in the HTTP specification. |
+
+
+
 
 ***
 
@@ -148,12 +197,22 @@ Create a new request.
 public createRequest(string $method, mixed $uri): \Psr\Http\Message\RequestInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string** | The HTTP method associated with the request. |
 | `$uri` | **mixed** | The URI associated with the request. If<br />the value is a string, the factory MUST create a UriInterface<br />instance based on it. |
+
+
+
 
 ***
 
@@ -165,11 +224,21 @@ Create a new URI.
 public createUri(string $uri = &#039;&#039;): \Psr\Http\Message\UriInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string** |  |
+
+
+
 
 ***
 

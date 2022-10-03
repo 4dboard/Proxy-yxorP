@@ -3,25 +3,19 @@
 namespace Assets\Controller;
 
 use App\Controller\App;
-use Exception;
-use function gd_info;
-use function is_countable;
-use function preg_match;
+use ArrayObject;
 
-class Assets extends App
-{
+class Assets extends App {
 
 
-    public function index()
-    {
+    public function index() {
 
         $this->helper('theme')->favicon('assets:icon.svg');
 
         return $this->render('assets:views/index.php');
     }
 
-    public function assets()
-    {
+    public function assets() {
 
         $this->helper('session')->close();
 
@@ -29,16 +23,16 @@ class Assets extends App
             'sort' => ['_created' => -1]
         ], $this->param('options', []));
 
-        if ($limit = $this->param('limit', null)) $options['limit'] = $limit;
-        if ($sort = $this->param('sort', null)) $options['sort'] = $sort;
-        if ($skip = $this->param('skip', null)) $options['skip'] = $skip;
+        if ($limit  = $this->param('limit' , null)) $options['limit']  = $limit;
+        if ($sort   = $this->param('sort'  , null)) $options['sort']   = $sort;
+        if ($skip   = $this->param('skip'  , null)) $options['skip']   = $skip;
         if ($folder = $this->param('folder', null)) $options['folder'] = $folder;
 
-        if (isset($options['filter']) && (is_string($options['filter']) || is_countable($options['filter']))) {
+        if (isset($options['filter']) && (is_string($options['filter']) || \is_countable($options['filter']))) {
 
             $filter = [];
 
-            $options['filter'] = is_countable($options['filter']) ? $options['filter'] : [$options['filter']];
+            $options['filter'] = \is_countable($options['filter']) ? $options['filter'] : [$options['filter']];
 
             foreach ($options['filter'] as $f) {
 
@@ -47,12 +41,11 @@ class Assets extends App
                     continue;
                 }
 
-                if (preg_match('/^\{(.*)\}$/', $f)) {
+                if (\preg_match('/^\{(.*)\}$/', $f)) {
 
                     try {
                         $f = json5_decode($f, true);
-                    } catch (Exception $e) {
-                    }
+                    } catch (\Exception $e) {}
 
                 } else {
 
@@ -86,11 +79,11 @@ class Assets extends App
         $assets = $this->module('assets')->assets($options);
 
         $count = (!isset($options['skip']) && !isset($options['limit']))
-            ? count($assets)
-            : $this->app->dataStorage->count('assets', ($options['filter'] ?? null));
+                    ? count($assets)
+                    : $this->app->dataStorage->count('assets', ($options['filter'] ?? null));
 
         $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
-        $page = 1;
+        $page  = 1;
 
         if ($pages > 1 && isset($options['skip'])) {
             $page = ceil($options['skip'] / $options['limit']) + 1;
@@ -107,17 +100,7 @@ class Assets extends App
         return compact('assets', 'count', 'pages', 'page', 'folders');
     }
 
-    public function folders()
-    {
-
-        $folders = $this->module('assets')->folders(['sort' => ['name' => 1]]);
-        $folders = $this->helper('utils')->buildTreeList($folders, ['parent_id_column_name' => '_p']);
-
-        return $folders;
-    }
-
-    public function asset($id = null)
-    {
+    public function asset($id = null) {
 
         if (!$id) {
             return false;
@@ -128,8 +111,7 @@ class Assets extends App
         return $asset ?? false;
     }
 
-    public function update()
-    {
+    public function update() {
 
         $this->helper('session')->close();
 
@@ -144,8 +126,20 @@ class Assets extends App
         return false;
     }
 
-    public function replace()
-    {
+    public function upload() {
+
+        $this->helper('session')->close();
+
+        if (!$this->isAllowed('assets/upload')) {
+            return $this->stop(['error' => 'Upload not allowed'], 401);
+        }
+
+        $meta = ['folder' => $this->param('folder', '')];
+
+        return $this->module('assets')->upload('files', $meta);
+    }
+
+    public function replace() {
 
         $this->helper('session')->close();
 
@@ -176,8 +170,8 @@ class Assets extends App
         }
 
         // remove old asset file
-        if ($this->app->fileStorage->fileExists('uploads://' . trim($asset['path'], '/'))) {
-            $this->app->fileStorage->delete('uploads://' . trim($asset['path'], '/'));
+        if ($this->app->fileStorage->fileExists('uploads://'.trim($asset['path'], '/'))) {
+            $this->app->fileStorage->delete('uploads://'.trim($asset['path'], '/'));
         }
 
         $asset = $result['assets'][0];
@@ -187,24 +181,32 @@ class Assets extends App
         return $asset;
     }
 
-    public function upload()
-    {
+    public function remove() {
 
         $this->helper('session')->close();
 
-        if (!$this->isAllowed('assets/upload')) {
-            return $this->stop(['error' => 'Upload not allowed'], 401);
+        if (!$this->isAllowed('assets/delete')) {
+            return $this->stop(['error' => 'Deleting assets not allowed'], 401);
         }
 
-        $meta = ['folder' => $this->param('folder', '')];
+        if ($assets = $this->param('assets', false)) {
+            return $this->module('assets')->remove($assets);
+        }
 
-        return $this->module('assets')->upload('files', $meta);
+        return false;
     }
 
-    public function saveFolder()
-    {
+    public function folders() {
 
-        $name = $this->param('name', null);
+        $folders = $this->module('assets')->folders(['sort' => ['name' => 1]]);
+        $folders = $this->helper('utils')->buildTreeList($folders, ['parent_id_column_name' => '_p']);
+
+        return $folders;
+    }
+
+    public function saveFolder() {
+
+        $name   = $this->param('name', null);
         $parent = $this->param('parent', '');
 
         if (!$name) return;
@@ -226,8 +228,7 @@ class Assets extends App
         return $folder;
     }
 
-    public function removeFolder()
-    {
+    public function removeFolder() {
 
         if (!$this->isAllowed('assets/folders/delete')) {
             return $this->stop(['error' => 'Deleting folders not allowed'], 401);
@@ -240,7 +241,7 @@ class Assets extends App
         }
 
         $ids = [$folder['_id']];
-        $f = ['_id' => $folder['_id']];
+        $f   = ['_id' => $folder['_id']];
 
         while ($f = $this->app->dataStorage->findOne('assets/folders', ['_p' => $f['_id']])) {
             $ids[] = $f['_id'];
@@ -251,24 +252,7 @@ class Assets extends App
         return $ids;
     }
 
-    public function remove()
-    {
-
-        $this->helper('session')->close();
-
-        if (!$this->isAllowed('assets/delete')) {
-            return $this->stop(['error' => 'Deleting assets not allowed'], 401);
-        }
-
-        if ($assets = $this->param('assets', false)) {
-            return $this->module('assets')->remove($assets);
-        }
-
-        return false;
-    }
-
-    public function thumbnail($id = null)
-    {
+    public function thumbnail($id = null) {
 
         $this->helper('session')->close();
 
@@ -279,12 +263,12 @@ class Assets extends App
             $mime = null;
 
             if (strpos($this->app->request->headers['Accept'] ?? '', 'image/avif') !== false) {
-                $gdinfo = gd_info();
+                $gdinfo = \gd_info();
                 $mime = isset($gdinfo['AVIF Support']) && $gdinfo['AVIF Support'] ? 'avif' : null;
             }
 
             if (!$mime && strpos($this->app->request->headers['Accept'] ?? '', 'image/webp') !== false) {
-                $gdinfo = gd_info();
+                $gdinfo = \gd_info();
                 $mime = isset($gdinfo['WebP Support']) && $gdinfo['WebP Support'] ? 'webp' : null;
             }
         }
@@ -294,7 +278,7 @@ class Assets extends App
             'fp' => $this->param('fp', null),
             'mode' => $this->param('m', 'thumbnail'),
             'mime' => $mime,
-            'filters' => (array)$this->param('f', []),
+            'filters' => (array) $this->param('f', []),
             'width' => intval($this->param('w', null)),
             'height' => intval($this->param('h', null)),
             'quality' => intval($this->param('q', 30)),

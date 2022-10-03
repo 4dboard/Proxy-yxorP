@@ -4,11 +4,9 @@
 
 namespace Composer\Autoload;
 
-use Closure;
-
 class ComposerStaticInit00d1f9b6bf944011268c41c2b4662055
 {
-    public static $files = array(
+    public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -26,242 +24,242 @@ class ComposerStaticInit00d1f9b6bf944011268c41c2b4662055
         '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
     );
 
-    public static $prefixLengthsPsr4 = array(
-        'Z' =>
-            array(
-                'ZipStream\\' => 10,
-            ),
-        'S' =>
-            array(
-                'Symfony\\Polyfill\\Php81\\' => 23,
-                'Symfony\\Polyfill\\Php80\\' => 23,
-                'Symfony\\Polyfill\\Php73\\' => 23,
-                'Symfony\\Polyfill\\Mbstring\\' => 26,
-                'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
-                'Symfony\\Polyfill\\Intl\\Grapheme\\' => 31,
-                'Symfony\\Polyfill\\Ctype\\' => 23,
-                'Symfony\\Contracts\\Service\\' => 26,
-                'Symfony\\Component\\Yaml\\' => 23,
-                'Symfony\\Component\\String\\' => 25,
-                'Symfony\\Component\\Finder\\' => 25,
-                'Symfony\\Component\\Console\\' => 26,
-            ),
-        'R' =>
-            array(
-                'RobThree\\Auth\\' => 14,
-            ),
-        'P' =>
-            array(
-                'Psr\\Log\\' => 8,
-                'Psr\\Http\\Message\\' => 17,
-                'Psr\\Http\\Client\\' => 16,
-                'Psr\\Container\\' => 14,
-                'Psr\\Cache\\' => 10,
-                'PHPMailer\\PHPMailer\\' => 20,
-            ),
-        'O' =>
-            array(
-                'OpenApi\\' => 8,
-            ),
-        'M' =>
-            array(
-                'MongoDB\\' => 8,
-            ),
-        'L' =>
-            array(
-                'League\\MimeTypeDetection\\' => 25,
-                'League\\Flysystem\\' => 17,
-            ),
-        'J' =>
-            array(
-                'Jean85\\' => 7,
-            ),
-        'G' =>
-            array(
-                'GuzzleHttp\\Psr7\\' => 16,
-                'GuzzleHttp\\Promise\\' => 19,
-                'GuzzleHttp\\' => 11,
-                'GraphQL\\' => 8,
-            ),
-        'F' =>
-            array(
-                'Firebase\\JWT\\' => 13,
-            ),
-        'D' =>
-            array(
-                'Doctrine\\Common\\Lexer\\' => 22,
-                'Doctrine\\Common\\Annotations\\' => 28,
-                'DASPRiD\\Enum\\' => 13,
-            ),
-        'C' =>
-            array(
-                'ColinODell\\Json5\\' => 17,
-            ),
-        'B' =>
-            array(
-                'BaconQrCode\\' => 12,
-            ),
+    public static $prefixLengthsPsr4 = array (
+        'Z' => 
+        array (
+            'ZipStream\\' => 10,
+        ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Php81\\' => 23,
+            'Symfony\\Polyfill\\Php80\\' => 23,
+            'Symfony\\Polyfill\\Php73\\' => 23,
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
+            'Symfony\\Polyfill\\Intl\\Grapheme\\' => 31,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Contracts\\Service\\' => 26,
+            'Symfony\\Component\\Yaml\\' => 23,
+            'Symfony\\Component\\String\\' => 25,
+            'Symfony\\Component\\Finder\\' => 25,
+            'Symfony\\Component\\Console\\' => 26,
+        ),
+        'R' => 
+        array (
+            'RobThree\\Auth\\' => 14,
+        ),
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
+            'Psr\\Http\\Message\\' => 17,
+            'Psr\\Http\\Client\\' => 16,
+            'Psr\\Container\\' => 14,
+            'Psr\\Cache\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
+        'O' => 
+        array (
+            'OpenApi\\' => 8,
+        ),
+        'M' => 
+        array (
+            'MongoDB\\' => 8,
+        ),
+        'L' => 
+        array (
+            'League\\MimeTypeDetection\\' => 25,
+            'League\\Flysystem\\' => 17,
+        ),
+        'J' => 
+        array (
+            'Jean85\\' => 7,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
+            'GraphQL\\' => 8,
+        ),
+        'F' => 
+        array (
+            'Firebase\\JWT\\' => 13,
+        ),
+        'D' => 
+        array (
+            'Doctrine\\Common\\Lexer\\' => 22,
+            'Doctrine\\Common\\Annotations\\' => 28,
+            'DASPRiD\\Enum\\' => 13,
+        ),
+        'C' => 
+        array (
+            'ColinODell\\Json5\\' => 17,
+        ),
+        'B' => 
+        array (
+            'BaconQrCode\\' => 12,
+        ),
     );
 
-    public static $prefixDirsPsr4 = array(
-        'ZipStream\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
-            ),
-        'Symfony\\Polyfill\\Php81\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/symfony/polyfill-php81',
-            ),
-        'Symfony\\Polyfill\\Php80\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
-            ),
-        'Symfony\\Polyfill\\Php73\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/symfony/polyfill-php73',
-            ),
-        'Symfony\\Polyfill\\Mbstring\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
-            ),
-        'Symfony\\Polyfill\\Intl\\Normalizer\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer',
-            ),
-        'Symfony\\Polyfill\\Intl\\Grapheme\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme',
-            ),
-        'Symfony\\Polyfill\\Ctype\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
-            ),
-        'Symfony\\Contracts\\Service\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/symfony/service-contracts',
-            ),
-        'Symfony\\Component\\Yaml\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/symfony/yaml',
-            ),
-        'Symfony\\Component\\String\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/symfony/string',
-            ),
-        'Symfony\\Component\\Finder\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/symfony/finder',
-            ),
-        'Symfony\\Component\\Console\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/symfony/console',
-            ),
-        'RobThree\\Auth\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/robthree/twofactorauth/lib',
-            ),
-        'Psr\\Log\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/psr/log/src',
-            ),
-        'Psr\\Http\\Message\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/psr/http-factory/src',
-                1 => __DIR__ . '/..' . '/psr/http-message/src',
-            ),
-        'Psr\\Http\\Client\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/psr/http-client/src',
-            ),
-        'Psr\\Container\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/psr/container/src',
-            ),
-        'Psr\\Cache\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/psr/cache/src',
-            ),
-        'PHPMailer\\PHPMailer\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
-            ),
-        'OpenApi\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/zircote/swagger-php/src',
-            ),
-        'MongoDB\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
-            ),
-        'League\\MimeTypeDetection\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
-            ),
-        'League\\Flysystem\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/league/flysystem/src',
-            ),
-        'Jean85\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/jean85/pretty-package-versions/src',
-            ),
-        'GuzzleHttp\\Psr7\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
-            ),
-        'GuzzleHttp\\Promise\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
-            ),
-        'GuzzleHttp\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
-            ),
-        'GraphQL\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/webonyx/graphql-php/src',
-            ),
-        'Firebase\\JWT\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
-            ),
-        'Doctrine\\Common\\Lexer\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
-            ),
-        'Doctrine\\Common\\Annotations\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
-            ),
-        'DASPRiD\\Enum\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/dasprid/enum/src',
-            ),
-        'ColinODell\\Json5\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/colinodell/json5/src',
-            ),
-        'BaconQrCode\\' =>
-            array(
-                0 => __DIR__ . '/..' . '/bacon/bacon-qr-code/src',
-            ),
+    public static $prefixDirsPsr4 = array (
+        'ZipStream\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
+        ),
+        'Symfony\\Polyfill\\Php81\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php81',
+        ),
+        'Symfony\\Polyfill\\Php80\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
+        ),
+        'Symfony\\Polyfill\\Php73\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php73',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Intl\\Normalizer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer',
+        ),
+        'Symfony\\Polyfill\\Intl\\Grapheme\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme',
+        ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Symfony\\Contracts\\Service\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/service-contracts',
+        ),
+        'Symfony\\Component\\Yaml\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/yaml',
+        ),
+        'Symfony\\Component\\String\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/string',
+        ),
+        'Symfony\\Component\\Finder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/finder',
+        ),
+        'Symfony\\Component\\Console\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'RobThree\\Auth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/robthree/twofactorauth/lib',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/src',
+        ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Psr\\Http\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-client/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Psr\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
+        'OpenApi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zircote/swagger-php/src',
+        ),
+        'MongoDB\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
+        ),
+        'League\\MimeTypeDetection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
+        ),
+        'League\\Flysystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/flysystem/src',
+        ),
+        'Jean85\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jean85/pretty-package-versions/src',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'GraphQL\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/webonyx/graphql-php/src',
+        ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
+        'Doctrine\\Common\\Lexer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
+        ),
+        'Doctrine\\Common\\Annotations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
+        ),
+        'DASPRiD\\Enum\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dasprid/enum/src',
+        ),
+        'ColinODell\\Json5\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/colinodell/json5/src',
+        ),
+        'BaconQrCode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bacon/bacon-qr-code/src',
+        ),
     );
 
-    public static $fallbackDirsPsr4 = array(
+    public static $fallbackDirsPsr4 = array (
         0 => __DIR__ . '/..' . '/league/color-extractor/src',
     );
 
-    public static $prefixesPsr0 = array(
-        'c' =>
-            array(
-                'claviska' =>
-                    array(
-                        0 => __DIR__ . '/..' . '/claviska/simpleimage/src',
-                    ),
+    public static $prefixesPsr0 = array (
+        'c' => 
+        array (
+            'claviska' => 
+            array (
+                0 => __DIR__ . '/..' . '/claviska/simpleimage/src',
             ),
+        ),
     );
 
-    public static $classMap = array(
+    public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'BaconQrCode\\Common\\BitArray' => __DIR__ . '/..' . '/bacon/bacon-qr-code/src/Common/BitArray.php',
         'BaconQrCode\\Common\\BitMatrix' => __DIR__ . '/..' . '/bacon/bacon-qr-code/src/Common/BitMatrix.php',
@@ -1104,7 +1102,7 @@ class ComposerStaticInit00d1f9b6bf944011268c41c2b4662055
 
     public static function getInitializer(ClassLoader $loader)
     {
-        return Closure::bind(function () use ($loader) {
+        return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit00d1f9b6bf944011268c41c2b4662055::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit00d1f9b6bf944011268c41c2b4662055::$prefixDirsPsr4;
             $loader->fallbackDirsPsr4 = ComposerStaticInit00d1f9b6bf944011268c41c2b4662055::$fallbackDirsPsr4;

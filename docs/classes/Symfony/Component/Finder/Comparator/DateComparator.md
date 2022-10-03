@@ -4,16 +4,31 @@
 
 DateCompare compiles date comparisons.
 
+
+
 * Full name: `\Symfony\Component\Finder\Comparator\DateComparator`
 * Parent class: [`\Symfony\Component\Finder\Comparator\Comparator`](./Comparator.md)
 
+
+
+
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(string $test): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -21,15 +36,29 @@ public __construct(string $test): mixed
 |-----------|------|-------------|
 | `$test` | **string** | A comparison string |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(string $target, string $operator = &#039;==&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -37,6 +66,9 @@ public __construct(string $target, string $operator = &#039;==&#039;): mixed
 |-----------|------|-------------|
 | `$target` | **string** |  |
 | `$operator` | **string** |  |
+
+
+
 
 ***
 
@@ -48,6 +80,16 @@ Gets the target value.
 public getTarget(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getOperator
@@ -57,6 +99,16 @@ Gets the comparison operator.
 ```php
 public getOperator(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -68,11 +120,21 @@ Tests against the target.
 public test(mixed $test): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$test` | **mixed** |  |
+
+
+
 
 ***
 

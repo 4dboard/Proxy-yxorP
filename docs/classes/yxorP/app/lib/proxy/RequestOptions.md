@@ -2,9 +2,14 @@
 
 # requestOptions
 
+
+
+
+
 * Full name: `\yxorP\app\lib\proxy\requestOptions`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
+
 
 ## Constants
 
@@ -40,6 +45,9 @@
 |`READ_TIMEOUT`|public| |&#039;read_timeout&#039;|
 |`VERSION`|public| |&#039;version&#039;|
 |`FORCE_IP_RESOLVE`|public| |&#039;force_ip_resolve&#039;|
+
+
+
 
 ***
 

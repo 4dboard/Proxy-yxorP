@@ -2,12 +2,7 @@
 
 namespace App\Helper;
 
-use Lime\Helper;
-use function pathinfo;
-use function strtolower;
-
-class Theme extends Helper
-{
+class Theme extends \Lime\Helper {
 
     protected array $vars;
     protected ?string $title = null;
@@ -16,8 +11,16 @@ class Theme extends Helper
     protected ?string $logoLarge = null;
     protected ?string $pageClass = null;
 
-    public function title(?string $newTitle = null): ?string
-    {
+    protected function initialize() {
+
+        $this->vars = [
+            'app.version' => $this->app->retrieve('app.version'),
+            'siteUrl' => $this->app->getSiteUrl(true),
+            'maxUploadSize' => $this->helper('utils')->getMaxUploadSize(),
+        ];
+    }
+
+    public function title(?string $newTitle = null): ?string {
 
         if ($newTitle) {
             $this->title = $newTitle;
@@ -31,12 +34,11 @@ class Theme extends Helper
         return $this->app->retrieve('app.name');
     }
 
-    public function favicon(?string $url = null, ?string $color = null): ?string
-    {
+    public function favicon(?string $url = null, ?string $color = null): ?string {
 
         if ($url) {
             $this->favicon = $this->pathToUrl($url);
-            $ext = strtolower(pathinfo($this->favicon, PATHINFO_EXTENSION));
+            $ext = \strtolower(\pathinfo($this->favicon, PATHINFO_EXTENSION));
 
             if ($ext != 'svg') {
                 return null;
@@ -45,8 +47,8 @@ class Theme extends Helper
             if ($ext == 'svg' && $color) {
                 $path = $this->app->path($url);
                 $svg = file_get_contents($path);
-                $svg = preg_replace('/fill="(.*?)"/', 'fill="' . $color . '"', $svg);
-                $this->favicon = 'data:image/svg+xml;base64,' . base64_encode($svg);
+                $svg = preg_replace('/fill="(.*?)"/', 'fill="'.$color.'"', $svg);
+                $this->favicon = 'data:image/svg+xml;base64,'.base64_encode($svg);
             }
 
             return null;
@@ -63,8 +65,9 @@ class Theme extends Helper
         return $this->pathToUrl('#app:favicon.png');
     }
 
-    public function logoLarge(?string $url = null): ?string
-    {
+
+
+    public function logoLarge(?string $url = null): ?string {
 
         if ($url) {
             $this->logoLarge = $this->pathToUrl($url);
@@ -82,8 +85,7 @@ class Theme extends Helper
         return $this->baseUrl('app:assets/logo.png');
     }
 
-    public function logo(?string $url = null): ?string
-    {
+    public function logo(?string $url = null): ?string {
 
         if ($url) {
             $this->logo = $this->pathToUrl($url);
@@ -101,8 +103,7 @@ class Theme extends Helper
         return $this->baseUrl('app:assets/logo.svg');
     }
 
-    public function theme()
-    {
+    public function theme() {
 
         $theme = $this->app->retrieve('theme/default', 'auto');
         $theme = $this->app->helper('auth')->getUser('theme', $theme);
@@ -110,8 +111,7 @@ class Theme extends Helper
         return $theme;
     }
 
-    public function assets(array $assets = [], ?string $context = null)
-    {
+    public function assets(array $assets = [], ?string $context = null) {
 
         $debug = $this->app->retrieve('debug');
 
@@ -132,8 +132,7 @@ class Theme extends Helper
         return $this->app->assets($assets, $this->app->retrieve('app.version'));
     }
 
-    public function pageClass(?string $class = null)
-    {
+    public function pageClass(?string $class = null) {
 
         if ($class) {
             $this->pageClass = $class;
@@ -143,8 +142,7 @@ class Theme extends Helper
         return $this->pageClass;
     }
 
-    public function vars(...$args)
-    {
+    public function vars(...$args) {
 
         switch (count($args)) {
             case 1:
@@ -155,15 +153,5 @@ class Theme extends Helper
         }
 
         return $this->vars;
-    }
-
-    protected function initialize()
-    {
-
-        $this->vars = [
-            'app.version' => $this->app->retrieve('app.version'),
-            'siteUrl' => $this->app->getSiteUrl(true),
-            'maxUploadSize' => $this->helper('utils')->getMaxUploadSize(),
-        ];
     }
 }

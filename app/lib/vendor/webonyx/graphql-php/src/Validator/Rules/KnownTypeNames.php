@@ -25,7 +25,7 @@ class KnownTypeNames extends ValidationRule
 {
     public function getVisitor(ValidationContext $context)
     {
-        $skip = static function (): VisitorOperation {
+        $skip = static function () : VisitorOperation {
             return Visitor::skipNode();
         };
 
@@ -33,14 +33,14 @@ class KnownTypeNames extends ValidationRule
             // TODO: when validating IDL, re-enable these. Experimental version does not
             // add unreferenced types, resulting in false-positive errors. Squelched
             // errors for now.
-            NodeKind::OBJECT_TYPE_DEFINITION => $skip,
-            NodeKind::INTERFACE_TYPE_DEFINITION => $skip,
-            NodeKind::UNION_TYPE_DEFINITION => $skip,
+            NodeKind::OBJECT_TYPE_DEFINITION       => $skip,
+            NodeKind::INTERFACE_TYPE_DEFINITION    => $skip,
+            NodeKind::UNION_TYPE_DEFINITION        => $skip,
             NodeKind::INPUT_OBJECT_TYPE_DEFINITION => $skip,
-            NodeKind::NAMED_TYPE => static function (NamedTypeNode $node) use ($context): void {
-                $schema = $context->getSchema();
+            NodeKind::NAMED_TYPE                   => static function (NamedTypeNode $node) use ($context) : void {
+                $schema   = $context->getSchema();
                 $typeName = $node->name->value;
-                $type = $schema->getType($typeName);
+                $type     = $schema->getType($typeName);
                 if ($type !== null) {
                     return;
                 }
@@ -57,7 +57,7 @@ class KnownTypeNames extends ValidationRule
     }
 
     /**
-     * @param string $type
+     * @param string   $type
      * @param string[] $suggestedTypes
      */
     public static function unknownTypeMessage($type, array $suggestedTypes)

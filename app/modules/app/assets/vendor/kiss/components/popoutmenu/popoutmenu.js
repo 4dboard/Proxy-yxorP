@@ -1,4 +1,4 @@
-import {on, trigger} from '../../js/events.js';
+import { on, trigger } from '../../js/events.js';
 
 
 on(document.documentElement, 'click', '[kiss-popoutmenu]', function (e) {
@@ -53,7 +53,7 @@ customElements.define('kiss-popoutmenu', class extends HTMLElement {
                     break;
 
                 case "center":
-                    left = (rect.right - ele.offsetWidth / 2) - content.offsetWidth / 2;
+                    left = (rect.right - ele.offsetWidth/2) - content.offsetWidth / 2;
                     break;
 
                 case "left":

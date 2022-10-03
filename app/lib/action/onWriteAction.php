@@ -18,6 +18,7 @@ class onWriteAction extends wrapper
      */
     public function onWrite(): void
     {
+        if(!store::handler(VAR_RESPONSE)) return;
         /* Getting the response body from the `VAR_RESPONSE` variable. */
         $content = store::handler(VAR_RESPONSE)->getBody();
         /* Checking if the MIME type is HTML. */

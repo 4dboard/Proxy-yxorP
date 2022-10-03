@@ -5,35 +5,62 @@
 Creates a composed Guzzle handler function by stacking middlewares on top of
 an HTTP handler function.
 
+
+
 * Full name: `\GuzzleHttp\HandlerStack`
+
+
 
 ## Properties
 
+
 ### handler
+
+
 
 ```php
 private $handler
 ```
 
+
+
+
+
+
 ***
 
 ### stack
+
+
 
 ```php
 private $stack
 ```
 
+
+
+
+
+
 ***
 
 ### cached
+
+
 
 ```php
 private $cached
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### create
 
@@ -53,25 +80,43 @@ option.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handler` | **?callable** |  |
 
+
+
+
 ***
 
 ### __construct
 
+
+
 ```php
 public __construct(callable $handler = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handler` | **callable** |  |
+
+
+
 
 ***
 
@@ -83,12 +128,22 @@ Invokes the handler stack as a composed handler
 public __invoke(\Psr\Http\Message\RequestInterface $request, array $options): \Psr\Http\Message\ResponseInterface|\GuzzleHttp\Promise\PromiseInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** |  |
+
+
+
 
 ***
 
@@ -100,6 +155,16 @@ Dumps a string representation of the stack.
 public __toString(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setHandler
@@ -110,11 +175,21 @@ Set the HTTP handler that actually returns a promise.
 public setHandler(callable $handler): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handler` | **callable** |  |
+
+
+
 
 ***
 
@@ -126,6 +201,16 @@ Returns true if the builder has a handler.
 public hasHandler(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### unshift
@@ -136,12 +221,22 @@ Unshift a middleware to the bottom of the stack.
 public unshift(callable $middleware, string $name = null): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$middleware` | **callable** |  |
 | `$name` | **string** | Name to register for this middleware. |
+
+
+
 
 ***
 
@@ -153,12 +248,22 @@ Push a middleware to the top of the stack.
 public push(callable $middleware, string $name = &#039;&#039;): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$middleware` | **callable** |  |
 | `$name` | **string** | Name to register for this middleware. |
+
+
+
 
 ***
 
@@ -170,6 +275,13 @@ Add a middleware before another middleware by name.
 public before(string $findName, callable $middleware, string $withName = &#039;&#039;): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -177,6 +289,9 @@ public before(string $findName, callable $middleware, string $withName = &#039;&
 | `$findName` | **string** | Middleware to find |
 | `$middleware` | **callable** |  |
 | `$withName` | **string** | Name to register for this middleware. |
+
+
+
 
 ***
 
@@ -188,6 +303,13 @@ Add a middleware after another middleware by name.
 public after(string $findName, callable $middleware, string $withName = &#039;&#039;): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -195,6 +317,9 @@ public after(string $findName, callable $middleware, string $withName = &#039;&#
 | `$findName` | **string** | Middleware to find |
 | `$middleware` | **callable** |  |
 | `$withName` | **string** | Name to register for this middleware. |
+
+
+
 
 ***
 
@@ -206,11 +331,21 @@ Remove a middleware by instance or name from the stack.
 public remove(callable|string $remove): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$remove` | **callable&#124;string** | Middleware to remove by instance or name. |
+
+
+
 
 ***
 
@@ -222,19 +357,41 @@ Compose the middleware and handler into a single callable function.
 public resolve(): callable
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### findByName
 
+
+
 ```php
 private findByName(string $name): int
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 
@@ -246,6 +403,13 @@ Splices a function into the middleware list at a specific position.
 private splice(string $findName, string $withName, callable $middleware, bool $before): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -254,6 +418,9 @@ private splice(string $findName, string $withName, callable $middleware, bool $b
 | `$withName` | **string** |  |
 | `$middleware` | **callable** |  |
 | `$before` | **bool** |  |
+
+
+
 
 ***
 
@@ -265,11 +432,21 @@ Provides a debug string for a given callable.
 private debugCallable(callable|string $fn): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fn` | **callable&#124;string** | Function to write as a string. |
+
+
+
 
 ***
 

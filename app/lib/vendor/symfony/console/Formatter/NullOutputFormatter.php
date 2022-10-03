@@ -38,14 +38,6 @@ final class NullOutputFormatter implements OutputFormatterInterface
     /**
      * {@inheritdoc}
      */
-    public function setStyle(string $name, OutputFormatterStyleInterface $style): void
-    {
-        // do nothing
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function hasStyle(string $name): bool
     {
         return false;
@@ -63,6 +55,14 @@ final class NullOutputFormatter implements OutputFormatterInterface
      * {@inheritdoc}
      */
     public function setDecorated(bool $decorated): void
+    {
+        // do nothing
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setStyle(string $name, OutputFormatterStyleInterface $style): void
     {
         // do nothing
     }

@@ -2,7 +2,12 @@
 
 # NodeKind
 
+
+
+
+
 * Full name: `\GraphQL\Language\AST\NodeKind`
+
 
 ## Constants
 
@@ -54,13 +59,19 @@
 
 ## Properties
 
+
 ### classMap
+
+
 
 ```php
 public static string[] $classMap
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 

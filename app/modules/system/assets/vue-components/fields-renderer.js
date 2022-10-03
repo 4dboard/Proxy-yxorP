@@ -1,4 +1,4 @@
-import {FieldTypes} from "../js/settings.js"
+import { FieldTypes } from "../js/settings.js"
 
 let fuid = 0;
 
@@ -8,7 +8,7 @@ let FieldRenderer = {
 
         if (this.modelValue === undefined) {
 
-            let val = null;
+            let val =  null;
 
             if (this.field.opts) {
 
@@ -116,7 +116,7 @@ let FieldRenderer = {
                     pass = false;
                 }
 
-                if (!val && !(val === false || val === 0)) {
+                if (!val && !(val===false || val===0)) {
                     pass = false;
                 }
 
@@ -266,7 +266,7 @@ export default {
                         pass = false;
                     }
 
-                    if (!val && !(val === false || val === 0)) {
+                    if (!val && !(val===false || val===0)) {
                         pass = false;
                     }
                 }
@@ -285,9 +285,7 @@ export default {
 
     watch: {
         val: {
-            handler() {
-                this.update()
-            },
+            handler() { this.update() },
             deep: true
         },
         modelValue() {
@@ -345,8 +343,8 @@ export default {
         },
 
         copyLocaleValue(to, from, field) {
-            to = field + (to == 'default' ? '' : '_' + to);
-            from = field + (from == 'default' ? '' : '_' + from);
+            to = field+(to == 'default' ? '': '_'+to);
+            from = field+(from == 'default' ? '': '_'+from);
 
             this.val[to] = JSON.parse(JSON.stringify(this.val[from]));
         },
@@ -362,14 +360,13 @@ export default {
             }
 
             // compile condition
-            if (typeof (field.condition) === 'string') {
+            if (typeof(field.condition) === 'string') {
                 field.condition = new Function('data', `return ${field.condition}`);
             }
 
             try {
                 return field.condition(this.val);
-            } catch (e) {
-            }
+            } catch(e) {}
 
             return true;
         }

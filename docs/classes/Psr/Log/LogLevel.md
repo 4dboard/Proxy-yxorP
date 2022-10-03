@@ -4,7 +4,10 @@
 
 Describes log levels.
 
+
+
 * Full name: `\Psr\Log\LogLevel`
+
 
 ## Constants
 
@@ -18,6 +21,9 @@ Describes log levels.
 |`NOTICE`|public| |&#039;notice&#039;|
 |`INFO`|public| |&#039;info&#039;|
 |`DEBUG`|public| |&#039;debug&#039;|
+
+
+
 
 ***
 

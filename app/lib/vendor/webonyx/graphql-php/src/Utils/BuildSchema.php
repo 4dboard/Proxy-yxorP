@@ -47,9 +47,9 @@ class BuildSchema
      */
     public function __construct(DocumentNode $ast, ?callable $typeConfigDecorator = null, array $options = [])
     {
-        $this->ast = $ast;
+        $this->ast                 = $ast;
         $this->typeConfigDecorator = $typeConfigDecorator;
-        $this->options = $options;
+        $this->options             = $options;
     }
 
     /**
@@ -57,7 +57,7 @@ class BuildSchema
      * document.
      *
      * @param DocumentNode|Source|string $source
-     * @param array<string, bool> $options
+     * @param array<string, bool>        $options
      *
      * @return Schema
      *
@@ -106,12 +106,12 @@ class BuildSchema
     public function buildSchema()
     {
         $options = $this->options;
-        if (!($options['assumeValid'] ?? false) && !($options['assumeValidSDL'] ?? false)) {
+        if (! ($options['assumeValid'] ?? false) && ! ($options['assumeValidSDL'] ?? false)) {
             DocumentValidator::assertValidSDL($this->ast);
         }
 
-        $schemaDef = null;
-        $typeDefs = [];
+        $schemaDef     = null;
+        $typeDefs      = [];
         $this->nodeMap = [];
         /** @var array<int, DirectiveDefinitionNode> $directiveDefs */
         $directiveDefs = [];
@@ -125,7 +125,7 @@ class BuildSchema
                     if (isset($this->nodeMap[$typeName])) {
                         throw new Error(sprintf('Type "%s" was defined more than once.', $typeName));
                     }
-                    $typeDefs[] = $definition;
+                    $typeDefs[]               = $definition;
                     $this->nodeMap[$typeName] = $definition;
                     break;
                 case $definition instanceof DirectiveDefinitionNode:
@@ -137,22 +137,22 @@ class BuildSchema
         $operationTypes = $schemaDef !== null
             ? $this->getOperationTypes($schemaDef)
             : [
-                'query' => isset($this->nodeMap['Query']) ? 'Query' : null,
-                'mutation' => isset($this->nodeMap['Mutation']) ? 'Mutation' : null,
+                'query'        => isset($this->nodeMap['Query']) ? 'Query' : null,
+                'mutation'     => isset($this->nodeMap['Mutation']) ? 'Mutation' : null,
                 'subscription' => isset($this->nodeMap['Subscription']) ? 'Subscription' : null,
             ];
 
         $DefinitionBuilder = new ASTDefinitionBuilder(
             $this->nodeMap,
             $this->options,
-            static function ($typeName): void {
+            static function ($typeName) : void {
                 throw new Error('Type "' . $typeName . '" not found in document.');
             },
             $this->typeConfigDecorator
         );
 
         $directives = array_map(
-            static function (DirectiveDefinitionNode $def) use ($DefinitionBuilder): Directive {
+            static function (DirectiveDefinitionNode $def) use ($DefinitionBuilder) : Directive {
                 return $DefinitionBuilder->buildDirective($def);
             },
             $directiveDefs
@@ -161,17 +161,17 @@ class BuildSchema
         // If specified directives were not explicitly declared, add them.
         $directivesByName = Utils::groupBy(
             $directives,
-            static function (Directive $directive): string {
+            static function (Directive $directive) : string {
                 return $directive->name;
             }
         );
-        if (!isset($directivesByName['skip'])) {
+        if (! isset($directivesByName['skip'])) {
             $directives[] = Directive::skipDirective();
         }
-        if (!isset($directivesByName['include'])) {
+        if (! isset($directivesByName['include'])) {
             $directives[] = Directive::includeDirective();
         }
-        if (!isset($directivesByName['deprecated'])) {
+        if (! isset($directivesByName['deprecated'])) {
             $directives[] = Directive::deprecatedDirective();
         }
 
@@ -180,21 +180,21 @@ class BuildSchema
         // validation with validateSchema() will produce more actionable results.
 
         return new Schema([
-            'query' => isset($operationTypes['query'])
+            'query'        => isset($operationTypes['query'])
                 ? $DefinitionBuilder->buildType($operationTypes['query'])
                 : null,
-            'mutation' => isset($operationTypes['mutation'])
+            'mutation'     => isset($operationTypes['mutation'])
                 ? $DefinitionBuilder->buildType($operationTypes['mutation'])
                 : null,
             'subscription' => isset($operationTypes['subscription'])
                 ? $DefinitionBuilder->buildType($operationTypes['subscription'])
                 : null,
-            'typeLoader' => static function ($name) use ($DefinitionBuilder): Type {
+            'typeLoader'   => static function ($name) use ($DefinitionBuilder) : Type {
                 return $DefinitionBuilder->buildType($name);
             },
-            'directives' => $directives,
-            'astNode' => $schemaDef,
-            'types' => function () use ($DefinitionBuilder): array {
+            'directives'   => $directives,
+            'astNode'      => $schemaDef,
+            'types'        => function () use ($DefinitionBuilder) : array {
                 $types = [];
                 /** @var ScalarTypeDefinitionNode|ObjectTypeDefinitionNode|InterfaceTypeDefinitionNode|UnionTypeDefinitionNode|EnumTypeDefinitionNode|InputObjectTypeDefinitionNode $def */
                 foreach ($this->nodeMap as $name => $def) {
@@ -218,14 +218,14 @@ class BuildSchema
         $opTypes = [];
 
         foreach ($schemaDef->operationTypes as $operationType) {
-            $typeName = $operationType->type->name->value;
+            $typeName  = $operationType->type->name->value;
             $operation = $operationType->operation;
 
             if (isset($opTypes[$operation])) {
                 throw new Error(sprintf('Must provide only one %s type in schema.', $operation));
             }
 
-            if (!isset($this->nodeMap[$typeName])) {
+            if (! isset($this->nodeMap[$typeName])) {
                 throw new Error(sprintf('Specified %s type "%s" not found in document.', $operation, $typeName));
             }
 

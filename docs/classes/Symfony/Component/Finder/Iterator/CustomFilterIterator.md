@@ -10,23 +10,43 @@ to remove files.
 * Full name: `\Symfony\Component\Finder\Iterator\CustomFilterIterator`
 * Parent class: [`FilterIterator`](../../../../FilterIterator.md)
 
+
+
 ## Properties
 
+
 ### filters
+
+
 
 ```php
 private array $filters
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Iterator&lt;string,\SplFileInfo&gt; $iterator, callable[] $filters): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -34,6 +54,9 @@ public __construct(\Iterator&lt;string,\SplFileInfo&gt; $iterator, callable[] $f
 |-----------|------|-------------|
 | `$iterator` | **\Iterator<string,\SplFileInfo>** | The Iterator to filter |
 | `$filters` | **callable[]** | An array of PHP callbacks |
+
+
+
 
 ***
 
@@ -44,6 +67,16 @@ Filters the iterator values.
 ```php
 public accept(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

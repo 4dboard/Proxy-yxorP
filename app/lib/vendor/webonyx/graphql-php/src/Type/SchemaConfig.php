@@ -104,7 +104,7 @@ class SchemaConfig
             }
 
             if (isset($options['assumeValid'])) {
-                $config->setAssumeValid((bool)$options['assumeValid']);
+                $config->setAssumeValid((bool) $options['assumeValid']);
             }
 
             if (isset($options['extensionASTNodes'])) {

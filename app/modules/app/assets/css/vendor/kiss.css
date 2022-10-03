@@ -5,7 +5,7 @@
     --kiss-base-text-color: #fafafa;
     --kiss-base-font-size: 15px;
     --kiss-font-size-1: 2rem;
-    --kiss-hr-color: rgba(255, 255, 255, .1);
+    --kiss-hr-color: rgba(255,255,255,.1);
     --kiss-link-color: var(--kiss-color-primary);
     --kiss-link-hover-color: #1994ff;
 
@@ -19,14 +19,14 @@
     --kiss-color-success: #4caf50;
     --kiss-color-warning: orange;
     --kiss-color-danger: #f91941;
-    --kiss-color-muted: rgba(255, 255, 255, .5);
+    --kiss-color-muted: rgba(255,255,255,.5);
     --kiss-color-overlay: rgba(0, 0, 0, .6);
 
     --kiss-container-max-width: 1800px;
     --kiss-container-small-max-width: 900px;
 
-    --kiss-input-border-color: rgba(255, 255, 255, .1);
-    --kiss-input-background: rgba(255, 255, 255, .05);
+    --kiss-input-border-color: rgba(255,255,255,.1);
+    --kiss-input-background: rgba(255,255,255,.05);
 
     --kiss-badge-bgcolor: var(--kiss-color-primary);
 
@@ -89,17 +89,9 @@ kiss-tooltip {
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 }
 
-.kiss-height-30vh {
-    min-height: 30vh;
-}
-
-.kiss-height-50vh {
-    min-height: 50vh;
-}
-
-.kiss-height-100vh {
-    min-height: 100vh;
-}
+.kiss-height-30vh { min-height: 30vh; }
+.kiss-height-50vh { min-height: 50vh; }
+.kiss-height-100vh { min-height: 100vh; }
 
 kiss-dialog,
 kiss-offcanvas,
@@ -151,7 +143,7 @@ select.kiss-input option {
 }
 
 .kiss-input:focus {
-    background: var(--kiss-input-background-active, rgba(255, 255, 255, .15));
+    background: var(--kiss-input-background-active, rgba(255,255,255,.15));
     border-color: var(--kiss-input-border-color-active, var(--kiss-color-primary));
 }
 
@@ -160,16 +152,14 @@ select.kiss-input option {
 }
 
 .kiss-input::placeholder {
-    color: var(--kiss-input-placeholder-color, rgba(255, 255, 255, .2));
+    color: var(--kiss-input-placeholder-color, rgba(255,255,255,.2));
 }
 
 .kiss-input-small {
     padding: .3em .3em;
 }
 
-.kiss-disabled {
-    opacity: .6;
-}
+.kiss-disabled { opacity: .6; }
 
 kiss-offcanvas kiss-navlist ul > li > a,
 kiss-dropdownbox kiss-navlist ul > li > a {
@@ -250,7 +240,7 @@ kiss-card[hover*="contrast"]:hover {
 
 .kiss-button-group .kiss-button:not(:last-child) {
     border-right-width: 1px;
-    border-right-color: rgba(0, 0, 0, .08);
+    border-right-color: rgba(0,0,0,.08);
     border-right-style: solid;
 }
 
@@ -275,17 +265,17 @@ kiss-card[hover*="contrast"]:hover {
     margin-bottom: 1rem;
 }
 
-.kiss-breadcrumbs > *:not(.active) > * {
+.kiss-breadcrumbs > *:not(.active) > *  {
     opacity: .6;
     transition: opacity .3s;
 }
 
-.kiss-breadcrumbs > *:not(.active):hover > * {
+.kiss-breadcrumbs > *:not(.active):hover > *  {
     opacity: 1;
     color: inherit;
 }
 
-.kiss-breadcrumbs > .active > * {
+.kiss-breadcrumbs > .active > *  {
     font-weight: bold;
 }
 
@@ -355,10 +345,7 @@ kiss-card[hover*="contrast"]:hover {
     cursor: pointer;
     color: var(--kiss-base-text-color);
 }
-
-.kiss-checkbox:focus {
-    outline: none;
-}
+.kiss-checkbox:focus { outline: none; }
 
 .kiss-checkbox:before {
     font-family: 'Material Icons Outlined';

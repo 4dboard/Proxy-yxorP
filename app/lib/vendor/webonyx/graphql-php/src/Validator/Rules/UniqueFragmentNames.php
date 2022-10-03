@@ -23,12 +23,12 @@ class UniqueFragmentNames extends ValidationRule
         $this->knownFragmentNames = [];
 
         return [
-            NodeKind::OPERATION_DEFINITION => static function (): VisitorOperation {
+            NodeKind::OPERATION_DEFINITION => static function () : VisitorOperation {
                 return Visitor::skipNode();
             },
-            NodeKind::FRAGMENT_DEFINITION => function (FragmentDefinitionNode $node) use ($context): VisitorOperation {
+            NodeKind::FRAGMENT_DEFINITION  => function (FragmentDefinitionNode $node) use ($context) : VisitorOperation {
                 $fragmentName = $node->name->value;
-                if (!isset($this->knownFragmentNames[$fragmentName])) {
+                if (! isset($this->knownFragmentNames[$fragmentName])) {
                     $this->knownFragmentNames[$fragmentName] = $node->name;
                 } else {
                     $context->reportError(new Error(

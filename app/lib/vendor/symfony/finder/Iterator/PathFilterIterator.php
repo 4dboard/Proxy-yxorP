@@ -11,16 +11,13 @@
 
 namespace Symfony\Component\Finder\Iterator;
 
-use SplFileInfo;
-use const DIRECTORY_SEPARATOR;
-
 /**
  * PathFilterIterator filters files by path patterns (e.g. some/special/dir).
  *
  * @author Fabien Potencier  <fabien@symfony.com>
  * @author Włodzimierz Gajda <gajdaw@gajdaw.pl>
  *
- * @extends MultiplePcreFilterIterator<string, SplFileInfo>
+ * @extends MultiplePcreFilterIterator<string, \SplFileInfo>
  */
 class PathFilterIterator extends MultiplePcreFilterIterator
 {
@@ -31,7 +28,7 @@ class PathFilterIterator extends MultiplePcreFilterIterator
     {
         $filename = $this->current()->getRelativePathname();
 
-        if ('\\' === DIRECTORY_SEPARATOR) {
+        if ('\\' === \DIRECTORY_SEPARATOR) {
             $filename = str_replace('\\', '/', $filename);
         }
 
@@ -52,6 +49,6 @@ class PathFilterIterator extends MultiplePcreFilterIterator
      */
     protected function toRegex(string $str): string
     {
-        return $this->isRegex($str) ? $str : '/' . preg_quote($str, '/') . '/';
+        return $this->isRegex($str) ? $str : '/'.preg_quote($str, '/').'/';
     }
 }

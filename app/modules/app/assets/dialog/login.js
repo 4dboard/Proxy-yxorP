@@ -1,7 +1,8 @@
+
 export default {
 
     data() {
-        return {
+        return  {
             auth: {
                 user: '',
                 password: ''

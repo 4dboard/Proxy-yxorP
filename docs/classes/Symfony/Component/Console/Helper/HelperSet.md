@@ -4,35 +4,64 @@
 
 HelperSet represents a set of helpers to be used with a command.
 
+
+
 * Full name: `\Symfony\Component\Console\Helper\HelperSet`
 * This class implements:
-  [`\IteratorAggregate`](../../../../IteratorAggregate.md)
+[`\IteratorAggregate`](../../../../IteratorAggregate.md)
+
+
 
 ## Properties
 
+
 ### helpers
+
+
 
 ```php
 private array&lt;string,\Symfony\Component\Console\Helper\Helper&gt; $helpers
 ```
 
+
+
+
+
+
 ***
 
 ### command
+
+
 
 ```php
 private $command
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Symfony\Component\Console\Helper\Helper[] $helpers = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -40,13 +69,25 @@ public __construct(\Symfony\Component\Console\Helper\Helper[] $helpers = []): mi
 |-----------|------|-------------|
 | `$helpers` | **\Symfony\Component\Console\Helper\Helper[]** | An array of helper |
 
+
+
+
 ***
 
 ### set
 
+
+
 ```php
 public set(\Symfony\Component\Console\Helper\HelperInterface $helper, string $alias = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -54,6 +95,9 @@ public set(\Symfony\Component\Console\Helper\HelperInterface $helper, string $al
 |-----------|------|-------------|
 | `$helper` | **\Symfony\Component\Console\Helper\HelperInterface** |  |
 | `$alias` | **string** |  |
+
+
+
 
 ***
 
@@ -65,11 +109,21 @@ Returns true if the helper if defined.
 public has(string $name): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 
@@ -81,27 +135,49 @@ Gets a helper value.
 public get(string $name): \Symfony\Component\Console\Helper\HelperInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
+
+
+
 ***
 
 ### setCommand
+
+
 
 ```php
 public setCommand(\Symfony\Component\Console\Command\Command $command = null): mixed
 ```
 
+
+
+
+
+
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$command` | **\Symfony\Component\Console\Command\Command** |  |
+
+
+
 
 ***
 
@@ -113,15 +189,37 @@ Gets the command associated with this helper set.
 public getCommand(): \Symfony\Component\Console\Command\Command
 ```
 
+
+
+
+
+
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
+
+
+
 
 ***
 
 ### getIterator
 
+
+
 ```php
 public getIterator(): \Traversable&lt;string,\Symfony\Component\Console\Helper\Helper&gt;
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

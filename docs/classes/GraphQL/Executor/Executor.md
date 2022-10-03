@@ -4,49 +4,80 @@
 
 Implements the "Evaluating requests" section of the GraphQL specification.
 
+
+
 * Full name: `\GraphQL\Executor\Executor`
+
+
 
 ## Properties
 
+
 ### defaultFieldResolver
+
+
 
 ```php
 private static callable $defaultFieldResolver
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### defaultPromiseAdapter
 
+
+
 ```php
 private static \GraphQL\Executor\Promise\PromiseAdapter $defaultPromiseAdapter
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### implementationFactory
 
+
+
 ```php
 private static callable $implementationFactory
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ## Methods
 
+
 ### getDefaultFieldResolver
+
+
 
 ```php
 public static getDefaultFieldResolver(): callable
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -58,7 +89,12 @@ Set a custom default resolve function.
 public static setDefaultFieldResolver(callable $fieldResolver): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -66,15 +102,28 @@ public static setDefaultFieldResolver(callable $fieldResolver): mixed
 |-----------|------|-------------|
 | `$fieldResolver` | **callable** |  |
 
+
+
+
 ***
 
 ### getPromiseAdapter
+
+
 
 ```php
 public static getPromiseAdapter(): \GraphQL\Executor\Promise\PromiseAdapter
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -86,7 +135,12 @@ Set a custom default promise adapter.
 public static setPromiseAdapter(?\GraphQL\Executor\Promise\PromiseAdapter $defaultPromiseAdapter = null): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -94,15 +148,28 @@ public static setPromiseAdapter(?\GraphQL\Executor\Promise\PromiseAdapter $defau
 |-----------|------|-------------|
 | `$defaultPromiseAdapter` | **?\GraphQL\Executor\Promise\PromiseAdapter** |  |
 
+
+
+
 ***
 
 ### getImplementationFactory
+
+
 
 ```php
 public static getImplementationFactory(): callable
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -114,13 +181,21 @@ Set a custom executor implementation factory.
 public static setImplementationFactory(callable $implementationFactory): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$implementationFactory` | **callable** |  |
+
+
+
 
 ***
 
@@ -137,6 +212,9 @@ All errors which occur during operation execution are collected in `$result->err
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -148,6 +226,9 @@ All errors which occur during operation execution are collected in `$result->err
 | `$variableValues` | **array&#124;\ArrayAccess&#124;null** |  |
 | `$operationName` | **string&#124;null** |  |
 | `$fieldResolver` | **?callable** |  |
+
+
+
 
 ***
 
@@ -164,6 +245,9 @@ Useful for async PHP platforms.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -176,6 +260,9 @@ Useful for async PHP platforms.
 | `$variableValues` | **array&#124;null** |  |
 | `$operationName` | **string&#124;null** |  |
 | `$fieldResolver` | **?callable** |  |
+
+
+
 
 ***
 
@@ -190,7 +277,12 @@ of calling that function while passing along args and context.
 public static defaultFieldResolver(mixed $objectValue, array&lt;string,mixed&gt; $args, mixed|null $contextValue, \GraphQL\Type\Definition\ResolveInfo $info): mixed|null
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -200,6 +292,9 @@ public static defaultFieldResolver(mixed $objectValue, array&lt;string,mixed&gt;
 | `$args` | **array<string,mixed>** |  |
 | `$contextValue` | **mixed&#124;null** |  |
 | `$info` | **\GraphQL\Type\Definition\ResolveInfo** |  |
+
+
+
 
 ***
 

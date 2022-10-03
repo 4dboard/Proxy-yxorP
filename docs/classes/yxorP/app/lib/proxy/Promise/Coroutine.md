@@ -2,45 +2,83 @@
 
 # coroutine
 
+
+
+
+
 * Full name: `\yxorP\app\lib\proxy\promise\coroutine`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-  [`\yxorP\app\lib\proxy\promise\promiseInterface`](./promiseInterface.md)
+[`\yxorP\app\lib\proxy\promise\promiseInterface`](./promiseInterface.md)
 * This class is a **Final class**
+
+
 
 ## Properties
 
+
 ### currentPromise
+
+
 
 ```php
 private $currentPromise
 ```
 
+
+
+
+
+
 ***
 
 ### generator
+
+
 
 ```php
 private $generator
 ```
 
+
+
+
+
+
 ***
 
 ### result
+
+
 
 ```php
 private $result
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(callable $generatorFn): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -48,13 +86,25 @@ public __construct(callable $generatorFn): mixed
 |-----------|------|-------------|
 | `$generatorFn` | **callable** |  |
 
+
+
+
 ***
 
 ### then
 
+
+
 ```php
 public then(callable $onFulfilled = null, callable $onRejected = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -63,13 +113,25 @@ public then(callable $onFulfilled = null, callable $onRejected = null): mixed
 | `$onFulfilled` | **callable** |  |
 | `$onRejected` | **callable** |  |
 
+
+
+
 ***
 
 ### otherwise
 
+
+
 ```php
 public otherwise(callable $onRejected): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -77,13 +139,25 @@ public otherwise(callable $onRejected): mixed
 |-----------|------|-------------|
 | `$onRejected` | **callable** |  |
 
+
+
+
 ***
 
 ### wait
 
+
+
 ```php
 public wait(mixed $unwrap = true): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -91,35 +165,71 @@ public wait(mixed $unwrap = true): mixed
 |-----------|------|-------------|
 | `$unwrap` | **mixed** |  |
 
+
+
+
 ***
 
 ### getState
+
+
 
 ```php
 public getState(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### resolve
+
+
 
 ```php
 public resolve(mixed $value): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
 ### reject
 
+
+
 ```php
 public reject(mixed $reason): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -127,21 +237,45 @@ public reject(mixed $reason): mixed
 |-----------|------|-------------|
 | `$reason` | **mixed** |  |
 
+
+
+
 ***
 
 ### cancel
+
+
 
 ```php
 public cancel(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### _handleSuccess
 
+
+
 ```php
 public _handleSuccess(mixed $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -149,13 +283,25 @@ public _handleSuccess(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
+
+
+
 ***
 
 ### _handleFailure
 
+
+
 ```php
 public _handleFailure(mixed $reason): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -163,19 +309,34 @@ public _handleFailure(mixed $reason): mixed
 |-----------|------|-------------|
 | `$reason` | **mixed** |  |
 
+
+
+
 ***
 
 ### nextCoroutine
 
+
+
 ```php
 private nextCoroutine(mixed $yielded): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$yielded` | **mixed** |  |
+
+
+
 
 ***
 

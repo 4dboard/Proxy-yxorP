@@ -1,32 +1,28 @@
 <?php
 
-use App\GraphQL\Types\FieldTypes;
-use App\GraphQL\Types\JsonType;
-use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
+use GraphQL\Type\Definition\ObjectType;
+use App\GraphQL\Types\JsonType;
+use App\GraphQL\Types\FieldTypes;
 
-$models = $app->module('content')->models();
-$collections = array_filter($models, function ($m) {
-    return $m['type'] == 'collection';
-});
-$singletons = array_filter($models, function ($m) {
-    return $m['type'] == 'singleton';
-});
+$models      = $app->module('content')->models();
+$collections = array_filter($models, function($m) { return $m['type'] == 'collection';});
+$singletons  = array_filter($models, function($m) { return $m['type'] == 'singleton';});
 
 // register collections
 foreach ($collections as $name => &$meta) {
 
-    $_name = $name . 'Model';
+    $_name = $name.'Model';
 
     $gql->queries['fields'][$_name] = [
 
         'type' => Type::listOf(new ObjectType([
-            'name' => $_name,
-            'fields' => function () use ($meta, $app, $_name) {
+            'name'   => $_name,
+            'fields' => function() use($meta, $app, $_name) {
 
                 $fields = array_merge([
-                    '_id' => Type::nonNull(Type::string()),
-                    '_created' => Type::nonNull(Type::int()),
+                    '_id'       => Type::nonNull(Type::string()),
+                    '_created'  => Type::nonNull(Type::int()),
                     '_modified' => Type::nonNull(Type::int())
                 ], FieldTypes::buildFieldsDefinitions($meta));
 
@@ -35,25 +31,25 @@ foreach ($collections as $name => &$meta) {
         ])),
 
         'args' => [
-            '_id' => Type::string(),
+            '_id'   => Type::string(),
             'limit' => Type::int(),
-            'skip' => Type::int(),
-            'sort' => JsonType::instance(),
-            'locale' => ['type' => Type::string(), 'defaultValue' => 'default'],
-            'populate' => ['type' => Type::int(), 'defaultValue' => 0],
+            'skip'  => Type::int(),
+            'sort'  => JsonType::instance(),
+            'locale'  => ['type' => Type::string(), 'defaultValue' => 'default'],
+            'populate'   => ['type' => Type::int(), 'defaultValue' => 0],
             'projection' => ['type' => Type::string(), 'defaultValue' => ''],
-            'filter' => ['type' => JsonType::instance(), 'defaultValue' => '']
+            'filter'   => ['type' => JsonType::instance(), 'defaultValue' => '']
         ],
 
-        'resolve' => function ($root, $args) use ($app, $name) {
+        'resolve' => function ($root, $args) use($app, $name) {
 
             if (!$app->helper('acl')->isAllowed("content/{$name}/read", $app->helper('auth')->getUser('role'))) {
                 $app->response->status = 412;
                 return [];
             }
 
-            $process = ['locale' => $args['locale']];
-            $options = [];
+            $process  = ['locale' => $args['locale']];
+            $options  = [];
             $populate = $args['populate'];
 
             if ($args['populate']) {
@@ -93,18 +89,18 @@ foreach ($collections as $name => &$meta) {
 // register singletons
 foreach ($singletons as $name => &$meta) {
 
-    $_name = $name . 'Model';
+    $_name = $name.'Model';
 
     $gql->queries['fields'][$_name] = [
 
         'type' => new ObjectType([
-            'name' => $_name,
-            'fields' => function () use ($meta, $app, $_name) {
+            'name'   => $_name,
+            'fields' => function() use($meta, $app, $_name) {
 
                 $fields = array_merge([
                     '_id' => Type::string(),
                     '_created' => Type::int(),
-                    '_modified' => Type::int()
+                    '_modified' =>Type::int()
                 ], FieldTypes::buildFieldsDefinitions($meta));
 
                 return $fields;
@@ -112,19 +108,19 @@ foreach ($singletons as $name => &$meta) {
         ]),
 
         'args' => [
-            'locale' => ['type' => Type::string(), 'defaultValue' => 'default'],
+            'locale'  => ['type' => Type::string(), 'defaultValue' => 'default'],
             'populate' => ['type' => Type::int(), 'defaultValue' => 0],
         ],
 
-        'resolve' => function ($root, $args) use ($app, $name) {
+        'resolve' => function ($root, $args) use($app, $name) {
 
             if (!$app->helper('acl')->isAllowed("content/{$name}/read", $app->helper('auth')->getUser('role'))) {
                 $app->response->status = 412;
                 return null;
             }
 
-            $process = ['locale' => $args['locale']];
-            $options = [];
+            $process  = ['locale' => $args['locale']];
+            $options  = [];
 
             if (isset($args['populate']) && $args['populate']) {
                 $options['populate'] = $args['populate'];

@@ -1,3 +1,4 @@
+
 customElements.define('kiss-svg', class extends HTMLElement {
 
     static get observedAttributes() {

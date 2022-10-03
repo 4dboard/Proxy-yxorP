@@ -4,27 +4,47 @@
 
 Use the property context to extract useful information and inject that into the annotation.
 
+
+
 * Full name: `\OpenApi\Processors\AugmentProperties`
+
+
 
 ## Properties
 
+
 ### types
+
+
 
 ```php
 public static $types
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ## Methods
 
+
 ### __invoke
+
+
 
 ```php
 public __invoke(\OpenApi\Analysis $analysis): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -32,27 +52,51 @@ public __invoke(\OpenApi\Analysis $analysis): mixed
 |-----------|------|-------------|
 | `$analysis` | **\OpenApi\Analysis** |  |
 
+
+
+
 ***
 
 ### isNullable
+
+
 
 ```php
 protected isNullable(string $typeDescription): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$typeDescription` | **string** |  |
+
+
+
 
 ***
 
 ### stripNull
 
+
+
 ```php
 protected stripNull(string $typeDescription): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -60,13 +104,25 @@ protected stripNull(string $typeDescription): string
 |-----------|------|-------------|
 | `$typeDescription` | **string** |  |
 
+
+
+
 ***
 
 ### applyType
 
+
+
 ```php
 protected applyType(\OpenApi\Annotations\Property $property, mixed $type): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -75,13 +131,25 @@ protected applyType(\OpenApi\Annotations\Property $property, mixed $type): void
 | `$property` | **\OpenApi\Annotations\Property** |  |
 | `$type` | **mixed** |  |
 
+
+
+
 ***
 
 ### applyRef
 
+
+
 ```php
 protected applyRef(\OpenApi\Annotations\Property $property, string $ref): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -89,6 +157,9 @@ protected applyRef(\OpenApi\Annotations\Property $property, string $ref): void
 |-----------|------|-------------|
 | `$property` | **\OpenApi\Annotations\Property** |  |
 | `$ref` | **string** |  |
+
+
+
 
 ***
 

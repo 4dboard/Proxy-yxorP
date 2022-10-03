@@ -4,14 +4,17 @@
 
 Iterator for a change stream.
 
+
+
 * Full name: `\MongoDB\ChangeStream`
 * This class implements:
-  [`\Iterator`](../Iterator.md)
+[`\Iterator`](../Iterator.md)
 
 **See Also:**
 
-* \MongoDB\Collection::watch() -
-* http://docs.mongodb.org/manual/reference/command/changeStream/ -
+* \MongoDB\Collection::watch() - 
+* http://docs.mongodb.org/manual/reference/command/changeStream/ - 
+
 
 ## Constants
 
@@ -21,57 +24,94 @@ Iterator for a change stream.
 
 ## Properties
 
+
 ### cursorNotFound
+
+
 
 ```php
 private static int $cursorNotFound
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### resumableErrorCodes
 
+
+
 ```php
 private static int[] $resumableErrorCodes
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### wireVersionForResumableChangeStreamError
 
+
+
 ```php
 private static int $wireVersionForResumableChangeStreamError
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### resumeCallable
 
+
+
 ```php
 private callable $resumeCallable
 ```
+
+
+
+
+
 
 ***
 
 ### iterator
 
+
+
 ```php
 private \MongoDB\Model\ChangeStreamIterator $iterator
 ```
+
+
+
+
+
 
 ***
 
 ### key
 
+
+
 ```php
 private int $key
 ```
+
+
+
+
+
 
 ***
 
@@ -84,27 +124,56 @@ to determine whether $key should be incremented after an iteration event.
 private bool $hasAdvanced
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### current
+
+
 
 ```php
 public current(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* http://php.net/iterator.current -
+* http://php.net/iterator.current - 
 
 ***
 
 ### getCursorId
 
+
+
 ```php
 public getCursorId(): \MongoDB\Driver\CursorId
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -132,49 +201,93 @@ command response.
 
 ### key
 
+
+
 ```php
 public key(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* http://php.net/iterator.key -
+* http://php.net/iterator.key - 
 
 ***
 
 ### next
 
+
+
 ```php
 public next(): void
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* http://php.net/iterator.next -
+* http://php.net/iterator.next - 
 
 ***
 
 ### rewind
 
+
+
 ```php
 public rewind(): void
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* http://php.net/iterator.rewind -
+* http://php.net/iterator.rewind - 
 
 ***
 
 ### valid
 
+
+
 ```php
 public valid(): bool
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* http://php.net/iterator.valid -
+* http://php.net/iterator.valid - 
 
 ***
 
@@ -186,15 +299,24 @@ Determines if an exception is a resumable error.
 private isResumableError(\MongoDB\Driver\Exception\RuntimeException $exception): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$exception` | **\MongoDB\Driver\Exception\RuntimeException** |  |
 
+
+
 **See Also:**
 
-* https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#resumable-error -
+* https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#resumable-error - 
 
 ***
 
@@ -206,11 +328,21 @@ Perform housekeeping after an iteration event.
 private onIteration(bool $incrementKey): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$incrementKey` | **bool** | Increment $key if there is a current result |
+
+
+
 
 ***
 
@@ -222,6 +354,16 @@ Recreates the ChangeStreamIterator after a resumable server error.
 private resume(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### resumeOrThrow
@@ -232,11 +374,21 @@ Either resumes after a resumable error or re-throws the exception.
 private resumeOrThrow(\MongoDB\Driver\Exception\RuntimeException $exception): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$exception` | **\MongoDB\Driver\Exception\RuntimeException** |  |
+
+
+
 
 ***
 

@@ -3,7 +3,6 @@
 namespace RobThree\Auth\Providers\Time;
 
 use DateTime;
-use Exception;
 
 /**
  * Takes the time from any webserver by doing a HEAD request on the specified URL and extracting the 'Date:' header
@@ -53,7 +52,7 @@ class HttpTimeProvider implements ITimeProvider
     public function getTime()
     {
         try {
-            $context = stream_context_create($this->options);
+            $context  = stream_context_create($this->options);
             $fd = fopen($this->url, 'rb', false, $context);
             $headers = stream_get_meta_data($fd);
             fclose($fd);
@@ -63,8 +62,8 @@ class HttpTimeProvider implements ITimeProvider
                     return DateTime::createFromFormat($this->expectedtimeformat, trim(substr($h, 5)))->getTimestamp();
                 }
             }
-            throw new Exception('Invalid or no "Date:" header found');
-        } catch (Exception $ex) {
+            throw new \Exception('Invalid or no "Date:" header found');
+        } catch (\Exception $ex) {
             throw new TimeException(sprintf('Unable to retrieve time from %s (%s)', $this->url, $ex->getMessage()));
         }
 

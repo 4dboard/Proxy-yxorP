@@ -2,19 +2,34 @@
 
 # ImageLoader
 
+
+
+
+
 * Full name: `\ColorThief\Image\ImageLoader`
+
+
 
 ## Properties
 
+
 ### preferredAdapter
+
+
 
 ```php
 private \ColorThief\Image\Adapter\AdapterInterface|string|null $preferredAdapter
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### setPreferredAdapter
 
@@ -24,25 +39,47 @@ Configure the preferred adapter to use to load images.
 public setPreferredAdapter(string|\ColorThief\Image\Adapter\AdapterInterface|null $adapter): self
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$adapter` | **string&#124;\ColorThief\Image\Adapter\AdapterInterface&#124;null** | Name of the preferred adapter or adapter instance.<br />If null, the adapter is automatically chosen according to the<br />available extensions. |
 
+
+
+
 ***
 
 ### load
 
+
+
 ```php
 public load(mixed $source): \ColorThief\Image\Adapter\AdapterInterface
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source` | **mixed** | Path/URL to the image, GD resource, Imagick/Gmagick instance, or image as binary string |
+
+
+
 
 ***
 
@@ -54,11 +91,21 @@ Creates an adapter instance according to config settings.
 public createAdapter(string|\ColorThief\Image\Adapter\AdapterInterface|null $preferredAdapter = null): \ColorThief\Image\Adapter\AdapterInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$preferredAdapter` | **string&#124;\ColorThief\Image\Adapter\AdapterInterface&#124;null** |  |
+
+
+
 
 ***
 
@@ -70,11 +117,21 @@ Determines if given source data is a GD image.
 public isGdImage(mixed $data): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
+
+
+
 
 ***
 
@@ -86,11 +143,21 @@ Determines if given source data is an Imagick object.
 public isImagick(mixed $data): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
+
+
+
 
 ***
 
@@ -102,11 +169,21 @@ Determines if given source data is a Gmagick object.
 public isGmagick(mixed $data): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
+
+
+
 
 ***
 
@@ -118,11 +195,21 @@ Determines if given source data is file path.
 public isFilePath(mixed $data): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
+
+
+
 
 ***
 
@@ -134,11 +221,21 @@ Determines if given source data is url.
 public isUrl(mixed $data): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
+
+
+
 
 ***
 
@@ -150,11 +247,21 @@ Determines if given source data is binary data.
 public isBinary(mixed $data): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
+
+
+
 
 ***
 

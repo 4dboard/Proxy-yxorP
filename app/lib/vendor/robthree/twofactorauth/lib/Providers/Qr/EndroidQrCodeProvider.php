@@ -1,5 +1,4 @@
 <?php
-
 namespace RobThree\Auth\Providers\Qr;
 
 use Endroid\QrCode\Color\Color;
@@ -30,31 +29,6 @@ class EndroidQrCodeProvider implements IQRCodeProvider
         $this->errorcorrectionlevel = $this->handleErrorCorrectionLevel($errorcorrectionlevel);
     }
 
-    private function handleColor($color)
-    {
-        $split = str_split($color, 2);
-        $r = hexdec($split[0]);
-        $g = hexdec($split[1]);
-        $b = hexdec($split[2]);
-
-        return $this->endroid4 ? new Color($r, $g, $b, 0) : ['r' => $r, 'g' => $g, 'b' => $b, 'a' => 0];
-    }
-
-    private function handleErrorCorrectionLevel($level)
-    {
-        switch ($level) {
-            case 'L':
-                return $this->endroid4 ? new ErrorCorrectionLevelLow() : ErrorCorrectionLevel::LOW();
-            case 'M':
-                return $this->endroid4 ? new ErrorCorrectionLevelMedium() : ErrorCorrectionLevel::MEDIUM();
-            case 'Q':
-                return $this->endroid4 ? new ErrorCorrectionLevelQuartile() : ErrorCorrectionLevel::QUARTILE();
-            case 'H':
-            default:
-                return $this->endroid4 ? new ErrorCorrectionLevelHigh() : ErrorCorrectionLevel::HIGH();
-        }
-    }
-
     public function getMimeType()
     {
         return 'image/png';
@@ -81,5 +55,30 @@ class EndroidQrCodeProvider implements IQRCodeProvider
         $qrCode->setForegroundColor($this->color);
 
         return $qrCode;
+    }
+
+    private function handleColor($color)
+    {
+        $split = str_split($color, 2);
+        $r = hexdec($split[0]);
+        $g = hexdec($split[1]);
+        $b = hexdec($split[2]);
+
+        return $this->endroid4 ? new Color($r, $g, $b, 0) : ['r' => $r, 'g' => $g, 'b' => $b, 'a' => 0];
+    }
+
+    private function handleErrorCorrectionLevel($level)
+    {
+        switch ($level) {
+            case 'L':
+                return $this->endroid4 ? new ErrorCorrectionLevelLow() : ErrorCorrectionLevel::LOW();
+            case 'M':
+                return $this->endroid4 ? new ErrorCorrectionLevelMedium() : ErrorCorrectionLevel::MEDIUM();
+            case 'Q':
+                return $this->endroid4 ? new ErrorCorrectionLevelQuartile() : ErrorCorrectionLevel::QUARTILE();
+            case 'H':
+            default:
+                return $this->endroid4 ? new ErrorCorrectionLevelHigh() : ErrorCorrectionLevel::HIGH();
+        }
     }
 }

@@ -10,8 +10,9 @@ to create a concrete class for a simple extension point.
 * Full name: `\GuzzleHttp\Psr7\FnStream`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-  [`\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
+[`\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
 * This class is a **Final class**
+
 
 ## Constants
 
@@ -21,27 +22,48 @@ to create a concrete class for a simple extension point.
 
 ## Properties
 
+
 ### methods
+
+
 
 ```php
 private array&lt;string,callable&gt; $methods
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(array&lt;string,callable&gt; $methods): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$methods` | **array<string,callable>** | Hash of method name to a callable. |
+
+
+
 
 ***
 
@@ -53,11 +75,21 @@ Lazily determine which methods are not implemented.
 public __get(string $name): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 
@@ -69,6 +101,16 @@ The close method is called on the underlying stream only if possible.
 public __destruct(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __wakeup
@@ -78,6 +120,16 @@ An unserialize would allow the __destruct to run when the unserialized value goe
 ```php
 public __wakeup(): void
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -90,7 +142,12 @@ specific method calls.
 public static decorate(\Psr\Http\Message\StreamInterface $stream, array&lt;string,callable&gt; $methods): \GuzzleHttp\Psr7\FnStream
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -98,6 +155,9 @@ public static decorate(\Psr\Http\Message\StreamInterface $stream, array&lt;strin
 |-----------|------|-------------|
 | `$stream` | **\Psr\Http\Message\StreamInterface** | Stream to decorate |
 | `$methods` | **array<string,callable>** | Hash of method name to a closure |
+
+
+
 
 ***
 
@@ -135,6 +195,16 @@ Closes the stream and any underlying resources.
 public close(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### detach
@@ -146,6 +216,12 @@ public detach(): resource|null
 ```
 
 After the stream has been detached, the stream is in an unusable state.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -163,6 +239,14 @@ Get the size of the stream if known.
 public getSize(): int|null
 ```
 
+
+
+
+
+
+
+
+
 **Return Value:**
 
 Returns the size in bytes if known, or null if unknown.
@@ -178,6 +262,14 @@ Returns the current position of the file read/write pointer
 ```php
 public tell(): int
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -195,6 +287,16 @@ Returns true if the stream is at the end of the stream.
 public eof(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isSeekable
@@ -204,6 +306,16 @@ Returns whether or not the stream is seekable.
 ```php
 public isSeekable(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -236,12 +348,22 @@ Seek to a position in the stream.
 public seek(mixed $offset, mixed $whence = SEEK_SET): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | Stream offset |
 | `$whence` | **mixed** | Specifies how the cursor position will be calculated<br />based on the seek offset. Valid values are identical to the built-in<br />PHP $whence values for `fseek()`.  SEEK_SET: Set position equal to<br />offset bytes SEEK_CUR: Set position to current location plus offset<br />SEEK_END: Set position to end-of-stream plus offset. |
+
+
+
 
 ***
 
@@ -253,6 +375,16 @@ Returns whether or not the stream is writable.
 public isWritable(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### write
@@ -263,11 +395,19 @@ Write data to the stream.
 public write(mixed $string): int
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** | The string that is to be written. |
+
 
 **Return Value:**
 
@@ -285,6 +425,16 @@ Returns whether or not the stream is readable.
 public isReadable(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### read
@@ -295,11 +445,19 @@ Read data from the stream.
 public read(mixed $length): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$length` | **mixed** | Read up to $length bytes from the object and return<br />them. Fewer than $length bytes may be returned if underlying stream<br />call returns fewer bytes. |
+
 
 **Return Value:**
 
@@ -318,6 +476,16 @@ Returns the remaining contents in a string
 public getContents(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getMetadata
@@ -328,11 +496,21 @@ Get stream metadata as an associative array or retrieve a specific key.
 public getMetadata(mixed $key = null): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** | Specific metadata to retrieve. |
+
+
+
 
 ***
 

@@ -1,30 +1,30 @@
 body, x, z {
-    display: block;
+    display: block ;
 }
 
 *, html {
-    box-sizing: border-box;
+    box-sizing: border-box ;
 }
 
 html {
-    overflow: hidden;
-    overflow-y: visible;
-    height: initial;
-    min-height: 100vh;
-    background-image: url('/default-loading.gif');
-    background-color: #000;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    filter: opacity(.99) saturate(1.5) hue-rotate(-25deg);
+    overflow: hidden ;
+    overflow-y: visible ;
+    height: initial ;
+    min-height: 100vh ;
+    background-image: url('/default-loading.gif') ;
+    background-color: #000 ;
+    background-position: center center ;
+    background-repeat: no-repeat ;
+    background-attachment: fixed ;
+    filter: opacity(.99) saturate(1.5) hue-rotate(-25deg) ;
     -webkit-font-smoothing: antialiased
 }
 
 body {
     opacity: 0 !important;
-    -webkit-animation: 2.5s ease-out fadeInFromNone;
-    -moz-animation: 2.5s ease-out fadeInFromNone;
-    -o-animation: 2.5s ease-out fadeInFromNone;
+    -webkit-animation: 2.5s ease-out fadeInFromNone ;
+    -moz-animation: 2.5s ease-out fadeInFromNone ;
+    -o-animation: 2.5s ease-out fadeInFromNone ;
     animation: 2.5s ease-out fadeInFromNone
 }
 
@@ -35,15 +35,15 @@ html.don body {
 
 @-webkit-keyframes fadeInFromNone {
     0% {
-        display: none;
+        display: none ;
         opacity: 0
     }
     1% {
-        display: block;
+        display: block ;
         opacity: 0
     }
     100% {
-        display: block;
+        display: block ;
         opacity: 1
     }
 }
@@ -51,20 +51,20 @@ html.don body {
 
 @keyframes fadeInFromNone {
     0% {
-        display: none;
+        display: none ;
         opacity: 0
     }
     1% {
-        display: block;
+        display: block ;
         opacity: 0
     }
     100% {
-        display: block;
+        display: block ;
         opacity: 1
     }
 }
 
 * {
-    transition: .2s;
+    transition: .2s ;
     outline: 0
 }

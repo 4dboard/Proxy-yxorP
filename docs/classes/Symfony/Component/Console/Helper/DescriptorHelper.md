@@ -4,26 +4,51 @@
 
 This class adds helper method to describe objects in various formats.
 
+
+
 * Full name: `\Symfony\Component\Console\Helper\DescriptorHelper`
 * Parent class: [`\Symfony\Component\Console\Helper\Helper`](./Helper.md)
 
+
+
 ## Properties
 
+
 ### descriptors
+
+
 
 ```php
 private \Symfony\Component\Console\Descriptor\DescriptorInterface[] $descriptors
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -36,9 +61,13 @@ public describe(\Symfony\Component\Console\Output\OutputInterface $output, ?obje
 ```
 
 Available options are:
-
 * format: string, the output format name
 * raw_text: boolean, sets output type as raw
+
+
+
+
+
 
 **Parameters:**
 
@@ -47,6 +76,9 @@ Available options are:
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
 | `$object` | **?object** |  |
 | `$options` | **array** |  |
+
+
+
 
 ***
 
@@ -58,12 +90,22 @@ Registers a descriptor.
 public register(string $format, \Symfony\Component\Console\Descriptor\DescriptorInterface $descriptor): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **string** |  |
 | `$descriptor` | **\Symfony\Component\Console\Descriptor\DescriptorInterface** |  |
+
+
+
 
 ***
 
@@ -75,17 +117,41 @@ public register(string $format, \Symfony\Component\Console\Descriptor\Descriptor
 public getName(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getFormats
+
+
 
 ```php
 public getFormats(): array
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
+
 ## Inherited methods
+
 
 ### setHelperSet
 
@@ -95,11 +161,21 @@ Sets the helper set associated with this helper.
 public setHelperSet(\Symfony\Component\Console\Helper\HelperSet $helperSet = null): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$helperSet` | **\Symfony\Component\Console\Helper\HelperSet** |  |
+
+
+
 
 ***
 
@@ -111,6 +187,16 @@ Gets the helper set associated with this helper.
 public getHelperSet(): \Symfony\Component\Console\Helper\HelperSet|null
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### strlen
@@ -121,16 +207,23 @@ Returns the length of a string, using mb_strwidth if it is available.
 public static strlen(?string $string): int
 ```
 
+
+
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **?string** |  |
+
+
+
 
 ***
 
@@ -146,11 +239,17 @@ The width is how many characters positions the string will use.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **?string** |  |
+
+
+
 
 ***
 
@@ -166,11 +265,17 @@ The length is related to how many bytes the string will use.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **?string** |  |
+
+
+
 
 ***
 
@@ -182,7 +287,12 @@ Returns the subset of a string, using mb_substr if it is available.
 public static substr(?string $string, int $from, int $length = null): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -192,15 +302,25 @@ public static substr(?string $string, int $from, int $length = null): string
 | `$from` | **int** |  |
 | `$length` | **int** |  |
 
+
+
+
 ***
 
 ### formatTime
+
+
 
 ```php
 public static formatTime(mixed $secs): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -208,15 +328,25 @@ public static formatTime(mixed $secs): mixed
 |-----------|------|-------------|
 | `$secs` | **mixed** |  |
 
+
+
+
 ***
 
 ### formatMemory
+
+
 
 ```php
 public static formatMemory(int $memory): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -224,35 +354,54 @@ public static formatMemory(int $memory): mixed
 |-----------|------|-------------|
 | `$memory` | **int** |  |
 
+
+
+
 ***
 
 ### strlenWithoutDecoration
 
+
+
 ```php
 public static strlenWithoutDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, ?string $string): mixed
 ```
+
+
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **?string** |  |
+
+
+
 
 ***
 
 ### removeDecoration
 
+
+
 ```php
 public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, ?string $string): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -260,6 +409,9 @@ public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormat
 |-----------|------|-------------|
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **?string** |  |
+
+
+
 
 ***
 

@@ -22,6 +22,7 @@ use MongoDB\Driver\Server;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\UnexpectedValueException;
 use MongoDB\Exception\UnsupportedException;
+
 use function array_intersect_key;
 use function count;
 use function current;
@@ -82,28 +83,28 @@ class CountDocuments implements Executable
      *  * skip (integer): The number of documents to skip before returning the
      *    documents.
      *
-     * @param string $databaseName Database name
-     * @param string $collectionName Collection name
-     * @param array|object $filter Query by which to filter documents
-     * @param array $options Command options
+     * @param string       $databaseName   Database name
+     * @param string       $collectionName Collection name
+     * @param array|object $filter         Query by which to filter documents
+     * @param array        $options        Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, $filter, array $options = [])
     {
-        if (!is_array($filter) && !is_object($filter)) {
+        if (! is_array($filter) && ! is_object($filter)) {
             throw InvalidArgumentException::invalidType('$filter', $filter, 'array or object');
         }
 
-        if (isset($options['limit']) && !is_integer($options['limit'])) {
+        if (isset($options['limit']) && ! is_integer($options['limit'])) {
             throw InvalidArgumentException::invalidType('"limit" option', $options['limit'], 'integer');
         }
 
-        if (isset($options['skip']) && !is_integer($options['skip'])) {
+        if (isset($options['skip']) && ! is_integer($options['skip'])) {
             throw InvalidArgumentException::invalidType('"skip" option', $options['skip'], 'integer');
         }
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = (string)$collectionName;
+        $this->databaseName = (string) $databaseName;
+        $this->collectionName = (string) $collectionName;
         $this->filter = $filter;
 
         $this->aggregateOptions = array_intersect_key($options, ['collation' => 1, 'hint' => 1, 'maxTimeMS' => 1, 'readConcern' => 1, 'readPreference' => 1, 'session' => 1]);
@@ -113,36 +114,14 @@ class CountDocuments implements Executable
     }
 
     /**
-     * @return Aggregate
-     */
-    private function createAggregate()
-    {
-        $pipeline = [
-            ['$match' => (object)$this->filter],
-        ];
-
-        if (isset($this->countOptions['skip'])) {
-            $pipeline[] = ['$skip' => $this->countOptions['skip']];
-        }
-
-        if (isset($this->countOptions['limit'])) {
-            $pipeline[] = ['$limit' => $this->countOptions['limit']];
-        }
-
-        $pipeline[] = ['$group' => ['_id' => 1, 'n' => ['$sum' => 1]]];
-
-        return new Aggregate($this->databaseName, $this->collectionName, $pipeline, $this->aggregateOptions);
-    }
-
-    /**
      * Execute the operation.
      *
+     * @see Executable::execute()
      * @param Server $server
      * @return integer
      * @throws UnexpectedValueException if the command response was malformed
      * @throws UnsupportedException if collation or read concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
-     * @see Executable::execute()
      */
     public function execute(Server $server)
     {
@@ -156,10 +135,32 @@ class CountDocuments implements Executable
         }
 
         $result = current($allResults);
-        if (!isset($result->n) || !(is_integer($result->n) || is_float($result->n))) {
+        if (! isset($result->n) || ! (is_integer($result->n) || is_float($result->n))) {
             throw new UnexpectedValueException('count command did not return a numeric "n" value');
         }
 
-        return (integer)$result->n;
+        return (integer) $result->n;
+    }
+
+    /**
+     * @return Aggregate
+     */
+    private function createAggregate()
+    {
+        $pipeline = [
+            ['$match' => (object) $this->filter],
+        ];
+
+        if (isset($this->countOptions['skip'])) {
+            $pipeline[] = ['$skip' => $this->countOptions['skip']];
+        }
+
+        if (isset($this->countOptions['limit'])) {
+            $pipeline[] = ['$limit' => $this->countOptions['limit']];
+        }
+
+        $pipeline[] = ['$group' => ['_id' => 1, 'n' => ['$sum' => 1]]];
+
+        return new Aggregate($this->databaseName, $this->collectionName, $pipeline, $this->aggregateOptions);
     }
 }

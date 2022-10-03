@@ -2,63 +2,27 @@
 
 namespace App\Helper;
 
-use Lime\Helper;
+class Admin extends \Lime\Helper {
 
-class Admin extends Helper
-{
+    public function isResourceLocked($resourceId, $ttl = null) {
 
-    public function lockResourceId($resourceId, $user = null)
-    {
+        $ttl  = $ttl ?? 300;
+        $key  = "locked:{$resourceId}";
+        $meta = $this->app->dataStorage->getKey('app/options', $key, false);
 
-        if (!$resourceId) {
-            return false;
+        if ($meta && ($meta['time'] + $ttl) < time()) {
+            $this->app->dataStorage->removeKey('app/options', $key);
+            $meta = false;
         }
 
-        $key = "locked:{$resourceId}";
-        $user = $user ?? $this->app->helper('auth')->getUser();
-
-        if (!$user) {
-            return false;
+        if ($meta) {
+            return $meta;
         }
 
-        $now = time();
-
-        $meta = [
-            'rid' => $resourceId,
-            'user' => ['_id' => $user['_id'], 'name' => $user['name'], 'user' => $user['user'], 'email' => $user['email']],
-            'sid' => md5(session_id()),
-            'time' => $now,
-            '_created' => $now,
-            '_updated' => $now,
-        ];
-
-        $this->app->dataStorage->setKey('app/options', $key, $meta);
-
-        return true;
+        return false;
     }
 
-    public function updateLockedResourceId($resourceId)
-    {
-
-        $meta = null;
-
-        if (!$this->isResourceEditableByCurrentUser($resourceId)) {
-            return false;
-        }
-
-        $now = time();
-        $key = "locked:{$resourceId}";
-
-        $meta['time'] = $now;
-        $meta['_updated'] = $now;
-
-        $this->app->dataStorage->setKey('app/options', $key, $meta);
-
-        return true;
-    }
-
-    public function isResourceEditableByCurrentUser($resourceId, &$meta = null)
-    {
+    public function isResourceEditableByCurrentUser($resourceId, &$meta = null) {
 
         $meta = $this->isResourceLocked($resourceId);
 
@@ -75,27 +39,55 @@ class Admin extends Helper
         return false;
     }
 
-    public function isResourceLocked($resourceId, $ttl = null)
-    {
+    public function lockResourceId($resourceId, $user = null) {
 
-        $ttl = $ttl ?? 300;
-        $key = "locked:{$resourceId}";
-        $meta = $this->app->dataStorage->getKey('app/options', $key, false);
-
-        if ($meta && ($meta['time'] + $ttl) < time()) {
-            $this->app->dataStorage->removeKey('app/options', $key);
-            $meta = false;
+        if (!$resourceId) {
+            return false;
         }
 
-        if ($meta) {
-            return $meta;
+        $key  = "locked:{$resourceId}";
+        $user = $user ?? $this->app->helper('auth')->getUser();
+
+        if (!$user) {
+            return false;
         }
 
-        return false;
+        $now = time();
+
+        $meta = [
+            'rid'  => $resourceId,
+            'user' => ['_id' => $user['_id'], 'name' => $user['name'], 'user' => $user['user'], 'email' => $user['email']],
+            'sid'  => md5(session_id()),
+            'time' => $now,
+            '_created' => $now,
+            '_updated' => $now,
+        ];
+
+        $this->app->dataStorage->setKey('app/options', $key, $meta);
+
+        return true;
     }
 
-    public function unlockResourceId($resourceId)
-    {
+    public function updateLockedResourceId($resourceId) {
+
+        $meta = null;
+
+        if (!$this->isResourceEditableByCurrentUser($resourceId)) {
+            return false;
+        }
+
+        $now = time();
+        $key  = "locked:{$resourceId}";
+
+        $meta['time'] = $now;
+        $meta['_updated'] = $now;
+
+        $this->app->dataStorage->setKey('app/options', $key, $meta);
+
+        return true;
+    }
+
+    public function unlockResourceId($resourceId) {
 
         $meta = $this->isResourceLocked($resourceId);
 

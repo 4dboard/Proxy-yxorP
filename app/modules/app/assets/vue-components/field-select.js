@@ -1,3 +1,4 @@
+
 export default {
 
     _meta: {
@@ -46,14 +47,14 @@ export default {
 
             let list = [], groups = {'': []};
 
-            if (typeof (this.options) === 'string' || Array.isArray(this.options)) {
+            if (typeof(this.options) === 'string' || Array.isArray(this.options)) {
 
-                (typeof (this.options) === 'string' ? this.options.split(',') : this.options || []).forEach(function (option) {
+                (typeof(this.options) === 'string' ? this.options.split(',') : this.options || []).forEach(function(option) {
 
                     option = {
-                        value: (option.hasOwnProperty('value') ? option.value.toString().trim() : option.toString().trim()),
-                        label: (option.hasOwnProperty('label') ? option.label.toString().trim() : option.toString().trim()),
-                        group: (option.hasOwnProperty('group') ? option.group.toString().trim() : '')
+                        value : (option.hasOwnProperty('value') ? option.value.toString().trim() : option.toString().trim()),
+                        label : (option.hasOwnProperty('label') ? option.label.toString().trim() : option.toString().trim()),
+                        group : (option.hasOwnProperty('group') ? option.group.toString().trim() : '')
                     };
 
                     list.push(option)

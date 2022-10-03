@@ -130,11 +130,6 @@ final class FrenchInflector implements InflectorInterface
         return [$plural];
     }
 
-    private function isInflectedWord(string $word): bool
-    {
-        return 1 === preg_match(self::UNINFLECTED, $word);
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -152,6 +147,11 @@ final class FrenchInflector implements InflectorInterface
             }
         }
 
-        return [$singular . 's'];
+        return [$singular.'s'];
+    }
+
+    private function isInflectedWord(string $word): bool
+    {
+        return 1 === preg_match(self::UNINFLECTED, $word);
     }
 }

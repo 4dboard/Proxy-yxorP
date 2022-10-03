@@ -14,11 +14,12 @@ class Get extends Operation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
-        PathItem::class,
-    ];
+    public $method = 'get';
+
     /**
      * @inheritdoc
      */
-    public $method = 'get';
+    public static $_parents = [
+        PathItem::class,
+    ];
 }

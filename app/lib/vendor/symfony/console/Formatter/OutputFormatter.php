@@ -12,9 +12,6 @@
 namespace Symfony\Component\Console\Formatter;
 
 use Symfony\Component\Console\Exception\InvalidArgumentException;
-use function strlen;
-use const PREG_OFFSET_CAPTURE;
-use const PREG_SET_ORDER;
 
 /**
  * Formatter class for console output.
@@ -27,6 +24,43 @@ class OutputFormatter implements WrappableOutputFormatterInterface
     private $decorated;
     private $styles = [];
     private $styleStack;
+
+    public function __clone()
+    {
+        $this->styleStack = clone $this->styleStack;
+        foreach ($this->styles as $key => $value) {
+            $this->styles[$key] = clone $value;
+        }
+    }
+
+    /**
+     * Escapes "<" and ">" special chars in given text.
+     *
+     * @return string
+     */
+    public static function escape(string $text)
+    {
+        $text = preg_replace('/([^\\\\]|^)([<>])/', '$1\\\\$2', $text);
+
+        return self::escapeTrailingBackslash($text);
+    }
+
+    /**
+     * Escapes trailing "\" in given text.
+     *
+     * @internal
+     */
+    public static function escapeTrailingBackslash(string $text): string
+    {
+        if (str_ends_with($text, '\\')) {
+            $len = \strlen($text);
+            $text = rtrim($text, '\\');
+            $text = str_replace("\0", '', $text);
+            $text .= str_repeat("\0", $len - \strlen($text));
+        }
+
+        return $text;
+    }
 
     /**
      * Initializes console output formatter.
@@ -52,54 +86,33 @@ class OutputFormatter implements WrappableOutputFormatterInterface
     /**
      * {@inheritdoc}
      */
+    public function setDecorated(bool $decorated)
+    {
+        $this->decorated = $decorated;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isDecorated()
+    {
+        return $this->decorated;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function setStyle(string $name, OutputFormatterStyleInterface $style)
     {
         $this->styles[strtolower($name)] = $style;
     }
 
     /**
-     * Escapes "<" and ">" special chars in given text.
-     *
-     * @return string
-     */
-    public static function escape(string $text)
-    {
-        $text = preg_replace('/([^\\\\]|^)([<>])/', '$1\\\\$2', $text);
-
-        return self::escapeTrailingBackslash($text);
-    }
-
-    /**
-     * Escapes trailing "\" in given text.
-     *
-     * @internal
-     */
-    public static function escapeTrailingBackslash(string $text): string
-    {
-        if (str_ends_with($text, '\\')) {
-            $len = strlen($text);
-            $text = rtrim($text, '\\');
-            $text = str_replace("\0", '', $text);
-            $text .= str_repeat("\0", $len - strlen($text));
-        }
-
-        return $text;
-    }
-
-    public function __clone()
-    {
-        $this->styleStack = clone $this->styleStack;
-        foreach ($this->styles as $key => $value) {
-            $this->styles[$key] = clone $value;
-        }
-    }
-
-    /**
      * {@inheritdoc}
      */
-    public function setDecorated(bool $decorated)
+    public function hasStyle(string $name)
     {
-        $this->decorated = $decorated;
+        return isset($this->styles[strtolower($name)]);
     }
 
     /**
@@ -112,14 +125,6 @@ class OutputFormatter implements WrappableOutputFormatterInterface
         }
 
         return $this->styles[strtolower($name)];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasStyle(string $name)
-    {
-        return isset($this->styles[strtolower($name)]);
     }
 
     /**
@@ -144,7 +149,7 @@ class OutputFormatter implements WrappableOutputFormatterInterface
         $openTagRegex = '[a-z](?:[^\\\\<>]*+ | \\\\.)*';
         $closeTagRegex = '[a-z][^<>]*+';
         $currentLineLength = 0;
-        preg_match_all("#<(($openTagRegex) | /($closeTagRegex)?)>#ix", $message, $matches, PREG_OFFSET_CAPTURE);
+        preg_match_all("#<(($openTagRegex) | /($closeTagRegex)?)>#ix", $message, $matches, \PREG_OFFSET_CAPTURE);
         foreach ($matches[0] as $i => $match) {
             $pos = $match[1];
             $text = $match[0];
@@ -155,7 +160,7 @@ class OutputFormatter implements WrappableOutputFormatterInterface
 
             // add the text up to the next tag
             $output .= $this->applyCurrentStyle(substr($message, $offset, $pos - $offset), $output, $width, $currentLineLength);
-            $offset = $pos + strlen($text);
+            $offset = $pos + \strlen($text);
 
             // opening tag?
             if ($open = '/' != $text[1]) {
@@ -182,61 +187,11 @@ class OutputFormatter implements WrappableOutputFormatterInterface
     }
 
     /**
-     * Applies current style from stack to text, if must be applied.
+     * @return OutputFormatterStyleStack
      */
-    private function applyCurrentStyle(string $text, string $current, int $width, int &$currentLineLength): string
+    public function getStyleStack()
     {
-        if ('' === $text) {
-            return '';
-        }
-
-        if (!$width) {
-            return $this->isDecorated() ? $this->styleStack->getCurrent()->apply($text) : $text;
-        }
-
-        if (!$currentLineLength && '' !== $current) {
-            $text = ltrim($text);
-        }
-
-        if ($currentLineLength) {
-            $prefix = substr($text, 0, $i = $width - $currentLineLength) . "\n";
-            $text = substr($text, $i);
-        } else {
-            $prefix = '';
-        }
-
-        preg_match('~(\\n)$~', $text, $matches);
-        $text = $prefix . preg_replace('~([^\\n]{' . $width . '})\\ *~', "\$1\n", $text);
-        $text = rtrim($text, "\n") . ($matches[1] ?? '');
-
-        if (!$currentLineLength && '' !== $current && "\n" !== substr($current, -1)) {
-            $text = "\n" . $text;
-        }
-
-        $lines = explode("\n", $text);
-
-        foreach ($lines as $line) {
-            $currentLineLength += strlen($line);
-            if ($width <= $currentLineLength) {
-                $currentLineLength = 0;
-            }
-        }
-
-        if ($this->isDecorated()) {
-            foreach ($lines as $i => $line) {
-                $lines[$i] = $this->styleStack->getCurrent()->apply($line);
-            }
-        }
-
-        return implode("\n", $lines);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function isDecorated()
-    {
-        return $this->decorated;
+        return $this->styleStack;
     }
 
     /**
@@ -248,7 +203,7 @@ class OutputFormatter implements WrappableOutputFormatterInterface
             return $this->styles[$string];
         }
 
-        if (!preg_match_all('/([^=]+)=([^;]+)(;|$)/', $string, $matches, PREG_SET_ORDER)) {
+        if (!preg_match_all('/([^=]+)=([^;]+)(;|$)/', $string, $matches, \PREG_SET_ORDER)) {
             return null;
         }
 
@@ -279,10 +234,52 @@ class OutputFormatter implements WrappableOutputFormatterInterface
     }
 
     /**
-     * @return OutputFormatterStyleStack
+     * Applies current style from stack to text, if must be applied.
      */
-    public function getStyleStack()
+    private function applyCurrentStyle(string $text, string $current, int $width, int &$currentLineLength): string
     {
-        return $this->styleStack;
+        if ('' === $text) {
+            return '';
+        }
+
+        if (!$width) {
+            return $this->isDecorated() ? $this->styleStack->getCurrent()->apply($text) : $text;
+        }
+
+        if (!$currentLineLength && '' !== $current) {
+            $text = ltrim($text);
+        }
+
+        if ($currentLineLength) {
+            $prefix = substr($text, 0, $i = $width - $currentLineLength)."\n";
+            $text = substr($text, $i);
+        } else {
+            $prefix = '';
+        }
+
+        preg_match('~(\\n)$~', $text, $matches);
+        $text = $prefix.preg_replace('~([^\\n]{'.$width.'})\\ *~', "\$1\n", $text);
+        $text = rtrim($text, "\n").($matches[1] ?? '');
+
+        if (!$currentLineLength && '' !== $current && "\n" !== substr($current, -1)) {
+            $text = "\n".$text;
+        }
+
+        $lines = explode("\n", $text);
+
+        foreach ($lines as $line) {
+            $currentLineLength += \strlen($line);
+            if ($width <= $currentLineLength) {
+                $currentLineLength = 0;
+            }
+        }
+
+        if ($this->isDecorated()) {
+            foreach ($lines as $i => $line) {
+                $lines[$i] = $this->styleStack->getCurrent()->apply($line);
+            }
+        }
+
+        return implode("\n", $lines);
     }
 }

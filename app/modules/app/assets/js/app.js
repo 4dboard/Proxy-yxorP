@@ -118,7 +118,7 @@ let App = {
 
         if (!this._events[name]) return;
 
-        let event = {name, params};
+        let event = { name, params };
 
         for (let i = 0; i < this._events[name].length; i++) {
             this._events[name][i].apply(App, [event]);
@@ -156,8 +156,8 @@ App.ui = ui;
 App.utils = utils;
 
 // custom utils
-App.utils.import = function (uri) {
-    return import(App.base(uri) + '?v=' + App.version);
+App.utils.import = function(uri) {
+    return import(App.base(uri)+'?v='+App.version);
 };
 
 window.App = App;

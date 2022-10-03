@@ -31,11 +31,11 @@ class EnumValueDefinition
      */
     public function __construct(array $config)
     {
-        $this->name = $config['name'] ?? null;
-        $this->value = $config['value'] ?? null;
+        $this->name              = $config['name'] ?? null;
+        $this->value             = $config['value'] ?? null;
         $this->deprecationReason = $config['deprecationReason'] ?? null;
-        $this->description = $config['description'] ?? null;
-        $this->astNode = $config['astNode'] ?? null;
+        $this->description       = $config['description'] ?? null;
+        $this->astNode           = $config['astNode'] ?? null;
 
         $this->config = $config;
     }
@@ -45,6 +45,6 @@ class EnumValueDefinition
      */
     public function isDeprecated()
     {
-        return (bool)$this->deprecationReason;
+        return (bool) $this->deprecationReason;
     }
 }

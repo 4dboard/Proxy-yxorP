@@ -38,16 +38,21 @@ use function sprintf;
  */
 class Collector
 {
-    /** @var OperationDefinitionNode|null */
-    public $operation = null;
-    /** @var FragmentDefinitionNode[] */
-    public $fragments = [];
-    /** @var ObjectType|null */
-    public $rootType;
     /** @var Schema */
     private $schema;
+
     /** @var Runtime */
     private $runtime;
+
+    /** @var OperationDefinitionNode|null */
+    public $operation = null;
+
+    /** @var FragmentDefinitionNode[] */
+    public $fragments = [];
+
+    /** @var ObjectType|null */
+    public $rootType;
+
     /** @var FieldNode[][] */
     private $fields;
 
@@ -56,7 +61,7 @@ class Collector
 
     public function __construct(Schema $schema, Runtime $runtime)
     {
-        $this->schema = $schema;
+        $this->schema  = $schema;
         $this->runtime = $runtime;
     }
 
@@ -113,7 +118,7 @@ class Collector
      */
     public function collectFields(ObjectType $runtimeType, ?SelectionSetNode $selectionSet)
     {
-        $this->fields = [];
+        $this->fields           = [];
         $this->visitedFragments = [];
 
         $this->doCollectFields($runtimeType, $selectionSet);
@@ -125,14 +130,14 @@ class Collector
             $argumentValueMap = null;
             if (count($fieldNode->arguments) > 0) {
                 foreach ($fieldNode->arguments as $argumentNode) {
-                    $argumentValueMap = $argumentValueMap ?? [];
+                    $argumentValueMap                             = $argumentValueMap ?? [];
                     $argumentValueMap[$argumentNode->name->value] = $argumentNode->value;
                 }
             }
 
             if ($fieldName !== Introspection::TYPE_NAME_FIELD_NAME &&
-                !($runtimeType === $this->schema->getQueryType() && ($fieldName === Introspection::SCHEMA_FIELD_NAME || $fieldName === Introspection::TYPE_FIELD_NAME)) &&
-                !$runtimeType->hasField($fieldName)
+                ! ($runtimeType === $this->schema->getQueryType() && ($fieldName === Introspection::SCHEMA_FIELD_NAME || $fieldName === Introspection::TYPE_FIELD_NAME)) &&
+                ! $runtimeType->hasField($fieldName)
             ) {
                 // do not emit error
                 continue;
@@ -199,7 +204,7 @@ class Collector
             if ($selection instanceof FieldNode) {
                 $resultName = $selection->alias === null ? $selection->name->value : $selection->alias->value;
 
-                if (!isset($this->fields[$resultName])) {
+                if (! isset($this->fields[$resultName])) {
                     $this->fields[$resultName] = [];
                 }
 
@@ -211,7 +216,7 @@ class Collector
                     continue;
                 }
 
-                if (!isset($this->fragments[$fragmentName])) {
+                if (! isset($this->fragments[$fragmentName])) {
                     $this->runtime->addError(new Error(
                         sprintf('Fragment "%s" does not exist.', $fragmentName),
                         $selection
@@ -222,9 +227,9 @@ class Collector
                 $this->visitedFragments[$fragmentName] = true;
 
                 $fragmentDefinition = $this->fragments[$fragmentName];
-                $conditionTypeName = $fragmentDefinition->typeCondition->name->value;
+                $conditionTypeName  = $fragmentDefinition->typeCondition->name->value;
 
-                if (!$this->schema->hasType($conditionTypeName)) {
+                if (! $this->schema->hasType($conditionTypeName)) {
                     $this->runtime->addError(new Error(
                         sprintf('Cannot spread fragment "%s", type "%s" does not exist.', $fragmentName, $conditionTypeName),
                         $selection
@@ -239,7 +244,7 @@ class Collector
                         continue;
                     }
                 } elseif ($conditionType instanceof AbstractType) {
-                    if (!$this->schema->isSubType($conditionType, $runtimeType)) {
+                    if (! $this->schema->isSubType($conditionType, $runtimeType)) {
                         continue;
                     }
                 }
@@ -249,7 +254,7 @@ class Collector
                 if ($selection->typeCondition !== null) {
                     $conditionTypeName = $selection->typeCondition->name->value;
 
-                    if (!$this->schema->hasType($conditionTypeName)) {
+                    if (! $this->schema->hasType($conditionTypeName)) {
                         $this->runtime->addError(new Error(
                             sprintf('Cannot spread inline fragment, type "%s" does not exist.', $conditionTypeName),
                             $selection
@@ -264,7 +269,7 @@ class Collector
                             continue;
                         }
                     } elseif ($conditionType instanceof AbstractType) {
-                        if (!$this->schema->isSubType($conditionType, $runtimeType)) {
+                        if (! $this->schema->isSubType($conditionType, $runtimeType)) {
                             continue;
                         }
                     }

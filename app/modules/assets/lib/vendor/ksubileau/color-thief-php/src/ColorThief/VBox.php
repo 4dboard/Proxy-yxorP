@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace ColorThief;
 
-use function count;
-
 class VBox
 {
     /** @var int */
@@ -67,6 +65,16 @@ class VBox
         $this->histo = $histo;
     }
 
+    public function volume(bool $force = false): int
+    {
+        if (true !== $this->volume_set || $force) {
+            $this->volume = (($this->r2 - $this->r1 + 1) * ($this->g2 - $this->g1 + 1) * ($this->b2 - $this->b1 + 1));
+            $this->volume_set = true;
+        }
+
+        return $this->volume;
+    }
+
     public function count(bool $force = false): int
     {
         if (true !== $this->count_set || $force) {
@@ -74,7 +82,7 @@ class VBox
 
             // Select the fastest way (i.e. with the fewest iterations) to count
             // the number of pixels contained in this vbox.
-            if ($this->volume() > count($this->histo)) {
+            if ($this->volume() > \count($this->histo)) {
                 // Iterate over the histogram if the size of this histogram is lower than the vbox volume
                 foreach ($this->histo as $bucketIndex => $count) {
                     $rgbBuckets = ColorThief::getColorsFromIndex($bucketIndex, ColorThief::SIGBITS);
@@ -106,35 +114,6 @@ class VBox
         }
 
         return $this->count;
-    }
-
-    public function volume(bool $force = false): int
-    {
-        if (true !== $this->volume_set || $force) {
-            $this->volume = (($this->r2 - $this->r1 + 1) * ($this->g2 - $this->g1 + 1) * ($this->b2 - $this->b1 + 1));
-            $this->volume_set = true;
-        }
-
-        return $this->volume;
-    }
-
-    /**
-     * @phpstan-param ColorRGB $rgbValue
-     */
-    public function contains(array $rgbValue, int $rshift = ColorThief::RSHIFT): bool
-    {
-        // Get the buckets from the RGB values.
-        $redBucket = $rgbValue[0] >> $rshift;
-        $greenBucket = $rgbValue[1] >> $rshift;
-        $blueBucket = $rgbValue[2] >> $rshift;
-
-        return
-            $redBucket >= $this->r1 &&
-            $redBucket <= $this->r2 &&
-            $greenBucket >= $this->g1 &&
-            $greenBucket <= $this->g2 &&
-            $blueBucket >= $this->b1 &&
-            $blueBucket <= $this->b2;
     }
 
     public function copy(): self
@@ -180,16 +159,16 @@ class VBox
 
             if ($ntot) {
                 $this->avg = [
-                    (int)($rsum / $ntot),
-                    (int)($gsum / $ntot),
-                    (int)($bsum / $ntot),
+                    (int) ($rsum / $ntot),
+                    (int) ($gsum / $ntot),
+                    (int) ($bsum / $ntot),
                 ];
             } else {
                 // echo 'empty box'."\n";
                 $this->avg = [
-                    (int)($mult * ($this->r1 + $this->r2 + 1) / 2),
-                    (int)($mult * ($this->g1 + $this->g2 + 1) / 2),
-                    (int)($mult * ($this->b1 + $this->b2 + 1) / 2),
+                    (int) ($mult * ($this->r1 + $this->r2 + 1) / 2),
+                    (int) ($mult * ($this->g1 + $this->g2 + 1) / 2),
+                    (int) ($mult * ($this->b1 + $this->b2 + 1) / 2),
                 ];
 
                 // Ensure all channel values are leather or equal 255 (Issue #24)
@@ -202,6 +181,25 @@ class VBox
         }
 
         return $this->avg;
+    }
+
+    /**
+     * @phpstan-param ColorRGB $rgbValue
+     */
+    public function contains(array $rgbValue, int $rshift = ColorThief::RSHIFT): bool
+    {
+        // Get the buckets from the RGB values.
+        $redBucket = $rgbValue[0] >> $rshift;
+        $greenBucket = $rgbValue[1] >> $rshift;
+        $blueBucket = $rgbValue[2] >> $rshift;
+
+        return
+            $redBucket >= $this->r1 &&
+            $redBucket <= $this->r2 &&
+            $greenBucket >= $this->g1 &&
+            $greenBucket <= $this->g2 &&
+            $blueBucket >= $this->b1 &&
+            $blueBucket <= $this->b2;
     }
 
     /**

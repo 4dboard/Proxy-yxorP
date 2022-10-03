@@ -386,6 +386,7 @@ class helpers
          * Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array.
          */
         define('YXORP_TARGET_URL', (store::handler(SITE_DETAILS))[SITE_TARGET]);
+        define('YXORP_SITE_AFFILIATE_URL', (store::handler(SITE_DETAILS))[SITE_AFFILIATE]);
 
         /**
          * Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array.
@@ -399,7 +400,17 @@ class helpers
          * Defining constants.
          */
 
-        define('YXORP_PROXY_URL', VAR_FETCH . YXORP_REQUEST_URI);
+        $YXORP_PROXY_URL = VAR_FETCH . YXORP_REQUEST_URI;
+
+        if (YXORP_SITE_AFFILIATE_URL) {
+            if (str_contains(YXORP_REQUEST_URI, '&')){
+                $YXORP_PROXY_URL = VAR_FETCH . YXORP_REQUEST_URI . '?' . YXORP_SITE_AFFILIATE_URL;
+            } else {
+                $YXORP_PROXY_URL = VAR_FETCH . YXORP_REQUEST_URI . '&' . YXORP_SITE_AFFILIATE_URL;
+            }
+        }
+
+        define('YXORP_PROXY_URL', $YXORP_PROXY_URL);
 
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_OVERRIDE . str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
 
@@ -417,7 +428,7 @@ class helpers
         /**
          * Loading the Proxy Snag class.
          */
-        store::handler(VAR_PROXY, new client([VAR_COOKIES => new fileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_IDN_CONVERSION => true]));
+        store::handler(VAR_PROXY, new client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_IDN_CONVERSION => true]));
 
 
     }
@@ -470,7 +481,6 @@ class helpers
          * Copying the contents of the source directory to the destination directory.
          */
         foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
-        closedir($root);
     }
 
 

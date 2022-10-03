@@ -4,9 +4,15 @@
 
 Various utilities dealing with AST
 
+
+
 * Full name: `\GraphQL\Utils\AST`
 
+
+
+
 ## Methods
+
 
 ### fromArray
 
@@ -36,11 +42,17 @@ This is a reverse operation for AST::toArray($node)
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **array** |  |
+
+
+
 
 ***
 
@@ -52,13 +64,21 @@ Convert AST node to serializable array
 public static toArray(\GraphQL\Language\AST\Node $node): array
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\GraphQL\Language\AST\Node** |  |
+
+
+
 
 ***
 
@@ -87,12 +107,18 @@ disambiguate between value primitives.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **\GraphQL\Type\Definition\Type&#124;mixed&#124;null** |  |
 | `$type` | **\GraphQL\Type\Definition\InputType** |  |
+
+
+
 
 ***
 
@@ -122,6 +148,9 @@ the provided type.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -129,6 +158,9 @@ the provided type.
 | `$valueNode` | **\GraphQL\Language\AST\VariableNode&#124;\GraphQL\Language\AST\NullValueNode&#124;\GraphQL\Language\AST\IntValueNode&#124;\GraphQL\Language\AST\FloatValueNode&#124;\GraphQL\Language\AST\StringValueNode&#124;\GraphQL\Language\AST\BooleanValueNode&#124;\GraphQL\Language\AST\EnumValueNode&#124;\GraphQL\Language\AST\ListValueNode&#124;\GraphQL\Language\AST\ObjectValueNode&#124;null** |  |
 | `$type` | **\GraphQL\Type\Definition\Type** |  |
 | `$variables` | **array&#124;null** |  |
+
+
+
 
 ***
 
@@ -141,7 +173,12 @@ in the set of variables.
 private static isMissingVariable(\GraphQL\Language\AST\VariableNode|\GraphQL\Language\AST\NullValueNode|\GraphQL\Language\AST\IntValueNode|\GraphQL\Language\AST\FloatValueNode|\GraphQL\Language\AST\StringValueNode|\GraphQL\Language\AST\BooleanValueNode|\GraphQL\Language\AST\EnumValueNode|\GraphQL\Language\AST\ListValueNode|\GraphQL\Language\AST\ObjectValueNode $valueNode, array $variables): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -149,6 +186,9 @@ private static isMissingVariable(\GraphQL\Language\AST\VariableNode|\GraphQL\Lan
 |-----------|------|-------------|
 | `$valueNode` | **\GraphQL\Language\AST\VariableNode&#124;\GraphQL\Language\AST\NullValueNode&#124;\GraphQL\Language\AST\IntValueNode&#124;\GraphQL\Language\AST\FloatValueNode&#124;\GraphQL\Language\AST\StringValueNode&#124;\GraphQL\Language\AST\BooleanValueNode&#124;\GraphQL\Language\AST\EnumValueNode&#124;\GraphQL\Language\AST\ListValueNode&#124;\GraphQL\Language\AST\ObjectValueNode** |  |
 | `$variables` | **array** |  |
+
+
+
 
 ***
 
@@ -175,12 +215,18 @@ will reflect the provided GraphQL value AST.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$valueNode` | **\GraphQL\Language\AST\Node** |  |
 | `$variables` | **array&#124;null** |  |
+
+
+
 
 ***
 
@@ -192,7 +238,12 @@ Returns type definition for given AST Type node
 public static typeFromAST(\GraphQL\Type\Schema $schema, \GraphQL\Language\AST\NamedTypeNode|\GraphQL\Language\AST\ListTypeNode|\GraphQL\Language\AST\NonNullTypeNode $inputTypeNode): \GraphQL\Type\Definition\Type|null
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -201,18 +252,27 @@ public static typeFromAST(\GraphQL\Type\Schema $schema, \GraphQL\Language\AST\Na
 | `$schema` | **\GraphQL\Type\Schema** |  |
 | `$inputTypeNode` | **\GraphQL\Language\AST\NamedTypeNode&#124;\GraphQL\Language\AST\ListTypeNode&#124;\GraphQL\Language\AST\NonNullTypeNode** |  |
 
+
+
+
 ***
 
 ### getOperation
+
+
 
 ```php
 public static getOperation(\GraphQL\Language\AST\DocumentNode $document, string $operationName = null): bool|string
 ```
 
+
+
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
 
 **Parameters:**
 
@@ -220,6 +280,9 @@ public static getOperation(\GraphQL\Language\AST\DocumentNode $document, string 
 |-----------|------|-------------|
 | `$document` | **\GraphQL\Language\AST\DocumentNode** |  |
 | `$operationName` | **string** |  |
+
+
+
 
 ***
 
@@ -235,12 +298,18 @@ If a name is not provided, an operation is only returned if the document has exa
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\GraphQL\Language\AST\DocumentNode** |  |
 | `$operationName` | **?string** |  |
+
+
+
 
 ***
 

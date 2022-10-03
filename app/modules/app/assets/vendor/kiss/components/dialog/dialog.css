@@ -2,7 +2,7 @@ kiss-dialog {
     display: flex;
     align-items: flex-start;
     position: fixed;
-    background: var(--kiss-dialog-background, rgba(0, 0, 0, .1));
+    background: var(--kiss-dialog-background, rgba(0,0,0,.1));
     top: 0;
     left: 0;
     right: 0;

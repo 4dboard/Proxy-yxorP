@@ -4,9 +4,12 @@
 
 Creates curl resources from a request
 
+
+
 * Full name: `\GuzzleHttp\Handler\CurlFactory`
 * This class implements:
-  [`\GuzzleHttp\Handler\CurlFactoryInterface`](./CurlFactoryInterface.md)
+[`\GuzzleHttp\Handler\CurlFactoryInterface`](./CurlFactoryInterface.md)
+
 
 ## Constants
 
@@ -17,35 +20,63 @@ Creates curl resources from a request
 
 ## Properties
 
+
 ### handles
+
+
 
 ```php
 private resource[]|\CurlHandle[] $handles
 ```
 
+
+
+
+
+
 ***
 
 ### maxHandles
+
+
 
 ```php
 private int $maxHandles
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(int $maxHandles): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$maxHandles` | **int** | Maximum number of idle handles. |
+
+
+
 
 ***
 
@@ -57,12 +88,22 @@ Creates a cURL handle resource.
 public create(\Psr\Http\Message\RequestInterface $request, array $options): \GuzzleHttp\Handler\EasyHandle
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** | Request |
 | `$options` | **array** | Transfer options |
+
+
+
 
 ***
 
@@ -76,11 +117,19 @@ public release(\GuzzleHttp\Handler\EasyHandle $easy): void
 
 This function must call unset on the easy handle's "handle" property.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$easy` | **\GuzzleHttp\Handler\EasyHandle** |  |
+
+
+
 
 ***
 
@@ -93,7 +142,12 @@ rejected promise.
 public static finish(callable $handler, \GuzzleHttp\Handler\EasyHandle $easy, \GuzzleHttp\Handler\CurlFactoryInterface $factory): \GuzzleHttp\Promise\PromiseInterface
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -103,15 +157,25 @@ public static finish(callable $handler, \GuzzleHttp\Handler\EasyHandle $easy, \G
 | `$easy` | **\GuzzleHttp\Handler\EasyHandle** |  |
 | `$factory` | **\GuzzleHttp\Handler\CurlFactoryInterface** | Dictates how the handle is released |
 
+
+
+
 ***
 
 ### invokeStats
+
+
 
 ```php
 private static invokeStats(\GuzzleHttp\Handler\EasyHandle $easy): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -119,15 +183,25 @@ private static invokeStats(\GuzzleHttp\Handler\EasyHandle $easy): void
 |-----------|------|-------------|
 | `$easy` | **\GuzzleHttp\Handler\EasyHandle** |  |
 
+
+
+
 ***
 
 ### finishError
+
+
 
 ```php
 private static finishError(callable $handler, \GuzzleHttp\Handler\EasyHandle $easy, \GuzzleHttp\Handler\CurlFactoryInterface $factory): \GuzzleHttp\Promise\PromiseInterface
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -137,15 +211,25 @@ private static finishError(callable $handler, \GuzzleHttp\Handler\EasyHandle $ea
 | `$easy` | **\GuzzleHttp\Handler\EasyHandle** |  |
 | `$factory` | **\GuzzleHttp\Handler\CurlFactoryInterface** |  |
 
+
+
+
 ***
 
 ### createRejection
+
+
 
 ```php
 private static createRejection(\GuzzleHttp\Handler\EasyHandle $easy, array $ctx): \GuzzleHttp\Promise\PromiseInterface
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -154,13 +238,25 @@ private static createRejection(\GuzzleHttp\Handler\EasyHandle $easy, array $ctx)
 | `$easy` | **\GuzzleHttp\Handler\EasyHandle** |  |
 | `$ctx` | **array** |  |
 
+
+
+
 ***
 
 ### getDefaultConf
 
+
+
 ```php
 private getDefaultConf(\GuzzleHttp\Handler\EasyHandle $easy): array&lt;int|string,mixed&gt;
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -168,13 +264,25 @@ private getDefaultConf(\GuzzleHttp\Handler\EasyHandle $easy): array&lt;int|strin
 |-----------|------|-------------|
 | `$easy` | **\GuzzleHttp\Handler\EasyHandle** |  |
 
+
+
+
 ***
 
 ### applyMethod
 
+
+
 ```php
 private applyMethod(\GuzzleHttp\Handler\EasyHandle $easy, array& $conf): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -183,13 +291,25 @@ private applyMethod(\GuzzleHttp\Handler\EasyHandle $easy, array& $conf): void
 | `$easy` | **\GuzzleHttp\Handler\EasyHandle** |  |
 | `$conf` | **array** |  |
 
+
+
+
 ***
 
 ### applyBody
 
+
+
 ```php
 private applyBody(\Psr\Http\Message\RequestInterface $request, array $options, array& $conf): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -199,13 +319,25 @@ private applyBody(\Psr\Http\Message\RequestInterface $request, array $options, a
 | `$options` | **array** |  |
 | `$conf` | **array** |  |
 
+
+
+
 ***
 
 ### applyHeaders
 
+
+
 ```php
 private applyHeaders(\GuzzleHttp\Handler\EasyHandle $easy, array& $conf): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -213,6 +345,9 @@ private applyHeaders(\GuzzleHttp\Handler\EasyHandle $easy, array& $conf): void
 |-----------|------|-------------|
 | `$easy` | **\GuzzleHttp\Handler\EasyHandle** |  |
 | `$conf` | **array** |  |
+
+
+
 
 ***
 
@@ -224,6 +359,13 @@ Remove a header from the options array.
 private removeHeader(string $name, array& $options): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -231,13 +373,25 @@ private removeHeader(string $name, array& $options): void
 | `$name` | **string** | Case-insensitive header to remove |
 | `$options` | **array** | Array of options to modify |
 
+
+
+
 ***
 
 ### applyHandlerOptions
 
+
+
 ```php
 private applyHandlerOptions(\GuzzleHttp\Handler\EasyHandle $easy, array& $conf): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -245,6 +399,9 @@ private applyHandlerOptions(\GuzzleHttp\Handler\EasyHandle $easy, array& $conf):
 |-----------|------|-------------|
 | `$easy` | **\GuzzleHttp\Handler\EasyHandle** |  |
 | `$conf` | **array** |  |
+
+
+
 
 ***
 
@@ -262,7 +419,12 @@ without an error status.
 private static retryFailedRewind(callable $handler, \GuzzleHttp\Handler\EasyHandle $easy, array $ctx): \GuzzleHttp\Promise\PromiseInterface
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -272,19 +434,34 @@ private static retryFailedRewind(callable $handler, \GuzzleHttp\Handler\EasyHand
 | `$easy` | **\GuzzleHttp\Handler\EasyHandle** |  |
 | `$ctx` | **array** |  |
 
+
+
+
 ***
 
 ### createHeaderFn
 
+
+
 ```php
 private createHeaderFn(\GuzzleHttp\Handler\EasyHandle $easy): callable
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$easy` | **\GuzzleHttp\Handler\EasyHandle** |  |
+
+
+
 
 ***
 

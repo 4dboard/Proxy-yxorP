@@ -2,11 +2,19 @@
 
 # Utils
 
+
+
+
+
 * Full name: `\GuzzleHttp\Utils`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
+
+
+
 ## Methods
+
 
 ### describeType
 
@@ -16,13 +24,19 @@ Debug function used to describe the provided value type and class.
 public static describeType(mixed $input): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **mixed** |  |
+
 
 **Return Value:**
 
@@ -41,13 +55,21 @@ Parses an array of header lines into an associative array of headers.
 public static headersFromLines(iterable $lines): array
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$lines` | **iterable** | Header lines array of strings in the following<br />format: &quot;Name: Value&quot; |
+
+
+
 
 ***
 
@@ -59,13 +81,21 @@ Returns a debug stream based on the provided variable.
 public static debugResource(mixed $value = null): resource
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | Optional value |
+
+
+
 
 ***
 
@@ -81,6 +111,12 @@ The returned handler is not wrapped by any default middlewares.
 
 * This method is **static**.
 
+
+
+
+
+
+
 ***
 
 ### defaultUserAgent
@@ -91,7 +127,15 @@ Get the default User-Agent string to use with Guzzle.
 public static defaultUserAgent(): string
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -116,6 +160,11 @@ Note: the result of this function is cached for subsequent calls.
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
+
+
+
+
+
 ***
 
 ### normalizeHeaderKeys
@@ -127,13 +176,21 @@ header casing.
 public static normalizeHeaderKeys(array $headers): array
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$headers` | **array** |  |
+
+
+
 
 ***
 
@@ -151,7 +208,6 @@ partial match: (e.g., "foo.com" == "baz.foo.com" and ".foo.com" ==
 "baz.foo.com", but ".foo.com" != "foo.com").
 
 Areas are matched in the following cases:
-
 1. "*" (without quotes) always matches any hosts.
 2. An exact match.
 3. The area starts with "." and the area is the last part of the host. e.g.
@@ -159,12 +215,18 @@ Areas are matched in the following cases:
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$host` | **string** | Host to check against the patterns. |
 | `$noProxyArray` | **string[]** | An array of host patterns. |
+
+
+
 
 ***
 
@@ -176,7 +238,12 @@ Wrapper for json_decode that throws when an error occurs.
 public static jsonDecode(string $json, bool $assoc = false, int $depth = 512, int $options): object|array|string|int|float|bool|null
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -187,9 +254,11 @@ public static jsonDecode(string $json, bool $assoc = false, int $depth = 512, in
 | `$depth` | **int** | User specified recursion depth. |
 | `$options` | **int** | Bitmask of JSON decode options. |
 
+
+
 **See Also:**
 
-* https://www.php.net/manual/en/function.json-decode.php -
+* https://www.php.net/manual/en/function.json-decode.php - 
 
 ***
 
@@ -201,7 +270,12 @@ Wrapper for JSON encoding that throws when an error occurs.
 public static jsonEncode(mixed $value, int $options, int $depth = 512): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -211,19 +285,28 @@ public static jsonEncode(mixed $value, int $options, int $depth = 512): string
 | `$options` | **int** | JSON encode option bitmask |
 | `$depth` | **int** | Set the maximum depth. Must be greater than zero. |
 
+
+
 **See Also:**
 
-* https://www.php.net/manual/en/function.json-encode.php -
+* https://www.php.net/manual/en/function.json-encode.php - 
 
 ***
 
 ### idnToAsci
 
+
+
 ```php
 private static idnToAsci(string $domain, int $options, ?array& $info = []): string|false
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -232,6 +315,9 @@ private static idnToAsci(string $domain, int $options, ?array& $info = []): stri
 | `$domain` | **string** |  |
 | `$options` | **int** |  |
 | `$info` | **?array** |  |
+
+
+
 
 ***
 

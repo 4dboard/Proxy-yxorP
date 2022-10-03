@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace BaconQrCode\Encoder;
 
@@ -46,7 +46,7 @@ final class ByteMatrix
     /**
      * Gets the width of the matrix.
      */
-    public function getWidth(): int
+    public function getWidth() : int
     {
         return $this->width;
     }
@@ -54,7 +54,7 @@ final class ByteMatrix
     /**
      * Gets the height of the matrix.
      */
-    public function getHeight(): int
+    public function getHeight() : int
     {
         return $this->height;
     }
@@ -64,7 +64,7 @@ final class ByteMatrix
      *
      * @return SplFixedArray<SplFixedArray<int>>
      */
-    public function getArray(): SplFixedArray
+    public function getArray() : SplFixedArray
     {
         return $this->bytes;
     }
@@ -72,7 +72,7 @@ final class ByteMatrix
     /**
      * @return Traversable<int>
      */
-    public function getBytes(): Traversable
+    public function getBytes() : Traversable
     {
         foreach ($this->bytes as $row) {
             foreach ($row as $byte) {
@@ -84,7 +84,7 @@ final class ByteMatrix
     /**
      * Gets the byte for a specific position.
      */
-    public function get(int $x, int $y): int
+    public function get(int $x, int $y) : int
     {
         return $this->bytes[$y][$x];
     }
@@ -92,7 +92,7 @@ final class ByteMatrix
     /**
      * Sets the byte for a specific position.
      */
-    public function set(int $x, int $y, int $value): void
+    public function set(int $x, int $y, int $value) : void
     {
         $this->bytes[$y][$x] = $value;
     }
@@ -100,7 +100,7 @@ final class ByteMatrix
     /**
      * Clears the matrix with a specific value.
      */
-    public function clear(int $value): void
+    public function clear(int $value) : void
     {
         for ($y = 0; $y < $this->height; ++$y) {
             for ($x = 0; $x < $this->width; ++$x) {
@@ -121,7 +121,7 @@ final class ByteMatrix
     /**
      * Returns a string representation of the matrix.
      */
-    public function __toString(): string
+    public function __toString() : string
     {
         $result = '';
 

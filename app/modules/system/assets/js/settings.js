@@ -1,6 +1,7 @@
+
 export let FieldTypes = {
 
-    _fields: null,
+    _fields : null,
 
     async get() {
 
@@ -12,7 +13,7 @@ export let FieldTypes = {
 
             match = c.match(/^field\-(.*)/);
 
-            if (match && typeof (VueView.components[c]) == 'string') {
+            if (match && typeof(VueView.components[c]) == 'string') {
 
                 promises.push(App.utils.import(VueView.components[c]).then(def => {
 

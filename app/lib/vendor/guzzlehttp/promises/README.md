@@ -2,8 +2,7 @@
 
 [Promises/A+](https://promisesaplus.com/) implementation that handles promise
 chaining and resolution iteratively, allowing for "infinite" promise chaining
-while keeping the stack size constant.
-Read [this blog post](https://blog.domenic.me/youre-missing-the-point-of-promises/)
+while keeping the stack size constant. Read [this blog post](https://blog.domenic.me/youre-missing-the-point-of-promises/)
 for a general introduction to promises.
 
 - [Features](#features)
@@ -11,11 +10,12 @@ for a general introduction to promises.
 - [Synchronous wait](#synchronous-wait)
 - [Cancellation](#cancellation)
 - [API](#api)
-    - [Promise](#promise)
-    - [FulfilledPromise](#fulfilledpromise)
-    - [RejectedPromise](#rejectedpromise)
+  - [Promise](#promise)
+  - [FulfilledPromise](#fulfilledpromise)
+  - [RejectedPromise](#rejectedpromise)
 - [Promise interop](#promise-interop)
 - [Implementation notes](#implementation-notes)
+
 
 # Features
 
@@ -28,6 +28,7 @@ for a general introduction to promises.
 - C# style async/await coroutine promises using
   `GuzzleHttp\Promise\Coroutine::of()`.
 
+
 # Quick start
 
 A *promise* represents the eventual result of an asynchronous operation. The
@@ -35,10 +36,12 @@ primary way of interacting with a promise is through its `then` method, which
 registers callbacks to receive either a promise's eventual value or the reason
 why the promise cannot be fulfilled.
 
+
 ## Callbacks
 
-Callbacks are registered with the `then` method by providing an optional
+Callbacks are registered with the `then` method by providing an optional 
 `$onFulfilled` followed by an optional `$onRejected` function.
+
 
 ```php
 use GuzzleHttp\Promise\Promise;
@@ -60,6 +63,7 @@ $promise->then(
 reject a promise with a *reason*. Resolving a promises triggers callbacks
 registered with the promises's `then` method. These callbacks are triggered
 only once and in the order in which they were added.
+
 
 ## Resolving a promise
 
@@ -87,6 +91,7 @@ $promise
 // "Hello, reader."
 $promise->resolve('reader.');
 ```
+
 
 ## Promise forwarding
 
@@ -240,8 +245,8 @@ $promise->reject('foo');
 $promise->wait();
 ```
 
-> PHP Fatal error:  Uncaught exception 'GuzzleHttp\Promise\RejectionException' with message 'The promise was rejected
-> with value: foo'
+> PHP Fatal error:  Uncaught exception 'GuzzleHttp\Promise\RejectionException' with message 'The promise was rejected with value: foo'
+
 
 ## Unwrapping a promise
 
@@ -269,6 +274,7 @@ wait function will be the value delivered to promise B.
 
 **Note**: when you do not unwrap the promise, no value is returned.
 
+
 # Cancellation
 
 You can cancel a promise that has not yet been fulfilled using the `cancel()`
@@ -276,7 +282,9 @@ method of a promise. When creating a promise you can provide an optional
 cancel function that when invoked cancels the action of computing a resolution
 of the promise.
 
+
 # API
+
 
 ## Promise
 
@@ -305,19 +313,17 @@ assert('waited' === $promise->wait());
 A promise has the following methods:
 
 - `then(callable $onFulfilled, callable $onRejected) : PromiseInterface`
-
-  Appends fulfillment and rejection handlers to the promise, and returns a new promise resolving to the return value of
-  the called handler.
+  
+  Appends fulfillment and rejection handlers to the promise, and returns a new promise resolving to the return value of the called handler.
 
 - `otherwise(callable $onRejected) : PromiseInterface`
-
-  Appends a rejection handler callback to the promise, and returns a new promise resolving to the return value of the
-  callback if it is called, or to its original fulfillment value if the promise is instead fulfilled.
+  
+  Appends a rejection handler callback to the promise, and returns a new promise resolving to the return value of the callback if it is called, or to its original fulfillment value if the promise is instead fulfilled.
 
 - `wait($unwrap = true) : mixed`
 
   Synchronously waits on the promise to complete.
-
+  
   `$unwrap` controls whether or not the value of the promise is returned for a
   fulfilled promise or if an exception is thrown if the promise is rejected.
   This is set to `true` by default.
@@ -342,6 +348,7 @@ A promise has the following methods:
 
   Rejects the promise with the given `$reason`.
 
+
 ## FulfilledPromise
 
 A fulfilled promise can be created to represent a promise that has been
@@ -358,6 +365,7 @@ $promise->then(function ($value) {
 });
 ```
 
+
 ## RejectedPromise
 
 A rejected promise can be created to represent a promise that has been
@@ -373,6 +381,7 @@ $promise->then(null, function ($reason) {
     echo $reason;
 });
 ```
+
 
 # Promise interop
 
@@ -398,6 +407,7 @@ $guzzlePromise->then(function ($value) use ($reactPromise) {
 Please note that wait and cancel chaining is no longer possible when forwarding
 a foreign promise. You will need to wrap a third-party promise with a Guzzle
 promise in order to utilize wait and cancel functions with foreign promises.
+
 
 ## Event Loop Integration
 
@@ -426,7 +436,9 @@ $loop->addPeriodicTimer(0, [$queue, 'run']);
 
 *TODO*: Perhaps adding a `futureTick()` on each tick would be faster?
 
+
 # Implementation notes
+
 
 ## Promise resolution and chaining is handled iteratively
 
@@ -464,6 +476,7 @@ all of its pending handlers to the new promise. When the new promise is
 eventually resolved, all of the pending handlers are delivered the forwarded
 value.
 
+
 ## A promise is the deferred.
 
 Some promise libraries implement promises using a deferred object to represent
@@ -489,11 +502,10 @@ $promise->resolve('foo');
 // prints "foo"
 ```
 
+
 ## Upgrading from Function API
 
-A static API was first introduced in 1.4.0, in order to mitigate problems with functions conflicting between global and
-local copies of the package. The function API will be removed in 2.0.0. A migration table has been provided here for
-your convenience:
+A static API was first introduced in 1.4.0, in order to mitigate problems with functions conflicting between global and local copies of the package. The function API will be removed in 2.0.0. A migration table has been provided here for your convenience:
 
 | Original Function | Replacement Method |
 |----------------|----------------|
@@ -519,12 +531,10 @@ your convenience:
 | `is_settled` | `Is::settled` |
 | `coroutine` | `Coroutine::of` |
 
+
 ## Security
 
-If you discover a security vulnerability within this package, please send an email to security@tidelift.com. All
-security vulnerabilities will be promptly addressed. Please do not disclose security-related issues publicly until a fix
-has been announced. Please see [Security Policy](https://github.com/guzzle/promises/security/policy) for more
-information.
+If you discover a security vulnerability within this package, please send an email to security@tidelift.com. All security vulnerabilities will be promptly addressed. Please do not disclose security-related issues publicly until a fix has been announced. Please see [Security Policy](https://github.com/guzzle/promises/security/policy) for more information.
 
 ## License
 
@@ -534,7 +544,4 @@ Guzzle is made available under the MIT License (MIT). Please see [License File](
 
 Available as part of the Tidelift Subscription
 
-The maintainers of Guzzle and thousands of other packages are working with Tidelift to deliver commercial support and
-maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve
-code health, while paying the maintainers of the exact dependencies you
-use. [Learn more.](https://tidelift.com/subscription/pkg/packagist-guzzlehttp-promises?utm_source=packagist-guzzlehttp-promises&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)
+The maintainers of Guzzle and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. [Learn more.](https://tidelift.com/subscription/pkg/packagist-guzzlehttp-promises?utm_source=packagist-guzzlehttp-promises&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)

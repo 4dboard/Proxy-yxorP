@@ -1,7 +1,7 @@
 export default {
 
     data() {
-        return {
+        return  {
             search: '',
             loading: false,
             findings: null,
@@ -58,9 +58,9 @@ export default {
                     } else {
 
                         if (event.keyCode == 38) {
-                            this.selected = this.findings[this.selected - 1] ? this.selected - 1 : this.findings.length - 1;
+                            this.selected = this.findings[this.selected - 1] ? this.selected - 1 : this.findings.length - 1 ;
                         } else {
-                            this.selected = this.findings[this.selected + 1] ? this.selected + 1 : 0;
+                            this.selected = this.findings[this.selected + 1] ? this.selected + 1 : 0 ;
                         }
                     }
                     break;

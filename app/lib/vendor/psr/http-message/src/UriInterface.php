@@ -1,8 +1,5 @@
 <?php
-
 namespace Psr\Http\Message;
-
-use InvalidArgumentException;
 
 /**
  * Value object representing a URI.
@@ -189,7 +186,7 @@ interface UriInterface
      *
      * @param string $scheme The scheme to use with the new instance.
      * @return static A new instance with the specified scheme.
-     * @throws InvalidArgumentException for invalid or unsupported schemes.
+     * @throws \InvalidArgumentException for invalid or unsupported schemes.
      */
     public function withScheme($scheme);
 
@@ -219,7 +216,7 @@ interface UriInterface
      *
      * @param string $host The hostname to use with the new instance.
      * @return static A new instance with the specified host.
-     * @throws InvalidArgumentException for invalid hostnames.
+     * @throws \InvalidArgumentException for invalid hostnames.
      */
     public function withHost($host);
 
@@ -238,7 +235,7 @@ interface UriInterface
      * @param null|int $port The port to use with the new instance; a null value
      *     removes the port information.
      * @return static A new instance with the specified port.
-     * @throws InvalidArgumentException for invalid ports.
+     * @throws \InvalidArgumentException for invalid ports.
      */
     public function withPort($port);
 
@@ -262,7 +259,7 @@ interface UriInterface
      *
      * @param string $path The path to use with the new instance.
      * @return static A new instance with the specified path.
-     * @throws InvalidArgumentException for invalid paths.
+     * @throws \InvalidArgumentException for invalid paths.
      */
     public function withPath($path);
 
@@ -279,7 +276,7 @@ interface UriInterface
      *
      * @param string $query The query string to use with the new instance.
      * @return static A new instance with the specified query string.
-     * @throws InvalidArgumentException for invalid query strings.
+     * @throws \InvalidArgumentException for invalid query strings.
      */
     public function withQuery($query);
 

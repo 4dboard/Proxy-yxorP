@@ -19,35 +19,35 @@ class ProvidedRequiredArguments extends ValidationRule
         $providedRequiredArgumentsOnDirectives = new ProvidedRequiredArgumentsOnDirectives();
 
         return $providedRequiredArgumentsOnDirectives->getVisitor($context) + [
-                NodeKind::FIELD => [
-                    'leave' => static function (FieldNode $fieldNode) use ($context): ?VisitorOperation {
-                        $fieldDef = $context->getFieldDef();
+            NodeKind::FIELD => [
+                'leave' => static function (FieldNode $fieldNode) use ($context) : ?VisitorOperation {
+                    $fieldDef = $context->getFieldDef();
 
-                        if (!$fieldDef) {
-                            return Visitor::skipNode();
-                        }
-                        $argNodes = $fieldNode->arguments ?? [];
+                    if (! $fieldDef) {
+                        return Visitor::skipNode();
+                    }
+                    $argNodes = $fieldNode->arguments ?? [];
 
-                        $argNodeMap = [];
-                        foreach ($argNodes as $argNode) {
-                            $argNodeMap[$argNode->name->value] = $argNode;
-                        }
-                        foreach ($fieldDef->args as $argDef) {
-                            $argNode = $argNodeMap[$argDef->name] ?? null;
-                            if ($argNode || !$argDef->isRequired()) {
-                                continue;
-                            }
-
-                            $context->reportError(new Error(
-                                self::missingFieldArgMessage($fieldNode->name->value, $argDef->name, $argDef->getType()),
-                                [$fieldNode]
-                            ));
+                    $argNodeMap = [];
+                    foreach ($argNodes as $argNode) {
+                        $argNodeMap[$argNode->name->value] = $argNode;
+                    }
+                    foreach ($fieldDef->args as $argDef) {
+                        $argNode = $argNodeMap[$argDef->name] ?? null;
+                        if ($argNode || ! $argDef->isRequired()) {
+                            continue;
                         }
 
-                        return null;
-                    },
-                ],
-            ];
+                        $context->reportError(new Error(
+                            self::missingFieldArgMessage($fieldNode->name->value, $argDef->name, $argDef->getType()),
+                            [$fieldNode]
+                        ));
+                    }
+
+                    return null;
+                },
+            ],
+        ];
     }
 
     public static function missingFieldArgMessage($fieldName, $argName, $type)

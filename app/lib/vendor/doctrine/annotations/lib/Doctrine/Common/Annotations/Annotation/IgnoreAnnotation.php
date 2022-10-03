@@ -3,6 +3,7 @@
 namespace Doctrine\Common\Annotations\Annotation;
 
 use RuntimeException;
+
 use function is_array;
 use function is_string;
 use function json_encode;
@@ -30,7 +31,7 @@ final class IgnoreAnnotation
             $values['value'] = [$values['value']];
         }
 
-        if (!is_array($values['value'])) {
+        if (! is_array($values['value'])) {
             throw new RuntimeException(sprintf(
                 '@IgnoreAnnotation expects either a string name, or an array of strings, but got %s.',
                 json_encode($values['value'])

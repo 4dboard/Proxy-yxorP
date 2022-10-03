@@ -4,9 +4,15 @@
 
 A trait that allows the class to be serialized and unserialized.
 
+
+
 * Full name: `\yxorP\app\lib\http\state`
 
+
+
+
 ## Methods
+
 
 ### __set_state
 
@@ -16,13 +22,21 @@ A magic method that allows the class to be serialized and unserialized.
 public static __set_state(mixed $data): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
+
+
+
 
 ***
 
@@ -34,11 +48,21 @@ Setting the state of the object.
 public setState(mixed $data): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
+
+
+
 
 ***
 
@@ -49,6 +73,16 @@ Setting the state of the object.
 ```php
 public toString(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

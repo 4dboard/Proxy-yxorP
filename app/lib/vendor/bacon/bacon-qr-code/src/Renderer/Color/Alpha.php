@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace BaconQrCode\Renderer\Color;
 
@@ -30,27 +30,27 @@ final class Alpha implements ColorInterface
         $this->baseColor = $baseColor;
     }
 
-    public function getAlpha(): int
+    public function getAlpha() : int
     {
         return $this->alpha;
     }
 
-    public function getBaseColor(): ColorInterface
+    public function getBaseColor() : ColorInterface
     {
         return $this->baseColor;
     }
 
-    public function toRgb(): Rgb
+    public function toRgb() : Rgb
     {
         return $this->baseColor->toRgb();
     }
 
-    public function toCmyk(): Cmyk
+    public function toCmyk() : Cmyk
     {
         return $this->baseColor->toCmyk();
     }
 
-    public function toGray(): Gray
+    public function toGray() : Gray
     {
         return $this->baseColor->toGray();
     }

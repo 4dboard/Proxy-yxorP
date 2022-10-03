@@ -2,10 +2,17 @@
 
 # VariablesInAllowedPosition
 
+
+
+
+
 * Full name: `\GraphQL\Validator\Rules\VariablesInAllowedPosition`
 * Parent class: [`\GraphQL\Validator\Rules\ValidationRule`](./ValidationRule.md)
 
+
+
 ## Properties
+
 
 ### varDefMap
 
@@ -15,9 +22,15 @@ A map from variable names to their definition nodes.
 public \GraphQL\Language\AST\VariableDefinitionNode[] $varDefMap
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### getVisitor
 
@@ -27,11 +40,21 @@ Returns structure suitable for GraphQL\Language\Visitor
 public getVisitor(\GraphQL\Validator\ValidationContext $context): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
+
+
+
 
 ***
 
@@ -46,7 +69,12 @@ be more strict than the expected item type.
 public static badVarPosMessage(mixed $varName, mixed $varType, mixed $expectedType): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -55,6 +83,9 @@ public static badVarPosMessage(mixed $varName, mixed $varType, mixed $expectedTy
 | `$varName` | **mixed** |  |
 | `$varType` | **mixed** |  |
 | `$expectedType` | **mixed** |  |
+
+
+
 
 ***
 
@@ -68,6 +99,13 @@ or the location at which it is located.
 private allowedVariableUsage(\GraphQL\Type\Schema $schema, \GraphQL\Type\Definition\Type $varType, \GraphQL\Language\AST\ValueNode|null $varDefaultValue, \GraphQL\Type\Definition\Type $locationType, mixed $locationDefaultValue): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -78,29 +116,58 @@ private allowedVariableUsage(\GraphQL\Type\Schema $schema, \GraphQL\Type\Definit
 | `$locationType` | **\GraphQL\Type\Definition\Type** |  |
 | `$locationDefaultValue` | **mixed** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### getName
+
+
 
 ```php
 public getName(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(\GraphQL\Validator\ValidationContext $context): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
+
+
+
 
 ***
 
@@ -112,15 +179,24 @@ Returns structure suitable for GraphQL\Language\Visitor
 public getVisitor(\GraphQL\Validator\ValidationContext $context): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
 
+
+
 **See Also:**
 
-* \GraphQL\Language\Visitor -
+* \GraphQL\Language\Visitor - 
 
 ***
 
@@ -132,15 +208,24 @@ Returns structure suitable for GraphQL\Language\Visitor
 public getSDLVisitor(\GraphQL\Validator\SDLValidationContext $context): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\SDLValidationContext** |  |
 
+
+
 **See Also:**
 
-* \GraphQL\Language\Visitor -
+* \GraphQL\Language\Visitor - 
 
 ***
 

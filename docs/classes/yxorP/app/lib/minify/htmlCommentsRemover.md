@@ -2,28 +2,59 @@
 
 # htmlCommentsRemover
 
+
+
+
+
 * Full name: `\yxorP\app\lib\minify\htmlCommentsRemover`
 * Parent class: [`\yxorP\app\lib\minify\areplacerInterface`](./areplacerInterface.md)
 * This class implements:
-  [`\yxorP\app\lib\minify\minfyInterface`](./minfyInterface.md)
+[`\yxorP\app\lib\minify\minfyInterface`](./minfyInterface.md)
+
+
+
 
 ## Methods
 
+
 ### getReplacePatternData
+
+
 
 ```php
 public getReplacePatternData(): array
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### process
+
+
 
 ```php
 public process(string $buffer): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -31,13 +62,25 @@ public process(string $buffer): string
 |-----------|------|-------------|
 | `$buffer` | **string** |  |
 
+
+
+
 ***
 
 ### replace
 
+
+
 ```php
 public replace(array $replace, string $buffer): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -46,15 +89,28 @@ public replace(array $replace, string $buffer): string
 | `$replace` | **array** |  |
 | `$buffer` | **string** |  |
 
+
+
+
 ***
 
 ### getReplacePatternData
+
+
 
 ```php
 public getReplacePatternData(): array
 ```
 
+
+
+
 * This method is **abstract**.
+
+
+
+
+
 
 ***
 

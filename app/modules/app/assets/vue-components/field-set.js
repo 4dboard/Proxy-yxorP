@@ -21,9 +21,8 @@ export default {
             let html = 'n/a', span = document.createElement('span');
 
             try {
-                html = App.utils.interpolate(field.opts.display, { /* deprecated */ value, data: value});
-            } catch (e) {
-            }
+                html = App.utils.interpolate(field.opts.display, { /* deprecated */ value, data:value});
+            } catch(e) {}
 
             span.innerText = html;
 
@@ -50,9 +49,7 @@ export default {
 
     watch: {
         val: {
-            handler() {
-                this.update()
-            },
+            handler() { this.update() },
             deep: true
         },
         modelValue(val) {

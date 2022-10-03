@@ -2,15 +2,29 @@
 
 # InputObjectCircularRefs
 
+
+
+
+
 * Full name: `\GraphQL\Type\Validation\InputObjectCircularRefs`
+
+
 
 ## Properties
 
+
 ### schemaValidationContext
+
+
 
 ```php
 private \GraphQL\Type\SchemaValidationContext $schemaValidationContext
 ```
+
+
+
+
+
 
 ***
 
@@ -23,13 +37,25 @@ are not redundantly reported.
 private array&lt;string,bool&gt; $visitedTypes
 ```
 
+
+
+
+
+
 ***
 
 ### fieldPath
 
+
+
 ```php
 private \GraphQL\Type\Definition\InputObjectField[] $fieldPath
 ```
+
+
+
+
+
 
 ***
 
@@ -50,17 +76,30 @@ private int[] $fieldPathIndexByTypeName
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\GraphQL\Type\SchemaValidationContext $schemaValidationContext): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$schemaValidationContext` | **\GraphQL\Type\SchemaValidationContext** |  |
+
+
+
 
 ***
 
@@ -75,11 +114,19 @@ public validate(\GraphQL\Type\Definition\InputObjectType $inputObj): void
 It does not terminate when a cycle was found but continues to explore
 the graph to find all possible cycles.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$inputObj` | **\GraphQL\Type\Definition\InputObjectType** |  |
+
+
+
 
 ***
 

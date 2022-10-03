@@ -11,7 +11,10 @@ consecutively in the QR code version's format.
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
+
+
 ## Properties
+
 
 ### count
 
@@ -20,6 +23,11 @@ How many times the block is used.
 ```php
 private int $count
 ```
+
+
+
+
+
 
 ***
 
@@ -31,15 +39,30 @@ Number of data codewords.
 private int $dataCodewords
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(int $count, int $dataCodewords): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -47,6 +70,9 @@ public __construct(int $count, int $dataCodewords): mixed
 |-----------|------|-------------|
 | `$count` | **int** |  |
 | `$dataCodewords` | **int** |  |
+
+
+
 
 ***
 
@@ -58,6 +84,16 @@ Returns how many times the block is used.
 public getCount(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getDataCodewords
@@ -67,6 +103,16 @@ Returns the number of data codewords.
 ```php
 public getDataCodewords(): int
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

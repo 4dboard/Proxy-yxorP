@@ -24,6 +24,20 @@ final class CompletionSuggestions
     private $optionSuggestions = [];
 
     /**
+     * Add a suggested value for an input option or argument.
+     *
+     * @param string|Suggestion $value
+     *
+     * @return $this
+     */
+    public function suggestValue($value): self
+    {
+        $this->valueSuggestions[] = !$value instanceof Suggestion ? new Suggestion($value) : $value;
+
+        return $this;
+    }
+
+    /**
      * Add multiple suggested values at once for an input option or argument.
      *
      * @param list<string|Suggestion> $values
@@ -40,15 +54,13 @@ final class CompletionSuggestions
     }
 
     /**
-     * Add a suggested value for an input option or argument.
-     *
-     * @param string|Suggestion $value
+     * Add a suggestion for an input option name.
      *
      * @return $this
      */
-    public function suggestValue($value): self
+    public function suggestOption(InputOption $option): self
     {
-        $this->valueSuggestions[] = !$value instanceof Suggestion ? new Suggestion($value) : $value;
+        $this->optionSuggestions[] = $option;
 
         return $this;
     }
@@ -65,18 +77,6 @@ final class CompletionSuggestions
         foreach ($options as $option) {
             $this->suggestOption($option);
         }
-
-        return $this;
-    }
-
-    /**
-     * Add a suggestion for an input option name.
-     *
-     * @return $this
-     */
-    public function suggestOption(InputOption $option): self
-    {
-        $this->optionSuggestions[] = $option;
 
         return $this;
     }

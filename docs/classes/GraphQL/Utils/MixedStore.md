@@ -9,121 +9,228 @@ Note: unfortunately when storing array as key - access and modification is O(N)
 
 * Full name: `\GraphQL\Utils\MixedStore`
 * This class implements:
-  [`\ArrayAccess`](../../ArrayAccess.md)
+[`\ArrayAccess`](../../ArrayAccess.md)
+
+
 
 ## Properties
 
+
 ### standardStore
+
+
 
 ```php
 private \GraphQL\Type\Definition\EnumValueDefinition[] $standardStore
 ```
 
+
+
+
+
+
 ***
 
 ### floatStore
+
+
 
 ```php
 private array $floatStore
 ```
 
+
+
+
+
+
 ***
 
 ### objectStore
+
+
 
 ```php
 private \SplObjectStorage $objectStore
 ```
 
+
+
+
+
+
 ***
 
 ### arrayKeys
+
+
 
 ```php
 private callable[] $arrayKeys
 ```
 
+
+
+
+
+
 ***
 
 ### arrayValues
+
+
 
 ```php
 private \GraphQL\Type\Definition\EnumValueDefinition[] $arrayValues
 ```
 
+
+
+
+
+
 ***
 
 ### lastArrayKey
+
+
 
 ```php
 private callable[] $lastArrayKey
 ```
 
+
+
+
+
+
 ***
 
 ### lastArrayValue
+
+
 
 ```php
 private mixed $lastArrayValue
 ```
 
+
+
+
+
+
 ***
 
 ### nullValue
+
+
 
 ```php
 private mixed $nullValue
 ```
 
+
+
+
+
+
 ***
 
 ### nullValueIsSet
+
+
 
 ```php
 private bool $nullValueIsSet
 ```
 
+
+
+
+
+
 ***
 
 ### trueValue
+
+
 
 ```php
 private mixed $trueValue
 ```
 
+
+
+
+
+
 ***
 
 ### trueValueIsSet
+
+
 
 ```php
 private bool $trueValueIsSet
 ```
 
+
+
+
+
+
 ***
 
 ### falseValue
+
+
 
 ```php
 private mixed $falseValue
 ```
 
+
+
+
+
+
 ***
 
 ### falseValueIsSet
+
+
 
 ```php
 private bool $falseValueIsSet
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -135,11 +242,19 @@ Whether a offset exists
 public offsetExists(mixed $offset): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | &lt;p&gt;<br />An offset to check for.<br />&lt;/p&gt; |
+
 
 **Return Value:**
 
@@ -151,7 +266,7 @@ The return value will be casted to boolean if non-boolean was returned.
 
 **See Also:**
 
-* http://php.net/manual/en/arrayaccess.offsetexists.php -
+* http://php.net/manual/en/arrayaccess.offsetexists.php - 
 
 ***
 
@@ -163,19 +278,28 @@ Offset to retrieve
 public offsetGet(mixed $offset): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | &lt;p&gt;<br />The offset to retrieve.<br />&lt;/p&gt; |
 
+
 **Return Value:**
 
 Can return all value types.
 
+
 **See Also:**
 
-* http://php.net/manual/en/arrayaccess.offsetget.php -
+* http://php.net/manual/en/arrayaccess.offsetget.php - 
 
 ***
 
@@ -187,6 +311,13 @@ Offset to set
 public offsetSet(mixed $offset, mixed $value): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -194,9 +325,11 @@ public offsetSet(mixed $offset, mixed $value): void
 | `$offset` | **mixed** | &lt;p&gt;<br />The offset to assign the value to.<br />&lt;/p&gt; |
 | `$value` | **mixed** | &lt;p&gt;<br />The value to set.<br />&lt;/p&gt; |
 
+
+
 **See Also:**
 
-* http://php.net/manual/en/arrayaccess.offsetset.php -
+* http://php.net/manual/en/arrayaccess.offsetset.php - 
 
 ***
 
@@ -208,15 +341,24 @@ Offset to unset
 public offsetUnset(mixed $offset): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | &lt;p&gt;<br />The offset to unset.<br />&lt;/p&gt; |
 
+
+
 **See Also:**
 
-* http://php.net/manual/en/arrayaccess.offsetunset.php -
+* http://php.net/manual/en/arrayaccess.offsetunset.php - 
 
 ***
 

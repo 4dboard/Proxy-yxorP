@@ -16,9 +16,9 @@ class ScalarLeafs extends ValidationRule
     public function getVisitor(ValidationContext $context)
     {
         return [
-            NodeKind::FIELD => static function (FieldNode $node) use ($context): void {
+            NodeKind::FIELD => static function (FieldNode $node) use ($context) : void {
                 $type = $context->getType();
-                if (!$type) {
+                if (! $type) {
                     return;
                 }
 
@@ -29,7 +29,7 @@ class ScalarLeafs extends ValidationRule
                             [$node->selectionSet]
                         ));
                     }
-                } elseif (!$node->selectionSet) {
+                } elseif (! $node->selectionSet) {
                     $context->reportError(new Error(
                         self::requiredSubselectionMessage($node->name->value, $type),
                         [$node]

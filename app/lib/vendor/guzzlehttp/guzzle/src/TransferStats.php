@@ -38,20 +38,19 @@ final class TransferStats
     private $handlerErrorData;
 
     /**
-     * @param RequestInterface $request Request that was sent.
-     * @param ResponseInterface|null $response Response received (if any)
-     * @param float|null $transferTime Total handler transfer time.
-     * @param mixed $handlerErrorData Handler error data.
-     * @param array $handlerStats Handler specific stats.
+     * @param RequestInterface       $request          Request that was sent.
+     * @param ResponseInterface|null $response         Response received (if any)
+     * @param float|null             $transferTime     Total handler transfer time.
+     * @param mixed                  $handlerErrorData Handler error data.
+     * @param array                  $handlerStats     Handler specific stats.
      */
     public function __construct(
-        RequestInterface   $request,
+        RequestInterface $request,
         ?ResponseInterface $response = null,
-        ?float             $transferTime = null,
-                           $handlerErrorData = null,
-        array              $handlerStats = []
-    )
-    {
+        ?float $transferTime = null,
+        $handlerErrorData = null,
+        array $handlerStats = []
+    ) {
         $this->request = $request;
         $this->response = $response;
         $this->transferTime = $transferTime;

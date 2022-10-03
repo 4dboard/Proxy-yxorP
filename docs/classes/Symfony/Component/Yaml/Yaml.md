@@ -4,7 +4,10 @@
 
 Yaml offers convenience methods to load and dump YAML.
 
+
+
 * Full name: `\Symfony\Component\Yaml\Yaml`
+
 
 ## Constants
 
@@ -23,7 +26,9 @@ Yaml offers convenience methods to load and dump YAML.
 |`DUMP_EMPTY_ARRAY_AS_SEQUENCE`|public| |1024|
 |`DUMP_NULL_AS_TILDE`|public| |2048|
 
+
 ## Methods
+
 
 ### parseFile
 
@@ -40,12 +45,18 @@ print_r($array);
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filename` | **string** | The path to the YAML file to be parsed |
 | `$flags` | **int** | A bit field of PARSE_* constants to customize the YAML parser behavior |
+
+
+
 
 ***
 
@@ -59,11 +70,14 @@ public static parse(string $input, int $flags): mixed
 
 Usage:
 <code>
-$array = Yaml::parse(file_get_contents('config.yml'));
-print_r($array);
+ $array = Yaml::parse(file_get_contents('config.yml'));
+ print_r($array);
 </code>
 
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -71,6 +85,9 @@ print_r($array);
 |-----------|------|-------------|
 | `$input` | **string** | A string containing YAML |
 | `$flags` | **int** | A bit field of PARSE_* constants to customize the YAML parser behavior |
+
+
+
 
 ***
 
@@ -87,6 +104,9 @@ to convert the array into friendly YAML.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -95,6 +115,9 @@ to convert the array into friendly YAML.
 | `$inline` | **int** | The level where you switch to inline YAML |
 | `$indent` | **int** | The amount of spaces to use for indentation of nested nodes |
 | `$flags` | **int** | A bit field of DUMP_* constants to customize the dumped YAML string |
+
+
+
 
 ***
 

@@ -2,13 +2,21 @@
 
 # NullOutputFormatterStyle
 
+
+
+
+
 * Full name: `\Symfony\Component\Console\Formatter\NullOutputFormatterStyle`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-  [`\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface`](./OutputFormatterStyleInterface.md)
+[`\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface`](./OutputFormatterStyleInterface.md)
 * This class is a **Final class**
 
+
+
+
 ## Methods
+
 
 ### apply
 
@@ -18,11 +26,21 @@ Applies the style to a given text.
 public apply(string $text): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$text` | **string** |  |
+
+
+
 
 ***
 
@@ -34,11 +52,21 @@ Sets style background color.
 public setBackground(string $color = null): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$color` | **string** |  |
+
+
+
 
 ***
 
@@ -50,11 +78,21 @@ Sets style foreground color.
 public setForeground(string $color = null): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$color` | **string** |  |
+
+
+
 
 ***
 
@@ -66,11 +104,21 @@ Sets some specific style option.
 public setOption(string $option): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **string** |  |
+
+
+
 
 ***
 
@@ -82,11 +130,21 @@ Sets multiple style options at once.
 public setOptions(array $options): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
+
+
+
 
 ***
 
@@ -98,11 +156,21 @@ Unsets some specific style option.
 public unsetOption(string $option): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **string** |  |
+
+
+
 
 ***
 

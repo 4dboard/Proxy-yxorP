@@ -20,16 +20,6 @@ final class coroutine implements promiseInterface
         $this->nextCoroutine($this->generator->current());
     }
 
-    public function wait($unwrap = true)
-    {
-        return $this->result->wait($unwrap);
-    }
-
-    private function nextCoroutine($yielded)
-    {
-        $this->currentPromise = promise_for($yielded)->then([$this, '_handleSuccess'], [$this, '_handleFailure']);
-    }
-
     public function then(callable $onFulfilled = null, callable $onRejected = null)
     {
         return $this->result->then($onFulfilled, $onRejected);
@@ -40,9 +30,24 @@ final class coroutine implements promiseInterface
         return $this->result->otherwise($onRejected);
     }
 
+    public function wait($unwrap = true)
+    {
+        return $this->result->wait($unwrap);
+    }
+
     public function getState()
     {
         return $this->result->getState();
+    }
+
+    public function resolve($value)
+    {
+        $this->result->resolve($value);
+    }
+
+    public function reject($reason)
+    {
+        $this->result->reject($reason);
     }
 
     public function cancel()
@@ -68,16 +73,6 @@ final class coroutine implements promiseInterface
         }
     }
 
-    public function resolve($value)
-    {
-        $this->result->resolve($value);
-    }
-
-    public function reject($reason)
-    {
-        $this->result->reject($reason);
-    }
-
     public function _handleFailure($reason)
     {
         unset($this->currentPromise);
@@ -89,5 +84,10 @@ final class coroutine implements promiseInterface
         } catch (Throwable $throwable) {
             $this->result->reject($throwable);
         }
+    }
+
+    private function nextCoroutine($yielded)
+    {
+        $this->currentPromise = promise_for($yielded)->then([$this, '_handleSuccess'], [$this, '_handleFailure']);
     }
 }

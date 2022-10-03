@@ -36,7 +36,7 @@ class BulkWriteResult
 
     /**
      * @param WriteResult $writeResult
-     * @param mixed[] $insertedIds
+     * @param mixed[]     $insertedIds
      */
     public function __construct(WriteResult $writeResult, array $insertedIds)
     {
@@ -46,26 +46,13 @@ class BulkWriteResult
     }
 
     /**
-     * Return whether this update was acknowledged by the server.
-     *
-     * If the update was not acknowledged, other fields from the WriteResult
-     * (e.g. matchedCount) will be undefined.
-     *
-     * @return boolean
-     */
-    public function isAcknowledged()
-    {
-        return $this->isAcknowledged;
-    }
-
-    /**
      * Return the number of documents that were deleted.
      *
      * This method should only be called if the write was acknowledged.
      *
+     * @see BulkWriteResult::isAcknowledged()
      * @return integer
      * @throws BadMethodCallException is the write result is unacknowledged
-     * @see BulkWriteResult::isAcknowledged()
      */
     public function getDeletedCount()
     {
@@ -81,9 +68,9 @@ class BulkWriteResult
      *
      * This method should only be called if the write was acknowledged.
      *
+     * @see BulkWriteResult::isAcknowledged()
      * @return integer
      * @throws BadMethodCallException is the write result is unacknowledged
-     * @see BulkWriteResult::isAcknowledged()
      */
     public function getInsertedCount()
     {
@@ -115,9 +102,9 @@ class BulkWriteResult
      *
      * This method should only be called if the write was acknowledged.
      *
+     * @see BulkWriteResult::isAcknowledged()
      * @return integer
      * @throws BadMethodCallException is the write result is unacknowledged
-     * @see BulkWriteResult::isAcknowledged()
      */
     public function getMatchedCount()
     {
@@ -136,9 +123,9 @@ class BulkWriteResult
      *
      * This method should only be called if the write was acknowledged.
      *
+     * @see BulkWriteResult::isAcknowledged()
      * @return integer|null
      * @throws BadMethodCallException is the write result is unacknowledged
-     * @see BulkWriteResult::isAcknowledged()
      */
     public function getModifiedCount()
     {
@@ -154,9 +141,9 @@ class BulkWriteResult
      *
      * This method should only be called if the write was acknowledged.
      *
+     * @see BulkWriteResult::isAcknowledged()
      * @return integer
      * @throws BadMethodCallException is the write result is unacknowledged
-     * @see BulkWriteResult::isAcknowledged()
      */
     public function getUpsertedCount()
     {
@@ -177,9 +164,9 @@ class BulkWriteResult
      *
      * This method should only be called if the write was acknowledged.
      *
+     * @see BulkWriteResult::isAcknowledged()
      * @return mixed[]
      * @throws BadMethodCallException is the write result is unacknowledged
-     * @see BulkWriteResult::isAcknowledged()
      */
     public function getUpsertedIds()
     {
@@ -188,5 +175,18 @@ class BulkWriteResult
         }
 
         throw BadMethodCallException::unacknowledgedWriteResultAccess(__METHOD__);
+    }
+
+    /**
+     * Return whether this update was acknowledged by the server.
+     *
+     * If the update was not acknowledged, other fields from the WriteResult
+     * (e.g. matchedCount) will be undefined.
+     *
+     * @return boolean
+     */
+    public function isAcknowledged()
+    {
+        return $this->isAcknowledged;
     }
 }

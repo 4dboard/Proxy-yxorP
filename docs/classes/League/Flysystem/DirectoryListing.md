@@ -2,27 +2,51 @@
 
 # DirectoryListing
 
+
+
+
+
 * Full name: `\League\Flysystem\DirectoryListing`
 * This class implements:
-  [`\IteratorAggregate`](../../IteratorAggregate.md)
+[`\IteratorAggregate`](../../IteratorAggregate.md)
+
+
 
 ## Properties
 
+
 ### listing
+
+
 
 ```php
 private iterable&lt;\League\Flysystem\T&gt; $listing
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(iterable&lt;\League\Flysystem\T&gt; $listing): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -30,13 +54,25 @@ public __construct(iterable&lt;\League\Flysystem\T&gt; $listing): mixed
 |-----------|------|-------------|
 | `$listing` | **iterable<\League\Flysystem\T>** |  |
 
+
+
+
 ***
 
 ### filter
 
+
+
 ```php
 public filter(callable $filter): \League\Flysystem\DirectoryListing
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -44,13 +80,25 @@ public filter(callable $filter): \League\Flysystem\DirectoryListing
 |-----------|------|-------------|
 | `$filter` | **callable** |  |
 
+
+
+
 ***
 
 ### map
 
+
+
 ```php
 public map(callable $mapper): \League\Flysystem\DirectoryListing
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -58,29 +106,68 @@ public map(callable $mapper): \League\Flysystem\DirectoryListing
 |-----------|------|-------------|
 | `$mapper` | **callable** |  |
 
+
+
+
 ***
 
 ### sortByPath
+
+
 
 ```php
 public sortByPath(): \League\Flysystem\DirectoryListing
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getIterator
+
+
 
 ```php
 public getIterator(): \Traversable&lt;\League\Flysystem\T&gt;
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### toArray
 
+
+
 ```php
 public toArray(): \League\Flysystem\T[]
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

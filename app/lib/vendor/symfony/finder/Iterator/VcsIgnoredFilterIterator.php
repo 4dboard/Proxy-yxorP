@@ -11,16 +11,9 @@
 
 namespace Symfony\Component\Finder\Iterator;
 
-use FilterIterator;
-use Iterator;
-use RuntimeException;
 use Symfony\Component\Finder\Gitignore;
-use function array_key_exists;
-use function dirname;
-use function strlen;
-use const DIRECTORY_SEPARATOR;
 
-final class VcsIgnoredFilterIterator extends FilterIterator
+final class VcsIgnoredFilterIterator extends \FilterIterator
 {
     /**
      * @var string
@@ -37,20 +30,11 @@ final class VcsIgnoredFilterIterator extends FilterIterator
      */
     private $ignoredPathsCache = [];
 
-    public function __construct(Iterator $iterator, string $baseDir)
+    public function __construct(\Iterator $iterator, string $baseDir)
     {
         $this->baseDir = $this->normalizePath($baseDir);
 
         parent::__construct($iterator);
-    }
-
-    private function normalizePath(string $path): string
-    {
-        if ('\\' === DIRECTORY_SEPARATOR) {
-            return str_replace('\\', '/', $path);
-        }
-
-        return $path;
     }
 
     public function accept(): bool
@@ -80,7 +64,7 @@ final class VcsIgnoredFilterIterator extends FilterIterator
                 break;
             }
 
-            $fileRelativePath = substr($fileRealPath, strlen($parentDirectory) + 1);
+            $fileRelativePath = substr($fileRealPath, \strlen($parentDirectory) + 1);
 
             if (null === $regexps = $this->readGitignoreFile("{$parentDirectory}/.gitignore")) {
                 continue;
@@ -112,7 +96,7 @@ final class VcsIgnoredFilterIterator extends FilterIterator
         $parentDirectory = $fileRealPath;
 
         while (true) {
-            $newParentDirectory = dirname($parentDirectory);
+            $newParentDirectory = \dirname($parentDirectory);
 
             // dirname('/') = '/'
             if ($newParentDirectory === $parentDirectory) {
@@ -136,7 +120,7 @@ final class VcsIgnoredFilterIterator extends FilterIterator
      */
     private function readGitignoreFile(string $path): ?array
     {
-        if (array_key_exists($path, $this->gitignoreFilesCache)) {
+        if (\array_key_exists($path, $this->gitignoreFilesCache)) {
             return $this->gitignoreFilesCache[$path];
         }
 
@@ -145,7 +129,7 @@ final class VcsIgnoredFilterIterator extends FilterIterator
         }
 
         if (!is_file($path) || !is_readable($path)) {
-            throw new RuntimeException("The \"ignoreVCSIgnored\" option cannot be used by the Finder as the \"{$path}\" file is not readable.");
+            throw new \RuntimeException("The \"ignoreVCSIgnored\" option cannot be used by the Finder as the \"{$path}\" file is not readable.");
         }
 
         $gitignoreFileContent = file_get_contents($path);
@@ -154,5 +138,14 @@ final class VcsIgnoredFilterIterator extends FilterIterator
             Gitignore::toRegex($gitignoreFileContent),
             Gitignore::toRegexMatchingNegatedPatterns($gitignoreFileContent),
         ];
+    }
+
+    private function normalizePath(string $path): string
+    {
+        if ('\\' === \DIRECTORY_SEPARATOR) {
+            return str_replace('\\', '/', $path);
+        }
+
+        return $path;
     }
 }

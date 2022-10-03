@@ -58,16 +58,6 @@ class redirectMiddleware
         return $promise;
     }
 
-    private function guardMax(requestInterface $request, array &$options)
-    {
-        $current = isset($options['__redirect_count']) ? $options['__redirect_count'] : 0;
-        $options['__redirect_count'] = $current + 1;
-        $max = $options['allow_redirects']['max'];
-        if ($options['__redirect_count'] > $max) {
-            throw new tooManyRedirectsException("Will not follow more than {$max} redirects", $request);
-        }
-    }
-
     public function modifyRequest(requestInterface $request, array $options, responseInterface $response)
     {
         $modify = [];
@@ -94,6 +84,16 @@ class redirectMiddleware
             $modify['remove_headers'][] = 'Authorization';
         }
         return Psr7\modify_request($request, $modify);
+    }
+
+    private function guardMax(requestInterface $request, array &$options)
+    {
+        $current = isset($options['__redirect_count']) ? $options['__redirect_count'] : 0;
+        $options['__redirect_count'] = $current + 1;
+        $max = $options['allow_redirects']['max'];
+        if ($options['__redirect_count'] > $max) {
+            throw new tooManyRedirectsException("Will not follow more than {$max} redirects", $request);
+        }
     }
 
     private function redirectUri(requestInterface $request, responseInterface $response, array $protocols)

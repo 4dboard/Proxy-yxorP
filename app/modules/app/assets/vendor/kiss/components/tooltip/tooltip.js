@@ -2,7 +2,7 @@ import {on} from '../../js/events.js';
 
 let tooltipContainer = null;
 
-on(document.documentElement, 'mouseenter', '[kiss-tooltip]', function (e) {
+on(document.documentElement, 'mouseenter', '[kiss-tooltip]', function(e) {
 
     e.preventDefault();
 
@@ -30,9 +30,9 @@ customElements.define('kiss-tooltip', class extends HTMLElement {
 
         if (ele) {
             let rect = ele.getBoundingClientRect(),
-                left = null,
-                top = null,
-                offset = 5;
+            left = null,
+            top = null,
+            offset = 5;
 
             switch (position) {
                 case "right":

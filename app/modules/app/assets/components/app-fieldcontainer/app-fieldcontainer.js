@@ -30,8 +30,8 @@ customElements.define('app-fieldcontainer', class extends HTMLElement {
 
     connectedCallback() {
 
-        this.addEventListener('click', e => this.setAttribute('active', 'true'));
-        this.addEventListener('focusin', e => this.setAttribute('active', 'true'));
+        this.addEventListener('click', e => this.setAttribute('active','true'));
+        this.addEventListener('focusin', e => this.setAttribute('active','true'));
     }
 
     disconnectedCallback() {

@@ -2,45 +2,81 @@
 
 # ReferenceExecutor
 
+
+
+
+
 * Full name: `\GraphQL\Executor\ReferenceExecutor`
 * This class implements:
-  [`\GraphQL\Executor\ExecutorImplementation`](./ExecutorImplementation.md)
+[`\GraphQL\Executor\ExecutorImplementation`](./ExecutorImplementation.md)
+
+
 
 ## Properties
 
+
 ### UNDEFINED
+
+
 
 ```php
 protected static object $UNDEFINED
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### exeContext
 
+
+
 ```php
 protected \GraphQL\Executor\ExecutionContext $exeContext
 ```
+
+
+
+
+
 
 ***
 
 ### subFieldCache
 
+
+
 ```php
 protected \SplObjectStorage $subFieldCache
 ```
+
+
+
+
+
 
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 protected __construct(\GraphQL\Executor\ExecutionContext $context): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -48,15 +84,25 @@ protected __construct(\GraphQL\Executor\ExecutionContext $context): mixed
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Executor\ExecutionContext** |  |
 
+
+
+
 ***
 
 ### create
+
+
 
 ```php
 public static create(\GraphQL\Executor\Promise\PromiseAdapter $promiseAdapter, \GraphQL\Type\Schema $schema, \GraphQL\Language\AST\DocumentNode $documentNode, mixed $rootValue, mixed $contextValue, array|\Traversable $variableValues, ?string $operationName, callable $fieldResolver): \GraphQL\Executor\ExecutorImplementation
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -71,6 +117,9 @@ public static create(\GraphQL\Executor\Promise\PromiseAdapter $promiseAdapter, \
 | `$operationName` | **?string** |  |
 | `$fieldResolver` | **callable** |  |
 
+
+
+
 ***
 
 ### buildExecutionContext
@@ -82,7 +131,12 @@ execute, which we will pass throughout the other execution methods.
 protected static buildExecutionContext(\GraphQL\Type\Schema $schema, \GraphQL\Language\AST\DocumentNode $documentNode, mixed $rootValue, mixed $contextValue, array|\Traversable $rawVariableValues, ?string $operationName = null, ?callable $fieldResolver = null, ?\GraphQL\Executor\Promise\PromiseAdapter $promiseAdapter = null): \GraphQL\Executor\ExecutionContext|\GraphQL\Error\Error[]
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -97,6 +151,9 @@ protected static buildExecutionContext(\GraphQL\Type\Schema $schema, \GraphQL\La
 | `$fieldResolver` | **?callable** |  |
 | `$promiseAdapter` | **?\GraphQL\Executor\Promise\PromiseAdapter** |  |
 
+
+
+
 ***
 
 ### doExecute
@@ -107,19 +164,41 @@ Returns promise of {@link ExecutionResult}. Promise should always resolve, never
 public doExecute(): \GraphQL\Executor\Promise\Promise
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### buildResponse
 
+
+
 ```php
 protected buildResponse(mixed|\GraphQL\Executor\Promise\Promise|null $data): \GraphQL\Executor\ExecutionResult|\GraphQL\Executor\Promise\Promise
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed&#124;\GraphQL\Executor\Promise\Promise&#124;null** |  |
+
+
+
 
 ***
 
@@ -131,12 +210,22 @@ Implements the "Evaluating operations" section of the spec.
 protected executeOperation(\GraphQL\Language\AST\OperationDefinitionNode $operation, mixed $rootValue): array|\GraphQL\Executor\Promise\Promise|\stdClass|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$operation` | **\GraphQL\Language\AST\OperationDefinitionNode** |  |
 | `$rootValue` | **mixed** |  |
+
+
+
 
 ***
 
@@ -148,12 +237,22 @@ Extracts the root type of the operation from the schema.
 protected getOperationRootType(\GraphQL\Type\Schema $schema, \GraphQL\Language\AST\OperationDefinitionNode $operation): \GraphQL\Type\Definition\ObjectType
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$schema` | **\GraphQL\Type\Schema** |  |
 | `$operation` | **\GraphQL\Language\AST\OperationDefinitionNode** |  |
+
+
+
 
 ***
 
@@ -170,6 +269,11 @@ CollectFields requires the "runtime type" of an object. For a field which
 returns an Interface or Union type, the "runtime type" will be the actual
 Object type returned by that field.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -178,6 +282,9 @@ Object type returned by that field.
 | `$selectionSet` | **\GraphQL\Language\AST\SelectionSetNode** |  |
 | `$fields` | **\ArrayObject** |  |
 | `$visitedFragmentNames` | **\ArrayObject** |  |
+
+
+
 
 ***
 
@@ -190,11 +297,21 @@ directives, where @skip has higher precedence than @include.
 protected shouldIncludeNode(\GraphQL\Language\AST\FragmentSpreadNode|\GraphQL\Language\AST\FieldNode|\GraphQL\Language\AST\InlineFragmentNode $node): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\GraphQL\Language\AST\FragmentSpreadNode&#124;\GraphQL\Language\AST\FieldNode&#124;\GraphQL\Language\AST\InlineFragmentNode** |  |
+
+
+
 
 ***
 
@@ -206,13 +323,21 @@ Implements the logic to compute the key of a given fields entry
 protected static getFieldEntryKey(\GraphQL\Language\AST\FieldNode $node): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\GraphQL\Language\AST\FieldNode** |  |
+
+
+
 
 ***
 
@@ -224,12 +349,22 @@ Determines if a fragment is applicable to the given type.
 protected doesFragmentConditionMatch(\GraphQL\Language\AST\FragmentDefinitionNode|\GraphQL\Language\AST\InlineFragmentNode $fragment, \GraphQL\Type\Definition\ObjectType $type): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fragment` | **\GraphQL\Language\AST\FragmentDefinitionNode&#124;\GraphQL\Language\AST\InlineFragmentNode** |  |
 | `$type` | **\GraphQL\Type\Definition\ObjectType** |  |
+
+
+
 
 ***
 
@@ -242,6 +377,13 @@ for "write" mode.
 protected executeFieldsSerially(\GraphQL\Type\Definition\ObjectType $parentType, mixed $rootValue, (string|int)[] $path, \ArrayObject $fields): array|\GraphQL\Executor\Promise\Promise|\stdClass
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -250,6 +392,9 @@ protected executeFieldsSerially(\GraphQL\Type\Definition\ObjectType $parentType,
 | `$rootValue` | **mixed** |  |
 | `$path` | **(string&#124;int)[]** |  |
 | `$fields` | **\ArrayObject** |  |
+
+
+
 
 ***
 
@@ -265,6 +410,11 @@ In particular, this figures out the value that the field returns
 by calling its resolve function, then calls completeValue to complete promises,
 serialize scalars, or execute the sub-selection-set for objects.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -273,6 +423,9 @@ serialize scalars, or execute the sub-selection-set for objects.
 | `$rootValue` | **mixed** |  |
 | `$fieldNodes` | **\ArrayObject** |  |
 | `$path` | **(string&#124;int)[]** |  |
+
+
+
 
 ***
 
@@ -291,6 +444,11 @@ are allowed, like on a Union. __schema could get automatically
 added to the query type, but that would require mutating type
 definitions, which would cause issues.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -298,6 +456,9 @@ definitions, which would cause issues.
 | `$schema` | **\GraphQL\Type\Schema** |  |
 | `$parentType` | **\GraphQL\Type\Definition\ObjectType** |  |
 | `$fieldName` | **string** |  |
+
+
+
 
 ***
 
@@ -311,6 +472,11 @@ protected resolveFieldValueOrError(\GraphQL\Type\Definition\FieldDefinition $fie
 
 Returns the result of resolveFn or the abrupt-return Error object.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -320,6 +486,9 @@ Returns the result of resolveFn or the abrupt-return Error object.
 | `$resolveFn` | **callable** |  |
 | `$rootValue` | **mixed** |  |
 | `$info` | **\GraphQL\Type\Definition\ResolveInfo** |  |
+
+
+
 
 ***
 
@@ -332,6 +501,13 @@ in the execution context.
 protected completeValueCatchingError(\GraphQL\Type\Definition\Type $returnType, \ArrayObject $fieldNodes, \GraphQL\Type\Definition\ResolveInfo $info, (string|int)[] $path, mixed $result): array|\GraphQL\Executor\Promise\Promise|\stdClass|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -342,13 +518,25 @@ protected completeValueCatchingError(\GraphQL\Type\Definition\Type $returnType, 
 | `$path` | **(string&#124;int)[]** |  |
 | `$result` | **mixed** |  |
 
+
+
+
 ***
 
 ### handleFieldError
 
+
+
 ```php
 protected handleFieldError(mixed $rawError, \ArrayObject $fieldNodes, (string|int)[] $path, \GraphQL\Type\Definition\Type $returnType): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -358,6 +546,9 @@ protected handleFieldError(mixed $rawError, \ArrayObject $fieldNodes, (string|in
 | `$fieldNodes` | **\ArrayObject** |  |
 | `$path` | **(string&#124;int)[]** |  |
 | `$returnType` | **\GraphQL\Type\Definition\Type** |  |
+
+
+
 
 ***
 
@@ -387,6 +578,11 @@ and then complete based on that type
 Otherwise, the field type expects a sub-selection set, and will complete the
 value by evaluating all sub-selections.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -397,19 +593,34 @@ value by evaluating all sub-selections.
 | `$path` | **(string&#124;int)[]** |  |
 | `$result` | **mixed** |  |
 
+
+
+
 ***
 
 ### isPromise
 
+
+
 ```php
 protected isPromise(mixed $value): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
@@ -422,11 +633,21 @@ otherwise returns null.
 protected getPromise(mixed $value): ?\GraphQL\Executor\Promise\Promise
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
@@ -442,6 +663,11 @@ protected promiseReduce(array $values, callable $callback, \GraphQL\Executor\Pro
 If the callback does not return a Promise, then this function will also not
 return a Promise.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -449,6 +675,9 @@ return a Promise.
 | `$values` | **array** |  |
 | `$callback` | **callable** |  |
 | `$initialValue` | **\GraphQL\Executor\Promise\Promise&#124;mixed&#124;null** |  |
+
+
+
 
 ***
 
@@ -460,6 +689,13 @@ Complete a list value by completing each item in the list with the inner type.
 protected completeListValue(\GraphQL\Type\Definition\ListOfType $returnType, \ArrayObject $fieldNodes, \GraphQL\Type\Definition\ResolveInfo $info, (string|int)[] $path, array|\Traversable& $results): array|\GraphQL\Executor\Promise\Promise|\stdClass
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -469,6 +705,9 @@ protected completeListValue(\GraphQL\Type\Definition\ListOfType $returnType, \Ar
 | `$info` | **\GraphQL\Type\Definition\ResolveInfo** |  |
 | `$path` | **(string&#124;int)[]** |  |
 | `$results` | **array&#124;\Traversable** |  |
+
+
+
 
 ***
 
@@ -480,12 +719,22 @@ Complete a Scalar or Enum by serializing to a valid value, throwing if serializa
 protected completeLeafValue(\GraphQL\Type\Definition\LeafType $returnType, mixed& $result): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$returnType` | **\GraphQL\Type\Definition\LeafType** |  |
 | `$result` | **mixed** |  |
+
+
+
 
 ***
 
@@ -498,6 +747,13 @@ of that value, then complete the value for that type.
 protected completeAbstractValue(\GraphQL\Type\Definition\AbstractType $returnType, \ArrayObject $fieldNodes, \GraphQL\Type\Definition\ResolveInfo $info, (string|int)[] $path, array& $result): array|\GraphQL\Executor\Promise\Promise|\stdClass
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -507,6 +763,9 @@ protected completeAbstractValue(\GraphQL\Type\Definition\AbstractType $returnTyp
 | `$info` | **\GraphQL\Type\Definition\ResolveInfo** |  |
 | `$path` | **(string&#124;int)[]** |  |
 | `$result` | **array** |  |
+
+
+
 
 ***
 
@@ -525,6 +784,11 @@ that value as name of the resolved type.
 Otherwise, test each possible type for the abstract type by calling
 isTypeOf for the object being coerced, returning the first type that matches.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -533,6 +797,9 @@ isTypeOf for the object being coerced, returning the first type that matches.
 | `$contextValue` | **mixed&#124;null** |  |
 | `$info` | **\GraphQL\Type\Definition\ResolveInfo** |  |
 | `$abstractType` | **\GraphQL\Type\Definition\InterfaceType&#124;\GraphQL\Type\Definition\UnionType** |  |
+
+
+
 
 ***
 
@@ -544,6 +811,13 @@ Complete an Object value by executing all sub-selections.
 protected completeObjectValue(\GraphQL\Type\Definition\ObjectType $returnType, \ArrayObject $fieldNodes, \GraphQL\Type\Definition\ResolveInfo $info, (string|int)[] $path, mixed& $result): array|\GraphQL\Executor\Promise\Promise|\stdClass
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -554,13 +828,25 @@ protected completeObjectValue(\GraphQL\Type\Definition\ObjectType $returnType, \
 | `$path` | **(string&#124;int)[]** |  |
 | `$result` | **mixed** |  |
 
+
+
+
 ***
 
 ### invalidReturnTypeError
 
+
+
 ```php
 protected invalidReturnTypeError(\GraphQL\Type\Definition\ObjectType $returnType, array $result, \ArrayObject $fieldNodes): \GraphQL\Error\Error
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -570,13 +856,25 @@ protected invalidReturnTypeError(\GraphQL\Type\Definition\ObjectType $returnType
 | `$result` | **array** |  |
 | `$fieldNodes` | **\ArrayObject** |  |
 
+
+
+
 ***
 
 ### collectAndExecuteSubfields
 
+
+
 ```php
 protected collectAndExecuteSubfields(\GraphQL\Type\Definition\ObjectType $returnType, \ArrayObject $fieldNodes, (string|int)[] $path, mixed& $result): array|\GraphQL\Executor\Promise\Promise|\stdClass
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -586,6 +884,9 @@ protected collectAndExecuteSubfields(\GraphQL\Type\Definition\ObjectType $return
 | `$fieldNodes` | **\ArrayObject** |  |
 | `$path` | **(string&#124;int)[]** |  |
 | `$result` | **mixed** |  |
+
+
+
 
 ***
 
@@ -599,12 +900,22 @@ saves overhead when resolving lists of values.
 protected collectSubFields(\GraphQL\Type\Definition\ObjectType $returnType, \ArrayObject $fieldNodes): \ArrayObject
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$returnType` | **\GraphQL\Type\Definition\ObjectType** |  |
 | `$fieldNodes` | **\ArrayObject** |  |
+
+
+
 
 ***
 
@@ -617,6 +928,13 @@ for "read" mode.
 protected executeFields(\GraphQL\Type\Definition\ObjectType $parentType, mixed $rootValue, (string|int)[] $path, \ArrayObject $fields): \GraphQL\Executor\Promise\Promise|\stdClass|array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -625,6 +943,9 @@ protected executeFields(\GraphQL\Type\Definition\ObjectType $parentType, mixed $
 | `$rootValue` | **mixed** |  |
 | `$path` | **(string&#124;int)[]** |  |
 | `$fields` | **\ArrayObject** |  |
+
+
+
 
 ***
 
@@ -636,7 +957,12 @@ Differentiate empty objects from empty lists.
 protected static fixResultsIfEmptyArray(array|mixed $results): array|\stdClass|mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -644,9 +970,11 @@ protected static fixResultsIfEmptyArray(array|mixed $results): array|\stdClass|m
 |-----------|------|-------------|
 | `$results` | **array&#124;mixed** |  |
 
+
+
 **See Also:**
 
-* https://github.com/webonyx/graphql-php/issues/59 -
+* https://github.com/webonyx/graphql-php/issues/59 - 
 
 ***
 
@@ -659,19 +987,38 @@ associative array where all Promises were resolved.
 protected promiseForAssocArray(array&lt;string,\GraphQL\Executor\Promise\Promise|mixed&gt; $assoc): \GraphQL\Executor\Promise\Promise
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$assoc` | **array<string,\GraphQL\Executor\Promise\Promise&#124;mixed>** |  |
 
+
+
+
 ***
 
 ### ensureValidRuntimeType
 
+
+
 ```php
 protected ensureValidRuntimeType(string|\GraphQL\Type\Definition\ObjectType|null $runtimeTypeOrName, \GraphQL\Type\Definition\InterfaceType|\GraphQL\Type\Definition\UnionType $returnType, \GraphQL\Type\Definition\ResolveInfo $info, mixed& $result): \GraphQL\Type\Definition\ObjectType
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -681,6 +1028,9 @@ protected ensureValidRuntimeType(string|\GraphQL\Type\Definition\ObjectType|null
 | `$returnType` | **\GraphQL\Type\Definition\InterfaceType&#124;\GraphQL\Type\Definition\UnionType** |  |
 | `$info` | **\GraphQL\Type\Definition\ResolveInfo** |  |
 | `$result` | **mixed** |  |
+
+
+
 
 ***
 

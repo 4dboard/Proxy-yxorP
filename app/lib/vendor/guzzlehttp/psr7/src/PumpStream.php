@@ -5,9 +5,6 @@ declare(strict_types=1);
 namespace GuzzleHttp\Psr7;
 
 use Psr\Http\Message\StreamInterface;
-use RuntimeException;
-use Throwable;
-use const PHP_VERSION_ID;
 
 /**
  * Provides a read only stream that pumps data from a PHP callable.
@@ -37,7 +34,7 @@ final class PumpStream implements StreamInterface
     private $buffer;
 
     /**
-     * @param callable(int): (string|null|false) $source Source of the stream data. The callable MAY
+     * @param callable(int): (string|null|false)  $source  Source of the stream data. The callable MAY
      *                                                     accept an integer argument used to control the
      *                                                     amount of data to return. The callable MUST
      *                                                     return a string when called, or false|null on error
@@ -58,11 +55,11 @@ final class PumpStream implements StreamInterface
     {
         try {
             return Utils::copyToString($this);
-        } catch (Throwable $e) {
-            if (PHP_VERSION_ID >= 70400) {
+        } catch (\Throwable $e) {
+            if (\PHP_VERSION_ID >= 70400) {
                 throw $e;
             }
-            trigger_error(sprintf('%s::__toString exception: %s', self::class, (string)$e), E_USER_ERROR);
+            trigger_error(sprintf('%s::__toString exception: %s', self::class, (string) $e), E_USER_ERROR);
             return '';
         }
     }
@@ -90,6 +87,11 @@ final class PumpStream implements StreamInterface
         return $this->tellPos;
     }
 
+    public function eof(): bool
+    {
+        return $this->source === null;
+    }
+
     public function isSeekable(): bool
     {
         return false;
@@ -102,7 +104,7 @@ final class PumpStream implements StreamInterface
 
     public function seek($offset, $whence = SEEK_SET): void
     {
-        throw new RuntimeException('Cannot seek a PumpStream');
+        throw new \RuntimeException('Cannot seek a PumpStream');
     }
 
     public function isWritable(): bool
@@ -110,24 +112,14 @@ final class PumpStream implements StreamInterface
         return false;
     }
 
+    public function write($string): int
+    {
+        throw new \RuntimeException('Cannot write to a PumpStream');
+    }
+
     public function isReadable(): bool
     {
         return true;
-    }
-
-    public function getContents(): string
-    {
-        $result = '';
-        while (!$this->eof()) {
-            $result .= $this->read(1000000);
-        }
-
-        return $result;
-    }
-
-    public function eof(): bool
-    {
-        return $this->source === null;
     }
 
     public function read($length): string
@@ -146,24 +138,14 @@ final class PumpStream implements StreamInterface
         return $data;
     }
 
-    private function pump(int $length): void
+    public function getContents(): string
     {
-        if ($this->source) {
-            do {
-                $data = call_user_func($this->source, $length);
-                if ($data === false || $data === null) {
-                    $this->source = null;
-                    return;
-                }
-                $this->buffer->write($data);
-                $length -= strlen($data);
-            } while ($length > 0);
+        $result = '';
+        while (!$this->eof()) {
+            $result .= $this->read(1000000);
         }
-    }
 
-    public function write($string): int
-    {
-        throw new RuntimeException('Cannot write to a PumpStream');
+        return $result;
     }
 
     /**
@@ -178,5 +160,20 @@ final class PumpStream implements StreamInterface
         }
 
         return $this->metadata[$key] ?? null;
+    }
+
+    private function pump(int $length): void
+    {
+        if ($this->source) {
+            do {
+                $data = call_user_func($this->source, $length);
+                if ($data === false || $data === null) {
+                    $this->source = null;
+                    return;
+                }
+                $this->buffer->write($data);
+                $length -= strlen($data);
+            } while ($length > 0);
+        }
     }
 }

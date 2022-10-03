@@ -4,10 +4,16 @@
 
 PathFilterIterator filters files by path patterns (e.g. some/special/dir).
 
+
+
 * Full name: `\Symfony\Component\Finder\Iterator\PathFilterIterator`
 * Parent class: [`\Symfony\Component\Finder\Iterator\MultiplePcreFilterIterator`](./MultiplePcreFilterIterator.md)
 
+
+
+
 ## Methods
+
 
 ### accept
 
@@ -16,6 +22,16 @@ Filters the iterator values.
 ```php
 public accept(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -30,9 +46,14 @@ protected toRegex(string $str): string
 PCRE patterns are left unchanged.
 
 Default conversion:
-'lorem/ipsum/dolor' ==>  'lorem\/ipsum\/dolor/'
+    'lorem/ipsum/dolor' ==>  'lorem\/ipsum\/dolor/'
 
 Use only / as directory separator (on Windows also).
+
+
+
+
+
 
 **Parameters:**
 
@@ -40,15 +61,29 @@ Use only / as directory separator (on Windows also).
 |-----------|------|-------------|
 | `$str` | **string** | Pattern: regexp or dirname |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Iterator $iterator, string[] $matchPatterns, string[] $noMatchPatterns): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -57,6 +92,9 @@ public __construct(\Iterator $iterator, string[] $matchPatterns, string[] $noMat
 | `$iterator` | **\Iterator** | The Iterator to filter |
 | `$matchPatterns` | **string[]** | An array of patterns that need to match |
 | `$noMatchPatterns` | **string[]** | An array of patterns that need to not match |
+
+
+
 
 ***
 
@@ -72,11 +110,19 @@ If there is no regexps defined in the class, this method will accept the string.
 Such case can be handled by child classes before calling the method if they want to
 apply a different behavior.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
+
+
+
 
 ***
 
@@ -88,11 +134,21 @@ Checks whether the string is a regex.
 protected isRegex(string $str): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **string** |  |
+
+
+
 
 ***
 
@@ -104,13 +160,21 @@ Converts string into regexp.
 protected toRegex(string $str): string
 ```
 
+
+
+
 * This method is **abstract**.
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **string** |  |
+
+
+
 
 ***
 

@@ -1,7 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-    <configuration default="false" name="admin" type="PhpBuiltInWebServerConfigurationType"
-                   factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/app" port="8890"
-                   router_script="$PROJECT_DIR$/router.php">
-        <method v="2"/>
-    </configuration>
+  <configuration default="false" name="admin" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/app" port="8890" router_script="$PROJECT_DIR$/router.php">
+    <method v="2" />
+  </configuration>
 </component>

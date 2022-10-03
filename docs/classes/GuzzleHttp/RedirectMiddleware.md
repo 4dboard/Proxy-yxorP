@@ -9,6 +9,7 @@ Apply this middleware like other middleware using
 
 * Full name: `\GuzzleHttp\RedirectMiddleware`
 
+
 ## Constants
 
 | Constant | Visibility | Type | Value |
@@ -18,31 +19,54 @@ Apply this middleware like other middleware using
 
 ## Properties
 
+
 ### defaultSettings
+
+
 
 ```php
 public static array $defaultSettings
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### nextHandler
 
+
+
 ```php
 private $nextHandler
 ```
+
+
+
+
+
 
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(callable $nextHandler): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -50,13 +74,25 @@ public __construct(callable $nextHandler): mixed
 |-----------|------|-------------|
 | `$nextHandler` | **callable** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(\Psr\Http\Message\RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -65,13 +101,25 @@ public __invoke(\Psr\Http\Message\RequestInterface $request, array $options): \G
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### checkRedirect
 
+
+
 ```php
 public checkRedirect(\Psr\Http\Message\RequestInterface $request, array $options, \Psr\Http\Message\ResponseInterface $response): \Psr\Http\Message\ResponseInterface|\GuzzleHttp\Promise\PromiseInterface
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -80,6 +128,9 @@ public checkRedirect(\Psr\Http\Message\RequestInterface $request, array $options
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** |  |
 | `$response` | **\Psr\Http\Message\ResponseInterface** |  |
+
+
+
 
 ***
 
@@ -91,6 +142,13 @@ Enable tracking on promise.
 private withTracking(\GuzzleHttp\Promise\PromiseInterface $promise, string $uri, int $statusCode): \GuzzleHttp\Promise\PromiseInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -98,6 +156,9 @@ private withTracking(\GuzzleHttp\Promise\PromiseInterface $promise, string $uri,
 | `$promise` | **\GuzzleHttp\Promise\PromiseInterface** |  |
 | `$uri` | **string** |  |
 | `$statusCode` | **int** |  |
+
+
+
 
 ***
 
@@ -109,6 +170,13 @@ Check for too many redirects.
 private guardMax(\Psr\Http\Message\RequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array& $options): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -116,14 +184,26 @@ private guardMax(\Psr\Http\Message\RequestInterface $request, \Psr\Http\Message\
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$response` | **\Psr\Http\Message\ResponseInterface** |  |
 | `$options` | **array** |  |
+
+
+
 
 ***
 
 ### modifyRequest
 
+
+
 ```php
 public modifyRequest(\Psr\Http\Message\RequestInterface $request, array $options, \Psr\Http\Message\ResponseInterface $response): \Psr\Http\Message\RequestInterface
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -132,6 +212,9 @@ public modifyRequest(\Psr\Http\Message\RequestInterface $request, array $options
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** |  |
 | `$response` | **\Psr\Http\Message\ResponseInterface** |  |
+
+
+
 
 ***
 
@@ -143,7 +226,12 @@ Set the appropriate URL on the request based on the location header.
 private static redirectUri(\Psr\Http\Message\RequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $protocols): \Psr\Http\Message\UriInterface
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -152,6 +240,9 @@ private static redirectUri(\Psr\Http\Message\RequestInterface $request, \Psr\Htt
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$response` | **\Psr\Http\Message\ResponseInterface** |  |
 | `$protocols` | **array** |  |
+
+
+
 
 ***
 

@@ -14,25 +14,45 @@ options, and the function MUST then return a wait-able promise.
 
 * Full name: `\GuzzleHttp\Pool`
 * This class implements:
-  [`\GuzzleHttp\Promise\PromisorInterface`](./Promise/PromisorInterface.md)
+[`\GuzzleHttp\Promise\PromisorInterface`](./Promise/PromisorInterface.md)
+
+
 
 ## Properties
 
+
 ### each
+
+
 
 ```php
 private \GuzzleHttp\Promise\EachPromise $each
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\GuzzleHttp\ClientInterface $client, array|\Iterator $requests, array $config = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -41,6 +61,9 @@ public __construct(\GuzzleHttp\ClientInterface $client, array|\Iterator $request
 | `$client` | **\GuzzleHttp\ClientInterface** | Client used to send the requests. |
 | `$requests` | **array&#124;\Iterator** | Requests or functions that return<br />requests to send concurrently. |
 | `$config` | **array** | Associative array of options<br />- concurrency: (int) Maximum number of requests to send concurrently<br />- options: Array of request options to apply to each request.<br />- fulfilled: (callable) Function to invoke when a request completes.<br />- rejected: (callable) Function to invoke when a request is rejected. |
+
+
+
 
 ***
 
@@ -51,6 +74,16 @@ Get promise
 ```php
 public promise(): \GuzzleHttp\Promise\PromiseInterface
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -69,6 +102,9 @@ indeterminate number of requests concurrently.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -76,6 +112,7 @@ indeterminate number of requests concurrently.
 | `$client` | **\GuzzleHttp\ClientInterface** | Client used to send the requests |
 | `$requests` | **array&#124;\Iterator** | Requests to send concurrently. |
 | `$options` | **array** | Passes through the options available in<br />{@see} |
+
 
 **Return Value:**
 
@@ -94,7 +131,12 @@ Execute callback(s)
 private static cmpCallback(array& $options, string $name, array& $results): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -103,6 +145,9 @@ private static cmpCallback(array& $options, string $name, array& $results): void
 | `$options` | **array** |  |
 | `$name` | **string** |  |
 | `$results` | **array** |  |
+
+
+
 
 ***
 

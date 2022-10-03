@@ -2,11 +2,19 @@
 
 # Each
 
+
+
+
+
 * Full name: `\GuzzleHttp\Promise\Each`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
+
+
+
 ## Methods
+
 
 ### of
 
@@ -28,6 +36,9 @@ side effects and choose to resolve or reject the aggregate if needed.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -35,6 +46,9 @@ side effects and choose to resolve or reject the aggregate if needed.
 | `$iterable` | **mixed** | Iterator or array to iterate over. |
 | `$onFulfilled` | **callable** |  |
 | `$onRejected` | **callable** |  |
+
+
+
 
 ***
 
@@ -53,6 +67,9 @@ for dynamic a concurrency size.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -61,6 +78,9 @@ for dynamic a concurrency size.
 | `$concurrency` | **int&#124;callable** |  |
 | `$onFulfilled` | **callable** |  |
 | `$onRejected` | **callable** |  |
+
+
+
 
 ***
 
@@ -74,7 +94,12 @@ rejected with the encountered rejection.
 public static ofLimitAll(mixed $iterable, int|callable $concurrency, callable $onFulfilled = null): \GuzzleHttp\Promise\PromiseInterface
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -83,6 +108,9 @@ public static ofLimitAll(mixed $iterable, int|callable $concurrency, callable $o
 | `$iterable` | **mixed** |  |
 | `$concurrency` | **int&#124;callable** |  |
 | `$onFulfilled` | **callable** |  |
+
+
+
 
 ***
 

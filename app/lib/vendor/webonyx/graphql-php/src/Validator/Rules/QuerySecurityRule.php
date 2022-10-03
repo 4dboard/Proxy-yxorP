@@ -31,13 +31,29 @@ abstract class QuerySecurityRule extends ValidationRule
      * check if equal to 0 no check is done. Must be greater or equal to 0.
      *
      * @param string $name
-     * @param int $value
+     * @param int    $value
      */
     protected function checkIfGreaterOrEqualToZero($name, $value)
     {
         if ($value < 0) {
             throw new InvalidArgumentException(sprintf('$%s argument must be greater or equal to 0.', $name));
         }
+    }
+
+    protected function getFragment(FragmentSpreadNode $fragmentSpread)
+    {
+        $spreadName = $fragmentSpread->name->value;
+        $fragments  = $this->getFragments();
+
+        return $fragments[$spreadName] ?? null;
+    }
+
+    /**
+     * @return FragmentDefinitionNode[]
+     */
+    protected function getFragments()
+    {
+        return $this->fragments;
     }
 
     /**
@@ -48,7 +64,7 @@ abstract class QuerySecurityRule extends ValidationRule
     protected function invokeIfNeeded(ValidationContext $context, array $validators)
     {
         // is disabled?
-        if (!$this->isEnabled()) {
+        if (! $this->isEnabled()) {
             return [];
         }
 
@@ -65,7 +81,7 @@ abstract class QuerySecurityRule extends ValidationRule
         // Importantly this does not include inline fragments.
         $definitions = $context->getDocument()->definitions;
         foreach ($definitions as $node) {
-            if (!($node instanceof FragmentDefinitionNode)) {
+            if (! ($node instanceof FragmentDefinitionNode)) {
                 continue;
             }
 
@@ -81,31 +97,30 @@ abstract class QuerySecurityRule extends ValidationRule
      * time we do not know what object type will be used, so we unconditionally
      * spread in all fragments.
      *
+     * @see \GraphQL\Validator\Rules\OverlappingFieldsCanBeMerged
+     *
      * @param Type|null $parentType
      *
      * @return ArrayObject
-     * @see \GraphQL\Validator\Rules\OverlappingFieldsCanBeMerged
-     *
      */
     protected function collectFieldASTsAndDefs(
         ValidationContext $context,
-                          $parentType,
-        SelectionSetNode  $selectionSet,
-        ?ArrayObject      $visitedFragmentNames = null,
-        ?ArrayObject      $astAndDefs = null
-    )
-    {
+        $parentType,
+        SelectionSetNode $selectionSet,
+        ?ArrayObject $visitedFragmentNames = null,
+        ?ArrayObject $astAndDefs = null
+    ) {
         $_visitedFragmentNames = $visitedFragmentNames ?? new ArrayObject();
-        $_astAndDefs = $astAndDefs ?? new ArrayObject();
+        $_astAndDefs           = $astAndDefs ?? new ArrayObject();
 
         foreach ($selectionSet->selections as $selection) {
             switch (true) {
                 case $selection instanceof FieldNode:
                     $fieldName = $selection->name->value;
-                    $fieldDef = null;
+                    $fieldDef  = null;
                     if ($parentType instanceof HasFieldsType || $parentType instanceof InputObjectType) {
-                        $schemaMetaFieldDef = Introspection::schemaMetaFieldDef();
-                        $typeMetaFieldDef = Introspection::typeMetaFieldDef();
+                        $schemaMetaFieldDef   = Introspection::schemaMetaFieldDef();
+                        $typeMetaFieldDef     = Introspection::typeMetaFieldDef();
                         $typeNameMetaFieldDef = Introspection::typeNameMetaFieldDef();
 
                         if ($fieldName === $schemaMetaFieldDef->name && $context->getSchema()->getQueryType() === $parentType) {
@@ -119,7 +134,7 @@ abstract class QuerySecurityRule extends ValidationRule
                         }
                     }
                     $responseName = $this->getFieldName($selection);
-                    if (!isset($_astAndDefs[$responseName])) {
+                    if (! isset($_astAndDefs[$responseName])) {
                         $_astAndDefs[$responseName] = new ArrayObject();
                     }
                     // create field context
@@ -137,9 +152,9 @@ abstract class QuerySecurityRule extends ValidationRule
                 case $selection instanceof FragmentSpreadNode:
                     $fragName = $selection->name->value;
 
-                    if (!($_visitedFragmentNames[$fragName] ?? false)) {
+                    if (! ($_visitedFragmentNames[$fragName] ?? false)) {
                         $_visitedFragmentNames[$fragName] = true;
-                        $fragment = $context->getFragment($fragName);
+                        $fragment                         = $context->getFragment($fragName);
 
                         if ($fragment) {
                             $_astAndDefs = $this->collectFieldASTsAndDefs(
@@ -163,22 +178,6 @@ abstract class QuerySecurityRule extends ValidationRule
         $fieldName = $node->name->value;
 
         return $node->alias ? $node->alias->value : $fieldName;
-    }
-
-    protected function getFragment(FragmentSpreadNode $fragmentSpread)
-    {
-        $spreadName = $fragmentSpread->name->value;
-        $fragments = $this->getFragments();
-
-        return $fragments[$spreadName] ?? null;
-    }
-
-    /**
-     * @return FragmentDefinitionNode[]
-     */
-    protected function getFragments()
-    {
-        return $this->fragments;
     }
 }
 

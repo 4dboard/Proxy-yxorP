@@ -25,6 +25,7 @@ use MongoDB\Driver\Session;
 use MongoDB\Driver\WriteConcern;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\UnsupportedException;
+
 use function is_array;
 use function is_object;
 use function is_string;
@@ -78,18 +79,18 @@ class Delete implements Executable, Explainable
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param string $databaseName Database name
-     * @param string $collectionName Collection name
-     * @param array|object $filter Query by which to delete documents
-     * @param integer $limit The number of matching documents to
+     * @param string       $databaseName   Database name
+     * @param string       $collectionName Collection name
+     * @param array|object $filter         Query by which to delete documents
+     * @param integer      $limit          The number of matching documents to
      *                                     delete. Must be 0 or 1, for all or a
      *                                     single document, respectively.
-     * @param array $options Command options
+     * @param array        $options        Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, $filter, $limit, array $options = [])
     {
-        if (!is_array($filter) && !is_object($filter)) {
+        if (! is_array($filter) && ! is_object($filter)) {
             throw InvalidArgumentException::invalidType('$filter', $filter, 'array or object');
         }
 
@@ -97,19 +98,19 @@ class Delete implements Executable, Explainable
             throw new InvalidArgumentException('$limit must be 0 or 1');
         }
 
-        if (isset($options['collation']) && !is_array($options['collation']) && !is_object($options['collation'])) {
+        if (isset($options['collation']) && ! is_array($options['collation']) && ! is_object($options['collation'])) {
             throw InvalidArgumentException::invalidType('"collation" option', $options['collation'], 'array or object');
         }
 
-        if (isset($options['hint']) && !is_string($options['hint']) && !is_array($options['hint']) && !is_object($options['hint'])) {
+        if (isset($options['hint']) && ! is_string($options['hint']) && ! is_array($options['hint']) && ! is_object($options['hint'])) {
             throw InvalidArgumentException::invalidType('"hint" option', $options['hint'], ['string', 'array', 'object']);
         }
 
-        if (isset($options['session']) && !$options['session'] instanceof Session) {
+        if (isset($options['session']) && ! $options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['writeConcern']) && !$options['writeConcern'] instanceof WriteConcern) {
+        if (isset($options['writeConcern']) && ! $options['writeConcern'] instanceof WriteConcern) {
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
@@ -117,8 +118,8 @@ class Delete implements Executable, Explainable
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = (string)$collectionName;
+        $this->databaseName = (string) $databaseName;
+        $this->collectionName = (string) $collectionName;
         $this->filter = $filter;
         $this->limit = $limit;
         $this->options = $options;
@@ -127,19 +128,19 @@ class Delete implements Executable, Explainable
     /**
      * Execute the operation.
      *
+     * @see Executable::execute()
      * @param Server $server
      * @return DeleteResult
      * @throws UnsupportedException if hint or write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
-     * @see Executable::execute()
      */
     public function execute(Server $server)
     {
         /* CRUD spec requires a client-side error when using "hint" with an
          * unacknowledged write concern on an unsupported server. */
         if (
-            isset($this->options['writeConcern']) && !is_write_concern_acknowledged($this->options['writeConcern']) &&
-            isset($this->options['hint']) && !server_supports_feature($server, self::$wireVersionForHint)
+            isset($this->options['writeConcern']) && ! is_write_concern_acknowledged($this->options['writeConcern']) &&
+            isset($this->options['hint']) && ! server_supports_feature($server, self::$wireVersionForHint)
         ) {
             throw UnsupportedException::hintNotSupported();
         }
@@ -158,6 +159,24 @@ class Delete implements Executable, Explainable
     }
 
     /**
+     * Returns the command document for this operation.
+     *
+     * @see Explainable::getCommandDocument()
+     * @param Server $server
+     * @return array
+     */
+    public function getCommandDocument(Server $server)
+    {
+        $cmd = ['delete' => $this->collectionName, 'deletes' => [['q' => $this->filter] + $this->createDeleteOptions()]];
+
+        if (isset($this->options['writeConcern'])) {
+            $cmd['writeConcern'] = $this->options['writeConcern'];
+        }
+
+        return $cmd;
+    }
+
+    /**
      * Create options for the delete command.
      *
      * Note that these options are different from the bulk write options, which
@@ -170,7 +189,7 @@ class Delete implements Executable, Explainable
         $deleteOptions = ['limit' => $this->limit];
 
         if (isset($this->options['collation'])) {
-            $deleteOptions['collation'] = (object)$this->options['collation'];
+            $deleteOptions['collation'] = (object) $this->options['collation'];
         }
 
         if (isset($this->options['hint'])) {
@@ -199,23 +218,5 @@ class Delete implements Executable, Explainable
         }
 
         return $options;
-    }
-
-    /**
-     * Returns the command document for this operation.
-     *
-     * @param Server $server
-     * @return array
-     * @see Explainable::getCommandDocument()
-     */
-    public function getCommandDocument(Server $server)
-    {
-        $cmd = ['delete' => $this->collectionName, 'deletes' => [['q' => $this->filter] + $this->createDeleteOptions()]];
-
-        if (isset($this->options['writeConcern'])) {
-            $cmd['writeConcern'] = $this->options['writeConcern'];
-        }
-
-        return $cmd;
     }
 }

@@ -4,9 +4,12 @@
 
 SortableIterator applies a sort on a given Iterator.
 
+
+
 * Full name: `\Symfony\Component\Finder\Iterator\SortableIterator`
 * This class implements:
-  [`\IteratorAggregate`](../../../../IteratorAggregate.md)
+[`\IteratorAggregate`](../../../../IteratorAggregate.md)
+
 
 ## Constants
 
@@ -22,29 +25,54 @@ SortableIterator applies a sort on a given Iterator.
 
 ## Properties
 
+
 ### iterator
+
+
 
 ```php
 private \Traversable $iterator
 ```
 
+
+
+
+
+
 ***
 
 ### sort
+
+
 
 ```php
 private \Closure|int $sort
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Traversable&lt;string,\SplFileInfo&gt; $iterator, int|callable $sort, bool $reverseOrder = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -54,13 +82,28 @@ public __construct(\Traversable&lt;string,\SplFileInfo&gt; $iterator, int|callab
 | `$sort` | **int&#124;callable** | The sort type (SORT_BY_NAME, SORT_BY_TYPE, or a PHP callback) |
 | `$reverseOrder` | **bool** |  |
 
+
+
+
 ***
 
 ### getIterator
 
+
+
 ```php
 public getIterator(): \Traversable
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

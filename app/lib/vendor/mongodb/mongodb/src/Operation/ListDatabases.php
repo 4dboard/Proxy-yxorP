@@ -65,11 +65,11 @@ class ListDatabases implements Executable
     /**
      * Execute the operation.
      *
+     * @see Executable::execute()
      * @param Server $server
      * @return DatabaseInfoIterator
      * @throws UnexpectedValueException if the command response was malformed
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
-     * @see Executable::execute()
      */
     public function execute(Server $server)
     {

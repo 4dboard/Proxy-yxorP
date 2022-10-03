@@ -4,21 +4,39 @@
 
 Stream decorator trait
 
+
+
 * Full name: `\GuzzleHttp\Psr7\StreamDecoratorTrait`
+
+
+
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Psr\Http\Message\StreamInterface $stream): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$stream` | **\Psr\Http\Message\StreamInterface** | Stream to decorate |
+
+
+
 
 ***
 
@@ -31,27 +49,61 @@ the constructor of a decorator (e.g., LazyOpenStream).
 public __get(string $name): \Psr\Http\Message\StreamInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
+
+
+
 ***
 
 ### __toString
+
+
 
 ```php
 public __toString(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getContents
 
+
+
 ```php
 public getContents(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -63,6 +115,13 @@ Allow decorators to implement custom methods
 public __call(string $method, array $args): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -70,13 +129,28 @@ public __call(string $method, array $args): mixed
 | `$method` | **string** |  |
 | `$args` | **array** |  |
 
+
+
+
 ***
 
 ### close
 
+
+
 ```php
 public close(): void
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -88,83 +162,198 @@ public close(): void
 public getMetadata(mixed $key = null): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
+
+
+
 ***
 
 ### detach
+
+
 
 ```php
 public detach(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getSize
+
+
 
 ```php
 public getSize(): ?int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### eof
+
+
 
 ```php
 public eof(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### tell
+
+
 
 ```php
 public tell(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isReadable
+
+
 
 ```php
 public isReadable(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isWritable
+
+
 
 ```php
 public isWritable(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isSeekable
+
+
 
 ```php
 public isSeekable(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### rewind
+
+
 
 ```php
 public rewind(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### seek
 
+
+
 ```php
 public seek(mixed $offset, mixed $whence = SEEK_SET): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -173,13 +362,25 @@ public seek(mixed $offset, mixed $whence = SEEK_SET): void
 | `$offset` | **mixed** |  |
 | `$whence` | **mixed** |  |
 
+
+
+
 ***
 
 ### read
 
+
+
 ```php
 public read(mixed $length): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -187,19 +388,34 @@ public read(mixed $length): string
 |-----------|------|-------------|
 | `$length` | **mixed** |  |
 
+
+
+
 ***
 
 ### write
 
+
+
 ```php
 public write(mixed $string): int
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** |  |
+
+
+
 
 ***
 
@@ -210,6 +426,16 @@ Implement in subclasses to dynamically create streams when requested.
 ```php
 protected createStream(): \Psr\Http\Message\StreamInterface
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

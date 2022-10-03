@@ -4,10 +4,12 @@
 
 PSR-7 URI implementation.
 
+
+
 * Full name: `\GuzzleHttp\Psr7\Uri`
 * This class implements:
-  [`\Psr\Http\Message\UriInterface`](../../Psr/Http/Message/UriInterface.md)
-  , [`\JsonSerializable`](../../JsonSerializable.md)
+[`\Psr\Http\Message\UriInterface`](../../Psr/Http/Message/UriInterface.md), [`\JsonSerializable`](../../JsonSerializable.md)
+
 
 ## Constants
 
@@ -21,83 +23,153 @@ PSR-7 URI implementation.
 
 ## Properties
 
+
 ### scheme
+
+
 
 ```php
 private string $scheme
 ```
 
+
+
+
+
+
 ***
 
 ### userInfo
+
+
 
 ```php
 private string $userInfo
 ```
 
+
+
+
+
+
 ***
 
 ### host
+
+
 
 ```php
 private string $host
 ```
 
+
+
+
+
+
 ***
 
 ### port
+
+
 
 ```php
 private int|null $port
 ```
 
+
+
+
+
+
 ***
 
 ### path
+
+
 
 ```php
 private string $path
 ```
 
+
+
+
+
+
 ***
 
 ### query
+
+
 
 ```php
 private string $query
 ```
 
+
+
+
+
+
 ***
 
 ### fragment
+
+
 
 ```php
 private string $fragment
 ```
 
+
+
+
+
+
 ***
 
 ### composedComponents
+
+
 
 ```php
 private string|null $composedComponents
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(string $uri = &#039;&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string** |  |
+
+
+
 
 ***
 
@@ -117,16 +189,20 @@ is configured ("C.UTF-8", "en_US.UTF-8", etc.).
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$url` | **string** |  |
 
+
+
 **See Also:**
 
-* https://bugs.php.net/bug.php?id=52923 - * https://www.php.net/manual/en/function.parse-url.php#114817 -
-  * https://curl.haxx.se/libcurl/c/CURLOPT_URL.html#ENCODING -
+* https://bugs.php.net/bug.php?id=52923 - * https://www.php.net/manual/en/function.parse-url.php#114817 - * https://curl.haxx.se/libcurl/c/CURLOPT_URL.html#ENCODING - 
 
 ***
 
@@ -155,6 +231,14 @@ using the appropriate delimiters:
 - If a query is present, it MUST be prefixed by "?".
 - If a fragment is present, it MUST be prefixed by "#".
 
+
+
+
+
+
+
+
+
 ***
 
 ### composeComponents
@@ -180,6 +264,9 @@ that format).
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -190,9 +277,11 @@ that format).
 | `$query` | **?string** |  |
 | `$fragment` | **?string** |  |
 
+
+
 **See Also:**
 
-* https://tools.ietf.org/html/rfc3986#section-5.3 -
+* https://tools.ietf.org/html/rfc3986#section-5.3 - 
 
 ***
 
@@ -209,11 +298,17 @@ independently of the implementation.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\Psr\Http\Message\UriInterface** |  |
+
+
+
 
 ***
 
@@ -228,12 +323,14 @@ public static isAbsolute(\Psr\Http\Message\UriInterface $uri): bool
 An instance of UriInterface can either be an absolute URI or a relative reference. This method returns true
 if it is the former. An absolute URI has a scheme. A relative reference is used to express a URI relative
 to another URI, the base URI. Relative references can be divided into several forms:
-
 - network-path references, e.g. '//example.com/path'
 - absolute-path references, e.g. '/path'
 - relative-path references, e.g. 'subpath'
 
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -241,10 +338,11 @@ to another URI, the base URI. Relative references can be divided into several fo
 |-----------|------|-------------|
 | `$uri` | **\Psr\Http\Message\UriInterface** |  |
 
+
+
 **See Also:**
 
-* \GuzzleHttp\Psr7\Uri::isNetworkPathReference - * \GuzzleHttp\Psr7\Uri::isAbsolutePathReference - *
-  \GuzzleHttp\Psr7\Uri::isRelativePathReference - * https://tools.ietf.org/html/rfc3986#section-4 -
+* \GuzzleHttp\Psr7\Uri::isNetworkPathReference - * \GuzzleHttp\Psr7\Uri::isAbsolutePathReference - * \GuzzleHttp\Psr7\Uri::isRelativePathReference - * https://tools.ietf.org/html/rfc3986#section-4 - 
 
 ***
 
@@ -260,15 +358,20 @@ A relative reference that begins with two slash characters is termed an network-
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\Psr\Http\Message\UriInterface** |  |
 
+
+
 **See Also:**
 
-* https://tools.ietf.org/html/rfc3986#section-4.2 -
+* https://tools.ietf.org/html/rfc3986#section-4.2 - 
 
 ***
 
@@ -284,15 +387,20 @@ A relative reference that begins with a single slash character is termed an abso
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\Psr\Http\Message\UriInterface** |  |
 
+
+
 **See Also:**
 
-* https://tools.ietf.org/html/rfc3986#section-4.2 -
+* https://tools.ietf.org/html/rfc3986#section-4.2 - 
 
 ***
 
@@ -308,15 +416,20 @@ A relative reference that does not begin with a slash character is termed a rela
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\Psr\Http\Message\UriInterface** |  |
 
+
+
 **See Also:**
 
-* https://tools.ietf.org/html/rfc3986#section-4.2 -
+* https://tools.ietf.org/html/rfc3986#section-4.2 - 
 
 ***
 
@@ -334,6 +447,9 @@ URI reference (apart from its fragment) is considered a same-document reference.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -341,9 +457,11 @@ URI reference (apart from its fragment) is considered a same-document reference.
 | `$uri` | **\Psr\Http\Message\UriInterface** | The URI to check |
 | `$base` | **\Psr\Http\Message\UriInterface&#124;null** | An optional base URI to compare against |
 
+
+
 **See Also:**
 
-* https://tools.ietf.org/html/rfc3986#section-4.4 -
+* https://tools.ietf.org/html/rfc3986#section-4.4 - 
 
 ***
 
@@ -360,12 +478,18 @@ removed.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\Psr\Http\Message\UriInterface** | URI to use as a base. |
 | `$key` | **string** | Query string key to remove. |
+
+
+
 
 ***
 
@@ -385,6 +509,9 @@ instead of "key=value".
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -392,6 +519,9 @@ instead of "key=value".
 | `$uri` | **\Psr\Http\Message\UriInterface** | URI to use as a base. |
 | `$key` | **string** | Key to set. |
 | `$value` | **string&#124;null** | Value to set |
+
+
+
 
 ***
 
@@ -407,12 +537,18 @@ It has the same behavior as withQueryValue() but for an associative array of key
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\Psr\Http\Message\UriInterface** | URI to use as a base. |
 | `$keyValueArray` | **array<string,string&#124;null>** | Associative array of key and values |
+
+
+
 
 ***
 
@@ -424,7 +560,12 @@ Creates a URI from a hash of `parse_url` components.
 public static fromParts(array $parts): \Psr\Http\Message\UriInterface
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -432,9 +573,11 @@ public static fromParts(array $parts): \Psr\Http\Message\UriInterface
 |-----------|------|-------------|
 | `$parts` | **array** |  |
 
+
+
 **See Also:**
 
-* http://php.net/manual/en/function.parse-url.php -
+* http://php.net/manual/en/function.parse-url.php - 
 
 ***
 
@@ -453,6 +596,12 @@ Section 3.1.
 
 The trailing ":" character is not part of the scheme and MUST NOT be
 added.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -482,6 +631,12 @@ The authority syntax of the URI is:
 If the port component is not set or is the standard port for the current
 scheme, it SHOULD NOT be included.
 
+
+
+
+
+
+
 **Return Value:**
 
 The URI authority, in "[user-info@]host[:port]" format.
@@ -508,6 +663,12 @@ user value, with a colon (":") separating the values.
 The trailing "@" character is not part of the user information and MUST
 NOT be added.
 
+
+
+
+
+
+
 **Return Value:**
 
 The URI user information, in "username[:password]" format.
@@ -528,6 +689,12 @@ If no host is present, this method MUST return an empty string.
 
 The value returned MUST be normalized to lowercase, per RFC 3986
 Section 3.2.2.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -554,6 +721,12 @@ a null value.
 
 If no port is present, but a scheme is present, this method MAY return
 the standard port for that scheme, but SHOULD return null.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -589,6 +762,12 @@ As an example, if the value should include a slash ("/") not intended as
 delimiter between path segments, that value MUST be passed in encoded
 form (e.g., "%2F") to the instance.
 
+
+
+
+
+
+
 **Return Value:**
 
 The URI path.
@@ -618,6 +797,12 @@ As an example, if a value in a key/value pair of the query string should
 include an ampersand ("&") not intended as a delimiter between values,
 that value MUST be passed in encoded form (e.g., "%26") to the instance.
 
+
+
+
+
+
+
 **Return Value:**
 
 The URI query string.
@@ -643,6 +828,12 @@ The value returned MUST be percent-encoded, but MUST NOT double-encode
 any characters. To determine what characters to encode, please refer to
 RFC 3986, Sections 2 and 3.5.
 
+
+
+
+
+
+
 **Return Value:**
 
 The URI fragment.
@@ -667,11 +858,17 @@ insensitively, and MAY accommodate other schemes if required.
 
 An empty scheme is equivalent to removing the scheme.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$scheme` | **mixed** | The scheme to use with the new instance. |
+
 
 **Return Value:**
 
@@ -696,12 +893,18 @@ Password is optional, but the user information MUST include the
 user; an empty string for the user is equivalent to removing user
 information.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$user` | **mixed** | The user name to use for authority. |
 | `$password` | **mixed** | The password associated with $user. |
+
 
 **Return Value:**
 
@@ -724,11 +927,17 @@ an instance that contains the specified host.
 
 An empty host value is equivalent to removing the host.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$host` | **mixed** | The hostname to use with the new instance. |
+
 
 **Return Value:**
 
@@ -755,11 +964,17 @@ established TCP and UDP port ranges.
 A null value provided for the port is equivalent to removing the port
 information.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$port` | **mixed** | The port to use with the new instance; a null value<br />removes the port information. |
+
 
 **Return Value:**
 
@@ -792,11 +1007,17 @@ consumer.
 Users can provide both encoded and decoded path characters.
 Implementations ensure the correct encoding as outlined in getPath().
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to use with the new instance. |
+
 
 **Return Value:**
 
@@ -822,11 +1043,17 @@ Implementations ensure the correct encoding as outlined in getQuery().
 
 An empty query string value is equivalent to removing the query string.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$query` | **mixed** | The query string to use with the new instance. |
+
 
 **Return Value:**
 
@@ -852,11 +1079,17 @@ Implementations ensure the correct encoding as outlined in getFragment().
 
 An empty fragment value is equivalent to removing the fragment.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fragment` | **mixed** | The fragment to use with the new instance. |
+
 
 **Return Value:**
 
@@ -868,9 +1101,21 @@ A new instance with the specified fragment.
 
 ### jsonSerialize
 
+
+
 ```php
 public jsonSerialize(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -882,19 +1127,38 @@ Apply parse_url parts to a URI.
 private applyParts(array $parts): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parts` | **array** | Array of parse_url parts to apply. |
 
+
+
+
 ***
 
 ### filterScheme
 
+
+
 ```php
 private filterScheme(mixed $scheme): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -902,13 +1166,25 @@ private filterScheme(mixed $scheme): string
 |-----------|------|-------------|
 | `$scheme` | **mixed** |  |
 
+
+
+
 ***
 
 ### filterUserInfoComponent
 
+
+
 ```php
 private filterUserInfoComponent(mixed $component): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -916,13 +1192,25 @@ private filterUserInfoComponent(mixed $component): string
 |-----------|------|-------------|
 | `$component` | **mixed** |  |
 
+
+
+
 ***
 
 ### filterHost
 
+
+
 ```php
 private filterHost(mixed $host): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -930,13 +1218,25 @@ private filterHost(mixed $host): string
 |-----------|------|-------------|
 | `$host` | **mixed** |  |
 
+
+
+
 ***
 
 ### filterPort
 
+
+
 ```php
 private filterPort(mixed $port): ?int
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -944,15 +1244,25 @@ private filterPort(mixed $port): ?int
 |-----------|------|-------------|
 | `$port` | **mixed** |  |
 
+
+
+
 ***
 
 ### getFilteredQueryString
+
+
 
 ```php
 private static getFilteredQueryString(\Psr\Http\Message\UriInterface $uri, string[] $keys): string[]
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -961,15 +1271,25 @@ private static getFilteredQueryString(\Psr\Http\Message\UriInterface $uri, strin
 | `$uri` | **\Psr\Http\Message\UriInterface** |  |
 | `$keys` | **string[]** |  |
 
+
+
+
 ***
 
 ### generateQueryString
+
+
 
 ```php
 private static generateQueryString(string $key, ?string $value): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -978,13 +1298,28 @@ private static generateQueryString(string $key, ?string $value): string
 | `$key` | **string** |  |
 | `$value` | **?string** |  |
 
+
+
+
 ***
 
 ### removeDefaultPort
 
+
+
 ```php
 private removeDefaultPort(): void
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -996,11 +1331,21 @@ Filters the path of a URI
 private filterPath(mixed $path): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
@@ -1012,19 +1357,38 @@ Filters the query string or fragment of a URI.
 private filterQueryAndFragment(mixed $str): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
+
+
+
 ***
 
 ### rawurlencodeMatchZero
 
+
+
 ```php
 private rawurlencodeMatchZero(array $match): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -1032,13 +1396,28 @@ private rawurlencodeMatchZero(array $match): string
 |-----------|------|-------------|
 | `$match` | **array** |  |
 
+
+
+
 ***
 
 ### validateState
 
+
+
 ```php
 private validateState(): void
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

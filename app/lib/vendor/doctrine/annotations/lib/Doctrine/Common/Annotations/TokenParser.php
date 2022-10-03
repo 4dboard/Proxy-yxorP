@@ -7,6 +7,7 @@ use function count;
 use function explode;
 use function strtolower;
 use function token_get_all;
+
 use const PHP_VERSION_ID;
 use const T_AS;
 use const T_COMMENT;
@@ -65,35 +66,6 @@ class TokenParser
     }
 
     /**
-     * Gets all use statements.
-     *
-     * @param string $namespaceName The namespace name of the reflected class.
-     *
-     * @return array<string, string> A list with all found use statements.
-     */
-    public function parseUseStatements($namespaceName)
-    {
-        $statements = [];
-        while (($token = $this->next())) {
-            if ($token[0] === T_USE) {
-                $statements = array_merge($statements, $this->parseUseStatement());
-                continue;
-            }
-
-            if ($token[0] !== T_NAMESPACE || $this->parseNamespace() !== $namespaceName) {
-                continue;
-            }
-
-            // Get fresh array for new namespace. This is to prevent the parser to collect the use statements
-            // for a previous namespace with the same name. This is the case if a namespace is defined twice
-            // or if a namespace with the same name is commented out.
-            $statements = [];
-        }
-
-        return $statements;
-    }
-
-    /**
      * Gets the next non whitespace and non comment token.
      *
      * @param bool $docCommentIsComment If TRUE then a doc comment is considered a comment and skipped.
@@ -126,15 +98,15 @@ class TokenParser
      */
     public function parseUseStatement()
     {
-        $groupRoot = '';
-        $class = '';
-        $alias = '';
-        $statements = [];
+        $groupRoot     = '';
+        $class         = '';
+        $alias         = '';
+        $statements    = [];
         $explicitAlias = false;
         while (($token = $this->next())) {
-            if (!$explicitAlias && $token[0] === T_STRING) {
+            if (! $explicitAlias && $token[0] === T_STRING) {
                 $class .= $token[1];
-                $alias = $token[1];
+                $alias  = $token[1];
             } elseif ($explicitAlias && $token[0] === T_STRING) {
                 $alias = $token[1];
             } elseif (
@@ -144,29 +116,58 @@ class TokenParser
                 $class .= $token[1];
 
                 $classSplit = explode('\\', $token[1]);
-                $alias = $classSplit[count($classSplit) - 1];
+                $alias      = $classSplit[count($classSplit) - 1];
             } elseif ($token[0] === T_NS_SEPARATOR) {
                 $class .= '\\';
-                $alias = '';
+                $alias  = '';
             } elseif ($token[0] === T_AS) {
                 $explicitAlias = true;
-                $alias = '';
+                $alias         = '';
             } elseif ($token === ',') {
                 $statements[strtolower($alias)] = $groupRoot . $class;
-                $class = '';
-                $alias = '';
-                $explicitAlias = false;
+                $class                          = '';
+                $alias                          = '';
+                $explicitAlias                  = false;
             } elseif ($token === ';') {
                 $statements[strtolower($alias)] = $groupRoot . $class;
                 break;
             } elseif ($token === '{') {
                 $groupRoot = $class;
-                $class = '';
+                $class     = '';
             } elseif ($token === '}') {
                 continue;
             } else {
                 break;
             }
+        }
+
+        return $statements;
+    }
+
+    /**
+     * Gets all use statements.
+     *
+     * @param string $namespaceName The namespace name of the reflected class.
+     *
+     * @return array<string, string> A list with all found use statements.
+     */
+    public function parseUseStatements($namespaceName)
+    {
+        $statements = [];
+        while (($token = $this->next())) {
+            if ($token[0] === T_USE) {
+                $statements = array_merge($statements, $this->parseUseStatement());
+                continue;
+            }
+
+            if ($token[0] !== T_NAMESPACE || $this->parseNamespace() !== $namespaceName) {
+                continue;
+            }
+
+            // Get fresh array for new namespace. This is to prevent the parser to collect the use statements
+            // for a previous namespace with the same name. This is the case if a namespace is defined twice
+            // or if a namespace with the same name is commented out.
+            $statements = [];
         }
 
         return $statements;
@@ -182,9 +183,9 @@ class TokenParser
         $name = '';
         while (
             ($token = $this->next()) && ($token[0] === T_STRING || $token[0] === T_NS_SEPARATOR || (
-                    PHP_VERSION_ID >= 80000 &&
-                    ($token[0] === T_NAME_QUALIFIED || $token[0] === T_NAME_FULLY_QUALIFIED)
-                ))
+            PHP_VERSION_ID >= 80000 &&
+            ($token[0] === T_NAME_QUALIFIED || $token[0] === T_NAME_FULLY_QUALIFIED)
+            ))
         ) {
             $name .= $token[1];
         }

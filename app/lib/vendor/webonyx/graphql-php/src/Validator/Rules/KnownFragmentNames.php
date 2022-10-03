@@ -15,9 +15,9 @@ class KnownFragmentNames extends ValidationRule
     public function getVisitor(ValidationContext $context)
     {
         return [
-            NodeKind::FRAGMENT_SPREAD => static function (FragmentSpreadNode $node) use ($context): void {
+            NodeKind::FRAGMENT_SPREAD => static function (FragmentSpreadNode $node) use ($context) : void {
                 $fragmentName = $node->name->value;
-                $fragment = $context->getFragment($fragmentName);
+                $fragment     = $context->getFragment($fragmentName);
                 if ($fragment) {
                     return;
                 }

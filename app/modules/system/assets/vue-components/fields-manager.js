@@ -1,4 +1,4 @@
-import {FieldTypes} from "../js/settings.js"
+import { FieldTypes } from "../js/settings.js"
 
 let instanceCount = 0;
 
@@ -46,9 +46,7 @@ let FieldsManager = {
 
     watch: {
         fields: {
-            handler() {
-                this.update()
-            },
+            handler() { this.update() },
             deep: true
         },
         modelValue(val) {
@@ -62,7 +60,7 @@ let FieldsManager = {
             let groups = [];
 
             this.fields.forEach(f => {
-                if (f.group && f.group.trim() && this.field !== f) groups.push(f.group);
+                if (f.group && f.group.trim() && this.field !==  f) groups.push(f.group);
             })
 
             return _.uniq(groups).sort();
@@ -146,7 +144,7 @@ let FieldsManager = {
 
             try {
                 this.$emit('update:modelValue', this.fields)
-            } catch (e) {
+            } catch(e) {
                 this.error = `${e.lineNumber}: ${e.message}`;
             }
         }

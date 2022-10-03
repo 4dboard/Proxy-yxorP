@@ -13,11 +13,9 @@ declare(strict_types=1);
 
 namespace ColorThief\Exception;
 
-use Throwable;
-
 /**
  * Base exception marker interface for ColorThief.
  */
-interface Exception extends Throwable
+interface Exception extends \Throwable
 {
 }

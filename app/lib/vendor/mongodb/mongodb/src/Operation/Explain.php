@@ -24,6 +24,7 @@ use MongoDB\Driver\Server;
 use MongoDB\Driver\Session;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\UnsupportedException;
+
 use function current;
 use function is_array;
 use function is_string;
@@ -68,26 +69,26 @@ class Explain implements Executable
      *
      *  * verbosity (string): The mode in which the explain command will be run.
      *
-     * @param string $databaseName Database name
-     * @param Explainable $explainable Operation to explain
-     * @param array $options Command options
+     * @param string      $databaseName Database name
+     * @param Explainable $explainable  Operation to explain
+     * @param array       $options      Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, Explainable $explainable, array $options = [])
     {
-        if (isset($options['readPreference']) && !$options['readPreference'] instanceof ReadPreference) {
+        if (isset($options['readPreference']) && ! $options['readPreference'] instanceof ReadPreference) {
             throw InvalidArgumentException::invalidType('"readPreference" option', $options['readPreference'], ReadPreference::class);
         }
 
-        if (isset($options['session']) && !$options['session'] instanceof Session) {
+        if (isset($options['session']) && ! $options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['typeMap']) && !is_array($options['typeMap'])) {
+        if (isset($options['typeMap']) && ! is_array($options['typeMap'])) {
             throw InvalidArgumentException::invalidType('"typeMap" option', $options['typeMap'], 'array');
         }
 
-        if (isset($options['verbosity']) && !is_string($options['verbosity'])) {
+        if (isset($options['verbosity']) && ! is_string($options['verbosity'])) {
             throw InvalidArgumentException::invalidType('"verbosity" option', $options['verbosity'], 'string');
         }
 
@@ -99,15 +100,15 @@ class Explain implements Executable
     /**
      * Execute the operation.
      *
+     * @see Executable::execute()
      * @param Server $server
      * @return array|object
      * @throws UnsupportedException if the server does not support explaining the operation
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
-     * @see Executable::execute()
      */
     public function execute(Server $server)
     {
-        if ($this->explainable instanceof Aggregate && !server_supports_feature($server, self::$wireVersionForAggregate)) {
+        if ($this->explainable instanceof Aggregate && ! server_supports_feature($server, self::$wireVersionForAggregate)) {
             throw UnsupportedException::explainNotSupported();
         }
 

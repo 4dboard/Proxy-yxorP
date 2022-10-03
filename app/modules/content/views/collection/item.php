@@ -290,7 +290,7 @@
 
     <script type="module">
 
-        <?php $model['preview'] = [['uri' => 'https://' . $item['host']]]; ?>
+        <?php $model['preview'] = [['uri'=> 'https://' . $item['host']]]; ?>
 
         export default {
             data() {

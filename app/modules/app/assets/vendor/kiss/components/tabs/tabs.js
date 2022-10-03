@@ -1,11 +1,11 @@
 customElements.define('kiss-tabs', class extends HTMLElement {
 
-    constructor() {
-        super();
-    }
-
     static get observedAttributes() {
         return [];
+    }
+
+    constructor() {
+        super();
     }
 
     connectedCallback() {

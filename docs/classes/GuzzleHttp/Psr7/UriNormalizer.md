@@ -4,13 +4,16 @@
 
 Provides methods to normalize and compare URIs.
 
+
+
 * Full name: `\GuzzleHttp\Psr7\UriNormalizer`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
 **See Also:**
 
-* https://tools.ietf.org/html/rfc3986#section-6 -
+* https://tools.ietf.org/html/rfc3986#section-6 - 
+
 
 ## Constants
 
@@ -26,7 +29,9 @@ Provides methods to normalize and compare URIs.
 |`REMOVE_DUPLICATE_SLASHES`|public| |64|
 |`SORT_QUERY_PARAMETERS`|public| |128|
 
+
 ## Methods
+
 
 ### normalize
 
@@ -46,6 +51,9 @@ is highly uncommon in reality. So this potential normalization is implied in PSR
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -53,9 +61,11 @@ is highly uncommon in reality. So this potential normalization is implied in PSR
 | `$uri` | **\Psr\Http\Message\UriInterface** | The URI to normalize |
 | `$flags` | **int** | A bitmask of normalizations to apply, see constants |
 
+
+
 **See Also:**
 
-* https://tools.ietf.org/html/rfc3986#section-6.2 -
+* https://tools.ietf.org/html/rfc3986#section-6.2 - 
 
 ***
 
@@ -74,6 +84,9 @@ relative references does not mean anything.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -82,35 +95,54 @@ relative references does not mean anything.
 | `$uri2` | **\Psr\Http\Message\UriInterface** | An URI to compare |
 | `$normalizations` | **int** | A bitmask of normalizations to apply, see constants |
 
+
+
 **See Also:**
 
-* https://tools.ietf.org/html/rfc3986#section-6.1 -
+* https://tools.ietf.org/html/rfc3986#section-6.1 - 
 
 ***
 
 ### capitalizePercentEncoding
 
+
+
 ```php
 private static capitalizePercentEncoding(\Psr\Http\Message\UriInterface $uri): \Psr\Http\Message\UriInterface
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\Psr\Http\Message\UriInterface** |  |
+
+
+
 
 ***
 
 ### decodeUnreservedCharacters
 
+
+
 ```php
 private static decodeUnreservedCharacters(\Psr\Http\Message\UriInterface $uri): \Psr\Http\Message\UriInterface
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -118,13 +150,28 @@ private static decodeUnreservedCharacters(\Psr\Http\Message\UriInterface $uri): 
 |-----------|------|-------------|
 | `$uri` | **\Psr\Http\Message\UriInterface** |  |
 
+
+
+
 ***
 
 ### __construct
 
+
+
 ```php
 private __construct(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

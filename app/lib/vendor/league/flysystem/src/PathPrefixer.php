@@ -31,15 +31,20 @@ final class PathPrefixer
         $this->separator = $separator;
     }
 
-    public function stripDirectoryPrefix(string $path): string
+    public function prefixPath(string $path): string
     {
-        return rtrim($this->stripPrefix($path), '\\/');
+        return $this->prefix . ltrim($path, '\\/');
     }
 
     public function stripPrefix(string $path): string
     {
         /* @var string */
         return substr($path, strlen($this->prefix));
+    }
+
+    public function stripDirectoryPrefix(string $path): string
+    {
+        return rtrim($this->stripPrefix($path), '\\/');
     }
 
     public function prefixDirectoryPath(string $path): string
@@ -51,10 +56,5 @@ final class PathPrefixer
         }
 
         return $prefixedPath . $this->separator;
-    }
-
-    public function prefixPath(string $path): string
-    {
-        return $this->prefix . ltrim($path, '\\/');
     }
 }

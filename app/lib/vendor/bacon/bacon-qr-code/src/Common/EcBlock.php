@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace BaconQrCode\Common;
 
@@ -34,7 +34,7 @@ final class EcBlock
     /**
      * Returns how many times the block is used.
      */
-    public function getCount(): int
+    public function getCount() : int
     {
         return $this->count;
     }
@@ -42,7 +42,7 @@ final class EcBlock
     /**
      * Returns the number of data codewords.
      */
-    public function getDataCodewords(): int
+    public function getDataCodewords() : int
     {
         return $this->dataCodewords;
     }

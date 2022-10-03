@@ -116,35 +116,34 @@ class ResolveInfo
     private $queryPlan;
 
     /**
-     * @param FieldNode[] $fieldNodes
-     * @param string[] $path
+     * @param FieldNode[]              $fieldNodes
+     * @param string[]                 $path
      * @param FragmentDefinitionNode[] $fragments
-     * @param mixed|null $rootValue
-     * @param mixed[] $variableValues
+     * @param mixed|null               $rootValue
+     * @param mixed[]                  $variableValues
      */
     public function __construct(
-        FieldDefinition          $fieldDefinition,
-        iterable                 $fieldNodes,
-        ObjectType               $parentType,
-        array                    $path,
-        Schema                   $schema,
-        array                    $fragments,
-                                 $rootValue,
+        FieldDefinition $fieldDefinition,
+        iterable $fieldNodes,
+        ObjectType $parentType,
+        array $path,
+        Schema $schema,
+        array $fragments,
+        $rootValue,
         ?OperationDefinitionNode $operation,
-        array                    $variableValues
-    )
-    {
+        array $variableValues
+    ) {
         $this->fieldDefinition = $fieldDefinition;
-        $this->fieldName = $fieldDefinition->name;
-        $this->returnType = $fieldDefinition->getType();
-        $this->fieldNodes = $fieldNodes;
-        $this->parentType = $parentType;
-        $this->path = $path;
-        $this->schema = $schema;
-        $this->fragments = $fragments;
-        $this->rootValue = $rootValue;
-        $this->operation = $operation;
-        $this->variableValues = $variableValues;
+        $this->fieldName       = $fieldDefinition->name;
+        $this->returnType      = $fieldDefinition->getType();
+        $this->fieldNodes      = $fieldNodes;
+        $this->parentType      = $parentType;
+        $this->path            = $path;
+        $this->schema          = $schema;
+        $this->fragments       = $fragments;
+        $this->rootValue       = $rootValue;
+        $this->operation       = $operation;
+        $this->variableValues  = $variableValues;
     }
 
     /**
@@ -204,9 +203,28 @@ class ResolveInfo
     }
 
     /**
+     * @param mixed[] $options
+     */
+    public function lookAhead(array $options = []) : QueryPlan
+    {
+        if (! isset($this->queryPlan)) {
+            $this->queryPlan = new QueryPlan(
+                $this->parentType,
+                $this->schema,
+                $this->fieldNodes,
+                $this->variableValues,
+                $this->fragments,
+                $options
+            );
+        }
+
+        return $this->queryPlan;
+    }
+
+    /**
      * @return bool[]
      */
-    private function foldSelectionSet(SelectionSetNode $selectionSet, int $descend): array
+    private function foldSelectionSet(SelectionSetNode $selectionSet, int $descend) : array
     {
         $fields = [];
         foreach ($selectionSet->selections as $selectionNode) {
@@ -219,7 +237,7 @@ class ResolveInfo
                 if (isset($this->fragments[$spreadName])) {
                     /** @var FragmentDefinitionNode $fragment */
                     $fragment = $this->fragments[$spreadName];
-                    $fields = array_merge_recursive(
+                    $fields   = array_merge_recursive(
                         $this->foldSelectionSet($fragment->selectionSet, $descend),
                         $fields
                     );
@@ -233,24 +251,5 @@ class ResolveInfo
         }
 
         return $fields;
-    }
-
-    /**
-     * @param mixed[] $options
-     */
-    public function lookAhead(array $options = []): QueryPlan
-    {
-        if (!isset($this->queryPlan)) {
-            $this->queryPlan = new QueryPlan(
-                $this->parentType,
-                $this->schema,
-                $this->fieldNodes,
-                $this->variableValues,
-                $this->fragments,
-                $options
-            );
-        }
-
-        return $this->queryPlan;
     }
 }

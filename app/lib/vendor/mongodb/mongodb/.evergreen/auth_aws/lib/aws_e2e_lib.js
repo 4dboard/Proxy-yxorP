@@ -1,3 +1,4 @@
+
 function readSetupJson() {
     let result;
     try {

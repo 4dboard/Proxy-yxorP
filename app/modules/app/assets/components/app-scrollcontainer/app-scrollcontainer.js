@@ -1,11 +1,11 @@
 customElements.define('app-scrollcontainer', class extends HTMLElement {
 
-    constructor() {
-        super();
-    }
-
     static get observedAttributes() {
         return ['boundary'];
+    }
+
+    constructor() {
+        super();
     }
 
     connectedCallback() {
@@ -14,17 +14,17 @@ customElements.define('app-scrollcontainer', class extends HTMLElement {
             setTimeout(() => this.expand());
         }));
 
-        window.addEventListener('resize', () => requestAnimationFrame(() => {
+        window.addEventListener('resize',  () => requestAnimationFrame(() => {
             setTimeout(() => this.expand());
         }));
 
-        window.addEventListener('load', () => requestAnimationFrame(() => {
+        window.addEventListener('load',  () => requestAnimationFrame(() => {
             setTimeout(() => this.expand());
         }));
     }
 
     attributeChangedCallback(oldvalue, newvalue) {
-        if (oldvalue != newvalue) this.expand();
+        if (oldvalue != newvalue)this.expand();
     }
 
     expand() {

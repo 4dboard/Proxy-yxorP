@@ -9,7 +9,7 @@ Now this would be very pointless, if NumberCompare didn't understand
 magnitudes.
 
 The target value may use magnitudes of kilobytes (k, ki),
-megabytes (m, mi), or gigabytes (g, gi). Those suffixed
+megabytes (m, mi), or gigabytes (g, gi).  Those suffixed
 with an i use the appropriate 2**n version in accordance with the
 IEC standard: http://physics.nist.gov/cuu/Units/binary.html
 
@@ -20,15 +20,28 @@ Based on the Perl Number::Compare module.
 
 **See Also:**
 
-* http://physics.nist.gov/cuu/Units/binary.html -
+* http://physics.nist.gov/cuu/Units/binary.html - 
+
+
+
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(string|int $test): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -36,15 +49,29 @@ public __construct(string|int $test): mixed
 |-----------|------|-------------|
 | `$test` | **string&#124;int** | A comparison string or an integer |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(string $target, string $operator = &#039;==&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -52,6 +79,9 @@ public __construct(string $target, string $operator = &#039;==&#039;): mixed
 |-----------|------|-------------|
 | `$target` | **string** |  |
 | `$operator` | **string** |  |
+
+
+
 
 ***
 
@@ -63,6 +93,16 @@ Gets the target value.
 public getTarget(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getOperator
@@ -72,6 +112,16 @@ Gets the comparison operator.
 ```php
 public getOperator(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -83,11 +133,21 @@ Tests against the target.
 public test(mixed $test): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$test` | **mixed** |  |
+
+
+
 
 ***
 

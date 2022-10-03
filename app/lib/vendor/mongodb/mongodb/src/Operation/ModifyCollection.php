@@ -23,6 +23,7 @@ use MongoDB\Driver\Server;
 use MongoDB\Driver\Session;
 use MongoDB\Driver\WriteConcern;
 use MongoDB\Exception\InvalidArgumentException;
+
 use function current;
 use function is_array;
 
@@ -59,10 +60,10 @@ class ModifyCollection implements Executable
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param string $databaseName Database name
-     * @param string $collectionName Collection or view to modify
-     * @param array $collectionOptions Collection or view options to assign
-     * @param array $options Command options
+     * @param string $databaseName      Database name
+     * @param string $collectionName    Collection or view to modify
+     * @param array  $collectionOptions Collection or view options to assign
+     * @param array  $options           Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, array $collectionOptions, array $options = [])
@@ -71,15 +72,15 @@ class ModifyCollection implements Executable
             throw new InvalidArgumentException('$collectionOptions is empty');
         }
 
-        if (isset($options['session']) && !$options['session'] instanceof Session) {
+        if (isset($options['session']) && ! $options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['typeMap']) && !is_array($options['typeMap'])) {
+        if (isset($options['typeMap']) && ! is_array($options['typeMap'])) {
             throw InvalidArgumentException::invalidType('"typeMap" option', $options['typeMap'], 'array');
         }
 
-        if (isset($options['writeConcern']) && !$options['writeConcern'] instanceof WriteConcern) {
+        if (isset($options['writeConcern']) && ! $options['writeConcern'] instanceof WriteConcern) {
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
@@ -87,8 +88,8 @@ class ModifyCollection implements Executable
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = (string)$collectionName;
+        $this->databaseName = (string) $databaseName;
+        $this->collectionName = (string) $collectionName;
         $this->collectionOptions = $collectionOptions;
         $this->options = $options;
     }
@@ -96,10 +97,10 @@ class ModifyCollection implements Executable
     /**
      * Execute the operation.
      *
+     * @see Executable::execute()
      * @param Server $server
      * @return array|object Command result document
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
-     * @see Executable::execute()
      */
     public function execute(Server $server)
     {

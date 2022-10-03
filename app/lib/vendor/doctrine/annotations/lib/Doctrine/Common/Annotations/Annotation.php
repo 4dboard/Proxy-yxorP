@@ -3,6 +3,7 @@
 namespace Doctrine\Common\Annotations;
 
 use BadMethodCallException;
+
 use function sprintf;
 
 /**
@@ -44,8 +45,8 @@ class Annotation
     /**
      * Error handler for unknown property mutator in Annotation class.
      *
-     * @param string $name Unknown property name.
-     * @param mixed $value Property value.
+     * @param string $name  Unknown property name.
+     * @param mixed  $value Property value.
      *
      * @throws BadMethodCallException
      */

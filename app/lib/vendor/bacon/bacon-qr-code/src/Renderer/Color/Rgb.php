@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace BaconQrCode\Renderer\Color;
 
@@ -46,27 +46,27 @@ final class Rgb implements ColorInterface
         $this->blue = $blue;
     }
 
-    public function getRed(): int
+    public function getRed() : int
     {
         return $this->red;
     }
 
-    public function getGreen(): int
+    public function getGreen() : int
     {
         return $this->green;
     }
 
-    public function getBlue(): int
+    public function getBlue() : int
     {
         return $this->blue;
     }
 
-    public function toRgb(): Rgb
+    public function toRgb() : Rgb
     {
         return $this;
     }
 
-    public function toCmyk(): Cmyk
+    public function toCmyk() : Cmyk
     {
         $c = 1 - ($this->red / 255);
         $m = 1 - ($this->green / 255);
@@ -74,15 +74,15 @@ final class Rgb implements ColorInterface
         $k = min($c, $m, $y);
 
         return new Cmyk(
-            (int)(100 * ($c - $k) / (1 - $k)),
-            (int)(100 * ($m - $k) / (1 - $k)),
-            (int)(100 * ($y - $k) / (1 - $k)),
-            (int)(100 * $k)
+            (int) (100 * ($c - $k) / (1 - $k)),
+            (int) (100 * ($m - $k) / (1 - $k)),
+            (int) (100 * ($y - $k) / (1 - $k)),
+            (int) (100 * $k)
         );
     }
 
-    public function toGray(): Gray
+    public function toGray() : Gray
     {
-        return new Gray((int)(($this->red * 0.21 + $this->green * 0.71 + $this->blue * 0.07) / 2.55));
+        return new Gray((int) (($this->red * 0.21 + $this->green * 0.71 + $this->blue * 0.07) / 2.55));
     }
 }

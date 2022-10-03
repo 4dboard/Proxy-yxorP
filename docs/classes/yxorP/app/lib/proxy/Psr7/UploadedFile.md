@@ -2,85 +2,156 @@
 
 # uploadedFile
 
+
+
+
+
 * Full name: `\yxorP\app\lib\proxy\psr7\uploadedFile`
 * This class implements:
-  [`\yxorP\app\lib\psr\http\message\uploadedFileInterface`](../../psr/http/message/uploadedFileInterface.md)
+[`\yxorP\app\lib\psr\http\message\uploadedFileInterface`](../../psr/http/message/uploadedFileInterface.md)
+
+
 
 ## Properties
 
+
 ### errors
+
+
 
 ```php
 private static $errors
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### clientFilename
 
+
+
 ```php
 private $clientFilename
 ```
+
+
+
+
+
 
 ***
 
 ### clientMediaType
 
+
+
 ```php
 private $clientMediaType
 ```
+
+
+
+
+
 
 ***
 
 ### error
 
+
+
 ```php
 private $error
 ```
+
+
+
+
+
 
 ***
 
 ### file
 
+
+
 ```php
 private $file
 ```
+
+
+
+
+
 
 ***
 
 ### moved
 
+
+
 ```php
 private $moved
 ```
+
+
+
+
+
 
 ***
 
 ### size
 
+
+
 ```php
 private $size
 ```
+
+
+
+
+
 
 ***
 
 ### stream
 
+
+
 ```php
 private $stream
 ```
+
+
+
+
+
 
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $streamOrFile, mixed $size, mixed $errorStatus, mixed $clientFilename = null, mixed $clientMediaType = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -91,6 +162,9 @@ public __construct(mixed $streamOrFile, mixed $size, mixed $errorStatus, mixed $
 | `$errorStatus` | **mixed** |  |
 | `$clientFilename` | **mixed** |  |
 | `$clientMediaType` | **mixed** |  |
+
+
+
 
 ***
 
@@ -124,19 +198,39 @@ used to ensure permissions and upload status are verified correctly.
 If you wish to move to a stream, use getStream(), as SAPI operations
 cannot guarantee writing to stream destinations.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$targetPath` | **mixed** | Path to which to move the uploaded file. |
 
+
+
+
 ***
 
 ### isMoved
 
+
+
 ```php
 public isMoved(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -157,6 +251,12 @@ native PHP stream wrapper to work with such functions).
 If the moveTo() method has been called previously, this method MUST raise
 an exception.
 
+
+
+
+
+
+
 **Return Value:**
 
 Stream representation of the uploaded file.
@@ -176,6 +276,12 @@ public getSize(): int|null
 Implementations SHOULD return the value stored in the "size" key of
 the file in the $_FILES array if available, as PHP calculates this based
 on the actual size transmitted.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -201,6 +307,12 @@ UPLOAD_ERR_OK.
 Implementations SHOULD return the value stored in the "error" key of
 the file in the $_FILES array.
 
+
+
+
+
+
+
 **Return Value:**
 
 One of PHP's UPLOAD_ERR_XXX constants.
@@ -223,6 +335,12 @@ application.
 
 Implementations SHOULD return the value stored in the "name" key of
 the file in the $_FILES array.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -248,6 +366,12 @@ application.
 Implementations SHOULD return the value stored in the "type" key of
 the file in the $_FILES array.
 
+
+
+
+
+
+
 **Return Value:**
 
 The media type sent by the client or null if none
@@ -259,9 +383,18 @@ was provided.
 
 ### setError
 
+
+
 ```php
 private setError(mixed $error): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -269,13 +402,25 @@ private setError(mixed $error): mixed
 |-----------|------|-------------|
 | `$error` | **mixed** |  |
 
+
+
+
 ***
 
 ### setSize
 
+
+
 ```php
 private setSize(mixed $size): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -283,13 +428,25 @@ private setSize(mixed $size): mixed
 |-----------|------|-------------|
 | `$size` | **mixed** |  |
 
+
+
+
 ***
 
 ### setClientFilename
 
+
+
 ```php
 private setClientFilename(mixed $clientFilename): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -297,13 +454,25 @@ private setClientFilename(mixed $clientFilename): mixed
 |-----------|------|-------------|
 | `$clientFilename` | **mixed** |  |
 
+
+
+
 ***
 
 ### isStringOrNull
 
+
+
 ```php
 private isStringOrNull(mixed $param): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -311,13 +480,25 @@ private isStringOrNull(mixed $param): mixed
 |-----------|------|-------------|
 | `$param` | **mixed** |  |
 
+
+
+
 ***
 
 ### setClientMediaType
 
+
+
 ```php
 private setClientMediaType(mixed $clientMediaType): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -325,21 +506,45 @@ private setClientMediaType(mixed $clientMediaType): mixed
 |-----------|------|-------------|
 | `$clientMediaType` | **mixed** |  |
 
+
+
+
 ***
 
 ### isOk
+
+
 
 ```php
 private isOk(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setStreamOrFile
 
+
+
 ```php
 private setStreamOrFile(mixed $streamOrFile): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -347,27 +552,54 @@ private setStreamOrFile(mixed $streamOrFile): mixed
 |-----------|------|-------------|
 | `$streamOrFile` | **mixed** |  |
 
+
+
+
 ***
 
 ### validateActive
+
+
 
 ```php
 private validateActive(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isStringNotEmpty
 
+
+
 ```php
 private isStringNotEmpty(mixed $param): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$param` | **mixed** |  |
+
+
+
 
 ***
 

@@ -1,13 +1,13 @@
 import {on} from '../../js/events.js';
 
 
-on(document.documentElement, 'click', function (e) {
+on(document.documentElement, 'click', function(e) {
 
     let dropdowns = document.body.querySelectorAll('kiss-dropdown[open="true"]'),
         dp = e.target.closest('kiss-dropdown');
 
-    for (let i = 0; i < dropdowns.length; i++) {
-        if (!dp || dp !== dropdowns[i]) dropdowns[i].close();
+    for (let i=0;i<dropdowns.length;i++) {
+        if (!dp || dp!==dropdowns[i]) dropdowns[i].close();
     }
 
 });

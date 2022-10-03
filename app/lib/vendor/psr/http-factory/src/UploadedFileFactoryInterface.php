@@ -2,9 +2,6 @@
 
 namespace Psr\Http\Message;
 
-use InvalidArgumentException;
-use const UPLOAD_ERR_OK;
-
 interface UploadedFileFactoryInterface
 {
     /**
@@ -25,13 +22,13 @@ interface UploadedFileFactoryInterface
      *
      * @return UploadedFileInterface
      *
-     * @throws InvalidArgumentException If the file resource is not readable.
+     * @throws \InvalidArgumentException If the file resource is not readable.
      */
     public function createUploadedFile(
         StreamInterface $stream,
-        int             $size = null,
-        int             $error = UPLOAD_ERR_OK,
-        string          $clientFilename = null,
-        string          $clientMediaType = null
+        int $size = null,
+        int $error = \UPLOAD_ERR_OK,
+        string $clientFilename = null,
+        string $clientMediaType = null
     ): UploadedFileInterface;
 }

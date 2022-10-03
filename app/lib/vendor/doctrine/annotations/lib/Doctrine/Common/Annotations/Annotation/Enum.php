@@ -3,6 +3,7 @@
 namespace Doctrine\Common\Annotations\Annotation;
 
 use InvalidArgumentException;
+
 use function get_class;
 use function gettype;
 use function in_array;
@@ -39,12 +40,12 @@ final class Enum
      */
     public function __construct(array $values)
     {
-        if (!isset($values['literal'])) {
+        if (! isset($values['literal'])) {
             $values['literal'] = [];
         }
 
         foreach ($values['value'] as $var) {
-            if (!is_scalar($var)) {
+            if (! is_scalar($var)) {
                 throw new InvalidArgumentException(sprintf(
                     '@Enum supports only scalar values "%s" given.',
                     is_object($var) ? get_class($var) : gettype($var)
@@ -53,7 +54,7 @@ final class Enum
         }
 
         foreach ($values['literal'] as $key => $var) {
-            if (!in_array($key, $values['value'])) {
+            if (! in_array($key, $values['value'])) {
                 throw new InvalidArgumentException(sprintf(
                     'Undefined enumerator value "%s" for literal "%s".',
                     $key,
@@ -62,7 +63,7 @@ final class Enum
             }
         }
 
-        $this->value = $values['value'];
+        $this->value   = $values['value'];
         $this->literal = $values['literal'];
     }
 }

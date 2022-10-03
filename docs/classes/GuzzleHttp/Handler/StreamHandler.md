@@ -4,19 +4,32 @@
 
 HTTP handler that uses PHP's HTTP stream wrapper.
 
+
+
 * Full name: `\GuzzleHttp\Handler\StreamHandler`
+
+
 
 ## Properties
 
+
 ### lastHeaders
+
+
 
 ```php
 private array $lastHeaders
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __invoke
 
@@ -26,6 +39,13 @@ Sends an HTTP request.
 public __invoke(\Psr\Http\Message\RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -33,13 +53,25 @@ public __invoke(\Psr\Http\Message\RequestInterface $request, array $options): \G
 | `$request` | **\Psr\Http\Message\RequestInterface** | Request to send. |
 | `$options` | **array** | Request transfer options. |
 
+
+
+
 ***
 
 ### invokeStats
 
+
+
 ```php
 private invokeStats(array $options, \Psr\Http\Message\RequestInterface $request, ?float $startTime, \Psr\Http\Message\ResponseInterface $response = null, \Throwable $error = null): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -51,13 +83,25 @@ private invokeStats(array $options, \Psr\Http\Message\RequestInterface $request,
 | `$response` | **\Psr\Http\Message\ResponseInterface** |  |
 | `$error` | **\Throwable** |  |
 
+
+
+
 ***
 
 ### createResponse
 
+
+
 ```php
 private createResponse(\Psr\Http\Message\RequestInterface $request, array $options, resource $stream, ?float $startTime): \GuzzleHttp\Promise\PromiseInterface
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -68,13 +112,25 @@ private createResponse(\Psr\Http\Message\RequestInterface $request, array $optio
 | `$stream` | **resource** |  |
 | `$startTime` | **?float** |  |
 
+
+
+
 ***
 
 ### createSink
 
+
+
 ```php
 private createSink(\Psr\Http\Message\StreamInterface $stream, array $options): \Psr\Http\Message\StreamInterface
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -83,13 +139,25 @@ private createSink(\Psr\Http\Message\StreamInterface $stream, array $options): \
 | `$stream` | **\Psr\Http\Message\StreamInterface** |  |
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### checkDecode
 
+
+
 ```php
 private checkDecode(array $options, array $headers, resource $stream): array
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -98,6 +166,9 @@ private checkDecode(array $options, array $headers, resource $stream): array
 | `$options` | **array** |  |
 | `$headers` | **array** |  |
 | `$stream` | **resource** |  |
+
+
+
 
 ***
 
@@ -109,6 +180,13 @@ Drains the source stream into the "sink" client option.
 private drain(\Psr\Http\Message\StreamInterface $source, \Psr\Http\Message\StreamInterface $sink, string $contentLength): \Psr\Http\Message\StreamInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -116,6 +194,9 @@ private drain(\Psr\Http\Message\StreamInterface $source, \Psr\Http\Message\Strea
 | `$source` | **\Psr\Http\Message\StreamInterface** |  |
 | `$sink` | **\Psr\Http\Message\StreamInterface** |  |
 | `$contentLength` | **string** | Header specifying the amount of<br />data to read. |
+
+
+
 
 ***
 
@@ -127,34 +208,65 @@ Create a resource and check to ensure it was created successfully
 private createResource(callable $callback): resource
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **callable** | Callable that returns stream resource |
 
+
+
+
 ***
 
 ### createStream
+
+
 
 ```php
 private createStream(\Psr\Http\Message\RequestInterface $request, array $options): resource
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** |  |
+
+
+
 
 ***
 
 ### resolveHost
 
+
+
 ```php
 private resolveHost(\Psr\Http\Message\RequestInterface $request, array $options): \Psr\Http\Message\UriInterface
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -163,13 +275,25 @@ private resolveHost(\Psr\Http\Message\RequestInterface $request, array $options)
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### getDefaultContext
 
+
+
 ```php
 private getDefaultContext(\Psr\Http\Message\RequestInterface $request): array
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -177,13 +301,25 @@ private getDefaultContext(\Psr\Http\Message\RequestInterface $request): array
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 
+
+
+
 ***
 
 ### add_proxy
 
+
+
 ```php
 private add_proxy(\Psr\Http\Message\RequestInterface $request, array& $options, mixed $value, array& $params): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -193,6 +329,9 @@ private add_proxy(\Psr\Http\Message\RequestInterface $request, array& $options, 
 | `$options` | **array** |  |
 | `$value` | **mixed** | as passed via Request transfer options. |
 | `$params` | **array** |  |
+
+
+
 
 ***
 
@@ -204,20 +343,39 @@ Parses the given proxy URL to make it compatible with the format PHP's stream co
 private parse_proxy(string $url): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$url` | **string** |  |
 
+
+
+
 ***
 
 ### add_timeout
+
+
 
 ```php
 private add_timeout(\Psr\Http\Message\RequestInterface $request, array& $options, mixed $value, array& $params): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -226,14 +384,26 @@ private add_timeout(\Psr\Http\Message\RequestInterface $request, array& $options
 | `$options` | **array** |  |
 | `$value` | **mixed** | as passed via Request transfer options. |
 | `$params` | **array** |  |
+
+
+
 
 ***
 
 ### add_verify
 
+
+
 ```php
 private add_verify(\Psr\Http\Message\RequestInterface $request, array& $options, mixed $value, array& $params): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -243,14 +413,26 @@ private add_verify(\Psr\Http\Message\RequestInterface $request, array& $options,
 | `$options` | **array** |  |
 | `$value` | **mixed** | as passed via Request transfer options. |
 | `$params` | **array** |  |
+
+
+
 
 ***
 
 ### add_cert
 
+
+
 ```php
 private add_cert(\Psr\Http\Message\RequestInterface $request, array& $options, mixed $value, array& $params): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -260,14 +442,26 @@ private add_cert(\Psr\Http\Message\RequestInterface $request, array& $options, m
 | `$options` | **array** |  |
 | `$value` | **mixed** | as passed via Request transfer options. |
 | `$params` | **array** |  |
+
+
+
 
 ***
 
 ### add_progress
 
+
+
 ```php
 private add_progress(\Psr\Http\Message\RequestInterface $request, array& $options, mixed $value, array& $params): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -277,14 +471,26 @@ private add_progress(\Psr\Http\Message\RequestInterface $request, array& $option
 | `$options` | **array** |  |
 | `$value` | **mixed** | as passed via Request transfer options. |
 | `$params` | **array** |  |
+
+
+
 
 ***
 
 ### add_debug
 
+
+
 ```php
 private add_debug(\Psr\Http\Message\RequestInterface $request, array& $options, mixed $value, array& $params): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -295,15 +501,25 @@ private add_debug(\Psr\Http\Message\RequestInterface $request, array& $options, 
 | `$value` | **mixed** | as passed via Request transfer options. |
 | `$params` | **array** |  |
 
+
+
+
 ***
 
 ### addNotification
+
+
 
 ```php
 private static addNotification(array& $params, callable $notify): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -312,21 +528,34 @@ private static addNotification(array& $params, callable $notify): void
 | `$params` | **array** |  |
 | `$notify` | **callable** |  |
 
+
+
+
 ***
 
 ### callArray
+
+
 
 ```php
 private static callArray(array $functions): callable
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$functions` | **array** |  |
+
+
+
 
 ***
 

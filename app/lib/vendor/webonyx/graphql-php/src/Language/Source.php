@@ -34,7 +34,7 @@ class Source
      * be "Foo.graphql" and location to be `{ line: 40, column: 0 }`.
      * line and column in locationOffset are 1-indexed
      *
-     * @param string $body
+     * @param string      $body
      * @param string|null $name
      */
     public function __construct($body, $name = null, ?SourceLocation $location = null)
@@ -44,9 +44,9 @@ class Source
             'GraphQL query body is expected to be string, but got ' . Utils::getVariableType($body)
         );
 
-        $this->body = $body;
-        $this->length = mb_strlen($body, 'UTF-8');
-        $this->name = $name === '' || $name === null ? 'GraphQL request' : $name;
+        $this->body           = $body;
+        $this->length         = mb_strlen($body, 'UTF-8');
+        $this->name           = $name === '' || $name === null ? 'GraphQL request' : $name;
         $this->locationOffset = $location ?? new SourceLocation(1, 1);
 
         Utils::invariant(
@@ -66,12 +66,12 @@ class Source
      */
     public function getLocation($position)
     {
-        $line = 1;
+        $line   = 1;
         $column = $position + 1;
 
-        $utfChars = json_decode('"\u2028\u2029"');
+        $utfChars   = json_decode('"\u2028\u2029"');
         $lineRegexp = '/\r\n|[\n\r' . $utfChars . ']/su';
-        $matches = [];
+        $matches    = [];
         preg_match_all($lineRegexp, mb_substr($this->body, 0, $position, 'UTF-8'), $matches, PREG_OFFSET_CAPTURE);
 
         foreach ($matches[0] as $index => $match) {

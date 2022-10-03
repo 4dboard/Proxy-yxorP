@@ -25,25 +25,43 @@ See [dedicated section in docs](executing-queries.md#using-server) for details.
 
 * Full name: `\GraphQL\Server\StandardServer`
 
+
+
 ## Properties
 
+
 ### config
+
+
 
 ```php
 private \GraphQL\Server\ServerConfig $config
 ```
 
+
+
+
+
+
 ***
 
 ### helper
+
+
 
 ```php
 private \GraphQL\Server\Helper $helper
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### send500Error
 
@@ -58,6 +76,9 @@ Useful when an exception is thrown somewhere outside of server execution context
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -65,6 +86,9 @@ Useful when an exception is thrown somewhere outside of server execution context
 | `$error` | **\Throwable** |  |
 | `$debug` | **int** |  |
 | `$exitWhenDone` | **bool** |  |
+
+
+
 
 ***
 
@@ -76,11 +100,21 @@ Creates new instance of a standard GraphQL HTTP server
 public __construct(\GraphQL\Server\ServerConfig|array $config): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **\GraphQL\Server\ServerConfig&#124;array** |  |
+
+
+
 
 ***
 
@@ -99,12 +133,20 @@ and then pass it to the server.
 See `executeRequest()` if you prefer to emit response yourself
 (e.g. using Response object of some framework)
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parsedBody` | **\GraphQL\Server\OperationParams&#124;\GraphQL\Server\OperationParams[]** |  |
 | `$exitWhenDone` | **bool** |  |
+
+
+
 
 ***
 
@@ -123,11 +165,19 @@ and then pass it to the server.
 
 PSR-7 compatible method executePsrRequest() does exactly this.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parsedBody` | **\GraphQL\Server\OperationParams&#124;\GraphQL\Server\OperationParams[]** |  |
+
+
+
 
 ***
 
@@ -142,6 +192,11 @@ public processPsrRequest(\Psr\Http\Message\RequestInterface $request, \Psr\Http\
 See `executePsrRequest()` if you prefer to create response yourself
 (e.g. using specific JsonResponse instance of some framework).
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -149,6 +204,9 @@ See `executePsrRequest()` if you prefer to create response yourself
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$response` | **\Psr\Http\Message\ResponseInterface** |  |
 | `$writableBodyStream` | **\Psr\Http\Message\StreamInterface** |  |
+
+
+
 
 ***
 
@@ -161,11 +219,21 @@ Executes GraphQL operation and returns execution result
 public executePsrRequest(\Psr\Http\Message\RequestInterface $request): \GraphQL\Executor\ExecutionResult|\GraphQL\Executor\ExecutionResult[]|\GraphQL\Executor\Promise\Promise
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
+
+
+
 
 ***
 
@@ -177,6 +245,16 @@ parsing / validating / executing request (which could be re-used by other server
 ```php
 public getHelper(): \GraphQL\Server\Helper
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

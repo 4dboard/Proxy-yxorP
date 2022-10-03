@@ -18,6 +18,7 @@
 namespace MongoDB\Exception;
 
 use MongoDB\Driver\Exception\InvalidArgumentException as DriverInvalidArgumentException;
+
 use function array_pop;
 use function count;
 use function get_debug_type;
@@ -30,8 +31,8 @@ class InvalidArgumentException extends DriverInvalidArgumentException implements
     /**
      * Thrown when an argument or option has an invalid type.
      *
-     * @param string $name Name of the argument or option
-     * @param mixed $value Actual value (used to derive the type)
+     * @param string          $name         Name of the argument or option
+     * @param mixed           $value        Actual value (used to derive the type)
      * @param string|string[] $expectedType Expected type
      * @return self
      */

@@ -16,35 +16,28 @@ abstract class TypeWithFields extends Type implements HasFieldsType
      */
     private $fields;
 
-    public function getField(string $name): FieldDefinition
+    private function initializeFields() : void
+    {
+        if (isset($this->fields)) {
+            return;
+        }
+
+        $fields       = $this->config['fields'] ?? [];
+        $this->fields = FieldDefinition::defineFieldMap($this, $fields);
+    }
+
+    public function getField(string $name) : FieldDefinition
     {
         Utils::invariant($this->hasField($name), 'Field "%s" is not defined for type "%s"', $name, $this->name);
 
         return $this->findField($name);
     }
 
-    public function hasField(string $name): bool
+    public function findField(string $name) : ?FieldDefinition
     {
         $this->initializeFields();
 
-        return isset($this->fields[$name]);
-    }
-
-    private function initializeFields(): void
-    {
-        if (isset($this->fields)) {
-            return;
-        }
-
-        $fields = $this->config['fields'] ?? [];
-        $this->fields = FieldDefinition::defineFieldMap($this, $fields);
-    }
-
-    public function findField(string $name): ?FieldDefinition
-    {
-        $this->initializeFields();
-
-        if (!isset($this->fields[$name])) {
+        if (! isset($this->fields[$name])) {
             return null;
         }
 
@@ -55,13 +48,20 @@ abstract class TypeWithFields extends Type implements HasFieldsType
         return $this->fields[$name];
     }
 
+    public function hasField(string $name) : bool
+    {
+        $this->initializeFields();
+
+        return isset($this->fields[$name]);
+    }
+
     /** @inheritDoc */
-    public function getFields(): array
+    public function getFields() : array
     {
         $this->initializeFields();
 
         foreach ($this->fields as $name => $field) {
-            if (!($field instanceof UnresolvedFieldDefinition)) {
+            if (! ($field instanceof UnresolvedFieldDefinition)) {
                 continue;
             }
 
@@ -72,7 +72,7 @@ abstract class TypeWithFields extends Type implements HasFieldsType
     }
 
     /** @inheritDoc */
-    public function getFieldNames(): array
+    public function getFieldNames() : array
     {
         $this->initializeFields();
 

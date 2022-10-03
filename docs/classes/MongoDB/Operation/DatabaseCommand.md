@@ -4,41 +4,68 @@
 
 Operation for executing a database command.
 
+
+
 * Full name: `\MongoDB\Operation\DatabaseCommand`
 * This class implements:
-  [`\MongoDB\Operation\Executable`](./Executable.md)
+[`\MongoDB\Operation\Executable`](./Executable.md)
 
 **See Also:**
 
-* \MongoDB\Database::command() -
+* \MongoDB\Database::command() - 
+
+
 
 ## Properties
 
+
 ### databaseName
+
+
 
 ```php
 private string $databaseName
 ```
 
+
+
+
+
+
 ***
 
 ### command
+
+
 
 ```php
 private array|\MongoDB\Driver\Command|object $command
 ```
 
+
+
+
+
+
 ***
 
 ### options
+
+
 
 ```php
 private array $options
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -61,6 +88,11 @@ Supported options:
 * typeMap (array): Type map for BSON deserialization. This will be
   applied to the returned Cursor (it is not sent to the server).
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -68,6 +100,9 @@ Supported options:
 | `$databaseName` | **string** | Database name |
 | `$command` | **array&#124;object** | Command document |
 | `$options` | **array** | Options for command execution |
+
+
+
 
 ***
 
@@ -79,15 +114,24 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): \MongoDB\Driver\Cursor
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
+
+
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() -
+* \MongoDB\Operation\Executable::execute() - 
 
 ***
 
@@ -99,9 +143,18 @@ Create options for executing the command.
 private createOptions(): array
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* http://php.net/manual/en/mongodb-driver-server.executecommand.php -
+* http://php.net/manual/en/mongodb-driver-server.executecommand.php - 
 
 ***
 

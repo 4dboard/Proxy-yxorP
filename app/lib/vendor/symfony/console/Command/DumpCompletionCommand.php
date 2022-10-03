@@ -19,7 +19,6 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
-use const PATHINFO_EXTENSION;
 
 /**
  * Dumps the completion script for the current shell.
@@ -36,16 +35,6 @@ final class DumpCompletionCommand extends Command
         if ($input->mustSuggestArgumentValuesFor('shell')) {
             $suggestions->suggestValues($this->getSupportedShells());
         }
-    }
-
-    /**
-     * @return string[]
-     */
-    private function getSupportedShells(): array
-    {
-        return array_map(function ($f) {
-            return pathinfo($f, PATHINFO_EXTENSION);
-        }, glob(__DIR__ . '/../Resources/completion.*'));
     }
 
     protected function configure()
@@ -85,7 +74,8 @@ Add this to the end of your shell configuration file (e.g. <info>"~/.bashrc"</>)
 EOH
             )
             ->addArgument('shell', InputArgument::OPTIONAL, 'The shell type (e.g. "bash"), the value of the "$SHELL" env var will be used if this is not given')
-            ->addOption('debug', null, InputOption::VALUE_NONE, 'Tail the completion debug log');
+            ->addOption('debug', null, InputOption::VALUE_NONE, 'Tail the completion debug log')
+        ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -99,7 +89,7 @@ EOH
         }
 
         $shell = $input->getArgument('shell') ?? self::guessShell();
-        $completionFile = __DIR__ . '/../Resources/completion.' . $shell;
+        $completionFile = __DIR__.'/../Resources/completion.'.$shell;
         if (!file_exists($completionFile)) {
             $supportedShells = $this->getSupportedShells();
 
@@ -114,9 +104,14 @@ EOH
         return self::SUCCESS;
     }
 
+    private static function guessShell(): string
+    {
+        return basename($_SERVER['SHELL'] ?? '');
+    }
+
     private function tailDebugLog(string $commandName, OutputInterface $output): void
     {
-        $debugFile = sys_get_temp_dir() . '/sf_' . $commandName . '.log';
+        $debugFile = sys_get_temp_dir().'/sf_'.$commandName.'.log';
         if (!file_exists($debugFile)) {
             touch($debugFile);
         }
@@ -126,8 +121,13 @@ EOH
         });
     }
 
-    private static function guessShell(): string
+    /**
+     * @return string[]
+     */
+    private function getSupportedShells(): array
     {
-        return basename($_SERVER['SHELL'] ?? '');
+        return array_map(function ($f) {
+            return pathinfo($f, \PATHINFO_EXTENSION);
+        }, glob(__DIR__.'/../Resources/completion.*'));
     }
 }

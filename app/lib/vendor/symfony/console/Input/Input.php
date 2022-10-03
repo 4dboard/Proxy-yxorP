@@ -13,8 +13,6 @@ namespace Symfony\Component\Console\Input;
 
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Exception\RuntimeException;
-use function array_key_exists;
-use function count;
 
 /**
  * Input is the base class for all concrete Input classes.
@@ -71,12 +69,28 @@ abstract class Input implements InputInterface, StreamableInputInterface
         $givenArguments = $this->arguments;
 
         $missingArguments = array_filter(array_keys($definition->getArguments()), function ($argument) use ($definition, $givenArguments) {
-            return !array_key_exists($argument, $givenArguments) && $definition->getArgument($argument)->isRequired();
+            return !\array_key_exists($argument, $givenArguments) && $definition->getArgument($argument)->isRequired();
         });
 
-        if (count($missingArguments) > 0) {
+        if (\count($missingArguments) > 0) {
             throw new RuntimeException(sprintf('Not enough arguments (missing: "%s").', implode(', ', $missingArguments)));
         }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isInteractive()
+    {
+        return $this->interactive;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setInteractive(bool $interactive)
+    {
+        $this->interactive = $interactive;
     }
 
     /**
@@ -102,30 +116,6 @@ abstract class Input implements InputInterface, StreamableInputInterface
     /**
      * {@inheritdoc}
      */
-    public function hasArgument(string $name)
-    {
-        return $this->definition->hasArgument($name);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function isInteractive()
-    {
-        return $this->interactive;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setInteractive(bool $interactive)
-    {
-        $this->interactive = $interactive;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function setArgument(string $name, $value)
     {
         if (!$this->definition->hasArgument($name)) {
@@ -133,6 +123,14 @@ abstract class Input implements InputInterface, StreamableInputInterface
         }
 
         $this->arguments[$name] = $value;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasArgument(string $name)
+    {
+        return $this->definition->hasArgument($name);
     }
 
     /**
@@ -160,15 +158,7 @@ abstract class Input implements InputInterface, StreamableInputInterface
             throw new InvalidArgumentException(sprintf('The "%s" option does not exist.', $name));
         }
 
-        return array_key_exists($name, $this->options) ? $this->options[$name] : $this->definition->getOption($name)->getDefault();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasOption(string $name)
-    {
-        return $this->definition->hasOption($name) || $this->definition->hasNegation($name);
+        return \array_key_exists($name, $this->options) ? $this->options[$name] : $this->definition->getOption($name)->getDefault();
     }
 
     /**
@@ -188,6 +178,14 @@ abstract class Input implements InputInterface, StreamableInputInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function hasOption(string $name)
+    {
+        return $this->definition->hasOption($name) || $this->definition->hasNegation($name);
+    }
+
+    /**
      * Escapes a token through escapeshellarg if it contains unsafe chars.
      *
      * @return string
@@ -200,16 +198,16 @@ abstract class Input implements InputInterface, StreamableInputInterface
     /**
      * {@inheritdoc}
      */
-    public function getStream()
+    public function setStream($stream)
     {
-        return $this->stream;
+        $this->stream = $stream;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setStream($stream)
+    public function getStream()
     {
-        $this->stream = $stream;
+        return $this->stream;
     }
 }

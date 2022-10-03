@@ -48,30 +48,80 @@ class QueryPlan
     private $groupImplementorFields;
 
     /**
-     * @param FieldNode[] $fieldNodes
-     * @param mixed[] $variableValues
+     * @param FieldNode[]              $fieldNodes
+     * @param mixed[]                  $variableValues
      * @param FragmentDefinitionNode[] $fragments
-     * @param mixed[] $options
+     * @param mixed[]                  $options
      */
     public function __construct(ObjectType $parentType, Schema $schema, iterable $fieldNodes, array $variableValues, array $fragments, array $options = [])
     {
-        $this->schema = $schema;
-        $this->variableValues = $variableValues;
-        $this->fragments = $fragments;
+        $this->schema                 = $schema;
+        $this->variableValues         = $variableValues;
+        $this->fragments              = $fragments;
         $this->groupImplementorFields = in_array('group-implementor-fields', $options, true);
         $this->analyzeQueryPlan($parentType, $fieldNodes);
     }
 
     /**
+     * @return mixed[]
+     */
+    public function queryPlan() : array
+    {
+        return $this->queryPlan;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getReferencedTypes() : array
+    {
+        return array_keys($this->types);
+    }
+
+    public function hasType(string $type) : bool
+    {
+        return count(array_filter($this->getReferencedTypes(), static function (string $referencedType) use ($type) : bool {
+                return $type === $referencedType;
+        })) > 0;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getReferencedFields() : array
+    {
+        return array_values(array_unique(array_merge(...array_values($this->types))));
+    }
+
+    public function hasField(string $field) : bool
+    {
+        return count(array_filter($this->getReferencedFields(), static function (string $referencedField) use ($field) : bool {
+            return $field === $referencedField;
+        })) > 0;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function subFields(string $typename) : array
+    {
+        if (! array_key_exists($typename, $this->types)) {
+            return [];
+        }
+
+        return $this->types[$typename];
+    }
+
+    /**
      * @param FieldNode[] $fieldNodes
      */
-    private function analyzeQueryPlan(ObjectType $parentType, iterable $fieldNodes): void
+    private function analyzeQueryPlan(ObjectType $parentType, iterable $fieldNodes) : void
     {
-        $queryPlan = [];
+        $queryPlan    = [];
         $implementors = [];
         /** @var FieldNode $fieldNode */
         foreach ($fieldNodes as $fieldNode) {
-            if (!$fieldNode->selectionSet) {
+            if (! $fieldNode->selectionSet) {
                 continue;
             }
 
@@ -106,15 +156,15 @@ class QueryPlan
 
     /**
      * @param InterfaceType|ObjectType $parentType
-     * @param mixed[] $implementors
+     * @param mixed[]                  $implementors
      *
      * @return mixed[]
      *
      * @throws Error
      */
-    private function analyzeSelectionSet(SelectionSetNode $selectionSet, Type $parentType, array &$implementors): array
+    private function analyzeSelectionSet(SelectionSetNode $selectionSet, Type $parentType, array &$implementors) : array
     {
-        $fields = [];
+        $fields       = [];
         $implementors = [];
         foreach ($selectionSet->selections as $selectionNode) {
             if ($selectionNode instanceof FieldNode) {
@@ -124,10 +174,10 @@ class QueryPlan
                     continue;
                 }
 
-                $type = $parentType->getField($fieldName);
+                $type          = $parentType->getField($fieldName);
                 $selectionType = $type->getType();
 
-                $subfields = [];
+                $subfields       = [];
                 $subImplementors = [];
                 if ($selectionNode->selectionSet) {
                     $subfields = $this->analyzeSubFields($selectionType, $selectionNode->selectionSet, $subImplementors);
@@ -144,15 +194,15 @@ class QueryPlan
             } elseif ($selectionNode instanceof FragmentSpreadNode) {
                 $spreadName = $selectionNode->name->value;
                 if (isset($this->fragments[$spreadName])) {
-                    $fragment = $this->fragments[$spreadName];
-                    $type = $this->schema->getType($fragment->typeCondition->name->value);
+                    $fragment  = $this->fragments[$spreadName];
+                    $type      = $this->schema->getType($fragment->typeCondition->name->value);
                     $subfields = $this->analyzeSubFields($type, $fragment->selectionSet);
-                    $fields = $this->mergeFields($parentType, $type, $fields, $subfields, $implementors);
+                    $fields    = $this->mergeFields($parentType, $type, $fields, $subfields, $implementors);
                 }
             } elseif ($selectionNode instanceof InlineFragmentNode) {
-                $type = $this->schema->getType($selectionNode->typeCondition->name->value);
+                $type      = $this->schema->getType($selectionNode->typeCondition->name->value);
                 $subfields = $this->analyzeSubFields($type, $selectionNode->selectionSet);
-                $fields = $this->mergeFields($parentType, $type, $fields, $subfields, $implementors);
+                $fields    = $this->mergeFields($parentType, $type, $fields, $subfields, $implementors);
             }
         }
 
@@ -164,7 +214,7 @@ class QueryPlan
      *
      * @return mixed[]
      */
-    private function analyzeSubFields(Type $type, SelectionSetNode $selectionSet, array &$implementors = []): array
+    private function analyzeSubFields(Type $type, SelectionSetNode $selectionSet, array &$implementors = []) : array
     {
         if ($type instanceof WrappingType) {
             $type = $type->getWrappedType(true);
@@ -172,7 +222,7 @@ class QueryPlan
 
         $subfields = [];
         if ($type instanceof ObjectType || $type instanceof AbstractType) {
-            $subfields = $this->analyzeSelectionSet($selectionSet, $type, $implementors);
+            $subfields                = $this->analyzeSelectionSet($selectionSet, $type, $implementors);
             $this->types[$type->name] = array_unique(array_merge(
                 array_key_exists($type->name, $this->types) ? $this->types[$type->name] : [],
                 array_keys($subfields)
@@ -189,11 +239,11 @@ class QueryPlan
      *
      * @return mixed[]
      */
-    private function mergeFields(Type $parentType, Type $type, array $fields, array $subfields, array &$implementors): array
+    private function mergeFields(Type $parentType, Type $type, array $fields, array $subfields, array &$implementors) : array
     {
-        if ($this->groupImplementorFields && $parentType instanceof AbstractType && !$type instanceof AbstractType) {
+        if ($this->groupImplementorFields && $parentType instanceof AbstractType && ! $type instanceof AbstractType) {
             $implementors[$type->name] = [
-                'type' => $type,
+                'type'   => $type,
                 'fields' => $this->arrayMergeDeep(
                     $implementors[$type->name]['fields'] ?? [],
                     array_diff_key($subfields, $fields)
@@ -225,13 +275,13 @@ class QueryPlan
      *
      * @return mixed[]
      */
-    private function arrayMergeDeep(array $array1, array $array2): array
+    private function arrayMergeDeep(array $array1, array $array2) : array
     {
         $merged = $array1;
 
         foreach ($array2 as $key => & $value) {
             if (is_numeric($key)) {
-                if (!in_array($value, $merged, true)) {
+                if (! in_array($value, $merged, true)) {
                     $merged[] = $value;
                 }
             } elseif (is_array($value) && isset($merged[$key]) && is_array($merged[$key])) {
@@ -242,55 +292,5 @@ class QueryPlan
         }
 
         return $merged;
-    }
-
-    /**
-     * @return mixed[]
-     */
-    public function queryPlan(): array
-    {
-        return $this->queryPlan;
-    }
-
-    public function hasType(string $type): bool
-    {
-        return count(array_filter($this->getReferencedTypes(), static function (string $referencedType) use ($type): bool {
-                return $type === $referencedType;
-            })) > 0;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getReferencedTypes(): array
-    {
-        return array_keys($this->types);
-    }
-
-    public function hasField(string $field): bool
-    {
-        return count(array_filter($this->getReferencedFields(), static function (string $referencedField) use ($field): bool {
-                return $field === $referencedField;
-            })) > 0;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getReferencedFields(): array
-    {
-        return array_values(array_unique(array_merge(...array_values($this->types))));
-    }
-
-    /**
-     * @return string[]
-     */
-    public function subFields(string $typename): array
-    {
-        if (!array_key_exists($typename, $this->types)) {
-            return [];
-        }
-
-        return $this->types[$typename];
     }
 }

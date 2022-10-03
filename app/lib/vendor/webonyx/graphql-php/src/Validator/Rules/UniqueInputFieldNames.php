@@ -29,22 +29,27 @@ class UniqueInputFieldNames extends ValidationRule
         return $this->getASTVisitor($context);
     }
 
+    public function getSDLVisitor(SDLValidationContext $context)
+    {
+        return $this->getASTVisitor($context);
+    }
+
     public function getASTVisitor(ASTValidationContext $context)
     {
-        $this->knownNames = [];
+        $this->knownNames     = [];
         $this->knownNameStack = [];
 
         return [
-            NodeKind::OBJECT => [
-                'enter' => function (): void {
+            NodeKind::OBJECT       => [
+                'enter' => function () : void {
                     $this->knownNameStack[] = $this->knownNames;
-                    $this->knownNames = [];
+                    $this->knownNames       = [];
                 },
-                'leave' => function (): void {
+                'leave' => function () : void {
                     $this->knownNames = array_pop($this->knownNameStack);
                 },
             ],
-            NodeKind::OBJECT_FIELD => function (ObjectFieldNode $node) use ($context): VisitorOperation {
+            NodeKind::OBJECT_FIELD => function (ObjectFieldNode $node) use ($context) : VisitorOperation {
                 $fieldName = $node->name->value;
 
                 if (isset($this->knownNames[$fieldName])) {
@@ -64,10 +69,5 @@ class UniqueInputFieldNames extends ValidationRule
     public static function duplicateInputFieldMessage($fieldName)
     {
         return sprintf('There can be only one input field named "%s".', $fieldName);
-    }
-
-    public function getSDLVisitor(SDLValidationContext $context)
-    {
-        return $this->getASTVisitor($context);
     }
 }

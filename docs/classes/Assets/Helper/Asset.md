@@ -2,16 +2,33 @@
 
 # Asset
 
+
+
+
+
 * Full name: `\Assets\Helper\Asset`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
+
+
+
 ## Methods
 
+
 ### image
+
+
 
 ```php
 public image(array $options = [], bool $asPath = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -20,15 +37,29 @@ public image(array $options = [], bool $asPath = false): mixed
 | `$options` | **array** |  |
 | `$asPath` | **bool** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -37,21 +68,45 @@ public __construct(\Lime\App $app, mixed $context = null): mixed
 | `$app` | **\Lime\App** |  |
 | `$context` | **mixed** |  |
 
+
+
+
 ***
 
 ### initialize
+
+
 
 ```php
 protected initialize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -60,13 +115,25 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(mixed $helper): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -74,19 +141,34 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
 
 ***
 

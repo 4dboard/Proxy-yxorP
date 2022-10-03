@@ -2,27 +2,52 @@
 
 # CLI
 
+
+
+
+
 * Full name: `\CLI`
+
+
+
 
 ## Methods
 
+
 ### beep
+
+
 
 ```php
 public static beep(): void
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
 ### opts
 
+
+
 ```php
 public static opts(?string $name = null, mixed $default = null): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -31,15 +56,25 @@ public static opts(?string $name = null, mixed $default = null): mixed
 | `$name` | **?string** |  |
 | `$default` | **mixed** |  |
 
+
+
+
 ***
 
 ### write
+
+
 
 ```php
 public static write(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -48,16 +83,26 @@ public static write(string $out, ?string $fgcolor = null, ?string $bgcolor = nul
 | `$out` | **string** |  |
 | `$fgcolor` | **?string** |  |
 | `$bgcolor` | **?string** |  |
+
+
+
 
 ***
 
 ### writeln
 
+
+
 ```php
 public static writeln(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -67,15 +112,25 @@ public static writeln(string $out, ?string $fgcolor = null, ?string $bgcolor = n
 | `$fgcolor` | **?string** |  |
 | `$bgcolor` | **?string** |  |
 
+
+
+
 ***
 
 ### progress
+
+
 
 ```php
 public static progress(mixed $percent = false, mixed $dec): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -83,6 +138,9 @@ public static progress(mixed $percent = false, mixed $dec): void
 |-----------|------|-------------|
 | `$percent` | **mixed** |  |
 | `$dec` | **mixed** |  |
+
+
+
 
 ***
 

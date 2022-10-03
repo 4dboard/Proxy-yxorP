@@ -2,11 +2,18 @@
 
 # AnnotationRegistry
 
+
+
+
+
 * Full name: `\Doctrine\Common\Annotations\AnnotationRegistry`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
+
+
 ## Properties
+
 
 ### autoloadNamespaces
 
@@ -23,6 +30,7 @@ This autoloading mechanism does not utilize the PHP autoloading but implements a
 
 * This property is **static**.
 
+
 ***
 
 ### loaders
@@ -33,7 +41,10 @@ A map of autoloader callables.
 private static callable[] $loaders
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
@@ -45,7 +56,10 @@ An array of classes which cannot be found
 private static null[] $failedToAutoload
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
@@ -57,19 +71,33 @@ Whenever registerFile() was used. Disables use of standard autoloader.
 private static bool $registerFileUsed
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ## Methods
 
+
 ### reset
+
+
 
 ```php
 public static reset(): void
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -81,16 +109,23 @@ Registers file.
 public static registerFile(string $file): void
 ```
 
+
+
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
+
+
+
 
 ***
 
@@ -109,12 +144,17 @@ Loading of this namespaces will be done with a PSR-0 namespace loading algorithm
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** |  |
 | `$dirs` | **mixed** |  |
+
+
+
 
 ***
 
@@ -133,11 +173,16 @@ Loading of this namespaces will be done with a PSR-0 namespace loading algorithm
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespaces` | **string[][]&#124;string[]&#124;null[]** | indexed by namespace name |
+
+
+
 
 ***
 
@@ -157,11 +202,16 @@ IMPORTANT: Loaders have to return true if they loaded a class that could contain
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **callable** |  |
+
+
+
 
 ***
 
@@ -173,16 +223,23 @@ Registers an autoloading callable for annotations, if it is not already register
 public static registerUniqueLoader(callable $callable): void
 ```
 
+
+
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **callable** |  |
+
+
+
 
 ***
 
@@ -194,13 +251,21 @@ Autoloads an annotation class silently.
 public static loadAnnotationClass(string $class): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** |  |
+
+
+
 
 ***
 

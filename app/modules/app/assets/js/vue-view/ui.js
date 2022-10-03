@@ -31,7 +31,7 @@ export default {
             },
 
             data() {
-                return {
+                return  {
                     data
                 }
             },
@@ -85,13 +85,13 @@ export default {
 
             data() {
 
-                return {
+                return  {
                     data
                 }
             },
 
             components: {
-                'vue-dialog-content': url
+                'vue-dialog-content':  url
             }
         };
 

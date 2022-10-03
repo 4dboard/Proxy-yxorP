@@ -4,43 +4,70 @@
 
 Operation for the renameCollection command.
 
+
+
 * Full name: `\MongoDB\Operation\RenameCollection`
 * This class implements:
-  [`\MongoDB\Operation\Executable`](./Executable.md)
+[`\MongoDB\Operation\Executable`](./Executable.md)
 
 **See Also:**
 
-* \MongoDB\Collection::rename() -
-* \MongoDB\Database::renameCollection() -
-* https://docs.mongodb.org/manual/reference/command/renameCollection/ -
+* \MongoDB\Collection::rename() - 
+* \MongoDB\Database::renameCollection() - 
+* https://docs.mongodb.org/manual/reference/command/renameCollection/ - 
+
+
 
 ## Properties
 
+
 ### fromNamespace
+
+
 
 ```php
 private string $fromNamespace
 ```
 
+
+
+
+
+
 ***
 
 ### toNamespace
+
+
 
 ```php
 private string $toNamespace
 ```
 
+
+
+
+
+
 ***
 
 ### options
+
+
 
 ```php
 private array $options
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -62,6 +89,11 @@ Supported options:
 * dropTarget (boolean): If true, MongoDB will drop the target before
   renaming the collection.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -71,6 +103,9 @@ Supported options:
 | `$toDatabaseName` | **string** | New database name |
 | `$toCollectionName` | **string** | New collection name |
 | `$options` | **array** | Command options |
+
+
+
 
 ***
 
@@ -82,19 +117,28 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): array|object
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
+
 **Return Value:**
 
 Command result document
 
+
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() -
+* \MongoDB\Operation\Executable::execute() - 
 
 ***
 
@@ -106,9 +150,18 @@ Create options for executing the command.
 private createOptions(): array
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* http://php.net/manual/en/mongodb-driver-server.executewritecommand.php -
+* http://php.net/manual/en/mongodb-driver-server.executewritecommand.php - 
 
 ***
 

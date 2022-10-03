@@ -2,33 +2,64 @@
 
 # Client
 
+
+
+
+
 * Full name: `\MemoryStorage\Client`
+
+
 
 ## Properties
 
+
 ### driver
+
+
 
 ```php
 protected $driver
 ```
 
+
+
+
+
+
 ***
 
 ### key
+
+
 
 ```php
 protected $key
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(string $server, array $options = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -37,21 +68,45 @@ public __construct(string $server, array $options = []): mixed
 | `$server` | **string** |  |
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### flush
+
+
 
 ```php
 public flush(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### get
 
+
+
 ```php
 public get(string $key, mixed $default = null, bool $decrypt = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -61,13 +116,25 @@ public get(string $key, mixed $default = null, bool $decrypt = false): mixed
 | `$default` | **mixed** |  |
 | `$decrypt` | **bool** |  |
 
+
+
+
 ***
 
 ### set
 
+
+
 ```php
 public set(string $key, mixed $value, bool $encrypt = false): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -77,13 +144,25 @@ public set(string $key, mixed $value, bool $encrypt = false): void
 | `$value` | **mixed** |  |
 | `$encrypt` | **bool** |  |
 
+
+
+
 ***
 
 ### encrypt
 
+
+
 ```php
 protected encrypt(mixed $value): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -91,13 +170,25 @@ protected encrypt(mixed $value): string
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
+
+
+
 ***
 
 ### decrypt
 
+
+
 ```php
 protected decrypt(string $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -105,13 +196,25 @@ protected decrypt(string $value): mixed
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $method, mixed $args): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -119,6 +222,9 @@ public __call(mixed $method, mixed $args): mixed
 |-----------|------|-------------|
 | `$method` | **mixed** |  |
 | `$args` | **mixed** |  |
+
+
+
 
 ***
 

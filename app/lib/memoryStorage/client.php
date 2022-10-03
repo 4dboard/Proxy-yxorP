@@ -2,19 +2,12 @@
 
 namespace MemoryStorage;
 
-use Redis;
-use RedisLite;
-use function call_user_func;
-use function is_callable;
-
-class Client
-{
+class Client {
 
     protected $driver;
     protected $key;
 
-    public function __construct(string $server, array $options = [])
-    {
+    public function __construct(string $server, array $options = []) {
 
         if (strpos($server, 'redis://') === 0) {
 
@@ -27,7 +20,7 @@ class Client
                 'timeout' => 1,
             ], $options);
 
-            $this->driver = new Redis();
+            $this->driver = new \Redis();
 
             if (isset($options['auth'])) {
                 $this->driver->connect($options['host'], $options['port'], $options['timeout'], NULL, 0, 0, ['auth' => $options['auth']]);
@@ -37,7 +30,7 @@ class Client
 
             // use custom prefix on all keys
             if (isset($options['prefix']) && $options['prefix']) {
-                $this->driver->setOption(Redis::OPT_PREFIX, $options['prefix']);
+                $this->driver->setOption(\Redis::OPT_PREFIX, $options['prefix']);
             }
 
             // select database
@@ -45,10 +38,10 @@ class Client
                 $this->driver->select($options['db']);
             }
 
-            $this->driver->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
+            $this->driver->setOption(\Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP);
 
         } elseif (strpos($server, 'redislite://') === 0) {
-            $this->driver = new RedisLite(str_replace('redislite://', '', $server), $options);
+            $this->driver = new \RedisLite(str_replace('redislite://', '', $server), $options);
         }
 
         if (isset($options['key']) && is_string($options['key'])) {
@@ -56,13 +49,11 @@ class Client
         }
     }
 
-    public function flush(): void
-    {
+    public function flush(): void  {
         $this->driver->flushdb();
     }
 
-    public function get(string $key, mixed $default = null, bool $decrypt = false): mixed
-    {
+    public function get(string $key, mixed $default = null, bool $decrypt = false): mixed {
 
         $value = $this->driver->get($key);
 
@@ -71,14 +62,34 @@ class Client
         }
 
         if ($value === false) {
-            return is_callable($default) ? call_user_func($default) : $default;
+            return \is_callable($default) ? \call_user_func($default) : $default;
         }
 
         return $value;
     }
 
-    protected function decrypt(string $value): mixed
-    {
+    public function set(string $key, mixed $value, bool $encrypt = false): void {
+
+        if ($encrypt) {
+            $value = $this->encrypt($value);
+        }
+
+        $this->driver->set($key, $value);
+    }
+
+    protected function encrypt(mixed $value): string {
+
+        $str = json_encode($value);
+        $key = hash('sha256', $this->key, true);
+        $iv = openssl_random_pseudo_bytes(16);
+
+        $ciphertext = openssl_encrypt($str, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
+        $hash = hash_hmac('sha256', $ciphertext . $iv, $key, true);
+
+        return base64_encode($iv . $hash . $ciphertext);
+    }
+
+    protected function decrypt(string $value): mixed {
 
         $value = base64_decode($value);
 
@@ -94,31 +105,7 @@ class Client
         return json_decode(openssl_decrypt($ciphertext, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv), true);
     }
 
-    public function set(string $key, mixed $value, bool $encrypt = false): void
-    {
-
-        if ($encrypt) {
-            $value = $this->encrypt($value);
-        }
-
-        $this->driver->set($key, $value);
-    }
-
-    protected function encrypt(mixed $value): string
-    {
-
-        $str = json_encode($value);
-        $key = hash('sha256', $this->key, true);
-        $iv = openssl_random_pseudo_bytes(16);
-
-        $ciphertext = openssl_encrypt($str, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
-        $hash = hash_hmac('sha256', $ciphertext . $iv, $key, true);
-
-        return base64_encode($iv . $hash . $ciphertext);
-    }
-
-    public function __call($method, $args)
-    {
+    public function __call($method, $args) {
 
         return call_user_func_array([$this->driver, $method], $args);
     }

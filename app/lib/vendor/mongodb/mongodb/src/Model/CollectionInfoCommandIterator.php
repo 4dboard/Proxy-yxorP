@@ -50,16 +50,16 @@ class CollectionInfoCommandIterator extends IteratorIterator implements Collecti
     /**
      * Return the current element as a CollectionInfo instance.
      *
-     * @return CollectionInfo
-     * @see http://php.net/iterator.current
      * @see CollectionInfoIterator::current()
+     * @see http://php.net/iterator.current
+     * @return CollectionInfo
      */
     #[ReturnTypeWillChange]
     public function current()
     {
         $info = parent::current();
 
-        if ($this->databaseName !== null && isset($info['idIndex']) && !isset($info['idIndex']['ns'])) {
+        if ($this->databaseName !== null && isset($info['idIndex']) && ! isset($info['idIndex']['ns'])) {
             $info['idIndex']['ns'] = $this->databaseName . '.' . $info['name'];
         }
 

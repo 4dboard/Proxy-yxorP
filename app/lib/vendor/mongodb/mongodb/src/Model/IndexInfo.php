@@ -20,6 +20,7 @@ namespace MongoDB\Model;
 use ArrayAccess;
 use MongoDB\Exception\BadMethodCallException;
 use ReturnTypeWillChange;
+
 use function array_key_exists;
 use function array_search;
 
@@ -73,13 +74,23 @@ class IndexInfo implements ArrayAccess
     }
 
     /**
+     * Return the index key.
+     *
+     * @return array
+     */
+    public function getKey()
+    {
+        return (array) $this->info['key'];
+    }
+
+    /**
      * Return the index name.
      *
      * @return string
      */
     public function getName()
     {
-        return (string)$this->info['name'];
+        return (string) $this->info['name'];
     }
 
     /**
@@ -89,7 +100,7 @@ class IndexInfo implements ArrayAccess
      */
     public function getNamespace()
     {
-        return (string)$this->info['ns'];
+        return (string) $this->info['ns'];
     }
 
     /**
@@ -99,7 +110,7 @@ class IndexInfo implements ArrayAccess
      */
     public function getVersion()
     {
-        return (integer)$this->info['v'];
+        return (integer) $this->info['v'];
     }
 
     /**
@@ -110,16 +121,6 @@ class IndexInfo implements ArrayAccess
     public function is2dSphere()
     {
         return array_search('2dsphere', $this->getKey(), true) !== false;
-    }
-
-    /**
-     * Return the index key.
-     *
-     * @return array
-     */
-    public function getKey()
-    {
-        return (array)$this->info['key'];
     }
 
     /**
@@ -140,7 +141,7 @@ class IndexInfo implements ArrayAccess
      */
     public function isSparse()
     {
-        return !empty($this->info['sparse']);
+        return ! empty($this->info['sparse']);
     }
 
     /**
@@ -172,7 +173,7 @@ class IndexInfo implements ArrayAccess
      */
     public function isUnique()
     {
-        return !empty($this->info['unique']);
+        return ! empty($this->info['unique']);
     }
 
     /**

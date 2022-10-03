@@ -2,9 +2,17 @@
 
 # TypeComparators
 
+
+
+
+
 * Full name: `\GraphQL\Utils\TypeComparators`
 
+
+
+
 ## Methods
+
 
 ### isEqualType
 
@@ -14,7 +22,12 @@ Provided two types, return true if the types are equal (invariant).
 public static isEqualType(\GraphQL\Type\Definition\Type $typeA, \GraphQL\Type\Definition\Type $typeB): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -22,6 +35,9 @@ public static isEqualType(\GraphQL\Type\Definition\Type $typeA, \GraphQL\Type\De
 |-----------|------|-------------|
 | `$typeA` | **\GraphQL\Type\Definition\Type** |  |
 | `$typeB` | **\GraphQL\Type\Definition\Type** |  |
+
+
+
 
 ***
 
@@ -34,7 +50,12 @@ equal or a subset of the second super type (covariant).
 public static isTypeSubTypeOf(\GraphQL\Type\Schema $schema, \GraphQL\Type\Definition\Type $maybeSubType, \GraphQL\Type\Definition\Type $superType): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -43,6 +64,9 @@ public static isTypeSubTypeOf(\GraphQL\Type\Schema $schema, \GraphQL\Type\Defini
 | `$schema` | **\GraphQL\Type\Schema** |  |
 | `$maybeSubType` | **\GraphQL\Type\Definition\Type** |  |
 | `$superType` | **\GraphQL\Type\Definition\Type** |  |
+
+
+
 
 ***
 
@@ -62,6 +86,9 @@ This function is commutative.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -69,6 +96,9 @@ This function is commutative.
 | `$schema` | **\GraphQL\Type\Schema** |  |
 | `$typeA` | **\GraphQL\Type\Definition\CompositeType** |  |
 | `$typeB` | **\GraphQL\Type\Definition\CompositeType** |  |
+
+
+
 
 ***
 

@@ -10,7 +10,10 @@ ordering is always x, y. The origin is at the top-left.
 
 * Full name: `\BaconQrCode\Common\BitMatrix`
 
+
+
 ## Properties
+
 
 ### width
 
@@ -19,6 +22,11 @@ Width of the bit matrix.
 ```php
 private int $width
 ```
+
+
+
+
+
 
 ***
 
@@ -30,6 +38,11 @@ Height of the bit matrix.
 private int $height
 ```
 
+
+
+
+
+
 ***
 
 ### rowSize
@@ -39,6 +52,11 @@ Size in bits of each individual row.
 ```php
 private int $rowSize
 ```
+
+
+
+
+
 
 ***
 
@@ -50,15 +68,30 @@ Bits representation.
 private \SplFixedArray&lt;int&gt; $bits
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(int $width, int $height = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -66,6 +99,9 @@ public __construct(int $width, int $height = null): mixed
 |-----------|------|-------------|
 | `$width` | **int** |  |
 | `$height` | **int** |  |
+
+
+
 
 ***
 
@@ -77,12 +113,22 @@ Gets the requested bit, where true means black.
 public get(int $x, int $y): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$x` | **int** |  |
 | `$y` | **int** |  |
+
+
+
 
 ***
 
@@ -94,12 +140,22 @@ Sets the given bit to true.
 public set(int $x, int $y): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$x` | **int** |  |
 | `$y` | **int** |  |
+
+
+
 
 ***
 
@@ -111,12 +167,22 @@ Flips the given bit.
 public flip(int $x, int $y): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$x` | **int** |  |
 | `$y` | **int** |  |
+
+
+
 
 ***
 
@@ -128,6 +194,16 @@ Clears all bits (set to false).
 public clear(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setRegion
@@ -138,6 +214,13 @@ Sets a square region of the bit matrix to true.
 public setRegion(int $left, int $top, int $width, int $height): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -146,6 +229,9 @@ public setRegion(int $left, int $top, int $width, int $height): void
 | `$top` | **int** |  |
 | `$width` | **int** |  |
 | `$height` | **int** |  |
+
+
+
 
 ***
 
@@ -157,12 +243,22 @@ A fast method to retrieve one row of data from the matrix as a BitArray.
 public getRow(int $y, \BaconQrCode\Common\BitArray $row = null): \BaconQrCode\Common\BitArray
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$y` | **int** |  |
 | `$row` | **\BaconQrCode\Common\BitArray** |  |
+
+
+
 
 ***
 
@@ -174,12 +270,22 @@ Sets a row of data from a BitArray.
 public setRow(int $y, \BaconQrCode\Common\BitArray $row): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$y` | **int** |  |
 | `$row` | **\BaconQrCode\Common\BitArray** |  |
+
+
+
 
 ***
 
@@ -190,6 +296,16 @@ This is useful in detecting the enclosing rectangle of a 'pure' barcode.
 ```php
 public getEnclosingRectangle(): int[]|null
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -241,6 +357,16 @@ Gets the width of the matrix,
 public getWidth(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getHeight
@@ -250,6 +376,16 @@ Gets the height of the matrix.
 ```php
 public getHeight(): int
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

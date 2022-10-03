@@ -2,34 +2,65 @@
 
 # Session
 
+
+
+
+
 * Full name: `\Lime\Helper\Session`
 * Parent class: [`\Lime\Helper`](../Helper.md)
 
+
+
 ## Properties
 
+
 ### initialized
+
+
 
 ```php
 protected bool $initialized
 ```
 
+
+
+
+
+
 ***
 
 ### name
+
+
 
 ```php
 public string $name
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### init
+
+
 
 ```php
 public init(?string $name = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -37,13 +68,25 @@ public init(?string $name = null): mixed
 |-----------|------|-------------|
 | `$name` | **?string** |  |
 
+
+
+
 ***
 
 ### write
 
+
+
 ```php
 public write(string $key, mixed $value): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -52,13 +95,25 @@ public write(string $key, mixed $value): void
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
 
+
+
+
 ***
 
 ### read
 
+
+
 ```php
 public read(string $key, mixed $default = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -67,13 +122,25 @@ public read(string $key, mixed $default = null): mixed
 | `$key` | **string** |  |
 | `$default` | **mixed** |  |
 
+
+
+
 ***
 
 ### delete
 
+
+
 ```php
 public delete(string $key): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -81,29 +148,65 @@ public delete(string $key): void
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
+
+
+
 ***
 
 ### destroy
+
+
 
 ```php
 public destroy(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### close
+
+
 
 ```php
 public close(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### regenerateId
 
+
+
 ```php
 public regenerateId(bool $delete_old_session = false): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -111,15 +214,29 @@ public regenerateId(bool $delete_old_session = false): bool
 |-----------|------|-------------|
 | `$delete_old_session` | **bool** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -128,21 +245,45 @@ public __construct(\Lime\App $app, mixed $context = null): mixed
 | `$app` | **\Lime\App** |  |
 | `$context` | **mixed** |  |
 
+
+
+
 ***
 
 ### initialize
+
+
 
 ```php
 protected initialize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -151,13 +292,25 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(mixed $helper): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -165,19 +318,34 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
 
 ***
 

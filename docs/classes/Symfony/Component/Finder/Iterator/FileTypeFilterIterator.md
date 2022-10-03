@@ -4,8 +4,11 @@
 
 FileTypeFilterIterator only keeps files, directories, or both.
 
+
+
 * Full name: `\Symfony\Component\Finder\Iterator\FileTypeFilterIterator`
 * Parent class: [`FilterIterator`](../../../../FilterIterator.md)
+
 
 ## Constants
 
@@ -16,21 +19,39 @@ FileTypeFilterIterator only keeps files, directories, or both.
 
 ## Properties
 
+
 ### mode
+
+
 
 ```php
 private int $mode
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Iterator $iterator, int $mode): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -38,6 +59,9 @@ public __construct(\Iterator $iterator, int $mode): mixed
 |-----------|------|-------------|
 | `$iterator` | **\Iterator** | The Iterator to filter |
 | `$mode` | **int** | The mode (self::ONLY_FILES or self::ONLY_DIRECTORIES) |
+
+
+
 
 ***
 
@@ -48,6 +72,16 @@ Filters the iterator values.
 ```php
 public accept(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

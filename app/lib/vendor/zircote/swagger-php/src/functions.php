@@ -37,7 +37,7 @@ if (!function_exists('OpenApi\\scan')) {
      * Scan the filesystem for OpenAPI annotations and build openapi-documentation.
      *
      * @param array|Finder|string $directory The directory(s) or filename(s)
-     * @param array $options
+     * @param array               $options
      *                                       exclude: string|array $exclude The directory(s) or filename(s) to exclude (as absolute or relative paths)
      *                                       pattern: string       $pattern File pattern(s) to scan (default: *.php)
      *                                       analyser: defaults to StaticAnalyser

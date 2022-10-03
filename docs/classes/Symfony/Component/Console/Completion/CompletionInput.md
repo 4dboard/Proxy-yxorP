@@ -12,6 +12,7 @@ completion is expected.
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
+
 ## Constants
 
 | Constant | Visibility | Type | Value |
@@ -23,47 +24,84 @@ completion is expected.
 
 ## Properties
 
+
 ### tokens
+
+
 
 ```php
 private $tokens
 ```
 
+
+
+
+
+
 ***
 
 ### currentIndex
+
+
 
 ```php
 private $currentIndex
 ```
 
+
+
+
+
+
 ***
 
 ### completionType
+
+
 
 ```php
 private $completionType
 ```
 
+
+
+
+
+
 ***
 
 ### completionName
+
+
 
 ```php
 private $completionName
 ```
 
+
+
+
+
+
 ***
 
 ### completionValue
+
+
 
 ```php
 private $completionValue
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### fromString
 
@@ -77,12 +115,18 @@ This is required for shell completions without COMP_WORDS support.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$inputStr` | **string** |  |
 | `$currentIndex` | **int** |  |
+
+
+
 
 ***
 
@@ -94,7 +138,12 @@ Create an input based on an COMP_WORDS token list.
 public static fromTokens(string[] $tokens,  $currentIndex): self
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -102,6 +151,9 @@ public static fromTokens(string[] $tokens,  $currentIndex): self
 |-----------|------|-------------|
 | `$tokens` | **string[]** | the set of split tokens (e.g. COMP_WORDS or argv) |
 | `$currentIndex` | **** | the index of the cursor (e.g. COMP_CWORD) |
+
+
+
 
 ***
 
@@ -113,11 +165,21 @@ public static fromTokens(string[] $tokens,  $currentIndex): self
 public bind(\Symfony\Component\Console\Input\InputDefinition $definition): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$definition` | **\Symfony\Component\Console\Input\InputDefinition** |  |
+
+
+
 
 ***
 
@@ -130,9 +192,15 @@ public getCompletionType(): string
 ```
 
 TYPE_ARGUMENT_VALUE when completing the value of an input argument
-TYPE_OPTION_VALUE when completing the value of an input option
-TYPE_OPTION_NAME when completing the name of an input option
-TYPE_NONE when nothing should be completed
+TYPE_OPTION_VALUE   when completing the value of an input option
+TYPE_OPTION_NAME    when completing the name of an input option
+TYPE_NONE           when nothing should be completed
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -150,6 +218,14 @@ The name of the input option or argument when completing a value.
 public getCompletionName(): string|null
 ```
 
+
+
+
+
+
+
+
+
 **Return Value:**
 
 returns null when completing an option name
@@ -166,13 +242,32 @@ The value already typed by the user (or empty string).
 public getCompletionValue(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### mustSuggestOptionValuesFor
 
+
+
 ```php
 public mustSuggestOptionValuesFor(string $optionName): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -180,13 +275,25 @@ public mustSuggestOptionValuesFor(string $optionName): bool
 |-----------|------|-------------|
 | `$optionName` | **string** |  |
 
+
+
+
 ***
 
 ### mustSuggestArgumentValuesFor
 
+
+
 ```php
 public mustSuggestArgumentValuesFor(string $argumentName): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -194,13 +301,25 @@ public mustSuggestArgumentValuesFor(string $argumentName): bool
 |-----------|------|-------------|
 | `$argumentName` | **string** |  |
 
+
+
+
 ***
 
 ### parseToken
 
+
+
 ```php
 protected parseToken(string $token, bool $parseOptions): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -209,19 +328,34 @@ protected parseToken(string $token, bool $parseOptions): bool
 | `$token` | **string** |  |
 | `$parseOptions` | **bool** |  |
 
+
+
+
 ***
 
 ### getOptionFromToken
 
+
+
 ```php
 private getOptionFromToken(string $optionToken): ?\Symfony\Component\Console\Input\InputOption
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$optionToken` | **string** |  |
+
+
+
 
 ***
 
@@ -233,6 +367,16 @@ The token of the cursor, or the last token if the cursor is at the end of the in
 private getRelevantToken(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isCursorFree
@@ -242,6 +386,16 @@ Whether the cursor is "free" (i.e. at the end of the input preceded by a space).
 ```php
 private isCursorFree(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -253,15 +407,36 @@ Returns a stringified representation of the args passed to the command.
 public __toString(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Symfony\Component\Console\Input\InputDefinition $definition = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -269,19 +444,34 @@ public __construct(\Symfony\Component\Console\Input\InputDefinition $definition 
 |-----------|------|-------------|
 | `$definition` | **\Symfony\Component\Console\Input\InputDefinition** |  |
 
+
+
+
 ***
 
 ### setTokens
 
+
+
 ```php
 protected setTokens(array $tokens): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tokens` | **array** |  |
+
+
+
 
 ***
 
@@ -293,15 +483,32 @@ Processes command line arguments.
 protected parse(): mixed
 ```
 
+
+
+
 * This method is **abstract**.
+
+
+
+
+
 
 ***
 
 ### parseToken
 
+
+
 ```php
 protected parseToken(string $token, bool $parseOptions): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -309,6 +516,9 @@ protected parseToken(string $token, bool $parseOptions): bool
 |-----------|------|-------------|
 | `$token` | **string** |  |
 | `$parseOptions` | **bool** |  |
+
+
+
 
 ***
 
@@ -320,11 +530,21 @@ Parses a short option.
 private parseShortOption(string $token): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **string** |  |
+
+
+
 
 ***
 
@@ -336,11 +556,21 @@ Parses a short option set.
 private parseShortOptionSet(string $name): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 
@@ -352,11 +582,21 @@ Parses a long option.
 private parseLongOption(string $token): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **string** |  |
+
+
+
 
 ***
 
@@ -368,11 +608,21 @@ Parses an argument.
 private parseArgument(string $token): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **string** |  |
+
+
+
 
 ***
 
@@ -384,12 +634,22 @@ Adds a short option value.
 private addShortOption(string $shortcut, mixed $value): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$shortcut` | **string** |  |
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
@@ -401,12 +661,22 @@ Adds a long option value.
 private addLongOption(string $name, mixed $value): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
@@ -418,6 +688,16 @@ private addLongOption(string $name, mixed $value): mixed
 public getFirstArgument(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### hasParameterOption
@@ -428,12 +708,22 @@ public getFirstArgument(): mixed
 public hasParameterOption(mixed $values, bool $onlyParams = false): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **mixed** |  |
 | `$onlyParams` | **bool** |  |
+
+
+
 
 ***
 
@@ -445,6 +735,13 @@ public hasParameterOption(mixed $values, bool $onlyParams = false): mixed
 public getParameterOption(mixed $values, mixed $default = false, bool $onlyParams = false): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -452,6 +749,9 @@ public getParameterOption(mixed $values, mixed $default = false, bool $onlyParam
 | `$values` | **mixed** |  |
 | `$default` | **mixed** |  |
 | `$onlyParams` | **bool** |  |
+
+
+
 
 ***
 
@@ -463,6 +763,16 @@ Returns a stringified representation of the args passed to the command.
 public __toString(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### bind
@@ -473,11 +783,21 @@ Binds the current Input instance with the given arguments and options.
 public bind(\Symfony\Component\Console\Input\InputDefinition $definition): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$definition` | **\Symfony\Component\Console\Input\InputDefinition** |  |
+
+
+
 
 ***
 
@@ -489,6 +809,16 @@ Validates the input.
 public validate(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isInteractive
@@ -498,6 +828,16 @@ Is this input means interactive?
 ```php
 public isInteractive(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -509,11 +849,21 @@ Sets the input interactivity.
 public setInteractive(bool $interactive): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$interactive` | **bool** |  |
+
+
+
 
 ***
 
@@ -525,6 +875,16 @@ Returns all the given arguments merged with the default values.
 public getArguments(): (string|bool|int|float|array|null)[]
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getArgument
@@ -535,11 +895,21 @@ Returns the argument value for a given argument name.
 public getArgument(string $name): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 
@@ -551,12 +921,22 @@ Sets an argument value by name.
 public setArgument(string $name, mixed $value): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$value` | **mixed** | The argument value |
+
+
+
 
 ***
 
@@ -568,11 +948,21 @@ Returns true if an InputArgument object exists by name or position.
 public hasArgument(string $name): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 
@@ -584,6 +974,16 @@ Returns all the given options merged with the default values.
 public getOptions(): (string|bool|int|float|array|null)[]
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getOption
@@ -594,11 +994,21 @@ Returns the option value for a given option name.
 public getOption(string $name): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 
@@ -610,12 +1020,22 @@ Sets an option value by name.
 public setOption(string $name, mixed $value): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$value` | **mixed** | The option value |
+
+
+
 
 ***
 
@@ -627,11 +1047,21 @@ Returns true if an InputOption object exists by name.
 public hasOption(string $name): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 
@@ -643,11 +1073,21 @@ Escapes a token through escapeshellarg if it contains unsafe chars.
 public escapeToken(string $token): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **string** |  |
+
+
+
 
 ***
 
@@ -659,11 +1099,21 @@ Sets the input stream to read from when interacting with the user.
 public setStream(mixed $stream): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$stream` | **mixed** | The input stream |
+
+
+
 
 ***
 
@@ -674,6 +1124,16 @@ Returns the input stream.
 ```php
 public getStream(): resource|null
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

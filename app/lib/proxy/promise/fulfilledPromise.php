@@ -41,6 +41,11 @@ class fulfilledPromise implements promiseInterface
         return $p;
     }
 
+    public function wait($unwrap = true, $defaultDelivery = null)
+    {
+        return $unwrap ? $this->value : null;
+    }
+
     public function getState()
     {
         return self::FULFILLED;
@@ -56,11 +61,6 @@ class fulfilledPromise implements promiseInterface
     public function reject($reason)
     {
         throw new LogicException("Cannot reject a fulfilled promise");
-    }
-
-    public function wait($unwrap = true, $defaultDelivery = null)
-    {
-        return $unwrap ? $this->value : null;
     }
 
     public function cancel()

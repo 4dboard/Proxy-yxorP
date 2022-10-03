@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace ColorThief\Image\Adapter;
 
-use stdClass;
-
 /**
  * Basic interface for all image adapters.
  */
@@ -65,7 +63,7 @@ interface AdapterInterface
     /**
      * Returns the color of the specified pixel.
      */
-    public function getPixelColor(int $x, int $y): stdClass;
+    public function getPixelColor(int $x, int $y): \stdClass;
 
     /**
      * Get the raw resource.

@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace BaconQrCode\Renderer\Module;
 
@@ -30,7 +30,7 @@ final class DotsModule implements ModuleInterface
         $this->size = $size;
     }
 
-    public function createPath(ByteMatrix $matrix): Path
+    public function createPath(ByteMatrix $matrix) : Path
     {
         $width = $matrix->getWidth();
         $height = $matrix->getHeight();
@@ -40,7 +40,7 @@ final class DotsModule implements ModuleInterface
 
         for ($y = 0; $y < $height; ++$y) {
             for ($x = 0; $x < $width; ++$x) {
-                if (!$matrix->get($x, $y)) {
+                if (! $matrix->get($x, $y)) {
                     continue;
                 }
 
@@ -53,7 +53,8 @@ final class DotsModule implements ModuleInterface
                     ->ellipticArc($halfSize, $halfSize, 0, false, true, $pathX, $pathY + $halfSize)
                     ->ellipticArc($halfSize, $halfSize, 0, false, true, $pathX + $halfSize, $pathY)
                     ->ellipticArc($halfSize, $halfSize, 0, false, true, $pathX + $this->size, $pathY + $halfSize)
-                    ->close();
+                    ->close()
+                ;
             }
         }
 

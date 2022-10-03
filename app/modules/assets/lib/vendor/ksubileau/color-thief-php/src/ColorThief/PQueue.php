@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace ColorThief;
 
-use function count;
-
 /**
  * Simple priority queue.
  *
@@ -42,13 +40,10 @@ class PQueue
         $this->setComparator($comparator);
     }
 
-    /**
-     * @phpstan-param callable(T, T): int $function
-     */
-    public function setComparator(callable $function): void
+    private function sort(): void
     {
-        $this->comparator = $function;
-        $this->sorted = false;
+        usort($this->contents, $this->comparator);
+        $this->sorted = true;
     }
 
     /**
@@ -78,17 +73,6 @@ class PQueue
         return $this->contents[$index];
     }
 
-    private function sort(): void
-    {
-        usort($this->contents, $this->comparator);
-        $this->sorted = true;
-    }
-
-    public function size(): int
-    {
-        return count($this->contents);
-    }
-
     /**
      * @return mixed|null
      * @phpstan-return T|null
@@ -100,6 +84,11 @@ class PQueue
         }
 
         return array_pop($this->contents);
+    }
+
+    public function size(): int
+    {
+        return \count($this->contents);
     }
 
     /**
@@ -114,6 +103,15 @@ class PQueue
         }
 
         return array_map($function, $this->contents);
+    }
+
+    /**
+     * @phpstan-param callable(T, T): int $function
+     */
+    public function setComparator(callable $function): void
+    {
+        $this->comparator = $function;
+        $this->sorted = false;
     }
 
     /**

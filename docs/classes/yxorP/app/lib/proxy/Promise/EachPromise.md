@@ -2,75 +2,141 @@
 
 # eachPromise
 
+
+
+
+
 * Full name: `\yxorP\app\lib\proxy\promise\eachPromise`
 * This class implements:
-  [`\yxorP\app\lib\proxy\promise\promisorInterface`](./promisorInterface.md)
+[`\yxorP\app\lib\proxy\promise\promisorInterface`](./promisorInterface.md)
+
+
 
 ## Properties
 
+
 ### pending
+
+
 
 ```php
 private $pending
 ```
 
+
+
+
+
+
 ***
 
 ### iterable
+
+
 
 ```php
 private $iterable
 ```
 
+
+
+
+
+
 ***
 
 ### concurrency
+
+
 
 ```php
 private $concurrency
 ```
 
+
+
+
+
+
 ***
 
 ### onFulfilled
+
+
 
 ```php
 private $onFulfilled
 ```
 
+
+
+
+
+
 ***
 
 ### onRejected
+
+
 
 ```php
 private $onRejected
 ```
 
+
+
+
+
+
 ***
 
 ### aggregate
+
+
 
 ```php
 private $aggregate
 ```
 
+
+
+
+
+
 ***
 
 ### mutex
+
+
 
 ```php
 private $mutex
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $iterable, array $config = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -79,45 +145,105 @@ public __construct(mixed $iterable, array $config = []): mixed
 | `$iterable` | **mixed** |  |
 | `$config` | **array** |  |
 
+
+
+
 ***
 
 ### promise
+
+
 
 ```php
 public promise(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### createPromise
+
+
 
 ```php
 private createPromise(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### refillPending
+
+
 
 ```php
 private refillPending(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### addPending
+
+
 
 ```php
 private addPending(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### step
 
+
+
 ```php
 private step(mixed $idx): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -125,21 +251,48 @@ private step(mixed $idx): mixed
 |-----------|------|-------------|
 | `$idx` | **mixed** |  |
 
+
+
+
 ***
 
 ### advanceIterator
+
+
 
 ```php
 private advanceIterator(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### checkIfFinished
 
+
+
 ```php
 private checkIfFinished(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
