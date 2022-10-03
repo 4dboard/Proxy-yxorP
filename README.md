@@ -1,5 +1,4 @@
-<p align="center"><sup><b><g-emoji class="g-emoji" alias="trophy" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3c6.png">🏆️</g-emoji> <a href="https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP" rel="nofollow"> LIVE DEMO </a></b><i> : A live, interactive demonstration is now accessible through Gitpod. (<a href="https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP" rel="nofollow"> open demo </a>)</i></sup></p>
-<p align="center"><sup><b><g-emoji class="g-emoji" alias="movie_camera" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3a5.png">🎥️</g-emoji> <a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4" rel="nofollow"> MAKING OF VIDEO </a></b><i> : A brief film detailing the development of the yxorP project. (<a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4" rel="nofollow"> watch video </a>)</i></sup></p>
+<p align="center"><a href="https://github.com/4dboard/Proxy-yxorP/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/4dboard/Proxy-yxorP/actions/workflows/pages/pages-build-deployment/badge.svg" /></a><br/><sup><b><g-emoji class="g-emoji" alias="trophy" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3c6.png">🏆️</g-emoji> <a href="https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP" rel="nofollow"> LIVE DEMO </a></b><i> : A live, interactive demonstration is now accessible through Gitpod. (<a href="https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP" rel="nofollow"> open demo </a>)</i></sup></p><p align="center"><sup><b><g-emoji class="g-emoji" alias="movie_camera" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3a5.png">🎥️</g-emoji> <a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4" rel="nofollow"> MAKING OF VIDEO </a></b><i> : A brief film detailing the development of the yxorP project. (<a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4" rel="nofollow"> watch video </a>)</i></sup></p>
 
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png)
 
@@ -32,7 +31,15 @@ plug-and-play program was designed to give a system that is simply extensible an
 <tr>
 <td>
 
-![image](https://user-images.githubusercontent.com/6468571/193473167-3547fb6d-66e6-4d3f-9445-dc3d04431d73.png)
+![image](https://user-images.githubusercontent.com/6468571/193482081-dc41c5a3-db5d-4a81-91b7-876e3dd418d5.png)
+
+![image](https://user-images.githubusercontent.com/6468571/193473157-2ebec705-138e-4c52-94d8-54c77207bc6e.png)
+
+![image](https://user-images.githubusercontent.com/6468571/193473190-d945cf3e-0b07-4937-b3ac-0c6920cc5242.png)
+
+![image](https://user-images.githubusercontent.com/6468571/193473215-ae1ffe84-e18c-4227-af85-c174eac8357f.png)
+
+
 
 </td>
 <td>
@@ -43,59 +50,17 @@ plug-and-play program was designed to give a system that is simply extensible an
 
 ![image](https://user-images.githubusercontent.com/6468571/193473168-733320d4-eedc-403e-9426-745322178a5f.png)
 
-</td>
-</tr>
-
-<hr>
-<td>
-
-![image](https://user-images.githubusercontent.com/6468571/193473157-2ebec705-138e-4c52-94d8-54c77207bc6e.png)
-
-![image](https://user-images.githubusercontent.com/6468571/193473190-d945cf3e-0b07-4937-b3ac-0c6920cc5242.png)
-
-</td>
-<td>
-
 ![image](https://user-images.githubusercontent.com/6468571/193473171-d2c85a9c-ff83-4ef9-9c78-a2b8776e1c91.png)
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-![image](https://user-images.githubusercontent.com/6468571/193473215-ae1ffe84-e18c-4227-af85-c174eac8357f.png)
-
-</td>
-<td>
 
 ![image](https://user-images.githubusercontent.com/6468571/193473178-864ca7bf-d1f3-44cf-86aa-54ad5578e21d.png)
 
-</td>
-</hr>
-
-<tr>
-<td>
-
-![image](https://user-images.githubusercontent.com/6468571/193473180-1cf60d1f-ca6d-462c-951d-9d3670ccf3cb.png)
-
-</td>
-<td>
-
 ![image](https://user-images.githubusercontent.com/6468571/193473185-d794956d-b69d-4c1e-a24e-0ad2c9b7260e.png)
 
-</td>
-</tr>
-
-<tr>
-<td>
+![image](https://user-images.githubusercontent.com/6468571/193473194-82a26199-8e3b-462e-917f-e513652eba73.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/193473206-2d6061d7-503b-4678-8171-5fb8a831e3d7.png)
 
-</td>
-<td>
-
-![image](https://user-images.githubusercontent.com/6468571/193473194-82a26199-8e3b-462e-917f-e513652eba73.png)
+![image](https://user-images.githubusercontent.com/6468571/193473180-1cf60d1f-ca6d-462c-951d-9d3670ccf3cb.png)
 
 </td>
 </tr>
