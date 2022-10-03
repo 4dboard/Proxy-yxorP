@@ -204,7 +204,6 @@ const SITE_COLLECTIONS = 'collections';
 const SITE_HOST = 'host';
 const SITE_NAME = 'name';
 const SITE_TARGET = 'target';
-const SITE_AFFILIATE = 'affiliate';
 const DIR_ACTION = 'action' . DIRECTORY_SEPARATOR;
 const DIR_PARSER = 'parser' . DIRECTORY_SEPARATOR;
 const DIR_PLUGIN = 'plugin' . DIRECTORY_SEPARATOR;

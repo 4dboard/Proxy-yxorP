@@ -21,10 +21,10 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_APP_ADMIN"
         },                {
-            "fqsen": "\\APP_DIR",
-            "name": "APP_DIR",
+            "fqsen": "\\PATH_DIR_APP",
+            "name": "PATH_DIR_APP",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_DIR"
+            "url": "namespaces/default.html#constant_PATH_DIR_APP"
         },                {
             "fqsen": "\\Cockpit",
             "name": "Cockpit",
