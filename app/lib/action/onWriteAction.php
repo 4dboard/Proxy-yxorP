@@ -103,6 +103,10 @@ class onWriteAction extends wrapper
                 $content = (minify::createDefault())->process(str_ireplace($search, $replace, preg_replace($psearch, $preplace, $content)));
             }
 
+            /**
+             * Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. Importing the `minify` class from the `yxorP\app\lib\minify` namespace.   Extending the `wrapper` class.
+             */
+
             echo store::handler(YXORP_CONTENT, $content);
 
         }
