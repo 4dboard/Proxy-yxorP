@@ -7,7 +7,7 @@ It's extending the wrapper class.
 
 
 * Full name: `\yxorP\plugin\headerRewritePluginAction`
-* Parent class: [`\yxorP\app\lib\http\wrapper`](../app/lib/http/wrapper.md)
+* Parent class: [`\yxorP\lib\http\wrapper`](../lib/http/wrapper.md)
 
 
 
@@ -91,7 +91,7 @@ public static headersReceived(mixed $response, mixed $request_url): void
 Subscribing to all the events.
 
 ```php
-final public subscribe(\yxorP\app\lib\yP $dispatcher): void
+final public subscribe(\yxorP\lib\yP $dispatcher): void
 ```
 
 
@@ -105,7 +105,7 @@ final public subscribe(\yxorP\app\lib\yP $dispatcher): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$dispatcher` | **\yxorP\app\lib\yP** |  |
+| `$dispatcher` | **\yxorP\lib\yP** |  |
 
 
 

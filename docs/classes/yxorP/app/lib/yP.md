@@ -6,7 +6,7 @@ It's a class that's used to dispatch events.
 
 
 
-* Full name: `\yxorP\app\lib\yP`
+* Full name: `\yxorP\lib\yP`
 
 
 
@@ -18,7 +18,7 @@ It's a class that's used to dispatch events.
 
 
 ```php
-private static ?\yxorP\app\lib\yP $instance
+private static ?\yxorP\lib\yP $instance
 ```
 
 

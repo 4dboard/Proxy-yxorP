@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\exception\seekException`
+* Full name: `\yxorP\lib\proxy\exception\seekException`
 * Parent class: [`RuntimeException`](../../../../../RuntimeException.md)
 * This class implements:
-[`\yxorP\app\lib\proxy\exception\proxyException`](./proxyException.md)
+[`\yxorP\lib\proxy\exception\proxyException`](./proxyException.md)
 
 
 
@@ -39,7 +39,7 @@ private $stream
 
 
 ```php
-public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream, mixed $pos, mixed $msg = &#039;&#039;): mixed
+public __construct(\yxorP\lib\psr\http\message\streamInterface $stream, mixed $pos, mixed $msg = &#039;&#039;): mixed
 ```
 
 
@@ -53,7 +53,7 @@ public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream, mixe
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 | `$pos` | **mixed** |  |
 | `$msg` | **mixed** |  |
 

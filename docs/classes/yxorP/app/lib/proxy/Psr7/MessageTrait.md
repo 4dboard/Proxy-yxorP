@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\messageTrait`
+* Full name: `\yxorP\lib\proxy\psr7\messageTrait`
 
 
 
@@ -325,7 +325,7 @@ public getBody(): mixed
 
 
 ```php
-public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
+public withBody(\yxorP\lib\psr\http\message\streamInterface $body): mixed
 ```
 
 
@@ -339,7 +339,7 @@ public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$body` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$body` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 
 
 

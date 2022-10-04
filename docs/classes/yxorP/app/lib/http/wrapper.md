@@ -6,7 +6,7 @@ Importing the `response` class from the `http` namespace.
 
 
 
-* Full name: `\yxorP\app\lib\http\wrapper`
+* Full name: `\yxorP\lib\http\wrapper`
 * This class is an **Abstract class**
 
 
@@ -37,7 +37,7 @@ protected ?string $url_pattern
 Subscribing to all the events.
 
 ```php
-final public subscribe(\yxorP\app\lib\yP $dispatcher): void
+final public subscribe(\yxorP\lib\yP $dispatcher): void
 ```
 
 
@@ -51,7 +51,7 @@ final public subscribe(\yxorP\app\lib\yP $dispatcher): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$dispatcher` | **\yxorP\app\lib\yP** |  |
+| `$dispatcher` | **\yxorP\lib\yP** |  |
 
 
 

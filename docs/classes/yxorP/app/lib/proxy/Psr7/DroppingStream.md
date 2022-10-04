@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\droppingStream`
+* Full name: `\yxorP\lib\proxy\psr7\droppingStream`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
+[`\yxorP\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
 
 
 
@@ -38,7 +38,7 @@ private $maxLength
 
 
 ```php
-public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream, mixed $maxLength): mixed
+public __construct(\yxorP\lib\psr\http\message\streamInterface $stream, mixed $maxLength): mixed
 ```
 
 
@@ -52,7 +52,7 @@ public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream, mixe
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 | `$maxLength` | **mixed** |  |
 
 
@@ -99,7 +99,7 @@ Returns the number of bytes written to the stream.
 
 
 ```php
-public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mixed
+public __construct(\yxorP\lib\psr\http\message\streamInterface $stream): mixed
 ```
 
 
@@ -113,7 +113,7 @@ public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 
 
 

@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\storage\publicSuffixListPsr16Cache`
+* Full name: `\yxorP\lib\parser\storage\publicSuffixListPsr16Cache`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\storage\publicSuffixListCacheInterface`](./publicSuffixListCacheInterface.md)
+[`\yxorP\lib\parser\storage\publicSuffixListCacheInterface`](./publicSuffixListCacheInterface.md)
 * This class is a **Final class**
 
 
@@ -98,7 +98,7 @@ public __construct(\yxorP\psr\SimpleCache\CacheInterface $cache, string $cachePr
 
 
 ```php
-public fetch(string $uri): ?\yxorP\app\lib\parser\publicSuffixListInterface
+public fetch(string $uri): ?\yxorP\lib\parser\publicSuffixListInterface
 ```
 
 
@@ -150,7 +150,7 @@ private cacheKey(string $str): string
 
 
 ```php
-public remember(string $uri, \yxorP\app\lib\parser\publicSuffixListInterface $publicSuffixList): bool
+public remember(string $uri, \yxorP\lib\parser\publicSuffixListInterface $publicSuffixList): bool
 ```
 
 
@@ -165,7 +165,7 @@ public remember(string $uri, \yxorP\app\lib\parser\publicSuffixListInterface $pu
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string** |  |
-| `$publicSuffixList` | **\yxorP\app\lib\parser\publicSuffixListInterface** |  |
+| `$publicSuffixList` | **\yxorP\lib\parser\publicSuffixListInterface** |  |
 
 
 

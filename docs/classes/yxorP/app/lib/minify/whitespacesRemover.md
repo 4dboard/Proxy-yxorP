@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\minify\whitespacesRemover`
+* Full name: `\yxorP\lib\minify\whitespacesRemover`
 * This class implements:
-[`\yxorP\app\lib\minify\minfyInterface`](./minfyInterface.md)
+[`\yxorP\lib\minify\minfyInterface`](./minfyInterface.md)
 
 
 ## Constants

@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\promise\rejectedPromise`
+* Full name: `\yxorP\lib\proxy\promise\rejectedPromise`
 * This class implements:
-[`\yxorP\app\lib\proxy\promise\promiseInterface`](./promiseInterface.md)
+[`\yxorP\lib\proxy\promise\promiseInterface`](./promiseInterface.md)
 
 
 

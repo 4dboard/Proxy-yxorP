@@ -6,11 +6,11 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\unableToLoadResource`
+* Full name: `\yxorP\lib\parser\unableToLoadResource`
 * Parent class: [`RuntimeException`](../../../../RuntimeException.md)
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\cannotProcessHostInterface`](./cannotProcessHostInterface.md)
+[`\yxorP\lib\parser\cannotProcessHostInterface`](./cannotProcessHostInterface.md)
 * This class is a **Final class**
 
 

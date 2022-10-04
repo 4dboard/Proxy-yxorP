@@ -6,7 +6,7 @@ It's a class that's used to dispatch events.
 
 
 
-* Full name: `\yxorP\app\lib\http\store`
+* Full name: `\yxorP\lib\http\store`
 
 
 

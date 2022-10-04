@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\fnStream`
+* Full name: `\yxorP\lib\proxy\psr7\fnStream`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
+[`\yxorP\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
 
 
 
@@ -64,7 +64,7 @@ public __construct(array $methods): mixed
 
 
 ```php
-public static decorate(\yxorP\app\lib\psr\http\message\streamInterface $stream, array $methods): mixed
+public static decorate(\yxorP\lib\psr\http\message\streamInterface $stream, array $methods): mixed
 ```
 
 
@@ -78,7 +78,7 @@ public static decorate(\yxorP\app\lib\psr\http\message\streamInterface $stream, 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 | `$methods` | **array** |  |
 
 

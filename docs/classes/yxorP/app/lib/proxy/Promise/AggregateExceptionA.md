@@ -6,8 +6,8 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Promise\aggregateExceptionA`
-* Parent class: [`\yxorP\app\lib\proxy\Promise\aRejectionException`](./aRejectionException.md)
+* Full name: `\yxorP\lib\proxy\Promise\aggregateExceptionA`
+* Parent class: [`\yxorP\lib\proxy\Promise\aRejectionException`](./aRejectionException.md)
 
 
 

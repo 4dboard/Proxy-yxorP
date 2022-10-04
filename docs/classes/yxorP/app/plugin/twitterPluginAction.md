@@ -7,7 +7,7 @@ Extending the wrapper class, which is a class that is used to create plugins.
 
 
 * Full name: `\yxorP\app\plugin\twitterPluginAction`
-* Parent class: [`\yxorP\app\lib\http\wrapper`](../lib/http/wrapper.md)
+* Parent class: [`\yxorP\lib\http\wrapper`](../lib/http/wrapper.md)
 
 
 

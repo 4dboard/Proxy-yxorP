@@ -7,7 +7,7 @@ Extending the wrapper class, which is a class that allows you to listen to event
 
 
 * Full name: `\yxorP\app\plugin\streamPluginAction`
-* Parent class: [`\yxorP\app\lib\http\wrapper`](../lib/http/wrapper.md)
+* Parent class: [`\yxorP\lib\http\wrapper`](../lib/http/wrapper.md)
 
 
 

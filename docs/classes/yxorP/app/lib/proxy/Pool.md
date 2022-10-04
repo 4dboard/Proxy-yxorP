@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\pool`
+* Full name: `\yxorP\lib\proxy\pool`
 * This class implements:
-[`\yxorP\app\lib\proxy\promise\promisorInterface`](./promise/promisorInterface.md)
+[`\yxorP\lib\proxy\promise\promisorInterface`](./promise/promisorInterface.md)
 
 
 
@@ -38,7 +38,7 @@ private $each
 
 
 ```php
-public __construct(\yxorP\app\lib\proxy\clientInterface $client, mixed $requests, array $config = []): mixed
+public __construct(\yxorP\lib\proxy\clientInterface $client, mixed $requests, array $config = []): mixed
 ```
 
 
@@ -52,7 +52,7 @@ public __construct(\yxorP\app\lib\proxy\clientInterface $client, mixed $requests
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$client` | **\yxorP\app\lib\proxy\clientInterface** |  |
+| `$client` | **\yxorP\lib\proxy\clientInterface** |  |
 | `$requests` | **mixed** |  |
 | `$config` | **array** |  |
 
@@ -66,7 +66,7 @@ public __construct(\yxorP\app\lib\proxy\clientInterface $client, mixed $requests
 
 
 ```php
-public static batch(\yxorP\app\lib\proxy\clientInterface $client, mixed $requests, array $options = []): mixed
+public static batch(\yxorP\lib\proxy\clientInterface $client, mixed $requests, array $options = []): mixed
 ```
 
 
@@ -80,7 +80,7 @@ public static batch(\yxorP\app\lib\proxy\clientInterface $client, mixed $request
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$client` | **\yxorP\app\lib\proxy\clientInterface** |  |
+| `$client` | **\yxorP\lib\proxy\clientInterface** |  |
 | `$requests` | **mixed** |  |
 | `$options` | **array** |  |
 

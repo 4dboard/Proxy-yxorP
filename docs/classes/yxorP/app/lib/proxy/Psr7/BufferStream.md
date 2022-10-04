@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\bufferStream`
+* Full name: `\yxorP\lib\proxy\psr7\bufferStream`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
+[`\yxorP\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
 
 
 

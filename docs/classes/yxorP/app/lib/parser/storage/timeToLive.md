@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\storage\timeToLive`
+* Full name: `\yxorP\lib\parser\storage\timeToLive`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 

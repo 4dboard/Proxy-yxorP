@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\minify\minfyInterface`
+* Full name: `\yxorP\lib\minify\minfyInterface`
 
 
 

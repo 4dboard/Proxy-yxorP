@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\storage\psrStorageFactory`
+* Full name: `\yxorP\lib\parser\storage\psrStorageFactory`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\resourceUriInterface`](../resourceUriInterface.md), [`\yxorP\app\lib\parser\storage\publicSuffixListStorageFactoryInterface`](./publicSuffixListStorageFactoryInterface.md), [`\yxorP\app\lib\parser\storage\topLevelDomainListStorageFactoryInterface`](./topLevelDomainListStorageFactoryInterface.md)
+[`\yxorP\lib\parser\resourceUriInterface`](../resourceUriInterface.md), [`\yxorP\lib\parser\storage\publicSuffixListStorageFactoryInterface`](./publicSuffixListStorageFactoryInterface.md), [`\yxorP\lib\parser\storage\topLevelDomainListStorageFactoryInterface`](./topLevelDomainListStorageFactoryInterface.md)
 * This class is a **Final class**
 
 
@@ -98,7 +98,7 @@ public __construct(\yxorP\psr\SimpleCache\CacheInterface $cache, \GuzzleHttp\Cli
 
 
 ```php
-public createPublicSuffixListStorage(string $cachePrefix = &#039;&#039;, mixed $cacheTtl = null): \yxorP\app\lib\parser\storage\publicSuffixListStorageInterface
+public createPublicSuffixListStorage(string $cachePrefix = &#039;&#039;, mixed $cacheTtl = null): \yxorP\lib\parser\storage\publicSuffixListStorageInterface
 ```
 
 
@@ -125,7 +125,7 @@ public createPublicSuffixListStorage(string $cachePrefix = &#039;&#039;, mixed $
 
 
 ```php
-public createTopLevelDomainListStorage(string $cachePrefix = &#039;&#039;, mixed $cacheTtl = null): \yxorP\app\lib\parser\storage\topLevelDomainListStorageInterface
+public createTopLevelDomainListStorage(string $cachePrefix = &#039;&#039;, mixed $cacheTtl = null): \yxorP\lib\parser\storage\topLevelDomainListStorageInterface
 ```
 
 

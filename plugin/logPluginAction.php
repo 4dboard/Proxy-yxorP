@@ -1,13 +1,13 @@
 <?php
 
 /**
- * It's importing the wrapper class from the yxorP\app\lib\http namespace.
+ * It's importing the wrapper class from the yxorP\lib\http namespace.
  */
 
 namespace yxorP\plugin;
 
-use yxorP\app\lib\http\store;
-use yxorP\app\lib\http\wrapper;
+use yxorP\lib\http\store;
+use yxorP\lib\http\wrapper;
 
 /**
  * It's extending the wrapper class.

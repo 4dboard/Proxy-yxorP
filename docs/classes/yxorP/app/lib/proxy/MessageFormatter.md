@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\messageFormatter`
+* Full name: `\yxorP\lib\proxy\messageFormatter`
 
 
 ## Constants
@@ -69,7 +69,7 @@ public __construct(mixed $template = self::CLF): mixed
 
 
 ```php
-public format(\yxorP\app\lib\psr\http\message\requestInterface $request, \yxorP\app\lib\psr\http\message\responseInterface $response = null, \Exception $error = null): mixed
+public format(\yxorP\lib\psr\http\message\requestInterface $request, \yxorP\lib\psr\http\message\responseInterface $response = null, \Exception $error = null): mixed
 ```
 
 
@@ -83,8 +83,8 @@ public format(\yxorP\app\lib\psr\http\message\requestInterface $request, \yxorP\
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
-| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
+| `$response` | **\yxorP\lib\psr\http\message\responseInterface** |  |
 | `$error` | **\Exception** |  |
 
 
@@ -97,7 +97,7 @@ public format(\yxorP\app\lib\psr\http\message\requestInterface $request, \yxorP\
 
 
 ```php
-private headers(\yxorP\app\lib\psr\http\message\messageInterface $message): mixed
+private headers(\yxorP\lib\psr\http\message\messageInterface $message): mixed
 ```
 
 
@@ -111,7 +111,7 @@ private headers(\yxorP\app\lib\psr\http\message\messageInterface $message): mixe
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$message` | **\yxorP\app\lib\psr\http\message\messageInterface** |  |
+| `$message` | **\yxorP\lib\psr\http\message\messageInterface** |  |
 
 
 

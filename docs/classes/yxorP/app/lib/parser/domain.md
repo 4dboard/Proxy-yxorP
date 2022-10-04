@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\domain`
+* Full name: `\yxorP\lib\parser\domain`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\nameInterface`](./nameInterface.md)
+[`\yxorP\lib\parser\nameInterface`](./nameInterface.md)
 * This class is a **Final class**
 
 
@@ -658,7 +658,7 @@ public withoutLabel(int $key, int $keys): self
 
 
 ```php
-public clear(): \yxorP\app\lib\parser\domain
+public clear(): \yxorP\lib\parser\domain
 ```
 
 

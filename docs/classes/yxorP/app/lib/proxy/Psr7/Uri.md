@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\uri`
+* Full name: `\yxorP\lib\proxy\psr7\uri`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\uriInterface`](../../psr/http/message/uriInterface.md)
+[`\yxorP\lib\psr\http\message\uriInterface`](../../psr/http/message/uriInterface.md)
 
 
 ## Constants
@@ -219,7 +219,7 @@ public __construct(mixed $uri = &#039;&#039;): mixed
 
 
 ```php
-public static isDefaultPort(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
+public static isDefaultPort(\yxorP\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
 
@@ -233,7 +233,7 @@ public static isDefaultPort(\yxorP\app\lib\psr\http\message\uriInterface $uri): 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 
 
 
@@ -245,7 +245,7 @@ public static isDefaultPort(\yxorP\app\lib\psr\http\message\uriInterface $uri): 
 
 
 ```php
-public static isAbsolute(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
+public static isAbsolute(\yxorP\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
 
@@ -259,7 +259,7 @@ public static isAbsolute(\yxorP\app\lib\psr\http\message\uriInterface $uri): mix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 
 
 
@@ -271,7 +271,7 @@ public static isAbsolute(\yxorP\app\lib\psr\http\message\uriInterface $uri): mix
 
 
 ```php
-public static isNetworkPathReference(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
+public static isNetworkPathReference(\yxorP\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
 
@@ -285,7 +285,7 @@ public static isNetworkPathReference(\yxorP\app\lib\psr\http\message\uriInterfac
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 
 
 
@@ -297,7 +297,7 @@ public static isNetworkPathReference(\yxorP\app\lib\psr\http\message\uriInterfac
 
 
 ```php
-public static isAbsolutePathReference(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
+public static isAbsolutePathReference(\yxorP\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
 
@@ -311,7 +311,7 @@ public static isAbsolutePathReference(\yxorP\app\lib\psr\http\message\uriInterfa
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 
 
 
@@ -323,7 +323,7 @@ public static isAbsolutePathReference(\yxorP\app\lib\psr\http\message\uriInterfa
 
 
 ```php
-public static isRelativePathReference(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
+public static isRelativePathReference(\yxorP\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
 
@@ -337,7 +337,7 @@ public static isRelativePathReference(\yxorP\app\lib\psr\http\message\uriInterfa
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 
 
 
@@ -349,7 +349,7 @@ public static isRelativePathReference(\yxorP\app\lib\psr\http\message\uriInterfa
 
 
 ```php
-public static isSameDocumentReference(\yxorP\app\lib\psr\http\message\uriInterface $uri, \yxorP\app\lib\psr\http\message\uriInterface $base = null): mixed
+public static isSameDocumentReference(\yxorP\lib\psr\http\message\uriInterface $uri, \yxorP\lib\psr\http\message\uriInterface $base = null): mixed
 ```
 
 
@@ -363,8 +363,8 @@ public static isSameDocumentReference(\yxorP\app\lib\psr\http\message\uriInterfa
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
-| `$base` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
+| `$base` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 
 
 
@@ -402,7 +402,7 @@ public static removeDotSegments(mixed $path): mixed
 
 
 ```php
-public static resolve(\yxorP\app\lib\psr\http\message\uriInterface $base, mixed $rel): mixed
+public static resolve(\yxorP\lib\psr\http\message\uriInterface $base, mixed $rel): mixed
 ```
 
 
@@ -416,7 +416,7 @@ public static resolve(\yxorP\app\lib\psr\http\message\uriInterface $base, mixed 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$base` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$base` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 | `$rel` | **mixed** |  |
 
 
@@ -429,7 +429,7 @@ public static resolve(\yxorP\app\lib\psr\http\message\uriInterface $base, mixed 
 
 
 ```php
-public static withoutQueryValue(\yxorP\app\lib\psr\http\message\uriInterface $uri, mixed $key): mixed
+public static withoutQueryValue(\yxorP\lib\psr\http\message\uriInterface $uri, mixed $key): mixed
 ```
 
 
@@ -443,7 +443,7 @@ public static withoutQueryValue(\yxorP\app\lib\psr\http\message\uriInterface $ur
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 | `$key` | **mixed** |  |
 
 
@@ -456,7 +456,7 @@ public static withoutQueryValue(\yxorP\app\lib\psr\http\message\uriInterface $ur
 
 
 ```php
-public static withQueryValue(\yxorP\app\lib\psr\http\message\uriInterface $uri, mixed $key, mixed $value): mixed
+public static withQueryValue(\yxorP\lib\psr\http\message\uriInterface $uri, mixed $key, mixed $value): mixed
 ```
 
 
@@ -470,7 +470,7 @@ public static withQueryValue(\yxorP\app\lib\psr\http\message\uriInterface $uri, 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 
@@ -484,7 +484,7 @@ public static withQueryValue(\yxorP\app\lib\psr\http\message\uriInterface $uri, 
 
 
 ```php
-public static withQueryValues(\yxorP\app\lib\psr\http\message\uriInterface $uri, array $keyValueArray): mixed
+public static withQueryValues(\yxorP\lib\psr\http\message\uriInterface $uri, array $keyValueArray): mixed
 ```
 
 
@@ -498,7 +498,7 @@ public static withQueryValues(\yxorP\app\lib\psr\http\message\uriInterface $uri,
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 | `$keyValueArray` | **array** |  |
 
 
@@ -567,7 +567,7 @@ public static composeComponents(mixed $scheme, mixed $authority, mixed $path, mi
 
 
 ```php
-private static getFilteredQueryString(\yxorP\app\lib\psr\http\message\uriInterface $uri, array $keys): mixed
+private static getFilteredQueryString(\yxorP\lib\psr\http\message\uriInterface $uri, array $keys): mixed
 ```
 
 
@@ -581,7 +581,7 @@ private static getFilteredQueryString(\yxorP\app\lib\psr\http\message\uriInterfa
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 | `$keys` | **array** |  |
 
 

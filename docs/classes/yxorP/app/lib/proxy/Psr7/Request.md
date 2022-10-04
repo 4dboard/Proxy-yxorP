@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\request`
+* Full name: `\yxorP\lib\proxy\psr7\request`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\requestInterface`](../../psr/http/message/requestInterface.md)
+[`\yxorP\lib\psr\http\message\requestInterface`](../../psr/http/message/requestInterface.md)
 
 
 
@@ -262,7 +262,7 @@ changed request method.
 Retrieves the URI instance.
 
 ```php
-public getUri(): \yxorP\app\lib\psr\http\message\uriInterface
+public getUri(): \yxorP\lib\psr\http\message\uriInterface
 ```
 
 This method MUST return a UriInterface instance.
@@ -287,7 +287,7 @@ representing the URI of the request.
 Returns an instance with the provided URI.
 
 ```php
-public withUri(\yxorP\app\lib\psr\http\message\uriInterface $uri, mixed $preserveHost = false): static
+public withUri(\yxorP\lib\psr\http\message\uriInterface $uri, mixed $preserveHost = false): static
 ```
 
 This method MUST update the Host header of the returned request by
@@ -321,7 +321,7 @@ new UriInterface instance.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** | New request URI to use. |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** | New request URI to use. |
 | `$preserveHost` | **mixed** | Preserve the original state of the Host header. |
 
 
@@ -582,7 +582,7 @@ public getBody(): mixed
 
 
 ```php
-public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
+public withBody(\yxorP\lib\psr\http\message\streamInterface $body): mixed
 ```
 
 
@@ -596,7 +596,7 @@ public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$body` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$body` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 
 
 

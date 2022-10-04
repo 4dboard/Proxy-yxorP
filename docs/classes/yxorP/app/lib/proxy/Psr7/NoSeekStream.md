@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\noSeekStream`
+* Full name: `\yxorP\lib\proxy\psr7\noSeekStream`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
+[`\yxorP\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
 
 
 
@@ -72,7 +72,7 @@ public isSeekable(): bool
 
 
 ```php
-public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mixed
+public __construct(\yxorP\lib\psr\http\message\streamInterface $stream): mixed
 ```
 
 
@@ -86,7 +86,7 @@ public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 
 
 

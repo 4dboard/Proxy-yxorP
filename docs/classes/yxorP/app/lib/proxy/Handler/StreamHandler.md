@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\handler\streamHandler`
+* Full name: `\yxorP\lib\proxy\handler\streamHandler`
 
 
 
@@ -36,7 +36,7 @@ private $lastHeaders
 
 
 ```php
-public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
+public __invoke(\yxorP\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
 
 
@@ -50,7 +50,7 @@ public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -63,7 +63,7 @@ public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 
 
 ```php
-private createResponse(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options, mixed $stream, mixed $startTime): mixed
+private createResponse(\yxorP\lib\psr\http\message\requestInterface $request, array $options, mixed $stream, mixed $startTime): mixed
 ```
 
 
@@ -77,7 +77,7 @@ private createResponse(\yxorP\app\lib\psr\http\message\requestInterface $request
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 | `$stream` | **mixed** |  |
 | `$startTime` | **mixed** |  |
@@ -120,7 +120,7 @@ private checkDecode(array $options, array $headers, mixed $stream): mixed
 
 
 ```php
-private createSink(\yxorP\app\lib\psr\http\message\streamInterface $stream, array $options): mixed
+private createSink(\yxorP\lib\psr\http\message\streamInterface $stream, array $options): mixed
 ```
 
 
@@ -134,7 +134,7 @@ private createSink(\yxorP\app\lib\psr\http\message\streamInterface $stream, arra
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -147,7 +147,7 @@ private createSink(\yxorP\app\lib\psr\http\message\streamInterface $stream, arra
 
 
 ```php
-private drain(\yxorP\app\lib\psr\http\message\streamInterface $source, \yxorP\app\lib\psr\http\message\streamInterface $sink, mixed $contentLength): mixed
+private drain(\yxorP\lib\psr\http\message\streamInterface $source, \yxorP\lib\psr\http\message\streamInterface $sink, mixed $contentLength): mixed
 ```
 
 
@@ -161,8 +161,8 @@ private drain(\yxorP\app\lib\psr\http\message\streamInterface $source, \yxorP\ap
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$source` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
-| `$sink` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$source` | **\yxorP\lib\psr\http\message\streamInterface** |  |
+| `$sink` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 | `$contentLength` | **mixed** |  |
 
 
@@ -175,7 +175,7 @@ private drain(\yxorP\app\lib\psr\http\message\streamInterface $source, \yxorP\ap
 
 
 ```php
-private invokeStats(array $options, \yxorP\app\lib\psr\http\message\requestInterface $request, mixed $startTime, \yxorP\app\lib\psr\http\message\responseInterface $response = null, mixed $error = null): mixed
+private invokeStats(array $options, \yxorP\lib\psr\http\message\requestInterface $request, mixed $startTime, \yxorP\lib\psr\http\message\responseInterface $response = null, mixed $error = null): mixed
 ```
 
 
@@ -190,9 +190,9 @@ private invokeStats(array $options, \yxorP\app\lib\psr\http\message\requestInter
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$startTime` | **mixed** |  |
-| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
+| `$response` | **\yxorP\lib\psr\http\message\responseInterface** |  |
 | `$error` | **mixed** |  |
 
 
@@ -205,7 +205,7 @@ private invokeStats(array $options, \yxorP\app\lib\psr\http\message\requestInter
 
 
 ```php
-private createStream(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
+private createStream(\yxorP\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
 
 
@@ -219,7 +219,7 @@ private createStream(\yxorP\app\lib\psr\http\message\requestInterface $request, 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -232,7 +232,7 @@ private createStream(\yxorP\app\lib\psr\http\message\requestInterface $request, 
 
 
 ```php
-private getDefaultContext(\yxorP\app\lib\psr\http\message\requestInterface $request): mixed
+private getDefaultContext(\yxorP\lib\psr\http\message\requestInterface $request): mixed
 ```
 
 
@@ -246,7 +246,7 @@ private getDefaultContext(\yxorP\app\lib\psr\http\message\requestInterface $requ
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 
 
 
@@ -258,7 +258,7 @@ private getDefaultContext(\yxorP\app\lib\psr\http\message\requestInterface $requ
 
 
 ```php
-private resolveHost(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
+private resolveHost(\yxorP\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
 
 
@@ -272,7 +272,7 @@ private resolveHost(\yxorP\app\lib\psr\http\message\requestInterface $request, a
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -311,7 +311,7 @@ private createResource(callable $callback): mixed
 
 
 ```php
-private add_proxy(\yxorP\app\lib\psr\http\message\requestInterface $request, mixed& $options, mixed $value, mixed& $params): mixed
+private add_proxy(\yxorP\lib\psr\http\message\requestInterface $request, mixed& $options, mixed $value, mixed& $params): mixed
 ```
 
 
@@ -325,7 +325,7 @@ private add_proxy(\yxorP\app\lib\psr\http\message\requestInterface $request, mix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **mixed** |  |
 | `$value` | **mixed** |  |
 | `$params` | **mixed** |  |
@@ -340,7 +340,7 @@ private add_proxy(\yxorP\app\lib\psr\http\message\requestInterface $request, mix
 
 
 ```php
-private add_timeout(\yxorP\app\lib\psr\http\message\requestInterface $request, mixed& $options, mixed $value, mixed& $params): mixed
+private add_timeout(\yxorP\lib\psr\http\message\requestInterface $request, mixed& $options, mixed $value, mixed& $params): mixed
 ```
 
 
@@ -354,7 +354,7 @@ private add_timeout(\yxorP\app\lib\psr\http\message\requestInterface $request, m
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **mixed** |  |
 | `$value` | **mixed** |  |
 | `$params` | **mixed** |  |
@@ -369,7 +369,7 @@ private add_timeout(\yxorP\app\lib\psr\http\message\requestInterface $request, m
 
 
 ```php
-private add_verify(\yxorP\app\lib\psr\http\message\requestInterface $request, mixed& $options, mixed $value, mixed& $params): mixed
+private add_verify(\yxorP\lib\psr\http\message\requestInterface $request, mixed& $options, mixed $value, mixed& $params): mixed
 ```
 
 
@@ -383,7 +383,7 @@ private add_verify(\yxorP\app\lib\psr\http\message\requestInterface $request, mi
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **mixed** |  |
 | `$value` | **mixed** |  |
 | `$params` | **mixed** |  |
@@ -398,7 +398,7 @@ private add_verify(\yxorP\app\lib\psr\http\message\requestInterface $request, mi
 
 
 ```php
-private add_cert(\yxorP\app\lib\psr\http\message\requestInterface $request, mixed& $options, mixed $value, mixed& $params): mixed
+private add_cert(\yxorP\lib\psr\http\message\requestInterface $request, mixed& $options, mixed $value, mixed& $params): mixed
 ```
 
 
@@ -412,7 +412,7 @@ private add_cert(\yxorP\app\lib\psr\http\message\requestInterface $request, mixe
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **mixed** |  |
 | `$value` | **mixed** |  |
 | `$params` | **mixed** |  |
@@ -427,7 +427,7 @@ private add_cert(\yxorP\app\lib\psr\http\message\requestInterface $request, mixe
 
 
 ```php
-private add_progress(\yxorP\app\lib\psr\http\message\requestInterface $request, mixed& $options, mixed $value, mixed& $params): mixed
+private add_progress(\yxorP\lib\psr\http\message\requestInterface $request, mixed& $options, mixed $value, mixed& $params): mixed
 ```
 
 
@@ -441,7 +441,7 @@ private add_progress(\yxorP\app\lib\psr\http\message\requestInterface $request, 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **mixed** |  |
 | `$value` | **mixed** |  |
 | `$params` | **mixed** |  |
@@ -509,7 +509,7 @@ private callArray(array $functions): mixed
 
 
 ```php
-private add_debug(\yxorP\app\lib\psr\http\message\requestInterface $request, mixed& $options, mixed $value, mixed& $params): mixed
+private add_debug(\yxorP\lib\psr\http\message\requestInterface $request, mixed& $options, mixed $value, mixed& $params): mixed
 ```
 
 
@@ -523,7 +523,7 @@ private add_debug(\yxorP\app\lib\psr\http\message\requestInterface $request, mix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **mixed** |  |
 | `$value` | **mixed** |  |
 | `$params` | **mixed** |  |

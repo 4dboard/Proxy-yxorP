@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\storage\topLevelDomainListPsr16Cache`
+* Full name: `\yxorP\lib\parser\storage\topLevelDomainListPsr16Cache`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\storage\topLevelDomainListCacheInterface`](./topLevelDomainListCacheInterface.md)
+[`\yxorP\lib\parser\storage\topLevelDomainListCacheInterface`](./topLevelDomainListCacheInterface.md)
 * This class is a **Final class**
 
 
@@ -98,7 +98,7 @@ public __construct(\yxorP\psr\SimpleCache\CacheInterface $cache, string $cachePr
 
 
 ```php
-public fetch(string $uri): ?\yxorP\app\lib\parser\topLevelDomainListInterface
+public fetch(string $uri): ?\yxorP\lib\parser\topLevelDomainListInterface
 ```
 
 
@@ -150,7 +150,7 @@ private cacheKey(string $str): string
 
 
 ```php
-public remember(string $uri, \yxorP\app\lib\parser\topLevelDomainListInterface $topLevelDomainList): bool
+public remember(string $uri, \yxorP\lib\parser\topLevelDomainListInterface $topLevelDomainList): bool
 ```
 
 
@@ -165,7 +165,7 @@ public remember(string $uri, \yxorP\app\lib\parser\topLevelDomainListInterface $
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string** |  |
-| `$topLevelDomainList` | **\yxorP\app\lib\parser\topLevelDomainListInterface** |  |
+| `$topLevelDomainList` | **\yxorP\lib\parser\topLevelDomainListInterface** |  |
 
 
 

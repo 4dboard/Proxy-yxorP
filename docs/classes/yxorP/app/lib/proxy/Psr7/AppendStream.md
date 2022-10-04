@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\appendStream`
+* Full name: `\yxorP\lib\proxy\psr7\appendStream`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
+[`\yxorP\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
 
 
 
@@ -109,7 +109,7 @@ public __construct(array $streams = []): mixed
 
 
 ```php
-public addStream(\yxorP\app\lib\psr\http\message\streamInterface $stream): mixed
+public addStream(\yxorP\lib\psr\http\message\streamInterface $stream): mixed
 ```
 
 
@@ -123,7 +123,7 @@ public addStream(\yxorP\app\lib\psr\http\message\streamInterface $stream): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 
 
 

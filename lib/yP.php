@@ -1,7 +1,7 @@
 <?php
 
 
-namespace yxorP\app\lib;
+namespace yxorP\lib;
 /**
  * Setting the memory limit to unlimited.
  */
@@ -19,9 +19,9 @@ include 'constants.php';
  * It's importing the `Client` class from the `Bugsnag` namespace, the `RuntimeException` class from the `RuntimeException` namespace, the `cache` class from the `http` namespace, the `helpers` class from the `http` namespace, the `RulesParser` class from the `parser` namespace.
  */
 
-use yxorP\app\lib\http\helpers;
-use yxorP\app\lib\http\store;
-use yxorP\app\lib\proxy\FileCookieJar;
+use yxorP\lib\http\helpers;
+use yxorP\lib\http\store;
+use yxorP\lib\proxy\FileCookieJar;
 
 
 /**
@@ -54,12 +54,12 @@ class yP
         define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
         define('PATH_SITE_BOOTSTRAP', DIR_ROOT . DIR_APP . FILE_SITE_BOOTSTRAP);
         define('PATH_DIR_APP', DIR_ROOT . DIR_APP);
-        define('PATH_SITE_LOCAL', DIR_ROOT . DIR_APP . DIR_LIB . DIR_INSTALL . DIR_APP);
+        define('PATH_SITE_LOCAL', DIR_ROOT . DIR_LIB . DIR_INSTALL . DIR_APP);
         define('PATH_SITE_INDEX', DIR_ROOT . DIR_APP . FILE_INDEX);
-        define('PATH_REWRITE', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE);
-        define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
-        define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
-        define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
+        define('PATH_REWRITE', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_REWRITE);
+        define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
+        define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
+        define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
 
         /**
          * It's checking if the `$instance` variable is null, and if it is, it's setting it to a new instance of the `self`
@@ -80,7 +80,7 @@ class yP
         /**
          * Checking if the files exist in the directory.
          */
-        foreach (array('http', 'minify', 'parser', 'psr', 'proxy') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
+        foreach (array('http', 'minify', 'parser', 'psr', 'proxy') as $_asset) self::autoLoader(DIR_ROOT . DIR_LIB . $_asset);        // Reporting
         /**
          * It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
          * appended to it.
@@ -135,11 +135,11 @@ class yP
 
         /**
          * It's setting the `YXORP_ACTIONS` constant to an array of files in the `DIR_ROOT . DIR_APP .  DIR_LIB . DIR_ACTION`
-         * directory, then looping through all the files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION` directory, and if the file is a
+         * directory, then looping through all the files in the `DIR_ROOT . DIR_LIB . DIR_ACTION` directory, and if the file is a
          * directory, it's calling the `autoLoader()` function on it. If the file is an interface, it's requiring it in the first loop. If
          * the file is a class, it's requiring it in the second loop. If the file is a function, it's calling it in the third loop.
          */
-        foreach ([DIR_LIB . DIR_ACTION => store::handler(YXORP_ACTIONS, null, 'scandir', [DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION]), DIR_PLUGIN => store::handler(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
+        foreach ([DIR_LIB . DIR_ACTION => store::handler(YXORP_ACTIONS, null, 'scandir', [DIR_ROOT . DIR_LIB . DIR_ACTION]), DIR_PLUGIN => store::handler(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
 
     }
 

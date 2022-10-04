@@ -7,7 +7,7 @@ Extending the wrapper class.
 
 
 * Full name: `\onHeadersAction`
-* Parent class: [`\yxorP\app\lib\http\wrapper`](./yxorP/app/lib/http/wrapper.md)
+* Parent class: [`\yxorP\lib\http\wrapper`](./yxorP/lib/http/wrapper.md)
 
 
 
@@ -44,7 +44,7 @@ public onHeaders(): void
 Subscribing to all the events.
 
 ```php
-final public subscribe(\yxorP\app\lib\yP $dispatcher): void
+final public subscribe(\yxorP\lib\yP $dispatcher): void
 ```
 
 
@@ -58,7 +58,7 @@ final public subscribe(\yxorP\app\lib\yP $dispatcher): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$dispatcher` | **\yxorP\app\lib\yP** |  |
+| `$dispatcher` | **\yxorP\lib\yP** |  |
 
 
 

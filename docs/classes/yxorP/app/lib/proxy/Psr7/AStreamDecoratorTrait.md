@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\aStreamDecoratorTrait`
+* Full name: `\yxorP\lib\proxy\psr7\aStreamDecoratorTrait`
 
 
 
@@ -19,7 +19,7 @@
 
 
 ```php
-public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mixed
+public __construct(\yxorP\lib\psr\http\message\streamInterface $stream): mixed
 ```
 
 
@@ -33,7 +33,7 @@ public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 
 
 

@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\cookie\setCookie`
+* Full name: `\yxorP\lib\proxy\cookie\setCookie`
 
 
 

@@ -7,7 +7,7 @@ Extending the wrapper class.
 
 
 * Full name: `\onBuildRequestAction`
-* Parent class: [`\yxorP\app\lib\http\wrapper`](./yxorP/app/lib/http/wrapper.md)
+* Parent class: [`\yxorP\lib\http\wrapper`](./yxorP/lib/http/wrapper.md)
 
 
 

@@ -7,7 +7,7 @@ Extending the wrapper class, which is a class that is used to create plugins.
 
 
 * Full name: `\yxorP\plugin\twitterPluginAction`
-* Parent class: [`\yxorP\app\lib\http\wrapper`](../app/lib/http/wrapper.md)
+* Parent class: [`\yxorP\lib\http\wrapper`](../lib/http/wrapper.md)
 
 
 
@@ -61,7 +61,7 @@ public onComplete(): void
 Subscribing to all the events.
 
 ```php
-final public subscribe(\yxorP\app\lib\yP $dispatcher): void
+final public subscribe(\yxorP\lib\yP $dispatcher): void
 ```
 
 
@@ -75,7 +75,7 @@ final public subscribe(\yxorP\app\lib\yP $dispatcher): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$dispatcher` | **\yxorP\app\lib\yP** |  |
+| `$dispatcher` | **\yxorP\lib\yP** |  |
 
 
 

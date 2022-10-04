@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\minify\htmlCommentsRemover`
-* Parent class: [`\yxorP\app\lib\minify\areplacerInterface`](./areplacerInterface.md)
+* Full name: `\yxorP\lib\minify\htmlCommentsRemover`
+* Parent class: [`\yxorP\lib\minify\areplacerInterface`](./areplacerInterface.md)
 * This class implements:
-[`\yxorP\app\lib\minify\minfyInterface`](./minfyInterface.md)
+[`\yxorP\lib\minify\minfyInterface`](./minfyInterface.md)
 
 
 

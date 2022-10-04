@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\topLevelDomains`
+* Full name: `\yxorP\lib\parser\topLevelDomains`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\topLevelDomainListInterface`](./topLevelDomainListInterface.md)
+[`\yxorP\lib\parser\topLevelDomainListInterface`](./topLevelDomainListInterface.md)
 * This class is a **Final class**
 
 
@@ -361,7 +361,7 @@ public getIterator(): \Iterator
 
 
 ```php
-public resolve(mixed $host): \yxorP\app\lib\parser\resolvedDomainNameInterface
+public resolve(mixed $host): \yxorP\lib\parser\resolvedDomainNameInterface
 ```
 
 
@@ -387,7 +387,7 @@ public resolve(mixed $host): \yxorP\app\lib\parser\resolvedDomainNameInterface
 
 
 ```php
-private validateDomain(mixed $domain): \yxorP\app\lib\parser\nameInterface
+private validateDomain(mixed $domain): \yxorP\lib\parser\nameInterface
 ```
 
 
@@ -413,7 +413,7 @@ private validateDomain(mixed $domain): \yxorP\app\lib\parser\nameInterface
 
 
 ```php
-private containsTopLevelDomain(\yxorP\app\lib\parser\nameInterface $domain): bool
+private containsTopLevelDomain(\yxorP\lib\parser\nameInterface $domain): bool
 ```
 
 
@@ -427,7 +427,7 @@ private containsTopLevelDomain(\yxorP\app\lib\parser\nameInterface $domain): boo
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$domain` | **\yxorP\app\lib\parser\nameInterface** |  |
+| `$domain` | **\yxorP\lib\parser\nameInterface** |  |
 
 
 
@@ -439,7 +439,7 @@ private containsTopLevelDomain(\yxorP\app\lib\parser\nameInterface $domain): boo
 
 
 ```php
-public getIANADomain(mixed $host): \yxorP\app\lib\parser\resolvedDomainNameInterface
+public getIANADomain(mixed $host): \yxorP\lib\parser\resolvedDomainNameInterface
 ```
 
 

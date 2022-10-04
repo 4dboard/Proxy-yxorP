@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\handlerStack`
+* Full name: `\yxorP\lib\proxy\handlerStack`
 
 
 
@@ -145,7 +145,7 @@ public push(callable $middleware, mixed $name = &#039;&#039;): mixed
 
 
 ```php
-public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
+public __invoke(\yxorP\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
 
 
@@ -159,7 +159,7 @@ public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 

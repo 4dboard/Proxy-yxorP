@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\idna`
+* Full name: `\yxorP\lib\parser\idna`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
@@ -53,7 +53,7 @@
 
 
 ```php
-public static toAscii(string $domain, int $options): \yxorP\app\lib\parser\idnaInfo
+public static toAscii(string $domain, int $options): \yxorP\lib\parser\idnaInfo
 ```
 
 
@@ -100,7 +100,7 @@ private static supportsIdna(): void
 
 
 ```php
-public static toUnicode(string $domain, int $options): \yxorP\app\lib\parser\idnaInfo
+public static toUnicode(string $domain, int $options): \yxorP\lib\parser\idnaInfo
 ```
 
 

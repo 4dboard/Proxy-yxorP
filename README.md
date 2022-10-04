@@ -789,7 +789,7 @@ us.
 | [`SimpleImageLib`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/SimpleImageLib.md) | A PHP class that makes working with images as simple as possible.|
 | [`UnhandledMatchError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/UnhandledMatchError.md) | |
 | [`ValueError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ValueError.md) | |
-| [`onCheckAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onCheckAction.md) | Importing the wrapper class from the yxorP\app\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.|
+| [`onCheckAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onCheckAction.md) | Importing the wrapper class from the yxorP\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.|
 | [`onCompleteAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onCompleteAction.md) | Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.|
 | [`onContextAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onContextAction.md) | Extending the wrapper class, which is a class that is used to wrap the request and response objects.|
 | [`onExceptionAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onExceptionAction.md) | A class that extends the wrapper class.|

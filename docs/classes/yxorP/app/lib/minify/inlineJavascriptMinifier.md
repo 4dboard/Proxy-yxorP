@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\minify\inlineJavascriptMinifier`
+* Full name: `\yxorP\lib\minify\inlineJavascriptMinifier`
 * This class implements:
-[`\yxorP\app\lib\minify\minfyInterface`](./minfyInterface.md)
+[`\yxorP\lib\minify\minfyInterface`](./minfyInterface.md)
 
 
 

@@ -7,7 +7,7 @@ Extending the wrapper class, which is a class that is used to wrap the request a
 
 
 * Full name: `\onBuildContextAction`
-* Parent class: [`\yxorP\app\lib\http\wrapper`](./yxorP/app/lib/http/wrapper.md)
+* Parent class: [`\yxorP\lib\http\wrapper`](./yxorP/lib/http/wrapper.md)
 
 
 

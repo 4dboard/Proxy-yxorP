@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\multipartStream`
+* Full name: `\yxorP\lib\proxy\psr7\multipartStream`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
+[`\yxorP\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
 
 
 
@@ -91,7 +91,7 @@ protected createStream(array $elements): mixed
 
 
 ```php
-private addElement(\yxorP\app\lib\proxy\psr7\appendStream $stream, array $element): mixed
+private addElement(\yxorP\lib\proxy\psr7\appendStream $stream, array $element): mixed
 ```
 
 
@@ -105,7 +105,7 @@ private addElement(\yxorP\app\lib\proxy\psr7\appendStream $stream, array $elemen
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\proxy\psr7\appendStream** |  |
+| `$stream` | **\yxorP\lib\proxy\psr7\appendStream** |  |
 | `$element` | **array** |  |
 
 
@@ -118,7 +118,7 @@ private addElement(\yxorP\app\lib\proxy\psr7\appendStream $stream, array $elemen
 
 
 ```php
-private createElement(mixed $name, \yxorP\app\lib\psr\http\message\streamInterface $stream, mixed $filename, array $headers): mixed
+private createElement(mixed $name, \yxorP\lib\psr\http\message\streamInterface $stream, mixed $filename, array $headers): mixed
 ```
 
 
@@ -133,7 +133,7 @@ private createElement(mixed $name, \yxorP\app\lib\psr\http\message\streamInterfa
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 | `$filename` | **mixed** |  |
 | `$headers` | **array** |  |
 
@@ -244,7 +244,7 @@ public isWritable(): bool
 
 
 ```php
-public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mixed
+public __construct(\yxorP\lib\psr\http\message\streamInterface $stream): mixed
 ```
 
 
@@ -258,7 +258,7 @@ public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 
 
 

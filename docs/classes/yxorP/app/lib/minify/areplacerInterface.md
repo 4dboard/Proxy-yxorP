@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\minify\areplacerInterface`
+* Full name: `\yxorP\lib\minify\areplacerInterface`
 * This class is an **Abstract class**
 
 

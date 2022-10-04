@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\retryMiddleware`
+* Full name: `\yxorP\lib\proxy\retryMiddleware`
 
 
 
@@ -120,7 +120,7 @@ public static exponentialDelay(mixed $retries): mixed
 
 
 ```php
-public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
+public __invoke(\yxorP\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
 
 
@@ -134,7 +134,7 @@ public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -147,7 +147,7 @@ public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 
 
 ```php
-private onFulfilled(\yxorP\app\lib\psr\http\message\requestInterface $req, array $options): mixed
+private onFulfilled(\yxorP\lib\psr\http\message\requestInterface $req, array $options): mixed
 ```
 
 
@@ -161,7 +161,7 @@ private onFulfilled(\yxorP\app\lib\psr\http\message\requestInterface $req, array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$req` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$req` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -174,7 +174,7 @@ private onFulfilled(\yxorP\app\lib\psr\http\message\requestInterface $req, array
 
 
 ```php
-private doRetry(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options, \yxorP\app\lib\psr\http\message\responseInterface $response = null): mixed
+private doRetry(\yxorP\lib\psr\http\message\requestInterface $request, array $options, \yxorP\lib\psr\http\message\responseInterface $response = null): mixed
 ```
 
 
@@ -188,9 +188,9 @@ private doRetry(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
-| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
+| `$response` | **\yxorP\lib\psr\http\message\responseInterface** |  |
 
 
 
@@ -202,7 +202,7 @@ private doRetry(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 
 
 ```php
-private onRejected(\yxorP\app\lib\psr\http\message\requestInterface $req, array $options): mixed
+private onRejected(\yxorP\lib\psr\http\message\requestInterface $req, array $options): mixed
 ```
 
 
@@ -216,7 +216,7 @@ private onRejected(\yxorP\app\lib\psr\http\message\requestInterface $req, array 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$req` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$req` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 

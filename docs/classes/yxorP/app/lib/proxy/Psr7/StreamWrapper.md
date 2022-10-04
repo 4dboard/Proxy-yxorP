@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\streamWrapper`
+* Full name: `\yxorP\lib\proxy\psr7\streamWrapper`
 
 
 
@@ -66,7 +66,7 @@ private $mode
 
 
 ```php
-public static getResource(\yxorP\app\lib\psr\http\message\streamInterface $stream): mixed
+public static getResource(\yxorP\lib\psr\http\message\streamInterface $stream): mixed
 ```
 
 
@@ -80,7 +80,7 @@ public static getResource(\yxorP\app\lib\psr\http\message\streamInterface $strea
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 
 
 
@@ -112,7 +112,7 @@ public static register(): mixed
 
 
 ```php
-public static createStreamContext(\yxorP\app\lib\psr\http\message\streamInterface $stream): mixed
+public static createStreamContext(\yxorP\lib\psr\http\message\streamInterface $stream): mixed
 ```
 
 
@@ -126,7 +126,7 @@ public static createStreamContext(\yxorP\app\lib\psr\http\message\streamInterfac
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 
 
 

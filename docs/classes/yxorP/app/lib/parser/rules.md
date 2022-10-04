@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\rules`
+* Full name: `\yxorP\lib\parser\rules`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\publicSuffixListInterface`](./publicSuffixListInterface.md)
+[`\yxorP\lib\parser\publicSuffixListInterface`](./publicSuffixListInterface.md)
 * This class is a **Final class**
 
 
@@ -233,7 +233,7 @@ public static __set_state(array $properties): self
 
 
 ```php
-public resolve(mixed $host): \yxorP\app\lib\parser\resolvedDomainNameInterface
+public resolve(mixed $host): \yxorP\lib\parser\resolvedDomainNameInterface
 ```
 
 
@@ -259,7 +259,7 @@ public resolve(mixed $host): \yxorP\app\lib\parser\resolvedDomainNameInterface
 
 
 ```php
-public getCookieDomain(mixed $host): \yxorP\app\lib\parser\resolvedDomainNameInterface
+public getCookieDomain(mixed $host): \yxorP\lib\parser\resolvedDomainNameInterface
 ```
 
 
@@ -285,7 +285,7 @@ public getCookieDomain(mixed $host): \yxorP\app\lib\parser\resolvedDomainNameInt
 
 
 ```php
-private validateDomain(mixed $domain): \yxorP\app\lib\parser\nameInterface
+private validateDomain(mixed $domain): \yxorP\lib\parser\nameInterface
 ```
 
 
@@ -311,7 +311,7 @@ private validateDomain(mixed $domain): \yxorP\app\lib\parser\nameInterface
 
 
 ```php
-private resolveSuffix(\yxorP\app\lib\parser\nameInterface $domain, string $section): array
+private resolveSuffix(\yxorP\lib\parser\nameInterface $domain, string $section): array
 ```
 
 
@@ -325,7 +325,7 @@ private resolveSuffix(\yxorP\app\lib\parser\nameInterface $domain, string $secti
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$domain` | **\yxorP\app\lib\parser\nameInterface** |  |
+| `$domain` | **\yxorP\lib\parser\nameInterface** |  |
 | `$section` | **string** |  |
 
 
@@ -338,7 +338,7 @@ private resolveSuffix(\yxorP\app\lib\parser\nameInterface $domain, string $secti
 
 
 ```php
-private getPublicSuffixLengthFromSection(\yxorP\app\lib\parser\nameInterface $domain, string $section): int
+private getPublicSuffixLengthFromSection(\yxorP\lib\parser\nameInterface $domain, string $section): int
 ```
 
 
@@ -352,7 +352,7 @@ private getPublicSuffixLengthFromSection(\yxorP\app\lib\parser\nameInterface $do
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$domain` | **\yxorP\app\lib\parser\nameInterface** |  |
+| `$domain` | **\yxorP\lib\parser\nameInterface** |  |
 | `$section` | **string** |  |
 
 
@@ -365,7 +365,7 @@ private getPublicSuffixLengthFromSection(\yxorP\app\lib\parser\nameInterface $do
 
 
 ```php
-public getICANNDomain(mixed $host): \yxorP\app\lib\parser\resolvedDomainNameInterface
+public getICANNDomain(mixed $host): \yxorP\lib\parser\resolvedDomainNameInterface
 ```
 
 
@@ -391,7 +391,7 @@ public getICANNDomain(mixed $host): \yxorP\app\lib\parser\resolvedDomainNameInte
 
 
 ```php
-public getPrivateDomain(mixed $host): \yxorP\app\lib\parser\resolvedDomainNameInterface
+public getPrivateDomain(mixed $host): \yxorP\lib\parser\resolvedDomainNameInterface
 ```
 
 

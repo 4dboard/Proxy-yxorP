@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\handler\easyHandle`
+* Full name: `\yxorP\lib\proxy\handler\easyHandle`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 

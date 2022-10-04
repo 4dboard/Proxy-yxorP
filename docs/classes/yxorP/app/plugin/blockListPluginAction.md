@@ -7,7 +7,7 @@ Extending the wrapper class.
 
 
 * Full name: `\yxorP\app\plugin\blockListPluginAction`
-* Parent class: [`\yxorP\app\lib\http\wrapper`](../lib/http/wrapper.md)
+* Parent class: [`\yxorP\lib\http\wrapper`](../lib/http/wrapper.md)
 
 
 

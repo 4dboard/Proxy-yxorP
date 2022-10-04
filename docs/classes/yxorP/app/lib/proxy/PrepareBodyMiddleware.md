@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\prepareBodyMiddleware`
+* Full name: `\yxorP\lib\proxy\prepareBodyMiddleware`
 
 
 
@@ -62,7 +62,7 @@ public __construct(callable $nextHandler): mixed
 
 
 ```php
-public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
+public __invoke(\yxorP\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
 
 
@@ -76,7 +76,7 @@ public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -89,7 +89,7 @@ public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 
 
 ```php
-private addExpectHeader(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options, array& $modify): mixed
+private addExpectHeader(\yxorP\lib\psr\http\message\requestInterface $request, array $options, array& $modify): mixed
 ```
 
 
@@ -103,7 +103,7 @@ private addExpectHeader(\yxorP\app\lib\psr\http\message\requestInterface $reques
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 | `$modify` | **array** |  |
 

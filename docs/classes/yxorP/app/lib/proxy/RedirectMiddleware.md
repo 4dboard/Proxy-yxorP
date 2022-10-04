@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\redirectMiddleware`
+* Full name: `\yxorP\lib\proxy\redirectMiddleware`
 
 
 ## Constants
@@ -83,7 +83,7 @@ public __construct(callable $nextHandler): mixed
 
 
 ```php
-public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
+public __invoke(\yxorP\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
 
 
@@ -97,7 +97,7 @@ public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -110,7 +110,7 @@ public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 
 
 ```php
-public checkRedirect(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options, \yxorP\app\lib\psr\http\message\responseInterface $response): mixed
+public checkRedirect(\yxorP\lib\psr\http\message\requestInterface $request, array $options, \yxorP\lib\psr\http\message\responseInterface $response): mixed
 ```
 
 
@@ -124,9 +124,9 @@ public checkRedirect(\yxorP\app\lib\psr\http\message\requestInterface $request, 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
-| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
+| `$response` | **\yxorP\lib\psr\http\message\responseInterface** |  |
 
 
 
@@ -138,7 +138,7 @@ public checkRedirect(\yxorP\app\lib\psr\http\message\requestInterface $request, 
 
 
 ```php
-public modifyRequest(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options, \yxorP\app\lib\psr\http\message\responseInterface $response): mixed
+public modifyRequest(\yxorP\lib\psr\http\message\requestInterface $request, array $options, \yxorP\lib\psr\http\message\responseInterface $response): mixed
 ```
 
 
@@ -152,9 +152,9 @@ public modifyRequest(\yxorP\app\lib\psr\http\message\requestInterface $request, 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
-| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
+| `$response` | **\yxorP\lib\psr\http\message\responseInterface** |  |
 
 
 
@@ -166,7 +166,7 @@ public modifyRequest(\yxorP\app\lib\psr\http\message\requestInterface $request, 
 
 
 ```php
-private guardMax(\yxorP\app\lib\psr\http\message\requestInterface $request, array& $options): mixed
+private guardMax(\yxorP\lib\psr\http\message\requestInterface $request, array& $options): mixed
 ```
 
 
@@ -180,7 +180,7 @@ private guardMax(\yxorP\app\lib\psr\http\message\requestInterface $request, arra
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -193,7 +193,7 @@ private guardMax(\yxorP\app\lib\psr\http\message\requestInterface $request, arra
 
 
 ```php
-private redirectUri(\yxorP\app\lib\psr\http\message\requestInterface $request, \yxorP\app\lib\psr\http\message\responseInterface $response, array $protocols): mixed
+private redirectUri(\yxorP\lib\psr\http\message\requestInterface $request, \yxorP\lib\psr\http\message\responseInterface $response, array $protocols): mixed
 ```
 
 
@@ -207,8 +207,8 @@ private redirectUri(\yxorP\app\lib\psr\http\message\requestInterface $request, \
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
-| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
+| `$response` | **\yxorP\lib\psr\http\message\responseInterface** |  |
 | `$protocols` | **array** |  |
 
 
@@ -221,7 +221,7 @@ private redirectUri(\yxorP\app\lib\psr\http\message\requestInterface $request, \
 
 
 ```php
-private withTracking(\yxorP\app\lib\proxy\promise\promiseInterface $promise, mixed $uri, mixed $statusCode): mixed
+private withTracking(\yxorP\lib\proxy\promise\promiseInterface $promise, mixed $uri, mixed $statusCode): mixed
 ```
 
 
@@ -235,7 +235,7 @@ private withTracking(\yxorP\app\lib\proxy\promise\promiseInterface $promise, mix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$promise` | **\yxorP\app\lib\proxy\promise\promiseInterface** |  |
+| `$promise` | **\yxorP\lib\proxy\promise\promiseInterface** |  |
 | `$uri` | **mixed** |  |
 | `$statusCode` | **mixed** |  |
 

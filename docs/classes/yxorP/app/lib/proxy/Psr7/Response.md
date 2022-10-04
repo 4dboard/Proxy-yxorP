@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\response`
+* Full name: `\yxorP\lib\proxy\psr7\response`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\responseInterface`](../../psr/http/message/responseInterface.md)
+[`\yxorP\lib\psr\http\message\responseInterface`](../../psr/http/message/responseInterface.md)
 
 
 
@@ -484,7 +484,7 @@ public getBody(): mixed
 
 
 ```php
-public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
+public withBody(\yxorP\lib\psr\http\message\streamInterface $body): mixed
 ```
 
 
@@ -498,7 +498,7 @@ public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$body` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$body` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 
 
 

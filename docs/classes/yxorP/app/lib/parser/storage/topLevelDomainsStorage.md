@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\storage\topLevelDomainsStorage`
+* Full name: `\yxorP\lib\parser\storage\topLevelDomainsStorage`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\storage\topLevelDomainListStorageInterface`](./topLevelDomainListStorageInterface.md)
+[`\yxorP\lib\parser\storage\topLevelDomainListStorageInterface`](./topLevelDomainListStorageInterface.md)
 * This class is a **Final class**
 
 
@@ -22,7 +22,7 @@
 
 
 ```php
-private \yxorP\app\lib\parser\storage\topLevelDomainListCacheInterface $cache
+private \yxorP\lib\parser\storage\topLevelDomainListCacheInterface $cache
 ```
 
 
@@ -37,7 +37,7 @@ private \yxorP\app\lib\parser\storage\topLevelDomainListCacheInterface $cache
 
 
 ```php
-private \yxorP\app\lib\parser\storage\topLevelDomainListClientInterface $client
+private \yxorP\lib\parser\storage\topLevelDomainListClientInterface $client
 ```
 
 
@@ -55,7 +55,7 @@ private \yxorP\app\lib\parser\storage\topLevelDomainListClientInterface $client
 
 
 ```php
-public __construct(\yxorP\app\lib\parser\storage\topLevelDomainListCacheInterface $cache, \yxorP\app\lib\parser\storage\topLevelDomainListClientInterface $client): mixed
+public __construct(\yxorP\lib\parser\storage\topLevelDomainListCacheInterface $cache, \yxorP\lib\parser\storage\topLevelDomainListClientInterface $client): mixed
 ```
 
 
@@ -69,8 +69,8 @@ public __construct(\yxorP\app\lib\parser\storage\topLevelDomainListCacheInterfac
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cache` | **\yxorP\app\lib\parser\storage\topLevelDomainListCacheInterface** |  |
-| `$client` | **\yxorP\app\lib\parser\storage\topLevelDomainListClientInterface** |  |
+| `$cache` | **\yxorP\lib\parser\storage\topLevelDomainListCacheInterface** |  |
+| `$client` | **\yxorP\lib\parser\storage\topLevelDomainListClientInterface** |  |
 
 
 
@@ -82,7 +82,7 @@ public __construct(\yxorP\app\lib\parser\storage\topLevelDomainListCacheInterfac
 
 
 ```php
-public get(string $uri): \yxorP\app\lib\parser\topLevelDomainListInterface
+public get(string $uri): \yxorP\lib\parser\topLevelDomainListInterface
 ```
 
 

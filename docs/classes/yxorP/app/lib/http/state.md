@@ -6,7 +6,7 @@ A trait that allows the class to be serialized and unserialized.
 
 
 
-* Full name: `\yxorP\app\lib\http\state`
+* Full name: `\yxorP\lib\http\state`
 
 
 

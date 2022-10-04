@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\uploadedFile`
+* Full name: `\yxorP\lib\proxy\psr7\uploadedFile`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\uploadedFileInterface`](../../psr/http/message/uploadedFileInterface.md)
+[`\yxorP\lib\psr\http\message\uploadedFileInterface`](../../psr/http/message/uploadedFileInterface.md)
 
 
 
@@ -239,7 +239,7 @@ public isMoved(): mixed
 Retrieve a stream representing the uploaded file.
 
 ```php
-public getStream(): \yxorP\app\lib\psr\http\message\streamInterface
+public getStream(): \yxorP\lib\psr\http\message\streamInterface
 ```
 
 This method MUST return a StreamInterface instance, representing the

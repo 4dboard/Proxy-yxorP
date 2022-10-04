@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\storage\publicSuffixListPsr18Client`
+* Full name: `\yxorP\lib\parser\storage\publicSuffixListPsr18Client`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\storage\publicSuffixListClientInterface`](./publicSuffixListClientInterface.md)
+[`\yxorP\lib\parser\storage\publicSuffixListClientInterface`](./publicSuffixListClientInterface.md)
 * This class is a **Final class**
 
 
@@ -82,7 +82,7 @@ public __construct(\GuzzleHttp\ClientInterface $client, \yxorP\psr\Http\Message\
 
 
 ```php
-public get(string $uri): \yxorP\app\lib\parser\publicSuffixListInterface
+public get(string $uri): \yxorP\lib\parser\publicSuffixListInterface
 ```
 
 

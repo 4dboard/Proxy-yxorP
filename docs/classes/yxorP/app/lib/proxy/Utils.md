@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\utils`
+* Full name: `\yxorP\lib\proxy\utils`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
@@ -41,7 +41,7 @@ public static currentTime(): mixed
 
 
 ```php
-public static idnUriConvert(\yxorP\app\lib\psr\http\message\uriInterface $uri, mixed $options): mixed
+public static idnUriConvert(\yxorP\lib\psr\http\message\uriInterface $uri, mixed $options): mixed
 ```
 
 
@@ -55,7 +55,7 @@ public static idnUriConvert(\yxorP\app\lib\psr\http\message\uriInterface $uri, m
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 | `$options` | **mixed** |  |
 
 

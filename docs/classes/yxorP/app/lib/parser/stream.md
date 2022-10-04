@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\stream`
+* Full name: `\yxorP\lib\parser\stream`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 

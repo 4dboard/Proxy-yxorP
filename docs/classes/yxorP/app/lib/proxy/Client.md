@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\client`
+* Full name: `\yxorP\lib\proxy\client`
 * This class implements:
-[`\yxorP\app\lib\proxy\clientInterface`](./clientInterface.md)
+[`\yxorP\lib\proxy\clientInterface`](./clientInterface.md)
 
 
 
@@ -147,7 +147,7 @@ public request(mixed $method, mixed $uri = &#039;&#039;, array $options = []): m
 
 
 ```php
-public send(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options = []): mixed
+public send(\yxorP\lib\psr\http\message\requestInterface $request, array $options = []): mixed
 ```
 
 
@@ -161,7 +161,7 @@ public send(\yxorP\app\lib\psr\http\message\requestInterface $request, array $op
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -174,7 +174,7 @@ public send(\yxorP\app\lib\psr\http\message\requestInterface $request, array $op
 
 
 ```php
-public sendAsync(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options = []): mixed
+public sendAsync(\yxorP\lib\psr\http\message\requestInterface $request, array $options = []): mixed
 ```
 
 
@@ -188,7 +188,7 @@ public sendAsync(\yxorP\app\lib\psr\http\message\requestInterface $request, arra
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -326,7 +326,7 @@ private invalidBody(): mixed
 
 
 ```php
-private transfer(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
+private transfer(\yxorP\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
 
 
@@ -340,7 +340,7 @@ private transfer(\yxorP\app\lib\psr\http\message\requestInterface $request, arra
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -353,7 +353,7 @@ private transfer(\yxorP\app\lib\psr\http\message\requestInterface $request, arra
 
 
 ```php
-private applyOptions(\yxorP\app\lib\psr\http\message\requestInterface $request, array& $options): mixed
+private applyOptions(\yxorP\lib\psr\http\message\requestInterface $request, array& $options): mixed
 ```
 
 
@@ -367,7 +367,7 @@ private applyOptions(\yxorP\app\lib\psr\http\message\requestInterface $request, 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 

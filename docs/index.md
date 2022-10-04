@@ -36,7 +36,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`SimpleImageLib`](./classes/SimpleImageLib.md) | A PHP class that makes working with images as simple as possible.|
 | [`UnhandledMatchError`](./classes/UnhandledMatchError.md) | |
 | [`ValueError`](./classes/ValueError.md) | |
-| [`onCheckAction`](./classes/onCheckAction.md) | Importing the wrapper class from the yxorP\app\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.|
+| [`onCheckAction`](./classes/onCheckAction.md) | Importing the wrapper class from the yxorP\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.|
 | [`onCompleteAction`](./classes/onCompleteAction.md) | Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.|
 | [`onContextAction`](./classes/onContextAction.md) | Extending the wrapper class, which is a class that is used to wrap the request and response objects.|
 | [`onExceptionAction`](./classes/onExceptionAction.md) | A class that extends the wrapper class.|
@@ -2697,54 +2697,54 @@ This is an automatically generated documentation for **Documentation**.
 
 
 
-### \yxorP\app\lib
+### \yxorP\lib
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`yP`](./classes/yxorP/app/lib/yP.md) | It&#039;s a class that&#039;s used to dispatch events.|
+| [`yP`](./classes/yxorP/lib/yP.md) | It&#039;s a class that&#039;s used to dispatch events.|
 
 
 
 
-### \yxorP\app\lib\http
+### \yxorP\lib\http
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`cache`](./classes/yxorP/app/lib/http/cache.md) | A class that is used to cache data.|
-| [`domain`](./classes/yxorP/app/lib/http/domain.md) | It&#039;s a class that&#039;s used to dispatch events.|
-| [`paramStore`](./classes/yxorP/app/lib/http/paramStore.md) | A class that stores parameters.|
-| [`request`](./classes/yxorP/app/lib/http/request.md) | |
-| [`store`](./classes/yxorP/app/lib/http/store.md) | It&#039;s a class that&#039;s used to dispatch events.|
-| [`wrapper`](./classes/yxorP/app/lib/http/wrapper.md) | Importing the `response` class from the `http` namespace.|
+| [`cache`](./classes/yxorP/lib/http/cache.md) | A class that is used to cache data.|
+| [`domain`](./classes/yxorP/lib/http/domain.md) | It&#039;s a class that&#039;s used to dispatch events.|
+| [`paramStore`](./classes/yxorP/lib/http/paramStore.md) | A class that stores parameters.|
+| [`request`](./classes/yxorP/lib/http/request.md) | |
+| [`store`](./classes/yxorP/lib/http/store.md) | It&#039;s a class that&#039;s used to dispatch events.|
+| [`wrapper`](./classes/yxorP/lib/http/wrapper.md) | Importing the `response` class from the `http` namespace.|
 
 
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
-| [`state`](./classes/yxorP/app/lib/http/state.md) | A trait that allows the class to be serialized and unserialized.|
+| [`state`](./classes/yxorP/lib/http/state.md) | A trait that allows the class to be serialized and unserialized.|
 
 
 
 
-### \yxorP\app\lib\minify
+### \yxorP\lib\minify
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`areplacerInterface`](./classes/yxorP/app/lib/minify/areplacerInterface.md) | |
-| [`attributesSimplifier`](./classes/yxorP/app/lib/minify/attributesSimplifier.md) | |
-| [`htmlCommentsRemover`](./classes/yxorP/app/lib/minify/htmlCommentsRemover.md) | |
-| [`inlineCssMinifier`](./classes/yxorP/app/lib/minify/inlineCssMinifier.md) | |
-| [`inlineJavascriptMinifier`](./classes/yxorP/app/lib/minify/inlineJavascriptMinifier.md) | |
-| [`minify`](./classes/yxorP/app/lib/minify/minify.md) | |
-| [`quotesRemover`](./classes/yxorP/app/lib/minify/quotesRemover.md) | |
-| [`whitespacesRemover`](./classes/yxorP/app/lib/minify/whitespacesRemover.md) | |
+| [`areplacerInterface`](./classes/yxorP/lib/minify/areplacerInterface.md) | |
+| [`attributesSimplifier`](./classes/yxorP/lib/minify/attributesSimplifier.md) | |
+| [`htmlCommentsRemover`](./classes/yxorP/lib/minify/htmlCommentsRemover.md) | |
+| [`inlineCssMinifier`](./classes/yxorP/lib/minify/inlineCssMinifier.md) | |
+| [`inlineJavascriptMinifier`](./classes/yxorP/lib/minify/inlineJavascriptMinifier.md) | |
+| [`minify`](./classes/yxorP/lib/minify/minify.md) | |
+| [`quotesRemover`](./classes/yxorP/lib/minify/quotesRemover.md) | |
+| [`whitespacesRemover`](./classes/yxorP/lib/minify/whitespacesRemover.md) | |
 
 
 
@@ -2752,28 +2752,28 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`minfyInterface`](./classes/yxorP/app/lib/minify/minfyInterface.md) | |
+| [`minfyInterface`](./classes/yxorP/lib/minify/minfyInterface.md) | |
 
 
 
-### \yxorP\app\lib\proxy
+### \yxorP\lib\proxy
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`client`](./classes/yxorP/app/lib/proxy/client.md) | |
-| [`handlerStack`](./classes/yxorP/app/lib/proxy/handlerStack.md) | |
-| [`messageFormatter`](./classes/yxorP/app/lib/proxy/messageFormatter.md) | |
-| [`middleware`](./classes/yxorP/app/lib/proxy/middleware.md) | |
-| [`pool`](./classes/yxorP/app/lib/proxy/pool.md) | |
-| [`prepareBodyMiddleware`](./classes/yxorP/app/lib/proxy/prepareBodyMiddleware.md) | |
-| [`redirectMiddleware`](./classes/yxorP/app/lib/proxy/redirectMiddleware.md) | |
-| [`requestOptions`](./classes/yxorP/app/lib/proxy/requestOptions.md) | |
-| [`retryMiddleware`](./classes/yxorP/app/lib/proxy/retryMiddleware.md) | |
-| [`transferStats`](./classes/yxorP/app/lib/proxy/transferStats.md) | |
-| [`uriTemplate`](./classes/yxorP/app/lib/proxy/uriTemplate.md) | |
-| [`utils`](./classes/yxorP/app/lib/proxy/utils.md) | |
+| [`client`](./classes/yxorP/lib/proxy/client.md) | |
+| [`handlerStack`](./classes/yxorP/lib/proxy/handlerStack.md) | |
+| [`messageFormatter`](./classes/yxorP/lib/proxy/messageFormatter.md) | |
+| [`middleware`](./classes/yxorP/lib/proxy/middleware.md) | |
+| [`pool`](./classes/yxorP/lib/proxy/pool.md) | |
+| [`prepareBodyMiddleware`](./classes/yxorP/lib/proxy/prepareBodyMiddleware.md) | |
+| [`redirectMiddleware`](./classes/yxorP/lib/proxy/redirectMiddleware.md) | |
+| [`requestOptions`](./classes/yxorP/lib/proxy/requestOptions.md) | |
+| [`retryMiddleware`](./classes/yxorP/lib/proxy/retryMiddleware.md) | |
+| [`transferStats`](./classes/yxorP/lib/proxy/transferStats.md) | |
+| [`uriTemplate`](./classes/yxorP/lib/proxy/uriTemplate.md) | |
+| [`utils`](./classes/yxorP/lib/proxy/utils.md) | |
 
 
 
@@ -2781,20 +2781,20 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`clientInterface`](./classes/yxorP/app/lib/proxy/clientInterface.md) | |
+| [`clientInterface`](./classes/yxorP/lib/proxy/clientInterface.md) | |
 
 
 
-### \yxorP\app\lib\proxy\cookie
+### \yxorP\lib\proxy\cookie
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`cookieJar`](./classes/yxorP/app/lib/proxy/cookie/cookieJar.md) | |
-| [`fileCookieJar`](./classes/yxorP/app/lib/proxy/cookie/fileCookieJar.md) | |
-| [`sessionCookieJar`](./classes/yxorP/app/lib/proxy/cookie/sessionCookieJar.md) | |
-| [`setCookie`](./classes/yxorP/app/lib/proxy/cookie/setCookie.md) | |
+| [`cookieJar`](./classes/yxorP/lib/proxy/cookie/cookieJar.md) | |
+| [`fileCookieJar`](./classes/yxorP/lib/proxy/cookie/fileCookieJar.md) | |
+| [`sessionCookieJar`](./classes/yxorP/lib/proxy/cookie/sessionCookieJar.md) | |
+| [`setCookie`](./classes/yxorP/lib/proxy/cookie/setCookie.md) | |
 
 
 
@@ -2802,25 +2802,25 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`cookieJarInterface`](./classes/yxorP/app/lib/proxy/cookie/cookieJarInterface.md) | |
+| [`cookieJarInterface`](./classes/yxorP/lib/proxy/cookie/cookieJarInterface.md) | |
 
 
 
-### \yxorP\app\lib\proxy\exception
+### \yxorP\lib\proxy\exception
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`aRequestException`](./classes/yxorP/app/lib/proxy/exception/aRequestException.md) | |
-| [`badResponseException`](./classes/yxorP/app/lib/proxy/exception/badResponseException.md) | |
-| [`clientException`](./classes/yxorP/app/lib/proxy/exception/clientException.md) | |
-| [`connectException`](./classes/yxorP/app/lib/proxy/exception/connectException.md) | |
-| [`invalidArgumentException`](./classes/yxorP/app/lib/proxy/exception/invalidArgumentException.md) | |
-| [`seekException`](./classes/yxorP/app/lib/proxy/exception/seekException.md) | |
-| [`serverException`](./classes/yxorP/app/lib/proxy/exception/serverException.md) | |
-| [`tooManyRedirectsException`](./classes/yxorP/app/lib/proxy/exception/tooManyRedirectsException.md) | |
-| [`transferExceptionInterface`](./classes/yxorP/app/lib/proxy/exception/transferExceptionInterface.md) | |
+| [`aRequestException`](./classes/yxorP/lib/proxy/exception/aRequestException.md) | |
+| [`badResponseException`](./classes/yxorP/lib/proxy/exception/badResponseException.md) | |
+| [`clientException`](./classes/yxorP/lib/proxy/exception/clientException.md) | |
+| [`connectException`](./classes/yxorP/lib/proxy/exception/connectException.md) | |
+| [`invalidArgumentException`](./classes/yxorP/lib/proxy/exception/invalidArgumentException.md) | |
+| [`seekException`](./classes/yxorP/lib/proxy/exception/seekException.md) | |
+| [`serverException`](./classes/yxorP/lib/proxy/exception/serverException.md) | |
+| [`tooManyRedirectsException`](./classes/yxorP/lib/proxy/exception/tooManyRedirectsException.md) | |
+| [`transferExceptionInterface`](./classes/yxorP/lib/proxy/exception/transferExceptionInterface.md) | |
 
 
 
@@ -2828,23 +2828,23 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`proxyException`](./classes/yxorP/app/lib/proxy/exception/proxyException.md) | |
+| [`proxyException`](./classes/yxorP/lib/proxy/exception/proxyException.md) | |
 
 
 
-### \yxorP\app\lib\proxy\handler
+### \yxorP\lib\proxy\handler
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`curlFactory`](./classes/yxorP/app/lib/proxy/handler/curlFactory.md) | |
-| [`curlHandler`](./classes/yxorP/app/lib/proxy/handler/curlHandler.md) | |
-| [`curlMultiHandler`](./classes/yxorP/app/lib/proxy/handler/curlMultiHandler.md) | |
-| [`easyHandle`](./classes/yxorP/app/lib/proxy/handler/easyHandle.md) | |
-| [`mockHandler`](./classes/yxorP/app/lib/proxy/handler/mockHandler.md) | |
-| [`proxy`](./classes/yxorP/app/lib/proxy/handler/proxy.md) | |
-| [`streamHandler`](./classes/yxorP/app/lib/proxy/handler/streamHandler.md) | |
+| [`curlFactory`](./classes/yxorP/lib/proxy/handler/curlFactory.md) | |
+| [`curlHandler`](./classes/yxorP/lib/proxy/handler/curlHandler.md) | |
+| [`curlMultiHandler`](./classes/yxorP/lib/proxy/handler/curlMultiHandler.md) | |
+| [`easyHandle`](./classes/yxorP/lib/proxy/handler/easyHandle.md) | |
+| [`mockHandler`](./classes/yxorP/lib/proxy/handler/mockHandler.md) | |
+| [`proxy`](./classes/yxorP/lib/proxy/handler/proxy.md) | |
+| [`streamHandler`](./classes/yxorP/lib/proxy/handler/streamHandler.md) | |
 
 
 
@@ -2852,25 +2852,25 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`curlFactoryInterface`](./classes/yxorP/app/lib/proxy/handler/curlFactoryInterface.md) | |
+| [`curlFactoryInterface`](./classes/yxorP/lib/proxy/handler/curlFactoryInterface.md) | |
 
 
 
-### \yxorP\app\lib\proxy\promise
+### \yxorP\lib\proxy\promise
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`aRejectionException`](./classes/yxorP/app/lib/proxy/promise/aRejectionException.md) | |
-| [`aggregateException`](./classes/yxorP/app/lib/proxy/promise/aggregateException.md) | |
-| [`cancellationException`](./classes/yxorP/app/lib/proxy/promise/cancellationException.md) | |
-| [`coroutine`](./classes/yxorP/app/lib/proxy/promise/coroutine.md) | |
-| [`eachPromise`](./classes/yxorP/app/lib/proxy/promise/eachPromise.md) | |
-| [`fulfilledPromise`](./classes/yxorP/app/lib/proxy/promise/fulfilledPromise.md) | |
-| [`promise`](./classes/yxorP/app/lib/proxy/promise/promise.md) | |
-| [`rejectedPromise`](./classes/yxorP/app/lib/proxy/promise/rejectedPromise.md) | |
-| [`taskQueue`](./classes/yxorP/app/lib/proxy/promise/taskQueue.md) | |
+| [`aRejectionException`](./classes/yxorP/lib/proxy/promise/aRejectionException.md) | |
+| [`aggregateException`](./classes/yxorP/lib/proxy/promise/aggregateException.md) | |
+| [`cancellationException`](./classes/yxorP/lib/proxy/promise/cancellationException.md) | |
+| [`coroutine`](./classes/yxorP/lib/proxy/promise/coroutine.md) | |
+| [`eachPromise`](./classes/yxorP/lib/proxy/promise/eachPromise.md) | |
+| [`fulfilledPromise`](./classes/yxorP/lib/proxy/promise/fulfilledPromise.md) | |
+| [`promise`](./classes/yxorP/lib/proxy/promise/promise.md) | |
+| [`rejectedPromise`](./classes/yxorP/lib/proxy/promise/rejectedPromise.md) | |
+| [`taskQueue`](./classes/yxorP/lib/proxy/promise/taskQueue.md) | |
 
 
 
@@ -2878,52 +2878,52 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`promiseInterface`](./classes/yxorP/app/lib/proxy/promise/promiseInterface.md) | |
-| [`promisorInterface`](./classes/yxorP/app/lib/proxy/promise/promisorInterface.md) | |
-| [`taskQueueInterface`](./classes/yxorP/app/lib/proxy/promise/taskQueueInterface.md) | |
+| [`promiseInterface`](./classes/yxorP/lib/proxy/promise/promiseInterface.md) | |
+| [`promisorInterface`](./classes/yxorP/lib/proxy/promise/promisorInterface.md) | |
+| [`taskQueueInterface`](./classes/yxorP/lib/proxy/promise/taskQueueInterface.md) | |
 
 
 
-### \yxorP\app\lib\proxy\psr7
+### \yxorP\lib\proxy\psr7
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`appendStream`](./classes/yxorP/app/lib/proxy/psr7/appendStream.md) | |
-| [`bufferStream`](./classes/yxorP/app/lib/proxy/psr7/bufferStream.md) | |
-| [`cachingStream`](./classes/yxorP/app/lib/proxy/psr7/cachingStream.md) | |
-| [`droppingStream`](./classes/yxorP/app/lib/proxy/psr7/droppingStream.md) | |
-| [`fnStream`](./classes/yxorP/app/lib/proxy/psr7/fnStream.md) | |
-| [`inflateStream`](./classes/yxorP/app/lib/proxy/psr7/inflateStream.md) | |
-| [`lazyOpenStream`](./classes/yxorP/app/lib/proxy/psr7/lazyOpenStream.md) | |
-| [`limitStream`](./classes/yxorP/app/lib/proxy/psr7/limitStream.md) | |
-| [`multipartStream`](./classes/yxorP/app/lib/proxy/psr7/multipartStream.md) | |
-| [`noSeekStream`](./classes/yxorP/app/lib/proxy/psr7/noSeekStream.md) | |
-| [`pumpStream`](./classes/yxorP/app/lib/proxy/psr7/pumpStream.md) | |
-| [`request`](./classes/yxorP/app/lib/proxy/psr7/request.md) | |
-| [`response`](./classes/yxorP/app/lib/proxy/psr7/response.md) | |
-| [`rfc7230`](./classes/yxorP/app/lib/proxy/psr7/rfc7230.md) | |
-| [`serverRequest`](./classes/yxorP/app/lib/proxy/psr7/serverRequest.md) | |
-| [`stream`](./classes/yxorP/app/lib/proxy/psr7/stream.md) | |
-| [`streamWrapper`](./classes/yxorP/app/lib/proxy/psr7/streamWrapper.md) | |
-| [`uploadedFile`](./classes/yxorP/app/lib/proxy/psr7/uploadedFile.md) | |
-| [`uri`](./classes/yxorP/app/lib/proxy/psr7/uri.md) | |
-| [`uriNormalizer`](./classes/yxorP/app/lib/proxy/psr7/uriNormalizer.md) | |
-| [`uriResolver`](./classes/yxorP/app/lib/proxy/psr7/uriResolver.md) | |
+| [`appendStream`](./classes/yxorP/lib/proxy/psr7/appendStream.md) | |
+| [`bufferStream`](./classes/yxorP/lib/proxy/psr7/bufferStream.md) | |
+| [`cachingStream`](./classes/yxorP/lib/proxy/psr7/cachingStream.md) | |
+| [`droppingStream`](./classes/yxorP/lib/proxy/psr7/droppingStream.md) | |
+| [`fnStream`](./classes/yxorP/lib/proxy/psr7/fnStream.md) | |
+| [`inflateStream`](./classes/yxorP/lib/proxy/psr7/inflateStream.md) | |
+| [`lazyOpenStream`](./classes/yxorP/lib/proxy/psr7/lazyOpenStream.md) | |
+| [`limitStream`](./classes/yxorP/lib/proxy/psr7/limitStream.md) | |
+| [`multipartStream`](./classes/yxorP/lib/proxy/psr7/multipartStream.md) | |
+| [`noSeekStream`](./classes/yxorP/lib/proxy/psr7/noSeekStream.md) | |
+| [`pumpStream`](./classes/yxorP/lib/proxy/psr7/pumpStream.md) | |
+| [`request`](./classes/yxorP/lib/proxy/psr7/request.md) | |
+| [`response`](./classes/yxorP/lib/proxy/psr7/response.md) | |
+| [`rfc7230`](./classes/yxorP/lib/proxy/psr7/rfc7230.md) | |
+| [`serverRequest`](./classes/yxorP/lib/proxy/psr7/serverRequest.md) | |
+| [`stream`](./classes/yxorP/lib/proxy/psr7/stream.md) | |
+| [`streamWrapper`](./classes/yxorP/lib/proxy/psr7/streamWrapper.md) | |
+| [`uploadedFile`](./classes/yxorP/lib/proxy/psr7/uploadedFile.md) | |
+| [`uri`](./classes/yxorP/lib/proxy/psr7/uri.md) | |
+| [`uriNormalizer`](./classes/yxorP/lib/proxy/psr7/uriNormalizer.md) | |
+| [`uriResolver`](./classes/yxorP/lib/proxy/psr7/uriResolver.md) | |
 
 
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
-| [`aStreamDecoratorTrait`](./classes/yxorP/app/lib/proxy/psr7/aStreamDecoratorTrait.md) | |
-| [`messageTrait`](./classes/yxorP/app/lib/proxy/psr7/messageTrait.md) | |
+| [`aStreamDecoratorTrait`](./classes/yxorP/lib/proxy/psr7/aStreamDecoratorTrait.md) | |
+| [`messageTrait`](./classes/yxorP/lib/proxy/psr7/messageTrait.md) | |
 
 
 
 
-### \yxorP\app\lib\psr\http\message
+### \yxorP\lib\psr\http\message
 
 
 
@@ -2932,13 +2932,13 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`messageInterface`](./classes/yxorP/app/lib/psr/http/message/messageInterface.md) | HTTP messages consist of requests from a client to a server and responses<br />from a server to a client. This interface defines the methods common to<br />each.|
-| [`requestInterface`](./classes/yxorP/app/lib/psr/http/message/requestInterface.md) | Representation of an outgoing, client-side request.|
-| [`responseInterface`](./classes/yxorP/app/lib/psr/http/message/responseInterface.md) | Representation of an outgoing, server-side response.|
-| [`serverRequestInterface`](./classes/yxorP/app/lib/psr/http/message/serverRequestInterface.md) | Representation of an incoming, server-side HTTP request.|
-| [`streamInterface`](./classes/yxorP/app/lib/psr/http/message/streamInterface.md) | Describes a data stream.|
-| [`uploadedFileInterface`](./classes/yxorP/app/lib/psr/http/message/uploadedFileInterface.md) | Value object representing a file uploaded through an HTTP request.|
-| [`uriInterface`](./classes/yxorP/app/lib/psr/http/message/uriInterface.md) | Value object representing a URI.|
+| [`messageInterface`](./classes/yxorP/lib/psr/http/message/messageInterface.md) | HTTP messages consist of requests from a client to a server and responses<br />from a server to a client. This interface defines the methods common to<br />each.|
+| [`requestInterface`](./classes/yxorP/lib/psr/http/message/requestInterface.md) | Representation of an outgoing, client-side request.|
+| [`responseInterface`](./classes/yxorP/lib/psr/http/message/responseInterface.md) | Representation of an outgoing, server-side response.|
+| [`serverRequestInterface`](./classes/yxorP/lib/psr/http/message/serverRequestInterface.md) | Representation of an incoming, server-side HTTP request.|
+| [`streamInterface`](./classes/yxorP/lib/psr/http/message/streamInterface.md) | Describes a data stream.|
+| [`uploadedFileInterface`](./classes/yxorP/lib/psr/http/message/uploadedFileInterface.md) | Value object representing a file uploaded through an HTTP request.|
+| [`uriInterface`](./classes/yxorP/lib/psr/http/message/uriInterface.md) | Value object representing a URI.|
 
 
 

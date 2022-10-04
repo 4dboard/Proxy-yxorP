@@ -6,7 +6,7 @@ A class that is used to cache data.
 
 
 
-* Full name: `\yxorP\app\lib\http\cache`
+* Full name: `\yxorP\lib\http\cache`
 
 
 

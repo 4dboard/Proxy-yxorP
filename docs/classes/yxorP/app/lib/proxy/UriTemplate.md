@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\uriTemplate`
+* Full name: `\yxorP\lib\proxy\uriTemplate`
 
 
 

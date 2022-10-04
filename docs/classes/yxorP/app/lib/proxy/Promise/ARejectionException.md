@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\promise\aRejectionException`
+* Full name: `\yxorP\lib\proxy\promise\aRejectionException`
 * Parent class: [`RuntimeException`](../../../../../RuntimeException.md)
 
 

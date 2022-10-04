@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\promise\coroutine`
+* Full name: `\yxorP\lib\proxy\promise\coroutine`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\proxy\promise\promiseInterface`](./promiseInterface.md)
+[`\yxorP\lib\proxy\promise\promiseInterface`](./promiseInterface.md)
 * This class is a **Final class**
 
 

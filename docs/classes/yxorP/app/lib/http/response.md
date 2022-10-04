@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\http\response`
+* Full name: `\yxorP\lib\http\response`
 
 
 
@@ -33,7 +33,7 @@ public $status
 
 
 ```php
-public \yxorP\app\lib\http\ParamStore $headers
+public \yxorP\lib\http\ParamStore $headers
 ```
 
 

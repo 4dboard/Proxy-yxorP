@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\cachingStream`
+* Full name: `\yxorP\lib\proxy\psr7\cachingStream`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
+[`\yxorP\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
 
 
 
@@ -53,7 +53,7 @@ private $skipReadBytes
 
 
 ```php
-public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream, \yxorP\app\lib\psr\http\message\streamInterface $target = null): mixed
+public __construct(\yxorP\lib\psr\http\message\streamInterface $stream, \yxorP\lib\psr\http\message\streamInterface $target = null): mixed
 ```
 
 
@@ -67,8 +67,8 @@ public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream, \yxo
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
-| `$target` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
+| `$target` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 
 
 
@@ -277,7 +277,7 @@ private cacheEntireStream(): mixed
 
 
 ```php
-public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mixed
+public __construct(\yxorP\lib\psr\http\message\streamInterface $stream): mixed
 ```
 
 
@@ -291,7 +291,7 @@ public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+| `$stream` | **\yxorP\lib\psr\http\message\streamInterface** |  |
 
 
 

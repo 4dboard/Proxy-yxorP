@@ -6,11 +6,11 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\unableToResolveDomain`
+* Full name: `\yxorP\lib\parser\unableToResolveDomain`
 * Parent class: [`InvalidArgumentException`](../../../../InvalidArgumentException.md)
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\cannotProcessHostInterface`](./cannotProcessHostInterface.md)
+[`\yxorP\lib\parser\cannotProcessHostInterface`](./cannotProcessHostInterface.md)
 * This class is a **Final class**
 
 
@@ -23,7 +23,7 @@
 
 
 ```php
-private ?\yxorP\app\lib\parser\nameInterface $domain
+private ?\yxorP\lib\parser\nameInterface $domain
 ```
 
 
@@ -41,7 +41,7 @@ private ?\yxorP\app\lib\parser\nameInterface $domain
 
 
 ```php
-private __construct(string $message, ?\yxorP\app\lib\parser\nameInterface $domain = null): mixed
+private __construct(string $message, ?\yxorP\lib\parser\nameInterface $domain = null): mixed
 ```
 
 
@@ -56,7 +56,7 @@ private __construct(string $message, ?\yxorP\app\lib\parser\nameInterface $domai
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
-| `$domain` | **?\yxorP\app\lib\parser\nameInterface** |  |
+| `$domain` | **?\yxorP\lib\parser\nameInterface** |  |
 
 
 
@@ -68,7 +68,7 @@ private __construct(string $message, ?\yxorP\app\lib\parser\nameInterface $domai
 
 
 ```php
-public static dueToInvalidSecondLevelDomain(\yxorP\app\lib\parser\nameInterface $domain): self
+public static dueToInvalidSecondLevelDomain(\yxorP\lib\parser\nameInterface $domain): self
 ```
 
 
@@ -82,7 +82,7 @@ public static dueToInvalidSecondLevelDomain(\yxorP\app\lib\parser\nameInterface 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$domain` | **\yxorP\app\lib\parser\nameInterface** |  |
+| `$domain` | **\yxorP\lib\parser\nameInterface** |  |
 
 
 
@@ -94,7 +94,7 @@ public static dueToInvalidSecondLevelDomain(\yxorP\app\lib\parser\nameInterface 
 
 
 ```php
-public static dueToIdenticalValue(\yxorP\app\lib\parser\nameInterface $domain): self
+public static dueToIdenticalValue(\yxorP\lib\parser\nameInterface $domain): self
 ```
 
 
@@ -108,7 +108,7 @@ public static dueToIdenticalValue(\yxorP\app\lib\parser\nameInterface $domain): 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$domain` | **\yxorP\app\lib\parser\nameInterface** |  |
+| `$domain` | **\yxorP\lib\parser\nameInterface** |  |
 
 
 
@@ -120,7 +120,7 @@ public static dueToIdenticalValue(\yxorP\app\lib\parser\nameInterface $domain): 
 
 
 ```php
-public static dueToMissingSuffix(\yxorP\app\lib\parser\nameInterface $domain, string $type): self
+public static dueToMissingSuffix(\yxorP\lib\parser\nameInterface $domain, string $type): self
 ```
 
 
@@ -134,7 +134,7 @@ public static dueToMissingSuffix(\yxorP\app\lib\parser\nameInterface $domain, st
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$domain` | **\yxorP\app\lib\parser\nameInterface** |  |
+| `$domain` | **\yxorP\lib\parser\nameInterface** |  |
 | `$type` | **string** |  |
 
 
@@ -147,7 +147,7 @@ public static dueToMissingSuffix(\yxorP\app\lib\parser\nameInterface $domain, st
 
 
 ```php
-public static dueToUnresolvableDomain(\yxorP\app\lib\parser\nameInterface $domain): self
+public static dueToUnresolvableDomain(\yxorP\lib\parser\nameInterface $domain): self
 ```
 
 
@@ -161,7 +161,7 @@ public static dueToUnresolvableDomain(\yxorP\app\lib\parser\nameInterface $domai
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$domain` | **\yxorP\app\lib\parser\nameInterface** |  |
+| `$domain` | **\yxorP\lib\parser\nameInterface** |  |
 
 
 
@@ -173,7 +173,7 @@ public static dueToUnresolvableDomain(\yxorP\app\lib\parser\nameInterface $domai
 
 
 ```php
-public static dueToMissingRegistrableDomain(\yxorP\app\lib\parser\nameInterface $domain): self
+public static dueToMissingRegistrableDomain(\yxorP\lib\parser\nameInterface $domain): self
 ```
 
 
@@ -187,7 +187,7 @@ public static dueToMissingRegistrableDomain(\yxorP\app\lib\parser\nameInterface 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$domain` | **\yxorP\app\lib\parser\nameInterface** |  |
+| `$domain` | **\yxorP\lib\parser\nameInterface** |  |
 
 
 
@@ -199,7 +199,7 @@ public static dueToMissingRegistrableDomain(\yxorP\app\lib\parser\nameInterface 
 
 
 ```php
-public domain(): ?\yxorP\app\lib\parser\nameInterface
+public domain(): ?\yxorP\lib\parser\nameInterface
 ```
 
 

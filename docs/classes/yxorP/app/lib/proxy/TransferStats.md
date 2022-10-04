@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\transferStats`
+* Full name: `\yxorP\lib\proxy\transferStats`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
@@ -98,7 +98,7 @@ private $handlerErrorData
 
 
 ```php
-public __construct(\yxorP\app\lib\psr\http\message\requestInterface $request, \yxorP\app\lib\psr\http\message\responseInterface $response = null, mixed $transferTime = null, mixed $handlerErrorData = null, mixed $handlerStats = []): mixed
+public __construct(\yxorP\lib\psr\http\message\requestInterface $request, \yxorP\lib\psr\http\message\responseInterface $response = null, mixed $transferTime = null, mixed $handlerErrorData = null, mixed $handlerStats = []): mixed
 ```
 
 
@@ -112,8 +112,8 @@ public __construct(\yxorP\app\lib\psr\http\message\requestInterface $request, \y
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
-| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
+| `$request` | **\yxorP\lib\psr\http\message\requestInterface** |  |
+| `$response` | **\yxorP\lib\psr\http\message\responseInterface** |  |
 | `$transferTime` | **mixed** |  |
 | `$handlerErrorData` | **mixed** |  |
 | `$handlerStats` | **mixed** |  |

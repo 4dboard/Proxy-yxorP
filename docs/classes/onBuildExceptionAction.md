@@ -7,7 +7,7 @@ A class that extends the wrapper class.
 
 
 * Full name: `\onBuildExceptionAction`
-* Parent class: [`\yxorP\app\lib\http\wrapper`](./yxorP/app/lib/http/wrapper.md)
+* Parent class: [`\yxorP\lib\http\wrapper`](./yxorP/lib/http/wrapper.md)
 
 
 

@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\http\request`
+* Full name: `\yxorP\lib\http\request`
 
 
 
@@ -18,7 +18,7 @@
 
 
 ```php
-public \yxorP\app\lib\http\ParamStore $params
+public \yxorP\lib\http\ParamStore $params
 ```
 
 
@@ -33,7 +33,7 @@ public \yxorP\app\lib\http\ParamStore $params
 
 
 ```php
-public \yxorP\app\lib\http\ParamStore $headers
+public \yxorP\lib\http\ParamStore $headers
 ```
 
 
@@ -48,7 +48,7 @@ public \yxorP\app\lib\http\ParamStore $headers
 
 
 ```php
-public \yxorP\app\lib\http\ParamStore $post
+public \yxorP\lib\http\ParamStore $post
 ```
 
 
@@ -63,7 +63,7 @@ public \yxorP\app\lib\http\ParamStore $post
 
 
 ```php
-public \yxorP\app\lib\http\ParamStore $get
+public \yxorP\lib\http\ParamStore $get
 ```
 
 
@@ -78,7 +78,7 @@ public \yxorP\app\lib\http\ParamStore $get
 
 
 ```php
-public \yxorP\app\lib\http\ParamStore $files
+public \yxorP\lib\http\ParamStore $files
 ```
 
 
@@ -357,7 +357,7 @@ private detectContentType(mixed $data): string
 Detecting the content type of the request.
 
 ```php
-public static createFromGlobals(): \yxorP\app\lib\http\request
+public static createFromGlobals(): \yxorP\lib\http\request
 ```
 
 

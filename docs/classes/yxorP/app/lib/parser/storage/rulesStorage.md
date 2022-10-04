@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\storage\rulesStorage`
+* Full name: `\yxorP\lib\parser\storage\rulesStorage`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\storage\publicSuffixListStorageInterface`](./publicSuffixListStorageInterface.md)
+[`\yxorP\lib\parser\storage\publicSuffixListStorageInterface`](./publicSuffixListStorageInterface.md)
 * This class is a **Final class**
 
 
@@ -22,7 +22,7 @@
 
 
 ```php
-private \yxorP\app\lib\parser\storage\publicSuffixListCacheInterface $cache
+private \yxorP\lib\parser\storage\publicSuffixListCacheInterface $cache
 ```
 
 
@@ -37,7 +37,7 @@ private \yxorP\app\lib\parser\storage\publicSuffixListCacheInterface $cache
 
 
 ```php
-private \yxorP\app\lib\parser\storage\publicSuffixListClientInterface $client
+private \yxorP\lib\parser\storage\publicSuffixListClientInterface $client
 ```
 
 
@@ -55,7 +55,7 @@ private \yxorP\app\lib\parser\storage\publicSuffixListClientInterface $client
 
 
 ```php
-public __construct(\yxorP\app\lib\parser\storage\publicSuffixListCacheInterface $cache, \yxorP\app\lib\parser\storage\publicSuffixListClientInterface $client): mixed
+public __construct(\yxorP\lib\parser\storage\publicSuffixListCacheInterface $cache, \yxorP\lib\parser\storage\publicSuffixListClientInterface $client): mixed
 ```
 
 
@@ -69,8 +69,8 @@ public __construct(\yxorP\app\lib\parser\storage\publicSuffixListCacheInterface 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cache` | **\yxorP\app\lib\parser\storage\publicSuffixListCacheInterface** |  |
-| `$client` | **\yxorP\app\lib\parser\storage\publicSuffixListClientInterface** |  |
+| `$cache` | **\yxorP\lib\parser\storage\publicSuffixListCacheInterface** |  |
+| `$client` | **\yxorP\lib\parser\storage\publicSuffixListClientInterface** |  |
 
 
 
@@ -82,7 +82,7 @@ public __construct(\yxorP\app\lib\parser\storage\publicSuffixListCacheInterface 
 
 
 ```php
-public get(string $uri): \yxorP\app\lib\parser\publicSuffixListInterface
+public get(string $uri): \yxorP\lib\parser\publicSuffixListInterface
 ```
 
 

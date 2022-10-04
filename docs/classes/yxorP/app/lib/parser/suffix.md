@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\suffix`
+* Full name: `\yxorP\lib\parser\suffix`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\topLevelDomainInterface`](./topLevelDomainInterface.md)
+[`\yxorP\lib\parser\topLevelDomainInterface`](./topLevelDomainInterface.md)
 * This class is a **Final class**
 
 
@@ -29,7 +29,7 @@
 
 
 ```php
-private \yxorP\app\lib\parser\nameInterface $domain
+private \yxorP\lib\parser\nameInterface $domain
 ```
 
 
@@ -62,7 +62,7 @@ private string $section
 
 
 ```php
-private __construct(\yxorP\app\lib\parser\nameInterface $domain, string $section): mixed
+private __construct(\yxorP\lib\parser\nameInterface $domain, string $section): mixed
 ```
 
 
@@ -76,7 +76,7 @@ private __construct(\yxorP\app\lib\parser\nameInterface $domain, string $section
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$domain` | **\yxorP\app\lib\parser\nameInterface** |  |
+| `$domain` | **\yxorP\lib\parser\nameInterface** |  |
 | `$section` | **string** |  |
 
 
@@ -141,7 +141,7 @@ public static fromICANN(mixed $domain): self
 
 
 ```php
-private static setDomainName(mixed $domain): \yxorP\app\lib\parser\nameInterface
+private static setDomainName(mixed $domain): \yxorP\lib\parser\nameInterface
 ```
 
 
@@ -167,7 +167,7 @@ private static setDomainName(mixed $domain): \yxorP\app\lib\parser\nameInterface
 
 
 ```php
-public domain(): \yxorP\app\lib\parser\nameInterface
+public domain(): \yxorP\lib\parser\nameInterface
 ```
 
 
@@ -445,7 +445,7 @@ public toString(): string
 
 
 ```php
-public normalize(\yxorP\app\lib\parser\nameInterface $domain): self
+public normalize(\yxorP\lib\parser\nameInterface $domain): self
 ```
 
 
@@ -459,7 +459,7 @@ public normalize(\yxorP\app\lib\parser\nameInterface $domain): self
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$domain` | **\yxorP\app\lib\parser\nameInterface** |  |
+| `$domain` | **\yxorP\lib\parser\nameInterface** |  |
 
 
 

@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\minify\inlineCssMinifier`
+* Full name: `\yxorP\lib\minify\inlineCssMinifier`
 * This class implements:
-[`\yxorP\app\lib\minify\minfyInterface`](./minfyInterface.md)
+[`\yxorP\lib\minify\minfyInterface`](./minfyInterface.md)
 
 
 

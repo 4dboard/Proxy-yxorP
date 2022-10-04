@@ -6,7 +6,7 @@ A class that stores parameters.
 
 
 
-* Full name: `\yxorP\app\lib\http\paramStore`
+* Full name: `\yxorP\lib\http\paramStore`
 
 
 

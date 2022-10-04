@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\parser\resolvedDomain`
+* Full name: `\yxorP\lib\parser\resolvedDomain`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\parser\resolvedDomainNameInterface`](./resolvedDomainNameInterface.md)
+[`\yxorP\lib\parser\resolvedDomainNameInterface`](./resolvedDomainNameInterface.md)
 * This class is a **Final class**
 
 
@@ -22,7 +22,7 @@
 
 
 ```php
-private \yxorP\app\lib\parser\nameInterface $domain
+private \yxorP\lib\parser\nameInterface $domain
 ```
 
 
@@ -37,7 +37,7 @@ private \yxorP\app\lib\parser\nameInterface $domain
 
 
 ```php
-private \yxorP\app\lib\parser\topLevelDomainInterface $suffix
+private \yxorP\lib\parser\topLevelDomainInterface $suffix
 ```
 
 
@@ -52,7 +52,7 @@ private \yxorP\app\lib\parser\topLevelDomainInterface $suffix
 
 
 ```php
-private \yxorP\app\lib\parser\nameInterface $secondLevelDomain
+private \yxorP\lib\parser\nameInterface $secondLevelDomain
 ```
 
 
@@ -67,7 +67,7 @@ private \yxorP\app\lib\parser\nameInterface $secondLevelDomain
 
 
 ```php
-private \yxorP\app\lib\parser\nameInterface $registrableDomain
+private \yxorP\lib\parser\nameInterface $registrableDomain
 ```
 
 
@@ -82,7 +82,7 @@ private \yxorP\app\lib\parser\nameInterface $registrableDomain
 
 
 ```php
-private \yxorP\app\lib\parser\nameInterface $subDomain
+private \yxorP\lib\parser\nameInterface $subDomain
 ```
 
 
@@ -100,7 +100,7 @@ private \yxorP\app\lib\parser\nameInterface $subDomain
 
 
 ```php
-private __construct(\yxorP\app\lib\parser\nameInterface $domain, \yxorP\app\lib\parser\topLevelDomainInterface $suffix): mixed
+private __construct(\yxorP\lib\parser\nameInterface $domain, \yxorP\lib\parser\topLevelDomainInterface $suffix): mixed
 ```
 
 
@@ -114,8 +114,8 @@ private __construct(\yxorP\app\lib\parser\nameInterface $domain, \yxorP\app\lib\
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$domain` | **\yxorP\app\lib\parser\nameInterface** |  |
-| `$suffix` | **\yxorP\app\lib\parser\topLevelDomainInterface** |  |
+| `$domain` | **\yxorP\lib\parser\nameInterface** |  |
+| `$suffix` | **\yxorP\lib\parser\topLevelDomainInterface** |  |
 
 
 
@@ -194,7 +194,7 @@ public static fromICANN(mixed $domain, int $suffixLength): self
 
 
 ```php
-private static setDomainName(mixed $domain): \yxorP\app\lib\parser\nameInterface
+private static setDomainName(mixed $domain): \yxorP\lib\parser\nameInterface
 ```
 
 
@@ -220,7 +220,7 @@ private static setDomainName(mixed $domain): \yxorP\app\lib\parser\nameInterface
 
 
 ```php
-public domain(): \yxorP\app\lib\parser\nameInterface
+public domain(): \yxorP\lib\parser\nameInterface
 ```
 
 
@@ -406,7 +406,7 @@ public toString(): string
 
 
 ```php
-public registrableDomain(): \yxorP\app\lib\parser\nameInterface
+public registrableDomain(): \yxorP\lib\parser\nameInterface
 ```
 
 
@@ -426,7 +426,7 @@ public registrableDomain(): \yxorP\app\lib\parser\nameInterface
 
 
 ```php
-public secondLevelDomain(): \yxorP\app\lib\parser\nameInterface
+public secondLevelDomain(): \yxorP\lib\parser\nameInterface
 ```
 
 
@@ -446,7 +446,7 @@ public secondLevelDomain(): \yxorP\app\lib\parser\nameInterface
 
 
 ```php
-public subDomain(): \yxorP\app\lib\parser\nameInterface
+public subDomain(): \yxorP\lib\parser\nameInterface
 ```
 
 
@@ -466,7 +466,7 @@ public subDomain(): \yxorP\app\lib\parser\nameInterface
 
 
 ```php
-public suffix(): \yxorP\app\lib\parser\topLevelDomainInterface
+public suffix(): \yxorP\lib\parser\topLevelDomainInterface
 ```
 
 

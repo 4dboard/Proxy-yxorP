@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\psr7\uriNormalizer`
+* Full name: `\yxorP\lib\proxy\psr7\uriNormalizer`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
@@ -54,7 +54,7 @@ private __construct(): mixed
 
 
 ```php
-public static isEquivalent(\yxorP\app\lib\psr\http\message\uriInterface $uri1, \yxorP\app\lib\psr\http\message\uriInterface $uri2, mixed $normalizations = self::PRESERVING_NORMALIZATIONS): mixed
+public static isEquivalent(\yxorP\lib\psr\http\message\uriInterface $uri1, \yxorP\lib\psr\http\message\uriInterface $uri2, mixed $normalizations = self::PRESERVING_NORMALIZATIONS): mixed
 ```
 
 
@@ -68,8 +68,8 @@ public static isEquivalent(\yxorP\app\lib\psr\http\message\uriInterface $uri1, \
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri1` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
-| `$uri2` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri1` | **\yxorP\lib\psr\http\message\uriInterface** |  |
+| `$uri2` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 | `$normalizations` | **mixed** |  |
 
 
@@ -82,7 +82,7 @@ public static isEquivalent(\yxorP\app\lib\psr\http\message\uriInterface $uri1, \
 
 
 ```php
-public static normalize(\yxorP\app\lib\psr\http\message\uriInterface $uri, mixed $flags = self::PRESERVING_NORMALIZATIONS): mixed
+public static normalize(\yxorP\lib\psr\http\message\uriInterface $uri, mixed $flags = self::PRESERVING_NORMALIZATIONS): mixed
 ```
 
 
@@ -96,7 +96,7 @@ public static normalize(\yxorP\app\lib\psr\http\message\uriInterface $uri, mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 | `$flags` | **mixed** |  |
 
 
@@ -109,7 +109,7 @@ public static normalize(\yxorP\app\lib\psr\http\message\uriInterface $uri, mixed
 
 
 ```php
-private static capitalizePercentEncoding(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
+private static capitalizePercentEncoding(\yxorP\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
 
@@ -123,7 +123,7 @@ private static capitalizePercentEncoding(\yxorP\app\lib\psr\http\message\uriInte
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 
 
 
@@ -135,7 +135,7 @@ private static capitalizePercentEncoding(\yxorP\app\lib\psr\http\message\uriInte
 
 
 ```php
-private static decodeUnreservedCharacters(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
+private static decodeUnreservedCharacters(\yxorP\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
 
@@ -149,7 +149,7 @@ private static decodeUnreservedCharacters(\yxorP\app\lib\psr\http\message\uriInt
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$uri` | **\yxorP\lib\psr\http\message\uriInterface** |  |
 
 
 
