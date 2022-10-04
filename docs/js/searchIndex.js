@@ -27,7 +27,7 @@ Search.appendIndex(
             "url": "namespaces/default.html#constant_PATH_DIR_APP"
         },                {
             "fqsen": "\\Cockpit",
-            "name": "Cockpit",
+            "name": "yxorP",
             "summary": "",
             "url": "classes/Cockpit.html"
         },                {
