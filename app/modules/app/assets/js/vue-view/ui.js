@@ -50,12 +50,12 @@ export default {
         offcanvas.$view = offcanvas.querySelector('.vue-offcanvas');
 
         VueView.compile(offcanvas.$view, def);
-        setTimeout(() => offcanvas.show());
+        setTimeout(() => offcanvas.show(), 50);
 
         return offcanvas;
     },
 
-    modal(url, data, callbacks, options) {
+    modal(url, data, callbacks, options, modaltype) {
 
         data = data || {};
         callbacks = callbacks || {};
@@ -99,7 +99,7 @@ export default {
             <div class="vue-modal">
                 <vue-dialog-content v-bind="data"></vue-dialog-content>
             </div>
-        `, options || {});
+        `, options || {}, modaltype);
 
         dialog.$view = dialog.querySelector('.vue-modal');
 

@@ -1,8 +1,13 @@
-<!DOCTYPE html>
+<?php
+
+    $sidePanelContents = $this->block('app-side-panel', ['print' => false]);
+
+?><!DOCTYPE html>
 <html lang="en" class="<?=$this->helper('theme')->pageClass()?>" data-base="<?=$this->base('/')?>" data-route="<?=$this->route('/')?>" data-version="<?=$this->retrieve('app.version')?>" data-theme="<?=$this->helper('theme')->theme()?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
     <title><?=$this->helper('theme')->title()?></title>
 
     <link rel="icon" href="<?=$this->helper('theme')->favicon()?>">
@@ -22,23 +27,19 @@
     <?php endif ?>
 
 </head>
-<body>
+<body class="<?=($sidePanelContents ? 'has-side-panel' : '')?>">
 
     <div class="app-container">
         <aside class="app-container-aside">
 
-            <div class="app-container-aside-float">
+            <div class="app-container-aside-menu">
 
-                <a class="kiss-display-block kiss-padding-small" href="<?=$this->route('/')?>">
-                    <img class="app-logo kiss-margin-auto" src="<?=$this->helper('theme')->logo()?>" alt="Logo">
-                </a>
-
-                <div class="kiss-flex-1 kiss-overflow-y-auto kiss-margin-top">
+                <div class="kiss-flex-1 kiss-overflow-y-auto">
                     <kiss-navlist>
                         <ul>
                             <li class="<?=($this->request->route == '/') ? 'active':''?>">
                                 <a href="<?=$this->route('/')?>" aria-label="<?=t('Dashboard')?>" kiss-tooltip="right">
-                                    <kiss-svg src="<?=$this->base('app:icon.svg')?>" width="25" height="25"></kiss-svg>
+                                    <kiss-svg src="<?=$this->base('app:icon.svg')?>" width="25" height="25"><canvas width="25" height="25"></canvas></kiss-svg>
                                 </a>
                             </li>
                             <?php foreach ($this->helper('menus')->menu('modules', true) as $group => $links): ?>
@@ -48,12 +49,18 @@
                                 <?php foreach ($links as $link): ?>
                                     <li class="<?=(strpos($this->request->route, $link['route']) === 0) ? 'active':''?>">
                                         <a href="<?=$this->route($link['route'])?>" aria-label="<?=t($link['label'])?>" kiss-tooltip="right">
-                                            <kiss-svg src="<?=$this->base($link['icon'])?>" width="25" height="25"></kiss-svg>
+                                            <kiss-svg src="<?=$this->base($link['icon'])?>" width="25" height="25"><canvas width="25" height="25"></canvas></kiss-svg>
                                         </a>
                                     </li>
                                 <?php endforeach ?>
 
                             <?php endforeach ?>
+                            <li class="kiss-nav-divider"></li>
+                            <li>
+                                <a class="kiss-flex kiss-flex-center" aria-label="<?=t('Search')?>" kiss-tooltip="right" app-search>
+                                    <kiss-svg src="<?=$this->base('system:assets/icons/search.svg')?>" width="25"><canvas width="25" height="25"></canvas></kiss-svg>
+                                </a>
+                            </li>
                         </ul>
                     </kiss-navlist>
                 </div>
@@ -81,19 +88,30 @@
 
             </div>
 
+            <?php if ($sidePanelContents): ?>
+            <div class="app-container-aside-panel">
+                <?=$sidePanelContents?>
+            </div>
+            <?php endif ?>
+
         </aside>
         <main class="kiss-flex-1">
 
             <app-header>
                 <kiss-container class="kiss-flex kiss-flex-middle">
+                    <a class="kiss-display-block kiss-margin-small-right kiss-visible@m" href="<?=$this->route('/')?>">
+                        <img class="app-logo kiss-margin-auto" src="<?=$this->helper('theme')->logo()?>" alt="Logo" style="height:30px;width:auto;">
+                    </a>
                     <div>
-                        <a href="#app-offcanvas" class="kiss-link-muted kiss-flex kiss-flex-middle" kiss-offcanvas>
+                        <a href="<?=$this->route('/')?>" class="kiss-link-muted kiss-flex kiss-flex-middle">
                             <span class="kiss-text-bold"><?=$this['app.name']?></span>
-                            <icon class="kiss-margin-small-left kiss-hidden@m">more_horiz</icon>
                         </a>
                     </div>
-                    <?php if($this->path('#app:') != $this->path('#root:')): ?>
-                    <div class="kiss-margin-small-left"><span class="kiss-badge kiss-color-primary kiss-badge-outline kiss-text-upper"><?=str_replace(['-', '_'], ' ', basename($this->path('#root:')))?></span></div>
+                    <a class="kiss-link-muted kiss-margin-small-left kiss-hidden@m" href="#app-offcanvas" kiss-offcanvas>
+                        <icon>more_horiz</icon>
+                    </a>
+                    <?php if($this->retrieve('app_space')): ?>
+                    <div class="kiss-margin-small-left"><span class="kiss-badge kiss-color-primary kiss-badge-outline kiss-text-upper"><?=str_replace(['-', '_'], ' ', $this->retrieve('app_space'))?></span></div>
                     <?php endif ?>
                     <div class="kiss-flex-1 kiss-margin-left">
 
@@ -120,7 +138,7 @@
                     <li class="kiss-nav-divider"></li>
                     <li><a class="kiss-flex kiss-flex-middle kiss-color-danger" href="<?=$this->route('/auth/logout')?>"><icon class="kiss-margin-small-right">power_settings_new</icon> <?=t('Logout')?></a></li>
                 </ul>
-            </navlist>
+            </kiss-navlist>
         </kiss-content>
     </kiss-popoutmenu>
 
@@ -135,6 +153,11 @@
             </div>
             <?php $this->trigger('app.layout.offcanvas.header') ?>
             <div class="kiss-flex-1 app-offcanvas-content">
+                <?php if ($sidePanelContents): ?>
+                <div class="kiss-padding">
+                    <?=$sidePanelContents?>
+                </div>
+                <?php endif ?>
                 <div class="kiss-padding">
                     <kiss-navlist>
                         <ul>
