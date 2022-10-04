@@ -9,7 +9,7 @@ if (!defined('APP_ADMIN')) define('APP_ADMIN', false);
 define('APP_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
 
 // Autoload vendor libs
-include_once(__DIR__.'/lib/_autoload.php');
+include_once(__DIR__.'/lib/vendor/autoload.php');
 include_once(__DIR__.'/lib/DotEnv.php');
 
 
