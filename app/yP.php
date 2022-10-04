@@ -53,7 +53,6 @@ class yP
          */
         define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
         define('PATH_SITE_BOOTSTRAP', DIR_ROOT . DIR_APP . FILE_SITE_BOOTSTRAP);
-        define('PATH_COOKIE_JAR', DIR_ROOT . DIR_APP . DIR_STORAGE . DIR_TMP . FILE_COOKIE_JAR);
         define('PATH_DIR_APP', DIR_ROOT . DIR_APP);
         define('PATH_SITE_LOCAL', DIR_ROOT . DIR_APP . DIR_LIB . DIR_INSTALL . DIR_APP);
         define('PATH_SITE_INDEX', DIR_ROOT . DIR_APP . FILE_INDEX);
