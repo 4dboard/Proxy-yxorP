@@ -9,10 +9,7 @@ if (!defined('APP_ADMIN')) define('APP_ADMIN', false);
 define('APP_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
 
 // Autoload vendor libs
-include_once(__DIR__.'/lib/_autoload.php');
-
-// load .env file if exists
-DotEnv::load(APP_DIR);
+include_once(__DIR__.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php');
 
 /*
  * Autoload from lib folder (PSR-0)
@@ -21,6 +18,9 @@ spl_autoload_register(function($class) {
     $class_path = __DIR__.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.str_replace('\\', DIRECTORY_SEPARATOR, $class).'.php';
     if (file_exists($class_path)) include_once($class_path);
 });
+
+// load .env file if exists
+DotEnv::load(APP_DIR);
 
 
 class Cockpit {
