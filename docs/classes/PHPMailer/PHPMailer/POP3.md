@@ -5,18 +5,18 @@
 PHPMailer POP-Before-SMTP Authentication Class.
 
 Specifically for PHPMailer to use for RFC1939 POP-before-SMTP authentication.
+
 1) This class does not support APOP authentication.
 2) Opening and closing lots of POP3 connections can be quite slow. If you need
-  to send a batch of emails then just perform the authentication once at the start,
-  and then loop through your mail sending script. Providing this process doesn't
-  take longer than the verification period lasts on your POP3 server, you should be fine.
+   to send a batch of emails then just perform the authentication once at the start,
+   and then loop through your mail sending script. Providing this process doesn't
+   take longer than the verification period lasts on your POP3 server, you should be fine.
 3) This is really ancient technology; you should only need to use it to talk to very old systems.
 4) This POP3 class is deliberately lightweight and incomplete, implementing just
-  enough to do authentication.
-  If you want a more complete class there are other POP3 classes for PHP available.
+   enough to do authentication.
+   If you want a more complete class there are other POP3 classes for PHP available.
 
 * Full name: `\PHPMailer\PHPMailer\POP3`
-
 
 ## Constants
 
@@ -32,7 +32,6 @@ Specifically for PHPMailer to use for RFC1939 POP-before-SMTP authentication.
 
 ## Properties
 
-
 ### do_debug
 
 POP3 class debug output mode.
@@ -44,11 +43,11 @@ public int $do_debug
 Debug output level.
 Options:
 
-
-
 **See Also:**
 
-*  - POP3::DEBUG_OFF: No output*  - POP3::DEBUG_SERVER: Server messages, connection/server errors*  - POP3::DEBUG_CLIENT: Client and Server messages, connection/server errors
+*
+    - POP3::DEBUG_OFF: No output*  - POP3::DEBUG_SERVER: Server messages, connection/server errors*  - POP3::
+      DEBUG_CLIENT: Client and Server messages, connection/server errors
 
 ***
 
@@ -60,11 +59,6 @@ POP3 mail server hostname.
 public string $host
 ```
 
-
-
-
-
-
 ***
 
 ### port
@@ -74,11 +68,6 @@ POP3 port number.
 ```php
 public int $port
 ```
-
-
-
-
-
 
 ***
 
@@ -90,11 +79,6 @@ POP3 Timeout Value in seconds.
 public int $tval
 ```
 
-
-
-
-
-
 ***
 
 ### username
@@ -104,11 +88,6 @@ POP3 username.
 ```php
 public string $username
 ```
-
-
-
-
-
 
 ***
 
@@ -120,11 +99,6 @@ POP3 password.
 public string $password
 ```
 
-
-
-
-
-
 ***
 
 ### pop_conn
@@ -134,11 +108,6 @@ Resource handle for the POP3 connection socket.
 ```php
 protected resource $pop_conn
 ```
-
-
-
-
-
 
 ***
 
@@ -150,11 +119,6 @@ Are we connected?
 protected bool $connected
 ```
 
-
-
-
-
-
 ***
 
 ### errors
@@ -165,15 +129,9 @@ Error container.
 protected array $errors
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### popBeforeSmtp
 
@@ -183,12 +141,7 @@ Simple static wrapper for all-in-one POP before SMTP.
 public static popBeforeSmtp(string $host, int|bool $port = false, int|bool $timeout = false, string $username = &#039;&#039;, string $password = &#039;&#039;, int $debug_level): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -200,9 +153,6 @@ public static popBeforeSmtp(string $host, int|bool $port = false, int|bool $time
 | `$username` | **string** |  |
 | `$password` | **string** |  |
 | `$debug_level` | **int** |  |
-
-
-
 
 ***
 
@@ -217,11 +167,6 @@ public authorise(string $host, int|bool $port = false, int|bool $timeout = false
 A connect, login, disconnect sequence
 appropriate for POP-before SMTP authorisation.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -233,9 +178,6 @@ appropriate for POP-before SMTP authorisation.
 | `$password` | **string** |  |
 | `$debug_level` | **int** |  |
 
-
-
-
 ***
 
 ### connect
@@ -246,13 +188,6 @@ Connect to a POP3 server.
 public connect(string $host, int|bool $port = false, int $tval = 30): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -260,9 +195,6 @@ public connect(string $host, int|bool $port = false, int $tval = 30): bool
 | `$host` | **string** |  |
 | `$port` | **int&#124;bool** |  |
 | `$tval` | **int** |  |
-
-
-
 
 ***
 
@@ -276,20 +208,12 @@ public login(string $username = &#039;&#039;, string $password = &#039;&#039;): 
 
 Does not support APOP (RFC 2828, 4949).
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$username` | **string** |  |
 | `$password` | **string** |  |
-
-
-
 
 ***
 
@@ -301,16 +225,6 @@ Disconnect from the POP3 server.
 public disconnect(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getResponse
@@ -321,21 +235,11 @@ Get a response from the POP3 server.
 protected getResponse(int $size = 128): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$size` | **int** | The maximum number of bytes to retrieve |
-
-
-
 
 ***
 
@@ -347,21 +251,11 @@ Send raw data to the POP3 server.
 protected sendString(string $string): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -375,19 +269,11 @@ protected checkResponse(string $string): bool
 
 Looks for for +OK or -ERR.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -401,19 +287,11 @@ protected setError(string $error): mixed
 
 Also display debug output if it's enabled.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$error` | **string** |  |
-
-
-
 
 ***
 
@@ -425,16 +303,6 @@ Get an array of error messages, if any.
 public getErrors(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### catchWarning
@@ -445,13 +313,6 @@ POP3 connection error handler.
 protected catchWarning(int $errno, string $errstr, string $errfile, int $errline): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -460,9 +321,6 @@ protected catchWarning(int $errno, string $errstr, string $errfile, int $errline
 | `$errstr` | **string** |  |
 | `$errfile` | **string** |  |
 | `$errline` | **int** |  |
-
-
-
 
 ***
 

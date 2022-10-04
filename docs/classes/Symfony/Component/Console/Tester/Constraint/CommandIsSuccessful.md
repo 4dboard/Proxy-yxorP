@@ -2,20 +2,12 @@
 
 # CommandIsSuccessful
 
-
-
-
-
 * Full name: `\Symfony\Component\Console\Tester\Constraint\CommandIsSuccessful`
 * Parent class: [`Constraint`](../../../../../PHPUnit/Framework/Constraint/Constraint.md)
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
-
-
-
 ## Methods
-
 
 ### toString
 
@@ -24,16 +16,6 @@
 ```php
 public toString(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -45,21 +27,11 @@ public toString(): string
 protected matches(mixed $other): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$other` | **mixed** |  |
-
-
-
 
 ***
 
@@ -71,21 +43,11 @@ protected matches(mixed $other): bool
 protected failureDescription(mixed $other): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$other` | **mixed** |  |
-
-
-
 
 ***
 
@@ -97,21 +59,11 @@ protected failureDescription(mixed $other): string
 protected additionalFailureDescription(mixed $other): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$other` | **mixed** |  |
-
-
-
 
 ***
 

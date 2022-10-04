@@ -2,124 +2,65 @@
 
 # QueryPlan
 
-
-
-
-
 * Full name: `\GraphQL\Type\Definition\QueryPlan`
-
-
 
 ## Properties
 
-
 ### types
-
-
 
 ```php
 private string[][] $types
 ```
 
-
-
-
-
-
 ***
 
 ### schema
-
-
 
 ```php
 private \GraphQL\Type\Schema $schema
 ```
 
-
-
-
-
-
 ***
 
 ### queryPlan
-
-
 
 ```php
 private array&lt;string,mixed&gt; $queryPlan
 ```
 
-
-
-
-
-
 ***
 
 ### variableValues
-
-
 
 ```php
 private array $variableValues
 ```
 
-
-
-
-
-
 ***
 
 ### fragments
-
-
 
 ```php
 private \GraphQL\Language\AST\FragmentDefinitionNode[] $fragments
 ```
 
-
-
-
-
-
 ***
 
 ### groupImplementorFields
-
-
 
 ```php
 private bool $groupImplementorFields
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\GraphQL\Type\Definition\ObjectType $parentType, \GraphQL\Type\Schema $schema, \GraphQL\Language\AST\FieldNode[] $fieldNodes, array $variableValues, \GraphQL\Language\AST\FragmentDefinitionNode[] $fragments, array $options = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -132,65 +73,29 @@ public __construct(\GraphQL\Type\Definition\ObjectType $parentType, \GraphQL\Typ
 | `$fragments` | **\GraphQL\Language\AST\FragmentDefinitionNode[]** |  |
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### queryPlan
-
-
 
 ```php
 public queryPlan(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getReferencedTypes
-
-
 
 ```php
 public getReferencedTypes(): string[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasType
 
-
-
 ```php
 public hasType(string $type): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -198,45 +103,21 @@ public hasType(string $type): bool
 |-----------|------|-------------|
 | `$type` | **string** |  |
 
-
-
-
 ***
 
 ### getReferencedFields
-
-
 
 ```php
 public getReferencedFields(): string[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasField
 
-
-
 ```php
 public hasField(string $field): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -244,25 +125,13 @@ public hasField(string $field): bool
 |-----------|------|-------------|
 | `$field` | **string** |  |
 
-
-
-
 ***
 
 ### subFields
 
-
-
 ```php
 public subFields(string $typename): string[]
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -270,25 +139,13 @@ public subFields(string $typename): string[]
 |-----------|------|-------------|
 | `$typename` | **string** |  |
 
-
-
-
 ***
 
 ### analyzeQueryPlan
 
-
-
 ```php
 private analyzeQueryPlan(\GraphQL\Type\Definition\ObjectType $parentType, \GraphQL\Language\AST\FieldNode[] $fieldNodes): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -297,25 +154,13 @@ private analyzeQueryPlan(\GraphQL\Type\Definition\ObjectType $parentType, \Graph
 | `$parentType` | **\GraphQL\Type\Definition\ObjectType** |  |
 | `$fieldNodes` | **\GraphQL\Language\AST\FieldNode[]** |  |
 
-
-
-
 ***
 
 ### analyzeSelectionSet
 
-
-
 ```php
 private analyzeSelectionSet(\GraphQL\Language\AST\SelectionSetNode $selectionSet, \GraphQL\Type\Definition\InterfaceType|\GraphQL\Type\Definition\ObjectType $parentType, array& $implementors): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -325,25 +170,13 @@ private analyzeSelectionSet(\GraphQL\Language\AST\SelectionSetNode $selectionSet
 | `$parentType` | **\GraphQL\Type\Definition\InterfaceType&#124;\GraphQL\Type\Definition\ObjectType** |  |
 | `$implementors` | **array** |  |
 
-
-
-
 ***
 
 ### analyzeSubFields
 
-
-
 ```php
 private analyzeSubFields(\GraphQL\Type\Definition\Type $type, \GraphQL\Language\AST\SelectionSetNode $selectionSet, array& $implementors = []): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -353,25 +186,13 @@ private analyzeSubFields(\GraphQL\Type\Definition\Type $type, \GraphQL\Language\
 | `$selectionSet` | **\GraphQL\Language\AST\SelectionSetNode** |  |
 | `$implementors` | **array** |  |
 
-
-
-
 ***
 
 ### mergeFields
 
-
-
 ```php
 private mergeFields(\GraphQL\Type\Definition\Type $parentType, \GraphQL\Type\Definition\Type $type, array $fields, array $subfields, array& $implementors): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -382,9 +203,6 @@ private mergeFields(\GraphQL\Type\Definition\Type $parentType, \GraphQL\Type\Def
 | `$fields` | **array** |  |
 | `$subfields` | **array** |  |
 | `$implementors` | **array** |  |
-
-
-
 
 ***
 
@@ -397,13 +215,6 @@ while array_merge_recursive tries to merge non array values, in this implementat
 private arrayMergeDeep(array $array1, array $array2): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -411,11 +222,9 @@ private arrayMergeDeep(array $array1, array $array2): array
 | `$array1` | **array** |  |
 | `$array2` | **array** |  |
 
-
-
 **See Also:**
 
-* https://stackoverflow.com/a/25712428 - 
+* https://stackoverflow.com/a/25712428 -
 
 ***
 

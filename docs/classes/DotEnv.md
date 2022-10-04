@@ -2,32 +2,17 @@
 
 # DotEnv
 
-
-
-
-
 * Full name: `\DotEnv`
-
-
-
 
 ## Methods
 
-
 ### load
-
-
 
 ```php
 public static load(string $dir = &#039;.&#039;): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -35,25 +20,15 @@ public static load(string $dir = &#039;.&#039;): bool
 |-----------|------|-------------|
 | `$dir` | **string** |  |
 
-
-
-
 ***
 
 ### parse
-
-
 
 ```php
 public static parse(string $str, bool $expand = true): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -61,9 +36,6 @@ public static parse(string $str, bool $expand = true): array
 |-----------|------|-------------|
 | `$str` | **string** |  |
 | `$expand` | **bool** |  |
-
-
-
 
 ***
 

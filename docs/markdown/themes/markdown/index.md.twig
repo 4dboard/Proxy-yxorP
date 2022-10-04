@@ -5,7 +5,9 @@
 ***
 {% include 'config/header.md.twig' %}
 
-# {{ project.name|raw }}
+#
+
+{{ project.name|raw }}
 
 {{ project.description|raw }}
 
@@ -13,7 +15,9 @@ This is an automatically generated documentation for **{{project.name}}**.
 
 {# Gitlab supports automatic table of contents generation #}
 {% if md_flavour == 'gitlab' %}
+
 # Table of contents
+
 [[_TOC_]]
 {% endif %}
 
@@ -22,15 +26,20 @@ This is an automatically generated documentation for **{{project.name}}**.
 {% for namespace in project.indexes.namespaces|sort((a,b) => a.FullyQualifiedStructuralElementName <=> b.FullyQualifiedStructuralElementName) %}
 {% if namespace.classes|length > 0 or namespace.traits|length > 0 or namespace.interfaces|length > 0 %}
 
-### {{ namespace.FullyQualifiedStructuralElementName }}
+###
+
+{{ namespace.FullyQualifiedStructuralElementName }}
 
 {% if namespace.classes|length > 0 %}
+
 #### Classes
 
 | Class | Description |
 |-------|-------------|
+
 {% for class in namespace.classes|sort((a,b) => a.FullyQualifiedStructuralElementName <=> b.FullyQualifiedStructuralElementName) %}
-| {{ macros.mdClassLink(class) }} | {{ class.summary|replace({'|': '&#124;'})|nl2br|replace({"\n": "", "\r": "", "\t": ""})|raw }}|
+| {{ macros.mdClassLink(class) }}
+| {{ class.summary|replace({'|': '&#124;'})|nl2br|replace({"\n": "", "\r": "", "\t": ""})|raw }}|
 {% endfor %}{# for class #}
 {% endif %}{# if classes.length #}
 
@@ -40,8 +49,10 @@ This is an automatically generated documentation for **{{project.name}}**.
 
 | Trait | Description |
 |-------|-------------|
+
 {% for trait in namespace.traits|sort((a,b) => a.FullyQualifiedStructuralElementName <=> b.FullyQualifiedStructuralElementName) %}
-| {{ macros.mdClassLink(trait) }} | {{ trait.summary|replace({'|': '&#124;'})|nl2br|replace({"\n": "", "\r": "", "\t": ""})|raw }}|
+| {{ macros.mdClassLink(trait) }}
+| {{ trait.summary|replace({'|': '&#124;'})|nl2br|replace({"\n": "", "\r": "", "\t": ""})|raw }}|
 {% endfor %}{# for trait #}
 
 {% endif %}{# if traits #}
@@ -52,8 +63,10 @@ This is an automatically generated documentation for **{{project.name}}**.
 
 | Interface | Description |
 |-----------|-------------|
+
 {% for interface in namespace.interfaces|sort((a,b) => a.FullyQualifiedStructuralElementName <=> b.FullyQualifiedStructuralElementName) %}
-| {{ macros.mdClassLink(interface) }} | {{ interface.summary|replace({'|': '&#124;'})|nl2br|replace({"\n": "", "\r": "", "\t": ""})|raw }}|
+| {{ macros.mdClassLink(interface) }}
+| {{ interface.summary|replace({'|': '&#124;'})|nl2br|replace({"\n": "", "\r": "", "\t": ""})|raw }}|
 {% endfor %}{# for interace #}
 
 {% endif %}{# if interfaces #}

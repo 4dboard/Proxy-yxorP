@@ -4,95 +4,52 @@
 
 ExcludeDirectoryFilterIterator filters out directories.
 
-
-
 * Full name: `\Symfony\Component\Finder\Iterator\ExcludeDirectoryFilterIterator`
 * Parent class: [`FilterIterator`](../../../../FilterIterator.md)
 * This class implements:
-[`\RecursiveIterator`](../../../../RecursiveIterator.md)
-
-
+  [`\RecursiveIterator`](../../../../RecursiveIterator.md)
 
 ## Properties
 
-
 ### iterator
-
-
 
 ```php
 private \Iterator $iterator
 ```
 
-
-
-
-
-
 ***
 
 ### isRecursive
-
-
 
 ```php
 private bool $isRecursive
 ```
 
-
-
-
-
-
 ***
 
 ### excludedDirs
-
-
 
 ```php
 private array $excludedDirs
 ```
 
-
-
-
-
-
 ***
 
 ### excludedPattern
-
-
 
 ```php
 private ?string $excludedPattern
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Iterator $iterator, string[] $directories): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -100,9 +57,6 @@ public __construct(\Iterator $iterator, string[] $directories): mixed
 |-----------|------|-------------|
 | `$iterator` | **\Iterator** | The Iterator to filter |
 | `$directories` | **string[]** | An array of directories to exclude |
-
-
-
 
 ***
 
@@ -114,55 +68,21 @@ Filters the iterator values.
 public accept(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasChildren
-
-
 
 ```php
 public hasChildren(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getChildren
 
-
-
 ```php
 public getChildren(): self
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

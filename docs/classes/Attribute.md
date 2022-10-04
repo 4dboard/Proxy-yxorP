@@ -2,14 +2,9 @@
 
 # Attribute
 
-
-
-
-
 * Full name: `\Attribute`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
-
 
 ## Constants
 
@@ -26,48 +21,27 @@
 
 ## Properties
 
-
 ### flags
-
-
 
 ```php
 public int $flags
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(int $flags = self::TARGET_ALL): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flags` | **int** |  |
-
-
-
 
 ***
 

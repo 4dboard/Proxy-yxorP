@@ -4,13 +4,10 @@
 
 Encapsulates a Character Set ECI, according to "Extended Channel Interpretations" 5.3.1.1 of ISO 18004.
 
-
-
 * Full name: `\BaconQrCode\Common\CharacterSetEci`
 * Parent class: [`\DASPRiD\Enum\AbstractEnum`](../../DASPRiD/Enum/AbstractEnum.md)
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
-
 
 ## Constants
 
@@ -47,69 +44,43 @@ Encapsulates a Character Set ECI, according to "Extended Channel Interpretations
 
 ## Properties
 
-
 ### values
-
-
 
 ```php
 private int[] $values
 ```
 
-
-
-
-
-
 ***
 
 ### otherEncodingNames
-
-
 
 ```php
 private string[] $otherEncodingNames
 ```
 
-
-
-
-
-
 ***
 
 ### valueToEci
-
-
 
 ```php
 private static array&lt;int,self&gt;|null $valueToEci
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### nameToEci
 
-
-
 ```php
 private static array&lt;string,self&gt;|null $nameToEci
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -123,20 +94,12 @@ When creating your own constructor for a parameterized enum, make sure to declar
 the static methods are able to construct it. Avoid making it public, as that would allow creation of
 non-singleton enum instances.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **array** |  |
 | `$otherEncodingNames` | **string** |  |
-
-
-
 
 ***
 
@@ -147,16 +110,6 @@ Returns the primary value.
 ```php
 public getValue(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -172,17 +125,11 @@ Returns the representing ECI of a given value, or null if it is legal but unsupp
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **int** |  |
-
-
-
 
 ***
 
@@ -198,63 +145,35 @@ Returns the representing ECI of a given name, or null if it is legal but unsuppo
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
-
 ***
 
 ### valueToEci
-
-
 
 ```php
 private static valueToEci(): array
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### nameToEci
 
-
-
 ```php
 private static nameToEci(): array
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -286,12 +205,9 @@ Magic getter which forwards all calls to {@see self::valueOf()}.
 final public static __callStatic(string $name, array $arguments): static
 ```
 
-
-
 * This method is **static**.
 
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -299,9 +215,6 @@ final public static __callStatic(string $name, array $arguments): static
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$arguments` | **array** |  |
-
-
-
 
 ***
 
@@ -320,32 +233,21 @@ are not permitted).
 
 * This method is **final**.
 
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
-
 ***
 
 ### createValue
-
-
 
 ```php
 private static createValue(string $name, int $ordinal, array $arguments): static
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -354,9 +256,6 @@ private static createValue(string $name, int $ordinal, array $arguments): static
 | `$name` | **string** |  |
 | `$ordinal` | **int** |  |
 | `$arguments` | **array** |  |
-
-
-
 
 ***
 
@@ -368,35 +267,19 @@ Obtains all possible types defined by this enum.
 final public static values(): static[]
 ```
 
-
-
 * This method is **static**.
 
 * This method is **final**.
-
-
-
-
 
 ***
 
 ### constants
 
-
-
 ```php
 private static constants(): array
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -412,13 +295,7 @@ Most programmers should use the {@see} method in preference to this one, as the 
 method may return a more user-friendly name. This method is designed primarily for use in specialized situations
 where correctness depends on getting the exact name, which will not vary from release to release.
 
-
-
 * This method is **final**.
-
-
-
-
 
 ***
 
@@ -434,13 +311,7 @@ final public ordinal(): int
 Most programmers will have no use for this method. It is designed for use by sophisticated enum-based data
 structures.
 
-
-
 * This method is **final**.
-
-
-
-
 
 ***
 
@@ -458,19 +329,13 @@ specified object.
 Enums are only comparable to other enums of the same type. The natural order implemented by this method is the
 order in which the constants are declared.
 
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$other` | **self** |  |
-
-
-
 
 ***
 
@@ -482,15 +347,7 @@ Forbid cloning enums.
 final public __clone(): mixed
 ```
 
-
-
-
-
 * This method is **final**.
-
-
-
-
 
 ***
 
@@ -502,15 +359,7 @@ Forbid serializing enums.
 final public __sleep(): array
 ```
 
-
-
-
-
 * This method is **final**.
-
-
-
-
 
 ***
 
@@ -522,15 +371,7 @@ Forbid unserializing enums.
 final public __wakeup(): void
 ```
 
-
-
-
-
 * This method is **final**.
-
-
-
-
 
 ***
 

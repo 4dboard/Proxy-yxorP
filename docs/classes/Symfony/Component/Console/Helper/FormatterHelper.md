@@ -4,16 +4,10 @@
 
 The Formatter class provides helpers to format messages.
 
-
-
 * Full name: `\Symfony\Component\Console\Helper\FormatterHelper`
 * Parent class: [`\Symfony\Component\Console\Helper\Helper`](./Helper.md)
 
-
-
-
 ## Methods
-
 
 ### formatSection
 
@@ -23,13 +17,6 @@ Formats a message within a section.
 public formatSection(string $section, string $message, string $style = &#039;info&#039;): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -37,9 +24,6 @@ public formatSection(string $section, string $message, string $style = &#039;inf
 | `$section` | **string** |  |
 | `$message` | **string** |  |
 | `$style` | **string** |  |
-
-
-
 
 ***
 
@@ -51,13 +35,6 @@ Formats a message as a block of text.
 public formatBlock(string|array $messages, string $style, bool $large = false): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -65,9 +42,6 @@ public formatBlock(string|array $messages, string $style, bool $large = false): 
 | `$messages` | **string&#124;array** | The message to write in the block |
 | `$style` | **string** |  |
 | `$large` | **bool** |  |
-
-
-
 
 ***
 
@@ -79,13 +53,6 @@ Truncates a message to the given length.
 public truncate(string $message, int $length, string $suffix = &#039;...&#039;): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -93,9 +60,6 @@ public truncate(string $message, int $length, string $suffix = &#039;...&#039;):
 | `$message` | **string** |  |
 | `$length` | **int** |  |
 | `$suffix` | **string** |  |
-
-
-
 
 ***
 
@@ -107,21 +71,9 @@ public truncate(string $message, int $length, string $suffix = &#039;...&#039;):
 public getName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setHelperSet
 
@@ -131,21 +83,11 @@ Sets the helper set associated with this helper.
 public setHelperSet(\Symfony\Component\Console\Helper\HelperSet $helperSet = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$helperSet` | **\Symfony\Component\Console\Helper\HelperSet** |  |
-
-
-
 
 ***
 
@@ -157,16 +99,6 @@ Gets the helper set associated with this helper.
 public getHelperSet(): \Symfony\Component\Console\Helper\HelperSet|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### strlen
@@ -177,23 +109,16 @@ Returns the length of a string, using mb_strwidth if it is available.
 public static strlen(?string $string): int
 ```
 
-
-
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **?string** |  |
-
-
-
 
 ***
 
@@ -209,17 +134,11 @@ The width is how many characters positions the string will use.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **?string** |  |
-
-
-
 
 ***
 
@@ -235,17 +154,11 @@ The length is related to how many bytes the string will use.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **?string** |  |
-
-
-
 
 ***
 
@@ -257,12 +170,7 @@ Returns the subset of a string, using mb_substr if it is available.
 public static substr(?string $string, int $from, int $length = null): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -272,25 +180,15 @@ public static substr(?string $string, int $from, int $length = null): string
 | `$from` | **int** |  |
 | `$length` | **int** |  |
 
-
-
-
 ***
 
 ### formatTime
-
-
 
 ```php
 public static formatTime(mixed $secs): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -298,25 +196,15 @@ public static formatTime(mixed $secs): mixed
 |-----------|------|-------------|
 | `$secs` | **mixed** |  |
 
-
-
-
 ***
 
 ### formatMemory
-
-
 
 ```php
 public static formatMemory(int $memory): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -324,54 +212,35 @@ public static formatMemory(int $memory): mixed
 |-----------|------|-------------|
 | `$memory` | **int** |  |
 
-
-
-
 ***
 
 ### strlenWithoutDecoration
 
-
-
 ```php
 public static strlenWithoutDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, ?string $string): mixed
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **?string** |  |
-
-
-
 
 ***
 
 ### removeDecoration
 
-
-
 ```php
 public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, ?string $string): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -379,9 +248,6 @@ public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormat
 |-----------|------|-------------|
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **?string** |  |
-
-
-
 
 ***
 

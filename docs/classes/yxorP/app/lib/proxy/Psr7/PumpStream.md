@@ -2,111 +2,59 @@
 
 # pumpStream
 
-
-
-
-
 * Full name: `\yxorP\app\lib\proxy\psr7\pumpStream`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
-
-
+  [`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
 
 ## Properties
 
-
 ### source
-
-
 
 ```php
 private $source
 ```
 
-
-
-
-
-
 ***
 
 ### size
-
-
 
 ```php
 private $size
 ```
 
-
-
-
-
-
 ***
 
 ### tellPos
-
-
 
 ```php
 private $tellPos
 ```
 
-
-
-
-
-
 ***
 
 ### metadata
-
-
 
 ```php
 private $metadata
 ```
 
-
-
-
-
-
 ***
 
 ### buffer
-
-
 
 ```php
 private $buffer
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(callable $source, array $options = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -114,9 +62,6 @@ public __construct(callable $source, array $options = []): mixed
 |-----------|------|-------------|
 | `$source` | **callable** |  |
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -154,16 +99,6 @@ Closes the stream and any underlying resources.
 public close(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### detach
@@ -175,12 +110,6 @@ public detach(): resource|null
 ```
 
 After the stream has been detached, the stream is in an unusable state.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -198,14 +127,6 @@ Get the size of the stream if known.
 public getSize(): int|null
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Returns the size in bytes if known, or null if unknown.
@@ -222,14 +143,6 @@ Returns the current position of the file read/write pointer
 public tell(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Position of the file pointer
@@ -245,16 +158,6 @@ Returns whether or not the stream is seekable.
 ```php
 public isSeekable(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -287,22 +190,12 @@ Seek to a position in the stream.
 public seek(mixed $offset, mixed $whence = SEEK_SET): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | Stream offset |
 | `$whence` | **mixed** | Specifies how the cursor position will be calculated<br />based on the seek offset. Valid values are identical to the built-in<br />PHP $whence values for `fseek()`.  SEEK_SET: Set position equal to<br />offset bytes SEEK_CUR: Set position to current location plus offset<br />SEEK_END: Set position to end-of-stream plus offset. |
-
-
-
 
 ***
 
@@ -314,16 +207,6 @@ Returns whether or not the stream is writable.
 public isWritable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### write
@@ -334,19 +217,11 @@ Write data to the stream.
 public write(mixed $string): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** | The string that is to be written. |
-
 
 **Return Value:**
 
@@ -364,16 +239,6 @@ Returns whether or not the stream is readable.
 public isReadable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getContents
@@ -383,16 +248,6 @@ Returns the remaining contents in a string
 ```php
 public getContents(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -404,16 +259,6 @@ Returns true if the stream is at the end of the stream.
 public eof(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### read
@@ -424,19 +269,11 @@ Read data from the stream.
 public read(mixed $length): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$length` | **mixed** | Read up to $length bytes from the object and return<br />them. Fewer than $length bytes may be returned if underlying stream<br />call returns fewer bytes. |
-
 
 **Return Value:**
 
@@ -449,27 +286,15 @@ if no bytes are available.
 
 ### pump
 
-
-
 ```php
 private pump(mixed $length): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$length` | **mixed** |  |
-
-
-
 
 ***
 
@@ -484,17 +309,11 @@ public getMetadata(mixed $key = null): array|mixed|null
 The keys returned are identical to the keys returned from PHP's
 stream_get_meta_data() function.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** | Specific metadata to retrieve. |
-
 
 **Return Value:**
 

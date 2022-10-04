@@ -8,19 +8,17 @@ The context in which the annotation is parsed.
 It includes useful metadata which the Processors can use to augment the annotations.
 
 Context hierarchy:
+
 - parseContext
   |- docBlockContext
   |- classContext
-     |- docBlockContext
-     |- propertyContext
-     |- methodContext
+  |- docBlockContext
+  |- propertyContext
+  |- methodContext
 
 * Full name: `\OpenApi\Context`
 
-
-
 ## Properties
-
 
 ### _parent
 
@@ -30,30 +28,15 @@ Prototypical inheritance for properties.
 private \OpenApi\Context $_parent
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $properties = [], \OpenApi\Context $parent = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -61,9 +44,6 @@ public __construct(array $properties = [], \OpenApi\Context $parent = null): mix
 |-----------|------|-------------|
 | `$properties` | **array** | new properties for this context |
 | `$parent` | **\OpenApi\Context** | The parent context |
-
-
-
 
 ***
 
@@ -75,21 +55,11 @@ Check if a property is set directly on this context and not its parent context.
 public is(string $type): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | Example: $c-&gt;is(&#039;method&#039;) or $c-&gt;is(&#039;class&#039;) |
-
-
-
 
 ***
 
@@ -101,21 +71,11 @@ Check if a property is NOT set directly on this context and but its parent conte
 public not(string $type): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | Example: $c-&gt;not(&#039;method&#039;) or $c-&gt;not(&#039;class&#039;) |
-
-
-
 
 ***
 
@@ -127,41 +87,19 @@ Return the context containing the specified property.
 public with(string $property): ?\OpenApi\Context
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **string** |  |
 
-
-
-
 ***
 
 ### getRootContext
 
-
-
 ```php
 public getRootContext(): \OpenApi\Context
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -172,14 +110,6 @@ Export location for debugging.
 ```php
 public getDebugLocation(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -197,61 +127,27 @@ Traverse the context tree to get the property value.
 public __get(string $property): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **string** |  |
 
-
-
-
 ***
 
 ### __toString
-
-
 
 ```php
 public __toString(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __debugInfo
 
-
-
 ```php
 public __debugInfo(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -263,35 +159,16 @@ A short piece of text, usually one line, providing the basic function of the ass
 public phpdocSummary(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### phpdocDescription
 
-An optional longer piece of text providing more details on the associated element’s function. This is very useful when working with a complex element.
+An optional longer piece of text providing more details on the associated element’s function. This is very useful when
+working with a complex element.
 
 ```php
 public phpdocDescription(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -303,16 +180,6 @@ The text contents of the phpdoc comment (excl. tags).
 public phpdocContent(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### detect
@@ -323,23 +190,16 @@ Create a Context based on the debug_backtrace.
 public static detect(int $index): \OpenApi\Context
 ```
 
-
-
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$index` | **int** |  |
-
-
-
 
 ***
 
@@ -351,21 +211,11 @@ Resolve the fully qualified name.
 public fullyQualifiedName(string $source): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source` | **string** | The source name (class/interface/trait) |
-
-
-
 
 ***
 

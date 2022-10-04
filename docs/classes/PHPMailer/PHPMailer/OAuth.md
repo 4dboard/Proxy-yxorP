@@ -8,16 +8,13 @@ Uses the oauth2-client package from the League of Extraordinary Packages.
 
 * Full name: `\PHPMailer\PHPMailer\OAuth`
 * This class implements:
-[`\PHPMailer\PHPMailer\OAuthTokenProvider`](./OAuthTokenProvider.md)
+  [`\PHPMailer\PHPMailer\OAuthTokenProvider`](./OAuthTokenProvider.md)
 
 **See Also:**
 
-* http://oauth2-client.thephpleague.com - 
-
-
+* http://oauth2-client.thephpleague.com -
 
 ## Properties
-
 
 ### provider
 
@@ -26,11 +23,6 @@ An instance of the League OAuth Client Provider.
 ```php
 protected \League\OAuth2\Client\Provider\AbstractProvider $provider
 ```
-
-
-
-
-
 
 ***
 
@@ -41,11 +33,6 @@ The current OAuth access token.
 ```php
 protected \League\OAuth2\Client\Token\AccessToken $oauthToken
 ```
-
-
-
-
-
 
 ***
 
@@ -58,11 +45,6 @@ and also the from address when sending email.
 protected string $oauthUserEmail
 ```
 
-
-
-
-
-
 ***
 
 ### oauthClientSecret
@@ -72,11 +54,6 @@ The client secret, generated in the app definition of the service you're connect
 ```php
 protected string $oauthClientSecret
 ```
-
-
-
-
-
 
 ***
 
@@ -88,11 +65,6 @@ The client ID, generated in the app definition of the service you're connecting 
 protected string $oauthClientId
 ```
 
-
-
-
-
-
 ***
 
 ### oauthRefreshToken
@@ -103,15 +75,9 @@ The refresh token, used to obtain new AccessTokens.
 protected string $oauthRefreshToken
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -121,21 +87,11 @@ OAuth constructor.
 public __construct(array $options): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** | Associative array containing<br />`provider`, `userName`, `clientSecret`, `clientId` and `refreshToken` elements |
-
-
-
 
 ***
 
@@ -147,16 +103,6 @@ Get a new RefreshToken.
 protected getGrant(): \League\OAuth2\Client\Grant\RefreshToken
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getToken
@@ -167,16 +113,6 @@ Get a new AccessToken.
 protected getToken(): \League\OAuth2\Client\Token\AccessToken
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getOauth64
@@ -186,16 +122,6 @@ Generate a base64-encoded OAuth token.
 ```php
 public getOauth64(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

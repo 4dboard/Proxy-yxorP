@@ -25,127 +25,69 @@ type Node = NameNode
 | ListTypeNode
 | NonNullTypeNode
 
-
-
 * Full name: `\GraphQL\Language\AST\OperationDefinitionNode`
 * Parent class: [`\GraphQL\Language\AST\Node`](./Node.md)
 * This class implements:
-[`\GraphQL\Language\AST\ExecutableDefinitionNode`](./ExecutableDefinitionNode.md), [`\GraphQL\Language\AST\HasSelectionSet`](./HasSelectionSet.md)
-
-
+  [`\GraphQL\Language\AST\ExecutableDefinitionNode`](./ExecutableDefinitionNode.md)
+  , [`\GraphQL\Language\AST\HasSelectionSet`](./HasSelectionSet.md)
 
 ## Properties
 
-
 ### kind
-
-
 
 ```php
 public string $kind
 ```
 
-
-
-
-
-
 ***
 
 ### name
-
-
 
 ```php
 public \GraphQL\Language\AST\NameNode|null $name
 ```
 
-
-
-
-
-
 ***
 
 ### operation
-
-
 
 ```php
 public string $operation
 ```
 
-
-
-
-
-
 ***
 
 ### variableDefinitions
-
-
 
 ```php
 public \GraphQL\Language\AST\NodeList&lt;\GraphQL\Language\AST\VariableDefinitionNode&gt; $variableDefinitions
 ```
 
-
-
-
-
-
 ***
 
 ### directives
-
-
 
 ```php
 public \GraphQL\Language\AST\NodeList&lt;\GraphQL\Language\AST\DirectiveNode&gt; $directives
 ```
 
-
-
-
-
-
 ***
 
 ### selectionSet
-
-
 
 ```php
 public \GraphQL\Language\AST\SelectionSetNode $selectionSet
 ```
 
-
-
-
-
-
 ***
-
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct((\GraphQL\Language\AST\NameNode|\GraphQL\Language\AST\NodeList|\GraphQL\Language\AST\SelectionSetNode|\GraphQL\Language\AST\Location|string|int|bool|float|null)[] $vars): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -153,45 +95,21 @@ public __construct((\GraphQL\Language\AST\NameNode|\GraphQL\Language\AST\NodeLis
 |-----------|------|-------------|
 | `$vars` | **(\GraphQL\Language\AST\NameNode&#124;\GraphQL\Language\AST\NodeList&#124;\GraphQL\Language\AST\SelectionSetNode&#124;\GraphQL\Language\AST\Location&#124;string&#124;int&#124;bool&#124;float&#124;null)[]** |  |
 
-
-
-
 ***
 
 ### cloneDeep
-
-
 
 ```php
 public cloneDeep(): self
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### cloneValue
 
-
-
 ```php
 private cloneValue(string|\GraphQL\Language\AST\NodeList|\GraphQL\Language\AST\Location|\GraphQL\Language\AST\Node|(\GraphQL\Language\AST\Node|\GraphQL\Language\AST\NodeList|\GraphQL\Language\AST\Location)[] $value): string|\GraphQL\Language\AST\NodeList|\GraphQL\Language\AST\Location|\GraphQL\Language\AST\Node
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -199,45 +117,21 @@ private cloneValue(string|\GraphQL\Language\AST\NodeList|\GraphQL\Language\AST\L
 |-----------|------|-------------|
 | `$value` | **string&#124;\GraphQL\Language\AST\NodeList&#124;\GraphQL\Language\AST\Location&#124;\GraphQL\Language\AST\Node&#124;(\GraphQL\Language\AST\Node&#124;\GraphQL\Language\AST\NodeList&#124;\GraphQL\Language\AST\Location)[]** |  |
 
-
-
-
 ***
 
 ### __toString
-
-
 
 ```php
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toArray
 
-
-
 ```php
 public toArray(bool $recursive = false): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -245,34 +139,19 @@ public toArray(bool $recursive = false): array
 |-----------|------|-------------|
 | `$recursive` | **bool** |  |
 
-
-
-
 ***
 
 ### recursiveToArray
 
-
-
 ```php
 private recursiveToArray(\GraphQL\Language\AST\Node $node): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\GraphQL\Language\AST\Node** |  |
-
-
-
 
 ***
 

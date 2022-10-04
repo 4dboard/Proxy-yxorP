@@ -9,11 +9,7 @@ encountered coercion errors.
 
 * Full name: `\GraphQL\Utils\Value`
 
-
-
-
 ## Methods
-
 
 ### coerceValue
 
@@ -23,12 +19,7 @@ Given a type and any value, return a runtime value coerced to match the type.
 public static coerceValue(mixed $value, \GraphQL\Type\Definition\ScalarType|\GraphQL\Type\Definition\EnumType|\GraphQL\Type\Definition\InputObjectType|\GraphQL\Type\Definition\ListOfType|\GraphQL\Type\Definition\NonNull $type, mixed $blameNode = null, array $path = null): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -39,25 +30,15 @@ public static coerceValue(mixed $value, \GraphQL\Type\Definition\ScalarType|\Gra
 | `$blameNode` | **mixed** |  |
 | `$path` | **array** |  |
 
-
-
-
 ***
 
 ### ofErrors
-
-
 
 ```php
 private static ofErrors(mixed $errors): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -65,25 +46,15 @@ private static ofErrors(mixed $errors): mixed
 |-----------|------|-------------|
 | `$errors` | **mixed** |  |
 
-
-
-
 ***
 
 ### coercionError
-
-
 
 ```php
 private static coercionError(string $message, \GraphQL\Language\AST\Node $blameNode, array|null $path = null, string $subMessage = null, \Exception|\Throwable|null $originalError = null): \GraphQL\Error\Error
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -95,9 +66,6 @@ private static coercionError(string $message, \GraphQL\Language\AST\Node $blameN
 | `$subMessage` | **string** |  |
 | `$originalError` | **\Exception&#124;\Throwable&#124;null** |  |
 
-
-
-
 ***
 
 ### printPath
@@ -108,12 +76,7 @@ Build a string describing the path into the value where the error was found
 private static printPath(array|null $path = null): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -121,25 +84,15 @@ private static printPath(array|null $path = null): string
 |-----------|------|-------------|
 | `$path` | **array&#124;null** |  |
 
-
-
-
 ***
 
 ### ofValue
-
-
 
 ```php
 private static ofValue(mixed $value): (mixed|null)[]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -147,25 +100,15 @@ private static ofValue(mixed $value): (mixed|null)[]
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### atPath
-
-
 
 ```php
 private static atPath(mixed|null $prev, mixed|null $key): (mixed|null)[]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -174,25 +117,15 @@ private static atPath(mixed|null $prev, mixed|null $key): (mixed|null)[]
 | `$prev` | **mixed&#124;null** |  |
 | `$key` | **mixed&#124;null** |  |
 
-
-
-
 ***
 
 ### add
-
-
 
 ```php
 private static add(\GraphQL\Error\Error[] $errors, \GraphQL\Error\Error|\GraphQL\Error\Error[] $moreErrors): \GraphQL\Error\Error[]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -200,9 +133,6 @@ private static add(\GraphQL\Error\Error[] $errors, \GraphQL\Error\Error|\GraphQL
 |-----------|------|-------------|
 | `$errors` | **\GraphQL\Error\Error[]** |  |
 | `$moreErrors` | **\GraphQL\Error\Error&#124;\GraphQL\Error\Error[]** |  |
-
-
-
 
 ***
 

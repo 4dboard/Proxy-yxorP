@@ -2,19 +2,11 @@
 
 # Is
 
-
-
-
-
 * Full name: `\GuzzleHttp\Promise\Is`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
-
-
-
 ## Methods
-
 
 ### pending
 
@@ -24,21 +16,13 @@ Returns true if a promise is pending.
 public static pending(\GuzzleHttp\Promise\PromiseInterface $promise): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$promise` | **\GuzzleHttp\Promise\PromiseInterface** |  |
-
-
-
 
 ***
 
@@ -50,21 +34,13 @@ Returns true if a promise is fulfilled or rejected.
 public static settled(\GuzzleHttp\Promise\PromiseInterface $promise): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$promise` | **\GuzzleHttp\Promise\PromiseInterface** |  |
-
-
-
 
 ***
 
@@ -76,21 +52,13 @@ Returns true if a promise is fulfilled.
 public static fulfilled(\GuzzleHttp\Promise\PromiseInterface $promise): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$promise` | **\GuzzleHttp\Promise\PromiseInterface** |  |
-
-
-
 
 ***
 
@@ -102,21 +70,13 @@ Returns true if a promise is rejected.
 public static rejected(\GuzzleHttp\Promise\PromiseInterface $promise): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$promise` | **\GuzzleHttp\Promise\PromiseInterface** |  |
-
-
-
 
 ***
 

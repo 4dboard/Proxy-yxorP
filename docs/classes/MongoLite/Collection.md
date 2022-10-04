@@ -4,47 +4,27 @@
 
 Collection object.
 
-
-
 * Full name: `\MongoLite\Collection`
-
-
 
 ## Properties
 
-
 ### database
-
-
 
 ```php
 public \MongoLite\Database $database
 ```
 
-
-
-
-
-
 ***
 
 ### name
-
-
 
 ```php
 public string $name
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -54,22 +34,12 @@ Constructor
 public __construct(string $name, \MongoLite\Database $database): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$database` | **\MongoLite\Database** |  |
-
-
-
 
 ***
 
@@ -81,16 +51,6 @@ Drop collection
 public drop(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### insertMany
@@ -101,19 +61,11 @@ Insert many documents
 public insertMany(array $documents): \MongoLite\count
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$documents` | **array** |  |
-
 
 **Return Value:**
 
@@ -131,19 +83,11 @@ Insert document
 public insert(array& $document): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **array** |  |
-
 
 **Return Value:**
 
@@ -162,21 +106,11 @@ Insert document
 protected _insert(array& $document): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **array** |  |
-
-
-
 
 ***
 
@@ -188,22 +122,12 @@ Save document
 public save(array& $document, bool $create = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **array** |  |
 | `$create` | **bool** |  |
-
-
-
 
 ***
 
@@ -215,13 +139,6 @@ Update documents
 public update(mixed $criteria, array $data, bool $merge = true): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -229,9 +146,6 @@ public update(mixed $criteria, array $data, bool $merge = true): int
 | `$criteria` | **mixed** |  |
 | `$data` | **array** |  |
 | `$merge` | **bool** |  |
-
-
-
 
 ***
 
@@ -243,21 +157,11 @@ Remove documents
 public remove(mixed $criteria): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$criteria` | **mixed** |  |
-
-
-
 
 ***
 
@@ -269,21 +173,11 @@ Count documents in collections
 public count(mixed $criteria = null): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$criteria` | **mixed** |  |
-
-
-
 
 ***
 
@@ -295,20 +189,12 @@ Find documents
 public find(mixed $criteria = null, ?array $projection = null): \MongoLite\Cursor
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$criteria` | **mixed** |  |
 | `$projection` | **?array** |  |
-
 
 **Return Value:**
 
@@ -326,22 +212,12 @@ Find one document
 public findOne(mixed $criteria = null, ?array $projection = null): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$criteria` | **mixed** |  |
 | `$projection` | **?array** |  |
-
-
-
 
 ***
 
@@ -353,21 +229,11 @@ Data aggregation
 public aggregate(array $pipeline): \MongoLite\Aggregation\Cursor
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pipeline` | **array** |  |
-
-
-
 
 ***
 
@@ -379,21 +245,11 @@ Rename Collection
 public renameCollection(string $newname): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$newname` | **string** | [description] |
-
-
-
 
 ***
 

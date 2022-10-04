@@ -2,19 +2,11 @@
 
 # Header
 
-
-
-
-
 * Full name: `\GuzzleHttp\Psr7\Header`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
-
-
-
 ## Methods
-
 
 ### parse
 
@@ -27,21 +19,13 @@ contains a key, this function will inject a key with a '' string value.
 public static parse(string|array $header): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **string&#124;array** | Header to parse into components. |
-
-
-
 
 ***
 
@@ -54,23 +38,16 @@ headers into an array of headers with no comma separated values.
 public static normalize(string|array $header): array
 ```
 
-
-
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **string&#124;array** | Header to normalize. |
-
-
-
 
 ***
 
@@ -90,17 +67,11 @@ a list, such as 'user-agent' or 'set-cookie'.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **string&#124;string[]** | Header value as returned by MessageInterface::getHeader() |
-
-
-
 
 ***
 

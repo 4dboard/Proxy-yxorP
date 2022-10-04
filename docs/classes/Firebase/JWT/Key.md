@@ -2,64 +2,33 @@
 
 # Key
 
-
-
-
-
 * Full name: `\Firebase\JWT\Key`
-
-
 
 ## Properties
 
-
 ### keyMaterial
-
-
 
 ```php
 private string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate $keyMaterial
 ```
 
-
-
-
-
-
 ***
 
 ### algorithm
-
-
 
 ```php
 private string $algorithm
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate $keyMaterial, string $algorithm): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -67,9 +36,6 @@ public __construct(string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate $ke
 |-----------|------|-------------|
 | `$keyMaterial` | **string&#124;resource&#124;\OpenSSLAsymmetricKey&#124;\OpenSSLCertificate** |  |
 | `$algorithm` | **string** |  |
-
-
-
 
 ***
 
@@ -81,35 +47,13 @@ Return the algorithm valid for this key
 public getAlgorithm(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getKeyMaterial
 
-
-
 ```php
 public getKeyMaterial(): string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

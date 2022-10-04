@@ -2,16 +2,9 @@
 
 # Color
 
-
-
-
-
 * Full name: `\ColorThief\Color`
 
-
-
 ## Properties
-
 
 ### red
 
@@ -20,11 +13,6 @@ RGB Red value of current color instance.
 ```php
 private int $red
 ```
-
-
-
-
-
 
 ***
 
@@ -36,11 +24,6 @@ RGB Green value of current color instance.
 private int $green
 ```
 
-
-
-
-
-
 ***
 
 ### blue
@@ -51,15 +34,9 @@ RGB Blue value of current color instance.
 private int $blue
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -69,13 +46,6 @@ Creates new instance.
 public __construct(int $red, int $green, int $blue): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -83,9 +53,6 @@ public __construct(int $red, int $green, int $blue): mixed
 | `$red` | **int** |  |
 | `$green` | **int** |  |
 | `$blue` | **int** |  |
-
-
-
 
 ***
 
@@ -97,16 +64,6 @@ Get red value.
 public getRed(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getGreen
@@ -116,16 +73,6 @@ Get green value.
 ```php
 public getGreen(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -137,16 +84,6 @@ Get blue value.
 public getBlue(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getInt
@@ -156,16 +93,6 @@ Calculates integer value of current color instance.
 ```php
 public getInt(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -177,21 +104,11 @@ Calculates hexadecimal value of current color instance.
 public getHex(string $prefix = &#039;&#039;): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
-
-
-
 
 ***
 
@@ -203,16 +120,6 @@ Calculates RGB in array format of current color instance.
 public getArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getRgb
@@ -222,16 +129,6 @@ Calculates RGB in string format of current color instance.
 ```php
 public getRgb(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -243,21 +140,11 @@ Formats current color instance into given format.
 public format(string $type): string|int|array|self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** |  |
-
-
-
 
 ***
 
@@ -268,16 +155,6 @@ Get color as string.
 ```php
 public __toString(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

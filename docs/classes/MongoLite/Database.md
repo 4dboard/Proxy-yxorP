@@ -4,10 +4,7 @@
 
 Database object.
 
-
-
 * Full name: `\MongoLite\Database`
-
 
 ## Constants
 
@@ -17,69 +14,39 @@ Database object.
 
 ## Properties
 
-
 ### connection
-
-
 
 ```php
 public \PDO $connection
 ```
 
-
-
-
-
-
 ***
 
 ### collections
-
-
 
 ```php
 protected array $collections
 ```
 
-
-
-
-
-
 ***
 
 ### path
-
-
 
 ```php
 protected string $path
 ```
 
-
-
-
-
-
 ***
 
 ### document_criterias
-
-
 
 ```php
 protected array $document_criterias
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -89,22 +56,12 @@ Constructor
 public __construct(string $path = self::DSN_PATH_MEMORY, array $options = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -116,21 +73,11 @@ Register Criteria function
 public registerCriteriaFunction(mixed $criteria): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$criteria` | **mixed** |  |
-
-
-
 
 ***
 
@@ -142,22 +89,12 @@ Execute registred criteria function
 public callCriteriaFunction(string $id, array $document): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$document` | **array** |  |
-
-
-
 
 ***
 
@@ -169,16 +106,6 @@ Vacuum database
 public vacuum(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### drop
@@ -188,16 +115,6 @@ Drop database
 ```php
 public drop(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -209,21 +126,11 @@ Create a collection
 public createCollection(string $name): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -235,21 +142,11 @@ Drop a collection
 public dropCollection(string $name): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -261,16 +158,6 @@ Get all collection names in the database
 public getCollectionNames(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### listCollections
@@ -280,16 +167,6 @@ Get all collections in the database
 ```php
 public listCollections(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -301,47 +178,25 @@ Select collection
 public selectCollection(string $name): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $collection): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$collection` | **mixed** |  |
-
-
-
 
 ***
 

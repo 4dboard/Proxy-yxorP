@@ -4,82 +4,43 @@
 
 Formatter class for console output.
 
-
-
 * Full name: `\Symfony\Component\Console\Formatter\OutputFormatter`
 * This class implements:
-[`\Symfony\Component\Console\Formatter\WrappableOutputFormatterInterface`](./WrappableOutputFormatterInterface.md)
-
-
+  [`\Symfony\Component\Console\Formatter\WrappableOutputFormatterInterface`](./WrappableOutputFormatterInterface.md)
 
 ## Properties
 
-
 ### decorated
-
-
 
 ```php
 private $decorated
 ```
 
-
-
-
-
-
 ***
 
 ### styles
-
-
 
 ```php
 private $styles
 ```
 
-
-
-
-
-
 ***
 
 ### styleStack
-
-
 
 ```php
 private $styleStack
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __clone
-
-
 
 ```php
 public __clone(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -91,21 +52,13 @@ Escapes "<" and ">" special chars in given text.
 public static escape(string $text): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$text` | **string** |  |
-
-
-
 
 ***
 
@@ -117,22 +70,12 @@ Initializes console output formatter.
 public __construct(bool $decorated = false, \Symfony\Component\Console\Formatter\OutputFormatterStyleInterface[] $styles = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$decorated` | **bool** |  |
 | `$styles` | **\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface[]** | Array of &quot;name =&gt; FormatterStyle&quot; instances |
-
-
-
 
 ***
 
@@ -144,21 +87,11 @@ public __construct(bool $decorated = false, \Symfony\Component\Console\Formatter
 public setDecorated(bool $decorated): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$decorated` | **bool** |  |
-
-
-
 
 ***
 
@@ -170,16 +103,6 @@ public setDecorated(bool $decorated): mixed
 public isDecorated(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setStyle
@@ -190,22 +113,12 @@ public isDecorated(): mixed
 public setStyle(string $name, \Symfony\Component\Console\Formatter\OutputFormatterStyleInterface $style): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$style` | **\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface** |  |
-
-
-
 
 ***
 
@@ -217,21 +130,11 @@ public setStyle(string $name, \Symfony\Component\Console\Formatter\OutputFormatt
 public hasStyle(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -243,21 +146,11 @@ public hasStyle(string $name): mixed
 public getStyle(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -269,21 +162,11 @@ public getStyle(string $name): mixed
 public format(?string $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **?string** |  |
-
-
-
 
 ***
 
@@ -295,13 +178,6 @@ Formats a message according to the given styles, wrapping at `$width` (0 means n
 public formatAndWrap(?string $message, int $width): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -309,28 +185,13 @@ public formatAndWrap(?string $message, int $width): mixed
 | `$message` | **?string** |  |
 | `$width` | **int** |  |
 
-
-
-
 ***
 
 ### getStyleStack
 
-
-
 ```php
 public getStyleStack(): \Symfony\Component\Console\Formatter\OutputFormatterStyleStack
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -342,21 +203,11 @@ Tries to create new style instance from string.
 private createStyleFromString(string $string): ?\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -368,13 +219,6 @@ Applies current style from stack to text, if must be applied.
 private applyCurrentStyle(string $text, string $current, int $width, int& $currentLineLength): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -383,9 +227,6 @@ private applyCurrentStyle(string $text, string $current, int $width, int& $curre
 | `$current` | **string** |  |
 | `$width` | **int** |  |
 | `$currentLineLength` | **int** |  |
-
-
-
 
 ***
 

@@ -1,15 +1,10 @@
-
 ***
 
 # Documentation
 
-
-
 This is an automatically generated documentation for **Documentation**.
 
-
 ## Namespaces
-
 
 ### \
 
@@ -48,15 +43,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`onSentAction`](./classes/onSentAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
 | [`onWriteAction`](./classes/onWriteAction.md) | Importing the `response` class from the `http` namespace.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`Stringable`](./classes/Stringable.md) | |
-
-
 
 ### \App\Command\Cache
 
@@ -66,9 +57,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`Flush`](./classes/App/Command/Cache/Flush.md) | Base class for all commands.|
 
-
-
-
 ### \App\Command\Spaces
 
 #### Classes
@@ -77,9 +65,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`Create`](./classes/App/Command/Spaces/Create.md) | Base class for all commands.|
 
-
-
-
 ### \App\Command\i18n
 
 #### Classes
@@ -87,9 +72,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`CreateTranslation`](./classes/App/Command/i18n/CreateTranslation.md) | Base class for all commands.|
-
-
-
 
 ### \App\Controller
 
@@ -104,9 +86,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Dashboard`](./classes/App/Controller/Dashboard.md) | Class Controller|
 | [`Utils`](./classes/App/Controller/Utils.md) | Class Controller|
 
-
-
-
 ### \App\GraphQL
 
 #### Classes
@@ -114,9 +93,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`Query`](./classes/App/GraphQL/Query.md) | |
-
-
-
 
 ### \App\GraphQL\Types
 
@@ -127,9 +103,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`FieldTypes`](./classes/App/GraphQL/Types/FieldTypes.md) | |
 | [`JsonType`](./classes/App/GraphQL/Types/JsonType.md) | Scalar Type Definition|
 | [`UploadType`](./classes/App/GraphQL/Types/UploadType.md) | Scalar Type Definition|
-
-
-
 
 ### \App\Helper
 
@@ -154,9 +127,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Theme`](./classes/App/Helper/Theme.md) | |
 | [`i18n`](./classes/App/Helper/i18n.md) | I18n class. Manage translations|
 
-
-
-
 ### \App\RestApi
 
 #### Classes
@@ -165,9 +135,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`Query`](./classes/App/RestApi/Query.md) | |
 
-
-
-
 ### \Assets\Controller
 
 #### Classes
@@ -175,9 +142,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`Assets`](./classes/Assets/Controller/Assets.md) | Class Controller|
-
-
-
 
 ### \Assets\Helper
 
@@ -188,9 +152,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Asset`](./classes/Assets/Helper/Asset.md) | |
 | [`Img`](./classes/Assets/Helper/Img.md) | |
 
-
-
-
 ### \BaconQrCode
 
 #### Classes
@@ -198,9 +159,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`Writer`](./classes/BaconQrCode/Writer.md) | QR code writer.|
-
-
-
 
 ### \BaconQrCode\Common
 
@@ -220,9 +178,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`ReedSolomonCodec`](./classes/BaconQrCode/Common/ReedSolomonCodec.md) | Reed-Solomon codec for 8-bit characters.|
 | [`Version`](./classes/BaconQrCode/Common/Version.md) | Version representation.|
 
-
-
-
 ### \BaconQrCode\Encoder
 
 #### Classes
@@ -236,9 +191,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`MatrixUtil`](./classes/BaconQrCode/Encoder/MatrixUtil.md) | Matrix utility.|
 | [`QrCode`](./classes/BaconQrCode/Encoder/QrCode.md) | QR code.|
 
-
-
-
 ### \BaconQrCode\Exception
 
 #### Classes
@@ -251,15 +203,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`UnexpectedValueException`](./classes/BaconQrCode/Exception/UnexpectedValueException.md) | |
 | [`WriterException`](./classes/BaconQrCode/Exception/WriterException.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ExceptionInterface`](./classes/BaconQrCode/Exception/ExceptionInterface.md) | |
-
-
 
 ### \BaconQrCode\Renderer
 
@@ -270,15 +218,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`ImageRenderer`](./classes/BaconQrCode/Renderer/ImageRenderer.md) | |
 | [`PlainTextRenderer`](./classes/BaconQrCode/Renderer/PlainTextRenderer.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`RendererInterface`](./classes/BaconQrCode/Renderer/RendererInterface.md) | |
-
-
 
 ### \BaconQrCode\Renderer\Color
 
@@ -291,15 +235,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`Gray`](./classes/BaconQrCode/Renderer/Color/Gray.md) | |
 | [`Rgb`](./classes/BaconQrCode/Renderer/Color/Rgb.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ColorInterface`](./classes/BaconQrCode/Renderer/Color/ColorInterface.md) | |
-
-
 
 ### \BaconQrCode\Renderer\Eye
 
@@ -312,15 +252,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`SimpleCircleEye`](./classes/BaconQrCode/Renderer/Eye/SimpleCircleEye.md) | Renders the inner eye as a circle.|
 | [`SquareEye`](./classes/BaconQrCode/Renderer/Eye/SquareEye.md) | Renders the eyes in their default square shape.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`EyeInterface`](./classes/BaconQrCode/Renderer/Eye/EyeInterface.md) | Interface for describing the look of an eye.|
-
-
 
 ### \BaconQrCode\Renderer\Image
 
@@ -333,15 +269,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`SvgImageBackEnd`](./classes/BaconQrCode/Renderer/Image/SvgImageBackEnd.md) | |
 | [`TransformationMatrix`](./classes/BaconQrCode/Renderer/Image/TransformationMatrix.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ImageBackEndInterface`](./classes/BaconQrCode/Renderer/Image/ImageBackEndInterface.md) | Interface for back ends able to to produce path based images.|
-
-
 
 ### \BaconQrCode\Renderer\Module
 
@@ -353,15 +285,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`RoundnessModule`](./classes/BaconQrCode/Renderer/Module/RoundnessModule.md) | Rounds the corners of module groups.|
 | [`SquareModule`](./classes/BaconQrCode/Renderer/Module/SquareModule.md) | Groups modules together to a single path.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ModuleInterface`](./classes/BaconQrCode/Renderer/Module/ModuleInterface.md) | Interface describing how modules should be rendered.|
-
-
 
 ### \BaconQrCode\Renderer\Module\EdgeIterator
 
@@ -371,9 +299,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`Edge`](./classes/BaconQrCode/Renderer/Module/EdgeIterator/Edge.md) | |
 | [`EdgeIterator`](./classes/BaconQrCode/Renderer/Module/EdgeIterator/EdgeIterator.md) | Edge iterator based on potrace.|
-
-
-
 
 ### \BaconQrCode\Renderer\Path
 
@@ -388,15 +313,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`Move`](./classes/BaconQrCode/Renderer/Path/Move.md) | |
 | [`Path`](./classes/BaconQrCode/Renderer/Path/Path.md) | Internal Representation of a vector path.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`OperationInterface`](./classes/BaconQrCode/Renderer/Path/OperationInterface.md) | |
-
-
 
 ### \BaconQrCode\Renderer\RendererStyle
 
@@ -410,9 +331,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`GradientType`](./classes/BaconQrCode/Renderer/RendererStyle/GradientType.md) | |
 | [`RendererStyle`](./classes/BaconQrCode/Renderer/RendererStyle/RendererStyle.md) | |
 
-
-
-
 ### \ColinODell\Json5
 
 #### Classes
@@ -422,9 +340,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Json5Decoder`](./classes/ColinODell/Json5/Json5Decoder.md) | |
 | [`SyntaxError`](./classes/ColinODell/Json5/SyntaxError.md) | |
 
-
-
-
 ### \Collections\Helper
 
 #### Classes
@@ -432,9 +347,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`Collections`](./classes/Collections/Helper/Collections.md) | |
-
-
-
 
 ### \ColorThief
 
@@ -447,9 +359,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`PQueue`](./classes/ColorThief/PQueue.md) | Simple priority queue.|
 | [`VBox`](./classes/ColorThief/VBox.md) | |
 
-
-
-
 ### \ColorThief\Exception
 
 #### Classes
@@ -461,15 +370,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`NotSupportedException`](./classes/ColorThief/Exception/NotSupportedException.md) | Exception thrown when an operation is not supported.|
 | [`RuntimeException`](./classes/ColorThief/Exception/RuntimeException.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`Exception`](./classes/ColorThief/Exception/Exception.md) | Base exception marker interface for ColorThief.|
-
-
 
 ### \ColorThief\Image
 
@@ -478,9 +383,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`ImageLoader`](./classes/ColorThief/Image/ImageLoader.md) | |
-
-
-
 
 ### \ColorThief\Image\Adapter
 
@@ -493,15 +395,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`GmagickAdapter`](./classes/ColorThief/Image/Adapter/GmagickAdapter.md) | Base adapter implementation to handle image manipulation.|
 | [`ImagickAdapter`](./classes/ColorThief/Image/Adapter/ImagickAdapter.md) | Base adapter implementation to handle image manipulation.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`AdapterInterface`](./classes/ColorThief/Image/Adapter/AdapterInterface.md) | Basic interface for all image adapters.|
-
-
 
 ### \Composer
 
@@ -511,9 +409,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | |
 | [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | |
-
-
-
 
 ### \Composer\Autoload
 
@@ -526,9 +421,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`ComposerStaticInit00d1f9b6bf944011268c41c2b4662055`](./classes/Composer/Autoload/ComposerStaticInit00d1f9b6bf944011268c41c2b4662055.md) | |
 | [`ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c`](./classes/Composer/Autoload/ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c.md) | |
 
-
-
-
 ### \Content\Controller
 
 #### Classes
@@ -540,9 +432,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Models`](./classes/Content/Controller/Models.md) | Class Controller|
 | [`Singleton`](./classes/Content/Controller/Singleton.md) | Class Controller|
 
-
-
-
 ### \DASPRiD\Enum
 
 #### Classes
@@ -552,9 +441,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`AbstractEnum`](./classes/DASPRiD/Enum/AbstractEnum.md) | |
 | [`EnumMap`](./classes/DASPRiD/Enum/EnumMap.md) | A specialized map implementation for use with enum type keys.|
 | [`NullValue`](./classes/DASPRiD/Enum/NullValue.md) | |
-
-
-
 
 ### \DASPRiD\Enum\Exception
 
@@ -569,15 +455,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`SerializeNotSupportedException`](./classes/DASPRiD/Enum/Exception/SerializeNotSupportedException.md) | |
 | [`UnserializeNotSupportedException`](./classes/DASPRiD/Enum/Exception/UnserializeNotSupportedException.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ExceptionInterface`](./classes/DASPRiD/Enum/Exception/ExceptionInterface.md) | |
-
-
 
 ### \Doctrine\Common\Annotations
 
@@ -600,16 +482,12 @@ This is an automatically generated documentation for **Documentation**.
 | [`SimpleAnnotationReader`](./classes/Doctrine/Common/Annotations/SimpleAnnotationReader.md) | Simple Annotation Reader.|
 | [`TokenParser`](./classes/Doctrine/Common/Annotations/TokenParser.md) | Parses a file for namespaces/use/class declarations.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`NamedArgumentConstructorAnnotation`](./classes/Doctrine/Common/Annotations/NamedArgumentConstructorAnnotation.md) | Marker interface for PHP7/PHP8 compatible support<br />for named arguments (and constructor property promotion).|
 | [`Reader`](./classes/Doctrine/Common/Annotations/Reader.md) | Interface for annotation readers.|
-
-
 
 ### \Doctrine\Common\Annotations\Annotation
 
@@ -625,9 +503,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Required`](./classes/Doctrine/Common/Annotations/Annotation/Required.md) | Annotation that can be used to signal to the parser<br />to check if that attribute is required during the parsing process.|
 | [`Target`](./classes/Doctrine/Common/Annotations/Annotation/Target.md) | Annotation that can be used to signal to the parser<br />to check the annotation target during the parsing process.|
 
-
-
-
 ### \Doctrine\Common\Lexer
 
 #### Classes
@@ -635,9 +510,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`AbstractLexer`](./classes/Doctrine/Common/Lexer/AbstractLexer.md) | Base class for writing simple lexers, i.e. for creating small DSLs.|
-
-
-
 
 ### \Firebase\JWT
 
@@ -653,9 +525,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Key`](./classes/Firebase/JWT/Key.md) | |
 | [`SignatureInvalidException`](./classes/Firebase/JWT/SignatureInvalidException.md) | |
 
-
-
-
 ### \GraphQL
 
 #### Classes
@@ -663,9 +532,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`GraphQL`](./classes/GraphQL/GraphQL.md) | This is the primary facade for fulfilling GraphQL operations.|
-
-
-
 
 ### \GraphQL\Error
 
@@ -681,15 +547,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`UserError`](./classes/GraphQL/Error/UserError.md) | Error caused by actions of GraphQL clients. Can be safely displayed to a client.|
 | [`Warning`](./classes/GraphQL/Error/Warning.md) | Encapsulates warnings produced by the library.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ClientAware`](./classes/GraphQL/Error/ClientAware.md) | This interface is used for [default error formatting](error-handling.md).|
-
-
 
 ### \GraphQL\Exception
 
@@ -698,9 +560,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`InvalidArgument`](./classes/GraphQL/Exception/InvalidArgument.md) | |
-
-
-
 
 ### \GraphQL\Executor
 
@@ -713,15 +572,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`ReferenceExecutor`](./classes/GraphQL/Executor/ReferenceExecutor.md) | |
 | [`Values`](./classes/GraphQL/Executor/Values.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ExecutorImplementation`](./classes/GraphQL/Executor/ExecutorImplementation.md) | |
-
-
 
 ### \GraphQL\Executor\Promise
 
@@ -731,15 +586,11 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`Promise`](./classes/GraphQL/Executor/Promise/Promise.md) | Convenience wrapper for promises represented by Promise Adapter|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`PromiseAdapter`](./classes/GraphQL/Executor/Promise/PromiseAdapter.md) | Provides a means for integration of async PHP platforms ([related docs](data-fetching.md#async-php))|
-
-
 
 ### \GraphQL\Executor\Promise\Adapter
 
@@ -751,9 +602,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`ReactPromiseAdapter`](./classes/GraphQL/Executor/Promise/Adapter/ReactPromiseAdapter.md) | |
 | [`SyncPromiseAdapter`](./classes/GraphQL/Executor/Promise/Adapter/SyncPromiseAdapter.md) | Allows changing order of field resolution even in sync environments<br />(by leveraging queue of deferreds and promises)|
 
-
-
-
 ### \GraphQL\Experimental\Executor
 
 #### Classes
@@ -761,9 +609,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`CoroutineExecutor`](./classes/GraphQL/Experimental/Executor/CoroutineExecutor.md) | |
-
-
-
 
 ### \GraphQL\Language
 
@@ -780,9 +625,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Token`](./classes/GraphQL/Language/Token.md) | Represents a range of characters represented by a lexical token<br />within a Source.|
 | [`Visitor`](./classes/GraphQL/Language/Visitor.md) | Utility for efficient AST traversal and modification.|
 | [`VisitorOperation`](./classes/GraphQL/Language/VisitorOperation.md) | |
-
-
-
 
 ### \GraphQL\Language\AST
 
@@ -838,8 +680,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`VariableDefinitionNode`](./classes/GraphQL/Language/AST/VariableDefinitionNode.md) | type Node = NameNode<br />&amp;#124; DocumentNode<br />&amp;#124; OperationDefinitionNode<br />&amp;#124; VariableDefinitionNode<br />&amp;#124; VariableNode<br />&amp;#124; SelectionSetNode<br />&amp;#124; FieldNode<br />&amp;#124; ArgumentNode<br />&amp;#124; FragmentSpreadNode<br />&amp;#124; InlineFragmentNode<br />&amp;#124; FragmentDefinitionNode<br />&amp;#124; IntValueNode<br />&amp;#124; FloatValueNode<br />&amp;#124; StringValueNode<br />&amp;#124; BooleanValueNode<br />&amp;#124; EnumValueNode<br />&amp;#124; ListValueNode<br />&amp;#124; ObjectValueNode<br />&amp;#124; ObjectFieldNode<br />&amp;#124; DirectiveNode<br />&amp;#124; ListTypeNode<br />&amp;#124; NonNullTypeNode|
 | [`VariableNode`](./classes/GraphQL/Language/AST/VariableNode.md) | type Node = NameNode<br />&amp;#124; DocumentNode<br />&amp;#124; OperationDefinitionNode<br />&amp;#124; VariableDefinitionNode<br />&amp;#124; VariableNode<br />&amp;#124; SelectionSetNode<br />&amp;#124; FieldNode<br />&amp;#124; ArgumentNode<br />&amp;#124; FragmentSpreadNode<br />&amp;#124; InlineFragmentNode<br />&amp;#124; FragmentDefinitionNode<br />&amp;#124; IntValueNode<br />&amp;#124; FloatValueNode<br />&amp;#124; StringValueNode<br />&amp;#124; BooleanValueNode<br />&amp;#124; EnumValueNode<br />&amp;#124; ListValueNode<br />&amp;#124; ObjectValueNode<br />&amp;#124; ObjectFieldNode<br />&amp;#124; DirectiveNode<br />&amp;#124; ListTypeNode<br />&amp;#124; NonNullTypeNode|
 
-
-
 #### Interfaces
 
 | Interface | Description |
@@ -854,8 +694,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`TypeSystemDefinitionNode`](./classes/GraphQL/Language/AST/TypeSystemDefinitionNode.md) | export type TypeSystemDefinitionNode =<br />&amp;#124; SchemaDefinitionNode<br />&amp;#124; TypeDefinitionNode<br />&amp;#124; TypeExtensionNode<br />&amp;#124; DirectiveDefinitionNode|
 | [`ValueNode`](./classes/GraphQL/Language/AST/ValueNode.md) | export type ValueNode = VariableNode<br />&amp;#124; NullValueNode<br />&amp;#124; IntValueNode<br />&amp;#124; FloatValueNode<br />&amp;#124; StringValueNode<br />&amp;#124; BooleanValueNode<br />&amp;#124; EnumValueNode<br />&amp;#124; ListValueNode<br />&amp;#124; ObjectValueNode|
 
-
-
 ### \GraphQL\Server
 
 #### Classes
@@ -868,9 +706,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`ServerConfig`](./classes/GraphQL/Server/ServerConfig.md) | Server configuration class.|
 | [`StandardServer`](./classes/GraphQL/Server/StandardServer.md) | GraphQL server compatible with both: [express-graphql](https://github.com/graphql/express-graphql)<br />and [Apollo Server](https://github.com/apollographql/graphql-server).|
 
-
-
-
 ### \GraphQL\Type
 
 #### Classes
@@ -881,9 +716,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`SchemaConfig`](./classes/GraphQL/Type/SchemaConfig.md) | Schema configuration class.|
 | [`SchemaValidationContext`](./classes/GraphQL/Type/SchemaValidationContext.md) | |
 | [`TypeKind`](./classes/GraphQL/Type/TypeKind.md) | |
-
-
-
 
 ### \GraphQL\Type\Definition
 
@@ -912,8 +744,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`TypeWithFields`](./classes/GraphQL/Type/Definition/TypeWithFields.md) | Registry of standard GraphQL types<br />and a base class for all other types.|
 | [`UnionType`](./classes/GraphQL/Type/Definition/UnionType.md) | Registry of standard GraphQL types<br />and a base class for all other types.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
@@ -930,8 +760,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`UnmodifiedType`](./classes/GraphQL/Type/Definition/UnmodifiedType.md) | |
 | [`WrappingType`](./classes/GraphQL/Type/Definition/WrappingType.md) | |
 
-
-
 ### \GraphQL\Type\Validation
 
 #### Classes
@@ -939,9 +767,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`InputObjectCircularRefs`](./classes/GraphQL/Type/Validation/InputObjectCircularRefs.md) | |
-
-
-
 
 ### \GraphQL\Utils
 
@@ -965,9 +790,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Utils`](./classes/GraphQL/Utils/Utils.md) | |
 | [`Value`](./classes/GraphQL/Utils/Value.md) | Coerces a PHP value given a GraphQL Type.|
 
-
-
-
 ### \GraphQL\Validator
 
 #### Classes
@@ -978,9 +800,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`DocumentValidator`](./classes/GraphQL/Validator/DocumentValidator.md) | Implements the &quot;Validation&quot; section of the spec.|
 | [`SDLValidationContext`](./classes/GraphQL/Validator/SDLValidationContext.md) | |
 | [`ValidationContext`](./classes/GraphQL/Validator/ValidationContext.md) | An instance of this class is passed as the &quot;this&quot; context to all validators,<br />allowing access to commonly useful contextual information from within a<br />validation rule.|
-
-
-
 
 ### \GraphQL\Validator\Rules
 
@@ -1024,9 +843,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`VariablesAreInputTypes`](./classes/GraphQL/Validator/Rules/VariablesAreInputTypes.md) | |
 | [`VariablesInAllowedPosition`](./classes/GraphQL/Validator/Rules/VariablesInAllowedPosition.md) | |
 
-
-
-
 ### \GuzzleHttp
 
 #### Classes
@@ -1046,14 +862,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`TransferStats`](./classes/GuzzleHttp/TransferStats.md) | Represents data at the point after it was transferred either successfully<br />or after a network error.|
 | [`Utils`](./classes/GuzzleHttp/Utils.md) | |
 
-
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
 | [`ClientTrait`](./classes/GuzzleHttp/ClientTrait.md) | Client interface for sending HTTP requests.|
-
-
 
 #### Interfaces
 
@@ -1062,8 +875,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`BodySummarizerInterface`](./classes/GuzzleHttp/BodySummarizerInterface.md) | |
 | [`ClientInterface`](./classes/GuzzleHttp/ClientInterface.md) | Client interface for sending HTTP requests.|
 | [`MessageFormatterInterface`](./classes/GuzzleHttp/MessageFormatterInterface.md) | |
-
-
 
 ### \GuzzleHttp\Cookie
 
@@ -1076,15 +887,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`SessionCookieJar`](./classes/GuzzleHttp/Cookie/SessionCookieJar.md) | Persists cookies in the client session|
 | [`SetCookie`](./classes/GuzzleHttp/Cookie/SetCookie.md) | Set-Cookie object|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`CookieJarInterface`](./classes/GuzzleHttp/Cookie/CookieJarInterface.md) | Stores HTTP cookies.|
-
-
 
 ### \GuzzleHttp\Exception
 
@@ -1101,15 +908,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`TooManyRedirectsException`](./classes/GuzzleHttp/Exception/TooManyRedirectsException.md) | HTTP Request exception|
 | [`TransferException`](./classes/GuzzleHttp/Exception/TransferException.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`GuzzleException`](./classes/GuzzleHttp/Exception/GuzzleException.md) | Every HTTP client related exception MUST implement this interface.|
-
-
 
 ### \GuzzleHttp\Handler
 
@@ -1124,15 +927,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`Proxy`](./classes/GuzzleHttp/Handler/Proxy.md) | Provides basic proxies for handlers.|
 | [`StreamHandler`](./classes/GuzzleHttp/Handler/StreamHandler.md) | HTTP handler that uses PHP&#039;s HTTP stream wrapper.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`CurlFactoryInterface`](./classes/GuzzleHttp/Handler/CurlFactoryInterface.md) | |
-
-
 
 ### \GuzzleHttp\Promise
 
@@ -1154,8 +953,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`TaskQueue`](./classes/GuzzleHttp/Promise/TaskQueue.md) | A task queue that executes tasks in a FIFO order.|
 | [`Utils`](./classes/GuzzleHttp/Promise/Utils.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
@@ -1163,8 +960,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`PromiseInterface`](./classes/GuzzleHttp/Promise/PromiseInterface.md) | A promise represents the eventual result of an asynchronous operation.|
 | [`PromisorInterface`](./classes/GuzzleHttp/Promise/PromisorInterface.md) | Interface used with classes that return a promise.|
 | [`TaskQueueInterface`](./classes/GuzzleHttp/Promise/TaskQueueInterface.md) | |
-
-
 
 ### \GuzzleHttp\Psr7
 
@@ -1200,16 +995,12 @@ This is an automatically generated documentation for **Documentation**.
 | [`UriResolver`](./classes/GuzzleHttp/Psr7/UriResolver.md) | Resolves a URI reference in the context of a base URI and the opposite way.|
 | [`Utils`](./classes/GuzzleHttp/Psr7/Utils.md) | |
 
-
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
 | [`MessageTrait`](./classes/GuzzleHttp/Psr7/MessageTrait.md) | Trait implementing functionality common to requests and responses.|
 | [`StreamDecoratorTrait`](./classes/GuzzleHttp/Psr7/StreamDecoratorTrait.md) | Stream decorator trait|
-
-
-
 
 ### \GuzzleHttp\Psr7\Exception
 
@@ -1218,9 +1009,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`MalformedUriException`](./classes/GuzzleHttp/Psr7/Exception/MalformedUriException.md) | Exception thrown if a URI cannot be parsed because it&#039;s malformed.|
-
-
-
 
 ### \IndexLite
 
@@ -1231,9 +1019,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Index`](./classes/IndexLite/Index.md) | |
 | [`Manager`](./classes/IndexLite/Manager.md) | |
 
-
-
-
 ### \JSONStream
 
 #### Classes
@@ -1242,9 +1027,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`CollectionReader`](./classes/JSONStream/CollectionReader.md) | |
 | [`CollectionWriter`](./classes/JSONStream/CollectionWriter.md) | |
-
-
-
 
 ### \Jean85
 
@@ -1255,9 +1037,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`PrettyVersions`](./classes/Jean85/PrettyVersions.md) | |
 | [`Version`](./classes/Jean85/Version.md) | |
 
-
-
-
 ### \Jean85\Exception
 
 #### Classes
@@ -1267,15 +1046,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`ProvidedPackageException`](./classes/Jean85/Exception/ProvidedPackageException.md) | |
 | [`ReplacedPackageException`](./classes/Jean85/Exception/ReplacedPackageException.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`VersionMissingExceptionInterface`](./classes/Jean85/Exception/VersionMissingExceptionInterface.md) | |
-
-
 
 ### \League\ColorExtractor
 
@@ -1286,9 +1061,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Color`](./classes/League/ColorExtractor/Color.md) | |
 | [`ColorExtractor`](./classes/League/ColorExtractor/ColorExtractor.md) | |
 | [`Palette`](./classes/League/ColorExtractor/Palette.md) | |
-
-
-
 
 ### \League\Flysystem
 
@@ -1327,8 +1099,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Visibility`](./classes/League/Flysystem/Visibility.md) | |
 | [`WhitespacePathNormalizer`](./classes/League/Flysystem/WhitespacePathNormalizer.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
@@ -1342,8 +1112,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`PathNormalizer`](./classes/League/Flysystem/PathNormalizer.md) | |
 | [`StorageAttributes`](./classes/League/Flysystem/StorageAttributes.md) | |
 
-
-
 ### \League\Flysystem\Local
 
 #### Classes
@@ -1353,9 +1121,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`FallbackMimeTypeDetector`](./classes/League/Flysystem/Local/FallbackMimeTypeDetector.md) | |
 | [`LocalFilesystemAdapter`](./classes/League/Flysystem/Local/LocalFilesystemAdapter.md) | |
 
-
-
-
 ### \League\Flysystem\UnixVisibility
 
 #### Classes
@@ -1364,15 +1129,11 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`PortableVisibilityConverter`](./classes/League/Flysystem/UnixVisibility/PortableVisibilityConverter.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`VisibilityConverter`](./classes/League/Flysystem/UnixVisibility/VisibilityConverter.md) | |
-
-
 
 ### \League\MimeTypeDetection
 
@@ -1386,16 +1147,12 @@ This is an automatically generated documentation for **Documentation**.
 | [`GeneratedExtensionToMimeTypeMap`](./classes/League/MimeTypeDetection/GeneratedExtensionToMimeTypeMap.md) | |
 | [`OverridingExtensionToMimeTypeMap`](./classes/League/MimeTypeDetection/OverridingExtensionToMimeTypeMap.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ExtensionToMimeTypeMap`](./classes/League/MimeTypeDetection/ExtensionToMimeTypeMap.md) | |
 | [`MimeTypeDetector`](./classes/League/MimeTypeDetection/MimeTypeDetector.md) | |
-
-
 
 ### \Lime
 
@@ -1410,9 +1167,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Request`](./classes/Lime/Request.md) | |
 | [`Response`](./classes/Lime/Response.md) | |
 
-
-
-
 ### \Lime\Helper
 
 #### Classes
@@ -1425,9 +1179,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Session`](./classes/Lime/Helper/Session.md) | |
 | [`Utils`](./classes/Lime/Helper/Utils.md) | Class Utils|
 
-
-
-
 ### \MemoryStorage
 
 #### Classes
@@ -1435,9 +1186,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`Client`](./classes/MemoryStorage/Client.md) | |
-
-
-
 
 ### \MongoDB
 
@@ -1456,9 +1204,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`MapReduceResult`](./classes/MongoDB/MapReduceResult.md) | Result class for mapReduce command results.|
 | [`UpdateResult`](./classes/MongoDB/UpdateResult.md) | Result class for an update operation.|
 
-
-
-
 ### \MongoDB\Exception
 
 #### Classes
@@ -1472,15 +1217,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`UnexpectedValueException`](./classes/MongoDB/Exception/UnexpectedValueException.md) | |
 | [`UnsupportedException`](./classes/MongoDB/Exception/UnsupportedException.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`Exception`](./classes/MongoDB/Exception/Exception.md) | |
-
-
 
 ### \MongoDB\GridFS
 
@@ -1489,9 +1230,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`Bucket`](./classes/MongoDB/GridFS/Bucket.md) | Bucket provides a public API for interacting with the GridFS files and chunks<br />collections.|
-
-
-
 
 ### \MongoDB\GridFS\Exception
 
@@ -1502,9 +1240,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`CorruptFileException`](./classes/MongoDB/GridFS/Exception/CorruptFileException.md) | |
 | [`FileNotFoundException`](./classes/MongoDB/GridFS/Exception/FileNotFoundException.md) | |
 | [`StreamException`](./classes/MongoDB/GridFS/Exception/StreamException.md) | |
-
-
-
 
 ### \MongoDB\Model
 
@@ -1519,8 +1254,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`DatabaseInfo`](./classes/MongoDB/Model/DatabaseInfo.md) | Database information model class.|
 | [`IndexInfo`](./classes/MongoDB/Model/IndexInfo.md) | Index information model class.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
@@ -1528,8 +1261,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`CollectionInfoIterator`](./classes/MongoDB/Model/CollectionInfoIterator.md) | CollectionInfoIterator interface.|
 | [`DatabaseInfoIterator`](./classes/MongoDB/Model/DatabaseInfoIterator.md) | DatabaseInfoIterator interface.|
 | [`IndexInfoIterator`](./classes/MongoDB/Model/IndexInfoIterator.md) | IndexInfoIterator interface.|
-
-
 
 ### \MongoDB\Operation
 
@@ -1572,9 +1303,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`UpdateOne`](./classes/MongoDB/Operation/UpdateOne.md) | Operation for updating a single document with the update command.|
 | [`Watch`](./classes/MongoDB/Operation/Watch.md) | Operation for creating a change stream with the aggregate command.|
 
-
-
-
 ### \MongoHybrid
 
 #### Classes
@@ -1585,9 +1313,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Mongo`](./classes/MongoHybrid/Mongo.md) | |
 | [`MongoLite`](./classes/MongoHybrid/MongoLite.md) | |
 | [`ResultSet`](./classes/MongoHybrid/ResultSet.md) | |
-
-
-
 
 ### \MongoLite
 
@@ -1601,9 +1326,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Database`](./classes/MongoLite/Database.md) | Database object.|
 | [`UtilArrayQuery`](./classes/MongoLite/UtilArrayQuery.md) | |
 
-
-
-
 ### \MongoLite\Aggregation
 
 #### Classes
@@ -1611,9 +1333,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`Cursor`](./classes/MongoLite/Aggregation/Cursor.md) | |
-
-
-
 
 ### \OpenApi
 
@@ -1629,9 +1348,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Serializer`](./classes/OpenApi/Serializer.md) | Allows to serialize/de-serialize annotations from/to JSON.|
 | [`StaticAnalyser`](./classes/OpenApi/StaticAnalyser.md) | OpenApi\StaticAnalyser extracts swagger-php annotations from php code using static analysis.|
 | [`Util`](./classes/OpenApi/Util.md) | Convenient utility functions that don&#039;t neatly fit anywhere else.|
-
-
-
 
 ### \OpenApi\Annotations
 
@@ -1678,9 +1394,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Xml`](./classes/OpenApi/Annotations/Xml.md) | The openapi annotation base class.|
 | [`XmlContent`](./classes/OpenApi/Annotations/XmlContent.md) | The openapi annotation base class.|
 
-
-
-
 ### \OpenApi\Logger
 
 #### Classes
@@ -1689,9 +1402,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`ConsoleLogger`](./classes/OpenApi/Logger/ConsoleLogger.md) | This is a simple Logger implementation that other Loggers can inherit from.|
 | [`DefaultLogger`](./classes/OpenApi/Logger/DefaultLogger.md) | This is a simple Logger implementation that other Loggers can inherit from.|
-
-
-
 
 ### \OpenApi\Processors
 
@@ -1717,15 +1427,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`MergeXmlContent`](./classes/OpenApi/Processors/MergeXmlContent.md) | Split XmlContent into Schema and MediaType.|
 | [`OperationId`](./classes/OpenApi/Processors/OperationId.md) | Generate the OperationId based on the context of the OpenApi annotation.|
 
-
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
 | [`MergeTrait`](./classes/OpenApi/Processors/MergeTrait.md) | Steps:<br />1. Determine direct parent / interfaces / traits<br />2. With each:<br />   - traverse up inheritance tree<br />     - inherit from first with schema; all other with scheme can be ignored<br />     - merge from all without schema<br />       =&gt; update all $ref that might reference a property merged.|
-
-
-
 
 ### \PHPMailer\PHPMailer
 
@@ -1739,15 +1445,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`POP3`](./classes/PHPMailer/PHPMailer/POP3.md) | PHPMailer POP-Before-SMTP Authentication Class.|
 | [`SMTP`](./classes/PHPMailer/PHPMailer/SMTP.md) | PHPMailer RFC821 SMTP email transport class.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`OAuthTokenProvider`](./classes/PHPMailer/PHPMailer/OAuthTokenProvider.md) | OAuthTokenProvider - OAuth2 token provider interface.|
-
-
 
 ### \PhpDocumentorMarkdown\Example
 
@@ -1758,22 +1460,17 @@ This is an automatically generated documentation for **Documentation**.
 | [`AbstractProduct`](./classes/PhpDocumentorMarkdown/Example/AbstractProduct.md) | Base class for all products.|
 | [`Pizza`](./classes/PhpDocumentorMarkdown/Example/Pizza.md) | A pizza.|
 
-
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
 | [`ReviewableTrait`](./classes/PhpDocumentorMarkdown/Example/ReviewableTrait.md) | A trait for reviewable objects.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ProductInterface`](./classes/PhpDocumentorMarkdown/Example/ProductInterface.md) | Interface for a product.|
-
-
 
 ### \PhpDocumentorMarkdown\Example\Pizza
 
@@ -1783,9 +1480,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`Base`](./classes/PhpDocumentorMarkdown/Example/Pizza/Base.md) | Represents a pizza base.|
 | [`Sauce`](./classes/PhpDocumentorMarkdown/Example/Pizza/Sauce.md) | Pizza sauce class.|
-
-
-
 
 ### \PhpDocumentorMarkdown\Extension
 
@@ -1797,13 +1491,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`MacroDataExtension`](./classes/PhpDocumentorMarkdown/Extension/MacroDataExtension.md) | |
 | [`ObjectExtension`](./classes/PhpDocumentorMarkdown/Extension/ObjectExtension.md) | |
 
-
-
-
 ### \Psr\Cache
-
-
-
 
 #### Interfaces
 
@@ -1818,12 +1506,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`InvalidArgumentException`](./classes/Psr/Cache/InvalidArgumentException.md) | Exception interface for invalid cache arguments.|
 | [`InvalidArgumentException`](./classes/Psr/Cache/InvalidArgumentException.md) | Exception interface for invalid cache arguments.|
 
-
-
 ### \Psr\Container
-
-
-
 
 #### Interfaces
 
@@ -1833,12 +1516,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`ContainerInterface`](./classes/Psr/Container/ContainerInterface.md) | Describes the interface of a container that exposes methods to read its entries.|
 | [`NotFoundExceptionInterface`](./classes/Psr/Container/NotFoundExceptionInterface.md) | No entry was found in the container.|
 
-
-
 ### \Psr\Http\Client
-
-
-
 
 #### Interfaces
 
@@ -1849,12 +1527,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`NetworkExceptionInterface`](./classes/Psr/Http/Client/NetworkExceptionInterface.md) | Thrown when the request cannot be completed because of network issues.|
 | [`RequestExceptionInterface`](./classes/Psr/Http/Client/RequestExceptionInterface.md) | Exception for when a request failed.|
 
-
-
 ### \Psr\Http\Message
-
-
-
 
 #### Interfaces
 
@@ -1874,8 +1547,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`UriFactoryInterface`](./classes/Psr/Http/Message/UriFactoryInterface.md) | |
 | [`UriInterface`](./classes/Psr/Http/Message/UriInterface.md) | Value object representing a URI.|
 
-
-
 ### \Psr\Log
 
 #### Classes
@@ -1887,7 +1558,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`LogLevel`](./classes/Psr/Log/LogLevel.md) | Describes log levels.|
 | [`NullLogger`](./classes/Psr/Log/NullLogger.md) | This Logger can be used to avoid conditional log calls.|
 
-
 #### Traits
 
 | Trait | Description |
@@ -1895,16 +1565,12 @@ This is an automatically generated documentation for **Documentation**.
 | [`LoggerAwareTrait`](./classes/Psr/Log/LoggerAwareTrait.md) | Basic Implementation of LoggerAwareInterface.|
 | [`LoggerTrait`](./classes/Psr/Log/LoggerTrait.md) | This is a simple Logger trait that classes unable to extend AbstractLogger<br />(because they extend another class, etc) can include.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`LoggerAwareInterface`](./classes/Psr/Log/LoggerAwareInterface.md) | Describes a logger-aware instance.|
 | [`LoggerInterface`](./classes/Psr/Log/LoggerInterface.md) | Describes a logger instance.|
-
-
 
 ### \RobThree\Auth
 
@@ -1914,9 +1580,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`TwoFactorAuth`](./classes/RobThree/Auth/TwoFactorAuth.md) | |
 | [`TwoFactorAuthException`](./classes/RobThree/Auth/TwoFactorAuthException.md) | |
-
-
-
 
 ### \RobThree\Auth\Providers\Qr
 
@@ -1934,22 +1597,17 @@ This is an automatically generated documentation for **Documentation**.
 | [`QRServerProvider`](./classes/RobThree/Auth/Providers/Qr/QRServerProvider.md) | |
 | [`QRicketProvider`](./classes/RobThree/Auth/Providers/Qr/QRicketProvider.md) | |
 
-
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
 | [`HandlesDataUri`](./classes/RobThree/Auth/Providers/Qr/HandlesDataUri.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`IQRCodeProvider`](./classes/RobThree/Auth/Providers/Qr/IQRCodeProvider.md) | |
-
-
 
 ### \RobThree\Auth\Providers\Rng
 
@@ -1963,15 +1621,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`OpenSSLRNGProvider`](./classes/RobThree/Auth/Providers/Rng/OpenSSLRNGProvider.md) | |
 | [`RNGException`](./classes/RobThree/Auth/Providers/Rng/RNGException.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`IRNGProvider`](./classes/RobThree/Auth/Providers/Rng/IRNGProvider.md) | |
-
-
 
 ### \RobThree\Auth\Providers\Time
 
@@ -1984,15 +1638,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`NTPTimeProvider`](./classes/RobThree/Auth/Providers/Time/NTPTimeProvider.md) | Takes the time from any NTP server|
 | [`TimeException`](./classes/RobThree/Auth/Providers/Time/TimeException.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ITimeProvider`](./classes/RobThree/Auth/Providers/Time/ITimeProvider.md) | |
-
-
 
 ### \Symfony\Component\Console
 
@@ -2007,9 +1657,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`SingleCommandApplication`](./classes/Symfony/Component/Console/SingleCommandApplication.md) | Base class for all commands.|
 | [`Terminal`](./classes/Symfony/Component/Console/Terminal.md) | |
 
-
-
-
 ### \Symfony\Component\Console\Attribute
 
 #### Classes
@@ -2018,9 +1665,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`AsCommand`](./classes/Symfony/Component/Console/Attribute/AsCommand.md) | Service tag to autoconfigure commands.|
 
-
-
-
 ### \Symfony\Component\Console\CI
 
 #### Classes
@@ -2028,9 +1672,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`GithubActionReporter`](./classes/Symfony/Component/Console/CI/GithubActionReporter.md) | Utility class for Github actions.|
-
-
-
 
 ### \Symfony\Component\Console\Command
 
@@ -2045,22 +1686,17 @@ This is an automatically generated documentation for **Documentation**.
 | [`LazyCommand`](./classes/Symfony/Component/Console/Command/LazyCommand.md) | Base class for all commands.|
 | [`ListCommand`](./classes/Symfony/Component/Console/Command/ListCommand.md) | ListCommand displays the list of all available commands for the application.|
 
-
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
 | [`LockableTrait`](./classes/Symfony/Component/Console/Command/LockableTrait.md) | Basic lock feature for commands.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`SignalableCommandInterface`](./classes/Symfony/Component/Console/Command/SignalableCommandInterface.md) | Interface for command reacting to signal.|
-
-
 
 ### \Symfony\Component\Console\CommandLoader
 
@@ -2071,15 +1707,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`ContainerCommandLoader`](./classes/Symfony/Component/Console/CommandLoader/ContainerCommandLoader.md) | Loads commands from a PSR-11 container.|
 | [`FactoryCommandLoader`](./classes/Symfony/Component/Console/CommandLoader/FactoryCommandLoader.md) | A simple command loader using factories to instantiate commands lazily.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`CommandLoaderInterface`](./classes/Symfony/Component/Console/CommandLoader/CommandLoaderInterface.md) | |
-
-
 
 ### \Symfony\Component\Console\Completion
 
@@ -2091,9 +1723,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`CompletionSuggestions`](./classes/Symfony/Component/Console/Completion/CompletionSuggestions.md) | Stores all completion suggestions for the current input.|
 | [`Suggestion`](./classes/Symfony/Component/Console/Completion/Suggestion.md) | Represents a single suggested value.|
 
-
-
-
 ### \Symfony\Component\Console\Completion\Output
 
 #### Classes
@@ -2102,15 +1731,11 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`BashCompletionOutput`](./classes/Symfony/Component/Console/Completion/Output/BashCompletionOutput.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`CompletionOutputInterface`](./classes/Symfony/Component/Console/Completion/Output/CompletionOutputInterface.md) | Transforms the {@see CompletionSuggestions} object into output readable by the shell completion.|
-
-
 
 ### \Symfony\Component\Console\DependencyInjection
 
@@ -2120,21 +1745,13 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`AddConsoleCommandPass`](./classes/Symfony/Component/Console/DependencyInjection/AddConsoleCommandPass.md) | Registers console commands.|
 
-
-
-
 ### \Symfony\Component\Console\Descriptor
-
-
-
 
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`DescriptorInterface`](./classes/Symfony/Component/Console/Descriptor/DescriptorInterface.md) | Descriptor interface.|
-
-
 
 ### \Symfony\Component\Console\Event
 
@@ -2148,9 +1765,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`ConsoleSignalEvent`](./classes/Symfony/Component/Console/Event/ConsoleSignalEvent.md) | Allows to inspect input and output of a command.|
 | [`ConsoleTerminateEvent`](./classes/Symfony/Component/Console/Event/ConsoleTerminateEvent.md) | Allows to manipulate the exit code of a command after its execution.|
 
-
-
-
 ### \Symfony\Component\Console\EventListener
 
 #### Classes
@@ -2158,9 +1772,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`ErrorListener`](./classes/Symfony/Component/Console/EventListener/ErrorListener.md) | |
-
-
-
 
 ### \Symfony\Component\Console\Exception
 
@@ -2176,15 +1787,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`NamespaceNotFoundException`](./classes/Symfony/Component/Console/Exception/NamespaceNotFoundException.md) | Represents an incorrect namespace typed in the console.|
 | [`RuntimeException`](./classes/Symfony/Component/Console/Exception/RuntimeException.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ExceptionInterface`](./classes/Symfony/Component/Console/Exception/ExceptionInterface.md) | ExceptionInterface.|
-
-
 
 ### \Symfony\Component\Console\Formatter
 
@@ -2198,8 +1805,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`OutputFormatterStyle`](./classes/Symfony/Component/Console/Formatter/OutputFormatterStyle.md) | Formatter style class for defining styles.|
 | [`OutputFormatterStyleStack`](./classes/Symfony/Component/Console/Formatter/OutputFormatterStyleStack.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
@@ -2207,8 +1812,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`OutputFormatterInterface`](./classes/Symfony/Component/Console/Formatter/OutputFormatterInterface.md) | Formatter interface for console output.|
 | [`OutputFormatterStyleInterface`](./classes/Symfony/Component/Console/Formatter/OutputFormatterStyleInterface.md) | Formatter style interface for defining styles.|
 | [`WrappableOutputFormatterInterface`](./classes/Symfony/Component/Console/Formatter/WrappableOutputFormatterInterface.md) | Formatter interface for console output that supports word wrapping.|
-
-
 
 ### \Symfony\Component\Console\Helper
 
@@ -2234,15 +1837,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`TableSeparator`](./classes/Symfony/Component/Console/Helper/TableSeparator.md) | Marks a row as being a separator.|
 | [`TableStyle`](./classes/Symfony/Component/Console/Helper/TableStyle.md) | Defines the styles for a Table.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`HelperInterface`](./classes/Symfony/Component/Console/Helper/HelperInterface.md) | HelperInterface is the interface all helpers must implement.|
-
-
 
 ### \Symfony\Component\Console\Input
 
@@ -2258,8 +1857,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`InputOption`](./classes/Symfony/Component/Console/Input/InputOption.md) | Represents a command line option.|
 | [`StringInput`](./classes/Symfony/Component/Console/Input/StringInput.md) | StringInput represents an input provided as a string.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
@@ -2268,8 +1865,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`InputInterface`](./classes/Symfony/Component/Console/Input/InputInterface.md) | InputInterface is the interface implemented by all input classes.|
 | [`StreamableInputInterface`](./classes/Symfony/Component/Console/Input/StreamableInputInterface.md) | StreamableInputInterface is the interface implemented by all input classes<br />that have an input stream.|
 
-
-
 ### \Symfony\Component\Console\Logger
 
 #### Classes
@@ -2277,9 +1872,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`ConsoleLogger`](./classes/Symfony/Component/Console/Logger/ConsoleLogger.md) | PSR-3 compliant console logger.|
-
-
-
 
 ### \Symfony\Component\Console\Output
 
@@ -2295,16 +1887,12 @@ This is an automatically generated documentation for **Documentation**.
 | [`StreamOutput`](./classes/Symfony/Component/Console/Output/StreamOutput.md) | StreamOutput writes the output to a given stream.|
 | [`TrimmedBufferOutput`](./classes/Symfony/Component/Console/Output/TrimmedBufferOutput.md) | A BufferedOutput that keeps only the last N chars.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ConsoleOutputInterface`](./classes/Symfony/Component/Console/Output/ConsoleOutputInterface.md) | ConsoleOutputInterface is the interface implemented by ConsoleOutput class.|
 | [`OutputInterface`](./classes/Symfony/Component/Console/Output/OutputInterface.md) | OutputInterface is the interface implemented by all Output classes.|
-
-
 
 ### \Symfony\Component\Console\Question
 
@@ -2316,9 +1904,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`ConfirmationQuestion`](./classes/Symfony/Component/Console/Question/ConfirmationQuestion.md) | Represents a yes/no question.|
 | [`Question`](./classes/Symfony/Component/Console/Question/Question.md) | Represents a Question.|
 
-
-
-
 ### \Symfony\Component\Console\SignalRegistry
 
 #### Classes
@@ -2326,9 +1911,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`SignalRegistry`](./classes/Symfony/Component/Console/SignalRegistry/SignalRegistry.md) | |
-
-
-
 
 ### \Symfony\Component\Console\Style
 
@@ -2339,15 +1921,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`OutputStyle`](./classes/Symfony/Component/Console/Style/OutputStyle.md) | Decorates output to add console style guide helpers.|
 | [`SymfonyStyle`](./classes/Symfony/Component/Console/Style/SymfonyStyle.md) | Output decorator helpers for the Symfony Style Guide.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`StyleInterface`](./classes/Symfony/Component/Console/Style/StyleInterface.md) | Output style helpers.|
-
-
 
 ### \Symfony\Component\Console\Tester
 
@@ -2359,15 +1937,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`CommandCompletionTester`](./classes/Symfony/Component/Console/Tester/CommandCompletionTester.md) | Eases the testing of command completion.|
 | [`CommandTester`](./classes/Symfony/Component/Console/Tester/CommandTester.md) | Eases the testing of console commands.|
 
-
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
 | [`TesterTrait`](./classes/Symfony/Component/Console/Tester/TesterTrait.md) | |
-
-
-
 
 ### \Symfony\Component\Console\Tester\Constraint
 
@@ -2376,9 +1950,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`CommandIsSuccessful`](./classes/Symfony/Component/Console/Tester/Constraint/CommandIsSuccessful.md) | |
-
-
-
 
 ### \Symfony\Component\Finder
 
@@ -2391,9 +1962,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Glob`](./classes/Symfony/Component/Finder/Glob.md) | Glob matches globbing patterns against text.|
 | [`SplFileInfo`](./classes/Symfony/Component/Finder/SplFileInfo.md) | Extends \SplFileInfo to support relative paths.|
 
-
-
-
 ### \Symfony\Component\Finder\Comparator
 
 #### Classes
@@ -2404,9 +1972,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`DateComparator`](./classes/Symfony/Component/Finder/Comparator/DateComparator.md) | DateCompare compiles date comparisons.|
 | [`NumberComparator`](./classes/Symfony/Component/Finder/Comparator/NumberComparator.md) | NumberComparator compiles a simple comparison to an anonymous<br />subroutine, which you can call with a value to be tested again.|
 
-
-
-
 ### \Symfony\Component\Finder\Exception
 
 #### Classes
@@ -2415,9 +1980,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`AccessDeniedException`](./classes/Symfony/Component/Finder/Exception/AccessDeniedException.md) | |
 | [`DirectoryNotFoundException`](./classes/Symfony/Component/Finder/Exception/DirectoryNotFoundException.md) | |
-
-
-
 
 ### \Symfony\Component\Finder\Iterator
 
@@ -2439,9 +2001,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`SortableIterator`](./classes/Symfony/Component/Finder/Iterator/SortableIterator.md) | SortableIterator applies a sort on a given Iterator.|
 | [`VcsIgnoredFilterIterator`](./classes/Symfony/Component/Finder/Iterator/VcsIgnoredFilterIterator.md) | |
 
-
-
-
 ### \Symfony\Component\String
 
 #### Classes
@@ -2455,9 +2014,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`LazyString`](./classes/Symfony/Component/String/LazyString.md) | A string whose value is computed lazily by a callback.|
 | [`UnicodeString`](./classes/Symfony/Component/String/UnicodeString.md) | Represents a string of Unicode grapheme clusters encoded as UTF-8.|
 
-
-
-
 ### \Symfony\Component\String\Exception
 
 #### Classes
@@ -2467,15 +2023,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`InvalidArgumentException`](./classes/Symfony/Component/String/Exception/InvalidArgumentException.md) | |
 | [`RuntimeException`](./classes/Symfony/Component/String/Exception/RuntimeException.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ExceptionInterface`](./classes/Symfony/Component/String/Exception/ExceptionInterface.md) | |
-
-
 
 ### \Symfony\Component\String\Inflector
 
@@ -2486,15 +2038,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`EnglishInflector`](./classes/Symfony/Component/String/Inflector/EnglishInflector.md) | |
 | [`FrenchInflector`](./classes/Symfony/Component/String/Inflector/FrenchInflector.md) | French inflector.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`InflectorInterface`](./classes/Symfony/Component/String/Inflector/InflectorInterface.md) | |
-
-
 
 ### \Symfony\Component\String\Slugger
 
@@ -2504,15 +2052,11 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`AsciiSlugger`](./classes/Symfony/Component/String/Slugger/AsciiSlugger.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`SluggerInterface`](./classes/Symfony/Component/String/Slugger/SluggerInterface.md) | Creates a URL-friendly slug from a given string.|
-
-
 
 ### \Symfony\Component\Yaml
 
@@ -2524,9 +2068,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Parser`](./classes/Symfony/Component/Yaml/Parser.md) | Parser parses YAML strings to convert them to PHP arrays.|
 | [`Yaml`](./classes/Symfony/Component/Yaml/Yaml.md) | Yaml offers convenience methods to load and dump YAML.|
 
-
-
-
 ### \Symfony\Component\Yaml\Command
 
 #### Classes
@@ -2534,9 +2075,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`LintCommand`](./classes/Symfony/Component/Yaml/Command/LintCommand.md) | Validates YAML files syntax and outputs encountered errors.|
-
-
-
 
 ### \Symfony\Component\Yaml\Exception
 
@@ -2548,15 +2086,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`ParseException`](./classes/Symfony/Component/Yaml/Exception/ParseException.md) | Exception class thrown when an error occurs during parsing.|
 | [`RuntimeException`](./classes/Symfony/Component/Yaml/Exception/RuntimeException.md) | Exception class thrown when an error occurs during parsing.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ExceptionInterface`](./classes/Symfony/Component/Yaml/Exception/ExceptionInterface.md) | Exception interface for all exceptions thrown by the component.|
-
-
 
 ### \Symfony\Component\Yaml\Tag
 
@@ -2566,12 +2100,7 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`TaggedValue`](./classes/Symfony/Component/Yaml/Tag/TaggedValue.md) | |
 
-
-
-
 ### \Symfony\Contracts\Service
-
-
 
 #### Traits
 
@@ -2579,8 +2108,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`ServiceLocatorTrait`](./classes/Symfony/Contracts/Service/ServiceLocatorTrait.md) | A trait to help implement ServiceProviderInterface.|
 | [`ServiceSubscriberTrait`](./classes/Symfony/Contracts/Service/ServiceSubscriberTrait.md) | Implementation of ServiceSubscriberInterface that determines subscribed services from<br />method return types. Service ids are available as &quot;ClassName::methodName&quot;.|
-
-
 
 #### Interfaces
 
@@ -2590,8 +2117,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`ServiceProviderInterface`](./classes/Symfony/Contracts/Service/ServiceProviderInterface.md) | A ServiceProviderInterface exposes the identifiers and the types of services provided by a container.|
 | [`ServiceSubscriberInterface`](./classes/Symfony/Contracts/Service/ServiceSubscriberInterface.md) | A ServiceSubscriber exposes its dependencies via the static {@link getSubscribedServices} method.|
 
-
-
 ### \Symfony\Contracts\Service\Attribute
 
 #### Classes
@@ -2600,9 +2125,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`Required`](./classes/Symfony/Contracts/Service/Attribute/Required.md) | A required dependency.|
 | [`SubscribedService`](./classes/Symfony/Contracts/Service/Attribute/SubscribedService.md) | Use with {@see ServiceSubscriberTrait} to mark a method&#039;s return type<br />as a subscribed service.|
-
-
-
 
 ### \System\Controller
 
@@ -2617,9 +2139,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Users`](./classes/System/Controller/Users.md) | Class Controller|
 | [`Utils`](./classes/System/Controller/Utils.md) | Class Controller|
 
-
-
-
 ### \System\Controller\Users
 
 #### Classes
@@ -2627,9 +2146,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`Roles`](./classes/System/Controller/Users/Roles.md) | Class Controller|
-
-
-
 
 ### \System\Helper
 
@@ -2645,9 +2161,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Settings`](./classes/System/Helper/Settings.md) | |
 | [`System`](./classes/System/Helper/System.md) | |
 
-
-
-
 ### \TestsDependency
 
 #### Classes
@@ -2657,9 +2170,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`BaconQRCodeTest`](./classes/TestsDependency/BaconQRCodeTest.md) | |
 | [`EndroidQRCodeTest`](./classes/TestsDependency/EndroidQRCodeTest.md) | |
 
-
-
-
 ### \ZipStream
 
 #### Classes
@@ -2668,9 +2178,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`Exception`](./classes/ZipStream/Exception.md) | This class is only for inheriting|
 | [`ZipStream`](./classes/ZipStream/ZipStream.md) | ZipStream|
-
-
-
 
 ### \ZipStream\Exception
 
@@ -2683,9 +2190,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`InvalidOptionException`](./classes/ZipStream/Exception/InvalidOptionException.md) | This Exception gets invoked if an invalid parameter gets passed on as option|
 | [`StreamNotReadableException`](./classes/ZipStream/Exception/StreamNotReadableException.md) | This Exception gets invoked if fread() fails on a stream.|
 
-
-
-
 ### \claviska
 
 #### Classes
@@ -2694,9 +2198,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`SimpleImage`](./classes/claviska/SimpleImage.md) | A PHP class that makes working with images as simple as possible.|
 
-
-
-
 ### \yxorP\app\lib
 
 #### Classes
@@ -2704,9 +2205,6 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`yP`](./classes/yxorP/app/lib/yP.md) | It&#039;s a class that&#039;s used to dispatch events.|
-
-
-
 
 ### \yxorP\app\lib\http
 
@@ -2721,15 +2219,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`store`](./classes/yxorP/app/lib/http/store.md) | It&#039;s a class that&#039;s used to dispatch events.|
 | [`wrapper`](./classes/yxorP/app/lib/http/wrapper.md) | Importing the `response` class from the `http` namespace.|
 
-
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
 | [`state`](./classes/yxorP/app/lib/http/state.md) | A trait that allows the class to be serialized and unserialized.|
-
-
-
 
 ### \yxorP\app\lib\minify
 
@@ -2746,15 +2240,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`quotesRemover`](./classes/yxorP/app/lib/minify/quotesRemover.md) | |
 | [`whitespacesRemover`](./classes/yxorP/app/lib/minify/whitespacesRemover.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`minfyInterface`](./classes/yxorP/app/lib/minify/minfyInterface.md) | |
-
-
 
 ### \yxorP\app\lib\proxy
 
@@ -2775,15 +2265,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`uriTemplate`](./classes/yxorP/app/lib/proxy/uriTemplate.md) | |
 | [`utils`](./classes/yxorP/app/lib/proxy/utils.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`clientInterface`](./classes/yxorP/app/lib/proxy/clientInterface.md) | |
-
-
 
 ### \yxorP\app\lib\proxy\cookie
 
@@ -2796,15 +2282,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`sessionCookieJar`](./classes/yxorP/app/lib/proxy/cookie/sessionCookieJar.md) | |
 | [`setCookie`](./classes/yxorP/app/lib/proxy/cookie/setCookie.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`cookieJarInterface`](./classes/yxorP/app/lib/proxy/cookie/cookieJarInterface.md) | |
-
-
 
 ### \yxorP\app\lib\proxy\exception
 
@@ -2820,17 +2302,13 @@ This is an automatically generated documentation for **Documentation**.
 | [`seekException`](./classes/yxorP/app/lib/proxy/exception/seekException.md) | |
 | [`serverException`](./classes/yxorP/app/lib/proxy/exception/serverException.md) | |
 | [`tooManyRedirectsException`](./classes/yxorP/app/lib/proxy/exception/tooManyRedirectsException.md) | |
-| [`transferExceptionInterface`](./classes/yxorP/app/lib/proxy/exception/transferExceptionInterface.md) | |
-
-
+| [`transferException`](./classes/yxorP/app/lib/proxy/exception/transferException.md) | |
 
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`proxyException`](./classes/yxorP/app/lib/proxy/exception/proxyException.md) | |
-
-
 
 ### \yxorP\app\lib\proxy\handler
 
@@ -2846,15 +2324,11 @@ This is an automatically generated documentation for **Documentation**.
 | [`proxy`](./classes/yxorP/app/lib/proxy/handler/proxy.md) | |
 | [`streamHandler`](./classes/yxorP/app/lib/proxy/handler/streamHandler.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`curlFactoryInterface`](./classes/yxorP/app/lib/proxy/handler/curlFactoryInterface.md) | |
-
-
 
 ### \yxorP\app\lib\proxy\promise
 
@@ -2872,8 +2346,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`rejectedPromise`](./classes/yxorP/app/lib/proxy/promise/rejectedPromise.md) | |
 | [`taskQueue`](./classes/yxorP/app/lib/proxy/promise/taskQueue.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
@@ -2881,8 +2353,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`promiseInterface`](./classes/yxorP/app/lib/proxy/promise/promiseInterface.md) | |
 | [`promisorInterface`](./classes/yxorP/app/lib/proxy/promise/promisorInterface.md) | |
 | [`taskQueueInterface`](./classes/yxorP/app/lib/proxy/promise/taskQueueInterface.md) | |
-
-
 
 ### \yxorP\app\lib\proxy\psr7
 
@@ -2912,7 +2382,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`uriNormalizer`](./classes/yxorP/app/lib/proxy/psr7/uriNormalizer.md) | |
 | [`uriResolver`](./classes/yxorP/app/lib/proxy/psr7/uriResolver.md) | |
 
-
 #### Traits
 
 | Trait | Description |
@@ -2920,13 +2389,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`aStreamDecoratorTrait`](./classes/yxorP/app/lib/proxy/psr7/aStreamDecoratorTrait.md) | |
 | [`messageTrait`](./classes/yxorP/app/lib/proxy/psr7/messageTrait.md) | |
 
-
-
-
 ### \yxorP\app\lib\psr\http\message
-
-
-
 
 #### Interfaces
 
@@ -2939,8 +2402,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`streamInterface`](./classes/yxorP/app/lib/psr/http/message/streamInterface.md) | Describes a data stream.|
 | [`uploadedFileInterface`](./classes/yxorP/app/lib/psr/http/message/uploadedFileInterface.md) | Value object representing a file uploaded through an HTTP request.|
 | [`uriInterface`](./classes/yxorP/app/lib/psr/http/message/uriInterface.md) | Value object representing a URI.|
-
-
 
 ### \yxorP\plugin
 
@@ -2958,9 +2419,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`streamPluginAction`](./classes/yxorP/plugin/streamPluginAction.md) | Extending the wrapper class, which is a class that allows you to listen to events.|
 | [`twitterPluginAction`](./classes/yxorP/plugin/twitterPluginAction.md) | Extending the wrapper class, which is a class that is used to create plugins.|
 | [`youtubePluginAction`](./classes/yxorP/plugin/youtubePluginAction.md) | Extending the wrapper class.|
-
-
-
 
 ***
 

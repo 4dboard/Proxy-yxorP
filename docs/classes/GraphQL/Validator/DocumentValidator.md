@@ -21,88 +21,59 @@ will be created from the provided schema.
 
 * Full name: `\GraphQL\Validator\DocumentValidator`
 
-
-
 ## Properties
 
-
 ### rules
-
-
 
 ```php
 private static \GraphQL\Validator\Rules\ValidationRule[] $rules
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### defaultRules
 
-
-
 ```php
 private static \GraphQL\Validator\Rules\ValidationRule[]|null $defaultRules
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### securityRules
 
-
-
 ```php
 private static \GraphQL\Validator\Rules\QuerySecurityRule[]|null $securityRules
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### sdlRules
 
-
-
 ```php
 private static \GraphQL\Validator\Rules\ValidationRule[]|null $sdlRules
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### initRules
 
-
-
 ```php
 private static bool $initRules
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### validate
 
@@ -112,12 +83,7 @@ Primary method for query validation. See class description for details.
 public static validate(\GraphQL\Type\Schema $schema, \GraphQL\Language\AST\DocumentNode $ast, \GraphQL\Validator\Rules\ValidationRule[]|null $rules = null, ?\GraphQL\Utils\TypeInfo $typeInfo = null): \GraphQL\Error\Error[]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -127,9 +93,6 @@ public static validate(\GraphQL\Type\Schema $schema, \GraphQL\Language\AST\Docum
 | `$ast` | **\GraphQL\Language\AST\DocumentNode** |  |
 | `$rules` | **\GraphQL\Validator\Rules\ValidationRule[]&#124;null** |  |
 | `$typeInfo` | **?\GraphQL\Utils\TypeInfo** |  |
-
-
-
 
 ***
 
@@ -141,75 +104,37 @@ Returns all global validation rules.
 public static allRules(): \GraphQL\Validator\Rules\ValidationRule[]
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### defaultRules
 
-
-
 ```php
 public static defaultRules(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### securityRules
 
-
-
 ```php
 public static securityRules(): \GraphQL\Validator\Rules\QuerySecurityRule[]
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### sdlRules
 
-
-
 ```php
 public static sdlRules(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -222,12 +147,7 @@ while maintaining the visitor skip and break API.
 public static visitUsingRules(\GraphQL\Type\Schema $schema, \GraphQL\Utils\TypeInfo $typeInfo, \GraphQL\Language\AST\DocumentNode $documentNode, \GraphQL\Validator\Rules\ValidationRule[] $rules): \GraphQL\Error\Error[]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -237,9 +157,6 @@ public static visitUsingRules(\GraphQL\Type\Schema $schema, \GraphQL\Utils\TypeI
 | `$typeInfo` | **\GraphQL\Utils\TypeInfo** |  |
 | `$documentNode` | **\GraphQL\Language\AST\DocumentNode** |  |
 | `$rules` | **\GraphQL\Validator\Rules\ValidationRule[]** |  |
-
-
-
 
 ***
 
@@ -256,17 +173,11 @@ $rule = DocumentValidator::getRule(GraphQL\Validator\Rules\QueryComplexity::clas
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -278,12 +189,7 @@ Add rule to list of global validation rules
 public static addRule(\GraphQL\Validator\Rules\ValidationRule $rule): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -291,25 +197,15 @@ public static addRule(\GraphQL\Validator\Rules\ValidationRule $rule): mixed
 |-----------|------|-------------|
 | `$rule` | **\GraphQL\Validator\Rules\ValidationRule** |  |
 
-
-
-
 ***
 
 ### isError
-
-
 
 ```php
 public static isError(mixed $value): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -317,25 +213,15 @@ public static isError(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### append
-
-
 
 ```php
 public static append(mixed& $arr, mixed $items): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -343,9 +229,6 @@ public static append(mixed& $arr, mixed $items): mixed
 |-----------|------|-------------|
 | `$arr` | **mixed** |  |
 | `$items` | **mixed** |  |
-
-
-
 
 ***
 
@@ -365,8 +248,6 @@ ntaining literal values.
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -374,25 +255,15 @@ ntaining literal values.
 | `$type` | **\GraphQL\Type\Definition\Type** |  |
 | `$valueNode` | **mixed** |  |
 
-
-
-
 ***
 
 ### validateSDL
-
-
 
 ```php
 public static validateSDL(\GraphQL\Language\AST\DocumentNode $documentAST, ?\GraphQL\Type\Schema $schemaToExtend = null, \GraphQL\Validator\Rules\ValidationRule[]|null $rules = null): \GraphQL\Error\Error[]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -402,25 +273,15 @@ public static validateSDL(\GraphQL\Language\AST\DocumentNode $documentAST, ?\Gra
 | `$schemaToExtend` | **?\GraphQL\Type\Schema** |  |
 | `$rules` | **\GraphQL\Validator\Rules\ValidationRule[]&#124;null** |  |
 
-
-
-
 ***
 
 ### assertValidSDL
-
-
 
 ```php
 public static assertValidSDL(\GraphQL\Language\AST\DocumentNode $documentAST): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -428,25 +289,15 @@ public static assertValidSDL(\GraphQL\Language\AST\DocumentNode $documentAST): m
 |-----------|------|-------------|
 | `$documentAST` | **\GraphQL\Language\AST\DocumentNode** |  |
 
-
-
-
 ***
 
 ### assertValidSDLExtension
-
-
 
 ```php
 public static assertValidSDLExtension(\GraphQL\Language\AST\DocumentNode $documentAST, \GraphQL\Type\Schema $schema): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -455,34 +306,21 @@ public static assertValidSDLExtension(\GraphQL\Language\AST\DocumentNode $docume
 | `$documentAST` | **\GraphQL\Language\AST\DocumentNode** |  |
 | `$schema` | **\GraphQL\Type\Schema** |  |
 
-
-
-
 ***
 
 ### combineErrorMessages
-
-
 
 ```php
 private static combineErrorMessages(\GraphQL\Error\Error[] $errors): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$errors` | **\GraphQL\Error\Error[]** |  |
-
-
-
 
 ***
 

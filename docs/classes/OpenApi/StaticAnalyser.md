@@ -4,15 +4,9 @@
 
 OpenApi\StaticAnalyser extracts swagger-php annotations from php code using static analysis.
 
-
-
 * Full name: `\OpenApi\StaticAnalyser`
 
-
-
-
 ## Methods
-
 
 ### fromFile
 
@@ -22,22 +16,12 @@ Extract and process all doc-comments from a file.
 public fromFile(string $filename, \OpenApi\Context $context): \OpenApi\Analysis
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filename` | **string** | path to a php file |
 | `$context` | **\OpenApi\Context** |  |
-
-
-
 
 ***
 
@@ -49,22 +33,12 @@ Extract and process all doc-comments from the contents.
 public fromCode(string $code, \OpenApi\Context $context): \OpenApi\Analysis
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$code` | **string** | PHP code. (including &lt;?php tags) |
 | `$context` | **\OpenApi\Context** | the original location of the contents |
-
-
-
 
 ***
 
@@ -76,22 +50,12 @@ Shared implementation for parseFile() & parseContents().
 protected fromTokens(array $tokens, \OpenApi\Context $parseContext): \OpenApi\Analysis
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tokens` | **array** | The result of a token_get_all() |
 | `$parseContext` | **\OpenApi\Context** |  |
-
-
-
 
 ***
 
@@ -103,13 +67,6 @@ Parse comment and add annotations to analysis.
 private analyseComment(\OpenApi\Analysis $analysis, \OpenApi\Analyser $analyser, string $comment, \OpenApi\Context $context): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -118,9 +75,6 @@ private analyseComment(\OpenApi\Analysis $analysis, \OpenApi\Analyser $analyser,
 | `$analyser` | **\OpenApi\Analyser** |  |
 | `$comment` | **string** |  |
 | `$context` | **\OpenApi\Context** |  |
-
-
-
 
 ***
 
@@ -132,20 +86,12 @@ The next non-whitespace, non-comment token.
 private nextToken(array& $tokens, \OpenApi\Context $context): array|string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tokens` | **array** |  |
 | `$context` | **\OpenApi\Context** |  |
-
 
 **Return Value:**
 
@@ -157,18 +103,9 @@ The next token (or false)
 
 ### parseAttribute
 
-
-
 ```php
 private parseAttribute(array& $tokens, mixed& $token, \OpenApi\Context $parseContext): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -178,28 +115,13 @@ private parseAttribute(array& $tokens, mixed& $token, \OpenApi\Context $parseCon
 | `$token` | **mixed** |  |
 | `$parseContext` | **\OpenApi\Context** |  |
 
-
-
-
 ***
 
 ### php8NamespaceToken
 
-
-
 ```php
 private php8NamespaceToken(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -211,13 +133,6 @@ Parse namespaced string.
 private parseNamespace(array& $tokens, mixed& $token, \OpenApi\Context $parseContext): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -225,9 +140,6 @@ private parseNamespace(array& $tokens, mixed& $token, \OpenApi\Context $parseCon
 | `$tokens` | **array** |  |
 | `$token` | **mixed** |  |
 | `$parseContext` | **\OpenApi\Context** |  |
-
-
-
 
 ***
 
@@ -239,13 +151,6 @@ Parse comma separated list of namespaced strings.
 private parseNamespaceList(array& $tokens, mixed& $token, \OpenApi\Context $parseContext): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -253,9 +158,6 @@ private parseNamespaceList(array& $tokens, mixed& $token, \OpenApi\Context $pars
 | `$tokens` | **array** |  |
 | `$token` | **mixed** |  |
 | `$parseContext` | **\OpenApi\Context** |  |
-
-
-
 
 ***
 
@@ -267,13 +169,6 @@ Parse a use statement.
 private parseUseStatement(array& $tokens, mixed& $token, \OpenApi\Context $parseContext): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -281,9 +176,6 @@ private parseUseStatement(array& $tokens, mixed& $token, \OpenApi\Context $parse
 | `$tokens` | **array** |  |
 | `$token` | **mixed** |  |
 | `$parseContext` | **\OpenApi\Context** |  |
-
-
-
 
 ***
 
@@ -295,22 +187,12 @@ Parse type of variable (if it exists).
 private parseTypeAndNextToken(array& $tokens, \OpenApi\Context $parseContext): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tokens` | **array** |  |
 | `$parseContext` | **\OpenApi\Context** |  |
-
-
-
 
 ***
 

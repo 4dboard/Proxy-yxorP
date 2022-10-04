@@ -2,25 +2,30 @@
 
 namespace App\Command\Cache;
 
+use Lime\App;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class Flush extends Command {
+class Flush extends Command
+{
 
     protected static $defaultName = 'app:cache:flush';
     protected $app = null;
 
-    public function __construct(\Lime\App $app) {
+    public function __construct(App $app)
+    {
         $this->app = $app;
         parent::__construct();
     }
 
-    protected function configure(): void {
+    protected function configure(): void
+    {
         $this->setHelp('This command empties the /storage/tmp folder');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int {
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
 
         $this->app->helper('system')->flushCache();
 

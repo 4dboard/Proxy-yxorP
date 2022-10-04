@@ -2,18 +2,10 @@
 
 # FieldsOnCorrectType
 
-
-
-
-
 * Full name: `\GraphQL\Validator\Rules\FieldsOnCorrectType`
 * Parent class: [`\GraphQL\Validator\Rules\ValidationRule`](./ValidationRule.md)
 
-
-
-
 ## Methods
-
 
 ### getVisitor
 
@@ -23,21 +15,11 @@ Returns structure suitable for GraphQL\Language\Visitor
 public getVisitor(\GraphQL\Validator\ValidationContext $context): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
-
-
-
 
 ***
 
@@ -52,13 +34,6 @@ with Interfaces.
 private getSuggestedTypeNames(\GraphQL\Type\Schema $schema, \GraphQL\Type\Definition\ObjectType|\GraphQL\Type\Definition\InterfaceType $type, string $fieldName): string[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -66,9 +41,6 @@ private getSuggestedTypeNames(\GraphQL\Type\Schema $schema, \GraphQL\Type\Defini
 | `$schema` | **\GraphQL\Type\Schema** |  |
 | `$type` | **\GraphQL\Type\Definition\ObjectType&#124;\GraphQL\Type\Definition\InterfaceType** |  |
 | `$fieldName` | **string** |  |
-
-
-
 
 ***
 
@@ -81,13 +53,6 @@ that may be the result of a typo.
 private getSuggestedFieldNames(\GraphQL\Type\Schema $schema, \GraphQL\Type\Definition\ObjectType|\GraphQL\Type\Definition\InterfaceType $type, string $fieldName): array|string[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -96,25 +61,15 @@ private getSuggestedFieldNames(\GraphQL\Type\Schema $schema, \GraphQL\Type\Defin
 | `$type` | **\GraphQL\Type\Definition\ObjectType&#124;\GraphQL\Type\Definition\InterfaceType** |  |
 | `$fieldName` | **string** |  |
 
-
-
-
 ***
 
 ### undefinedFieldMessage
-
-
 
 ```php
 public static undefinedFieldMessage(string $fieldName, string $type, string[] $suggestedTypeNames, string[] $suggestedFieldNames): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -125,58 +80,29 @@ public static undefinedFieldMessage(string $fieldName, string $type, string[] $s
 | `$suggestedTypeNames` | **string[]** |  |
 | `$suggestedFieldNames` | **string[]** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### getName
-
-
 
 ```php
 public getName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(\GraphQL\Validator\ValidationContext $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
-
-
-
 
 ***
 
@@ -188,24 +114,15 @@ Returns structure suitable for GraphQL\Language\Visitor
 public getVisitor(\GraphQL\Validator\ValidationContext $context): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
 
-
-
 **See Also:**
 
-* \GraphQL\Language\Visitor - 
+* \GraphQL\Language\Visitor -
 
 ***
 
@@ -217,24 +134,15 @@ Returns structure suitable for GraphQL\Language\Visitor
 public getSDLVisitor(\GraphQL\Validator\SDLValidationContext $context): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\SDLValidationContext** |  |
 
-
-
 **See Also:**
 
-* \GraphQL\Language\Visitor - 
+* \GraphQL\Language\Visitor -
 
 ***
 

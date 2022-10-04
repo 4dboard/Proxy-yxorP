@@ -4,12 +4,9 @@
 
 Mask utility.
 
-
-
 * Full name: `\BaconQrCode\Encoder\MaskUtil`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
-
 
 ## Constants
 
@@ -20,27 +17,13 @@ Mask utility.
 |`N3`|public| |40|
 |`N4`|public| |10|
 
-
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 private __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -57,17 +40,11 @@ Example: 00000 or 11111.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
-
-
-
 
 ***
 
@@ -86,17 +63,11 @@ give a penalty proportional to (M-1)x(N-1), because this is the number of
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
-
-
-
 
 ***
 
@@ -114,17 +85,11 @@ twice (i.e. 40 * 2).
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
-
-
-
 
 ***
 
@@ -141,17 +106,11 @@ from 50%. It gives 10 penalty for 5% distance.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
-
-
-
 
 ***
 
@@ -167,9 +126,6 @@ See 8.8 of JISX0510:2004 for mask pattern conditions.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -177,9 +133,6 @@ See 8.8 of JISX0510:2004 for mask pattern conditions.
 | `$maskPattern` | **int** |  |
 | `$x` | **int** |  |
 | `$y` | **int** |  |
-
-
-
 
 ***
 
@@ -196,18 +149,12 @@ orders respectively.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
 | `$isHorizontal` | **bool** |  |
-
-
-
 
 ***
 

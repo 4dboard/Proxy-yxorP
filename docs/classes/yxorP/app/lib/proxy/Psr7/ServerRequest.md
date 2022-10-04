@@ -2,127 +2,68 @@
 
 # serverRequest
 
-
-
-
-
 * Full name: `\yxorP\app\lib\proxy\psr7\serverRequest`
 * Parent class: [`\yxorP\app\lib\proxy\psr7\request`](./request.md)
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\serverRequestInterface`](../../psr/http/message/serverRequestInterface.md)
-
-
+  [`\yxorP\app\lib\psr\http\message\serverRequestInterface`](../../psr/http/message/serverRequestInterface.md)
 
 ## Properties
 
-
 ### attributes
-
-
 
 ```php
 private $attributes
 ```
 
-
-
-
-
-
 ***
 
 ### cookieParams
-
-
 
 ```php
 private $cookieParams
 ```
 
-
-
-
-
-
 ***
 
 ### parsedBody
-
-
 
 ```php
 private $parsedBody
 ```
 
-
-
-
-
-
 ***
 
 ### queryParams
-
-
 
 ```php
 private $queryParams
 ```
 
-
-
-
-
-
 ***
 
 ### serverParams
-
-
 
 ```php
 private $serverParams
 ```
 
-
-
-
-
-
 ***
 
 ### uploadedFiles
-
-
 
 ```php
 private $uploadedFiles
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $method, mixed $uri, array $headers = [], mixed $body = null, mixed $version = &#039;1.1&#039;, array $serverParams = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -135,65 +76,35 @@ public __construct(mixed $method, mixed $uri, array $headers = [], mixed $body =
 | `$version` | **mixed** |  |
 | `$serverParams` | **array** |  |
 
-
-
-
 ***
 
 ### fromGlobals
-
-
 
 ```php
 public static fromGlobals(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### getUriFromGlobals
 
-
-
 ```php
 public static getUriFromGlobals(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### normalizeFiles
 
-
-
 ```php
 public static normalizeFiles(array $files): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -201,25 +112,15 @@ public static normalizeFiles(array $files): mixed
 |-----------|------|-------------|
 | `$files` | **array** |  |
 
-
-
-
 ***
 
 ### extractHostAndPortFromAuthority
-
-
 
 ```php
 private static extractHostAndPortFromAuthority(mixed $authority): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -227,25 +128,15 @@ private static extractHostAndPortFromAuthority(mixed $authority): mixed
 |-----------|------|-------------|
 | `$authority` | **mixed** |  |
 
-
-
-
 ***
 
 ### createUploadedFileFromSpec
-
-
 
 ```php
 private static createUploadedFileFromSpec(array $value): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -253,34 +144,21 @@ private static createUploadedFileFromSpec(array $value): mixed
 |-----------|------|-------------|
 | `$value` | **array** |  |
 
-
-
-
 ***
 
 ### normalizeNestedFileSpec
-
-
 
 ```php
 private static normalizeNestedFileSpec(array $files = []): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$files` | **array** |  |
-
-
-
 
 ***
 
@@ -296,19 +174,11 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 updated body parameters.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uploadedFiles` | **array** | An array tree of UploadedFileInterface instances. |
-
-
-
 
 ***
 
@@ -339,19 +209,11 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 updated body parameters.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** | The deserialized body data. This will<br />typically be in an array or object. |
-
-
-
 
 ***
 
@@ -378,19 +240,11 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 updated query string arguments.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$query` | **array** | Array of query string arguments, typically from<br />$_GET. |
-
-
-
 
 ***
 
@@ -413,19 +267,11 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 updated cookie values.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cookies` | **array** | Array of key/value pairs representing cookies. |
-
-
-
 
 ***
 
@@ -464,12 +310,6 @@ an instance of yxorP\app\lib\psr\http\message\UploadedFileInterface.
 
 These values MAY be prepared from $_FILES or the message body during
 instantiation, or MAY be injected via withUploadedFiles().
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -545,12 +385,6 @@ the request body content; as parsing returns structured content, the
 potential types MUST be arrays or objects only. A null value indicates
 the absence of body content.
 
-
-
-
-
-
-
 **Return Value:**
 
 The deserialized body parameters, if any.
@@ -573,12 +407,6 @@ parameters derived from the request: e.g., the results of path
 match operations; the results of decrypting cookies; the results of
 deserializing non-form-encoded message bodies; etc. Attributes
 will be application and request specific, and CAN be mutable.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -603,20 +431,12 @@ the default value as provided.
 This method obviates the need for a hasAttribute() method, as it allows
 specifying a default value to return if the attribute is not found.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$attribute` | **mixed** |  |
 | `$default` | **mixed** | Default value to return if the attribute does not exist. |
-
-
-
 
 ***
 
@@ -635,20 +455,12 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 updated attribute.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$attribute` | **mixed** |  |
 | `$value` | **mixed** | The value of the attribute. |
-
-
-
 
 ***
 
@@ -667,40 +479,21 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that removes
 the attribute.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$attribute` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $method, mixed $uri, array $headers = [], mixed $body = null, mixed $version = &#039;1.1&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -712,25 +505,13 @@ public __construct(mixed $method, mixed $uri, array $headers = [], mixed $body =
 | `$body` | **mixed** |  |
 | `$version` | **mixed** |  |
 
-
-
-
 ***
 
 ### assertMethod
 
-
-
 ```php
 private assertMethod(mixed $method): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -738,28 +519,13 @@ private assertMethod(mixed $method): mixed
 |-----------|------|-------------|
 | `$method` | **mixed** |  |
 
-
-
-
 ***
 
 ### updateHostFromUri
 
-
-
 ```php
 private updateHostFromUri(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -809,19 +575,11 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 changed request target.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$requestTarget` | **mixed** |  |
-
-
-
 
 ***
 
@@ -832,14 +590,6 @@ Retrieves the HTTP method of the request.
 ```php
 public getMethod(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -865,19 +615,11 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 changed request method.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **mixed** | Case-sensitive method. |
-
-
-
 
 ***
 
@@ -890,12 +632,6 @@ public getUri(): \yxorP\app\lib\psr\http\message\uriInterface
 ```
 
 This method MUST return a UriInterface instance.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -936,11 +672,6 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 new UriInterface instance.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -948,45 +679,21 @@ new UriInterface instance.
 | `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** | New request URI to use. |
 | `$preserveHost` | **mixed** | Preserve the original state of the Host header. |
 
-
-
-
 ***
 
 ### getProtocolVersion
-
-
 
 ```php
 public getProtocolVersion(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### withProtocolVersion
 
-
-
 ```php
 public withProtocolVersion(mixed $version): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -994,123 +701,63 @@ public withProtocolVersion(mixed $version): mixed
 |-----------|------|-------------|
 | `$version` | **mixed** |  |
 
-
-
-
 ***
 
 ### getHeaders
-
-
 
 ```php
 public getHeaders(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasHeader
-
-
 
 ```php
 public hasHeader(mixed $header): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
-
-
-
 
 ***
 
 ### getHeaderLine
 
-
-
 ```php
 public getHeaderLine(mixed $header): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
-
-
-
 
 ***
 
 ### getHeader
 
-
-
 ```php
 public getHeader(mixed $header): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
-
-
-
 
 ***
 
 ### withHeader
 
-
-
 ```php
 public withHeader(mixed $header, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1118,26 +765,14 @@ public withHeader(mixed $header, mixed $value): mixed
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### withAddedHeader
 
-
-
 ```php
 public withAddedHeader(mixed $header, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1146,25 +781,13 @@ public withAddedHeader(mixed $header, mixed $value): mixed
 | `$header` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### withoutHeader
 
-
-
 ```php
 public withoutHeader(mixed $header): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1172,45 +795,21 @@ public withoutHeader(mixed $header): mixed
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 
-
-
-
 ***
 
 ### getBody
-
-
 
 ```php
 public getBody(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### withBody
 
-
-
 ```php
 public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1218,25 +817,13 @@ public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
 |-----------|------|-------------|
 | `$body` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
 
-
-
-
 ***
 
 ### assertHeader
 
-
-
 ```php
 private assertHeader(mixed $header): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1244,25 +831,13 @@ private assertHeader(mixed $header): mixed
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 
-
-
-
 ***
 
 ### normalizeHeaderValue
 
-
-
 ```php
 private normalizeHeaderValue(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1270,25 +845,13 @@ private normalizeHeaderValue(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### trimHeaderValues
 
-
-
 ```php
 private trimHeaderValues(array $values): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1296,34 +859,19 @@ private trimHeaderValues(array $values): mixed
 |-----------|------|-------------|
 | `$values` | **array** |  |
 
-
-
-
 ***
 
 ### setHeaders
 
-
-
 ```php
 private setHeaders(array $headers): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$headers` | **array** |  |
-
-
-
 
 ***
 

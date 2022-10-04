@@ -2,91 +2,43 @@
 
 # Palette
 
-
-
-
-
 * Full name: `\League\ColorExtractor\Palette`
 * This class implements:
-[`\Countable`](../../Countable.md), [`\IteratorAggregate`](../../IteratorAggregate.md)
-
-
+  [`\Countable`](../../Countable.md), [`\IteratorAggregate`](../../IteratorAggregate.md)
 
 ## Properties
 
-
 ### colors
-
-
 
 ```php
 protected array $colors
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### count
-
-
 
 ```php
 public count(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getIterator
-
-
 
 ```php
 public getIterator(): \ArrayIterator
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getColorCount
 
-
-
 ```php
 public getColorCount(int $color): int
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -94,25 +46,13 @@ public getColorCount(int $color): int
 |-----------|------|-------------|
 | `$color` | **int** |  |
 
-
-
-
 ***
 
 ### getMostUsedColors
 
-
-
 ```php
 public getMostUsedColors(int $limit = null): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -120,25 +60,15 @@ public getMostUsedColors(int $limit = null): array
 |-----------|------|-------------|
 | `$limit` | **int** | = null |
 
-
-
-
 ***
 
 ### fromFilename
-
-
 
 ```php
 public static fromFilename(string $filename, int|null $backgroundColor = null): \League\ColorExtractor\Palette
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -147,25 +77,15 @@ public static fromFilename(string $filename, int|null $backgroundColor = null): 
 | `$filename` | **string** |  |
 | `$backgroundColor` | **int&#124;null** |  |
 
-
-
-
 ***
 
 ### fromGD
-
-
 
 ```php
 public static fromGD(resource $image, int|null $backgroundColor = null): \League\ColorExtractor\Palette
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -174,28 +94,13 @@ public static fromGD(resource $image, int|null $backgroundColor = null): \League
 | `$image` | **resource** |  |
 | `$backgroundColor` | **int&#124;null** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 protected __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

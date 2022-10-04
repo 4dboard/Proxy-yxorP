@@ -4,66 +4,37 @@
 
 Combines the style of two different eyes.
 
-
-
 * Full name: `\BaconQrCode\Renderer\Eye\CompositeEye`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\BaconQrCode\Renderer\Eye\EyeInterface`](./EyeInterface.md)
+  [`\BaconQrCode\Renderer\Eye\EyeInterface`](./EyeInterface.md)
 * This class is a **Final class**
-
-
 
 ## Properties
 
-
 ### externalEye
-
-
 
 ```php
 private \BaconQrCode\Renderer\Eye\EyeInterface $externalEye
 ```
 
-
-
-
-
-
 ***
 
 ### internalEye
-
-
 
 ```php
 private \BaconQrCode\Renderer\Eye\EyeInterface $internalEye
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\BaconQrCode\Renderer\Eye\EyeInterface $externalEye, \BaconQrCode\Renderer\Eye\EyeInterface $internalEye): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -71,9 +42,6 @@ public __construct(\BaconQrCode\Renderer\Eye\EyeInterface $externalEye, \BaconQr
 |-----------|------|-------------|
 | `$externalEye` | **\BaconQrCode\Renderer\Eye\EyeInterface** |  |
 | `$internalEye` | **\BaconQrCode\Renderer\Eye\EyeInterface** |  |
-
-
-
 
 ***
 

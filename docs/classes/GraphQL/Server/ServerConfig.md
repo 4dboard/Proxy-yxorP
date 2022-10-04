@@ -17,178 +17,97 @@ Usage example:
 
 * Full name: `\GraphQL\Server\ServerConfig`
 
-
-
 ## Properties
 
-
 ### schema
-
-
 
 ```php
 private \GraphQL\Type\Schema|null $schema
 ```
 
-
-
-
-
-
 ***
 
 ### context
-
-
 
 ```php
 private mixed|callable $context
 ```
 
-
-
-
-
-
 ***
 
 ### rootValue
-
-
 
 ```php
 private mixed|callable $rootValue
 ```
 
-
-
-
-
-
 ***
 
 ### errorFormatter
-
-
 
 ```php
 private callable|null $errorFormatter
 ```
 
-
-
-
-
-
 ***
 
 ### errorsHandler
-
-
 
 ```php
 private callable|null $errorsHandler
 ```
 
-
-
-
-
-
 ***
 
 ### debugFlag
-
-
 
 ```php
 private int $debugFlag
 ```
 
-
-
-
-
-
 ***
 
 ### queryBatching
-
-
 
 ```php
 private bool $queryBatching
 ```
 
-
-
-
-
-
 ***
 
 ### validationRules
-
-
 
 ```php
 private \GraphQL\Validator\Rules\ValidationRule[]|callable|null $validationRules
 ```
 
-
-
-
-
-
 ***
 
 ### fieldResolver
-
-
 
 ```php
 private callable|null $fieldResolver
 ```
 
-
-
-
-
-
 ***
 
 ### promiseAdapter
-
-
 
 ```php
 private \GraphQL\Executor\Promise\PromiseAdapter|null $promiseAdapter
 ```
 
-
-
-
-
-
 ***
 
 ### persistentQueryLoader
-
-
 
 ```php
 private callable|null $persistentQueryLoader
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### create
 
@@ -199,12 +118,7 @@ Converts an array of options to instance of ServerConfig
 public static create(array $config = []): \GraphQL\Server\ServerConfig
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -212,25 +126,13 @@ public static create(array $config = []): \GraphQL\Server\ServerConfig
 |-----------|------|-------------|
 | `$config` | **array** |  |
 
-
-
-
 ***
 
 ### setSchema
 
-
-
 ```php
 public setSchema(\GraphQL\Type\Schema $schema): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -238,25 +140,13 @@ public setSchema(\GraphQL\Type\Schema $schema): self
 |-----------|------|-------------|
 | `$schema` | **\GraphQL\Type\Schema** |  |
 
-
-
-
 ***
 
 ### setContext
 
-
-
 ```php
 public setContext(mixed|callable $context): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -264,34 +154,19 @@ public setContext(mixed|callable $context): self
 |-----------|------|-------------|
 | `$context` | **mixed&#124;callable** |  |
 
-
-
-
 ***
 
 ### setRootValue
 
-
-
 ```php
 public setRootValue(mixed|callable $rootValue): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rootValue` | **mixed&#124;callable** |  |
-
-
-
 
 ***
 
@@ -303,21 +178,11 @@ Expects function(Throwable $e) : array
 public setErrorFormatter(callable $errorFormatter): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$errorFormatter` | **callable** |  |
-
-
-
 
 ***
 
@@ -329,21 +194,11 @@ Expects function(array $errors, callable $formatter) : array
 public setErrorsHandler(callable $handler): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handler` | **callable** |  |
-
-
-
 
 ***
 
@@ -355,47 +210,25 @@ Set validation rules for this server.
 public setValidationRules(\GraphQL\Validator\Rules\ValidationRule[]|callable|null $validationRules): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$validationRules` | **\GraphQL\Validator\Rules\ValidationRule[]&#124;callable&#124;null** |  |
 
-
-
-
 ***
 
 ### setFieldResolver
 
-
-
 ```php
 public setFieldResolver(callable $fieldResolver): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fieldResolver` | **callable** |  |
-
-
-
 
 ***
 
@@ -409,19 +242,11 @@ public setPersistentQueryLoader(callable $persistentQueryLoader): self
 
 This function must return query string or valid DocumentNode.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$persistentQueryLoader` | **callable** |  |
-
-
-
 
 ***
 
@@ -433,21 +258,13 @@ Set response debug flags.
 public setDebugFlag(int $debugFlag = DebugFlag::INCLUDE_DEBUG_MESSAGE): self
 ```
 
- @see \GraphQL\Error\DebugFlag class for a list of all available flags
-
-
-
-
-
+@see \GraphQL\Error\DebugFlag class for a list of all available flags
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$debugFlag` | **int** |  |
-
-
-
 
 ***
 
@@ -459,38 +276,19 @@ Allow batching queries (disabled by default)
 public setQueryBatching(bool $enableBatching): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$enableBatching` | **bool** |  |
 
-
-
-
 ***
 
 ### setPromiseAdapter
 
-
-
 ```php
 public setPromiseAdapter(\GraphQL\Executor\Promise\PromiseAdapter $promiseAdapter): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -498,228 +296,93 @@ public setPromiseAdapter(\GraphQL\Executor\Promise\PromiseAdapter $promiseAdapte
 |-----------|------|-------------|
 | `$promiseAdapter` | **\GraphQL\Executor\Promise\PromiseAdapter** |  |
 
-
-
-
 ***
 
 ### getContext
-
-
 
 ```php
 public getContext(): mixed|callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getRootValue
-
-
 
 ```php
 public getRootValue(): mixed|callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getSchema
-
-
 
 ```php
 public getSchema(): \GraphQL\Type\Schema|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getErrorFormatter
-
-
 
 ```php
 public getErrorFormatter(): callable|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getErrorsHandler
-
-
 
 ```php
 public getErrorsHandler(): callable|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getPromiseAdapter
-
-
 
 ```php
 public getPromiseAdapter(): \GraphQL\Executor\Promise\PromiseAdapter|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getValidationRules
-
-
 
 ```php
 public getValidationRules(): \GraphQL\Validator\Rules\ValidationRule[]|callable|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getFieldResolver
-
-
 
 ```php
 public getFieldResolver(): callable|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getPersistentQueryLoader
-
-
 
 ```php
 public getPersistentQueryLoader(): callable|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDebugFlag
-
-
 
 ```php
 public getDebugFlag(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getQueryBatching
 
-
-
 ```php
 public getQueryBatching(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

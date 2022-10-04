@@ -18,8 +18,7 @@ are available in addition to those listed below.
 * Full name: `\GraphQL\Error\Error`
 * Parent class: [`Exception`](../../Exception.md)
 * This class implements:
-[`\JsonSerializable`](../../JsonSerializable.md), [`\GraphQL\Error\ClientAware`](./ClientAware.md)
-
+  [`\JsonSerializable`](../../JsonSerializable.md), [`\GraphQL\Error\ClientAware`](./ClientAware.md)
 
 ## Constants
 
@@ -30,7 +29,6 @@ are available in addition to those listed below.
 
 ## Properties
 
-
 ### locations
 
 Lazily initialized.
@@ -38,11 +36,6 @@ Lazily initialized.
 ```php
 private \GraphQL\Language\SourceLocation[] $locations
 ```
-
-
-
-
-
 
 ***
 
@@ -55,11 +48,6 @@ corresponds to this error. Only included for errors during execution.
 public array|null $path
 ```
 
-
-
-
-
-
 ***
 
 ### nodes
@@ -69,11 +57,6 @@ An array of GraphQL AST Nodes corresponding to this error.
 ```php
 public \GraphQL\Language\AST\Node[]|null $nodes
 ```
-
-
-
-
-
 
 ***
 
@@ -95,81 +78,43 @@ represent nodes after the first node.
 
 ### positions
 
-
-
 ```php
 private int[] $positions
 ```
-
-
-
-
-
 
 ***
 
 ### isClientSafe
 
-
-
 ```php
 private bool $isClientSafe
 ```
-
-
-
-
-
 
 ***
 
 ### category
 
-
-
 ```php
 protected string $category
 ```
-
-
-
-
-
 
 ***
 
 ### extensions
 
-
-
 ```php
 protected array|null $extensions
 ```
-
-
-
-
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $message = &#039;&#039;, \GraphQL\Language\AST\Node|\GraphQL\Language\AST\Node[]|\Traversable|null $nodes = null, ?\GraphQL\Language\Source $source = null, array $positions = [], array|null $path = null, \Throwable $previous = null, array $extensions = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -183,9 +128,6 @@ public __construct(string $message = &#039;&#039;, \GraphQL\Language\AST\Node|\G
 | `$previous` | **\Throwable** |  |
 | `$extensions` | **array** |  |
 
-
-
-
 ***
 
 ### createLocatedError
@@ -198,12 +140,7 @@ document responsible for the original Error.
 public static createLocatedError(mixed $error, \GraphQL\Language\AST\Node[]|null $nodes = null, array|null $path = null): \GraphQL\Error\Error
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -213,34 +150,21 @@ public static createLocatedError(mixed $error, \GraphQL\Language\AST\Node[]|null
 | `$nodes` | **\GraphQL\Language\AST\Node[]&#124;null** |  |
 | `$path` | **array&#124;null** |  |
 
-
-
-
 ***
 
 ### formatError
-
-
 
 ```php
 public static formatError(\GraphQL\Error\Error $error): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$error` | **\GraphQL\Error\Error** |  |
-
-
-
 
 ***
 
@@ -252,16 +176,6 @@ Returns true when exception message is safe to be displayed to a client.
 public isClientSafe(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getCategory
@@ -272,55 +186,21 @@ Returns string describing a category of the error.
 public getCategory(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getSource
-
-
 
 ```php
 public getSource(): ?\GraphQL\Language\Source
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getPositions
 
-
-
 ```php
 public getPositions(): int[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -352,21 +232,9 @@ single location, the field which produced the error.
 
 ### getNodes
 
-
-
 ```php
 public getNodes(): \GraphQL\Language\AST\Node[]|null
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -392,21 +260,9 @@ Only included for execution errors.
 
 ### getExtensions
 
-
-
 ```php
 public getExtensions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -418,17 +274,7 @@ Returns array representation of error suitable for serialization
 public toSerializableArray(): array
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -440,43 +286,22 @@ Specify data which should be serialized to JSON
 public jsonSerialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 data which can be serialized by <b>json_encode</b>,
 which is a value of any type other than a resource.
 
-
 **See Also:**
 
-* http://php.net/manual/en/jsonserializable.jsonserialize.php - 
+* http://php.net/manual/en/jsonserializable.jsonserialize.php -
 
 ***
 
 ### __toString
 
-
-
 ```php
 public __toString(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

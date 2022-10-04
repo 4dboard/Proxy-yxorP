@@ -22,15 +22,15 @@ class MacroDataExtension extends AbstractExtension
     /**
      * Add an object property.
      *
-     * @param  MacroData  $data
-     * @param  mixed  $value
+     * @param MacroData $data
+     * @param mixed $value
      *
      * @return MacroData $data, but with output added.
      * @throws RuntimeError
      */
     public function cloneWithOutput(MacroData $data, $value)
     {
-        if ( ! is_a($data, MacroData::class)) {
+        if (!is_a($data, MacroData::class)) {
             throw new RuntimeError('The clone_with_output function only accepts a MacroData instance.');
         }
 

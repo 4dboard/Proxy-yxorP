@@ -4,16 +4,10 @@
 
 Symfony Style Guide compliant question helper.
 
-
-
 * Full name: `\Symfony\Component\Console\Helper\SymfonyQuestionHelper`
 * Parent class: [`\Symfony\Component\Console\Helper\QuestionHelper`](./QuestionHelper.md)
 
-
-
-
 ## Methods
-
 
 ### writePrompt
 
@@ -23,22 +17,12 @@ Outputs the question prompt.
 protected writePrompt(\Symfony\Component\Console\Output\OutputInterface $output, \Symfony\Component\Console\Question\Question $question): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
 | `$question` | **\Symfony\Component\Console\Question\Question** |  |
-
-
-
 
 ***
 
@@ -50,13 +34,6 @@ Outputs an error message.
 protected writeError(\Symfony\Component\Console\Output\OutputInterface $output, \Exception $error): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -64,34 +41,17 @@ protected writeError(\Symfony\Component\Console\Output\OutputInterface $output, 
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
 | `$error` | **\Exception** |  |
 
-
-
-
 ***
 
 ### getEofShortcut
-
-
 
 ```php
 private getEofShortcut(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### ask
 
@@ -101,13 +61,6 @@ Asks a question to the user.
 public ask(\Symfony\Component\Console\Input\InputInterface $input, \Symfony\Component\Console\Output\OutputInterface $output, \Symfony\Component\Console\Question\Question $question): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -115,7 +68,6 @@ public ask(\Symfony\Component\Console\Input\InputInterface $input, \Symfony\Comp
 | `$input` | **\Symfony\Component\Console\Input\InputInterface** |  |
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
 | `$question` | **\Symfony\Component\Console\Question\Question** |  |
-
 
 **Return Value:**
 
@@ -133,16 +85,6 @@ The user answer
 public getName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### disableStty
@@ -153,15 +95,7 @@ Prevents usage of stty.
 public static disableStty(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -173,13 +107,6 @@ Asks the question to the user.
 private doAsk(\Symfony\Component\Console\Output\OutputInterface $output, \Symfony\Component\Console\Question\Question $question): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -187,34 +114,19 @@ private doAsk(\Symfony\Component\Console\Output\OutputInterface $output, \Symfon
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
 | `$question` | **\Symfony\Component\Console\Question\Question** |  |
 
-
-
-
 ***
 
 ### getDefaultAnswer
 
-
-
 ```php
 private getDefaultAnswer(\Symfony\Component\Console\Question\Question $question): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$question` | **\Symfony\Component\Console\Question\Question** |  |
-
-
-
 
 ***
 
@@ -226,13 +138,6 @@ Outputs the question prompt.
 protected writePrompt(\Symfony\Component\Console\Output\OutputInterface $output, \Symfony\Component\Console\Question\Question $question): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -240,25 +145,13 @@ protected writePrompt(\Symfony\Component\Console\Output\OutputInterface $output,
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
 | `$question` | **\Symfony\Component\Console\Question\Question** |  |
 
-
-
-
 ***
 
 ### formatChoiceQuestionChoices
 
-
-
 ```php
 protected formatChoiceQuestionChoices(\Symfony\Component\Console\Question\ChoiceQuestion $question, string $tag): string[]
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -266,9 +159,6 @@ protected formatChoiceQuestionChoices(\Symfony\Component\Console\Question\Choice
 |-----------|------|-------------|
 | `$question` | **\Symfony\Component\Console\Question\ChoiceQuestion** |  |
 | `$tag` | **string** |  |
-
-
-
 
 ***
 
@@ -280,22 +170,12 @@ Outputs an error message.
 protected writeError(\Symfony\Component\Console\Output\OutputInterface $output, \Exception $error): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
 | `$error` | **\Exception** |  |
-
-
-
 
 ***
 
@@ -307,13 +187,6 @@ Autocompletes a question.
 private autocomplete(\Symfony\Component\Console\Output\OutputInterface $output, \Symfony\Component\Console\Question\Question $question, resource $inputStream, callable $autocomplete): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -323,34 +196,19 @@ private autocomplete(\Symfony\Component\Console\Output\OutputInterface $output, 
 | `$inputStream` | **resource** |  |
 | `$autocomplete` | **callable** |  |
 
-
-
-
 ***
 
 ### mostRecentlyEnteredValue
 
-
-
 ```php
 private mostRecentlyEnteredValue(string $entered): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$entered` | **string** |  |
-
-
-
 
 ***
 
@@ -362,13 +220,6 @@ Gets a hidden response from user.
 private getHiddenResponse(\Symfony\Component\Console\Output\OutputInterface $output, resource $inputStream, bool $trimmable = true): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -376,9 +227,6 @@ private getHiddenResponse(\Symfony\Component\Console\Output\OutputInterface $out
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
 | `$inputStream` | **resource** | The handler resource |
 | `$trimmable` | **bool** | Is the answer trimmable |
-
-
-
 
 ***
 
@@ -390,13 +238,6 @@ Validates an attempt.
 private validateAttempts(callable $interviewer, \Symfony\Component\Console\Output\OutputInterface $output, \Symfony\Component\Console\Question\Question $question): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -404,7 +245,6 @@ private validateAttempts(callable $interviewer, \Symfony\Component\Console\Outpu
 | `$interviewer` | **callable** | A callable that will ask for a question and return the result |
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
 | `$question` | **\Symfony\Component\Console\Question\Question** |  |
-
 
 **Return Value:**
 
@@ -416,27 +256,15 @@ The validated response
 
 ### isInteractiveInput
 
-
-
 ```php
 private isInteractiveInput(mixed $inputStream): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$inputStream` | **mixed** |  |
-
-
-
 
 ***
 
@@ -448,20 +276,12 @@ Reads one or more lines of input and returns what is read.
 private readInput(resource $inputStream, \Symfony\Component\Console\Question\Question $question): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$inputStream` | **resource** | The handler resource |
 | `$question` | **\Symfony\Component\Console\Question\Question** | The question being asked |
-
 
 **Return Value:**
 
@@ -479,14 +299,6 @@ Sets console I/O to the host code page.
 private setIOCodepage(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Previous code page in IBM/EBCDIC format
@@ -503,22 +315,12 @@ Sets console I/O to the specified code page and converts the user input.
 private resetIOCodepage(int $cp, string|false $input): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cp` | **int** |  |
 | `$input` | **string&#124;false** |  |
-
-
-
 
 ***
 
@@ -531,19 +333,11 @@ stream without affecting the other instance.
 private cloneInputStream(resource $inputStream): resource|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$inputStream` | **resource** | The handler resource |
-
 
 **Return Value:**
 
@@ -561,21 +355,11 @@ Sets the helper set associated with this helper.
 public setHelperSet(\Symfony\Component\Console\Helper\HelperSet $helperSet = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$helperSet` | **\Symfony\Component\Console\Helper\HelperSet** |  |
-
-
-
 
 ***
 
@@ -587,16 +371,6 @@ Gets the helper set associated with this helper.
 public getHelperSet(): \Symfony\Component\Console\Helper\HelperSet|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### strlen
@@ -607,23 +381,16 @@ Returns the length of a string, using mb_strwidth if it is available.
 public static strlen(?string $string): int
 ```
 
-
-
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **?string** |  |
-
-
-
 
 ***
 
@@ -639,17 +406,11 @@ The width is how many characters positions the string will use.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **?string** |  |
-
-
-
 
 ***
 
@@ -665,17 +426,11 @@ The length is related to how many bytes the string will use.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **?string** |  |
-
-
-
 
 ***
 
@@ -687,12 +442,7 @@ Returns the subset of a string, using mb_substr if it is available.
 public static substr(?string $string, int $from, int $length = null): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -702,25 +452,15 @@ public static substr(?string $string, int $from, int $length = null): string
 | `$from` | **int** |  |
 | `$length` | **int** |  |
 
-
-
-
 ***
 
 ### formatTime
-
-
 
 ```php
 public static formatTime(mixed $secs): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -728,25 +468,15 @@ public static formatTime(mixed $secs): mixed
 |-----------|------|-------------|
 | `$secs` | **mixed** |  |
 
-
-
-
 ***
 
 ### formatMemory
-
-
 
 ```php
 public static formatMemory(int $memory): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -754,54 +484,35 @@ public static formatMemory(int $memory): mixed
 |-----------|------|-------------|
 | `$memory` | **int** |  |
 
-
-
-
 ***
 
 ### strlenWithoutDecoration
 
-
-
 ```php
 public static strlenWithoutDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, ?string $string): mixed
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **?string** |  |
-
-
-
 
 ***
 
 ### removeDecoration
 
-
-
 ```php
 public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, ?string $string): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -809,9 +520,6 @@ public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormat
 |-----------|------|-------------|
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **?string** |  |
-
-
-
 
 ***
 

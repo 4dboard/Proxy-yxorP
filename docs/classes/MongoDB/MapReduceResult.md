@@ -10,80 +10,48 @@ It also provides access to command statistics.
 
 * Full name: `\MongoDB\MapReduceResult`
 * This class implements:
-[`\IteratorAggregate`](../IteratorAggregate.md)
+  [`\IteratorAggregate`](../IteratorAggregate.md)
 
 **See Also:**
 
-* \MongoDB\Collection::mapReduce() - 
-* https://docs.mongodb.com/manual/reference/command/mapReduce/ - 
-
-
+* \MongoDB\Collection::mapReduce() -
+* https://docs.mongodb.com/manual/reference/command/mapReduce/ -
 
 ## Properties
 
-
 ### getIterator
-
-
 
 ```php
 private callable $getIterator
 ```
 
-
-
-
-
-
 ***
 
 ### executionTimeMS
-
-
 
 ```php
 private int $executionTimeMS
 ```
 
-
-
-
-
-
 ***
 
 ### counts
-
-
 
 ```php
 private array $counts
 ```
 
-
-
-
-
-
 ***
 
 ### timing
-
-
 
 ```php
 private array $timing
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### getCounts
 
@@ -92,16 +60,6 @@ Returns various count statistics from the mapReduce command.
 ```php
 public getCounts(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -113,16 +71,6 @@ Return the command execution time in milliseconds.
 public getExecutionTimeMS(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getIterator
@@ -133,18 +81,9 @@ Return the mapReduce results as a Traversable.
 public getIterator(): \Traversable
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/iteratoraggregate.getiterator - 
+* http://php.net/iteratoraggregate.getiterator -
 
 ***
 

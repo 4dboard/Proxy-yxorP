@@ -2,109 +2,63 @@
 
 # uriTemplate
 
-
-
-
-
 * Full name: `\yxorP\app\lib\proxy\uriTemplate`
-
-
 
 ## Properties
 
-
 ### operatorHash
-
-
 
 ```php
 private static $operatorHash
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### delims
 
-
-
 ```php
 private static $delims
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### delimsPct
 
-
-
 ```php
 private static $delimsPct
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### template
 
-
-
 ```php
 private $template
 ```
-
-
-
-
-
 
 ***
 
 ### variables
 
-
-
 ```php
 private $variables
 ```
-
-
-
-
-
 
 ***
 
 ## Methods
 
-
 ### expand
-
-
 
 ```php
 public expand(mixed $template, array $variables): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -113,25 +67,13 @@ public expand(mixed $template, array $variables): mixed
 | `$template` | **mixed** |  |
 | `$variables` | **array** |  |
 
-
-
-
 ***
 
 ### expandMatch
 
-
-
 ```php
 private expandMatch(array $matches): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -139,25 +81,13 @@ private expandMatch(array $matches): mixed
 |-----------|------|-------------|
 | `$matches` | **array** |  |
 
-
-
-
 ***
 
 ### parseExpression
 
-
-
 ```php
 private parseExpression(mixed $expression): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -165,25 +95,13 @@ private parseExpression(mixed $expression): mixed
 |-----------|------|-------------|
 | `$expression` | **mixed** |  |
 
-
-
-
 ***
 
 ### isAssoc
 
-
-
 ```php
 private isAssoc(array $array): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -191,34 +109,19 @@ private isAssoc(array $array): mixed
 |-----------|------|-------------|
 | `$array` | **array** |  |
 
-
-
-
 ***
 
 ### decodeReserved
 
-
-
 ```php
 private decodeReserved(mixed $string): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** |  |
-
-
-
 
 ***
 

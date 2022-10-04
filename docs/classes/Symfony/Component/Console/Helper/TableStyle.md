@@ -4,377 +4,203 @@
 
 Defines the styles for a Table.
 
-
-
 * Full name: `\Symfony\Component\Console\Helper\TableStyle`
-
-
 
 ## Properties
 
-
 ### paddingChar
-
-
 
 ```php
 private $paddingChar
 ```
 
-
-
-
-
-
 ***
 
 ### horizontalOutsideBorderChar
-
-
 
 ```php
 private $horizontalOutsideBorderChar
 ```
 
-
-
-
-
-
 ***
 
 ### horizontalInsideBorderChar
-
-
 
 ```php
 private $horizontalInsideBorderChar
 ```
 
-
-
-
-
-
 ***
 
 ### verticalOutsideBorderChar
-
-
 
 ```php
 private $verticalOutsideBorderChar
 ```
 
-
-
-
-
-
 ***
 
 ### verticalInsideBorderChar
-
-
 
 ```php
 private $verticalInsideBorderChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingChar
-
-
 
 ```php
 private $crossingChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingTopRightChar
-
-
 
 ```php
 private $crossingTopRightChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingTopMidChar
-
-
 
 ```php
 private $crossingTopMidChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingTopLeftChar
-
-
 
 ```php
 private $crossingTopLeftChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingMidRightChar
-
-
 
 ```php
 private $crossingMidRightChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingBottomRightChar
-
-
 
 ```php
 private $crossingBottomRightChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingBottomMidChar
-
-
 
 ```php
 private $crossingBottomMidChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingBottomLeftChar
-
-
 
 ```php
 private $crossingBottomLeftChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingMidLeftChar
-
-
 
 ```php
 private $crossingMidLeftChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingTopLeftBottomChar
-
-
 
 ```php
 private $crossingTopLeftBottomChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingTopMidBottomChar
-
-
 
 ```php
 private $crossingTopMidBottomChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingTopRightBottomChar
-
-
 
 ```php
 private $crossingTopRightBottomChar
 ```
 
-
-
-
-
-
 ***
 
 ### headerTitleFormat
-
-
 
 ```php
 private $headerTitleFormat
 ```
 
-
-
-
-
-
 ***
 
 ### footerTitleFormat
-
-
 
 ```php
 private $footerTitleFormat
 ```
 
-
-
-
-
-
 ***
 
 ### cellHeaderFormat
-
-
 
 ```php
 private $cellHeaderFormat
 ```
 
-
-
-
-
-
 ***
 
 ### cellRowFormat
-
-
 
 ```php
 private $cellRowFormat
 ```
 
-
-
-
-
-
 ***
 
 ### cellRowContentFormat
-
-
 
 ```php
 private $cellRowContentFormat
 ```
 
-
-
-
-
-
 ***
 
 ### borderFormat
-
-
 
 ```php
 private $borderFormat
 ```
 
-
-
-
-
-
 ***
 
 ### padType
-
-
 
 ```php
 private $padType
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setPaddingChar
 
@@ -384,21 +210,11 @@ Sets padding character, used for cell padding.
 public setPaddingChar(string $paddingChar): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$paddingChar` | **string** |  |
-
-
-
 
 ***
 
@@ -409,16 +225,6 @@ Gets padding character, used for cell padding.
 ```php
 public getPaddingChar(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -452,9 +258,6 @@ public setHorizontalBorderChars(string $outside, string $inside = null): $this
 |-----------|------|-------------|
 | `$outside` | **string** |  |
 | `$inside` | **string** |  |
-
-
-
 
 ***
 
@@ -490,9 +293,6 @@ public setVerticalBorderChars(string $outside, string $inside = null): $this
 | `$outside` | **string** |  |
 | `$inside` | **string** |  |
 
-
-
-
 ***
 
 ### setCrossingChars
@@ -506,20 +306,15 @@ public setCrossingChars(string $cross, string $topLeft, string $topMid, string $
 Example:
 <code>
 1═══════════════2══════════════════════════2══════════════════3
-║ ISBN          │ Title                    │ Author           ║
+║ ISBN │ Title │ Author ║
 8'══════════════0'═════════════════════════0'═════════════════4'
-║ 99921-58-10-7 │ Divine Comedy            │ Dante Alighieri  ║
-║ 9971-5-0210-0 │ A Tale of Two Cities     │ Charles Dickens  ║
+║ 99921-58-10-7 │ Divine Comedy │ Dante Alighieri ║
+║ 9971-5-0210-0 │ A Tale of Two Cities │ Charles Dickens ║
 8───────────────0──────────────────────────0──────────────────4
-║ 960-425-059-0 │ The Lord of the Rings    │ J. R. R. Tolkien ║
-║ 80-902734-1-6 │ And Then There Were None │ Agatha Christie  ║
+║ 960-425-059-0 │ The Lord of the Rings │ J. R. R. Tolkien ║
+║ 80-902734-1-6 │ And Then There Were None │ Agatha Christie ║
 7═══════════════6══════════════════════════6══════════════════5
 </code>
-
-
-
-
-
 
 **Parameters:**
 
@@ -538,9 +333,6 @@ Example:
 | `$topMidBottom` | **string&#124;null** | Top mid bottom char (see #0&#039; of example), equals to $cross if null |
 | `$topRightBottom` | **string&#124;null** | Top right bottom char (see #4&#039; of example), equals to $midRight if null |
 
-
-
-
 ***
 
 ### setDefaultCrossingChar
@@ -551,24 +343,16 @@ Sets default crossing character used for each cross.
 public setDefaultCrossingChar(string $char): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$char` | **string** |  |
 
-
-
 **See Also:**
 
-*  - {@link setCrossingChars()} for setting each crossing individually.
+*
+    - {@link setCrossingChars()} for setting each crossing individually.
 
 ***
 
@@ -580,16 +364,6 @@ Gets crossing character.
 public getCrossingChar(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCellHeaderFormat
@@ -600,21 +374,11 @@ Sets header cell format.
 public setCellHeaderFormat(string $cellHeaderFormat): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cellHeaderFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -626,16 +390,6 @@ Gets header cell format.
 public getCellHeaderFormat(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCellRowFormat
@@ -646,21 +400,11 @@ Sets row cell format.
 public setCellRowFormat(string $cellRowFormat): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cellRowFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -672,16 +416,6 @@ Gets row cell format.
 public getCellRowFormat(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCellRowContentFormat
@@ -692,21 +426,11 @@ Sets row cell content format.
 public setCellRowContentFormat(string $cellRowContentFormat): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cellRowContentFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -718,16 +442,6 @@ Gets row cell content format.
 public getCellRowContentFormat(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBorderFormat
@@ -738,21 +452,11 @@ Sets table border format.
 public setBorderFormat(string $borderFormat): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$borderFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -764,16 +468,6 @@ Gets table border format.
 public getBorderFormat(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPadType
@@ -784,21 +478,11 @@ Sets cell padding type.
 public setPadType(int $padType): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$padType` | **int** |  |
-
-
-
 
 ***
 
@@ -810,107 +494,49 @@ Gets cell padding type.
 public getPadType(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getHeaderTitleFormat
-
-
 
 ```php
 public getHeaderTitleFormat(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setHeaderTitleFormat
-
-
 
 ```php
 public setHeaderTitleFormat(string $format): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **string** |  |
-
-
-
 
 ***
 
 ### getFooterTitleFormat
 
-
-
 ```php
 public getFooterTitleFormat(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### setFooterTitleFormat
 
-
-
 ```php
 public setFooterTitleFormat(string $format): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **string** |  |
-
-
-
 
 ***
 

@@ -9,54 +9,31 @@ immediately and ignore other callbacks.
 
 * Full name: `\GuzzleHttp\Promise\FulfilledPromise`
 * This class implements:
-[`\GuzzleHttp\Promise\PromiseInterface`](./PromiseInterface.md)
-
-
+  [`\GuzzleHttp\Promise\PromiseInterface`](./PromiseInterface.md)
 
 ## Properties
 
-
 ### value
-
-
 
 ```php
 private $value
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -69,22 +46,12 @@ a new promise resolving to the return value of the called handler.
 public then(callable $onFulfilled = null, callable $onRejected = null): \GuzzleHttp\Promise\PromiseInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$onFulfilled` | **callable** | Invoked when the promise fulfills. |
 | `$onRejected` | **callable** | Invoked when the promise is rejected. |
-
-
-
 
 ***
 
@@ -99,21 +66,11 @@ fulfilled.
 public otherwise(callable $onRejected): \GuzzleHttp\Promise\PromiseInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$onRejected` | **callable** | Invoked when the promise is rejected. |
-
-
-
 
 ***
 
@@ -130,20 +87,12 @@ returning the resolved value or throwing the rejected exception.
 
 If the promise cannot be waited on, then the promise will be rejected.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$unwrap` | **mixed** |  |
 | `$defaultDelivery` | **mixed** |  |
-
-
-
 
 ***
 
@@ -176,21 +125,11 @@ Resolve the promise with the given value.
 public resolve(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -202,21 +141,11 @@ Reject the promise with the given reason.
 public reject(mixed $reason): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reason` | **mixed** |  |
-
-
-
 
 ***
 
@@ -227,16 +156,6 @@ Cancels the promise if possible.
 ```php
 public cancel(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

@@ -4,16 +4,11 @@
 
 A simple, fast array of bits.
 
-
-
 * Full name: `\BaconQrCode\Common\BitArray`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
-
-
 ## Properties
-
 
 ### bits
 
@@ -22,11 +17,6 @@ Bits represented as an array of integers.
 ```php
 private \SplFixedArray&lt;int&gt; $bits
 ```
-
-
-
-
-
 
 ***
 
@@ -38,15 +28,9 @@ Size of the bit array in bits.
 private int $size
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -56,21 +40,11 @@ Creates a new bit array with a given size.
 public __construct(int $size): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$size` | **int** |  |
-
-
-
 
 ***
 
@@ -82,16 +56,6 @@ Gets the size in bits.
 public getSize(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getSizeInBytes
@@ -101,16 +65,6 @@ Gets the size in bytes.
 ```php
 public getSizeInBytes(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -122,21 +76,11 @@ Ensures that the array has a minimum capacity.
 public ensureCapacity(int $size): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$size` | **int** |  |
-
-
-
 
 ***
 
@@ -148,21 +92,11 @@ Gets a specific bit.
 public get(int $i): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$i` | **int** |  |
-
-
-
 
 ***
 
@@ -174,21 +108,11 @@ Sets a specific bit.
 public set(int $i): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$i` | **int** |  |
-
-
-
 
 ***
 
@@ -200,21 +124,11 @@ Flips a specific bit.
 public flip(int $i): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$i` | **int** |  |
-
-
-
 
 ***
 
@@ -226,21 +140,11 @@ Gets the next set bit position from a given position.
 public getNextSet(int $from): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$from` | **int** |  |
-
-
-
 
 ***
 
@@ -252,21 +156,11 @@ Gets the next unset bit position from a given position.
 public getNextUnset(int $from): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$from` | **int** |  |
-
-
-
 
 ***
 
@@ -278,22 +172,12 @@ Sets a bulk of bits.
 public setBulk(int $i, int $newBits): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$i` | **int** |  |
 | `$newBits` | **int** |  |
-
-
-
 
 ***
 
@@ -305,22 +189,12 @@ Sets a range of bits.
 public setRange(int $start, int $end): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$start` | **int** |  |
 | `$end` | **int** |  |
-
-
-
 
 ***
 
@@ -332,16 +206,6 @@ Clears the bit array, unsetting every bit.
 public clear(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isRange
@@ -352,13 +216,6 @@ Checks if a range of bits is set or not set.
 public isRange(int $start, int $end, bool $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -366,9 +223,6 @@ public isRange(int $start, int $end, bool $value): bool
 | `$start` | **int** |  |
 | `$end` | **int** |  |
 | `$value` | **bool** |  |
-
-
-
 
 ***
 
@@ -380,21 +234,11 @@ Appends a bit to the array.
 public appendBit(bool $bit): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$bit` | **bool** |  |
-
-
-
 
 ***
 
@@ -406,22 +250,12 @@ Appends a number of bits (up to 32) to the array.
 public appendBits(int $value, int $numBits): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **int** |  |
 | `$numBits` | **int** |  |
-
-
-
 
 ***
 
@@ -433,21 +267,11 @@ Appends another bit array to this array.
 public appendBitArray(self $other): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$other` | **self** |  |
-
-
-
 
 ***
 
@@ -459,21 +283,11 @@ Makes an exclusive-or comparision on the current bit array.
 public xorBits(self $other): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$other` | **self** |  |
-
-
-
 
 ***
 
@@ -485,22 +299,12 @@ Converts the bit array to a byte array.
 public toBytes(int $bitOffset, int $numBytes): \SplFixedArray&lt;int&gt;
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$bitOffset` | **int** |  |
 | `$numBytes` | **int** |  |
-
-
-
 
 ***
 
@@ -512,16 +316,6 @@ Gets the internal bit array.
 public getBitArray(): \SplFixedArray&lt;int&gt;
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### reverse
@@ -532,16 +326,6 @@ Reverses the array.
 public reverse(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __toString
@@ -551,16 +335,6 @@ Returns a string representation of the bit array.
 ```php
 public __toString(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

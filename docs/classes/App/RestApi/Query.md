@@ -2,85 +2,42 @@
 
 # Query
 
-
-
-
-
 * Full name: `\App\RestApi\Query`
 * Parent class: [`\Lime\AppAware`](../../Lime/AppAware.md)
 
-
-
 ## Properties
 
-
 ### endpoints
-
-
 
 ```php
 protected array $endpoints
 ```
 
-
-
-
-
-
 ***
 
 ### initialized
-
-
 
 ```php
 protected bool $initialized
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### init
-
-
 
 ```php
 public init(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### process
 
-
-
 ```php
 public process(string $path, string $method = &#039;GET&#039;, ?string $apiKey = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -90,25 +47,13 @@ public process(string $path, string $method = &#039;GET&#039;, ?string $apiKey =
 | `$method` | **string** |  |
 | `$apiKey` | **?string** |  |
 
-
-
-
 ***
 
 ### addEndPoint
 
-
-
 ```php
 public addEndPoint(string $path, array $methods = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -117,25 +62,13 @@ public addEndPoint(string $path, array $methods = []): mixed
 | `$path` | **string** |  |
 | `$methods` | **array** |  |
 
-
-
-
 ***
 
 ### isPathMatching
 
-
-
 ```php
 protected isPathMatching(mixed $path, mixed $pattern, mixed& $params = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -145,25 +78,13 @@ protected isPathMatching(mixed $path, mixed $pattern, mixed& $params = null): mi
 | `$pattern` | **mixed** |  |
 | `$params` | **mixed** |  |
 
-
-
-
 ***
 
 ### getRegex
 
-
-
 ```php
 protected getRegex(mixed $pattern): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -171,29 +92,15 @@ protected getRegex(mixed $pattern): mixed
 |-----------|------|-------------|
 | `$pattern` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -202,45 +109,21 @@ public __construct(\Lime\App $app, mixed $context = null): mixed
 | `$app` | **\Lime\App** |  |
 | `$context` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 protected initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -249,25 +132,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -275,34 +146,19 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 

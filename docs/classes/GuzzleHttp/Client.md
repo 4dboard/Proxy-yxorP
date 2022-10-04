@@ -2,36 +2,22 @@
 
 # Client
 
-
-
-
-
 * Full name: `\GuzzleHttp\Client`
 * This class implements:
-[`\GuzzleHttp\ClientInterface`](./ClientInterface.md), [`\Psr\Http\Client\ClientInterface`](../Psr/Http/Client/ClientInterface.md)
-
-
+  [`\GuzzleHttp\ClientInterface`](./ClientInterface.md)
+  , [`\Psr\Http\Client\ClientInterface`](../Psr/Http/Client/ClientInterface.md)
 
 ## Properties
 
-
 ### config
-
-
 
 ```php
 private array $config
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -65,18 +51,11 @@ Client configuration settings include the following options:
   into relative URIs. Can be a string or instance of UriInterface.
 - **: any request option
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **array** | Client configuration settings. |
-
-
 
 **See Also:**
 
@@ -86,20 +65,11 @@ Client configuration settings include the following options:
 
 ### __call
 
-
-
 ```php
 public __call(string $method, array $args): \GuzzleHttp\Promise\PromiseInterface|\Psr\Http\Message\ResponseInterface
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -107,9 +77,6 @@ public __call(string $method, array $args): \GuzzleHttp\Promise\PromiseInterface
 |-----------|------|-------------|
 | `$method` | **string** |  |
 | `$args` | **array** |  |
-
-
-
 
 ***
 
@@ -121,22 +88,12 @@ Asynchronously send an HTTP request.
 public sendAsync(\Psr\Http\Message\RequestInterface $request, array $options = []): \GuzzleHttp\Promise\PromiseInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** | Request to send |
 | `$options` | **array** | Request options to apply to the given<br />request and to the transfer. See \GuzzleHttp\RequestOptions. |
-
-
-
 
 ***
 
@@ -148,22 +105,12 @@ Send an HTTP request.
 public send(\Psr\Http\Message\RequestInterface $request, array $options = []): \Psr\Http\Message\ResponseInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** | Request to send |
 | `$options` | **array** | Request options to apply to the given<br />request and to the transfer. See \GuzzleHttp\RequestOptions. |
-
-
-
 
 ***
 
@@ -175,21 +122,11 @@ The HttpClient PSR (PSR-18) specify this method.
 public sendRequest(\Psr\Http\Message\RequestInterface $request): \Psr\Http\Message\ResponseInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
-
-
-
 
 ***
 
@@ -206,11 +143,6 @@ relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
 template and additional variables to use in the URL template expansion.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -218,9 +150,6 @@ template and additional variables to use in the URL template expansion.
 | `$method` | **string** | HTTP method |
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. See \GuzzleHttp\RequestOptions. |
-
-
-
 
 ***
 
@@ -236,11 +165,6 @@ Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -248,9 +172,6 @@ contain the query string as well.
 | `$method` | **string** | HTTP method. |
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. See \GuzzleHttp\RequestOptions. |
-
-
-
 
 ***
 
@@ -266,12 +187,7 @@ These options include default request options of the client, a "handler"
 (if utilized by the concrete client), and a "base_uri" if utilized by
 the concrete client.
 
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -279,25 +195,13 @@ the concrete client.
 |-----------|------|-------------|
 | `$option` | **string&#124;null** | The config option to retrieve. |
 
-
-
-
 ***
 
 ### buildUri
 
-
-
 ```php
 private buildUri(\Psr\Http\Message\UriInterface $uri, array $config): \Psr\Http\Message\UriInterface
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -305,9 +209,6 @@ private buildUri(\Psr\Http\Message\UriInterface $uri, array $config): \Psr\Http\
 |-----------|------|-------------|
 | `$uri` | **\Psr\Http\Message\UriInterface** |  |
 | `$config` | **array** |  |
-
-
-
 
 ***
 
@@ -319,21 +220,11 @@ Configures the default options for a client.
 private configureDefaults(array $config): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **array** |  |
-
-
-
 
 ***
 
@@ -345,21 +236,11 @@ Merges default options into the array.
 private prepareDefaults(array $options): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** | Options to modify by reference |
-
-
-
 
 ***
 
@@ -374,20 +255,12 @@ private transfer(\Psr\Http\Message\RequestInterface $request, array $options): \
 The URI of the request is not modified and the request options are used
 as-is without merging in default options.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** | See \GuzzleHttp\RequestOptions. |
-
-
-
 
 ***
 
@@ -399,22 +272,12 @@ Applies the array of request options to a request.
 private applyOptions(\Psr\Http\Message\RequestInterface $request, array& $options): \Psr\Http\Message\RequestInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -426,21 +289,9 @@ Return an InvalidArgumentException with pre-set message.
 private invalidBody(): \GuzzleHttp\Exception\InvalidArgumentException
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### request
 
@@ -454,10 +305,7 @@ Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -466,9 +314,6 @@ contain the query string as well.
 | `$method` | **string** | HTTP method. |
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -484,20 +329,12 @@ Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -513,20 +350,12 @@ Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -542,20 +371,12 @@ Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -571,20 +392,12 @@ Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -600,20 +413,12 @@ Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -629,20 +434,12 @@ Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -659,10 +456,7 @@ relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
 template and additional variables to use in the URL template expansion.
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -671,9 +465,6 @@ template and additional variables to use in the URL template expansion.
 | `$method` | **string** | HTTP method |
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -690,20 +481,12 @@ relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
 template and additional variables to use in the URL template expansion.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -720,20 +503,12 @@ relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
 template and additional variables to use in the URL template expansion.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -750,20 +525,12 @@ relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
 template and additional variables to use in the URL template expansion.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -780,20 +547,12 @@ relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
 template and additional variables to use in the URL template expansion.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -810,20 +569,12 @@ relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
 template and additional variables to use in the URL template expansion.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
@@ -840,20 +591,12 @@ relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
 template and additional variables to use in the URL template expansion.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** | URI object or string. |
 | `$options` | **array** | Request options to apply. |
-
-
-
 
 ***
 
