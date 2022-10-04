@@ -20,10 +20,66 @@ spl_autoload_register(function($class) {
     if (file_exists($class_path)) print_r($class_path);
 });
 
+
+
+
+function DotEnvLoad(string $dir = '.'): bool {
+
+    $config = is_file($dir) ? $dir : "{$dir}/.env";
+
+    if (file_exists($config)) {
+
+        $vars = self::parse(file_get_contents($config));
+
+        foreach ($vars as $key => $value) {
+            $_ENV[$key] = $value;
+            putenv("{$key}={$value}");
+        }
+
+        return true;
+    }
+
+    return false;
+}
+
+function DotEnvParse(string $str, bool $expand = true): array {
+
+    $lines = explode("\n", $str);
+    $vars = [];
+
+    foreach ($lines as &$line) {
+
+        $line = trim($line);
+
+        if (!$line) continue;
+        if ($line[0] == '#') continue;
+        if (!strpos($line, '=')) continue;
+
+        list($name, $value) = explode('=', $line, 2);
+
+        $value = trim($value, '"\' ');
+        $name = trim($name);
+
+        $vars[$name] = $value;
+    }
+
+    if ($expand) {
+
+        $envs = array_merge(getenv(), $vars);
+
+        foreach ($envs as $key => $value) {
+            $str = str_replace('${'.$key.'}', $value, $str);
+        }
+
+        $vars = self::parse($str, false);
+    }
+
+    return $vars;
+}
+
+
 // load .env file if exists
-DotEnv::load(APP_DIR);
-
-
+DotEnvLoad(APP_DIR);
 
 class Cockpit {
 
@@ -53,7 +109,7 @@ class Cockpit {
         }
 
         if ($appDir != $envDir) {
-            DotEnv::load($envDir);
+            DotEnvLoad($envDir);
         }
 
         if (file_exists("{$envDir}/config/config.php")) {
