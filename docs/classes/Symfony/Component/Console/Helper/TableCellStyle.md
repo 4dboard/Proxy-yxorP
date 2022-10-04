@@ -2,7 +2,12 @@
 
 # TableCellStyle
 
+
+
+
+
 * Full name: `\Symfony\Component\Console\Helper\TableCellStyle`
+
 
 ## Constants
 
@@ -14,21 +19,39 @@
 
 ## Properties
 
+
 ### options
+
+
 
 ```php
 private $options
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(array $options = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -36,13 +59,28 @@ public __construct(array $options = []): mixed
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### getOptions
 
+
+
 ```php
 public getOptions(): array
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -54,21 +92,55 @@ Gets options we need for tag for example fg, bg.
 public getTagOptions(): string[]
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getPadByAlign
+
+
 
 ```php
 public getPadByAlign(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getCellFormat
 
+
+
 ```php
 public getCellFormat(): ?string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

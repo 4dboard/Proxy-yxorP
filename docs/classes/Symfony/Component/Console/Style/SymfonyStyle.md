@@ -4,8 +4,11 @@
 
 Output decorator helpers for the Symfony Style Guide.
 
+
+
 * Full name: `\Symfony\Component\Console\Style\SymfonyStyle`
 * Parent class: [`\Symfony\Component\Console\Style\OutputStyle`](./OutputStyle.md)
+
 
 ## Constants
 
@@ -15,61 +18,114 @@ Output decorator helpers for the Symfony Style Guide.
 
 ## Properties
 
+
 ### input
+
+
 
 ```php
 private $input
 ```
 
+
+
+
+
+
 ***
 
 ### output
+
+
 
 ```php
 private $output
 ```
 
+
+
+
+
+
 ***
 
 ### questionHelper
+
+
 
 ```php
 private $questionHelper
 ```
 
+
+
+
+
+
 ***
 
 ### progressBar
+
+
 
 ```php
 private $progressBar
 ```
 
+
+
+
+
+
 ***
 
 ### lineLength
+
+
 
 ```php
 private $lineLength
 ```
 
+
+
+
+
+
 ***
 
 ### bufferedOutput
+
+
 
 ```php
 private $bufferedOutput
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Symfony\Component\Console\Input\InputInterface $input, \Symfony\Component\Console\Output\OutputInterface $output): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -77,6 +133,9 @@ public __construct(\Symfony\Component\Console\Input\InputInterface $input, \Symf
 |-----------|------|-------------|
 | `$input` | **\Symfony\Component\Console\Input\InputInterface** |  |
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
+
+
+
 
 ***
 
@@ -87,6 +146,13 @@ Formats a message as a block of text.
 ```php
 public block(string|array $messages, string $type = null, string $style = null, string $prefix = &#039; &#039;, bool $padding = false, bool $escape = true): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -99,6 +165,9 @@ public block(string|array $messages, string $type = null, string $style = null, 
 | `$padding` | **bool** |  |
 | `$escape` | **bool** |  |
 
+
+
+
 ***
 
 ### title
@@ -109,11 +178,21 @@ public block(string|array $messages, string $type = null, string $style = null, 
 public title(string $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
+
+
+
 
 ***
 
@@ -125,11 +204,21 @@ public title(string $message): mixed
 public section(string $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
+
+
+
 
 ***
 
@@ -141,11 +230,21 @@ public section(string $message): mixed
 public listing(array $elements): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$elements` | **array** |  |
+
+
+
 
 ***
 
@@ -157,11 +256,21 @@ public listing(array $elements): mixed
 public text(mixed $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **mixed** |  |
+
+
+
 
 ***
 
@@ -173,11 +282,21 @@ Formats a command comment.
 public comment(string|array $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string&#124;array** |  |
+
+
+
 
 ***
 
@@ -189,11 +308,21 @@ public comment(string|array $message): mixed
 public success(mixed $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **mixed** |  |
+
+
+
 
 ***
 
@@ -205,11 +334,21 @@ public success(mixed $message): mixed
 public error(mixed $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **mixed** |  |
+
+
+
 
 ***
 
@@ -221,11 +360,21 @@ public error(mixed $message): mixed
 public warning(mixed $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **mixed** |  |
+
+
+
 
 ***
 
@@ -237,11 +386,21 @@ public warning(mixed $message): mixed
 public note(mixed $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **mixed** |  |
+
+
+
 
 ***
 
@@ -253,11 +412,21 @@ Formats an info message.
 public info(string|array $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string&#124;array** |  |
+
+
+
 
 ***
 
@@ -269,11 +438,21 @@ public info(string|array $message): mixed
 public caution(mixed $message): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **mixed** |  |
+
+
+
 
 ***
 
@@ -285,12 +464,22 @@ public caution(mixed $message): mixed
 public table(array $headers, array $rows): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$headers` | **array** |  |
 | `$rows` | **array** |  |
+
+
+
 
 ***
 
@@ -302,12 +491,22 @@ Formats a horizontal table.
 public horizontalTable(array $headers, array $rows): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$headers` | **array** |  |
 | `$rows` | **array** |  |
+
+
+
 
 ***
 
@@ -320,16 +519,23 @@ public definitionList(string|array|\Symfony\Component\Console\Helper\TableSepara
 ```
 
 Each row can be one of:
-
 * 'A title'
 * ['key' => 'value']
 * new TableSeparator()
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$list` | **string&#124;array&#124;\Symfony\Component\Console\Helper\TableSeparator** |  |
+
+
+
 
 ***
 
@@ -341,6 +547,13 @@ Each row can be one of:
 public ask(string $question, string $default = null, callable $validator = null): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -348,6 +561,9 @@ public ask(string $question, string $default = null, callable $validator = null)
 | `$question` | **string** |  |
 | `$default` | **string** |  |
 | `$validator` | **callable** |  |
+
+
+
 
 ***
 
@@ -359,12 +575,22 @@ public ask(string $question, string $default = null, callable $validator = null)
 public askHidden(string $question, callable $validator = null): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$question` | **string** |  |
 | `$validator` | **callable** |  |
+
+
+
 
 ***
 
@@ -376,12 +602,22 @@ public askHidden(string $question, callable $validator = null): mixed
 public confirm(string $question, bool $default = true): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$question` | **string** |  |
 | `$default` | **bool** |  |
+
+
+
 
 ***
 
@@ -393,6 +629,13 @@ public confirm(string $question, bool $default = true): mixed
 public choice(string $question, array $choices, mixed $default = null): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -400,6 +643,9 @@ public choice(string $question, array $choices, mixed $default = null): mixed
 | `$question` | **string** |  |
 | `$choices` | **array** |  |
 | `$default` | **mixed** |  |
+
+
+
 
 ***
 
@@ -411,11 +657,21 @@ public choice(string $question, array $choices, mixed $default = null): mixed
 public progressStart(int $max): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$max` | **int** |  |
+
+
+
 
 ***
 
@@ -427,11 +683,21 @@ public progressStart(int $max): mixed
 public progressAdvance(int $step = 1): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$step` | **int** |  |
+
+
+
 
 ***
 
@@ -443,13 +709,32 @@ public progressAdvance(int $step = 1): mixed
 public progressFinish(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### createProgressBar
 
+
+
 ```php
 public createProgressBar(int $max): \Symfony\Component\Console\Helper\ProgressBar
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -457,13 +742,25 @@ public createProgressBar(int $max): \Symfony\Component\Console\Helper\ProgressBa
 |-----------|------|-------------|
 | `$max` | **int** |  |
 
+
+
+
 ***
 
 ### progressIterate
 
+
+
 ```php
 public progressIterate(iterable $iterable, int $max = null): iterable
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -472,23 +769,37 @@ public progressIterate(iterable $iterable, int $max = null): iterable
 | `$iterable` | **iterable** |  |
 | `$max` | **int** |  |
 
+
+
 **See Also:**
 
-* \Symfony\Component\Console\Helper\ProgressBar::iterate() -
+* \Symfony\Component\Console\Helper\ProgressBar::iterate() - 
 
 ***
 
 ### askQuestion
 
+
+
 ```php
 public askQuestion(\Symfony\Component\Console\Question\Question $question): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$question` | **\Symfony\Component\Console\Question\Question** |  |
+
+
+
 
 ***
 
@@ -500,12 +811,22 @@ Writes a message to the output and adds a newline at the end.
 public writeln(mixed $messages, int $type = self::OUTPUT_NORMAL): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$messages` | **mixed** | The message as an iterable of strings or a single string |
 | `$type` | **int** |  |
+
+
+
 
 ***
 
@@ -517,6 +838,13 @@ Writes a message to the output.
 public write(mixed $messages, bool $newline = false, int $type = self::OUTPUT_NORMAL): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -524,6 +852,9 @@ public write(mixed $messages, bool $newline = false, int $type = self::OUTPUT_NO
 | `$messages` | **mixed** | The message as an iterable of strings or a single string |
 | `$newline` | **bool** | Whether to add a newline |
 | `$type` | **int** |  |
+
+
+
 
 ***
 
@@ -535,11 +866,21 @@ Add newline(s).
 public newLine(int $count = 1): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$count` | **int** |  |
+
+
+
 
 ***
 
@@ -551,45 +892,112 @@ Returns a new instance which makes use of stderr if available.
 public getErrorStyle(): self
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### createTable
+
+
 
 ```php
 public createTable(): \Symfony\Component\Console\Helper\Table
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getProgressBar
+
+
 
 ```php
 private getProgressBar(): \Symfony\Component\Console\Helper\ProgressBar
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### autoPrependBlock
+
+
 
 ```php
 private autoPrependBlock(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### autoPrependText
+
+
 
 ```php
 private autoPrependText(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### writeBuffer
 
+
+
 ```php
 private writeBuffer(string $message, bool $newLine, int $type): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -599,13 +1007,25 @@ private writeBuffer(string $message, bool $newLine, int $type): void
 | `$newLine` | **bool** |  |
 | `$type` | **int** |  |
 
+
+
+
 ***
 
 ### createBlock
 
+
+
 ```php
 private createBlock(iterable $messages, string $type = null, string $style = null, string $prefix = &#039; &#039;, bool $padding = false, bool $escape = false): array
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -618,21 +1038,38 @@ private createBlock(iterable $messages, string $type = null, string $style = nul
 | `$padding` | **bool** |  |
 | `$escape` | **bool** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Symfony\Component\Console\Output\OutputInterface $output): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
+
+
+
 
 ***
 
@@ -644,25 +1081,47 @@ Add newline(s).
 public newLine(int $count = 1): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$count` | **int** |  |
 
+
+
+
 ***
 
 ### createProgressBar
 
+
+
 ```php
 public createProgressBar(int $max): \Symfony\Component\Console\Helper\ProgressBar
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$max` | **int** |  |
+
+
+
 
 ***
 
@@ -674,6 +1133,13 @@ Writes a message to the output.
 public write(mixed $messages, bool $newline = false, int $type = self::OUTPUT_NORMAL): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -681,6 +1147,9 @@ public write(mixed $messages, bool $newline = false, int $type = self::OUTPUT_NO
 | `$messages` | **mixed** | The message as an iterable of strings or a single string |
 | `$newline` | **bool** | Whether to add a newline |
 | `$type` | **int** |  |
+
+
+
 
 ***
 
@@ -692,12 +1161,22 @@ Writes a message to the output and adds a newline at the end.
 public writeln(mixed $messages, int $type = self::OUTPUT_NORMAL): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$messages` | **mixed** | The message as an iterable of strings or a single string |
 | `$type` | **int** |  |
+
+
+
 
 ***
 
@@ -709,11 +1188,21 @@ Sets the verbosity of the output.
 public setVerbosity(int $level): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int** |  |
+
+
+
 
 ***
 
@@ -725,6 +1214,16 @@ Gets the current verbosity of the output.
 public getVerbosity(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setDecorated
@@ -735,11 +1234,21 @@ Sets the decorated flag.
 public setDecorated(bool $decorated): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$decorated` | **bool** |  |
+
+
+
 
 ***
 
@@ -751,19 +1260,41 @@ Gets the decorated flag.
 public isDecorated(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setFormatter
 
+
+
 ```php
 public setFormatter(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
+
+
+
 
 ***
 
@@ -775,6 +1306,16 @@ Returns current output formatter instance.
 public getFormatter(): \Symfony\Component\Console\Formatter\OutputFormatterInterface
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isQuiet
@@ -784,6 +1325,16 @@ Returns whether verbosity is quiet (-q).
 ```php
 public isQuiet(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -795,6 +1346,16 @@ Returns whether verbosity is verbose (-v).
 public isVerbose(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isVeryVerbose
@@ -804,6 +1365,16 @@ Returns whether verbosity is very verbose (-vv).
 ```php
 public isVeryVerbose(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -815,13 +1386,35 @@ Returns whether verbosity is debug (-vvv).
 public isDebug(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getErrorOutput
 
+
+
 ```php
 protected getErrorOutput(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

@@ -8,8 +8,8 @@ namespace PhpDocumentorMarkdown\Example\Pizza;
 class Base
 {
     private const YEAST_SOURDOUGH_STARTER = 0b01;
-    public const  YEAST_FRESH = 0b10;
-    public const  YEAST_ACTIVE_DRY = 0b11;
+    public const  YEAST_FRESH             = 0b10;
+    public const  YEAST_ACTIVE_DRY        = 0b11;
 
     /**
      * The sauce used.
@@ -26,8 +26,8 @@ class Base
     protected int $yeast;
 
     /**
-     * @param Sauce $sauce
-     * @param int $yeast
+     * @param  Sauce  $sauce
+     * @param  int  $yeast
      */
     public function __construct(Sauce $sauce, int $yeast = self::YEAST_SOURDOUGH_STARTER)
     {

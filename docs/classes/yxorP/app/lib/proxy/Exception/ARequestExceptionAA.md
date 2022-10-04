@@ -6,8 +6,8 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\exception\aRequestExceptionAa`
-* Parent class: [`\yxorP\app\lib\proxy\exception\aaTransferException`](./aaTransferException.md)
+* Full name: `\yxorP\app\lib\proxy\Exception\aRequestExceptionAa`
+* Parent class: [`\yxorP\app\lib\proxy\Exception\aaTransferException`](./aaTransferException.md)
 
 
 

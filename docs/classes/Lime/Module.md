@@ -2,42 +2,80 @@
 
 # Module
 
+
+
+
+
 * Full name: `\Lime\Module`
 * Parent class: [`\Lime\AppAware`](./AppAware.md)
 
+
+
 ## Properties
 
+
 ### apis
+
+
 
 ```php
 protected $apis
 ```
 
+
+
+
+
+
 ***
 
 ### _dir
+
+
 
 ```php
 public ?string $_dir
 ```
 
+
+
+
+
+
 ***
 
 ### _bootfile
+
+
 
 ```php
 public ?string $_bootfile
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### extend
+
+
 
 ```php
 public extend(array $api): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -45,13 +83,25 @@ public extend(array $api): mixed
 |-----------|------|-------------|
 | `$api` | **array** |  |
 
+
+
+
 ***
 
 ### bindApp
 
+
+
 ```php
 public bindApp(\Lime\App $app): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -59,13 +109,25 @@ public bindApp(\Lime\App $app): mixed
 |-----------|------|-------------|
 | `$app` | **\Lime\App** |  |
 
+
+
+
 ***
 
 ### __set
 
+
+
 ```php
 public __set(mixed $name, mixed $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -74,41 +136,77 @@ public __set(mixed $name, mixed $value): mixed
 | `$name` | **mixed** |  |
 | `$value` | **mixed** |  |
 
+
+
+
 ***
 
 ### __get
+
+
 
 ```php
 public __get(mixed $name): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
 
 ***
 
 ### __isset
 
+
+
 ```php
 public __isset(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
 
 ***
 
 ### __unset
 
+
+
 ```php
 public __unset(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -116,13 +214,25 @@ public __unset(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -131,15 +241,29 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -148,21 +272,45 @@ public __construct(\Lime\App $app, mixed $context = null): mixed
 | `$app` | **\Lime\App** |  |
 | `$context` | **mixed** |  |
 
+
+
+
 ***
 
 ### initialize
+
+
 
 ```php
 protected initialize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -171,13 +319,25 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(mixed $helper): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -185,19 +345,34 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
 
 ***
 

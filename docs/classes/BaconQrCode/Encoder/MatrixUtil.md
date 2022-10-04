@@ -4,9 +4,12 @@
 
 Matrix utility.
 
+
+
 * Full name: `\BaconQrCode\Encoder\MatrixUtil`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
+
 
 ## Constants
 
@@ -15,7 +18,6 @@ Matrix utility.
 |`POSITION_DETECTION_PATTERN`|private| |[[1, 1, 1, 1, 1, 1, 1], [1, 0, 0, 0, 0, 0, 1], [1, 0, 1, 1, 1, 0, 1], [1, 0, 1, 1, 1, 0, 1], [1, 0, 1, 1, 1, 0, 1], [1, 0, 0, 0, 0, 0, 1], [1, 1, 1, 1, 1, 1, 1]]|
 |`POSITION_ADJUSTMENT_PATTERN`|private| |[[1, 1, 1, 1, 1], [1, 0, 0, 0, 1], [1, 0, 1, 0, 1], [1, 0, 0, 0, 1], [1, 1, 1, 1, 1]]|
 |`POSITION_ADJUSTMENT_PATTERN_COORDINATE_TABLE`|private| |[
-
     [null, null, null, null, null, null, null],
     // Version 1
     [6, 18, null, null, null, null, null],
@@ -95,15 +97,15 @@ Matrix utility.
     [6, 26, 54, 82, 110, 138, 166],
     // Version 39
     [6, 30, 58, 86, 114, 142, 170],
-
 ]|
-|`TYPE_INFO_COORDINATES`|private| |[[8, 0], [8, 1], [8, 2], [8, 3], [8, 4], [8, 5], [8, 7], [8, 8], [7, 8], [5, 8]
-, [4, 8], [3, 8], [2, 8], [1, 8], [0, 8]]|
+|`TYPE_INFO_COORDINATES`|private| |[[8, 0], [8, 1], [8, 2], [8, 3], [8, 4], [8, 5], [8, 7], [8, 8], [7, 8], [5, 8], [4, 8], [3, 8], [2, 8], [1, 8], [0, 8]]|
 |`VERSION_INFO_POLY`|private| |0x1f25|
 |`TYPE_INFO_POLY`|private| |0x537|
 |`TYPE_INFO_MASK_PATTERN`|private| |0x5412|
 
+
 ## Methods
+
 
 ### clearMatrix
 
@@ -113,13 +115,21 @@ Clears a given matrix.
 public static clearMatrix(\BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -131,7 +141,12 @@ Builds a complete matrix.
 public static buildMatrix(\BaconQrCode\Common\BitArray $dataBits, \BaconQrCode\Common\ErrorCorrectionLevel $level, \BaconQrCode\Common\Version $version, int $maskPattern, \BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -142,6 +157,9 @@ public static buildMatrix(\BaconQrCode\Common\BitArray $dataBits, \BaconQrCode\C
 | `$version` | **\BaconQrCode\Common\Version** |  |
 | `$maskPattern` | **int** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -157,11 +175,17 @@ This can be useful if you need to render those patterns separately.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -173,7 +197,12 @@ Embeds type information into a matrix.
 private static embedTypeInfo(\BaconQrCode\Common\ErrorCorrectionLevel $level, int $maskPattern, \BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -182,6 +211,9 @@ private static embedTypeInfo(\BaconQrCode\Common\ErrorCorrectionLevel $level, in
 | `$level` | **\BaconQrCode\Common\ErrorCorrectionLevel** |  |
 | `$maskPattern` | **int** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -193,7 +225,12 @@ Generates type information bits and appends them to a bit array.
 private static makeTypeInfoBits(\BaconQrCode\Common\ErrorCorrectionLevel $level, int $maskPattern, \BaconQrCode\Common\BitArray $bits): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -202,6 +239,9 @@ private static makeTypeInfoBits(\BaconQrCode\Common\ErrorCorrectionLevel $level,
 | `$level` | **\BaconQrCode\Common\ErrorCorrectionLevel** |  |
 | `$maskPattern` | **int** |  |
 | `$bits` | **\BaconQrCode\Common\BitArray** |  |
+
+
+
 
 ***
 
@@ -213,7 +253,12 @@ Embeds version information if required.
 private static maybeEmbedVersionInfo(\BaconQrCode\Common\Version $version, \BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -221,6 +266,9 @@ private static maybeEmbedVersionInfo(\BaconQrCode\Common\Version $version, \Baco
 |-----------|------|-------------|
 | `$version` | **\BaconQrCode\Common\Version** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -232,7 +280,12 @@ Generates version information bits and appends them to a bit array.
 private static makeVersionInfoBits(\BaconQrCode\Common\Version $version, \BaconQrCode\Common\BitArray $bits): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -240,6 +293,9 @@ private static makeVersionInfoBits(\BaconQrCode\Common\Version $version, \BaconQ
 |-----------|------|-------------|
 | `$version` | **\BaconQrCode\Common\Version** |  |
 | `$bits` | **\BaconQrCode\Common\BitArray** |  |
+
+
+
 
 ***
 
@@ -251,7 +307,12 @@ Calculates the BCH code for a value and a polynomial.
 private static calculateBchCode(int $value, int $poly): int
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -259,6 +320,9 @@ private static calculateBchCode(int $value, int $poly): int
 |-----------|------|-------------|
 | `$value` | **int** |  |
 | `$poly` | **int** |  |
+
+
+
 
 ***
 
@@ -270,13 +334,21 @@ Finds and MSB set.
 private static findMsbSet(int $value): int
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **int** |  |
+
+
+
 
 ***
 
@@ -288,7 +360,12 @@ Embeds basic patterns into a matrix.
 private static embedBasicPatterns(\BaconQrCode\Common\Version $version, \BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -296,6 +373,9 @@ private static embedBasicPatterns(\BaconQrCode\Common\Version $version, \BaconQr
 |-----------|------|-------------|
 | `$version` | **\BaconQrCode\Common\Version** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -307,13 +387,21 @@ Embeds position detection patterns and separators into a byte matrix.
 private static embedPositionDetectionPatternsAndSeparators(\BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -325,7 +413,12 @@ Embeds a single position detection pattern into a byte matrix.
 private static embedPositionDetectionPattern(int $xStart, int $yStart, \BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -334,16 +427,26 @@ private static embedPositionDetectionPattern(int $xStart, int $yStart, \BaconQrC
 | `$xStart` | **int** |  |
 | `$yStart` | **int** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
 ### removePositionDetectionPattern
 
+
+
 ```php
 private static removePositionDetectionPattern(int $xStart, int $yStart, \BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -352,6 +455,9 @@ private static removePositionDetectionPattern(int $xStart, int $yStart, \BaconQr
 | `$xStart` | **int** |  |
 | `$yStart` | **int** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -363,7 +469,12 @@ Embeds a single horizontal separation pattern.
 private static embedHorizontalSeparationPattern(int $xStart, int $yStart, \BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -372,6 +483,9 @@ private static embedHorizontalSeparationPattern(int $xStart, int $yStart, \Bacon
 | `$xStart` | **int** |  |
 | `$yStart` | **int** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -383,7 +497,12 @@ Embeds a single vertical separation pattern.
 private static embedVerticalSeparationPattern(int $xStart, int $yStart, \BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -392,6 +511,9 @@ private static embedVerticalSeparationPattern(int $xStart, int $yStart, \BaconQr
 | `$xStart` | **int** |  |
 | `$yStart` | **int** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -403,13 +525,21 @@ Embeds a dot at the left bottom corner.
 private static embedDarkDotAtLeftBottomCorner(\BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -421,7 +551,12 @@ Embeds position adjustment patterns if required.
 private static maybeEmbedPositionAdjustmentPatterns(\BaconQrCode\Common\Version $version, \BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -429,6 +564,9 @@ private static maybeEmbedPositionAdjustmentPatterns(\BaconQrCode\Common\Version 
 |-----------|------|-------------|
 | `$version` | **\BaconQrCode\Common\Version** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -440,7 +578,12 @@ Embeds a single position adjustment pattern.
 private static embedPositionAdjustmentPattern(int $xStart, int $yStart, \BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -449,6 +592,9 @@ private static embedPositionAdjustmentPattern(int $xStart, int $yStart, \BaconQr
 | `$xStart` | **int** |  |
 | `$yStart` | **int** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -460,13 +606,21 @@ Embeds timing patterns into a matrix.
 private static embedTimingPatterns(\BaconQrCode\Encoder\ByteMatrix $matrix): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 
@@ -483,6 +637,9 @@ how to embed data bits.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -490,6 +647,9 @@ how to embed data bits.
 | `$dataBits` | **\BaconQrCode\Common\BitArray** |  |
 | `$maskPattern` | **int** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
+
+
+
 
 ***
 

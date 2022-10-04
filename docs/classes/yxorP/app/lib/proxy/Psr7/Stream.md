@@ -2,9 +2,14 @@
 
 # stream
 
+
+
+
+
 * Full name: `\yxorP\app\lib\proxy\psr7\stream`
 * This class implements:
-  [`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
+[`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
+
 
 ## Constants
 
@@ -15,69 +20,129 @@
 
 ## Properties
 
+
 ### stream
+
+
 
 ```php
 private $stream
 ```
 
+
+
+
+
+
 ***
 
 ### size
+
+
 
 ```php
 private $size
 ```
 
+
+
+
+
+
 ***
 
 ### seekable
+
+
 
 ```php
 private $seekable
 ```
 
+
+
+
+
+
 ***
 
 ### readable
+
+
 
 ```php
 private $readable
 ```
 
+
+
+
+
+
 ***
 
 ### writable
+
+
 
 ```php
 private $writable
 ```
 
+
+
+
+
+
 ***
 
 ### uri
+
+
 
 ```php
 private $uri
 ```
 
+
+
+
+
+
 ***
 
 ### customMetadata
+
+
 
 ```php
 private $customMetadata
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $stream, mixed $options = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -85,6 +150,9 @@ public __construct(mixed $stream, mixed $options = []): mixed
 |-----------|------|-------------|
 | `$stream` | **mixed** |  |
 | `$options` | **mixed** |  |
+
+
+
 
 ***
 
@@ -99,11 +167,17 @@ public getMetadata(mixed $key = null): array|mixed|null
 The keys returned are identical to the keys returned from PHP's
 stream_get_meta_data() function.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** | Specific metadata to retrieve. |
+
 
 **Return Value:**
 
@@ -117,9 +191,21 @@ value is found, or null if the key is not found.
 
 ### __destruct
 
+
+
 ```php
 public __destruct(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -130,6 +216,16 @@ Closes the stream and any underlying resources.
 ```php
 public close(): void
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -142,6 +238,12 @@ public detach(): resource|null
 ```
 
 After the stream has been detached, the stream is in an unusable state.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -185,12 +287,22 @@ Seek to a position in the stream.
 public seek(mixed $offset, mixed $whence = SEEK_SET): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | Stream offset |
 | `$whence` | **mixed** | Specifies how the cursor position will be calculated<br />based on the seek offset. Valid values are identical to the built-in<br />PHP $whence values for `fseek()`.  SEEK_SET: Set position equal to<br />offset bytes SEEK_CUR: Set position to current location plus offset<br />SEEK_END: Set position to end-of-stream plus offset. |
+
+
+
 
 ***
 
@@ -202,6 +314,16 @@ Returns the remaining contents in a string
 public getContents(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getSize
@@ -211,6 +333,14 @@ Get the size of the stream if known.
 ```php
 public getSize(): int|null
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -228,6 +358,16 @@ Returns whether or not the stream is readable.
 public isReadable(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isWritable
@@ -237,6 +377,16 @@ Returns whether or not the stream is writable.
 ```php
 public isWritable(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -248,6 +398,16 @@ Returns whether or not the stream is seekable.
 public isSeekable(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### eof
@@ -258,6 +418,16 @@ Returns true if the stream is at the end of the stream.
 public eof(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### tell
@@ -267,6 +437,14 @@ Returns the current position of the file read/write pointer
 ```php
 public tell(): int
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -305,11 +483,19 @@ Read data from the stream.
 public read(mixed $length): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$length` | **mixed** | Read up to $length bytes from the object and return<br />them. Fewer than $length bytes may be returned if underlying stream<br />call returns fewer bytes. |
+
 
 **Return Value:**
 
@@ -328,11 +514,19 @@ Write data to the stream.
 public write(mixed $string): int
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** | The string that is to be written. |
+
 
 **Return Value:**
 

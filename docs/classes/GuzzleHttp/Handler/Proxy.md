@@ -4,9 +4,15 @@
 
 Provides basic proxies for handlers.
 
+
+
 * Full name: `\GuzzleHttp\Handler\Proxy`
 
+
+
+
 ## Methods
+
 
 ### wrapSync
 
@@ -17,7 +23,12 @@ requests to another handler.
 public static wrapSync(callable $default, callable $sync): callable
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -25,6 +36,9 @@ public static wrapSync(callable $default, callable $sync): callable
 |-----------|------|-------------|
 | `$default` | **callable** |  |
 | `$sync` | **callable** |  |
+
+
+
 
 ***
 
@@ -43,12 +57,18 @@ through the StreamHandler.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$default` | **callable** |  |
 | `$streaming` | **callable** |  |
+
+
+
 
 ***
 

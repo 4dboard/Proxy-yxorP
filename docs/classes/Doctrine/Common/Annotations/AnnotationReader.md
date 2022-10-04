@@ -4,11 +4,16 @@
 
 A reader for docblock annotations.
 
+
+
 * Full name: `\Doctrine\Common\Annotations\AnnotationReader`
 * This class implements:
-  [`\Doctrine\Common\Annotations\Reader`](./Reader.md)
+[`\Doctrine\Common\Annotations\Reader`](./Reader.md)
+
+
 
 ## Properties
+
 
 ### globalImports
 
@@ -18,7 +23,10 @@ Global map for imports.
 private static array&lt;string,class-string&gt; $globalImports
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
@@ -34,6 +42,7 @@ The names are case sensitive.
 
 * This property is **static**.
 
+
 ***
 
 ### globalIgnoredNamespaces
@@ -48,6 +57,7 @@ The names are case sensitive.
 
 * This property is **static**.
 
+
 ***
 
 ### parser
@@ -57,6 +67,11 @@ Annotations parser.
 ```php
 private \Doctrine\Common\Annotations\DocParser $parser
 ```
+
+
+
+
+
 
 ***
 
@@ -68,6 +83,11 @@ Annotations parser used to collect parsing metadata.
 private \Doctrine\Common\Annotations\DocParser $preParser
 ```
 
+
+
+
+
+
 ***
 
 ### phpParser
@@ -77,6 +97,11 @@ PHP parser used to collect imports.
 ```php
 private \Doctrine\Common\Annotations\PhpParser $phpParser
 ```
+
+
+
+
+
 
 ***
 
@@ -88,6 +113,11 @@ In-memory cache mechanism to store imported annotations per class.
 private $imports
 ```
 
+
+
+
+
+
 ***
 
 ### ignoredAnnotationNames
@@ -98,9 +128,15 @@ In-memory cache mechanism to store ignored annotations per class.
 private $ignoredAnnotationNames
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### addGlobalIgnoredName
 
@@ -110,13 +146,21 @@ Add a new annotation to the globally ignored annotation names with regard to exc
 public static addGlobalIgnoredName(string $name): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 
@@ -128,13 +172,21 @@ Add a new annotation to the globally ignored annotation namespaces with regard t
 public static addGlobalIgnoredNamespace(string $namespace): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** |  |
+
+
+
 
 ***
 
@@ -146,11 +198,21 @@ Initializes a new AnnotationReader.
 public __construct(?\Doctrine\Common\Annotations\DocParser $parser = null): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parser` | **?\Doctrine\Common\Annotations\DocParser** |  |
+
+
+
 
 ***
 
@@ -162,11 +224,19 @@ Gets the annotations applied to a class.
 public getClassAnnotations(\ReflectionClass $class): object[]
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** | The ReflectionClass of the class from which<br />the class annotations should be read. |
+
 
 **Return Value:**
 
@@ -184,12 +254,20 @@ Gets a class annotation.
 public getClassAnnotation(\ReflectionClass $class, mixed $annotationName): \Doctrine\Common\Annotations\T|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** | The ReflectionClass of the class from which<br />the class annotations should be read. |
 | `$annotationName` | **mixed** | The name of the annotation. |
+
 
 **Return Value:**
 
@@ -207,11 +285,19 @@ Gets the annotations applied to a property.
 public getPropertyAnnotations(\ReflectionProperty $property): object[]
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **\ReflectionProperty** | The ReflectionProperty of the property<br />from which the annotations should be read. |
+
 
 **Return Value:**
 
@@ -229,12 +315,20 @@ Gets a property annotation.
 public getPropertyAnnotation(\ReflectionProperty $property, mixed $annotationName): \Doctrine\Common\Annotations\T|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **\ReflectionProperty** | The ReflectionProperty to read the annotations from. |
 | `$annotationName` | **mixed** | The name of the annotation. |
+
 
 **Return Value:**
 
@@ -252,11 +346,19 @@ Gets the annotations applied to a method.
 public getMethodAnnotations(\ReflectionMethod $method): object[]
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **\ReflectionMethod** | The ReflectionMethod of the method from which<br />the annotations should be read. |
+
 
 **Return Value:**
 
@@ -274,12 +376,20 @@ Gets a method annotation.
 public getMethodAnnotation(\ReflectionMethod $method, mixed $annotationName): \Doctrine\Common\Annotations\T|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **\ReflectionMethod** | The ReflectionMethod to read the annotations from. |
 | `$annotationName` | **mixed** | The name of the annotation. |
+
 
 **Return Value:**
 
@@ -297,11 +407,21 @@ Gets the annotations applied to a function.
 public getFunctionAnnotations(\ReflectionFunction $function): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$function` | **\ReflectionFunction** |  |
+
+
+
 
 ***
 
@@ -313,12 +433,20 @@ Gets a function annotation.
 public getFunctionAnnotation(\ReflectionFunction $function, string $annotationName): object|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$function` | **\ReflectionFunction** |  |
 | `$annotationName` | **string** |  |
+
 
 **Return Value:**
 
@@ -336,11 +464,21 @@ Returns the ignored annotations for the given class or function.
 private getIgnoredAnnotationNames(\ReflectionClass|\ReflectionFunction $reflection): array&lt;string,true&gt;
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reflection` | **\ReflectionClass&#124;\ReflectionFunction** |  |
+
+
+
 
 ***
 
@@ -352,11 +490,21 @@ Retrieves imports for a class or a function.
 private getImports(\ReflectionClass|\ReflectionFunction $reflection): array&lt;string,class-string&gt;
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reflection` | **\ReflectionClass&#124;\ReflectionFunction** |  |
+
+
+
 
 ***
 
@@ -368,11 +516,21 @@ Retrieves imports for methods.
 private getMethodImports(\ReflectionMethod $method): array&lt;string,class-string&gt;
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **\ReflectionMethod** |  |
+
+
+
 
 ***
 
@@ -384,11 +542,21 @@ Retrieves imports for properties.
 private getPropertyImports(\ReflectionProperty $property): array&lt;string,class-string&gt;
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **\ReflectionProperty** |  |
+
+
+
 
 ***
 
@@ -400,11 +568,21 @@ Collects parsing metadata for a given class or function.
 private collectParsingMetadata(\ReflectionClass|\ReflectionFunction $reflection): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reflection` | **\ReflectionClass&#124;\ReflectionFunction** |  |
+
+
+
 
 ***
 

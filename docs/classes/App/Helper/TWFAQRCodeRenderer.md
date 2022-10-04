@@ -2,11 +2,19 @@
 
 # TWFAQRCodeRenderer
 
+
+
+
+
 * Full name: `\App\Helper\TWFAQRCodeRenderer`
 * This class implements:
-  [`\RobThree\Auth\Providers\Qr\IQRCodeProvider`](../../RobThree/Auth/Providers/Qr/IQRCodeProvider.md)
+[`\RobThree\Auth\Providers\Qr\IQRCodeProvider`](../../RobThree/Auth/Providers/Qr/IQRCodeProvider.md)
+
+
+
 
 ## Methods
+
 
 ### getMimeType
 
@@ -16,6 +24,16 @@ that will be generated
 ```php
 public getMimeType(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -27,6 +45,13 @@ Generate and return the QR code to embed in a web page
 public getQRCodeImage(mixed $qrtext, mixed $size = 200, mixed $margin): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -34,6 +59,7 @@ public getQRCodeImage(mixed $qrtext, mixed $size = 200, mixed $margin): string
 | `$qrtext` | **mixed** | the value to encode in the QR code |
 | `$size` | **mixed** | the desired size of the QR code |
 | `$margin` | **mixed** |  |
+
 
 **Return Value:**
 

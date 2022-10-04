@@ -4,33 +4,58 @@
 
 Allows the reader to be used in-place of Doctrine's reader.
 
+
+
 * Full name: `\Doctrine\Common\Annotations\IndexedReader`
 * This class implements:
-  [`\Doctrine\Common\Annotations\Reader`](./Reader.md)
+[`\Doctrine\Common\Annotations\Reader`](./Reader.md)
+
+
 
 ## Properties
 
+
 ### delegate
+
+
 
 ```php
 private \Doctrine\Common\Annotations\Reader $delegate
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Doctrine\Common\Annotations\Reader $reader): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reader` | **\Doctrine\Common\Annotations\Reader** |  |
+
+
+
 
 ***
 
@@ -42,11 +67,19 @@ Gets the annotations applied to a class.
 public getClassAnnotations(\ReflectionClass $class): object[]
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** | The ReflectionClass of the class from which<br />the class annotations should be read. |
+
 
 **Return Value:**
 
@@ -64,12 +97,20 @@ Gets a class annotation.
 public getClassAnnotation(\ReflectionClass $class, mixed $annotationName): \Doctrine\Common\Annotations\T|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** | The ReflectionClass of the class from which<br />the class annotations should be read. |
 | `$annotationName` | **mixed** | The name of the annotation. |
+
 
 **Return Value:**
 
@@ -87,11 +128,19 @@ Gets the annotations applied to a method.
 public getMethodAnnotations(\ReflectionMethod $method): object[]
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **\ReflectionMethod** | The ReflectionMethod of the method from which<br />the annotations should be read. |
+
 
 **Return Value:**
 
@@ -109,12 +158,20 @@ Gets a method annotation.
 public getMethodAnnotation(\ReflectionMethod $method, mixed $annotationName): \Doctrine\Common\Annotations\T|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **\ReflectionMethod** | The ReflectionMethod to read the annotations from. |
 | `$annotationName` | **mixed** | The name of the annotation. |
+
 
 **Return Value:**
 
@@ -132,11 +189,19 @@ Gets the annotations applied to a property.
 public getPropertyAnnotations(\ReflectionProperty $property): object[]
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **\ReflectionProperty** | The ReflectionProperty of the property<br />from which the annotations should be read. |
+
 
 **Return Value:**
 
@@ -154,12 +219,20 @@ Gets a property annotation.
 public getPropertyAnnotation(\ReflectionProperty $property, mixed $annotationName): \Doctrine\Common\Annotations\T|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **\ReflectionProperty** | The ReflectionProperty to read the annotations from. |
 | `$annotationName` | **mixed** | The name of the annotation. |
+
 
 **Return Value:**
 
@@ -177,12 +250,22 @@ Proxies all methods to the delegate.
 public __call(string $method, array $args): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string** |  |
 | `$args` | **array** |  |
+
+
+
 
 ***
 

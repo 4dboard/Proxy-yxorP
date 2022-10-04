@@ -10,17 +10,28 @@ associative array of curl option constants mapping to values in the
 
 * Full name: `\GuzzleHttp\Handler\CurlHandler`
 
+
+
 ## Properties
 
+
 ### factory
+
+
 
 ```php
 private \GuzzleHttp\Handler\CurlFactoryInterface $factory
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -32,19 +43,36 @@ public __construct(array $options = []): mixed
 
 - handle_factory: Optional curl factory used to create cURL handles.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(\Psr\Http\Message\RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -52,6 +80,9 @@ public __invoke(\Psr\Http\Message\RequestInterface $request, array $options): \G
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** |  |
+
+
+
 
 ***
 

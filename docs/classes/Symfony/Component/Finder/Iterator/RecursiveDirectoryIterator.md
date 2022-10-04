@@ -4,58 +4,108 @@
 
 Extends the \RecursiveDirectoryIterator to support relative paths.
 
+
+
 * Full name: `\Symfony\Component\Finder\Iterator\RecursiveDirectoryIterator`
 * Parent class: [`RecursiveDirectoryIterator`](../../../../RecursiveDirectoryIterator.md)
 
+
+
 ## Properties
 
+
 ### ignoreUnreadableDirs
+
+
 
 ```php
 private bool $ignoreUnreadableDirs
 ```
 
+
+
+
+
+
 ***
 
 ### rewindable
+
+
 
 ```php
 private ?bool $rewindable
 ```
 
+
+
+
+
+
 ***
 
 ### rootPath
+
+
 
 ```php
 private string $rootPath
 ```
 
+
+
+
+
+
 ***
 
 ### subPath
+
+
 
 ```php
 private string $subPath
 ```
 
+
+
+
+
+
 ***
 
 ### directorySeparator
+
+
 
 ```php
 private string $directorySeparator
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(string $path, int $flags, bool $ignoreUnreadableDirs = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -64,6 +114,9 @@ public __construct(string $path, int $flags, bool $ignoreUnreadableDirs = false)
 | `$path` | **string** |  |
 | `$flags` | **int** |  |
 | `$ignoreUnreadableDirs` | **bool** |  |
+
+
+
 
 ***
 
@@ -75,13 +128,32 @@ Return an instance of SplFileInfo with support for relative paths.
 public current(): \Symfony\Component\Finder\SplFileInfo
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### hasChildren
 
+
+
 ```php
 public hasChildren(bool $allowLinks = false): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -89,13 +161,28 @@ public hasChildren(bool $allowLinks = false): bool
 |-----------|------|-------------|
 | `$allowLinks` | **bool** |  |
 
+
+
+
 ***
 
 ### getChildren
 
+
+
 ```php
 public getChildren(): \RecursiveDirectoryIterator
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -107,6 +194,16 @@ Do nothing for non rewindable stream.
 public rewind(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isRewindable
@@ -116,6 +213,16 @@ Checks if the stream is rewindable.
 ```php
 public isRewindable(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

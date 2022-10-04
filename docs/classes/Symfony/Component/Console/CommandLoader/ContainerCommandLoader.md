@@ -4,35 +4,64 @@
 
 Loads commands from a PSR-11 container.
 
+
+
 * Full name: `\Symfony\Component\Console\CommandLoader\ContainerCommandLoader`
 * This class implements:
-  [`\Symfony\Component\Console\CommandLoader\CommandLoaderInterface`](./CommandLoaderInterface.md)
+[`\Symfony\Component\Console\CommandLoader\CommandLoaderInterface`](./CommandLoaderInterface.md)
+
+
 
 ## Properties
 
+
 ### container
+
+
 
 ```php
 private $container
 ```
 
+
+
+
+
+
 ***
 
 ### commandMap
+
+
 
 ```php
 private $commandMap
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Psr\Container\ContainerInterface $container, array $commandMap): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -40,6 +69,9 @@ public __construct(\Psr\Container\ContainerInterface $container, array $commandM
 |-----------|------|-------------|
 | `$container` | **\Psr\Container\ContainerInterface** |  |
 | `$commandMap` | **array** | An array with command names as keys and service ids as values |
+
+
+
 
 ***
 
@@ -51,11 +83,21 @@ Loads a command.
 public get(string $name): \Symfony\Component\Console\Command\Command
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 
@@ -67,19 +109,41 @@ Checks if a command exists.
 public has(string $name): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
+
+
+
 ***
 
 ### getNames
 
+
+
 ```php
 public getNames(): string[]
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

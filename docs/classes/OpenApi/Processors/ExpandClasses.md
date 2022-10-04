@@ -3,20 +3,33 @@
 # ExpandClasses
 
 Iterate over the chain of anchestors of a schema and:
-
 - merge anchestor annotations/methods/properties into the schema if the anchestor doesn't have a schema itself
 - inherit from the anchestor if it has a schema (allOf) and stop.
 
 
+
 * Full name: `\OpenApi\Processors\ExpandClasses`
+
+
+
 
 ## Methods
 
+
 ### __invoke
+
+
 
 ```php
 public __invoke(\OpenApi\Analysis $analysis): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -24,15 +37,29 @@ public __invoke(\OpenApi\Analysis $analysis): mixed
 |-----------|------|-------------|
 | `$analysis` | **\OpenApi\Analysis** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### inheritFrom
+
+
 
 ```php
 protected inheritFrom(\OpenApi\Annotations\Schema $schema, \OpenApi\Annotations\Schema $from, string $refPath, ?\OpenApi\Context $context): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -43,14 +70,26 @@ protected inheritFrom(\OpenApi\Annotations\Schema $schema, \OpenApi\Annotations\
 | `$refPath` | **string** |  |
 | `$context` | **?\OpenApi\Context** |  |
 
+
+
+
 ***
 
 ### mergeAnnotations
+
+
 
 ```php
 protected mergeAnnotations(\OpenApi\Annotations\Schema $schema, array $from, array& $existing): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -58,14 +97,26 @@ protected mergeAnnotations(\OpenApi\Annotations\Schema $schema, array $from, arr
 | `$schema` | **\OpenApi\Annotations\Schema** |  |
 | `$from` | **array** |  |
 | `$existing` | **array** |  |
+
+
+
 
 ***
 
 ### mergeProperties
 
+
+
 ```php
 protected mergeProperties(\OpenApi\Annotations\Schema $schema, array $from, array& $existing): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -74,14 +125,26 @@ protected mergeProperties(\OpenApi\Annotations\Schema $schema, array $from, arra
 | `$schema` | **\OpenApi\Annotations\Schema** |  |
 | `$from` | **array** |  |
 | `$existing` | **array** |  |
+
+
+
 
 ***
 
 ### mergeMethods
 
+
+
 ```php
 protected mergeMethods(\OpenApi\Annotations\Schema $schema, array $from, array& $existing): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -90,6 +153,9 @@ protected mergeMethods(\OpenApi\Annotations\Schema $schema, array $from, array& 
 | `$schema` | **\OpenApi\Annotations\Schema** |  |
 | `$from` | **array** |  |
 | `$existing` | **array** |  |
+
+
+
 
 ***
 

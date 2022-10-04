@@ -2,11 +2,19 @@
 
 # Query
 
+
+
+
+
 * Full name: `\GuzzleHttp\Psr7\Query`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
+
+
+
 ## Methods
+
 
 ### parse
 
@@ -23,12 +31,18 @@ will be parsed into `['foo[a]' => '1', 'foo[b]' => '2'])`.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **string** | Query string to parse |
 | `$urlEncoding` | **int&#124;bool** | How the query string is encoded |
+
+
+
 
 ***
 
@@ -46,12 +60,18 @@ encountered (like `http_build_query()` would).
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$params` | **array** | Query string parameters. |
 | `$encoding` | **int&#124;false** | Set to false to not encode, PHP_QUERY_RFC3986<br />to encode using RFC3986, or PHP_QUERY_RFC1738<br />to encode using RFC1738. |
+
+
+
 
 ***
 

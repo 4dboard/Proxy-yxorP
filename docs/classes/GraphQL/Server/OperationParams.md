@@ -4,9 +4,14 @@
 
 Structure representing parsed HTTP parameters for GraphQL operation
 
+
+
 * Full name: `\GraphQL\Server\OperationParams`
 
+
+
 ## Properties
+
 
 ### queryId
 
@@ -17,62 +22,107 @@ public string $queryId
 ```
 
 Valid aliases (case-insensitive):
-
 - id
 - queryId
 - documentId
+
+
+
 
 ***
 
 ### query
 
+
+
 ```php
 public string $query
 ```
+
+
+
+
+
 
 ***
 
 ### operation
 
+
+
 ```php
 public string $operation
 ```
+
+
+
+
+
 
 ***
 
 ### variables
 
+
+
 ```php
 public array|null $variables
 ```
+
+
+
+
+
 
 ***
 
 ### extensions
 
+
+
 ```php
 public array|null $extensions
 ```
+
+
+
+
+
 
 ***
 
 ### originalInput
 
+
+
 ```php
 private array $originalInput
 ```
+
+
+
+
+
 
 ***
 
 ### readOnly
 
+
+
 ```php
 private bool $readOnly
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### create
 
@@ -82,7 +132,12 @@ Creates an instance from given array
 public static create(array $params, bool $readonly = false): \GraphQL\Server\OperationParams
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -91,19 +146,34 @@ public static create(array $params, bool $readonly = false): \GraphQL\Server\Ope
 | `$params` | **array** |  |
 | `$readonly` | **bool** |  |
 
+
+
+
 ***
 
 ### getOriginalInput
 
+
+
 ```php
 public getOriginalInput(string $key): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
+
+
+
 
 ***
 
@@ -115,6 +185,16 @@ Indicates that operation is executed in read-only context
 ```php
 public isReadOnly(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

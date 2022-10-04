@@ -12,7 +12,10 @@ blocks within one version.
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
+
+
 ## Properties
+
 
 ### ecCodewordsPerBlock
 
@@ -21,6 +24,11 @@ Number of EC codewords per block.
 ```php
 private int $ecCodewordsPerBlock
 ```
+
+
+
+
+
 
 ***
 
@@ -32,15 +40,30 @@ List of EC blocks.
 private \BaconQrCode\Common\EcBlock[] $ecBlocks
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(int $ecCodewordsPerBlock, \BaconQrCode\Common\EcBlock $ecBlocks): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -48,6 +71,9 @@ public __construct(int $ecCodewordsPerBlock, \BaconQrCode\Common\EcBlock $ecBloc
 |-----------|------|-------------|
 | `$ecCodewordsPerBlock` | **int** |  |
 | `$ecBlocks` | **\BaconQrCode\Common\EcBlock** |  |
+
+
+
 
 ***
 
@@ -59,6 +85,16 @@ Returns the number of EC codewords per block.
 public getEcCodewordsPerBlock(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getNumBlocks
@@ -68,6 +104,16 @@ Returns the total number of EC block appearances.
 ```php
 public getNumBlocks(): int
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -79,6 +125,16 @@ Returns the total count of EC codewords.
 public getTotalEcCodewords(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getEcBlocks
@@ -88,6 +144,16 @@ Returns the EC blocks included in this collection.
 ```php
 public getEcBlocks(): \BaconQrCode\Common\EcBlock[]
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

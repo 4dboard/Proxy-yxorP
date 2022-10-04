@@ -2,9 +2,14 @@
 
 # UploadedFile
 
+
+
+
+
 * Full name: `\GuzzleHttp\Psr7\UploadedFile`
 * This class implements:
-  [`\Psr\Http\Message\UploadedFileInterface`](../../Psr/Http/Message/UploadedFileInterface.md)
+[`\Psr\Http\Message\UploadedFileInterface`](../../Psr/Http/Message/UploadedFileInterface.md)
+
 
 ## Constants
 
@@ -14,69 +19,129 @@
 
 ## Properties
 
+
 ### clientFilename
+
+
 
 ```php
 private string|null $clientFilename
 ```
 
+
+
+
+
+
 ***
 
 ### clientMediaType
+
+
 
 ```php
 private string|null $clientMediaType
 ```
 
+
+
+
+
+
 ***
 
 ### error
+
+
 
 ```php
 private int $error
 ```
 
+
+
+
+
+
 ***
 
 ### file
+
+
 
 ```php
 private string|null $file
 ```
 
+
+
+
+
+
 ***
 
 ### moved
+
+
 
 ```php
 private bool $moved
 ```
 
+
+
+
+
+
 ***
 
 ### size
+
+
 
 ```php
 private int|null $size
 ```
 
+
+
+
+
+
 ***
 
 ### stream
+
+
 
 ```php
 private \Psr\Http\Message\StreamInterface|null $stream
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Psr\Http\Message\StreamInterface|string|resource $streamOrFile, ?int $size, int $errorStatus, string $clientFilename = null, string $clientMediaType = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -88,6 +153,9 @@ public __construct(\Psr\Http\Message\StreamInterface|string|resource $streamOrFi
 | `$clientFilename` | **string** |  |
 | `$clientMediaType` | **string** |  |
 
+
+
+
 ***
 
 ### setStreamOrFile
@@ -98,19 +166,38 @@ Depending on the value set file or stream variable
 private setStreamOrFile(\Psr\Http\Message\StreamInterface|string|resource $streamOrFile): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$streamOrFile` | **\Psr\Http\Message\StreamInterface&#124;string&#124;resource** |  |
 
+
+
+
 ***
 
 ### setError
 
+
+
 ```php
 private setError(int $error): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -118,19 +205,34 @@ private setError(int $error): void
 |-----------|------|-------------|
 | `$error` | **int** |  |
 
+
+
+
 ***
 
 ### isStringNotEmpty
 
+
+
 ```php
 private isStringNotEmpty(mixed $param): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$param` | **mixed** |  |
+
+
+
 
 ***
 
@@ -142,21 +244,55 @@ Return true if there is no upload error
 private isOk(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isMoved
+
+
 
 ```php
 public isMoved(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### validateActive
 
+
+
 ```php
 private validateActive(): void
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -176,6 +312,12 @@ native PHP stream wrapper to work with such functions).
 
 If the moveTo() method has been called previously, this method MUST raise
 an exception.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -215,11 +357,19 @@ used to ensure permissions and upload status are verified correctly.
 If you wish to move to a stream, use getStream(), as SAPI operations
 cannot guarantee writing to stream destinations.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$targetPath` | **mixed** | Path to which to move the uploaded file. |
+
+
+
 
 ***
 
@@ -234,6 +384,12 @@ public getSize(): int|null
 Implementations SHOULD return the value stored in the "size" key of
 the file in the $_FILES array if available, as PHP calculates this based
 on the actual size transmitted.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -259,6 +415,12 @@ UPLOAD_ERR_OK.
 Implementations SHOULD return the value stored in the "error" key of
 the file in the $_FILES array.
 
+
+
+
+
+
+
 **Return Value:**
 
 One of PHP's UPLOAD_ERR_XXX constants.
@@ -281,6 +443,12 @@ application.
 
 Implementations SHOULD return the value stored in the "name" key of
 the file in the $_FILES array.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -305,6 +473,12 @@ application.
 
 Implementations SHOULD return the value stored in the "type" key of
 the file in the $_FILES array.
+
+
+
+
+
+
 
 **Return Value:**
 

@@ -2,57 +2,105 @@
 
 # handlerStack
 
+
+
+
+
 * Full name: `\yxorP\app\lib\proxy\handlerStack`
+
+
 
 ## Properties
 
+
 ### handler
+
+
 
 ```php
 private $handler
 ```
 
+
+
+
+
+
 ***
 
 ### stack
+
+
 
 ```php
 private $stack
 ```
 
+
+
+
+
+
 ***
 
 ### cached
+
+
 
 ```php
 private $cached
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(callable $handler = null): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handler` | **callable** |  |
+
+
+
 
 ***
 
 ### create
 
+
+
 ```php
 public static create(callable $handler = null): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -60,13 +108,25 @@ public static create(callable $handler = null): mixed
 |-----------|------|-------------|
 | `$handler` | **callable** |  |
 
+
+
+
 ***
 
 ### push
 
+
+
 ```php
 public push(callable $middleware, mixed $name = &#039;&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -75,13 +135,25 @@ public push(callable $middleware, mixed $name = &#039;&#039;): mixed
 | `$middleware` | **callable** |  |
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -90,29 +162,65 @@ public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 | `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### resolve
+
+
 
 ```php
 public resolve(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __toString
+
+
 
 ```php
 public __toString(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setHandler
 
+
+
 ```php
 public setHandler(callable $handler): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -120,21 +228,45 @@ public setHandler(callable $handler): mixed
 |-----------|------|-------------|
 | `$handler` | **callable** |  |
 
+
+
+
 ***
 
 ### hasHandler
+
+
 
 ```php
 public hasHandler(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### unshift
 
+
+
 ```php
 public unshift(callable $middleware, mixed $name = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -143,14 +275,26 @@ public unshift(callable $middleware, mixed $name = null): mixed
 | `$middleware` | **callable** |  |
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### before
+
+
 
 ```php
 public before(mixed $findName, callable $middleware, mixed $withName = &#039;&#039;): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -158,14 +302,26 @@ public before(mixed $findName, callable $middleware, mixed $withName = &#039;&#0
 | `$findName` | **mixed** |  |
 | `$middleware` | **callable** |  |
 | `$withName` | **mixed** |  |
+
+
+
 
 ***
 
 ### after
 
+
+
 ```php
 public after(mixed $findName, callable $middleware, mixed $withName = &#039;&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -175,13 +331,25 @@ public after(mixed $findName, callable $middleware, mixed $withName = &#039;&#03
 | `$middleware` | **callable** |  |
 | `$withName` | **mixed** |  |
 
+
+
+
 ***
 
 ### remove
 
+
+
 ```php
 public remove(mixed $remove): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -189,13 +357,25 @@ public remove(mixed $remove): mixed
 |-----------|------|-------------|
 | `$remove` | **mixed** |  |
 
+
+
+
 ***
 
 ### debugCallable
 
+
+
 ```php
 private debugCallable(mixed $fn): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -203,13 +383,25 @@ private debugCallable(mixed $fn): mixed
 |-----------|------|-------------|
 | `$fn` | **mixed** |  |
 
+
+
+
 ***
 
 ### splice
 
+
+
 ```php
 private splice(mixed $findName, mixed $withName, callable $middleware, mixed $before): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -220,19 +412,34 @@ private splice(mixed $findName, mixed $withName, callable $middleware, mixed $be
 | `$middleware` | **callable** |  |
 | `$before` | **mixed** |  |
 
+
+
+
 ***
 
 ### findByName
 
+
+
 ```php
 private findByName(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
 
 ***
 

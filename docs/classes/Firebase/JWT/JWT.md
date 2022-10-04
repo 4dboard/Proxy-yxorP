@@ -11,7 +11,8 @@ PHP version 5
 
 **See Also:**
 
-* https://github.com/firebase/php-jwt -
+* https://github.com/firebase/php-jwt - 
+
 
 ## Constants
 
@@ -23,6 +24,7 @@ PHP version 5
 
 ## Properties
 
+
 ### leeway
 
 When checking nbf, iat or expiration times,
@@ -33,7 +35,10 @@ account for clock skew.
 public static int $leeway
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
@@ -50,19 +55,26 @@ Will default to PHP time() value if null.
 
 * This property is **static**.
 
+
 ***
 
 ### supported_algs
+
+
 
 ```php
 public static array&lt;string,string[]&gt; $supported_algs
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ## Methods
+
 
 ### decode
 
@@ -72,7 +84,12 @@ Decodes a JWT string into a PHP object.
 public static decode(string $jwt, \Firebase\JWT\Key|array&lt;string,\Firebase\JWT\Key&gt; $keyOrKeyArray): \stdClass
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -80,6 +97,7 @@ public static decode(string $jwt, \Firebase\JWT\Key|array&lt;string,\Firebase\JW
 |-----------|------|-------------|
 | `$jwt` | **string** | The JWT |
 | `$keyOrKeyArray` | **\Firebase\JWT\Key&#124;array<string,\Firebase\JWT\Key>** | The Key or associative array of key IDs (kid) to Key objects.<br />If the algorithm used is asymmetric, this is the public key<br />Each Key object contains an algorithm and matching key.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
+
 
 **Return Value:**
 
@@ -97,7 +115,12 @@ Converts and signs a PHP object or array into a JWT string.
 public static encode(array $payload, string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate $key, string $alg, string $keyId = null, array&lt;string,string&gt; $head = null): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -108,6 +131,7 @@ public static encode(array $payload, string|resource|\OpenSSLAsymmetricKey|\Open
 | `$alg` | **string** | Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
 | `$keyId` | **string** |  |
 | `$head` | **array<string,string>** | An array with header elements to attach |
+
 
 **Return Value:**
 
@@ -125,7 +149,12 @@ Sign a string with a given key and algorithm.
 public static sign(string $msg, string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate $key, string $alg): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -134,6 +163,7 @@ public static sign(string $msg, string|resource|\OpenSSLAsymmetricKey|\OpenSSLCe
 | `$msg` | **string** | The message to sign |
 | `$key` | **string&#124;resource&#124;\OpenSSLAsymmetricKey&#124;\OpenSSLCertificate** | The secret key. |
 | `$alg` | **string** | Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
+
 
 **Return Value:**
 
@@ -152,7 +182,12 @@ are symmetric, so we must have a separate verify and sign method.
 private static verify(string $msg, string $signature, string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate $keyMaterial, string $alg): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -162,6 +197,9 @@ private static verify(string $msg, string $signature, string|resource|\OpenSSLAs
 | `$signature` | **string** | The original signature |
 | `$keyMaterial` | **string&#124;resource&#124;\OpenSSLAsymmetricKey&#124;\OpenSSLCertificate** | For HS*, a string key works. for RS*, must be an instance of OpenSSLAsymmetricKey |
 | `$alg` | **string** | The algorithm |
+
+
+
 
 ***
 
@@ -173,13 +211,19 @@ Decode a JSON string into a PHP object.
 public static jsonDecode(string $input): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **string** | JSON string |
+
 
 **Return Value:**
 
@@ -197,13 +241,19 @@ Encode a PHP array into a JSON string.
 public static jsonEncode(array $input): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **array** | A PHP array |
+
 
 **Return Value:**
 
@@ -221,13 +271,19 @@ Decode a string with URL-safe Base64.
 public static urlsafeB64Decode(string $input): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **string** | A Base64 encoded string |
+
 
 **Return Value:**
 
@@ -245,13 +301,19 @@ Encode a string with URL-safe Base64.
 public static urlsafeB64Encode(string $input): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **string** | The string you want encoded |
+
 
 **Return Value:**
 
@@ -269,7 +331,12 @@ Determine if an algorithm has been provided for each Key
 private static getKey(\Firebase\JWT\Key|\ArrayAccess&lt;string,\Firebase\JWT\Key&gt;|array&lt;string,\Firebase\JWT\Key&gt; $keyOrKeyArray, string|null $kid): \Firebase\JWT\Key
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -278,15 +345,25 @@ private static getKey(\Firebase\JWT\Key|\ArrayAccess&lt;string,\Firebase\JWT\Key
 | `$keyOrKeyArray` | **\Firebase\JWT\Key&#124;\ArrayAccess<string,\Firebase\JWT\Key>&#124;array<string,\Firebase\JWT\Key>** |  |
 | `$kid` | **string&#124;null** |  |
 
+
+
+
 ***
 
 ### constantTimeEquals
+
+
 
 ```php
 public static constantTimeEquals(string $left, string $right): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -294,6 +371,9 @@ public static constantTimeEquals(string $left, string $right): bool
 |-----------|------|-------------|
 | `$left` | **string** | The string of known length to compare against |
 | `$right` | **string** | The user-supplied string |
+
+
+
 
 ***
 
@@ -305,13 +385,21 @@ Helper method to create a JSON error.
 private static handleJsonError(int $errno): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$errno` | **int** | An error number from json_last_error() |
+
+
+
 
 ***
 
@@ -323,13 +411,21 @@ Get the number of bytes in cryptographic strings.
 private static safeStrlen(string $str): int
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **string** |  |
+
+
+
 
 ***
 
@@ -341,13 +437,19 @@ Convert an ECDSA signature to an ASN.1 DER sequence
 private static signatureToDER(string $sig): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$sig` | **string** | The ECDSA signature to convert |
+
 
 **Return Value:**
 
@@ -365,7 +467,12 @@ Encodes a value into a DER object.
 private static encodeDER(int $type, string $value): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -373,6 +480,7 @@ private static encodeDER(int $type, string $value): string
 |-----------|------|-------------|
 | `$type` | **int** | DER tag |
 | `$value` | **string** | the value to encode |
+
 
 **Return Value:**
 
@@ -390,7 +498,12 @@ Encodes signature from a DER object.
 private static signatureFromDER(string $der, int $keySize): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -398,6 +511,7 @@ private static signatureFromDER(string $der, int $keySize): string
 |-----------|------|-------------|
 | `$der` | **string** | binary signature in DER format |
 | `$keySize` | **int** | the number of bits in the key |
+
 
 **Return Value:**
 
@@ -415,7 +529,12 @@ Reads binary DER-encoded data and decodes into a single object
 private static readDER(string $der, int $offset): array
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -423,6 +542,9 @@ private static readDER(string $der, int $offset): array
 |-----------|------|-------------|
 | `$der` | **string** | the binary data in DER format |
 | `$offset` | **int** | the offset of the data stream containing the object<br />to decode |
+
+
+
 
 ***
 

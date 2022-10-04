@@ -2,7 +2,12 @@
 
 # Directive
 
+
+
+
+
 * Full name: `\GraphQL\Type\Definition\Directive`
+
 
 ## Constants
 
@@ -17,79 +22,144 @@
 
 ## Properties
 
+
 ### internalDirectives
+
+
 
 ```php
 public static \GraphQL\Type\Definition\Directive[]|null $internalDirectives
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### name
 
+
+
 ```php
 public string $name
 ```
+
+
+
+
+
 
 ***
 
 ### description
 
+
+
 ```php
 public string|null $description
 ```
+
+
+
+
+
 
 ***
 
 ### args
 
+
+
 ```php
 public \GraphQL\Type\Definition\FieldArgument[] $args
 ```
+
+
+
+
+
 
 ***
 
 ### isRepeatable
 
+
+
 ```php
 public bool $isRepeatable
 ```
+
+
+
+
+
 
 ***
 
 ### locations
 
+
+
 ```php
 public string[] $locations
 ```
+
+
+
+
+
 
 ***
 
 ### astNode
 
+
+
 ```php
 public \GraphQL\Language\AST\DirectiveDefinitionNode|null $astNode
 ```
+
+
+
+
+
 
 ***
 
 ### config
 
+
+
 ```php
 public array $config
 ```
+
+
+
+
+
 
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(array $config): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -97,61 +167,114 @@ public __construct(array $config): mixed
 |-----------|------|-------------|
 | `$config` | **array** |  |
 
+
+
+
 ***
 
 ### includeDirective
+
+
 
 ```php
 public static includeDirective(): \GraphQL\Type\Definition\Directive
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
 ### getInternalDirectives
 
+
+
 ```php
 public static getInternalDirectives(): \GraphQL\Type\Definition\Directive[]
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
 ### skipDirective
 
+
+
 ```php
 public static skipDirective(): \GraphQL\Type\Definition\Directive
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
 ### deprecatedDirective
 
+
+
 ```php
 public static deprecatedDirective(): \GraphQL\Type\Definition\Directive
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
 ### isSpecifiedDirective
 
+
+
 ```php
 public static isSpecifiedDirective(\GraphQL\Type\Definition\Directive $directive): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$directive` | **\GraphQL\Type\Definition\Directive** |  |
+
+
+
 
 ***
 

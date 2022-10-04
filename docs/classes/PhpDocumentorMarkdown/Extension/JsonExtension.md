@@ -2,10 +2,18 @@
 
 # JsonExtension
 
+
+
+
+
 * Full name: `\PhpDocumentorMarkdown\Extension\JsonExtension`
 * Parent class: [`AbstractExtension`](../../Twig/Extension/AbstractExtension.md)
 
+
+
+
 ## Methods
+
 
 ### getFilters
 
@@ -14,6 +22,16 @@
 ```php
 public getFilters(): array
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -25,11 +43,19 @@ Transforms an object into a JSON string.
 public objectToJson( $object): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$object` | **** |  |
+
 
 **Return Value:**
 

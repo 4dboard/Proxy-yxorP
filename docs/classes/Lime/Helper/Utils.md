@@ -4,22 +4,40 @@
 
 Class Utils
 
+
+
 * Full name: `\Lime\Helper\Utils`
 * Parent class: [`\Lime\Helper`](../Helper.md)
 
+
+
+
 ## Methods
 
+
 ### formatSize
+
+
 
 ```php
 public formatSize( $size): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$size` | **** |  |
+
+
+
 
 ***
 
@@ -31,6 +49,16 @@ Return max upload size
 public getMaxUploadSize(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### parseSize
@@ -41,19 +69,38 @@ Parse size string
 public parseSize(string $size): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$size` | **string** |  |
 
+
+
+
 ***
 
 ### fixRelativeUrls
 
+
+
 ```php
 public fixRelativeUrls( $content, string $base = &#039;/&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -62,13 +109,25 @@ public fixRelativeUrls( $content, string $base = &#039;/&#039;): mixed
 | `$content` | **** |  |
 | `$base` | **string** |  |
 
+
+
+
 ***
 
 ### sluggify
 
+
+
 ```php
 public sluggify( $string, string $replacement = &#039;-&#039;, bool|true $tolower = true): mixed|string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -77,6 +136,9 @@ public sluggify( $string, string $replacement = &#039;-&#039;, bool|true $tolowe
 | `$string` | **** |  |
 | `$replacement` | **string** |  |
 | `$tolower` | **bool&#124;true** |  |
+
+
+
 
 ***
 
@@ -90,19 +152,27 @@ public resolveDependencies(array $data): array
 
 start with an array like:
 [
-'a' => ['b', 'c'],
-'b' => [],
-'c' => ['b']
+    'a' => ['b', 'c'],
+    'b' => [],
+    'c' => ['b']
 ]
 
 a depends on b and c, c depends on b, and b depends on nobody
 in this case we would return ['b', 'c', 'a']
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **array** |  |
+
+
+
 
 ***
 
@@ -116,12 +186,20 @@ public strToBool(string $string, bool $default = false): bool
 
 Supports 'y', 'n', 'yes', 'no' and a few other variations.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** | The string to convert to boolean |
 | `$default` | **bool** | The value to return if we can&#039;t match any<br />yes/no words |
+
+
+
 
 ***
 
@@ -133,6 +211,13 @@ Truncate a string to a specified length without cutting a word off.
 public safeTruncate(string $string, int $length, string $append = &#039;...&#039;): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -140,6 +225,9 @@ public safeTruncate(string $string, int $length, string $append = &#039;...&#039
 | `$string` | **string** | The string to truncate |
 | `$length` | **int** | The length to truncate the string to |
 | `$append` | **string** | Text to append to the string IF it gets<br />truncated, defaults to &#039;...&#039; |
+
+
+
 
 ***
 
@@ -151,19 +239,38 @@ Get content from url source.
 public urlGetContents(string $url): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$url` | **string** |  |
 
+
+
+
 ***
 
 ### buildTree
 
+
+
 ```php
 public buildTree(array $elements, array $options = [], mixed $parentId = null): array
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -173,13 +280,25 @@ public buildTree(array $elements, array $options = [], mixed $parentId = null): 
 | `$options` | **array** |  |
 | `$parentId` | **mixed** |  |
 
+
+
+
 ***
 
 ### buildTreeList
 
+
+
 ```php
 public buildTreeList(array $items, array $options = [], mixed $parent = null, mixed $result = null, int $depth, string $path = &#039;-&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -192,6 +311,9 @@ public buildTreeList(array $items, array $options = [], mixed $parent = null, mi
 | `$depth` | **int** |  |
 | `$path` | **string** |  |
 
+
+
+
 ***
 
 ### isEmail
@@ -202,11 +324,21 @@ Check if string is valid email
 public isEmail(string $email): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$email` | **string** |  |
+
+
+
 
 ***
 
@@ -218,11 +350,21 @@ Cast boolean string values to boolean
 public fixStringBooleanValues(mixed& $input): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **mixed** |  |
+
+
+
 
 ***
 
@@ -234,11 +376,21 @@ Cast numeric string values to numbers
 public fixStringNumericValues(mixed& $input): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **mixed** |  |
+
+
+
 
 ***
 
@@ -250,6 +402,13 @@ Execute callable with retry if it fails
 public retry(int $times, callable $fn, int $delay): null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -257,6 +416,9 @@ public retry(int $times, callable $fn, int $delay): null
 | `$times` | **int** |  |
 | `$fn` | **callable** |  |
 | `$delay` | **int** |  |
+
+
+
 
 ***
 
@@ -269,6 +431,13 @@ source: https://www.php.net/manual/en/function.var-export.php#122853
 public var_export(mixed $expr, bool $return = false): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -276,15 +445,29 @@ public var_export(mixed $expr, bool $return = false): void
 | `$expr` | **mixed** |  |
 | `$return` | **bool** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -293,21 +476,45 @@ public __construct(\Lime\App $app, mixed $context = null): mixed
 | `$app` | **\Lime\App** |  |
 | `$context` | **mixed** |  |
 
+
+
+
 ***
 
 ### initialize
+
+
 
 ```php
 protected initialize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -316,13 +523,25 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(mixed $helper): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -330,19 +549,34 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
 
 ***
 

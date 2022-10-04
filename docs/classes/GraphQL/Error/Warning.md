@@ -11,6 +11,7 @@ Also it is possible to override warning handler (which is **trigger_error()** by
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
+
 ## Constants
 
 | Constant | Visibility | Type | Value |
@@ -24,37 +25,54 @@ Also it is possible to override warning handler (which is **trigger_error()** by
 
 ## Properties
 
+
 ### enableWarnings
+
+
 
 ```php
 private static int $enableWarnings
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### warned
 
+
+
 ```php
 private static array $warned
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### warningHandler
 
+
+
 ```php
 private static callable|null $warningHandler
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ## Methods
+
 
 ### setWarningHandler
 
@@ -68,11 +86,17 @@ When not set, trigger_error() is used to notify about warnings.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$warningHandler` | **?callable** |  |
+
+
+
 
 ***
 
@@ -91,11 +115,17 @@ When passing true - suppresses all warnings.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$suppress` | **bool&#124;int** |  |
+
+
+
 
 ***
 
@@ -114,21 +144,34 @@ When passing true - re-enables all warnings.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$enable` | **bool&#124;int** |  |
 
+
+
+
 ***
 
 ### warnOnce
+
+
 
 ```php
 public static warnOnce(string $errorMessage, int $warningId, ?int $messageLevel = null): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -137,16 +180,26 @@ public static warnOnce(string $errorMessage, int $warningId, ?int $messageLevel 
 | `$errorMessage` | **string** |  |
 | `$warningId` | **int** |  |
 | `$messageLevel` | **?int** |  |
+
+
+
 
 ***
 
 ### warn
 
+
+
 ```php
 public static warn(string $errorMessage, int $warningId, ?int $messageLevel = null): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -155,6 +208,9 @@ public static warn(string $errorMessage, int $warningId, ?int $messageLevel = nu
 | `$errorMessage` | **string** |  |
 | `$warningId` | **int** |  |
 | `$messageLevel` | **?int** |  |
+
+
+
 
 ***
 

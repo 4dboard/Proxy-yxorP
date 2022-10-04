@@ -34,52 +34,89 @@ with minimal processing in between.
 * Full name: `\GuzzleHttp\Promise\Coroutine`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-  [`\GuzzleHttp\Promise\PromiseInterface`](./PromiseInterface.md)
+[`\GuzzleHttp\Promise\PromiseInterface`](./PromiseInterface.md)
 * This class is a **Final class**
 
 **See Also:**
 
 * https://github.com/petkaantonov/bluebird/blob/master/API.md#generators - inspiration
 
+
+
 ## Properties
 
+
 ### currentPromise
+
+
 
 ```php
 private \GuzzleHttp\Promise\PromiseInterface|null $currentPromise
 ```
 
+
+
+
+
+
 ***
 
 ### generator
+
+
 
 ```php
 private \Generator $generator
 ```
 
+
+
+
+
+
 ***
 
 ### result
+
+
 
 ```php
 private \GuzzleHttp\Promise\Promise $result
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(callable $generatorFn): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$generatorFn` | **callable** |  |
+
+
+
 
 ***
 
@@ -91,13 +128,21 @@ Create a new coroutine.
 public static of(callable $generatorFn): self
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$generatorFn` | **callable** |  |
+
+
+
 
 ***
 
@@ -110,12 +155,22 @@ a new promise resolving to the return value of the called handler.
 public then(callable $onFulfilled = null, callable $onRejected = null): \GuzzleHttp\Promise\PromiseInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$onFulfilled` | **callable** | Invoked when the promise fulfills. |
 | `$onRejected` | **callable** | Invoked when the promise is rejected. |
+
+
+
 
 ***
 
@@ -130,11 +185,21 @@ fulfilled.
 public otherwise(callable $onRejected): \GuzzleHttp\Promise\PromiseInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$onRejected` | **callable** | Invoked when the promise is rejected. |
+
+
+
 
 ***
 
@@ -151,11 +216,19 @@ returning the resolved value or throwing the rejected exception.
 
 If the promise cannot be waited on, then the promise will be rejected.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$unwrap` | **mixed** |  |
+
+
+
 
 ***
 
@@ -188,11 +261,21 @@ Resolve the promise with the given value.
 public resolve(mixed $value): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
@@ -204,11 +287,21 @@ Reject the promise with the given reason.
 public reject(mixed $reason): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reason` | **mixed** |  |
+
+
+
 
 ***
 
@@ -220,19 +313,41 @@ Cancels the promise if possible.
 public cancel(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### nextCoroutine
 
+
+
 ```php
 private nextCoroutine(mixed $yielded): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$yielded` | **mixed** |  |
+
+
+
 
 ***
 

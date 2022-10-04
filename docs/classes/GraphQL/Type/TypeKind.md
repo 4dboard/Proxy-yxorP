@@ -2,7 +2,12 @@
 
 # TypeKind
 
+
+
+
+
 * Full name: `\GraphQL\Type\TypeKind`
+
 
 ## Constants
 
@@ -16,6 +21,9 @@
 |`INPUT_OBJECT`|public| |&#039;INPUT_OBJECT&#039;|
 |`LIST`|public| |&#039;LIST&#039;|
 |`NON_NULL`|public| |&#039;NON_NULL&#039;|
+
+
+
 
 ***
 

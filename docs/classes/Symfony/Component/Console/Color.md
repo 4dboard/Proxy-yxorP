@@ -2,9 +2,14 @@
 
 # Color
 
+
+
+
+
 * Full name: `\Symfony\Component\Console\Color`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
+
 
 ## Constants
 
@@ -16,37 +21,69 @@
 
 ## Properties
 
+
 ### foreground
+
+
 
 ```php
 private $foreground
 ```
 
+
+
+
+
+
 ***
 
 ### background
+
+
 
 ```php
 private $background
 ```
 
+
+
+
+
+
 ***
 
 ### options
+
+
 
 ```php
 private $options
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(string $foreground = &#039;&#039;, string $background = &#039;&#039;, array $options = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -56,13 +93,25 @@ public __construct(string $foreground = &#039;&#039;, string $background = &#039
 | `$background` | **string** |  |
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### apply
 
+
+
 ```php
 public apply(string $text): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -70,29 +119,65 @@ public apply(string $text): string
 |-----------|------|-------------|
 | `$text` | **string** |  |
 
+
+
+
 ***
 
 ### set
+
+
 
 ```php
 public set(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### unset
+
+
 
 ```php
 public unset(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### parseColor
 
+
+
 ```php
 private parseColor(string $color, bool $background = false): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -101,13 +186,25 @@ private parseColor(string $color, bool $background = false): string
 | `$color` | **string** |  |
 | `$background` | **bool** |  |
 
+
+
+
 ***
 
 ### convertHexColorToAnsi
 
+
+
 ```php
 private convertHexColorToAnsi(int $color): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -115,14 +212,26 @@ private convertHexColorToAnsi(int $color): string
 |-----------|------|-------------|
 | `$color` | **int** |  |
 
+
+
+
 ***
 
 ### degradeHexColorToAnsi
+
+
 
 ```php
 private degradeHexColorToAnsi(int $r, int $g, int $b): int
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -130,14 +239,26 @@ private degradeHexColorToAnsi(int $r, int $g, int $b): int
 | `$r` | **int** |  |
 | `$g` | **int** |  |
 | `$b` | **int** |  |
+
+
+
 
 ***
 
 ### getSaturation
 
+
+
 ```php
 private getSaturation(int $r, int $g, int $b): int
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -146,6 +267,9 @@ private getSaturation(int $r, int $g, int $b): int
 | `$r` | **int** |  |
 | `$g` | **int** |  |
 | `$b` | **int** |  |
+
+
+
 
 ***
 

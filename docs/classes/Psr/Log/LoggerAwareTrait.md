@@ -4,9 +4,14 @@
 
 Basic Implementation of LoggerAwareInterface.
 
+
+
 * Full name: `\Psr\Log\LoggerAwareTrait`
 
+
+
 ## Properties
+
 
 ### logger
 
@@ -16,9 +21,15 @@ The logger instance.
 protected ?\Psr\Log\LoggerInterface $logger
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### setLogger
 
@@ -28,11 +39,21 @@ Sets a logger.
 public setLogger(\Psr\Log\LoggerInterface $logger): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$logger` | **\Psr\Log\LoggerInterface** |  |
+
+
+
 
 ***
 

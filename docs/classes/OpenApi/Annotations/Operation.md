@@ -4,11 +4,16 @@
 
 The openapi annotation base class.
 
+
+
 * Full name: `\OpenApi\Annotations\Operation`
 * Parent class: [`\OpenApi\Annotations\AbstractAnnotation`](./AbstractAnnotation.md)
 * This class is an **Abstract class**
 
+
+
 ## Properties
+
 
 ### path
 
@@ -17,6 +22,11 @@ key in the OpenApi "Paths Object" for this operation.
 ```php
 public string $path
 ```
+
+
+
+
+
 
 ***
 
@@ -58,6 +68,11 @@ A short summary of what the operation does.
 public string $summary
 ```
 
+
+
+
+
+
 ***
 
 ### description
@@ -83,6 +98,11 @@ Additional external documentation for this operation.
 public \OpenApi\Annotations\ExternalDocumentation $externalDocs
 ```
 
+
+
+
+
+
 ***
 
 ### operationId
@@ -94,8 +114,7 @@ public string $operationId
 ```
 
 The id must be unique among all operations described in the API.
-Tools and libraries may use the operationId to uniquely identify an operation, therefore, it is recommended to follow
-common programming naming conventions.
+Tools and libraries may use the operationId to uniquely identify an operation, therefore, it is recommended to follow common programming naming conventions.
 
 
 
@@ -113,8 +132,7 @@ public \OpenApi\Annotations\Parameter[] $parameters
 If a parameter is already defined at the Path Item, the new definition will override it but can never remove it.
 The list must not include duplicated parameters.
 A unique parameter is defined by a combination of a name and location.
-The list can use the Reference Object to link to parameters that are defined at the OpenAPI Object's
-components/parameters.
+The list can use the Reference Object to link to parameters that are defined at the OpenAPI Object's components/parameters.
 
 
 
@@ -129,8 +147,7 @@ The request body applicable for this operation.
 public \OpenApi\Annotations\RequestBody $requestBody
 ```
 
-The requestBody is only supported in HTTP methods where the HTTP 1.1 specification RFC7231 has explicitly defined
-semantics for request bodies.
+The requestBody is only supported in HTTP methods where the HTTP 1.1 specification RFC7231 has explicitly defined semantics for request bodies.
 In other cases where the HTTP spec is vague, requestBody shall be ignored by consumers.
 
 
@@ -146,6 +163,11 @@ The list of possible responses as they are returned from executing this operatio
 public \OpenApi\Annotations\Response[] $responses
 ```
 
+
+
+
+
+
 ***
 
 ### callbacks
@@ -157,10 +179,8 @@ public callable[] $callbacks
 ```
 
 The key is a unique identifier for the Callback Object.
-Each value in the map is a Callback Object that describes a request that may be initiated by the API provider and the
-expected responses.
-The key value used to identify the callback object is an expression, evaluated at runtime, that identifies a URL to use
-for the callback operation.
+Each value in the map is a Callback Object that describes a request that may be initiated by the API provider and the expected responses.
+The key value used to identify the callback object is an expression, evaluated at runtime, that identifies a URL to use for the callback operation.
 
 
 
@@ -218,14 +238,16 @@ If an alternative server object is specified at the Path Item Object or Root lev
 
 ### _required
 
-The properties which are required
-by [the spec](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md).
+The properties which are required by [the spec](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md).
 
 ```php
 public static array $_required
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
@@ -237,7 +259,10 @@ Specify the type of the property.
 public static array $_types
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
@@ -249,11 +274,15 @@ Declarative mapping of Annotation types to properties.
 public static array $_nested
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ## Methods
+
 
 ### jsonSerialize
 
@@ -262,6 +291,16 @@ Customize the way json_encode() renders the annotations.
 ```php
 public jsonSerialize(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -273,6 +312,13 @@ Validate annotation tree, and log notices & warnings.
 public validate(array $parents = [], array $skip = [], string $ref = &#039;&#039;): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -281,15 +327,29 @@ public validate(array $parents = [], array $skip = [], string $ref = &#039;&#039
 | `$skip` | **array** | (prevent stack overflow, when traversing an infinite dependency graph) |
 | `$ref` | **string** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(array $properties): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -297,13 +357,25 @@ public __construct(array $properties): mixed
 |-----------|------|-------------|
 | `$properties` | **array** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $property): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -311,13 +383,25 @@ public __get(mixed $property): mixed
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
 
+
+
+
 ***
 
 ### __set
 
+
+
 ```php
 public __set(mixed $property, mixed $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -325,6 +409,9 @@ public __set(mixed $property, mixed $value): mixed
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
@@ -338,12 +425,18 @@ public merge(\OpenApi\Annotations\AbstractAnnotation[] $annotations, bool $ignor
 
 Annotations that couldn't be merged are added to the _unmerged array.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$annotations` | **\OpenApi\Annotations\AbstractAnnotation[]** |  |
 | `$ignore` | **bool** | Ignore unmerged annotations |
+
 
 **Return Value:**
 
@@ -363,11 +456,19 @@ public mergeProperties(object $object): void
 
 Prevents overwriting properties that are already configured.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$object` | **object** |  |
+
+
+
 
 ***
 
@@ -379,11 +480,21 @@ Generate the documentation in YAML format.
 public toYaml(mixed $flags = null): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flags` | **mixed** |  |
+
+
+
 
 ***
 
@@ -395,19 +506,41 @@ Generate the documentation in YAML format.
 public toJson(mixed $flags = null): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flags` | **mixed** |  |
 
+
+
+
 ***
 
 ### __debugInfo
 
+
+
 ```php
 public __debugInfo(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -419,6 +552,16 @@ Customize the way json_encode() renders the annotations.
 public jsonSerialize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### validate
@@ -429,6 +572,13 @@ Validate annotation tree, and log notices & warnings.
 public validate(array $parents = [], array $skip = [], string $ref = &#039;&#039;): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -436,6 +586,9 @@ public validate(array $parents = [], array $skip = [], string $ref = &#039;&#039
 | `$parents` | **array** | the path of annotations above this annotation in the tree |
 | `$skip` | **array** | (prevent stack overflow, when traversing an infinite dependency graph) |
 | `$ref` | **string** |  |
+
+
+
 
 ***
 
@@ -447,7 +600,12 @@ Recursively validate all annotation properties.
 private static _validate(array|object $fields, array $parents, array $skip, string $baseRef): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -457,6 +615,9 @@ private static _validate(array|object $fields, array $parents, array $skip, stri
 | `$parents` | **array** | the path of annotations above this annotation in the tree |
 | `$skip` | **array** | List of objects already validated |
 | `$baseRef` | **string** |  |
+
+
+
 
 ***
 
@@ -488,6 +649,16 @@ An annotation is a root if it is the top-level / outermost annotation in a PHP d
 public isRoot(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### matchNested
@@ -498,13 +669,19 @@ Find matching nested details.
 public static matchNested(string $class): null|object
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** | the class to match |
+
 
 **Return Value:**
 
@@ -522,11 +699,21 @@ Helper for generating the identity().
 protected _identity(array $properties): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$properties` | **array** |  |
+
+
+
 
 ***
 
@@ -538,12 +725,22 @@ Validates the matching of the property value to a annotation type.
 private validateType(string $type, mixed $value): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | The annotations property type |
 | `$value` | **mixed** | The property value |
+
+
+
 
 ***
 
@@ -555,12 +752,22 @@ Validates default Open Api types.
 private validateDefaultTypes(string $type, mixed $value): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | The property type |
 | `$value` | **mixed** | The value to validate |
+
+
+
 
 ***
 
@@ -572,11 +779,21 @@ Validate array type.
 private validateArrayType(mixed $value): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
@@ -588,12 +805,22 @@ Wrap the context with a reference to the annotation it is nested in.
 private nested(\OpenApi\Annotations\AbstractAnnotation $annotation, \OpenApi\Context $nestedContext): \OpenApi\Annotations\AbstractAnnotation
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$annotation` | **\OpenApi\Annotations\AbstractAnnotation** |  |
 | `$nestedContext` | **\OpenApi\Context** |  |
+
+
+
 
 ***
 

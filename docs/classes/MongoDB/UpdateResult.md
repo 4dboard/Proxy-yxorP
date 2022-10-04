@@ -4,39 +4,71 @@
 
 Result class for an update operation.
 
+
+
 * Full name: `\MongoDB\UpdateResult`
+
+
 
 ## Properties
 
+
 ### writeResult
+
+
 
 ```php
 private \MongoDB\Driver\WriteResult $writeResult
 ```
 
+
+
+
+
+
 ***
 
 ### isAcknowledged
+
+
 
 ```php
 private bool $isAcknowledged
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\MongoDB\Driver\WriteResult $writeResult): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$writeResult` | **\MongoDB\Driver\WriteResult** |  |
+
+
+
 
 ***
 
@@ -50,9 +82,16 @@ public getMatchedCount(): int
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\UpdateResult::isAcknowledged() -
+* \MongoDB\UpdateResult::isAcknowledged() - 
 
 ***
 
@@ -69,9 +108,16 @@ operation instead of command.
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\UpdateResult::isAcknowledged() -
+* \MongoDB\UpdateResult::isAcknowledged() - 
 
 ***
 
@@ -85,9 +131,16 @@ public getUpsertedCount(): int
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\UpdateResult::isAcknowledged() -
+* \MongoDB\UpdateResult::isAcknowledged() - 
 
 ***
 
@@ -107,9 +160,16 @@ This value is undefined (i.e. null) if an upsert did not take place.
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\UpdateResult::isAcknowledged() -
+* \MongoDB\UpdateResult::isAcknowledged() - 
 
 ***
 

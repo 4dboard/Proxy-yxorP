@@ -2,10 +2,17 @@
 
 # OverlappingFieldsCanBeMerged
 
+
+
+
+
 * Full name: `\GraphQL\Validator\Rules\OverlappingFieldsCanBeMerged`
 * Parent class: [`\GraphQL\Validator\Rules\ValidationRule`](./ValidationRule.md)
 
+
+
 ## Properties
+
 
 ### comparedFragmentPairs
 
@@ -16,6 +23,11 @@ dramatically improve the performance of this validator.
 ```php
 private \GraphQL\Utils\PairSet $comparedFragmentPairs
 ```
+
+
+
+
+
 
 ***
 
@@ -29,9 +41,15 @@ times, so this improves the performance of this validator.
 private \SplObjectStorage $cachedFieldsAndFragmentNames
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### getVisitor
 
@@ -41,11 +59,21 @@ Returns structure suitable for GraphQL\Language\Visitor
 public getVisitor(\GraphQL\Validator\ValidationContext $context): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
+
+
+
 
 ***
 
@@ -59,6 +87,13 @@ GraphQL Document.
 private findConflictsWithinSelectionSet(\GraphQL\Validator\ValidationContext $context, \GraphQL\Type\Definition\CompositeType $parentType, \GraphQL\Language\AST\SelectionSetNode $selectionSet): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -66,6 +101,9 @@ private findConflictsWithinSelectionSet(\GraphQL\Validator\ValidationContext $co
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
 | `$parentType` | **\GraphQL\Type\Definition\CompositeType** |  |
 | `$selectionSet` | **\GraphQL\Language\AST\SelectionSetNode** |  |
+
+
+
 
 ***
 
@@ -79,6 +117,13 @@ referenced via fragment spreads.
 private getFieldsAndFragmentNames(\GraphQL\Validator\ValidationContext $context, \GraphQL\Type\Definition\CompositeType $parentType, \GraphQL\Language\AST\SelectionSetNode $selectionSet): array|\SplObjectStorage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -86,6 +131,9 @@ private getFieldsAndFragmentNames(\GraphQL\Validator\ValidationContext $context,
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
 | `$parentType` | **\GraphQL\Type\Definition\CompositeType** |  |
 | `$selectionSet` | **\GraphQL\Language\AST\SelectionSetNode** |  |
+
+
+
 
 ***
 
@@ -98,6 +146,13 @@ as well as a list of nested fragment names referenced via fragment spreads.
 private internalCollectFieldsAndFragmentNames(\GraphQL\Validator\ValidationContext $context, \GraphQL\Type\Definition\CompositeType $parentType, \GraphQL\Language\AST\SelectionSetNode $selectionSet, array[][]& $astAndDefs, bool[]& $fragmentNames): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -107,6 +162,9 @@ private internalCollectFieldsAndFragmentNames(\GraphQL\Validator\ValidationConte
 | `$selectionSet` | **\GraphQL\Language\AST\SelectionSetNode** |  |
 | `$astAndDefs` | **array[][]** |  |
 | `$fragmentNames` | **bool[]** |  |
+
+
+
 
 ***
 
@@ -118,6 +176,13 @@ Collect all Conflicts "within" one collection of fields.
 private collectConflictsWithin(\GraphQL\Validator\ValidationContext $context, array[]& $conflicts, array[] $fieldMap): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -125,6 +190,9 @@ private collectConflictsWithin(\GraphQL\Validator\ValidationContext $context, ar
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
 | `$conflicts` | **array[]** |  |
 | `$fieldMap` | **array[]** |  |
+
+
+
 
 ***
 
@@ -137,6 +205,13 @@ comparing their sub-fields.
 private findConflict(\GraphQL\Validator\ValidationContext $context, bool $parentFieldsAreMutuallyExclusive, string $responseName, array $field1, array $field2): array|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -147,13 +222,25 @@ private findConflict(\GraphQL\Validator\ValidationContext $context, bool $parent
 | `$field1` | **array** |  |
 | `$field2` | **array** |  |
 
+
+
+
 ***
 
 ### sameArguments
 
+
+
 ```php
 private sameArguments(\GraphQL\Language\AST\ArgumentNode[] $arguments1, \GraphQL\Language\AST\ArgumentNode[] $arguments2): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -162,13 +249,25 @@ private sameArguments(\GraphQL\Language\AST\ArgumentNode[] $arguments1, \GraphQL
 | `$arguments1` | **\GraphQL\Language\AST\ArgumentNode[]** |  |
 | `$arguments2` | **\GraphQL\Language\AST\ArgumentNode[]** |  |
 
+
+
+
 ***
 
 ### sameValue
 
+
+
 ```php
 private sameValue(\GraphQL\Language\AST\Node $value1, \GraphQL\Language\AST\Node $value2): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -176,6 +275,9 @@ private sameValue(\GraphQL\Language\AST\Node $value1, \GraphQL\Language\AST\Node
 |-----------|------|-------------|
 | `$value1` | **\GraphQL\Language\AST\Node** |  |
 | `$value2` | **\GraphQL\Language\AST\Node** |  |
+
+
+
 
 ***
 
@@ -190,12 +292,20 @@ private doTypesConflict(\GraphQL\Type\Definition\Type $type1, \GraphQL\Type\Defi
 Composite types are ignored as their individual field types will be compared
 later recursively. However List and Non-Null types must match.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type1` | **\GraphQL\Type\Definition\Type** |  |
 | `$type2` | **\GraphQL\Type\Definition\Type** |  |
+
+
+
 
 ***
 
@@ -209,6 +319,13 @@ between the sub-fields of two overlapping fields.
 private findConflictsBetweenSubSelectionSets(\GraphQL\Validator\ValidationContext $context, bool $areMutuallyExclusive, \GraphQL\Type\Definition\CompositeType $parentType1, \GraphQL\Language\AST\SelectionSetNode $selectionSet1, \GraphQL\Type\Definition\CompositeType $parentType2, \GraphQL\Language\AST\SelectionSetNode $selectionSet2): array[]
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -219,6 +336,9 @@ private findConflictsBetweenSubSelectionSets(\GraphQL\Validator\ValidationContex
 | `$selectionSet1` | **\GraphQL\Language\AST\SelectionSetNode** |  |
 | `$parentType2` | **\GraphQL\Type\Definition\CompositeType** |  |
 | `$selectionSet2` | **\GraphQL\Language\AST\SelectionSetNode** |  |
+
+
+
 
 ***
 
@@ -234,6 +354,13 @@ each individual selection set.
 private collectConflictsBetween(\GraphQL\Validator\ValidationContext $context, array[]& $conflicts, bool $parentFieldsAreMutuallyExclusive, array $fieldMap1, array $fieldMap2): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -243,6 +370,9 @@ private collectConflictsBetween(\GraphQL\Validator\ValidationContext $context, a
 | `$parentFieldsAreMutuallyExclusive` | **bool** |  |
 | `$fieldMap1` | **array** |  |
 | `$fieldMap2` | **array** |  |
+
+
+
 
 ***
 
@@ -255,6 +385,13 @@ including via spreading in any nested fragments.
 private collectConflictsBetweenFieldsAndFragment(\GraphQL\Validator\ValidationContext $context, array[]& $conflicts, bool[]& $comparedFragments, bool $areMutuallyExclusive, array[] $fieldMap, string $fragmentName): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -265,6 +402,9 @@ private collectConflictsBetweenFieldsAndFragment(\GraphQL\Validator\ValidationCo
 | `$areMutuallyExclusive` | **bool** |  |
 | `$fieldMap` | **array[]** |  |
 | `$fragmentName` | **string** |  |
+
+
+
 
 ***
 
@@ -277,12 +417,22 @@ as well as a list of nested fragment names referenced via fragment spreads.
 private getReferencedFieldsAndFragmentNames(\GraphQL\Validator\ValidationContext $context, \GraphQL\Language\AST\FragmentDefinitionNode $fragment): array|\SplObjectStorage
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
 | `$fragment` | **\GraphQL\Language\AST\FragmentDefinitionNode** |  |
+
+
+
 
 ***
 
@@ -295,6 +445,13 @@ any nested fragments.
 private collectConflictsBetweenFragments(\GraphQL\Validator\ValidationContext $context, array[]& $conflicts, bool $areMutuallyExclusive, string $fragmentName1, string $fragmentName2): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -304,6 +461,9 @@ private collectConflictsBetweenFragments(\GraphQL\Validator\ValidationContext $c
 | `$areMutuallyExclusive` | **bool** |  |
 | `$fragmentName1` | **string** |  |
 | `$fragmentName2` | **string** |  |
+
+
+
 
 ***
 
@@ -316,6 +476,13 @@ a single Conflict.
 private subfieldConflicts(array[] $conflicts, string $responseName, \GraphQL\Language\AST\FieldNode $ast1, \GraphQL\Language\AST\FieldNode $ast2): array|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -325,15 +492,25 @@ private subfieldConflicts(array[] $conflicts, string $responseName, \GraphQL\Lan
 | `$ast1` | **\GraphQL\Language\AST\FieldNode** |  |
 | `$ast2` | **\GraphQL\Language\AST\FieldNode** |  |
 
+
+
+
 ***
 
 ### fieldsConflictMessage
+
+
 
 ```php
 public static fieldsConflictMessage(string $responseName, string $reason): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -342,15 +519,25 @@ public static fieldsConflictMessage(string $responseName, string $reason): mixed
 | `$responseName` | **string** |  |
 | `$reason` | **string** |  |
 
+
+
+
 ***
 
 ### reasonMessage
+
+
 
 ```php
 public static reasonMessage(mixed $reason): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -358,29 +545,58 @@ public static reasonMessage(mixed $reason): mixed
 |-----------|------|-------------|
 | `$reason` | **mixed** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### getName
+
+
 
 ```php
 public getName(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(\GraphQL\Validator\ValidationContext $context): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
+
+
+
 
 ***
 
@@ -392,15 +608,24 @@ Returns structure suitable for GraphQL\Language\Visitor
 public getVisitor(\GraphQL\Validator\ValidationContext $context): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
 
+
+
 **See Also:**
 
-* \GraphQL\Language\Visitor -
+* \GraphQL\Language\Visitor - 
 
 ***
 
@@ -412,15 +637,24 @@ Returns structure suitable for GraphQL\Language\Visitor
 public getSDLVisitor(\GraphQL\Validator\SDLValidationContext $context): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\SDLValidationContext** |  |
 
+
+
 **See Also:**
 
-* \GraphQL\Language\Visitor -
+* \GraphQL\Language\Visitor - 
 
 ***
 

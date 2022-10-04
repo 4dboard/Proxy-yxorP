@@ -4,41 +4,77 @@
 
 Result class for a single-document insert operation.
 
+
+
 * Full name: `\MongoDB\InsertOneResult`
+
+
 
 ## Properties
 
+
 ### writeResult
+
+
 
 ```php
 private \MongoDB\Driver\WriteResult $writeResult
 ```
 
+
+
+
+
+
 ***
 
 ### insertedId
+
+
 
 ```php
 private mixed $insertedId
 ```
 
+
+
+
+
+
 ***
 
 ### isAcknowledged
+
+
 
 ```php
 private bool $isAcknowledged
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\MongoDB\Driver\WriteResult $writeResult, mixed $insertedId): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -46,6 +82,9 @@ public __construct(\MongoDB\Driver\WriteResult $writeResult, mixed $insertedId):
 |-----------|------|-------------|
 | `$writeResult` | **\MongoDB\Driver\WriteResult** |  |
 | `$insertedId` | **mixed** |  |
+
+
+
 
 ***
 
@@ -59,9 +98,16 @@ public getInsertedCount(): int
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\InsertOneResult::isAcknowledged() -
+* \MongoDB\InsertOneResult::isAcknowledged() - 
 
 ***
 

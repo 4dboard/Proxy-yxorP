@@ -4,7 +4,10 @@
 
 List of available directive locations
 
+
+
 * Full name: `\GraphQL\Language\DirectiveLocation`
+
 
 ## Constants
 
@@ -32,31 +35,48 @@ List of available directive locations
 
 ## Properties
 
+
 ### locations
+
+
 
 ```php
 private static string[] $locations
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ## Methods
 
+
 ### has
+
+
 
 ```php
 public static has(string $name): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
 
 ***
 

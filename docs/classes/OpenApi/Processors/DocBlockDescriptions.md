@@ -9,7 +9,11 @@ as the description.
 
 * Full name: `\OpenApi\Processors\DocBlockDescriptions`
 
+
+
+
 ## Methods
+
 
 ### __invoke
 
@@ -22,39 +26,71 @@ public __invoke(\OpenApi\Analysis $analysis): mixed
 
 Use null `@Annotation(description=null)` if you don't want the annotation to have a description.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$analysis` | **\OpenApi\Analysis** |  |
 
+
+
+
 ***
 
 ### description
+
+
 
 ```php
 private description(mixed $annotation): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$annotation` | **mixed** |  |
+
+
+
 
 ***
 
 ### summaryAndDescription
 
+
+
 ```php
 private summaryAndDescription(mixed $annotation): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$annotation` | **mixed** |  |
+
+
+
 
 ***
 

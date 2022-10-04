@@ -2,7 +2,12 @@
 
 # Config
 
+
+
+
+
 * Full name: `\League\Flysystem\Config`
+
 
 ## Constants
 
@@ -13,21 +18,39 @@
 
 ## Properties
 
+
 ### options
+
+
 
 ```php
 private array $options
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(array $options = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -35,13 +58,25 @@ public __construct(array $options = []): mixed
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### get
 
+
+
 ```php
 public get(string $property, mixed $default = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -50,13 +85,25 @@ public get(string $property, mixed $default = null): mixed
 | `$property` | **string** |  |
 | `$default` | **mixed** |  |
 
+
+
+
 ***
 
 ### extend
 
+
+
 ```php
 public extend(array $options): \League\Flysystem\Config
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -64,19 +111,34 @@ public extend(array $options): \League\Flysystem\Config
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### withDefaults
 
+
+
 ```php
 public withDefaults(array $defaults): \League\Flysystem\Config
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$defaults` | **array** |  |
+
+
+
 
 ***
 

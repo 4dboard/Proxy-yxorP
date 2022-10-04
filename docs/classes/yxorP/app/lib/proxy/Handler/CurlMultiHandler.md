@@ -2,65 +2,124 @@
 
 # curlMultiHandler
 
+
+
+
+
 * Full name: `\yxorP\app\lib\proxy\handler\curlMultiHandler`
+
+
 
 ## Properties
 
+
 ### factory
+
+
 
 ```php
 private $factory
 ```
 
+
+
+
+
+
 ***
 
 ### selectTimeout
+
+
 
 ```php
 private $selectTimeout
 ```
 
+
+
+
+
+
 ***
 
 ### active
+
+
 
 ```php
 private $active
 ```
 
+
+
+
+
+
 ***
 
 ### handles
+
+
 
 ```php
 private $handles
 ```
 
+
+
+
+
+
 ***
 
 ### delays
+
+
 
 ```php
 private $delays
 ```
 
+
+
+
+
+
 ***
 
 ### options
+
+
 
 ```php
 private $options
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(array $options = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -68,13 +127,25 @@ public __construct(array $options = []): mixed
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -82,21 +153,45 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### __destruct
+
+
 
 ```php
 public __destruct(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -105,13 +200,25 @@ public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array
 | `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### cancel
 
+
+
 ```php
 private cancel(mixed $id): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -119,13 +226,25 @@ private cancel(mixed $id): mixed
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
 
+
+
+
 ***
 
 ### addRequest
 
+
+
 ```php
 private addRequest(array $entry): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -133,37 +252,88 @@ private addRequest(array $entry): mixed
 |-----------|------|-------------|
 | `$entry` | **array** |  |
 
+
+
+
 ***
 
 ### execute
+
+
 
 ```php
 public execute(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### timeToNext
+
+
 
 ```php
 private timeToNext(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### tick
+
+
 
 ```php
 public tick(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### processMessages
 
+
+
 ```php
 private processMessages(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

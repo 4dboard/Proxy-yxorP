@@ -2,9 +2,14 @@
 
 # uri
 
+
+
+
+
 * Full name: `\yxorP\app\lib\proxy\psr7\uri`
 * This class implements:
-  [`\yxorP\app\lib\psr\http\message\uriInterface`](../../psr/http/message/uriInterface.md)
+[`\yxorP\app\lib\psr\http\message\uriInterface`](../../psr/http/message/uriInterface.md)
+
 
 ## Constants
 
@@ -14,109 +19,189 @@
 
 ## Properties
 
+
 ### defaultPorts
+
+
 
 ```php
 private static $defaultPorts
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### charUnreserved
 
+
+
 ```php
 private static $charUnreserved
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### charSubDelims
 
+
+
 ```php
 private static $charSubDelims
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### replaceQuery
 
+
+
 ```php
 private static $replaceQuery
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### scheme
 
+
+
 ```php
 private $scheme
 ```
+
+
+
+
+
 
 ***
 
 ### userInfo
 
+
+
 ```php
 private $userInfo
 ```
+
+
+
+
+
 
 ***
 
 ### host
 
+
+
 ```php
 private $host
 ```
+
+
+
+
+
 
 ***
 
 ### port
 
+
+
 ```php
 private $port
 ```
+
+
+
+
+
 
 ***
 
 ### path
 
+
+
 ```php
 private $path
 ```
+
+
+
+
+
 
 ***
 
 ### query
 
+
+
 ```php
 private $query
 ```
+
+
+
+
+
 
 ***
 
 ### fragment
 
+
+
 ```php
 private $fragment
 ```
+
+
+
+
+
 
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $uri = &#039;&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -124,79 +209,129 @@ public __construct(mixed $uri = &#039;&#039;): mixed
 |-----------|------|-------------|
 | `$uri` | **mixed** |  |
 
+
+
+
 ***
 
 ### isDefaultPort
+
+
 
 ```php
 public static isDefaultPort(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+
+
+
 
 ***
 
 ### isAbsolute
 
+
+
 ```php
 public static isAbsolute(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+
+
+
 
 ***
 
 ### isNetworkPathReference
 
+
+
 ```php
 public static isNetworkPathReference(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+
+
+
 
 ***
 
 ### isAbsolutePathReference
 
+
+
 ```php
 public static isAbsolutePathReference(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+
+
+
 
 ***
 
 ### isRelativePathReference
 
+
+
 ```php
 public static isRelativePathReference(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -204,15 +339,25 @@ public static isRelativePathReference(\yxorP\app\lib\psr\http\message\uriInterfa
 |-----------|------|-------------|
 | `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
 
+
+
+
 ***
 
 ### isSameDocumentReference
+
+
 
 ```php
 public static isSameDocumentReference(\yxorP\app\lib\psr\http\message\uriInterface $uri, \yxorP\app\lib\psr\http\message\uriInterface $base = null): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -221,15 +366,25 @@ public static isSameDocumentReference(\yxorP\app\lib\psr\http\message\uriInterfa
 | `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
 | `$base` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
 
+
+
+
 ***
 
 ### removeDotSegments
+
+
 
 ```php
 public static removeDotSegments(mixed $path): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -237,15 +392,25 @@ public static removeDotSegments(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
+
+
+
 ***
 
 ### resolve
+
+
 
 ```php
 public static resolve(\yxorP\app\lib\psr\http\message\uriInterface $base, mixed $rel): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -254,15 +419,25 @@ public static resolve(\yxorP\app\lib\psr\http\message\uriInterface $base, mixed 
 | `$base` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
 | `$rel` | **mixed** |  |
 
+
+
+
 ***
 
 ### withoutQueryValue
+
+
 
 ```php
 public static withoutQueryValue(\yxorP\app\lib\psr\http\message\uriInterface $uri, mixed $key): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -271,15 +446,25 @@ public static withoutQueryValue(\yxorP\app\lib\psr\http\message\uriInterface $ur
 | `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
 | `$key` | **mixed** |  |
 
+
+
+
 ***
 
 ### withQueryValue
+
+
 
 ```php
 public static withQueryValue(\yxorP\app\lib\psr\http\message\uriInterface $uri, mixed $key, mixed $value): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -289,15 +474,25 @@ public static withQueryValue(\yxorP\app\lib\psr\http\message\uriInterface $uri, 
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 
+
+
+
 ***
 
 ### withQueryValues
+
+
 
 ```php
 public static withQueryValues(\yxorP\app\lib\psr\http\message\uriInterface $uri, array $keyValueArray): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -306,15 +501,25 @@ public static withQueryValues(\yxorP\app\lib\psr\http\message\uriInterface $uri,
 | `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
 | `$keyValueArray` | **array** |  |
 
+
+
+
 ***
 
 ### fromParts
+
+
 
 ```php
 public static fromParts(array $parts): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -322,15 +527,25 @@ public static fromParts(array $parts): mixed
 |-----------|------|-------------|
 | `$parts` | **array** |  |
 
+
+
+
 ***
 
 ### composeComponents
+
+
 
 ```php
 public static composeComponents(mixed $scheme, mixed $authority, mixed $path, mixed $query, mixed $fragment): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -342,15 +557,25 @@ public static composeComponents(mixed $scheme, mixed $authority, mixed $path, mi
 | `$query` | **mixed** |  |
 | `$fragment` | **mixed** |  |
 
+
+
+
 ***
 
 ### getFilteredQueryString
+
+
 
 ```php
 private static getFilteredQueryString(\yxorP\app\lib\psr\http\message\uriInterface $uri, array $keys): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -359,15 +584,25 @@ private static getFilteredQueryString(\yxorP\app\lib\psr\http\message\uriInterfa
 | `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
 | `$keys` | **array** |  |
 
+
+
+
 ***
 
 ### generateQueryString
+
+
 
 ```php
 private static generateQueryString(mixed $key, mixed $value): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -375,6 +610,9 @@ private static generateQueryString(mixed $key, mixed $value): mixed
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
@@ -395,6 +633,12 @@ a null value.
 
 If no port is present, but a scheme is present, this method MAY return
 the standard port for that scheme, but SHOULD return null.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -419,6 +663,12 @@ Section 3.1.
 
 The trailing ":" character is not part of the scheme and MUST NOT be
 added.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -447,6 +697,12 @@ The authority syntax of the URI is:
 
 If the port component is not set or is the standard port for the current
 scheme, it SHOULD NOT be included.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -482,6 +738,12 @@ As an example, if the value should include a slash ("/") not intended as
 delimiter between path segments, that value MUST be passed in encoded
 form (e.g., "%2F") to the instance.
 
+
+
+
+
+
+
 **Return Value:**
 
 The URI path.
@@ -511,6 +773,12 @@ As an example, if a value in a key/value pair of the query string should
 include an ampersand ("&") not intended as a delimiter between values,
 that value MUST be passed in encoded form (e.g., "%26") to the instance.
 
+
+
+
+
+
+
 **Return Value:**
 
 The URI query string.
@@ -535,11 +803,17 @@ Implementations ensure the correct encoding as outlined in getQuery().
 
 An empty query string value is equivalent to removing the query string.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$query` | **mixed** | The query string to use with the new instance. |
+
 
 **Return Value:**
 
@@ -574,6 +848,14 @@ using the appropriate delimiters:
 - If a query is present, it MUST be prefixed by "?".
 - If a fragment is present, it MUST be prefixed by "#".
 
+
+
+
+
+
+
+
+
 ***
 
 ### getUserInfo
@@ -593,6 +875,12 @@ user value, with a colon (":") separating the values.
 
 The trailing "@" character is not part of the user information and MUST
 NOT be added.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -614,6 +902,12 @@ If no host is present, this method MUST return an empty string.
 
 The value returned MUST be normalized to lowercase, per RFC 3986
 Section 3.2.2.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -640,6 +934,12 @@ The value returned MUST be percent-encoded, but MUST NOT double-encode
 any characters. To determine what characters to encode, please refer to
 RFC 3986, Sections 2 and 3.5.
 
+
+
+
+
+
+
 **Return Value:**
 
 The URI fragment.
@@ -664,11 +964,17 @@ insensitively, and MAY accommodate other schemes if required.
 
 An empty scheme is equivalent to removing the scheme.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$scheme` | **mixed** | The scheme to use with the new instance. |
+
 
 **Return Value:**
 
@@ -693,12 +999,18 @@ Password is optional, but the user information MUST include the
 user; an empty string for the user is equivalent to removing user
 information.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$user` | **mixed** | The user name to use for authority. |
 | `$password` | **mixed** | The password associated with $user. |
+
 
 **Return Value:**
 
@@ -721,11 +1033,17 @@ an instance that contains the specified host.
 
 An empty host value is equivalent to removing the host.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$host` | **mixed** | The hostname to use with the new instance. |
+
 
 **Return Value:**
 
@@ -752,11 +1070,17 @@ established TCP and UDP port ranges.
 A null value provided for the port is equivalent to removing the port
 information.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$port` | **mixed** | The port to use with the new instance; a null value<br />removes the port information. |
+
 
 **Return Value:**
 
@@ -789,11 +1113,17 @@ consumer.
 Users can provide both encoded and decoded path characters.
 Implementations ensure the correct encoding as outlined in getPath().
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to use with the new instance. |
+
 
 **Return Value:**
 
@@ -819,11 +1149,17 @@ Implementations ensure the correct encoding as outlined in getFragment().
 
 An empty fragment value is equivalent to removing the fragment.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fragment` | **mixed** | The fragment to use with the new instance. |
+
 
 **Return Value:**
 
@@ -835,9 +1171,18 @@ A new instance with the specified fragment.
 
 ### applyParts
 
+
+
 ```php
 private applyParts(array $parts): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -845,13 +1190,25 @@ private applyParts(array $parts): mixed
 |-----------|------|-------------|
 | `$parts` | **array** |  |
 
+
+
+
 ***
 
 ### filterScheme
 
+
+
 ```php
 private filterScheme(mixed $scheme): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -859,13 +1216,25 @@ private filterScheme(mixed $scheme): mixed
 |-----------|------|-------------|
 | `$scheme` | **mixed** |  |
 
+
+
+
 ***
 
 ### filterUserInfoComponent
 
+
+
 ```php
 private filterUserInfoComponent(mixed $component): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -873,13 +1242,25 @@ private filterUserInfoComponent(mixed $component): mixed
 |-----------|------|-------------|
 | `$component` | **mixed** |  |
 
+
+
+
 ***
 
 ### filterHost
 
+
+
 ```php
 private filterHost(mixed $host): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -887,13 +1268,25 @@ private filterHost(mixed $host): mixed
 |-----------|------|-------------|
 | `$host` | **mixed** |  |
 
+
+
+
 ***
 
 ### filterPort
 
+
+
 ```php
 private filterPort(mixed $port): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -901,13 +1294,25 @@ private filterPort(mixed $port): mixed
 |-----------|------|-------------|
 | `$port` | **mixed** |  |
 
+
+
+
 ***
 
 ### filterPath
 
+
+
 ```php
 private filterPath(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -915,13 +1320,25 @@ private filterPath(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
+
+
+
 ***
 
 ### filterQueryAndFragment
 
+
+
 ```php
 private filterQueryAndFragment(mixed $str): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -929,35 +1346,74 @@ private filterQueryAndFragment(mixed $str): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
+
+
+
 ***
 
 ### removeDefaultPort
+
+
 
 ```php
 private removeDefaultPort(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### validateState
+
+
 
 ```php
 private validateState(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### rawurlencodeMatchZero
 
+
+
 ```php
 private rawurlencodeMatchZero(array $match): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$match` | **array** |  |
+
+
+
 
 ***
 

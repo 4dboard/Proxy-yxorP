@@ -8,6 +8,7 @@ Implements RFC 821 SMTP commands and provides some utility methods for sending m
 
 * Full name: `\PHPMailer\PHPMailer\SMTP`
 
+
 ## Constants
 
 | Constant | Visibility | Type | Value |
@@ -25,6 +26,7 @@ Implements RFC 821 SMTP commands and provides some utility methods for sending m
 
 ## Properties
 
+
 ### do_debug
 
 Debug output level.
@@ -34,12 +36,14 @@ public int $do_debug
 ```
 
 Options:
-
 * self::DEBUG_OFF (`0`) No debug output, default
 * self::DEBUG_CLIENT (`1`) Client commands
 * self::DEBUG_SERVER (`2`) Client commands and server responses
 * self::DEBUG_CONNECTION (`3`) As DEBUG_SERVER plus connection status
 * self::DEBUG_LOWLEVEL (`4`) Low-level data output, all messages.
+
+
+
 
 ***
 
@@ -52,11 +56,10 @@ public string|callable|\Psr\Log\LoggerInterface $Debugoutput
 ```
 
 Options:
-
 * `echo` Output plain-text as-is, appropriate for CLI
 * `html` Output escaped, line breaks converted to `<br>`, appropriate for browser output
 * `error_log` Output to error log as configured in php.ini
-  Alternatively, you can provide a callable expecting two params: a message string and the debug level:
+Alternatively, you can provide a callable expecting two params: a message string and the debug level:
 
 ```php
 $smtp->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";};
@@ -69,6 +72,9 @@ level output is used:
 $mail->Debugoutput = new myPsr3Logger;
 ```
 
+
+
+
 ***
 
 ### do_verp
@@ -78,6 +84,10 @@ Whether to use VERP.
 ```php
 public bool $do_verp
 ```
+
+
+
+
 
 **See Also:**
 
@@ -96,9 +106,11 @@ public int $Timeout
 Default of 5 minutes (300sec) is from RFC2821 section 4.5.3.2.
 This needs to be quite high to function correctly with hosts using greetdelay as an anti-spam measure.
 
+
+
 **See Also:**
 
-* http://tools.ietf.org/html/rfc2821#section-4.5.3.2 -
+* http://tools.ietf.org/html/rfc2821#section-4.5.3.2 - 
 
 ***
 
@@ -142,6 +154,11 @@ if one was detected.
 protected string|bool|null $last_smtp_transaction_id
 ```
 
+
+
+
+
+
 ***
 
 ### smtp_conn
@@ -152,6 +169,11 @@ The socket for the server connection.
 protected ?resource $smtp_conn
 ```
 
+
+
+
+
+
 ***
 
 ### error
@@ -161,6 +183,11 @@ Error information, if any, for the last SMTP command.
 ```php
 protected array $error
 ```
+
+
+
+
+
 
 ***
 
@@ -206,9 +233,15 @@ The most recent reply received from the server.
 protected string $last_reply
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### edebug
 
@@ -218,6 +251,13 @@ Output debugging info via a user-selected method.
 protected edebug(string $str, int $level): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -225,9 +265,11 @@ protected edebug(string $str, int $level): mixed
 | `$str` | **string** | Debug string to output |
 | `$level` | **int** | The debug level of this message; see DEBUG_* constants |
 
+
+
 **See Also:**
 
-* \PHPMailer\PHPMailer\SMTP::$Debugoutput - * \PHPMailer\PHPMailer\SMTP::$do_debug -
+* \PHPMailer\PHPMailer\SMTP::$Debugoutput - * \PHPMailer\PHPMailer\SMTP::$do_debug - 
 
 ***
 
@@ -239,6 +281,13 @@ Connect to an SMTP server.
 public connect(string $host, int $port = null, int $timeout = 30, array $options = []): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -247,6 +296,9 @@ public connect(string $host, int $port = null, int $timeout = 30, array $options
 | `$port` | **int** | The port number to connect to |
 | `$timeout` | **int** | How long to wait for the connection to open |
 | `$options` | **array** | An array of options for stream_context_create() |
+
+
+
 
 ***
 
@@ -258,6 +310,13 @@ Create connection to the SMTP server.
 protected getSMTPConnection(string $host, int $port = null, int $timeout = 30, array $options = []): false|resource
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -266,6 +325,9 @@ protected getSMTPConnection(string $host, int $port = null, int $timeout = 30, a
 | `$port` | **int** | The port number to connect to |
 | `$timeout` | **int** | How long to wait for the connection to open |
 | `$options` | **array** | An array of options for stream_context_create() |
+
+
+
 
 ***
 
@@ -276,6 +338,16 @@ Initiate a TLS (encrypted) session.
 ```php
 public startTLS(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -289,6 +361,11 @@ public authenticate(string $username, string $password, string $authtype = null,
 
 Must be run after hello().
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -298,13 +375,15 @@ Must be run after hello().
 | `$authtype` | **string** | The auth type (CRAM-MD5, PLAIN, LOGIN, XOAUTH2) |
 | `$OAuth` | **\PHPMailer\PHPMailer\OAuthTokenProvider** | An optional OAuthTokenProvider instance for XOAUTH2 authentication |
 
+
 **Return Value:**
 
 True if successfully authenticated
 
+
 **See Also:**
 
-* \PHPMailer\PHPMailer\hello() -
+* \PHPMailer\PHPMailer\hello() - 
 
 ***
 
@@ -319,12 +398,20 @@ protected hmac(string $data, string $key): string
 Works like hash_hmac('md5', $data, $key)
 in case that function is not available.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **string** | The data to hash |
 | `$key` | **string** | The key to hash with |
+
+
+
 
 ***
 
@@ -335,6 +422,14 @@ Check connection state.
 ```php
 public connected(): bool
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -354,9 +449,16 @@ public close(): mixed
 
 Don't use this function without first trying to use QUIT.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \PHPMailer\PHPMailer\quit() -
+* \PHPMailer\PHPMailer\quit() - 
 
 ***
 
@@ -375,11 +477,19 @@ on a single line followed by a <CRLF> with the message headers
 and the message body being separated by an additional <CRLF>.
 Implements RFC 821: DATA <CRLF>.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$msg_data` | **string** | Message data to send |
+
+
+
 
 ***
 
@@ -396,11 +506,19 @@ This makes sure that client and server are in a known state.
 Implements RFC 821: HELO <SP> <domain> <CRLF>
 and RFC 2821 EHLO.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$host` | **string** | The host name or IP to connect to |
+
+
+
 
 ***
 
@@ -414,6 +532,11 @@ protected sendHello(string $hello, string $host): bool
 
 Low-level implementation used by hello().
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -421,9 +544,11 @@ Low-level implementation used by hello().
 | `$hello` | **string** | The HELO string |
 | `$host` | **string** | The hostname to say we are |
 
+
+
 **See Also:**
 
-* \PHPMailer\PHPMailer\hello() -
+* \PHPMailer\PHPMailer\hello() - 
 
 ***
 
@@ -437,11 +562,19 @@ protected parseHelloFields(string $type): mixed
 
 In case of HELO, the only parameter that can be discovered is a server name.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | `HELO` or `EHLO` |
+
+
+
 
 ***
 
@@ -459,11 +592,19 @@ the mail transaction is started and then one or more recipient
 commands may be called followed by a data command.
 Implements RFC 821: MAIL <SP> FROM:<reverse-path> <CRLF>.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$from` | **string** | Source address of this message |
+
+
+
 
 ***
 
@@ -478,11 +619,19 @@ public quit(bool $close_on_error = true): bool
 Closes the socket if there is no error or the $close_on_error argument is true.
 Implements from RFC 821: QUIT <CRLF>.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$close_on_error` | **bool** | Should the connection close if an error occurs? |
+
+
+
 
 ***
 
@@ -498,12 +647,20 @@ Sets the TO argument to $toaddr.
 Returns true if the recipient was accepted false if it was rejected.
 Implements from RFC 821: RCPT <SP> TO:<forward-path> <CRLF>.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$address` | **string** | The address the message is being sent to |
 | `$dsn` | **string** | Comma separated list of DSN notifications. NEVER, SUCCESS, FAILURE<br />or DELAY. If you specify NEVER all other notifications are ignored. |
+
+
+
 
 ***
 
@@ -517,6 +674,12 @@ public reset(): bool
 
 Abort any transaction that is currently in progress.
 Implements RFC 821: RSET <CRLF>.
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -534,6 +697,13 @@ Send a command to an SMTP server and check its return code.
 protected sendCommand(string $command, string $commandstring, int|array $expect): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -541,6 +711,7 @@ protected sendCommand(string $command, string $commandstring, int|array $expect)
 | `$command` | **string** | The command name - not sent to the server |
 | `$commandstring` | **string** | The actual command to send |
 | `$expect` | **int&#124;array** | One or more expected integer success codes |
+
 
 **Return Value:**
 
@@ -566,11 +737,19 @@ will send the message to the users terminal if they are logged
 in and send them an email.
 Implements RFC 821: SAML <SP> FROM:<reverse-path> <CRLF>.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$from` | **string** | The address the message is from |
+
+
+
 
 ***
 
@@ -582,11 +761,21 @@ Send an SMTP VRFY command.
 public verify(string $name): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name to verify |
+
+
+
 
 ***
 
@@ -641,12 +830,20 @@ Send raw data to the server.
 public client_send(string $data, string $command = &#039;&#039;): int|bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **string** | The data to send |
 | `$command` | **string** | Optionally, the command this is part of, used only for controlling debug output |
+
 
 **Return Value:**
 
@@ -664,6 +861,16 @@ Get the latest error.
 public getError(): array
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getServerExtList
@@ -673,6 +880,16 @@ Get SMTP extensions available on the server.
 ```php
 public getServerExtList(): array|null
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -685,22 +902,29 @@ public getServerExt(string $name): string|bool|null
 ```
 
 The method works in three ways, dependent on argument value and current state:
-
 1. HELO/EHLO has not been sent - returns null and populates $this->error.
 2. HELO has been sent -
-   $name == 'HELO': returns server name
-   $name == 'EHLO': returns boolean false
-   $name == any other string: returns null and populates $this->error
+  $name == 'HELO': returns server name
+  $name == 'EHLO': returns boolean false
+  $name == any other string: returns null and populates $this->error
 3. EHLO has been sent -
-   $name == 'HELO'|'EHLO': returns the server name
-   $name == any other string: if extension $name exists, returns True
-   or its options (e.g. AUTH mechanisms supported). Otherwise returns False.
+  $name == 'HELO'|'EHLO': returns the server name
+  $name == any other string: if extension $name exists, returns True
+    or its options (e.g. AUTH mechanisms supported). Otherwise returns False.
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Name of SMTP extension or &#039;HELO&#039;&amp;#124;&#039;EHLO&#039; |
+
+
+
 
 ***
 
@@ -711,6 +935,16 @@ Get the last reply from the server.
 ```php
 public getLastReply(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -745,11 +979,21 @@ Enable or disable VERP address generation.
 public setVerp(bool $enabled = false): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$enabled` | **bool** |  |
+
+
+
 
 ***
 
@@ -761,6 +1005,16 @@ Get VERP address generation mode.
 public getVerp(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setError
@@ -771,6 +1025,13 @@ Set error messages and codes.
 protected setError(string $message, string $detail = &#039;&#039;, string $smtp_code = &#039;&#039;, string $smtp_code_ex = &#039;&#039;): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -779,6 +1040,9 @@ protected setError(string $message, string $detail = &#039;&#039;, string $smtp_
 | `$detail` | **string** | Further detail on the error |
 | `$smtp_code` | **string** | An associated SMTP error code |
 | `$smtp_code_ex` | **string** | Extended SMTP code |
+
+
+
 
 ***
 
@@ -790,11 +1054,21 @@ Set debug output method.
 public setDebugOutput(string|callable $method = &#039;echo&#039;): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string&#124;callable** | The name of the mechanism to use for debugging output, or a callable to handle it |
+
+
+
 
 ***
 
@@ -806,6 +1080,16 @@ Get debug output method.
 public getDebugOutput(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setDebugLevel
@@ -816,11 +1100,21 @@ Set debug output level.
 public setDebugLevel(int $level): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int** |  |
+
+
+
 
 ***
 
@@ -832,6 +1126,16 @@ Get debug output level.
 public getDebugLevel(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setTimeout
@@ -842,11 +1146,21 @@ Set SMTP timeout.
 public setTimeout(int $timeout): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$timeout` | **int** | The timeout duration in seconds |
+
+
+
 
 ***
 
@@ -858,6 +1172,16 @@ Get SMTP timeout.
 public getTimeout(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### errorHandler
@@ -868,6 +1192,13 @@ Reports an error number and string.
 protected errorHandler(int $errno, string $errmsg, string $errfile = &#039;&#039;, int $errline): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -876,6 +1207,9 @@ protected errorHandler(int $errno, string $errmsg, string $errfile = &#039;&#039
 | `$errmsg` | **string** | The error message returned by PHP |
 | `$errfile` | **string** | The file the error occurred in |
 | `$errline` | **int** | The line number the error occurred on |
+
+
+
 
 ***
 
@@ -913,9 +1247,16 @@ public getLastTransactionID(): bool|string|null
 
 If no pattern was matched, it will return false.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \PHPMailer\PHPMailer\recordLastTransactionID() -
+* \PHPMailer\PHPMailer\recordLastTransactionID() - 
 
 ***
 

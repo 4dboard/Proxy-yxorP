@@ -12,7 +12,8 @@ More documentation for each option can be found at http://guzzlephp.org/.
 
 **See Also:**
 
-* http://docs.guzzlephp.org/en/v6/request-options.html -
+* http://docs.guzzlephp.org/en/v6/request-options.html - 
+
 
 ## Constants
 
@@ -48,6 +49,9 @@ More documentation for each option can be found at http://guzzlephp.org/.
 |`READ_TIMEOUT`|public| |&#039;read_timeout&#039;|
 |`VERSION`|public| |&#039;version&#039;|
 |`FORCE_IP_RESOLVE`|public| |&#039;force_ip_resolve&#039;|
+
+
+
 
 ***
 

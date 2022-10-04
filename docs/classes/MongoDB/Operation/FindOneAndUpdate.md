@@ -4,14 +4,17 @@
 
 Operation for updating a document with the findAndModify command.
 
+
+
 * Full name: `\MongoDB\Operation\FindOneAndUpdate`
 * This class implements:
-  [`\MongoDB\Operation\Executable`](./Executable.md), [`\MongoDB\Operation\Explainable`](./Explainable.md)
+[`\MongoDB\Operation\Executable`](./Executable.md), [`\MongoDB\Operation\Explainable`](./Explainable.md)
 
 **See Also:**
 
-* \MongoDB\Collection::findOneAndUpdate() -
-* http://docs.mongodb.org/manual/reference/command/findAndModify/ -
+* \MongoDB\Collection::findOneAndUpdate() - 
+* http://docs.mongodb.org/manual/reference/command/findAndModify/ - 
+
 
 ## Constants
 
@@ -22,15 +25,24 @@ Operation for updating a document with the findAndModify command.
 
 ## Properties
 
+
 ### findAndModify
+
+
 
 ```php
 private \MongoDB\Operation\FindAndModify $findAndModify
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -81,6 +93,11 @@ Supported options:
 
 * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -90,6 +107,9 @@ Supported options:
 | `$filter` | **array&#124;object** | Query by which to filter documents |
 | `$update` | **array&#124;object** | Update to apply to the matched document |
 | `$options` | **array** | Command options |
+
+
+
 
 ***
 
@@ -101,15 +121,24 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): array|object|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
+
+
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() -
+* \MongoDB\Operation\Executable::execute() - 
 
 ***
 
@@ -121,15 +150,24 @@ Returns the command document for this operation.
 public getCommandDocument(\MongoDB\Driver\Server $server): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
+
+
 **See Also:**
 
-* \MongoDB\Operation\Explainable::getCommandDocument() -
+* \MongoDB\Operation\Explainable::getCommandDocument() - 
 
 ***
 

@@ -2,34 +2,70 @@
 
 # Api
 
+
+
+
+
 * Full name: `\System\Helper\Api`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
+
+
 ## Properties
 
+
 ### keys
+
+
 
 ```php
 protected array $keys
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### initialize
+
+
 
 ```php
 protected initialize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getKey
 
+
+
 ```php
 public getKey(string $key): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -37,21 +73,45 @@ public getKey(string $key): mixed
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
+
+
+
 ***
 
 ### keys
+
+
 
 ```php
 public keys(): array
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### cache
 
+
+
 ```php
 public cache(bool $persistent = true): array
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -59,15 +119,29 @@ public cache(bool $persistent = true): array
 |-----------|------|-------------|
 | `$persistent` | **bool** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -76,21 +150,45 @@ public __construct(\Lime\App $app, mixed $context = null): mixed
 | `$app` | **\Lime\App** |  |
 | `$context` | **mixed** |  |
 
+
+
+
 ***
 
 ### initialize
+
+
 
 ```php
 protected initialize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -99,13 +197,25 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(mixed $helper): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -113,19 +223,34 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
 
 ***
 

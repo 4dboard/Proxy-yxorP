@@ -4,9 +4,15 @@
 
 Contains functionality that could be re-used by various server implementations
 
+
+
 * Full name: `\GraphQL\Server\Helper`
 
+
+
+
 ## Methods
+
 
 ### parseHttpRequest
 
@@ -28,11 +34,19 @@ calls `parseRequestParams()` to produce actual return value.
 
 For PSR-7 request parsing use `parsePsrRequest()` instead.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$readRawBodyFn` | **?callable** |  |
+
+
+
 
 ***
 
@@ -47,6 +61,11 @@ public parseRequestParams(string $method, array $bodyParams, array $queryParams)
 
 Returned value is a suitable input for `executeOperation` or `executeBatch` (if array)
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -54,6 +73,9 @@ Returned value is a suitable input for `executeOperation` or `executeBatch` (if 
 | `$method` | **string** |  |
 | `$bodyParams` | **array** |  |
 | `$queryParams` | **array** |  |
+
+
+
 
 ***
 
@@ -66,11 +88,21 @@ if params are invalid (or empty array when params are valid)
 public validateOperationParams(\GraphQL\Server\OperationParams $params): array&lt;int,\GraphQL\Server\RequestError&gt;
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$params` | **\GraphQL\Server\OperationParams** |  |
+
+
+
 
 ***
 
@@ -83,12 +115,22 @@ Executes GraphQL operation with given server configuration and returns execution
 public executeOperation(\GraphQL\Server\ServerConfig $config, \GraphQL\Server\OperationParams $op): \GraphQL\Executor\ExecutionResult|\GraphQL\Executor\Promise\Promise
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **\GraphQL\Server\ServerConfig** |  |
 | `$op` | **\GraphQL\Server\OperationParams** |  |
+
+
+
 
 ***
 
@@ -101,6 +143,13 @@ Executes batched GraphQL operations with shared promise queue
 public executeBatch(\GraphQL\Server\ServerConfig $config, \GraphQL\Server\OperationParams[] $operations): \GraphQL\Executor\ExecutionResult|\GraphQL\Executor\ExecutionResult[]|\GraphQL\Executor\Promise\Promise
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -108,13 +157,25 @@ public executeBatch(\GraphQL\Server\ServerConfig $config, \GraphQL\Server\Operat
 | `$config` | **\GraphQL\Server\ServerConfig** |  |
 | `$operations` | **\GraphQL\Server\OperationParams[]** |  |
 
+
+
+
 ***
 
 ### promiseToExecuteOperation
 
+
+
 ```php
 private promiseToExecuteOperation(\GraphQL\Executor\Promise\PromiseAdapter $promiseAdapter, \GraphQL\Server\ServerConfig $config, \GraphQL\Server\OperationParams $op, bool $isBatch = false): \GraphQL\Executor\Promise\Promise
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -125,13 +186,25 @@ private promiseToExecuteOperation(\GraphQL\Executor\Promise\PromiseAdapter $prom
 | `$op` | **\GraphQL\Server\OperationParams** |  |
 | `$isBatch` | **bool** |  |
 
+
+
+
 ***
 
 ### loadPersistedQuery
 
+
+
 ```php
 private loadPersistedQuery(\GraphQL\Server\ServerConfig $config, \GraphQL\Server\OperationParams $operationParams): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -140,14 +213,26 @@ private loadPersistedQuery(\GraphQL\Server\ServerConfig $config, \GraphQL\Server
 | `$config` | **\GraphQL\Server\ServerConfig** |  |
 | `$operationParams` | **\GraphQL\Server\OperationParams** |  |
 
+
+
+
 ***
 
 ### resolveValidationRules
+
+
 
 ```php
 private resolveValidationRules(\GraphQL\Server\ServerConfig $config, \GraphQL\Server\OperationParams $params, \GraphQL\Language\AST\DocumentNode $doc, string $operationType): array|null
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -156,14 +241,26 @@ private resolveValidationRules(\GraphQL\Server\ServerConfig $config, \GraphQL\Se
 | `$params` | **\GraphQL\Server\OperationParams** |  |
 | `$doc` | **\GraphQL\Language\AST\DocumentNode** |  |
 | `$operationType` | **string** |  |
+
+
+
 
 ***
 
 ### resolveRootValue
 
+
+
 ```php
 private resolveRootValue(\GraphQL\Server\ServerConfig $config, \GraphQL\Server\OperationParams $params, \GraphQL\Language\AST\DocumentNode $doc, string $operationType): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -173,14 +270,26 @@ private resolveRootValue(\GraphQL\Server\ServerConfig $config, \GraphQL\Server\O
 | `$params` | **\GraphQL\Server\OperationParams** |  |
 | `$doc` | **\GraphQL\Language\AST\DocumentNode** |  |
 | `$operationType` | **string** |  |
+
+
+
 
 ***
 
 ### resolveContextValue
 
+
+
 ```php
 private resolveContextValue(\GraphQL\Server\ServerConfig $config, \GraphQL\Server\OperationParams $params, \GraphQL\Language\AST\DocumentNode $doc, string $operationType): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -190,6 +299,9 @@ private resolveContextValue(\GraphQL\Server\ServerConfig $config, \GraphQL\Serve
 | `$params` | **\GraphQL\Server\OperationParams** |  |
 | `$doc` | **\GraphQL\Language\AST\DocumentNode** |  |
 | `$operationType` | **string** |  |
+
+
+
 
 ***
 
@@ -201,6 +313,13 @@ Send response using standard PHP `header()` and `echo`.
 public sendResponse(\GraphQL\Executor\Promise\Promise|\GraphQL\Executor\ExecutionResult|\GraphQL\Executor\ExecutionResult[] $result, bool $exitWhenDone = false): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -208,13 +327,25 @@ public sendResponse(\GraphQL\Executor\Promise\Promise|\GraphQL\Executor\Executio
 | `$result` | **\GraphQL\Executor\Promise\Promise&#124;\GraphQL\Executor\ExecutionResult&#124;\GraphQL\Executor\ExecutionResult[]** |  |
 | `$exitWhenDone` | **bool** |  |
 
+
+
+
 ***
 
 ### doSendResponse
 
+
+
 ```php
 private doSendResponse(mixed $result, mixed $exitWhenDone): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -223,13 +354,25 @@ private doSendResponse(mixed $result, mixed $exitWhenDone): mixed
 | `$result` | **mixed** |  |
 | `$exitWhenDone` | **mixed** |  |
 
+
+
+
 ***
 
 ### emitResponse
 
+
+
 ```php
 public emitResponse(array|\JsonSerializable $jsonSerializable, int $httpStatus, bool $exitWhenDone): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -239,27 +382,54 @@ public emitResponse(array|\JsonSerializable $jsonSerializable, int $httpStatus, 
 | `$httpStatus` | **int** |  |
 | `$exitWhenDone` | **bool** |  |
 
+
+
+
 ***
 
 ### readRawBody
+
+
 
 ```php
 private readRawBody(): bool|string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### resolveHttpStatus
 
+
+
 ```php
 private resolveHttpStatus(\GraphQL\Executor\ExecutionResult|array $result): int
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$result` | **\GraphQL\Executor\ExecutionResult&#124;array** |  |
+
+
+
 
 ***
 
@@ -271,19 +441,38 @@ Converts PSR-7 request to OperationParams[]
 public parsePsrRequest(\Psr\Http\Message\RequestInterface $request): \GraphQL\Server\OperationParams[]|\GraphQL\Server\OperationParams
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 
+
+
+
 ***
 
 ### decodeContent
 
+
+
 ```php
 protected decodeContent(string $rawBody, string $contentType): array&lt;string,mixed&gt;
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -291,6 +480,9 @@ protected decodeContent(string $rawBody, string $contentType): array&lt;string,m
 |-----------|------|-------------|
 | `$rawBody` | **string** |  |
 | `$contentType` | **string** |  |
+
+
+
 
 ***
 
@@ -302,6 +494,13 @@ Converts query execution result to PSR-7 response
 public toPsrResponse(\GraphQL\Executor\Promise\Promise|\GraphQL\Executor\ExecutionResult|\GraphQL\Executor\ExecutionResult[] $result, \Psr\Http\Message\ResponseInterface $response, \Psr\Http\Message\StreamInterface $writableBodyStream): \GraphQL\Executor\Promise\Promise|\Psr\Http\Message\ResponseInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -310,13 +509,25 @@ public toPsrResponse(\GraphQL\Executor\Promise\Promise|\GraphQL\Executor\Executi
 | `$response` | **\Psr\Http\Message\ResponseInterface** |  |
 | `$writableBodyStream` | **\Psr\Http\Message\StreamInterface** |  |
 
+
+
+
 ***
 
 ### doConvertToPsrResponse
 
+
+
 ```php
 private doConvertToPsrResponse(mixed $result, \Psr\Http\Message\ResponseInterface $response, \Psr\Http\Message\StreamInterface $writableBodyStream): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -325,6 +536,9 @@ private doConvertToPsrResponse(mixed $result, \Psr\Http\Message\ResponseInterfac
 | `$result` | **mixed** |  |
 | `$response` | **\Psr\Http\Message\ResponseInterface** |  |
 | `$writableBodyStream` | **\Psr\Http\Message\StreamInterface** |  |
+
+
+
 
 ***
 

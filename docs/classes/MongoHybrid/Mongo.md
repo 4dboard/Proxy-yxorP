@@ -2,41 +2,79 @@
 
 # Mongo
 
+
+
+
+
 * Full name: `\MongoHybrid\Mongo`
+
+
 
 ## Properties
 
+
 ### client
+
+
 
 ```php
 protected \MongoDB\Client $client
 ```
 
+
+
+
+
+
 ***
 
 ### db
+
+
 
 ```php
 protected \MongoDB\Database $db
 ```
 
+
+
+
+
+
 ***
 
 ### options
+
+
 
 ```php
 protected array $options
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(string $server, array $options = [], array $driverOptions = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -46,36 +84,72 @@ public __construct(string $server, array $options = [], array $driverOptions = [
 | `$options` | **array** |  |
 | `$driverOptions` | **array** |  |
 
+
+
+
 ***
 
 ### lstCollections
+
+
 
 ```php
 public lstCollections(): array
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getCollection
+
+
 
 ```php
 public getCollection(string $name, ?string $db = null): \MongoDB\Collection
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$db` | **?string** |  |
+
+
+
 
 ***
 
 ### dropCollection
 
+
+
 ```php
 public dropCollection(string $name, ?string $db = null): array|object
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -84,13 +158,25 @@ public dropCollection(string $name, ?string $db = null): array|object
 | `$name` | **string** |  |
 | `$db` | **?string** |  |
 
+
+
+
 ***
 
 ### renameCollection
 
+
+
 ```php
 public renameCollection(string $name, string $newname, ?string $db = null): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -100,13 +186,25 @@ public renameCollection(string $name, string $newname, ?string $db = null): bool
 | `$newname` | **string** |  |
 | `$db` | **?string** |  |
 
+
+
+
 ***
 
 ### findOneById
 
+
+
 ```php
 public findOneById(string $collection, mixed $id): ?array
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -115,13 +213,25 @@ public findOneById(string $collection, mixed $id): ?array
 | `$collection` | **string** |  |
 | `$id` | **mixed** |  |
 
+
+
+
 ***
 
 ### findOne
 
+
+
 ```php
 public findOne(string $collection, ?array $filter = null, ?array $projection = null): ?array
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -131,13 +241,25 @@ public findOne(string $collection, ?array $filter = null, ?array $projection = n
 | `$filter` | **?array** |  |
 | `$projection` | **?array** |  |
 
+
+
+
 ***
 
 ### find
 
+
+
 ```php
 public find(string $collection, array $options = []): \MongoHybrid\ResultSet
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -146,13 +268,25 @@ public find(string $collection, array $options = []): \MongoHybrid\ResultSet
 | `$collection` | **string** |  |
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### aggregate
 
+
+
 ```php
 public aggregate(string $collection, array $pipeline): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -161,13 +295,25 @@ public aggregate(string $collection, array $pipeline): mixed
 | `$collection` | **string** |  |
 | `$pipeline` | **array** |  |
 
+
+
+
 ***
 
 ### getFindTermFilter
 
+
+
 ```php
 public getFindTermFilter(mixed $term): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -175,13 +321,25 @@ public getFindTermFilter(mixed $term): mixed
 |-----------|------|-------------|
 | `$term` | **mixed** |  |
 
+
+
+
 ***
 
 ### insert
 
+
+
 ```php
 public insert(string $collection, array& $doc): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -190,13 +348,25 @@ public insert(string $collection, array& $doc): mixed
 | `$collection` | **string** |  |
 | `$doc` | **array** |  |
 
+
+
+
 ***
 
 ### save
 
+
+
 ```php
 public save(string $collection, array& $data, bool $create = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -206,13 +376,25 @@ public save(string $collection, array& $data, bool $create = false): mixed
 | `$data` | **array** |  |
 | `$create` | **bool** |  |
 
+
+
+
 ***
 
 ### update
 
+
+
 ```php
 public update(string $collection, mixed $criteria, array $data): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -222,13 +404,25 @@ public update(string $collection, mixed $criteria, array $data): mixed
 | `$criteria` | **mixed** |  |
 | `$data` | **array** |  |
 
+
+
+
 ***
 
 ### remove
 
+
+
 ```php
 public remove(string $collection, array $filter = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -237,13 +431,25 @@ public remove(string $collection, array $filter = []): mixed
 | `$collection` | **string** |  |
 | `$filter` | **array** |  |
 
+
+
+
 ***
 
 ### removeField
 
+
+
 ```php
 public removeField(string $collection, string $field, array $filter = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -253,13 +459,25 @@ public removeField(string $collection, string $field, array $filter = []): mixed
 | `$field` | **string** |  |
 | `$filter` | **array** |  |
 
+
+
+
 ***
 
 ### renameField
 
+
+
 ```php
 public renameField(string $collection, string $field, string $newfield, array $filter = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -270,13 +488,25 @@ public renameField(string $collection, string $field, string $newfield, array $f
 | `$newfield` | **string** |  |
 | `$filter` | **array** |  |
 
+
+
+
 ***
 
 ### count
 
+
+
 ```php
 public count(string $collection, ?array $filter = null, array $options = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -286,13 +516,25 @@ public count(string $collection, ?array $filter = null, array $options = []): mi
 | `$filter` | **?array** |  |
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### _fixForMongo
 
+
+
 ```php
 protected _fixForMongo(mixed& $data, bool $infinite = false, int $_level): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -302,19 +544,34 @@ protected _fixForMongo(mixed& $data, bool $infinite = false, int $_level): mixed
 | `$infinite` | **bool** |  |
 | `$_level` | **int** |  |
 
+
+
+
 ***
 
 ### getObjectID
 
+
+
 ```php
 protected getObjectID(mixed $v): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$v` | **mixed** |  |
+
+
+
 
 ***
 

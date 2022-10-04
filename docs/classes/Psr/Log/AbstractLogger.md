@@ -10,10 +10,16 @@ messages regardless of the error level has to implement.
 
 * Full name: `\Psr\Log\AbstractLogger`
 * This class implements:
-  [`\Psr\Log\LoggerInterface`](./LoggerInterface.md)
+[`\Psr\Log\LoggerInterface`](./LoggerInterface.md)
 * This class is an **Abstract class**
 
+
+
+
+
+
 ## Inherited methods
+
 
 ### emergency
 
@@ -23,12 +29,22 @@ System is unusable.
 public emergency(string|\Stringable $message, array $context = []): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string&#124;\Stringable** |  |
 | `$context` | **array** |  |
+
+
+
 
 ***
 
@@ -43,12 +59,20 @@ public alert(string|\Stringable $message, array $context = []): void
 Example: Entire website down, database unavailable, etc. This should
 trigger the SMS alerts and wake you up.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string&#124;\Stringable** |  |
 | `$context` | **array** |  |
+
+
+
 
 ***
 
@@ -62,12 +86,20 @@ public critical(string|\Stringable $message, array $context = []): void
 
 Example: Application component unavailable, unexpected exception.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string&#124;\Stringable** |  |
 | `$context` | **array** |  |
+
+
+
 
 ***
 
@@ -80,12 +112,22 @@ be logged and monitored.
 public error(string|\Stringable $message, array $context = []): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string&#124;\Stringable** |  |
 | `$context` | **array** |  |
+
+
+
 
 ***
 
@@ -100,12 +142,20 @@ public warning(string|\Stringable $message, array $context = []): void
 Example: Use of deprecated APIs, poor use of an API, undesirable things
 that are not necessarily wrong.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string&#124;\Stringable** |  |
 | `$context` | **array** |  |
+
+
+
 
 ***
 
@@ -117,12 +167,22 @@ Normal but significant events.
 public notice(string|\Stringable $message, array $context = []): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string&#124;\Stringable** |  |
 | `$context` | **array** |  |
+
+
+
 
 ***
 
@@ -136,12 +196,20 @@ public info(string|\Stringable $message, array $context = []): void
 
 Example: User logs in, SQL logs.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string&#124;\Stringable** |  |
 | `$context` | **array** |  |
+
+
+
 
 ***
 
@@ -153,12 +221,22 @@ Detailed debug information.
 public debug(string|\Stringable $message, array $context = []): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string&#124;\Stringable** |  |
 | `$context` | **array** |  |
+
+
+
 
 ***
 
@@ -170,7 +248,12 @@ Logs with an arbitrary level.
 public log(mixed $level, string|\Stringable $message, array $context = []): void
 ```
 
+
+
+
 * This method is **abstract**.
+
+
 
 **Parameters:**
 
@@ -179,6 +262,9 @@ public log(mixed $level, string|\Stringable $message, array $context = []): void
 | `$level` | **mixed** |  |
 | `$message` | **string&#124;\Stringable** |  |
 | `$context` | **array** |  |
+
+
+
 
 ***
 

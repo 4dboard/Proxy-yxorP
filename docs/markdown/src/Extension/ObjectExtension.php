@@ -21,16 +21,16 @@ class ObjectExtension extends AbstractExtension
     /**
      * Add an object property.
      *
-     * @param mixed $object
-     * @param string $key
-     * @param mixed $value
+     * @param  mixed  $object
+     * @param  string  $key
+     * @param  mixed  $value
      *
      * @return mixed
      * @throws RuntimeError
      */
     public function addProperty($object, string $key, $value)
     {
-        if (!is_object($object)) {
+        if ( ! is_object($object)) {
             throw new RuntimeError('The add_property function only accepts objects.');
         }
 

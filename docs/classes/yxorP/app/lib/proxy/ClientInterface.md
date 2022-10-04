@@ -2,7 +2,12 @@
 
 # clientInterface
 
+
+
+
+
 * Full name: `\yxorP\app\lib\proxy\clientInterface`
+
 
 ## Constants
 
@@ -12,26 +17,48 @@
 
 ## Methods
 
+
 ### send
+
+
 
 ```php
 public send(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options = []): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
+
+
+
 
 ***
 
 ### sendAsync
 
+
+
 ```php
 public sendAsync(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -40,14 +67,26 @@ public sendAsync(\yxorP\app\lib\psr\http\message\requestInterface $request, arra
 | `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### request
+
+
 
 ```php
 public request(mixed $method, mixed $uri, array $options = []): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -55,14 +94,26 @@ public request(mixed $method, mixed $uri, array $options = []): mixed
 | `$method` | **mixed** |  |
 | `$uri` | **mixed** |  |
 | `$options` | **array** |  |
+
+
+
 
 ***
 
 ### requestAsync
 
+
+
 ```php
 public requestAsync(mixed $method, mixed $uri, array $options = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -72,19 +123,34 @@ public requestAsync(mixed $method, mixed $uri, array $options = []): mixed
 | `$uri` | **mixed** |  |
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### getConfig
 
+
+
 ```php
 public getConfig(mixed $option = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **mixed** |  |
+
+
+
 
 ***
 

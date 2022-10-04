@@ -2,41 +2,75 @@
 
 # OutputFormatterStyleStack
 
+
+
+
+
 * Full name: `\Symfony\Component\Console\Formatter\OutputFormatterStyleStack`
 * This class implements:
-  [`\Symfony\Contracts\Service\ResetInterface`](../../../Contracts/Service/ResetInterface.md)
+[`\Symfony\Contracts\Service\ResetInterface`](../../../Contracts/Service/ResetInterface.md)
+
+
 
 ## Properties
 
+
 ### styles
+
+
 
 ```php
 private \Symfony\Component\Console\Formatter\OutputFormatterStyleInterface[] $styles
 ```
 
+
+
+
+
+
 ***
 
 ### emptyStyle
+
+
 
 ```php
 private $emptyStyle
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface $emptyStyle = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$emptyStyle` | **\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface** |  |
+
+
+
 
 ***
 
@@ -48,6 +82,16 @@ Resets stack (ie. empty internal arrays).
 public reset(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### push
@@ -58,11 +102,21 @@ Pushes a style in the stack.
 public push(\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface $style): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$style` | **\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface** |  |
+
+
+
 
 ***
 
@@ -74,11 +128,21 @@ Pops a style from the stack.
 public pop(\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface $style = null): \Symfony\Component\Console\Formatter\OutputFormatterStyleInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$style` | **\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface** |  |
+
+
+
 
 ***
 
@@ -90,13 +154,32 @@ Computes current style with stacks top codes.
 public getCurrent(): \Symfony\Component\Console\Formatter\OutputFormatterStyle
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setEmptyStyle
 
+
+
 ```php
 public setEmptyStyle(\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface $emptyStyle): $this
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -104,13 +187,28 @@ public setEmptyStyle(\Symfony\Component\Console\Formatter\OutputFormatterStyleIn
 |-----------|------|-------------|
 | `$emptyStyle` | **\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface** |  |
 
+
+
+
 ***
 
 ### getEmptyStyle
 
+
+
 ```php
 public getEmptyStyle(): \Symfony\Component\Console\Formatter\OutputFormatterStyleInterface
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

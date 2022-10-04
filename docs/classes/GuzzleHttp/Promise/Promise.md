@@ -4,71 +4,128 @@
 
 Promises/A+ implementation that avoids recursion when possible.
 
+
+
 * Full name: `\GuzzleHttp\Promise\Promise`
 * This class implements:
-  [`\GuzzleHttp\Promise\PromiseInterface`](./PromiseInterface.md)
+[`\GuzzleHttp\Promise\PromiseInterface`](./PromiseInterface.md)
 
 **See Also:**
 
-* https://promisesaplus.com/ -
+* https://promisesaplus.com/ - 
+
+
 
 ## Properties
 
+
 ### state
+
+
 
 ```php
 private $state
 ```
 
+
+
+
+
+
 ***
 
 ### result
+
+
 
 ```php
 private $result
 ```
 
+
+
+
+
+
 ***
 
 ### cancelFn
+
+
 
 ```php
 private $cancelFn
 ```
 
+
+
+
+
+
 ***
 
 ### waitFn
+
+
 
 ```php
 private $waitFn
 ```
 
+
+
+
+
+
 ***
 
 ### waitList
+
+
 
 ```php
 private $waitList
 ```
 
+
+
+
+
+
 ***
 
 ### handlers
+
+
 
 ```php
 private $handlers
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(callable $waitFn = null, callable $cancelFn = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -76,6 +133,9 @@ public __construct(callable $waitFn = null, callable $cancelFn = null): mixed
 |-----------|------|-------------|
 | `$waitFn` | **callable** | Fn that when invoked resolves the promise. |
 | `$cancelFn` | **callable** | Fn that when invoked cancels the promise. |
+
+
+
 
 ***
 
@@ -88,12 +148,22 @@ a new promise resolving to the return value of the called handler.
 public then(callable $onFulfilled = null, callable $onRejected = null): \GuzzleHttp\Promise\PromiseInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$onFulfilled` | **callable** | Invoked when the promise fulfills. |
 | `$onRejected` | **callable** | Invoked when the promise is rejected. |
+
+
+
 
 ***
 
@@ -108,11 +178,21 @@ fulfilled.
 public otherwise(callable $onRejected): \GuzzleHttp\Promise\PromiseInterface
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$onRejected` | **callable** | Invoked when the promise is rejected. |
+
+
+
 
 ***
 
@@ -129,11 +209,19 @@ returning the resolved value or throwing the rejected exception.
 
 If the promise cannot be waited on, then the promise will be rejected.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$unwrap` | **mixed** |  |
+
+
+
 
 ***
 
@@ -166,6 +254,16 @@ Cancels the promise if possible.
 public cancel(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### resolve
@@ -176,11 +274,21 @@ Resolve the promise with the given value.
 public resolve(mixed $value): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
@@ -192,19 +300,38 @@ Reject the promise with the given reason.
 public reject(mixed $reason): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reason` | **mixed** |  |
 
+
+
+
 ***
 
 ### settle
 
+
+
 ```php
 private settle(mixed $state, mixed $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -212,6 +339,9 @@ private settle(mixed $state, mixed $value): mixed
 |-----------|------|-------------|
 | `$state` | **mixed** |  |
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
@@ -223,7 +353,12 @@ Call a stack of handlers using a specific callback index and value.
 private static callHandler(int $index, mixed $value, array $handler): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -233,29 +368,68 @@ private static callHandler(int $index, mixed $value, array $handler): mixed
 | `$value` | **mixed** | Value to pass to the callback. |
 | `$handler` | **array** | Array of handler data (promise and callbacks). |
 
+
+
+
 ***
 
 ### waitIfPending
+
+
 
 ```php
 private waitIfPending(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### invokeWaitFn
+
+
 
 ```php
 private invokeWaitFn(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### invokeWaitList
 
+
+
 ```php
 private invokeWaitList(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

@@ -2,9 +2,17 @@
 
 # BlockString
 
+
+
+
+
 * Full name: `\GraphQL\Utils\BlockString`
 
+
+
+
 ## Methods
+
 
 ### value
 
@@ -19,27 +27,43 @@ This implements the GraphQL spec's BlockStringValue() static algorithm.
 
 * This method is **static**.
 
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rawString` | **mixed** |  |
 
+
+
+
 ***
 
 ### leadingWhitespace
+
+
 
 ```php
 private static leadingWhitespace(mixed $str): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
+
+
+
 
 ***
 

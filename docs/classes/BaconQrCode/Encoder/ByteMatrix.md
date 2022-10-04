@@ -4,11 +4,16 @@
 
 Byte matrix.
 
+
+
 * Full name: `\BaconQrCode\Encoder\ByteMatrix`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
+
+
 ## Properties
+
 
 ### bytes
 
@@ -17,6 +22,11 @@ Bytes in the matrix, represented as array.
 ```php
 private \SplFixedArray&lt;\SplFixedArray&lt;int&gt;&gt; $bytes
 ```
+
+
+
+
+
 
 ***
 
@@ -28,6 +38,11 @@ Width of the matrix.
 private int $width
 ```
 
+
+
+
+
+
 ***
 
 ### height
@@ -38,15 +53,30 @@ Height of the matrix.
 private int $height
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(int $width, int $height): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -54,6 +84,9 @@ public __construct(int $width, int $height): mixed
 |-----------|------|-------------|
 | `$width` | **int** |  |
 | `$height` | **int** |  |
+
+
+
 
 ***
 
@@ -65,6 +98,16 @@ Gets the width of the matrix.
 public getWidth(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getHeight
@@ -74,6 +117,16 @@ Gets the height of the matrix.
 ```php
 public getHeight(): int
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -85,13 +138,35 @@ Gets the internal representation of the matrix.
 public getArray(): \SplFixedArray&lt;\SplFixedArray&lt;int&gt;&gt;
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getBytes
 
+
+
 ```php
 public getBytes(): \Traversable&lt;int&gt;
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -103,12 +178,22 @@ Gets the byte for a specific position.
 public get(int $x, int $y): int
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$x` | **int** |  |
 | `$y` | **int** |  |
+
+
+
 
 ***
 
@@ -120,6 +205,13 @@ Sets the byte for a specific position.
 public set(int $x, int $y, int $value): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -127,6 +219,9 @@ public set(int $x, int $y, int $value): void
 | `$x` | **int** |  |
 | `$y` | **int** |  |
 | `$value` | **int** |  |
+
+
+
 
 ***
 
@@ -138,19 +233,41 @@ Clears the matrix with a specific value.
 public clear(int $value): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **int** |  |
 
+
+
+
 ***
 
 ### __clone
 
+
+
 ```php
 public __clone(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -161,6 +278,16 @@ Returns a string representation of the matrix.
 ```php
 public __toString(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

@@ -4,29 +4,47 @@
 
 It's a class that's used to dispatch events.
 
+
+
 * Full name: `\yxorP\app\lib\yP`
+
+
 
 ## Properties
 
+
 ### instance
+
+
 
 ```php
 private static ?\yxorP\app\lib\yP $instance
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### listeners
 
+
+
 ```php
 private array $listeners
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -36,6 +54,13 @@ It's looping through all the events in the `init()` function and dispatching the
 public __construct(string $root, array|null $request = null): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -43,17 +68,26 @@ public __construct(string $root, array|null $request = null): mixed
 | `$root` | **string** |  |
 | `$request` | **array&#124;null** |  |
 
+
+
+
 ***
 
 ### loadActions
+
+
 
 ```php
 final public static loadActions(): void
 ```
 
+
+
 * This method is **static**.
 
 * This method is **final**.
+
+
 
 **Return Value:**
 
@@ -73,15 +107,21 @@ requiring it.
 final protected static autoLoader(string $root): void
 ```
 
+
+
 * This method is **static**.
 
 * This method is **final**.
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **string** |  |
+
+
+
 
 ***
 
@@ -93,7 +133,12 @@ This function adds a listener to the listeners array
 final public addListener(string $event, object $callback): void
 ```
 
+
+
+
+
 * This method is **final**.
+
 
 **Parameters:**
 
@@ -101,6 +146,7 @@ final public addListener(string $event, object $callback): void
 |-----------|------|-------------|
 | `$event` | **string** |  |
 | `$callback` | **object** |  |
+
 
 **Return Value:**
 
@@ -112,15 +158,25 @@ The priority of the listener. Higher priority listeners are called before lower 
 
 ### init
 
+
+
 ```php
 private init(?array $request): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **?array** |  |
+
 
 **Return Value:**
 
@@ -139,12 +195,22 @@ class exists in the yxorP namespace, if it does, it creates an instance of it
 private subscribe(string $root, string $action): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **string** |  |
 | `$action` | **string** |  |
+
+
+
 
 ***
 
@@ -157,29 +223,48 @@ passing the `self::$instance` object to it
 private addSubscriber(object $subscriber): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subscriber` | **object** |  |
 
+
+
+
 ***
 
 ### dispatch
 
-The function is checking if there are any listeners for the event, and if there are, it's looping through them and
-calling
+The function is checking if there are any listeners for the event, and if there are, it's looping through them and calling
 them.
 
 ```php
 private dispatch(string $event_name): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$event_name` | **string** |  |
+
+
+
 
 ***
 

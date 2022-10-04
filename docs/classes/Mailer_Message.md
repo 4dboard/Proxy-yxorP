@@ -2,25 +2,49 @@
 
 # Mailer_Message
 
+
+
+
+
 * Full name: `\Mailer_Message`
+
+
 
 ## Properties
 
+
 ### mail
+
+
 
 ```php
 public $mail
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\PHPMailer\PHPMailer\PHPMailer $mail): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -28,13 +52,25 @@ public __construct(\PHPMailer\PHPMailer\PHPMailer $mail): mixed
 |-----------|------|-------------|
 | `$mail` | **\PHPMailer\PHPMailer\PHPMailer** |  |
 
+
+
+
 ***
 
 ### setCharset
 
+
+
 ```php
 public setCharset(string $charset): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -42,13 +78,25 @@ public setCharset(string $charset): void
 |-----------|------|-------------|
 | `$charset` | **string** |  |
 
+
+
+
 ***
 
 ### setSubject
 
+
+
 ```php
 public setSubject(string $subject): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -56,13 +104,25 @@ public setSubject(string $subject): void
 |-----------|------|-------------|
 | `$subject` | **string** |  |
 
+
+
+
 ***
 
 ### setFrom
 
+
+
 ```php
 public setFrom(string $email, ?string $name = null): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -71,28 +131,52 @@ public setFrom(string $email, ?string $name = null): void
 | `$email` | **string** |  |
 | `$name` | **?string** |  |
 
+
+
+
 ***
 
 ### addReplyTo
+
+
 
 ```php
 public addReplyTo(string $email, string $name = &#039;&#039;): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$email` | **string** |  |
 | `$name` | **string** |  |
+
+
+
 
 ***
 
 ### addTo
 
+
+
 ```php
 public addTo(string $email, string $name = &#039;&#039;): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -100,14 +184,26 @@ public addTo(string $email, string $name = &#039;&#039;): void
 |-----------|------|-------------|
 | `$email` | **string** |  |
 | `$name` | **string** |  |
+
+
+
 
 ***
 
 ### addCC
 
+
+
 ```php
 public addCC(string $email, string $name = &#039;&#039;): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -116,21 +212,45 @@ public addCC(string $email, string $name = &#039;&#039;): void
 | `$email` | **string** |  |
 | `$name` | **string** |  |
 
+
+
+
 ***
 
 ### send
+
+
 
 ```php
 public send(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### attach
 
+
+
 ```php
 public attach(mixed $file, string $alias = &#039;&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -138,6 +258,9 @@ public attach(mixed $file, string $alias = &#039;&#039;): mixed
 |-----------|------|-------------|
 | `$file` | **mixed** |  |
 | `$alias` | **string** |  |
+
+
+
 
 ***
 

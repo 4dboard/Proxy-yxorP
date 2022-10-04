@@ -2,11 +2,16 @@
 
 # EllipticArc
 
+
+
+
+
 * Full name: `\BaconQrCode\Renderer\Path\EllipticArc`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-  [`\BaconQrCode\Renderer\Path\OperationInterface`](./OperationInterface.md)
+[`\BaconQrCode\Renderer\Path\OperationInterface`](./OperationInterface.md)
 * This class is a **Final class**
+
 
 ## Constants
 
@@ -16,69 +21,129 @@
 
 ## Properties
 
+
 ### xRadius
+
+
 
 ```php
 private float $xRadius
 ```
 
+
+
+
+
+
 ***
 
 ### yRadius
+
+
 
 ```php
 private float $yRadius
 ```
 
+
+
+
+
+
 ***
 
 ### xAxisAngle
+
+
 
 ```php
 private float $xAxisAngle
 ```
 
+
+
+
+
+
 ***
 
 ### largeArc
+
+
 
 ```php
 private bool $largeArc
 ```
 
+
+
+
+
+
 ***
 
 ### sweep
+
+
 
 ```php
 private bool $sweep
 ```
 
+
+
+
+
+
 ***
 
 ### x
+
+
 
 ```php
 private float $x
 ```
 
+
+
+
+
+
 ***
 
 ### y
+
+
 
 ```php
 private float $y
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(float $xRadius, float $yRadius, float $xAxisAngle, bool $largeArc, bool $sweep, float $x, float $y): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -92,61 +157,148 @@ public __construct(float $xRadius, float $yRadius, float $xAxisAngle, bool $larg
 | `$x` | **float** |  |
 | `$y` | **float** |  |
 
+
+
+
 ***
 
 ### getXRadius
+
+
 
 ```php
 public getXRadius(): float
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getYRadius
+
+
 
 ```php
 public getYRadius(): float
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getXAxisAngle
+
+
 
 ```php
 public getXAxisAngle(): float
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isLargeArc
+
+
 
 ```php
 public isLargeArc(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isSweep
+
+
 
 ```php
 public isSweep(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getX
+
+
 
 ```php
 public getX(): float
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getY
 
+
+
 ```php
 public getY(): float
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -158,12 +310,22 @@ Translates the operation's coordinates.
 public translate(float $x, float $y): self
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$x` | **float** |  |
 | `$y` | **float** |  |
+
+
+
 
 ***
 
@@ -178,6 +340,11 @@ public toCurves(float $fromX, float $fromY): (\BaconQrCode\Renderer\Path\Curve|\
 Since not all image back ends support elliptic arcs, this method allows to convert the arc into multiple curves
 resembling the same result.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -185,17 +352,28 @@ resembling the same result.
 | `$fromX` | **float** |  |
 | `$fromY` | **float** |  |
 
+
+
 **See Also:**
 
-* https://mortoray.com/2017/02/16/rendering-an-svg-elliptical-arc-as-bezier-curves/ -
+* https://mortoray.com/2017/02/16/rendering-an-svg-elliptical-arc-as-bezier-curves/ - 
 
 ***
 
 ### createCurves
 
+
+
 ```php
 private createCurves(float $fromX, mixed $fromY): \BaconQrCode\Renderer\Path\Curve[]
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -204,13 +382,25 @@ private createCurves(float $fromX, mixed $fromY): \BaconQrCode\Renderer\Path\Cur
 | `$fromX` | **float** |  |
 | `$fromY` | **mixed** |  |
 
+
+
+
 ***
 
 ### calculateCenterPointParameters
 
+
+
 ```php
 private calculateCenterPointParameters(float $fromX, float $fromY, float $xAngle): float[]
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -220,15 +410,25 @@ private calculateCenterPointParameters(float $fromX, float $fromY, float $xAngle
 | `$fromY` | **float** |  |
 | `$xAngle` | **float** |  |
 
+
+
+
 ***
 
 ### angle
+
+
 
 ```php
 private static angle(float $ux, float $uy, float $vx, float $vy): float
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -239,15 +439,25 @@ private static angle(float $ux, float $uy, float $vx, float $vy): float
 | `$vx` | **float** |  |
 | `$vy` | **float** |  |
 
+
+
+
 ***
 
 ### point
+
+
 
 ```php
 private static point(float $centerX, float $centerY, float $radiusX, float $radiusY, float $xAngle, float $angle): float[]
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -260,15 +470,25 @@ private static point(float $centerX, float $centerY, float $radiusX, float $radi
 | `$xAngle` | **float** |  |
 | `$angle` | **float** |  |
 
+
+
+
 ***
 
 ### derivative
+
+
 
 ```php
 private static derivative(float $radiusX, float $radiusY, float $xAngle, float $angle): float[]
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -278,6 +498,9 @@ private static derivative(float $radiusX, float $radiusY, float $xAngle, float $
 | `$radiusY` | **float** |  |
 | `$xAngle` | **float** |  |
 | `$angle` | **float** |  |
+
+
+
 
 ***
 

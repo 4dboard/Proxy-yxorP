@@ -10,65 +10,109 @@ associative array of curl option constants mapping to values in the
 
 * Full name: `\GuzzleHttp\Handler\CurlMultiHandler`
 
+
+
 ## Properties
 
+
 ### factory
+
+
 
 ```php
 private \GuzzleHttp\Handler\CurlFactoryInterface $factory
 ```
 
+
+
+
+
+
 ***
 
 ### selectTimeout
+
+
 
 ```php
 private int $selectTimeout
 ```
 
+
+
+
+
+
 ***
 
 ### active
+
+
 
 ```php
 private int $active
 ```
 
+
+
+
+
+
 ***
 
 ### handles
+
+
 
 ```php
 private array $handles
 ```
 
+
+
+
+
 **See Also:**
 
-* \GuzzleHttp\Handler\CurlMultiHandler::addRequest -
+* \GuzzleHttp\Handler\CurlMultiHandler::addRequest - 
 
 ***
 
 ### delays
 
+
+
 ```php
 private array&lt;int,float&gt; $delays
 ```
 
+
+
+
+
 **See Also:**
 
-* \GuzzleHttp\Handler\CurlMultiHandler::addRequest -
+* \GuzzleHttp\Handler\CurlMultiHandler::addRequest - 
 
 ***
 
 ### options
 
+
+
 ```php
 private array $options
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -78,11 +122,16 @@ This handler accepts the following options:
 public __construct(array $options = []): mixed
 ```
 
-- handle_factory: An optional factory used to create curl handles
+- handle_factory: An optional factory  used to create curl handles
 - select_timeout: Optional timeout (in seconds) to block before timing
   out while selecting curl handles. Defaults to 1 second.
 - options: An associative array of CURLMOPT_* options and
   corresponding values for curl_multi_setopt()
+
+
+
+
+
 
 **Parameters:**
 
@@ -90,13 +139,25 @@ public __construct(array $options = []): mixed
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(string $name): resource|\CurlMultiHandle
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -104,21 +165,45 @@ public __get(string $name): resource|\CurlMultiHandle
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
+
+
+
 ***
 
 ### __destruct
+
+
 
 ```php
 public __destruct(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(\Psr\Http\Message\RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -126,6 +211,9 @@ public __invoke(\Psr\Http\Message\RequestInterface $request, array $options): \G
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** |  |
+
+
+
 
 ***
 
@@ -137,6 +225,16 @@ Ticks the curl event loop.
 public tick(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### execute
@@ -147,19 +245,41 @@ Runs until all outstanding connections have completed.
 public execute(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### addRequest
 
+
+
 ```php
 private addRequest(array $entry): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$entry` | **array** |  |
+
+
+
 
 ***
 
@@ -171,11 +291,19 @@ Cancels a handle from sending and removes references to it.
 private cancel(int $id): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **int** | Handle ID to cancel and remove. |
+
 
 **Return Value:**
 
@@ -187,17 +315,41 @@ True on success, false on failure.
 
 ### processMessages
 
+
+
 ```php
 private processMessages(): void
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
 ### timeToNext
 
+
+
 ```php
 private timeToNext(): int
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

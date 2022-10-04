@@ -12,55 +12,94 @@ Example:
 
 class OddType extends ScalarType
 {
-public $name = 'Odd',
-public function serialize($value)
-{
-return $value % 2 === 1 ? $value : null;
-}
+    public $name = 'Odd',
+    public function serialize($value)
+    {
+        return $value % 2 === 1 ? $value : null;
+    }
 }
 
 * Full name: `\GraphQL\Type\Definition\IDType`
 * Parent class: [`\GraphQL\Type\Definition\ScalarType`](./ScalarType.md)
 
+
+
 ## Properties
 
+
 ### name
+
+
 
 ```php
 public string $name
 ```
 
+
+
+
+
+
 ***
 
 ### description
+
+
 
 ```php
 public string $description
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### serialize
+
+
 
 ```php
 public serialize(mixed $value): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
 ### parseValue
 
+
+
 ```php
 public parseValue(mixed $value): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -68,13 +107,25 @@ public parseValue(mixed $value): string
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
+
+
+
 ***
 
 ### parseLiteral
 
+
+
 ```php
 public parseLiteral(\GraphQL\Language\AST\Node $valueNode, array|null $variables = null): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -83,15 +134,29 @@ public parseLiteral(\GraphQL\Language\AST\Node $valueNode, array|null $variables
 | `$valueNode` | **\GraphQL\Language\AST\Node** |  |
 | `$variables` | **array&#124;null** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(array $config = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -99,65 +164,125 @@ public __construct(array $config = []): mixed
 |-----------|------|-------------|
 | `$config` | **array** |  |
 
+
+
+
 ***
 
 ### id
+
+
 
 ```php
 public static id(): \GraphQL\Type\Definition\ScalarType
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
 ### string
 
+
+
 ```php
 public static string(): \GraphQL\Type\Definition\ScalarType
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
 ### boolean
 
+
+
 ```php
 public static boolean(): \GraphQL\Type\Definition\ScalarType
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
 ### int
 
+
+
 ```php
 public static int(): \GraphQL\Type\Definition\ScalarType
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
 ### float
 
+
+
 ```php
 public static float(): \GraphQL\Type\Definition\ScalarType
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
 ### listOf
 
+
+
 ```php
 public static listOf(\GraphQL\Type\Definition\Type $wrappedType): \GraphQL\Type\Definition\ListOfType
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -165,21 +290,34 @@ public static listOf(\GraphQL\Type\Definition\Type $wrappedType): \GraphQL\Type\
 |-----------|------|-------------|
 | `$wrappedType` | **\GraphQL\Type\Definition\Type** |  |
 
+
+
+
 ***
 
 ### nonNull
+
+
 
 ```php
 public static nonNull(callable|\GraphQL\Type\Definition\NullableType $wrappedType): \GraphQL\Type\Definition\NonNull
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$wrappedType` | **callable&#124;\GraphQL\Type\Definition\NullableType** |  |
+
+
+
 
 ***
 
@@ -191,13 +329,21 @@ Checks if the type is a builtin type
 public static isBuiltInType(\GraphQL\Type\Definition\Type $type): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **\GraphQL\Type\Definition\Type** |  |
+
+
+
 
 ***
 
@@ -210,7 +356,15 @@ introspection types
 public static getAllBuiltInTypes(): \GraphQL\Type\Definition\Type[]
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -222,30 +376,54 @@ Returns all builtin scalar types
 public static getStandardTypes(): \GraphQL\Type\Definition\ScalarType[]
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
 ### getInternalTypes
 
+
+
 ```php
 public static getInternalTypes(): \GraphQL\Type\Definition\Type[]
 ```
+
+
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
+
+
+
+
+
 ***
 
 ### overrideStandardTypes
+
+
 
 ```php
 public static overrideStandardTypes(array&lt;string,\GraphQL\Type\Definition\ScalarType&gt; $types): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -253,95 +431,155 @@ public static overrideStandardTypes(array&lt;string,\GraphQL\Type\Definition\Sca
 |-----------|------|-------------|
 | `$types` | **array<string,\GraphQL\Type\Definition\ScalarType>** |  |
 
+
+
+
 ***
 
 ### isInputType
+
+
 
 ```php
 public static isInputType(\GraphQL\Type\Definition\Type $type): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **\GraphQL\Type\Definition\Type** |  |
+
+
+
 
 ***
 
 ### getNamedType
 
+
+
 ```php
 public static getNamedType(\GraphQL\Type\Definition\Type $type): ?\GraphQL\Type\Definition\Type
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **\GraphQL\Type\Definition\Type** |  |
+
+
+
 
 ***
 
 ### isOutputType
 
+
+
 ```php
 public static isOutputType(\GraphQL\Type\Definition\Type $type): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **\GraphQL\Type\Definition\Type** |  |
+
+
+
 
 ***
 
 ### isLeafType
 
+
+
 ```php
 public static isLeafType(\GraphQL\Type\Definition\Type $type): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **\GraphQL\Type\Definition\Type** |  |
+
+
+
 
 ***
 
 ### isCompositeType
 
+
+
 ```php
 public static isCompositeType(\GraphQL\Type\Definition\Type $type): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **\GraphQL\Type\Definition\Type** |  |
+
+
+
 
 ***
 
 ### isAbstractType
 
+
+
 ```php
 public static isAbstractType(\GraphQL\Type\Definition\Type $type): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -349,15 +587,25 @@ public static isAbstractType(\GraphQL\Type\Definition\Type $type): bool
 |-----------|------|-------------|
 | `$type` | **\GraphQL\Type\Definition\Type** |  |
 
+
+
+
 ***
 
 ### assertType
+
+
 
 ```php
 public static assertType(mixed $type): \GraphQL\Type\Definition\Type
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -365,15 +613,25 @@ public static assertType(mixed $type): \GraphQL\Type\Definition\Type
 |-----------|------|-------------|
 | `$type` | **mixed** |  |
 
+
+
+
 ***
 
 ### getNullableType
+
+
 
 ```php
 public static getNullableType(\GraphQL\Type\Definition\Type $type): \GraphQL\Type\Definition\Type
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -381,45 +639,108 @@ public static getNullableType(\GraphQL\Type\Definition\Type $type): \GraphQL\Typ
 |-----------|------|-------------|
 | `$type` | **\GraphQL\Type\Definition\Type** |  |
 
+
+
+
 ***
 
 ### assertValid
+
+
 
 ```php
 public assertValid(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### jsonSerialize
+
+
 
 ```php
 public jsonSerialize(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### toString
+
+
 
 ```php
 public toString(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __toString
+
+
 
 ```php
 public __toString(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### tryInferName
 
+
+
 ```php
 protected tryInferName(): string|null
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 

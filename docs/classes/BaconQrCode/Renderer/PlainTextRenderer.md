@@ -2,11 +2,16 @@
 
 # PlainTextRenderer
 
+
+
+
+
 * Full name: `\BaconQrCode\Renderer\PlainTextRenderer`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-  [`\BaconQrCode\Renderer\RendererInterface`](./RendererInterface.md)
+[`\BaconQrCode\Renderer\RendererInterface`](./RendererInterface.md)
 * This class is a **Final class**
+
 
 ## Constants
 
@@ -19,21 +24,39 @@
 
 ## Properties
 
+
 ### margin
+
+
 
 ```php
 private int $margin
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(int $margin = 2): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -41,19 +64,34 @@ public __construct(int $margin = 2): mixed
 |-----------|------|-------------|
 | `$margin` | **int** |  |
 
+
+
+
 ***
 
 ### render
 
+
+
 ```php
 public render(\BaconQrCode\Encoder\QrCode $qrCode): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$qrCode` | **\BaconQrCode\Encoder\QrCode** |  |
+
+
+
 
 ***
 

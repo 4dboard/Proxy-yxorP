@@ -4,26 +4,39 @@
 
 Operation for the ListDatabases command.
 
+
+
 * Full name: `\MongoDB\Operation\ListDatabases`
 * This class implements:
-  [`\MongoDB\Operation\Executable`](./Executable.md)
+[`\MongoDB\Operation\Executable`](./Executable.md)
 
 **See Also:**
 
-* \MongoDB\Client::listDatabases() -
-* http://docs.mongodb.org/manual/reference/command/ListDatabases/ -
+* \MongoDB\Client::listDatabases() - 
+* http://docs.mongodb.org/manual/reference/command/ListDatabases/ - 
+
+
 
 ## Properties
 
+
 ### listDatabases
+
+
 
 ```php
 private \MongoDB\Command\ListDatabases $listDatabases
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -47,11 +60,19 @@ Supported options:
 
 * session (MongoDB\Driver\Session): Client session.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** | Command options |
+
+
+
 
 ***
 
@@ -63,15 +84,24 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): \MongoDB\Model\DatabaseInfoIterator
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
+
+
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() -
+* \MongoDB\Operation\Executable::execute() - 
 
 ***
 

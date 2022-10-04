@@ -4,35 +4,62 @@
 
 Client object.
 
+
+
 * Full name: `\MongoLite\Client`
+
+
 
 ## Properties
 
+
 ### databases
+
+
 
 ```php
 protected array $databases
 ```
 
+
+
+
+
+
 ***
 
 ### path
+
+
 
 ```php
 protected string $path
 ```
 
+
+
+
+
+
 ***
 
 ### options
+
+
 
 ```php
 protected array $options
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -42,12 +69,22 @@ Constructor
 public __construct(string $path, array $options = []): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | - Pathname to database file or :memory: |
 | `$options` | **array** |  |
+
+
+
 
 ***
 
@@ -58,6 +95,14 @@ List Databases
 ```php
 public listDBs(): array
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -75,12 +120,22 @@ Select Collection
 public selectCollection(string $database, string $collection): \MongoLite\Collection
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$database` | **string** |  |
 | `$collection` | **string** |  |
+
+
+
 
 ***
 
@@ -92,25 +147,47 @@ Select database
 public selectDB(string $name): \MongoLite\Database
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $database): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$database` | **mixed** |  |
+
+
+
 
 ***
 

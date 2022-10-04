@@ -2,9 +2,14 @@
 
 # QuerySecurityRule
 
+
+
+
+
 * Full name: `\GraphQL\Validator\Rules\QuerySecurityRule`
 * Parent class: [`\GraphQL\Validator\Rules\ValidationRule`](./ValidationRule.md)
 * This class is an **Abstract class**
+
 
 ## Constants
 
@@ -14,15 +19,24 @@
 
 ## Properties
 
+
 ### fragments
+
+
 
 ```php
 private \GraphQL\Language\AST\FragmentDefinitionNode[] $fragments
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### checkIfGreaterOrEqualToZero
 
@@ -32,6 +46,13 @@ check if equal to 0 no check is done. Must be greater or equal to 0.
 protected checkIfGreaterOrEqualToZero(string $name, int $value): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -39,13 +60,25 @@ protected checkIfGreaterOrEqualToZero(string $name, int $value): mixed
 | `$name` | **string** |  |
 | `$value` | **int** |  |
 
+
+
+
 ***
 
 ### getFragment
 
+
+
 ```php
 protected getFragment(\GraphQL\Language\AST\FragmentSpreadNode $fragmentSpread): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -53,21 +86,45 @@ protected getFragment(\GraphQL\Language\AST\FragmentSpreadNode $fragmentSpread):
 |-----------|------|-------------|
 | `$fragmentSpread` | **\GraphQL\Language\AST\FragmentSpreadNode** |  |
 
+
+
+
 ***
 
 ### getFragments
+
+
 
 ```php
 protected getFragments(): \GraphQL\Language\AST\FragmentDefinitionNode[]
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### invokeIfNeeded
 
+
+
 ```php
 protected invokeIfNeeded(\GraphQL\Validator\ValidationContext $context, callable[] $validators): callable[]
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -76,29 +133,54 @@ protected invokeIfNeeded(\GraphQL\Validator\ValidationContext $context, callable
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
 | `$validators` | **callable[]** |  |
 
+
+
+
 ***
 
 ### isEnabled
+
+
 
 ```php
 protected isEnabled(): mixed
 ```
 
+
+
+
 * This method is **abstract**.
+
+
+
+
+
 
 ***
 
 ### gatherFragmentDefinition
 
+
+
 ```php
 protected gatherFragmentDefinition(\GraphQL\Validator\ValidationContext $context): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
+
+
+
 
 ***
 
@@ -115,6 +197,11 @@ Note: This is not the same as execution's collectFields because at static
 time we do not know what object type will be used, so we unconditionally
 spread in all fragments.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -125,17 +212,28 @@ spread in all fragments.
 | `$visitedFragmentNames` | **?\ArrayObject** |  |
 | `$astAndDefs` | **?\ArrayObject** |  |
 
+
+
 **See Also:**
 
-* \GraphQL\Validator\Rules\OverlappingFieldsCanBeMerged -
+* \GraphQL\Validator\Rules\OverlappingFieldsCanBeMerged - 
 
 ***
 
 ### getFieldName
 
+
+
 ```php
 protected getFieldName(\GraphQL\Language\AST\FieldNode $node): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -143,29 +241,58 @@ protected getFieldName(\GraphQL\Language\AST\FieldNode $node): mixed
 |-----------|------|-------------|
 | `$node` | **\GraphQL\Language\AST\FieldNode** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### getName
+
+
 
 ```php
 public getName(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(\GraphQL\Validator\ValidationContext $context): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
+
+
+
 
 ***
 
@@ -177,15 +304,24 @@ Returns structure suitable for GraphQL\Language\Visitor
 public getVisitor(\GraphQL\Validator\ValidationContext $context): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\ValidationContext** |  |
 
+
+
 **See Also:**
 
-* \GraphQL\Language\Visitor -
+* \GraphQL\Language\Visitor - 
 
 ***
 
@@ -197,15 +333,24 @@ Returns structure suitable for GraphQL\Language\Visitor
 public getSDLVisitor(\GraphQL\Validator\SDLValidationContext $context): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\GraphQL\Validator\SDLValidationContext** |  |
 
+
+
 **See Also:**
 
-* \GraphQL\Language\Visitor -
+* \GraphQL\Language\Visitor - 
 
 ***
 

@@ -4,7 +4,10 @@
 
 Utility class for Github actions.
 
+
+
 * Full name: `\Symfony\Component\Console\CI\GithubActionReporter`
+
 
 ## Constants
 
@@ -15,21 +18,39 @@ Utility class for Github actions.
 
 ## Properties
 
+
 ### output
+
+
 
 ```php
 private $output
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\Symfony\Component\Console\Output\OutputInterface $output): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -37,15 +58,28 @@ public __construct(\Symfony\Component\Console\Output\OutputInterface $output): m
 |-----------|------|-------------|
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
 
+
+
+
 ***
 
 ### isGithubActionEnvironment
+
+
 
 ```php
 public static isGithubActionEnvironment(): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -57,6 +91,13 @@ Output an error using the Github annotations format.
 public error(string $message, string $file = null, int $line = null, int $col = null): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -66,10 +107,11 @@ public error(string $message, string $file = null, int $line = null, int $col = 
 | `$line` | **int** |  |
 | `$col` | **int** |  |
 
+
+
 **See Also:**
 
-* https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-error-message
-  -
+* https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-error-message - 
 
 ***
 
@@ -81,6 +123,13 @@ Output a warning using the Github annotations format.
 public warning(string $message, string $file = null, int $line = null, int $col = null): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -90,10 +139,11 @@ public warning(string $message, string $file = null, int $line = null, int $col 
 | `$line` | **int** |  |
 | `$col` | **int** |  |
 
+
+
 **See Also:**
 
-* https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-a-warning-message
-  -
+* https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-a-warning-message - 
 
 ***
 
@@ -105,6 +155,13 @@ Output a debug log using the Github annotations format.
 public debug(string $message, string $file = null, int $line = null, int $col = null): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -114,18 +171,28 @@ public debug(string $message, string $file = null, int $line = null, int $col = 
 | `$line` | **int** |  |
 | `$col` | **int** |  |
 
+
+
 **See Also:**
 
-* https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-a-debug-message
-  -
+* https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-a-debug-message - 
 
 ***
 
 ### log
 
+
+
 ```php
 private log(string $type, string $message, string $file = null, int $line = null, int $col = null): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -136,6 +203,9 @@ private log(string $type, string $message, string $file = null, int $line = null
 | `$file` | **string** |  |
 | `$line` | **int** |  |
 | `$col` | **int** |  |
+
+
+
 
 ***
 

@@ -2,11 +2,16 @@
 
 # EpsImageBackEnd
 
+
+
+
+
 * Full name: `\BaconQrCode\Renderer\Image\EpsImageBackEnd`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-  [`\BaconQrCode\Renderer\Image\ImageBackEndInterface`](./ImageBackEndInterface.md)
+[`\BaconQrCode\Renderer\Image\ImageBackEndInterface`](./ImageBackEndInterface.md)
 * This class is a **Final class**
+
 
 ## Constants
 
@@ -16,15 +21,24 @@
 
 ## Properties
 
+
 ### eps
+
+
 
 ```php
 private string|null $eps
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### new
 
@@ -36,12 +50,20 @@ public new(int $size, \BaconQrCode\Renderer\Color\ColorInterface $backgroundColo
 
 If a previous image was already started, previous data get erased.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$size` | **int** |  |
 | `$backgroundColor` | **\BaconQrCode\Renderer\Color\ColorInterface** |  |
+
+
+
 
 ***
 
@@ -53,11 +75,21 @@ Transforms all following drawing operation coordinates by scaling them by a give
 public scale(float $size): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$size` | **float** |  |
+
+
+
 
 ***
 
@@ -69,12 +101,22 @@ Transforms all following drawing operation coordinates by translating them by a 
 public translate(float $x, float $y): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$x` | **float** |  |
 | `$y` | **float** |  |
+
+
+
 
 ***
 
@@ -86,11 +128,21 @@ Transforms all following drawing operation coordinates by rotating them by a giv
 public rotate(int $degrees): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$degrees` | **int** |  |
+
+
+
 
 ***
 
@@ -102,6 +154,16 @@ Pushes the current coordinate transformation onto a stack.
 public push(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### pop
@@ -111,6 +173,16 @@ Pops the last coordinate transformation from a stack.
 ```php
 public pop(): void
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -122,12 +194,22 @@ Draws a path with a given color.
 public drawPathWithColor(\BaconQrCode\Renderer\Path\Path $path, \BaconQrCode\Renderer\Color\ColorInterface $color): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **\BaconQrCode\Renderer\Path\Path** |  |
 | `$color` | **\BaconQrCode\Renderer\Color\ColorInterface** |  |
+
+
+
 
 ***
 
@@ -139,6 +221,13 @@ Draws a path with a given gradient which spans the box described by the position
 public drawPathWithGradient(\BaconQrCode\Renderer\Path\Path $path, \BaconQrCode\Renderer\RendererStyle\Gradient $gradient, float $x, float $y, float $width, float $height): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -149,6 +238,9 @@ public drawPathWithGradient(\BaconQrCode\Renderer\Path\Path $path, \BaconQrCode\
 | `$y` | **float** |  |
 | `$width` | **float** |  |
 | `$height` | **float** |  |
+
+
+
 
 ***
 
@@ -174,9 +266,18 @@ This should reset the state of the back end and thus this method should only be 
 
 ### drawPathOperations
 
+
+
 ```php
 private drawPathOperations(iterable $ops, mixed& $fromX, mixed& $fromY): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -186,13 +287,25 @@ private drawPathOperations(iterable $ops, mixed& $fromX, mixed& $fromY): string
 | `$fromX` | **mixed** |  |
 | `$fromY` | **mixed** |  |
 
+
+
+
 ***
 
 ### createGradientFill
 
+
+
 ```php
 private createGradientFill(\BaconQrCode\Renderer\RendererStyle\Gradient $gradient, float $x, float $y, float $width, float $height): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -204,33 +317,60 @@ private createGradientFill(\BaconQrCode\Renderer\RendererStyle\Gradient $gradien
 | `$width` | **float** |  |
 | `$height` | **float** |  |
 
+
+
+
 ***
 
 ### getColorSetString
+
+
 
 ```php
 private getColorSetString(\BaconQrCode\Renderer\Color\ColorInterface $color): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$color` | **\BaconQrCode\Renderer\Color\ColorInterface** |  |
+
+
+
 
 ***
 
 ### getColorString
 
+
+
 ```php
 private getColorString(\BaconQrCode\Renderer\Color\ColorInterface $color): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$color` | **\BaconQrCode\Renderer\Color\ColorInterface** |  |
+
+
+
 
 ***
 
