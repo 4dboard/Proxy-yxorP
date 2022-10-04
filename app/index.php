@@ -24,7 +24,7 @@ date_default_timezone_set('UTC');
 
 define('APP_START_TIME', microtime(true));
 define('APP_ADMIN', true);
-
+exit(1);
 // bootstrap app
 require(__DIR__ . '/bootstrap.php');
 
