@@ -354,7 +354,6 @@ class helpers
          */
         define(YXORP_SITE_SYSTEM_INSTALL, true);
 
-        exit('1');
         /**
          * It's copying the files from the `local` directory to the `APP` directory.
          */
@@ -372,6 +371,7 @@ class helpers
          */
         define('YXORP_SITE_DOMAIN', domain::domain_host());
 
+        exit('1');
 
         /**
          * Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method.
