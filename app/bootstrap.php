@@ -68,7 +68,7 @@ function DotEnvParse(string $str, bool $expand = true): array {
             $str = str_replace('${'.$key.'}', $value, $str);
         }
 
-        $vars = self::parse($str, false);
+        $vars = DotEnvParse($str, false);
     }
 
     return $vars;
