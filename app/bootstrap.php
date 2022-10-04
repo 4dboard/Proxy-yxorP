@@ -18,7 +18,7 @@ DotEnv::load(APP_DIR);
  * Autoload from lib folder (PSR-0)
  */
 spl_autoload_register(function($class) {
-    $class_path = __DIR__.'/lib/'.str_replace('\\', '/', $class).'.php';
+    $class_path = __DIR__.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.str_replace('\\', DIRECTORY_SEPARATOR, $class).'.php';
     if (file_exists($class_path)) include_once($class_path);
 });
 
