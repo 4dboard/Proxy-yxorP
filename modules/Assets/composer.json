@@ -1,0 +1,11 @@
+{
+    "require": {
+        "ksubileau/color-thief-php": "^2.0"
+    },
+
+    "config": {
+        "vendor-dir": "lib/vendor",
+        "optimize-autoloader": true,
+        "lock": false
+    }
+}
