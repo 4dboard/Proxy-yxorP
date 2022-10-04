@@ -24,7 +24,7 @@ class Cockpit
 
     protected static $instance = [];
 
-    public static function instance(?string $envDir = null, array $config = []): Lime\App
+    public static function instance(?string $envDir = null, array $config = []): mixed
     {
 
         if (!$envDir) {
@@ -38,7 +38,7 @@ class Cockpit
         return static::$instance[$envDir];
     }
 
-    protected static function init(?string $envDir = null, array $config = []): Lime\App
+    protected static function init(?string $envDir = null, array $config = []): mixed
     {
 
         $appDir = APP_DIR;
