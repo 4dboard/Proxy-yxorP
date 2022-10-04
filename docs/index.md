@@ -2302,7 +2302,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`seekException`](./classes/yxorP/app/lib/proxy/exception/seekException.md) | |
 | [`serverException`](./classes/yxorP/app/lib/proxy/exception/serverException.md) | |
 | [`tooManyRedirectsException`](./classes/yxorP/app/lib/proxy/exception/tooManyRedirectsException.md) | |
-| [`transferExceptionInterface`](./classes/yxorP/app/lib/proxy/exception/transferExceptionInterface.md) | |
+| [`transferException`](./classes/yxorP/app/lib/proxy/exception/transferException.md) | |
 
 #### Interfaces
 

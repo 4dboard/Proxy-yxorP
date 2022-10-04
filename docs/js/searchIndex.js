@@ -4821,10 +4821,10 @@ Search.appendIndex(
         "summary": "",
         "url": "classes/yxorP-app-lib-proxy-exception-tooManyRedirectsException.html"
     }, {
-        "fqsen": "\\yxorP\\app\\lib\\proxy\\exception\\transferExceptionInterface",
-        "name": "transferExceptionInterface",
+        "fqsen": "\\yxorP\\app\\lib\\proxy\\exception\\transferException",
+        "name": "transferException",
         "summary": "",
-        "url": "classes/yxorP-app-lib-proxy-exception-transferExceptionInterface.html"
+        "url": "classes/yxorP-app-lib-proxy-exception-transferException.html"
     }, {
         "fqsen": "\\yxorP\\app\\lib\\proxy\\uri_template\u0028\u0029",
         "name": "uri_template",

@@ -3,7 +3,7 @@
 # aRequestException
 
 * Full name: `\yxorP\app\lib\proxy\exception\aRequestException`
-* Parent class: [`\yxorP\app\lib\proxy\exception\transferExceptionInterface`](./transferExceptionInterface.md)
+* Parent class: [`\yxorP\app\lib\proxy\exception\transferException`](./transferException.md)
 
 ## Properties
 
