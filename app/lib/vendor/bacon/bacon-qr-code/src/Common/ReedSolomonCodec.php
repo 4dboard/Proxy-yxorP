@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BaconQrCode\Common;
 
@@ -98,7 +98,8 @@ final class ReedSolomonCodec
         int $primitive,
         int $numRoots,
         int $padding
-    ) {
+    )
+    {
         if ($symbolSize < 0 || $symbolSize > 8) {
             throw new InvalidArgumentException('Symbol size must be between 0 and 8');
         }
@@ -131,7 +132,7 @@ final class ReedSolomonCodec
 
         for ($i = 0; $i < $this->blockSize; ++$i) {
             $this->indexOf[$sr] = $i;
-            $this->alphaTo[$i]  = $sr;
+            $this->alphaTo[$i] = $sr;
 
             $sr <<= 1;
 
@@ -165,9 +166,7 @@ final class ReedSolomonCodec
 
             for ($j = $i; $j > 0; $j--) {
                 if ($this->generatorPoly[$j] !== 0) {
-                    $this->generatorPoly[$j] = $this->generatorPoly[$j - 1] ^ $this->alphaTo[
-                        $this->modNn($this->indexOf[$this->generatorPoly[$j]] + $root)
-                    ];
+                    $this->generatorPoly[$j] = $this->generatorPoly[$j - 1] ^ $this->alphaTo[$this->modNn($this->indexOf[$this->generatorPoly[$j]] + $root)];
                 } else {
                     $this->generatorPoly[$j] = $this->generatorPoly[$j - 1];
                 }
@@ -183,9 +182,22 @@ final class ReedSolomonCodec
     }
 
     /**
+     * Computes $x % GF_SIZE, where GF_SIZE is 2**GF_BITS - 1, without a slow divide.
+     */
+    private function modNn(int $x): int
+    {
+        while ($x >= $this->blockSize) {
+            $x -= $this->blockSize;
+            $x = ($x >> $this->symbolSize) + ($x & $this->blockSize);
+        }
+
+        return $x;
+    }
+
+    /**
      * Encodes data and writes result back into parity array.
      */
-    public function encode(SplFixedArray $data, SplFixedArray $parity) : void
+    public function encode(SplFixedArray $data, SplFixedArray $parity): void
     {
         for ($i = 0; $i < $this->numRoots; ++$i) {
             $parity[$i] = 0;
@@ -201,9 +213,7 @@ final class ReedSolomonCodec
                 $feedback = $this->modNn($this->blockSize - $this->generatorPoly[$this->numRoots] + $feedback);
 
                 for ($j = 1; $j < $this->numRoots; ++$j) {
-                    $parity[$j] = $parity[$j] ^ $this->alphaTo[
-                        $this->modNn($feedback + $this->generatorPoly[$this->numRoots - $j])
-                    ];
+                    $parity[$j] = $parity[$j] ^ $this->alphaTo[$this->modNn($feedback + $this->generatorPoly[$this->numRoots - $j])];
                 }
             }
 
@@ -222,7 +232,7 @@ final class ReedSolomonCodec
     /**
      * Decodes received data.
      */
-    public function decode(SplFixedArray $data, SplFixedArray $erasures = null) : ?int
+    public function decode(SplFixedArray $data, SplFixedArray $erasures = null): ?int
     {
         // This speeds up the initialization a bit.
         $numRootsPlusOne = SplFixedArray::fromArray(array_fill(0, $this->numRoots + 1, 0), false);
@@ -245,9 +255,7 @@ final class ReedSolomonCodec
                 if ($syndromes[$j] === 0) {
                     $syndromes[$j] = $data[$i];
                 } else {
-                    $syndromes[$j] = $data[$i] ^ $this->alphaTo[
-                        $this->modNn($this->indexOf[$syndromes[$j]] + ($this->firstRoot + $j) * $this->primitive)
-                    ];
+                    $syndromes[$j] = $data[$i] ^ $this->alphaTo[$this->modNn($this->indexOf[$syndromes[$j]] + ($this->firstRoot + $j) * $this->primitive)];
                 }
             }
         }
@@ -260,7 +268,7 @@ final class ReedSolomonCodec
             $syndromes[$i] = $this->indexOf[$syndromes[$i]];
         }
 
-        if (! $syndromeError) {
+        if (!$syndromeError) {
             // If syndrome is zero, data[] is a codeword and there are no errors to correct, so return data[]
             // unmodified.
             return 0;
@@ -290,7 +298,7 @@ final class ReedSolomonCodec
         }
 
         // Begin Berlekamp-Massey algorithm to determine error+erasure locator polynomial
-        $r  = $numErasures;
+        $r = $numErasures;
         $el = $numErasures;
 
         while (++$r <= $this->numRoots) {
@@ -299,9 +307,7 @@ final class ReedSolomonCodec
 
             for ($i = 0; $i < $r; ++$i) {
                 if ($lambda[$i] !== 0 && $syndromes[$r - $i - 1] !== $this->blockSize) {
-                    $discrepancyR ^= $this->alphaTo[
-                        $this->modNn($this->indexOf[$lambda[$i]] + $syndromes[$r - $i - 1])
-                    ];
+                    $discrepancyR ^= $this->alphaTo[$this->modNn($this->indexOf[$lambda[$i]] + $syndromes[$r - $i - 1])];
                 }
             }
 
@@ -330,7 +336,7 @@ final class ReedSolomonCodec
 
                 for ($i = 0; $i <= $this->numRoots; ++$i) {
                     $b[$i] = (
-                        $lambda[$i] === 0
+                    $lambda[$i] === 0
                         ? $this->blockSize
                         : $this->modNn($this->indexOf[$lambda[$i]] - $discrepancyR + $this->blockSize)
                     );
@@ -419,7 +425,7 @@ final class ReedSolomonCodec
             }
 
             $num2 = $this->alphaTo[$this->modNn($root[$j] * ($this->firstRoot - 1) + $this->blockSize)];
-            $den  = 0;
+            $den = 0;
 
             // lambda[i+1] for i even is the formal derivativelambda_pr of lambda[i]
             for ($i = min($degLambda, $this->numRoots - 1) & ~1; $i >= 0; $i -= 2) {
@@ -431,12 +437,10 @@ final class ReedSolomonCodec
             // Apply error to data
             if ($num1 !== 0 && $loc[$j] >= $this->padding) {
                 $data[$loc[$j] - $this->padding] = $data[$loc[$j] - $this->padding] ^ (
-                    $this->alphaTo[
-                        $this->modNn(
-                            $this->indexOf[$num1] + $this->indexOf[$num2] + $this->blockSize - $this->indexOf[$den]
-                        )
-                    ]
-                );
+                    $this->alphaTo[$this->modNn(
+                        $this->indexOf[$num1] + $this->indexOf[$num2] + $this->blockSize - $this->indexOf[$den]
+                    )]
+                    );
             }
         }
 
@@ -451,18 +455,5 @@ final class ReedSolomonCodec
         }
 
         return $count;
-    }
-
-    /**
-     * Computes $x % GF_SIZE, where GF_SIZE is 2**GF_BITS - 1, without a slow divide.
-     */
-    private function modNn(int $x) : int
-    {
-        while ($x >= $this->blockSize) {
-            $x -= $this->blockSize;
-            $x = ($x >> $this->symbolSize) + ($x & $this->blockSize);
-        }
-
-        return $x;
     }
 }

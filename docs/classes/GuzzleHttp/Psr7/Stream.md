@@ -4,12 +4,9 @@
 
 PHP stream implementation.
 
-
-
 * Full name: `\GuzzleHttp\Psr7\Stream`
 * This class implements:
-[`\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
-
+  [`\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
 
 ## Constants
 
@@ -20,114 +17,63 @@ PHP stream implementation.
 
 ## Properties
 
-
 ### stream
-
-
 
 ```php
 private resource $stream
 ```
 
-
-
-
-
-
 ***
 
 ### size
-
-
 
 ```php
 private int|null $size
 ```
 
-
-
-
-
-
 ***
 
 ### seekable
-
-
 
 ```php
 private bool $seekable
 ```
 
-
-
-
-
-
 ***
 
 ### readable
-
-
 
 ```php
 private bool $readable
 ```
 
-
-
-
-
-
 ***
 
 ### writable
-
-
 
 ```php
 private bool $writable
 ```
 
-
-
-
-
-
 ***
 
 ### uri
-
-
 
 ```php
 private string|null $uri
 ```
 
-
-
-
-
-
 ***
 
 ### customMetadata
-
-
 
 ```php
 private array $customMetadata
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -143,20 +89,12 @@ public __construct(resource $stream, array $options = []): mixed
 - metadata: (array) Any additional metadata to return when the metadata
   of the stream is accessed.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$stream` | **resource** | Stream resource to wrap. |
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -167,16 +105,6 @@ Closes the stream when the destructed
 ```php
 public __destruct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -214,16 +142,6 @@ Returns the remaining contents in a string
 public getContents(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### close
@@ -233,16 +151,6 @@ Closes the stream and any underlying resources.
 ```php
 public close(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -255,12 +163,6 @@ public detach(): resource|null
 ```
 
 After the stream has been detached, the stream is in an unusable state.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -278,14 +180,6 @@ Get the size of the stream if known.
 public getSize(): int|null
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Returns the size in bytes if known, or null if unknown.
@@ -302,16 +196,6 @@ Returns whether or not the stream is readable.
 public isReadable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isWritable
@@ -321,16 +205,6 @@ Returns whether or not the stream is writable.
 ```php
 public isWritable(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -342,16 +216,6 @@ Returns whether or not the stream is seekable.
 public isSeekable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### eof
@@ -362,16 +226,6 @@ Returns true if the stream is at the end of the stream.
 public eof(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### tell
@@ -381,14 +235,6 @@ Returns the current position of the file read/write pointer
 ```php
 public tell(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -427,22 +273,12 @@ Seek to a position in the stream.
 public seek(mixed $offset, mixed $whence = SEEK_SET): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | Stream offset |
 | `$whence` | **mixed** | Specifies how the cursor position will be calculated<br />based on the seek offset. Valid values are identical to the built-in<br />PHP $whence values for `fseek()`.  SEEK_SET: Set position equal to<br />offset bytes SEEK_CUR: Set position to current location plus offset<br />SEEK_END: Set position to end-of-stream plus offset. |
-
-
-
 
 ***
 
@@ -454,19 +290,11 @@ Read data from the stream.
 public read(mixed $length): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$length` | **mixed** | Read up to $length bytes from the object and return<br />them. Fewer than $length bytes may be returned if underlying stream<br />call returns fewer bytes. |
-
 
 **Return Value:**
 
@@ -485,19 +313,11 @@ Write data to the stream.
 public write(mixed $string): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** | The string that is to be written. |
-
 
 **Return Value:**
 
@@ -515,21 +335,11 @@ Get stream metadata as an associative array or retrieve a specific key.
 public getMetadata(mixed $key = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** | Specific metadata to retrieve. |
-
-
-
 
 ***
 

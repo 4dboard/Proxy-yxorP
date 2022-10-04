@@ -4,10 +4,7 @@
 
 Represents a command line option.
 
-
-
 * Full name: `\Symfony\Component\Console\Input\InputOption`
-
 
 ## Constants
 
@@ -21,99 +18,53 @@ Represents a command line option.
 
 ## Properties
 
-
 ### name
-
-
 
 ```php
 private $name
 ```
 
-
-
-
-
-
 ***
 
 ### shortcut
-
-
 
 ```php
 private $shortcut
 ```
 
-
-
-
-
-
 ***
 
 ### mode
-
-
 
 ```php
 private $mode
 ```
 
-
-
-
-
-
 ***
 
 ### default
-
-
 
 ```php
 private $default
 ```
 
-
-
-
-
-
 ***
 
 ### description
-
-
 
 ```php
 private $description
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $name, string|array|null $shortcut = null, int|null $mode = null, string $description = &#039;&#039;, string|bool|int|float|array|null $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -125,9 +76,6 @@ public __construct(string $name, string|array|null $shortcut = null, int|null $m
 | `$description` | **string** |  |
 | `$default` | **string&#124;bool&#124;int&#124;float&#124;array&#124;null** | The default value (must be null for self::VALUE_NONE) |
 
-
-
-
 ***
 
 ### getShortcut
@@ -137,16 +85,6 @@ Returns the option shortcut.
 ```php
 public getShortcut(): string|null
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -158,16 +96,6 @@ Returns the option name.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### acceptValue
@@ -177,14 +105,6 @@ Returns true if the option accepts a value.
 ```php
 public acceptValue(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -202,14 +122,6 @@ Returns true if the option requires a value.
 public isValueRequired(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 true if value mode is self::VALUE_REQUIRED, false otherwise
@@ -225,14 +137,6 @@ Returns true if the option takes an optional value.
 ```php
 public isValueOptional(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -250,14 +154,6 @@ Returns true if the option can take multiple values.
 public isArray(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 true if mode is self::VALUE_IS_ARRAY, false otherwise
@@ -268,47 +164,23 @@ true if mode is self::VALUE_IS_ARRAY, false otherwise
 
 ### isNegatable
 
-
-
 ```php
 public isNegatable(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### setDefault
 
-
-
 ```php
 public setDefault(string|bool|int|float|array|null $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$default` | **string&#124;bool&#124;int&#124;float&#124;array&#124;null** |  |
-
-
-
 
 ***
 
@@ -320,16 +192,6 @@ Returns the default value.
 public getDefault(): string|bool|int|float|array|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDescription
@@ -339,16 +201,6 @@ Returns the description text.
 ```php
 public getDescription(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -360,21 +212,11 @@ Checks whether the given option equals this one.
 public equals(self $option): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **self** |  |
-
-
-
 
 ***
 

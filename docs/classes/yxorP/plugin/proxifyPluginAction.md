@@ -4,15 +4,10 @@
 
 Extending the wrapper class.
 
-
-
 * Full name: `\yxorP\plugin\proxifyPluginAction`
 * Parent class: [`\yxorP\app\lib\http\wrapper`](../app/lib/http/wrapper.md)
 
-
-
 ## Properties
-
 
 ### base_url
 
@@ -22,15 +17,9 @@ It's a private variable that is used to store the base url of the request.
 private string $base_url
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### onBeforeSend
 
@@ -39,16 +28,6 @@ A function that is called before the request is sent to the server.
 ```php
 public onBeforeSend(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -60,16 +39,6 @@ It's a function that is called after the request is completed.
 public onComplete(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### clean_content_type
@@ -80,21 +49,11 @@ It's getting the content type of the response.
 public clean_content_type(mixed $content_type): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content_type` | **mixed** |  |
-
-
-
 
 ***
 
@@ -106,21 +65,11 @@ It's replacing the `<head>` tag with the `<head>` tag.
 private proxify_head(mixed $str): array|string|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
-
-
-
 
 ***
 
@@ -132,21 +81,11 @@ It's replacing the `url()` in the CSS with the proxified url.
 private proxify_css(mixed $str): array|string|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
-
-
-
 
 ***
 
@@ -158,21 +97,11 @@ It's replacing the `url()` in the CSS with the proxified url.
 private css_url(mixed $matches): array|string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matches` | **mixed** |  |
-
-
-
 
 ***
 
@@ -184,21 +113,11 @@ It's replacing the `@import` in the CSS with the proxified url.
 private css_import(mixed $matches): array|string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matches` | **mixed** |  |
-
-
-
 
 ***
 
@@ -210,21 +129,11 @@ It's replacing the `src` and `href` attributes in the HTML with the proxified ur
 private html_attr(mixed $matches): array|string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matches` | **mixed** |  |
-
-
-
 
 ***
 
@@ -236,21 +145,11 @@ It's replacing the `action` attribute in the `<form>` tag with the proxified url
 private form_action(mixed $matches): array|string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matches` | **mixed** |  |
-
-
-
 
 ***
 
@@ -262,27 +161,15 @@ It's replacing the `content` attribute in the `<meta>` tag with the proxified ur
 private meta_refresh(mixed $matches): array|string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matches` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### subscribe
 
@@ -292,21 +179,13 @@ Subscribing to all the events.
 final public subscribe(\yxorP\app\lib\yP $dispatcher): void
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\yxorP\app\lib\yP** |  |
-
-
-
 
 ***
 
@@ -318,21 +197,11 @@ A method that is used to route the events to the appropriate methods.
 private route(string $event_name): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$event_name` | **string** |  |
-
-
-
 
 ***
 
@@ -344,16 +213,6 @@ A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
 public onCache(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### onCheck
@@ -363,16 +222,6 @@ Used to check if the event should be executed.
 ```php
 public onCheck(): self
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -384,16 +233,6 @@ A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered.
 public onContext(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### onIncludes
@@ -403,16 +242,6 @@ A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered.
 ```php
 public onIncludes(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -424,16 +253,6 @@ A method that is called when the event `EVENT_BUILD_HEADERS` is triggered.
 public onHeaders(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### onRequest
@@ -443,16 +262,6 @@ A method that is called when the event `EVENT_BUILD_REQUEST` is triggered.
 ```php
 public onRequest(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -464,16 +273,6 @@ Used to build the result.
 public onBeforeSend(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### onSend
@@ -483,16 +282,6 @@ Used to execute code when the request is sent.
 ```php
 public onSend(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -504,16 +293,6 @@ Used to execute code before the request is sent.
 public onSent(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### onWrite
@@ -523,16 +302,6 @@ Used to execute code when the headers are received.
 ```php
 public onWrite(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -544,16 +313,6 @@ Used to execute code when the headers are received.
 public onComplete(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### onFinal
@@ -563,16 +322,6 @@ Used to execute code when the request is completed.
 ```php
 public onFinal(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -584,21 +333,11 @@ Used to execute code when an exception is thrown.
 public onException(\Exception $e): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **\Exception** |  |
-
-
-
 
 ***
 

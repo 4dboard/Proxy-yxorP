@@ -72,14 +72,14 @@ class FieldDefinition
      */
     protected function __construct(array $config)
     {
-        $this->name      = $config['name'];
+        $this->name = $config['name'];
         $this->resolveFn = $config['resolve'] ?? null;
-        $this->mapFn     = $config['map'] ?? null;
-        $this->args      = isset($config['args']) ? FieldArgument::createMap($config['args']) : [];
+        $this->mapFn = $config['map'] ?? null;
+        $this->args = isset($config['args']) ? FieldArgument::createMap($config['args']) : [];
 
-        $this->description       = $config['description'] ?? null;
+        $this->description = $config['description'] ?? null;
         $this->deprecationReason = $config['deprecationReason'] ?? null;
-        $this->astNode           = $config['astNode'] ?? null;
+        $this->astNode = $config['astNode'] ?? null;
 
         $this->config = $config;
 
@@ -91,12 +91,12 @@ class FieldDefinition
      *
      * @return array<string, self>
      */
-    public static function defineFieldMap(Type $type, $fields) : array
+    public static function defineFieldMap(Type $type, $fields): array
     {
         if (is_callable($fields)) {
             $fields = $fields();
         }
-        if (! is_iterable($fields)) {
+        if (!is_iterable($fields)) {
             throw new InvariantViolation(
                 sprintf('%s fields must be an iterable or a callable which returns such an iterable.', $type->name)
             );
@@ -104,8 +104,8 @@ class FieldDefinition
         $map = [];
         foreach ($fields as $name => $field) {
             if (is_array($field)) {
-                if (! isset($field['name'])) {
-                    if (! is_string($name)) {
+                if (!isset($field['name'])) {
+                    if (!is_string($name)) {
                         throw new InvariantViolation(
                             sprintf(
                                 '%s fields must be an associative array with field names as keys or a function which returns such an array.',
@@ -116,7 +116,7 @@ class FieldDefinition
 
                     $field['name'] = $name;
                 }
-                if (isset($field['args']) && ! is_array($field['args'])) {
+                if (isset($field['args']) && !is_array($field['args'])) {
                     throw new InvariantViolation(
                         sprintf('%s.%s args must be an array.', $type->name, $name)
                     );
@@ -125,7 +125,7 @@ class FieldDefinition
             } elseif ($field instanceof self) {
                 $fieldDef = $field;
             } elseif (is_callable($field)) {
-                if (! is_string($name)) {
+                if (!is_string($name)) {
                     throw new InvariantViolation(
                         sprintf(
                             '%s lazy fields must be an associative array with field names as keys.',
@@ -136,7 +136,7 @@ class FieldDefinition
 
                 $fieldDef = new UnresolvedFieldDefinition($type, $name, $field);
             } else {
-                if (! is_string($name) || ! $field) {
+                if (!is_string($name) || !$field) {
                     throw new InvariantViolation(
                         sprintf(
                             '%s.%s field config must be an array, but got: %s',
@@ -166,6 +166,11 @@ class FieldDefinition
         return new self($field);
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
     /**
      * @param int $childrenComplexity
      *
@@ -193,27 +198,7 @@ class FieldDefinition
         return null;
     }
 
-    public function getName() : string
-    {
-        return $this->name;
-    }
-
-    public function getType() : Type
-    {
-        if (! isset($this->type)) {
-            /**
-             * TODO: replace this phpstan cast with native assert
-             *
-             * @var Type&OutputType
-             */
-            $type       = Schema::resolveType($this->config['type']);
-            $this->type = $type;
-        }
-
-        return $this->type;
-    }
-
-    public function __isset(string $name) : bool
+    public function __isset(string $name): bool
     {
         switch ($name) {
             case 'type':
@@ -265,12 +250,27 @@ class FieldDefinition
         }
     }
 
+    public function getType(): Type
+    {
+        if (!isset($this->type)) {
+            /**
+             * TODO: replace this phpstan cast with native assert
+             *
+             * @var Type&OutputType
+             */
+            $type = Schema::resolveType($this->config['type']);
+            $this->type = $type;
+        }
+
+        return $this->type;
+    }
+
     /**
      * @return bool
      */
     public function isDeprecated()
     {
-        return (bool) $this->deprecationReason;
+        return (bool)$this->deprecationReason;
     }
 
     /**
@@ -292,7 +292,7 @@ class FieldDefinition
             throw new InvariantViolation(sprintf('%s.%s: %s', $parentType->name, $this->name, $e->getMessage()));
         }
         Utils::invariant(
-            ! isset($this->config['isDeprecated']),
+            !isset($this->config['isDeprecated']),
             sprintf(
                 '%s.%s should provide "deprecationReason" instead of "isDeprecated".',
                 $parentType->name,

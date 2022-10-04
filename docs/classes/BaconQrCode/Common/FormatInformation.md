@@ -4,10 +4,7 @@
 
 Encapsulates a QR Code's format information, including the data mask used and error correction level.
 
-
-
 * Full name: `\BaconQrCode\Common\FormatInformation`
-
 
 ## Constants
 
@@ -19,7 +16,6 @@ Encapsulates a QR Code's format information, including the data mask used and er
 
 ## Properties
 
-
 ### ecLevel
 
 Error correction level.
@@ -27,11 +23,6 @@ Error correction level.
 ```php
 private \BaconQrCode\Common\ErrorCorrectionLevel $ecLevel
 ```
-
-
-
-
-
 
 ***
 
@@ -43,39 +34,21 @@ Data mask.
 private int $dataMask
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 protected __construct(int $formatInfo): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatInfo` | **int** |  |
-
-
-
 
 ***
 
@@ -87,12 +60,7 @@ Checks how many bits are different between two integers.
 public static numBitsDiffering(int $a, int $b): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -100,9 +68,6 @@ public static numBitsDiffering(int $a, int $b): int
 |-----------|------|-------------|
 | `$a` | **int** |  |
 | `$b` | **int** |  |
-
-
-
 
 ***
 
@@ -114,12 +79,7 @@ Decodes format information.
 public static decodeFormatInformation(int $maskedFormatInfo1, int $maskedFormatInfo2): ?self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -127,9 +87,6 @@ public static decodeFormatInformation(int $maskedFormatInfo1, int $maskedFormatI
 |-----------|------|-------------|
 | `$maskedFormatInfo1` | **int** |  |
 | `$maskedFormatInfo2` | **int** |  |
-
-
-
 
 ***
 
@@ -141,12 +98,7 @@ Internal method for decoding format information.
 private static doDecodeFormatInformation(int $maskedFormatInfo1, int $maskedFormatInfo2): ?self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -154,9 +106,6 @@ private static doDecodeFormatInformation(int $maskedFormatInfo1, int $maskedForm
 |-----------|------|-------------|
 | `$maskedFormatInfo1` | **int** |  |
 | `$maskedFormatInfo2` | **int** |  |
-
-
-
 
 ***
 
@@ -168,16 +117,6 @@ Returns the error correction level.
 public getErrorCorrectionLevel(): \BaconQrCode\Common\ErrorCorrectionLevel
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDataMask
@@ -187,16 +126,6 @@ Returns the data mask.
 ```php
 public getDataMask(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -208,16 +137,6 @@ Hashes the code of the EC level.
 public hashCode(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### equals
@@ -228,21 +147,11 @@ Verifies if this instance equals another one.
 public equals(self $other): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$other` | **self** |  |
-
-
-
 
 ***
 

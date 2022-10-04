@@ -2,7 +2,10 @@
 
 namespace App\Helper;
 
-class App extends \Lime\Helper {
+use Lime\Helper;
+
+class App extends Helper
+{
 
 
 }

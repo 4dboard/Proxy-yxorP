@@ -4,79 +4,43 @@
 
 PSR-7 request implementation.
 
-
-
 * Full name: `\GuzzleHttp\Psr7\Request`
 * This class implements:
-[`\Psr\Http\Message\RequestInterface`](../../Psr/Http/Message/RequestInterface.md)
-
-
+  [`\Psr\Http\Message\RequestInterface`](../../Psr/Http/Message/RequestInterface.md)
 
 ## Properties
 
-
 ### method
-
-
 
 ```php
 private string $method
 ```
 
-
-
-
-
-
 ***
 
 ### requestTarget
-
-
 
 ```php
 private string|null $requestTarget
 ```
 
-
-
-
-
-
 ***
 
 ### uri
-
-
 
 ```php
 private \Psr\Http\Message\UriInterface $uri
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $method, string|\Psr\Http\Message\UriInterface $uri, array&lt;string,string|string[]&gt; $headers = [], string|resource|\Psr\Http\Message\StreamInterface|null $body = null, string $version = &#039;1.1&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -87,9 +51,6 @@ public __construct(string $method, string|\Psr\Http\Message\UriInterface $uri, a
 | `$headers` | **array<string,string&#124;string[]>** | Request headers |
 | `$body` | **string&#124;resource&#124;\Psr\Http\Message\StreamInterface&#124;null** | Request body |
 | `$version` | **string** | Protocol version |
-
-
-
 
 ***
 
@@ -139,19 +100,11 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 changed request target.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$requestTarget` | **mixed** |  |
-
-
-
 
 ***
 
@@ -162,14 +115,6 @@ Retrieves the HTTP method of the request.
 ```php
 public getMethod(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -195,19 +140,11 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 changed request method.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **mixed** | Case-sensitive method. |
-
-
-
 
 ***
 
@@ -220,12 +157,6 @@ public getUri(): \Psr\Http\Message\UriInterface
 ```
 
 This method MUST return a UriInterface instance.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -266,11 +197,6 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 new UriInterface instance.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -278,45 +204,21 @@ new UriInterface instance.
 | `$uri` | **\Psr\Http\Message\UriInterface** | New request URI to use. |
 | `$preserveHost` | **mixed** | Preserve the original state of the Host header. |
 
-
-
-
 ***
 
 ### updateHostFromUri
-
-
 
 ```php
 private updateHostFromUri(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### assertMethod
 
-
-
 ```php
 private assertMethod(mixed $method): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -324,49 +226,23 @@ private assertMethod(mixed $method): void
 |-----------|------|-------------|
 | `$method` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### getProtocolVersion
-
-
 
 ```php
 public getProtocolVersion(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### withProtocolVersion
 
-
-
 ```php
 public withProtocolVersion(mixed $version): \Psr\Http\Message\MessageInterface
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -374,123 +250,63 @@ public withProtocolVersion(mixed $version): \Psr\Http\Message\MessageInterface
 |-----------|------|-------------|
 | `$version` | **mixed** |  |
 
-
-
-
 ***
 
 ### getHeaders
-
-
 
 ```php
 public getHeaders(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasHeader
-
-
 
 ```php
 public hasHeader(mixed $header): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
-
-
-
 
 ***
 
 ### getHeader
 
-
-
 ```php
 public getHeader(mixed $header): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
-
-
-
 
 ***
 
 ### getHeaderLine
 
-
-
 ```php
 public getHeaderLine(mixed $header): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
-
-
-
 
 ***
 
 ### withHeader
 
-
-
 ```php
 public withHeader(mixed $header, mixed $value): \Psr\Http\Message\MessageInterface
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -498,26 +314,14 @@ public withHeader(mixed $header, mixed $value): \Psr\Http\Message\MessageInterfa
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### withAddedHeader
 
-
-
 ```php
 public withAddedHeader(mixed $header, mixed $value): \Psr\Http\Message\MessageInterface
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -526,25 +330,13 @@ public withAddedHeader(mixed $header, mixed $value): \Psr\Http\Message\MessageIn
 | `$header` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### withoutHeader
 
-
-
 ```php
 public withoutHeader(mixed $header): \Psr\Http\Message\MessageInterface
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -552,45 +344,21 @@ public withoutHeader(mixed $header): \Psr\Http\Message\MessageInterface
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 
-
-
-
 ***
 
 ### getBody
-
-
 
 ```php
 public getBody(): \Psr\Http\Message\StreamInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### withBody
 
-
-
 ```php
 public withBody(\Psr\Http\Message\StreamInterface $body): \Psr\Http\Message\MessageInterface
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -598,25 +366,13 @@ public withBody(\Psr\Http\Message\StreamInterface $body): \Psr\Http\Message\Mess
 |-----------|------|-------------|
 | `$body` | **\Psr\Http\Message\StreamInterface** |  |
 
-
-
-
 ***
 
 ### setHeaders
 
-
-
 ```php
 private setHeaders(array&lt;string|int,string|string[]&gt; $headers): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -624,34 +380,19 @@ private setHeaders(array&lt;string|int,string|string[]&gt; $headers): void
 |-----------|------|-------------|
 | `$headers` | **array<string&#124;int,string&#124;string[]>** |  |
 
-
-
-
 ***
 
 ### normalizeHeaderValue
 
-
-
 ```php
 private normalizeHeaderValue(mixed $value): string[]
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -666,12 +407,7 @@ private trimAndValidateHeaderValues(array $values): string[]
 Spaces and tabs ought to be excluded by parsers when extracting the field value from a header field.
 
 header-field = field-name ":" OWS field-value OWS
-OWS          = *( SP / HTAB )
-
-
-
-
-
+OWS = *( SP / HTAB )
 
 **Parameters:**
 
@@ -679,32 +415,21 @@ OWS          = *( SP / HTAB )
 |-----------|------|-------------|
 | `$values` | **array** | Header values |
 
-
 **Return Value:**
 
 Trimmed header values
 
-
 **See Also:**
 
-* https://tools.ietf.org/html/rfc7230#section-3.2.4 - 
+* https://tools.ietf.org/html/rfc7230#section-3.2.4 -
 
 ***
 
 ### assertHeader
 
-
-
 ```php
 private assertHeader(mixed $header): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -712,28 +437,17 @@ private assertHeader(mixed $header): void
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 
-
-
 **See Also:**
 
-* https://tools.ietf.org/html/rfc7230#section-3.2 - 
+* https://tools.ietf.org/html/rfc7230#section-3.2 -
 
 ***
 
 ### assertValue
 
-
-
 ```php
 private assertValue(string $value): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -741,16 +455,14 @@ private assertValue(string $value): void
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
-
 **See Also:**
 
-* https://tools.ietf.org/html/rfc7230#section-3.2 - field-value    = *( field-content / obs-fold )
-field-content  = field-vchar [ 1*( SP / HTAB ) field-vchar ]
-field-vchar    = VCHAR / obs-text
-VCHAR          = %x21-7E
-obs-text       = %x80-FF
-obs-fold       = CRLF 1*( SP / HTAB )
+* https://tools.ietf.org/html/rfc7230#section-3.2 - field-value = *( field-content / obs-fold )
+  field-content = field-vchar [ 1*( SP / HTAB ) field-vchar ]
+  field-vchar = VCHAR / obs-text
+  VCHAR = %x21-7E
+  obs-text = %x80-FF
+  obs-fold = CRLF 1*( SP / HTAB )
 
 ***
 

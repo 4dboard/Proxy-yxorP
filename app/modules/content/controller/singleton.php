@@ -3,12 +3,13 @@
 namespace Content\Controller;
 
 use App\Controller\App;
-use ArrayObject;
 
-class Singleton extends App {
+class Singleton extends App
+{
 
 
-    public function item($model = null) {
+    public function item($model = null)
+    {
 
         if (!$model) {
             return false;

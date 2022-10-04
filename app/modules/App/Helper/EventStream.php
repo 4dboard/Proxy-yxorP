@@ -2,13 +2,18 @@
 
 namespace App\Helper;
 
-class EventStream extends \Lime\Helper {
+use Lime\Helper;
 
-    public function cleanup() {
+class EventStream extends Helper
+{
+
+    public function cleanup()
+    {
         $this->app->dataStorage->remove('app/events/stream', ['_created' => ['$lt' => strtotime('-5 minutes')]]);
     }
 
-    public function getEvents(int $sinceTime) {
+    public function getEvents(int $sinceTime)
+    {
 
         $events = $this->dataStorage->find('app/events/stream', [
             'filter' => ['_created' => ['$gte' => $sinceTime]],
@@ -18,7 +23,8 @@ class EventStream extends \Lime\Helper {
         return $events;
     }
 
-    public function add(string $event, $data, array $options) {
+    public function add(string $event, $data, array $options)
+    {
 
         $evt = [
             'type' => $event,

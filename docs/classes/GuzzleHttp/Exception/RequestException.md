@@ -4,80 +4,44 @@
 
 HTTP Request exception
 
-
-
 * Full name: `\GuzzleHttp\Exception\RequestException`
 * Parent class: [`\GuzzleHttp\Exception\TransferException`](./TransferException.md)
 * This class implements:
-[`\Psr\Http\Client\RequestExceptionInterface`](../../Psr/Http/Client/RequestExceptionInterface.md)
-
-
+  [`\Psr\Http\Client\RequestExceptionInterface`](../../Psr/Http/Client/RequestExceptionInterface.md)
 
 ## Properties
 
-
 ### request
-
-
 
 ```php
 private \Psr\Http\Message\RequestInterface $request
 ```
 
-
-
-
-
-
 ***
 
 ### response
-
-
 
 ```php
 private \Psr\Http\Message\ResponseInterface|null $response
 ```
 
-
-
-
-
-
 ***
 
 ### handlerContext
-
-
 
 ```php
 private array $handlerContext
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $message, \Psr\Http\Message\RequestInterface $request, \Psr\Http\Message\ResponseInterface $response = null, \Throwable $previous = null, array $handlerContext = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -89,9 +53,6 @@ public __construct(string $message, \Psr\Http\Message\RequestInterface $request,
 | `$previous` | **\Throwable** |  |
 | `$handlerContext` | **array** |  |
 
-
-
-
 ***
 
 ### wrapException
@@ -102,12 +63,7 @@ Wrap non-RequestExceptions with a RequestException
 public static wrapException(\Psr\Http\Message\RequestInterface $request, \Throwable $e): \GuzzleHttp\Exception\RequestException
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -115,9 +71,6 @@ public static wrapException(\Psr\Http\Message\RequestInterface $request, \Throwa
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$e` | **\Throwable** |  |
-
-
-
 
 ***
 
@@ -129,12 +82,7 @@ Factory method to create a new exception with a normalized error message
 public static create(\Psr\Http\Message\RequestInterface $request, \Psr\Http\Message\ResponseInterface $response = null, \Throwable|null $previous = null, array $handlerContext = [], \GuzzleHttp\BodySummarizerInterface|null $bodySummarizer = null): self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -146,9 +94,6 @@ public static create(\Psr\Http\Message\RequestInterface $request, \Psr\Http\Mess
 | `$handlerContext` | **array** | Optional handler context |
 | `$bodySummarizer` | **\GuzzleHttp\BodySummarizerInterface&#124;null** | Optional body summarizer |
 
-
-
-
 ***
 
 ### obfuscateUri
@@ -159,21 +104,13 @@ Obfuscates URI if there is a username and a password present
 private static obfuscateUri(\Psr\Http\Message\UriInterface $uri): \Psr\Http\Message\UriInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\Psr\Http\Message\UriInterface** |  |
-
-
-
 
 ***
 
@@ -185,16 +122,6 @@ Get the request that caused the exception
 public getRequest(): \Psr\Http\Message\RequestInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getResponse
@@ -205,16 +132,6 @@ Get the associated response
 public getResponse(): ?\Psr\Http\Message\ResponseInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasResponse
@@ -224,16 +141,6 @@ Check if a response was received
 ```php
 public hasResponse(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

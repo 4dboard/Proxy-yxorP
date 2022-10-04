@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace League\Flysystem;
 
+use ReturnTypeWillChange;
 use RuntimeException;
 
 /**
@@ -11,6 +12,18 @@ use RuntimeException;
  */
 trait ProxyArrayAccessToProperties
 {
+    /**
+     * @param mixed $offset
+     *
+     * @return bool
+     */
+    public function offsetExists($offset): bool
+    {
+        $property = $this->formatPropertyName((string)$offset);
+
+        return isset($this->{$property});
+    }
+
     private function formatPropertyName(string $offset): string
     {
         return str_replace('_', '', lcfirst(ucwords($offset, '_')));
@@ -19,24 +32,12 @@ trait ProxyArrayAccessToProperties
     /**
      * @param mixed $offset
      *
-     * @return bool
-     */
-    public function offsetExists($offset): bool
-    {
-        $property = $this->formatPropertyName((string) $offset);
-
-        return isset($this->{$property});
-    }
-
-    /**
-     * @param mixed $offset
-     *
      * @return mixed
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        $property = $this->formatPropertyName((string) $offset);
+        $property = $this->formatPropertyName((string)$offset);
 
         return $this->{$property};
     }
@@ -45,7 +46,7 @@ trait ProxyArrayAccessToProperties
      * @param mixed $offset
      * @param mixed $value
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         throw new RuntimeException('Properties can not be manipulated');
@@ -54,7 +55,7 @@ trait ProxyArrayAccessToProperties
     /**
      * @param mixed $offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         throw new RuntimeException('Properties can not be manipulated');

@@ -1,6 +1,6 @@
 <?php
 
-define('APP_VERSION', '2.3.0');
+define('APP_VERSION', '2.0.2');
 
 if (!defined('APP_START_TIME')) define('APP_START_TIME', microtime(true));
 if (!defined('APP_CLI')) define('APP_CLI', PHP_SAPI == 'cli');
@@ -9,7 +9,7 @@ if (!defined('APP_ADMIN')) define('APP_ADMIN', false);
 define('APP_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
 
 // Autoload vendor libs
-include_once(__DIR__.'/lib/_autoload.php');
+include_once(__DIR__ . '/lib/_autoload.php');
 
 // load .env file if exists
 DotEnv::load(APP_DIR);
@@ -17,17 +17,19 @@ DotEnv::load(APP_DIR);
 /*
  * Autoload from lib folder (PSR-0)
  */
-spl_autoload_register(function($class) {
-    $class_path = __DIR__.'/lib/'.str_replace('\\', '/', $class).'.php';
+spl_autoload_register(function ($class) {
+    $class_path = __DIR__ . '/lib/' . str_replace('\\', '/', $class) . '.php';
     if (file_exists($class_path)) include_once($class_path);
 });
 
 
-class Cockpit {
+class Cockpit
+{
 
     protected static $instance = [];
 
-    public static function instance(?string $envDir = null, array $config = []): Lime\App {
+    public static function instance(?string $envDir = null, array $config = []): Lime\App
+    {
 
         if (!$envDir) {
             $envDir = APP_DIR;
@@ -40,11 +42,12 @@ class Cockpit {
         return static::$instance[$envDir];
     }
 
-    protected static function init(?string $envDir = null, array $config = []): Lime\App {
+    protected static function init(?string $envDir = null, array $config = []): Lime\App
+    {
 
         $appDir = APP_DIR;
-        $app    = null;
-        $cfg    = null;
+        $app = null;
+        $cfg = null;
 
         if (!$envDir) {
             $envDir = $appDir;
@@ -62,8 +65,8 @@ class Cockpit {
 
             'docs_root' => defined('APP_DOCUMENT_ROOT') ? APP_DOCUMENT_ROOT : null,
             'debug' => APP_CLI ? true : preg_match('/(localhost|::1|\.local)$/', $_SERVER['SERVER_NAME'] ?? ''),
-            'app.name' => 'Cockpit',
-            'app.version'  => APP_VERSION,
+            'app.name' => 'yxorP',
+            'app.version' => APP_VERSION,
             'session.name' => md5($envDir),
             'sec-key' => 'c3b40c4c-db44-s5h7-a814-b5931a15e5e1', // change me in custom config
             'i18n' => 'en',
@@ -79,15 +82,15 @@ class Cockpit {
             ],
 
             'paths' => [
-                '#app'     => __DIR__,
-                '#root'    => $envDir,
-                '#config'  => $envDir.'/config',
-                '#modules' => $envDir.'/modules',
-                '#addons'  => $envDir.'/addons',
-                '#storage' => $envDir.'/storage',
-                '#cache'   => $envDir.'/storage/cache',
-                '#tmp'     => $envDir.'/storage/tmp',
-                '#uploads' => $envDir.'/storage/uploads',
+                '#app' => __DIR__,
+                '#root' => $envDir,
+                '#config' => $envDir . '/config',
+                '#modules' => $envDir . '/modules',
+                '#addons' => $envDir . '/addons',
+                '#storage' => $envDir . '/storage',
+                '#cache' => $envDir . '/storage/cache',
+                '#tmp' => $envDir . '/storage/tmp',
+                '#uploads' => $envDir . '/storage/uploads',
             ],
 
             'response' => [
@@ -101,7 +104,7 @@ class Cockpit {
 
 
         if ($config['debug']) {
-            $config['app.version'] .= '-'.time();
+            $config['app.version'] .= '-' . time();
         }
 
         $app = new Lime\App($config);
@@ -115,7 +118,7 @@ class Cockpit {
         $app->helper('cache')->setCachePath($app->path('#cache:') ?? sys_get_temp_dir());
 
         // file storage
-        $app->service('fileStorage', function() use($config, $app) {
+        $app->service('fileStorage', function () use ($config, $app) {
 
             $visibility = League\Flysystem\UnixVisibility\PortableVisibilityConverter::fromArray([
                 'file' => [
@@ -184,31 +187,31 @@ class Cockpit {
 
 
         // nosql storage
-        $app->service('dataStorage', function() use($config) {
+        $app->service('dataStorage', function () use ($config) {
             $client = new MongoHybrid\Client($config['database']['server'], $config['database']['options'], $config['database']['driverOptions']);
             return $client;
         });
 
         // key-value storage
-        $app->service('memory', function() use($config) {
+        $app->service('memory', function () use ($config) {
 
             $client = new MemoryStorage\Client($config['memory']['server'], array_merge([
                 'key' => $config['sec-key']
-            ],$config['memory']['options']));
+            ], $config['memory']['options']));
 
             return $client;
         });
 
         // mailer service
-        $app->service('mailer', function() use($app, $config){
+        $app->service('mailer', function () use ($app, $config) {
 
-            $options = isset($config['mailer']) ? $config['mailer']:[];
+            $options = isset($config['mailer']) ? $config['mailer'] : [];
 
             if (is_string($options)) {
                 parse_str($options, $options);
             }
 
-            $mailer = new \Mailer($options['transport'] ?? 'mail', $options);
+            $mailer = new Mailer($options['transport'] ?? 'mail', $options);
 
             return $mailer;
         });
@@ -229,7 +232,7 @@ class Cockpit {
         // handle exceptions
         if (APP_CLI || APP_ADMIN) {
 
-            set_exception_handler(function($exception) use($app) {
+            set_exception_handler(function ($exception) use ($app) {
 
                 $error = [
                     'message' => $exception->getMessage(),

@@ -90,9 +90,9 @@ class promise implements promiseInterface
         return $this->state;
     }
 
-    public function otherwise(callable $onRejected)
+    public function reject($reason)
     {
-        return $this->then(null, $onRejected);
+        $this->settle(self::REJECTED, $reason);
     }
 
     public function then(callable $onFulfilled = null, callable $onRejected = null)
@@ -109,6 +109,11 @@ class promise implements promiseInterface
         }
         $rejection = rejection_for($this->result);
         return $onRejected ? $rejection->then(null, $onRejected) : $rejection;
+    }
+
+    public function otherwise(callable $onRejected)
+    {
+        return $this->then(null, $onRejected);
     }
 
     public function wait($unwrap = true)
@@ -154,11 +159,6 @@ class promise implements promiseInterface
                 throw $reason;
             }
         }
-    }
-
-    public function reject($reason)
-    {
-        $this->settle(self::REJECTED, $reason);
     }
 
     private function invokeWaitList()

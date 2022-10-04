@@ -36,16 +36,8 @@ use function iterator_to_array;
  */
 class Error extends Exception implements JsonSerializable, ClientAware
 {
-    const CATEGORY_GRAPHQL  = 'graphql';
+    const CATEGORY_GRAPHQL = 'graphql';
     const CATEGORY_INTERNAL = 'internal';
-
-    /**
-     * Lazily initialized.
-     *
-     * @var SourceLocation[]
-     */
-    private $locations;
-
     /**
      * An array describing the JSON-path into the execution response which
      * corresponds to this error. Only included for errors during execution.
@@ -53,14 +45,22 @@ class Error extends Exception implements JsonSerializable, ClientAware
      * @var mixed[]|null
      */
     public $path;
-
     /**
      * An array of GraphQL AST Nodes corresponding to this error.
      *
      * @var Node[]|null
      */
     public $nodes;
-
+    /** @var string */
+    protected $category;
+    /** @var mixed[]|null */
+    protected $extensions;
+    /**
+     * Lazily initialized.
+     *
+     * @var SourceLocation[]
+     */
+    private $locations;
     /**
      * The source GraphQL document for the first location of this error.
      *
@@ -70,26 +70,18 @@ class Error extends Exception implements JsonSerializable, ClientAware
      * @var Source|null
      */
     private $source;
-
     /** @var int[] */
     private $positions;
-
     /** @var bool */
     private $isClientSafe;
 
-    /** @var string */
-    protected $category;
-
-    /** @var mixed[]|null */
-    protected $extensions;
-
     /**
-     * @param string                       $message
+     * @param string $message
      * @param Node|Node[]|Traversable|null $nodes
-     * @param mixed[]                      $positions
-     * @param mixed[]|null                 $path
-     * @param Throwable                    $previous
-     * @param mixed[]                      $extensions
+     * @param mixed[] $positions
+     * @param mixed[]|null $path
+     * @param Throwable $previous
+     * @param mixed[] $extensions
      */
     public function __construct(
         $message = '',
@@ -99,20 +91,21 @@ class Error extends Exception implements JsonSerializable, ClientAware
         $path = null,
         $previous = null,
         array $extensions = []
-    ) {
+    )
+    {
         parent::__construct($message, 0, $previous);
 
         // Compute list of blame nodes.
         if ($nodes instanceof Traversable) {
             $nodes = iterator_to_array($nodes);
-        } elseif ($nodes !== null && ! is_array($nodes)) {
+        } elseif ($nodes !== null && !is_array($nodes)) {
             $nodes = [$nodes];
         }
 
-        $this->nodes      = $nodes;
-        $this->source     = $source;
-        $this->positions  = $positions;
-        $this->path       = $path;
+        $this->nodes = $nodes;
+        $this->source = $source;
+        $this->positions = $positions;
+        $this->path = $path;
         $this->extensions = count($extensions) > 0 ? $extensions : (
         $previous instanceof self
             ? $previous->extensions
@@ -121,15 +114,31 @@ class Error extends Exception implements JsonSerializable, ClientAware
 
         if ($previous instanceof ClientAware) {
             $this->isClientSafe = $previous->isClientSafe();
-            $cat                = $previous->getCategory();
-            $this->category     = $cat === '' || $cat === null  ? self::CATEGORY_INTERNAL: $cat;
+            $cat = $previous->getCategory();
+            $this->category = $cat === '' || $cat === null ? self::CATEGORY_INTERNAL : $cat;
         } elseif ($previous !== null) {
             $this->isClientSafe = false;
-            $this->category     = self::CATEGORY_INTERNAL;
+            $this->category = self::CATEGORY_INTERNAL;
         } else {
             $this->isClientSafe = true;
-            $this->category     = self::CATEGORY_GRAPHQL;
+            $this->category = self::CATEGORY_GRAPHQL;
         }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function isClientSafe()
+    {
+        return $this->isClientSafe;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 
     /**
@@ -137,8 +146,8 @@ class Error extends Exception implements JsonSerializable, ClientAware
      * GraphQL operation, produce a new GraphQLError aware of the location in the
      * document responsible for the original Error.
      *
-     * @param mixed        $error
-     * @param Node[]|null  $nodes
+     * @param mixed $error
+     * @param Node[]|null $nodes
      * @param mixed[]|null $path
      *
      * @return Error
@@ -151,26 +160,26 @@ class Error extends Exception implements JsonSerializable, ClientAware
             }
 
             $nodes = $nodes ?? $error->nodes;
-            $path  = $path ?? $error->path;
+            $path = $path ?? $error->path;
         }
 
-        $source        = null;
+        $source = null;
         $originalError = null;
-        $positions     = [];
-        $extensions    = [];
+        $positions = [];
+        $extensions = [];
 
         if ($error instanceof self) {
-            $message       = $error->getMessage();
+            $message = $error->getMessage();
             $originalError = $error;
-            $nodes         = $error->nodes ?? $nodes;
-            $source        = $error->source;
-            $positions     = $error->positions;
-            $extensions    = $error->extensions;
+            $nodes = $error->nodes ?? $nodes;
+            $source = $error->source;
+            $positions = $error->positions;
+            $extensions = $error->extensions;
         } elseif ($error instanceof Throwable) {
-            $message       = $error->getMessage();
+            $message = $error->getMessage();
             $originalError = $error;
         } else {
-            $message = (string) $error;
+            $message = (string)$error;
         }
 
         return new static(
@@ -193,56 +202,38 @@ class Error extends Exception implements JsonSerializable, ClientAware
     }
 
     /**
-     * @inheritdoc
+     * Returns array representation of error suitable for serialization
+     *
+     * @return mixed[]
+     *
+     * @codeCoverageIgnore
+     * @deprecated Use FormattedError::createFromException() instead
+     *
      */
-    public function isClientSafe()
+    public function toSerializableArray()
     {
-        return $this->isClientSafe;
-    }
+        $arr = [
+            'message' => $this->getMessage(),
+        ];
 
-    /**
-     * @inheritdoc
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    public function getSource() : ?Source
-    {
-        if ($this->source === null) {
-            if (isset($this->nodes[0]) && $this->nodes[0]->loc !== null) {
-                $this->source = $this->nodes[0]->loc->source;
+        $locations = Utils::map(
+            $this->getLocations(),
+            static function (SourceLocation $loc): array {
+                return $loc->toSerializableArray();
             }
+        );
+
+        if (count($locations) > 0) {
+            $arr['locations'] = $locations;
+        }
+        if (count($this->path ?? []) > 0) {
+            $arr['path'] = $this->path;
+        }
+        if (count($this->extensions ?? []) > 0) {
+            $arr['extensions'] = $this->extensions;
         }
 
-        return $this->source;
-    }
-
-    /**
-     * @return int[]
-     */
-    public function getPositions() : array
-    {
-        if (count($this->positions) === 0 && count($this->nodes ?? []) > 0) {
-            $positions = array_map(
-                static function ($node) : ?int {
-                    return isset($node->loc) ? $node->loc->start : null;
-                },
-                $this->nodes
-            );
-
-            $positions = array_filter(
-                $positions,
-                static function ($p) : bool {
-                    return $p !== null;
-                }
-            );
-
-            $this->positions = array_values($positions);
-        }
-
-        return $this->positions;
+        return $arr;
     }
 
     /**
@@ -260,24 +251,24 @@ class Error extends Exception implements JsonSerializable, ClientAware
      *
      * @api
      */
-    public function getLocations() : array
+    public function getLocations(): array
     {
-        if (! isset($this->locations)) {
+        if (!isset($this->locations)) {
             $positions = $this->getPositions();
-            $source    = $this->getSource();
-            $nodes     = $this->nodes;
+            $source = $this->getSource();
+            $nodes = $this->nodes;
 
             if ($source !== null && count($positions) !== 0) {
                 $this->locations = array_map(
-                    static function ($pos) use ($source) : SourceLocation {
+                    static function ($pos) use ($source): SourceLocation {
                         return $source->getLocation($pos);
                     },
                     $positions
                 );
             } elseif ($nodes !== null && count($nodes) !== 0) {
-                $locations       = array_filter(
+                $locations = array_filter(
                     array_map(
-                        static function ($node) : ?SourceLocation {
+                        static function ($node): ?SourceLocation {
                             if (isset($node->loc->source)) {
                                 return $node->loc->source->getLocation($node->loc->start);
                             }
@@ -294,6 +285,43 @@ class Error extends Exception implements JsonSerializable, ClientAware
         }
 
         return $this->locations;
+    }
+
+    /**
+     * @return int[]
+     */
+    public function getPositions(): array
+    {
+        if (count($this->positions) === 0 && count($this->nodes ?? []) > 0) {
+            $positions = array_map(
+                static function ($node): ?int {
+                    return isset($node->loc) ? $node->loc->start : null;
+                },
+                $this->nodes
+            );
+
+            $positions = array_filter(
+                $positions,
+                static function ($p): bool {
+                    return $p !== null;
+                }
+            );
+
+            $this->positions = array_values($positions);
+        }
+
+        return $this->positions;
+    }
+
+    public function getSource(): ?Source
+    {
+        if ($this->source === null) {
+            if (isset($this->nodes[0]) && $this->nodes[0]->loc !== null) {
+                $this->source = $this->nodes[0]->loc->source;
+            }
+        }
+
+        return $this->source;
     }
 
     /**
@@ -323,41 +351,6 @@ class Error extends Exception implements JsonSerializable, ClientAware
     public function getExtensions()
     {
         return $this->extensions;
-    }
-
-    /**
-     * Returns array representation of error suitable for serialization
-     *
-     * @deprecated Use FormattedError::createFromException() instead
-     *
-     * @return mixed[]
-     *
-     * @codeCoverageIgnore
-     */
-    public function toSerializableArray()
-    {
-        $arr = [
-            'message' => $this->getMessage(),
-        ];
-
-        $locations = Utils::map(
-            $this->getLocations(),
-            static function (SourceLocation $loc) : array {
-                return $loc->toSerializableArray();
-            }
-        );
-
-        if (count($locations) > 0) {
-            $arr['locations'] = $locations;
-        }
-        if (count($this->path ?? []) > 0) {
-            $arr['path'] = $this->path;
-        }
-        if (count($this->extensions ?? []) > 0) {
-            $arr['extensions'] = $this->extensions;
-        }
-
-        return $arr;
     }
 
     /**

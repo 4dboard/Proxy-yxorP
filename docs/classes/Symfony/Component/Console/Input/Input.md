@@ -12,115 +12,65 @@ Three concrete classes are provided by default:
 
 * Full name: `\Symfony\Component\Console\Input\Input`
 * This class implements:
-[`\Symfony\Component\Console\Input\InputInterface`](./InputInterface.md), [`\Symfony\Component\Console\Input\StreamableInputInterface`](./StreamableInputInterface.md)
+  [`\Symfony\Component\Console\Input\InputInterface`](./InputInterface.md)
+  , [`\Symfony\Component\Console\Input\StreamableInputInterface`](./StreamableInputInterface.md)
 * This class is an **Abstract class**
-
-
 
 ## Properties
 
-
 ### definition
-
-
 
 ```php
 protected $definition
 ```
 
-
-
-
-
-
 ***
 
 ### stream
-
-
 
 ```php
 protected $stream
 ```
 
-
-
-
-
-
 ***
 
 ### options
-
-
 
 ```php
 protected $options
 ```
 
-
-
-
-
-
 ***
 
 ### arguments
-
-
 
 ```php
 protected $arguments
 ```
 
-
-
-
-
-
 ***
 
 ### interactive
-
-
 
 ```php
 protected $interactive
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Console\Input\InputDefinition $definition = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$definition` | **\Symfony\Component\Console\Input\InputDefinition** |  |
-
-
-
 
 ***
 
@@ -132,21 +82,11 @@ Binds the current Input instance with the given arguments and options.
 public bind(\Symfony\Component\Console\Input\InputDefinition $definition): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$definition` | **\Symfony\Component\Console\Input\InputDefinition** |  |
-
-
-
 
 ***
 
@@ -158,15 +98,7 @@ Processes command line arguments.
 protected parse(): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -178,16 +110,6 @@ Validates the input.
 public validate(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isInteractive
@@ -197,16 +119,6 @@ Is this input means interactive?
 ```php
 public isInteractive(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -218,21 +130,11 @@ Sets the input interactivity.
 public setInteractive(bool $interactive): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$interactive` | **bool** |  |
-
-
-
 
 ***
 
@@ -244,16 +146,6 @@ Returns all the given arguments merged with the default values.
 public getArguments(): (string|bool|int|float|array|null)[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getArgument
@@ -264,21 +156,11 @@ Returns the argument value for a given argument name.
 public getArgument(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -290,22 +172,12 @@ Sets an argument value by name.
 public setArgument(string $name, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$value` | **mixed** | The argument value |
-
-
-
 
 ***
 
@@ -317,21 +189,11 @@ Returns true if an InputArgument object exists by name or position.
 public hasArgument(string $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -343,16 +205,6 @@ Returns all the given options merged with the default values.
 public getOptions(): (string|bool|int|float|array|null)[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getOption
@@ -363,21 +215,11 @@ Returns the option value for a given option name.
 public getOption(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -389,22 +231,12 @@ Sets an option value by name.
 public setOption(string $name, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$value` | **mixed** | The option value |
-
-
-
 
 ***
 
@@ -416,21 +248,11 @@ Returns true if an InputOption object exists by name.
 public hasOption(string $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -442,21 +264,11 @@ Escapes a token through escapeshellarg if it contains unsafe chars.
 public escapeToken(string $token): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **string** |  |
-
-
-
 
 ***
 
@@ -468,21 +280,11 @@ Sets the input stream to read from when interacting with the user.
 public setStream(mixed $stream): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$stream` | **mixed** | The input stream |
-
-
-
 
 ***
 
@@ -493,16 +295,6 @@ Returns the input stream.
 ```php
 public getStream(): resource|null
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

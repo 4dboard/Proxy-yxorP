@@ -1,8 +1,10 @@
 <?php
 
-class DotEnv {
+class DotEnv
+{
 
-    public static function load(string $dir = '.'): bool {
+    public static function load(string $dir = '.'): bool
+    {
 
         $config = is_file($dir) ? $dir : "{$dir}/.env";
 
@@ -21,7 +23,8 @@ class DotEnv {
         return false;
     }
 
-    public static function parse(string $str, bool $expand = true): array {
+    public static function parse(string $str, bool $expand = true): array
+    {
 
         $lines = explode("\n", $str);
         $vars = [];
@@ -47,7 +50,7 @@ class DotEnv {
             $envs = array_merge(getenv(), $vars);
 
             foreach ($envs as $key => $value) {
-                $str = str_replace('${'.$key.'}', $value, $str);
+                $str = str_replace('${' . $key . '}', $value, $str);
             }
 
             $vars = self::parse($str, false);

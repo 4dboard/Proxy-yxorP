@@ -18,7 +18,6 @@
 namespace MongoDB\Exception;
 
 use BadMethodCallException as BaseBadMethodCallException;
-
 use function sprintf;
 
 class BadMethodCallException extends BaseBadMethodCallException implements Exception

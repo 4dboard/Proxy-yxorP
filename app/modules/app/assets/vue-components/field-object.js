@@ -1,3 +1,5 @@
+import FieldCode from "./field-code.js"
+
 export default {
 
     _meta: {
@@ -38,22 +40,22 @@ export default {
     },
 
     components: {
-        'field-code': Vue.defineAsyncComponent(() =>
-            App.utils.import('app:assets/vue-components/field-code.js')
-        )
+        'field-code': FieldCode
     },
 
     watch: {
         val: {
-            handler() { this.update() },
+            handler() {
+                this.update()
+            },
             deep: true
         },
         modelValue: {
             handler(val) {
 
-                if (this.code && this.code.editor && !this.code.editor.hasFocus()) {
+                if (this.code.editor && !this.code.editor.hasFocus()) {
 
-                    if (this.asString && typeof(val) == 'string') {
+                    if (this.asString && typeof (val) == 'string') {
                         this.val = val;
                     } else {
                         this.val = JSON5.stringify(val, null, 2);
@@ -72,13 +74,14 @@ export default {
 
             let val = this.modelValue;
 
-            if (this.asString && typeof(val) == 'string') {
+            if (this.asString && typeof (val) == 'string') {
                 val = JSON5.parse(val);
             }
 
             this.val = JSON5.stringify(val, null, 2);
 
-        } catch (e) {}
+        } catch (e) {
+        }
     },
 
     methods: {

@@ -5,47 +5,25 @@
 Prepares requests that contain a body, adding the Content-Length,
 Content-Type, and Expect headers.
 
-
-
 * Full name: `\GuzzleHttp\PrepareBodyMiddleware`
-
-
 
 ## Properties
 
-
 ### nextHandler
-
-
 
 ```php
 private $nextHandler
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(callable $nextHandler): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -53,25 +31,13 @@ public __construct(callable $nextHandler): mixed
 |-----------|------|-------------|
 | `$nextHandler` | **callable** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(\Psr\Http\Message\RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -79,9 +45,6 @@ public __invoke(\Psr\Http\Message\RequestInterface $request, array $options): \G
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -93,13 +56,6 @@ Add expect header
 private addExpectHeader(\Psr\Http\Message\RequestInterface $request, array $options, array& $modify): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -107,9 +63,6 @@ private addExpectHeader(\Psr\Http\Message\RequestInterface $request, array $opti
 | `$request` | **\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** |  |
 | `$modify` | **array** |  |
-
-
-
 
 ***
 

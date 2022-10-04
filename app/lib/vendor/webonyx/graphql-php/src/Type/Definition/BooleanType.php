@@ -27,9 +27,9 @@ class BooleanType extends ScalarType
      *
      * @param mixed $value
      */
-    public function serialize($value) : bool
+    public function serialize($value): bool
     {
-        return (bool) $value;
+        return (bool)$value;
     }
 
     /**
@@ -55,7 +55,7 @@ class BooleanType extends ScalarType
      */
     public function parseLiteral(Node $valueNode, ?array $variables = null)
     {
-        if (! $valueNode instanceof BooleanValueNode) {
+        if (!$valueNode instanceof BooleanValueNode) {
             // Intentionally without message, as all information already in wrapped Exception
             throw new Error();
         }

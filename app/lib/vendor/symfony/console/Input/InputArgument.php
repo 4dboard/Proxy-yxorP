@@ -13,6 +13,7 @@ namespace Symfony\Component\Console\Input;
 
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Exception\LogicException;
+use function is_array;
 
 /**
  * Represents a command line argument.
@@ -31,10 +32,10 @@ class InputArgument
     private $description;
 
     /**
-     * @param string                           $name        The argument name
-     * @param int|null                         $mode        The argument mode: self::REQUIRED or self::OPTIONAL
-     * @param string                           $description A description text
-     * @param string|bool|int|float|array|null $default     The default value (for self::OPTIONAL mode only)
+     * @param string $name The argument name
+     * @param int|null $mode The argument mode: self::REQUIRED or self::OPTIONAL
+     * @param string $description A description text
+     * @param string|bool|int|float|array|null $default The default value (for self::OPTIONAL mode only)
      *
      * @throws InvalidArgumentException When argument mode is not valid
      */
@@ -84,6 +85,16 @@ class InputArgument
     }
 
     /**
+     * Returns the default value.
+     *
+     * @return string|bool|int|float|array|null
+     */
+    public function getDefault()
+    {
+        return $this->default;
+    }
+
+    /**
      * Sets the default value.
      *
      * @param string|bool|int|float|array|null $default
@@ -99,22 +110,12 @@ class InputArgument
         if ($this->isArray()) {
             if (null === $default) {
                 $default = [];
-            } elseif (!\is_array($default)) {
+            } elseif (!is_array($default)) {
                 throw new LogicException('A default value for an array argument must be an array.');
             }
         }
 
         $this->default = $default;
-    }
-
-    /**
-     * Returns the default value.
-     *
-     * @return string|bool|int|float|array|null
-     */
-    public function getDefault()
-    {
-        return $this->default;
     }
 
     /**

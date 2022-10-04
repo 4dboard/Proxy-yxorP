@@ -14,12 +14,11 @@ class Head extends Operation
     /**
      * @inheritdoc
      */
-    public $method = 'head';
-
-    /**
-     * @inheritdoc
-     */
     public static $_parents = [
         PathItem::class,
     ];
+    /**
+     * @inheritdoc
+     */
+    public $method = 'head';
 }

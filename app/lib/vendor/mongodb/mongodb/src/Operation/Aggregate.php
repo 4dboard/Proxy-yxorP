@@ -31,7 +31,6 @@ use MongoDB\Exception\UnexpectedValueException;
 use MongoDB\Exception\UnsupportedException;
 use stdClass;
 use Traversable;
-
 use function current;
 use function is_array;
 use function is_bool;
@@ -130,10 +129,10 @@ class Aggregate implements Executable, Explainable
      * Note: Collection-agnostic commands (e.g. $currentOp) may be executed by
      * specifying null for the collection name.
      *
-     * @param string      $databaseName   Database name
+     * @param string $databaseName Database name
      * @param string|null $collectionName Collection name
-     * @param array       $pipeline       List of pipeline operations
-     * @param array       $options        Command options
+     * @param array $pipeline List of pipeline operations
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, array $pipeline, array $options = [])
@@ -145,7 +144,7 @@ class Aggregate implements Executable, Explainable
                 throw new InvalidArgumentException(sprintf('$pipeline is not a list (unexpected index: "%s")', $i));
             }
 
-            if (! is_array($operation) && ! is_object($operation)) {
+            if (!is_array($operation) && !is_object($operation)) {
                 throw InvalidArgumentException::invalidType(sprintf('$pipeline[%d]', $i), $operation, 'array or object');
             }
 
@@ -154,75 +153,75 @@ class Aggregate implements Executable, Explainable
 
         $options += ['useCursor' => true];
 
-        if (isset($options['allowDiskUse']) && ! is_bool($options['allowDiskUse'])) {
+        if (isset($options['allowDiskUse']) && !is_bool($options['allowDiskUse'])) {
             throw InvalidArgumentException::invalidType('"allowDiskUse" option', $options['allowDiskUse'], 'boolean');
         }
 
-        if (isset($options['batchSize']) && ! is_integer($options['batchSize'])) {
+        if (isset($options['batchSize']) && !is_integer($options['batchSize'])) {
             throw InvalidArgumentException::invalidType('"batchSize" option', $options['batchSize'], 'integer');
         }
 
-        if (isset($options['bypassDocumentValidation']) && ! is_bool($options['bypassDocumentValidation'])) {
+        if (isset($options['bypassDocumentValidation']) && !is_bool($options['bypassDocumentValidation'])) {
             throw InvalidArgumentException::invalidType('"bypassDocumentValidation" option', $options['bypassDocumentValidation'], 'boolean');
         }
 
-        if (isset($options['collation']) && ! is_array($options['collation']) && ! is_object($options['collation'])) {
+        if (isset($options['collation']) && !is_array($options['collation']) && !is_object($options['collation'])) {
             throw InvalidArgumentException::invalidType('"collation" option', $options['collation'], 'array or object');
         }
 
-        if (isset($options['comment']) && ! is_string($options['comment'])) {
+        if (isset($options['comment']) && !is_string($options['comment'])) {
             throw InvalidArgumentException::invalidType('"comment" option', $options['comment'], 'string');
         }
 
-        if (isset($options['explain']) && ! is_bool($options['explain'])) {
+        if (isset($options['explain']) && !is_bool($options['explain'])) {
             throw InvalidArgumentException::invalidType('"explain" option', $options['explain'], 'boolean');
         }
 
-        if (isset($options['hint']) && ! is_string($options['hint']) && ! is_array($options['hint']) && ! is_object($options['hint'])) {
+        if (isset($options['hint']) && !is_string($options['hint']) && !is_array($options['hint']) && !is_object($options['hint'])) {
             throw InvalidArgumentException::invalidType('"hint" option', $options['hint'], 'string or array or object');
         }
 
-        if (isset($options['let']) && ! is_array($options['let']) && ! is_object($options['let'])) {
+        if (isset($options['let']) && !is_array($options['let']) && !is_object($options['let'])) {
             throw InvalidArgumentException::invalidType('"let" option', $options['let'], ['array', 'object']);
         }
 
-        if (isset($options['maxAwaitTimeMS']) && ! is_integer($options['maxAwaitTimeMS'])) {
+        if (isset($options['maxAwaitTimeMS']) && !is_integer($options['maxAwaitTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxAwaitTimeMS" option', $options['maxAwaitTimeMS'], 'integer');
         }
 
-        if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
+        if (isset($options['maxTimeMS']) && !is_integer($options['maxTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxTimeMS" option', $options['maxTimeMS'], 'integer');
         }
 
-        if (isset($options['readConcern']) && ! $options['readConcern'] instanceof ReadConcern) {
+        if (isset($options['readConcern']) && !$options['readConcern'] instanceof ReadConcern) {
             throw InvalidArgumentException::invalidType('"readConcern" option', $options['readConcern'], ReadConcern::class);
         }
 
-        if (isset($options['readPreference']) && ! $options['readPreference'] instanceof ReadPreference) {
+        if (isset($options['readPreference']) && !$options['readPreference'] instanceof ReadPreference) {
             throw InvalidArgumentException::invalidType('"readPreference" option', $options['readPreference'], ReadPreference::class);
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['typeMap']) && ! is_array($options['typeMap'])) {
+        if (isset($options['typeMap']) && !is_array($options['typeMap'])) {
             throw InvalidArgumentException::invalidType('"typeMap" option', $options['typeMap'], 'array');
         }
 
-        if (! is_bool($options['useCursor'])) {
+        if (!is_bool($options['useCursor'])) {
             throw InvalidArgumentException::invalidType('"useCursor" option', $options['useCursor'], 'boolean');
         }
 
-        if (isset($options['writeConcern']) && ! $options['writeConcern'] instanceof WriteConcern) {
+        if (isset($options['writeConcern']) && !$options['writeConcern'] instanceof WriteConcern) {
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
-        if (isset($options['batchSize']) && ! $options['useCursor']) {
+        if (isset($options['batchSize']) && !$options['useCursor']) {
             throw new InvalidArgumentException('"batchSize" option should not be used if "useCursor" is false');
         }
 
-        if (isset($options['bypassDocumentValidation']) && ! $options['bypassDocumentValidation']) {
+        if (isset($options['bypassDocumentValidation']) && !$options['bypassDocumentValidation']) {
             unset($options['bypassDocumentValidation']);
         }
 
@@ -234,8 +233,8 @@ class Aggregate implements Executable, Explainable
             unset($options['writeConcern']);
         }
 
-        $this->isExplain = ! empty($options['explain']);
-        $this->isWrite = is_last_pipeline_operator_write($pipeline) && ! $this->isExplain;
+        $this->isExplain = !empty($options['explain']);
+        $this->isWrite = is_last_pipeline_operator_write($pipeline) && !$this->isExplain;
 
         // Explain does not use a cursor
         if ($this->isExplain) {
@@ -249,8 +248,8 @@ class Aggregate implements Executable, Explainable
             unset($options['batchSize']);
         }
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = isset($collectionName) ? (string) $collectionName : null;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = isset($collectionName) ? (string)$collectionName : null;
         $this->pipeline = $pipeline;
         $this->options = $options;
     }
@@ -258,12 +257,12 @@ class Aggregate implements Executable, Explainable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return Traversable
      * @throws UnexpectedValueException if the command response was malformed
      * @throws UnsupportedException if read concern or write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
     public function execute(Server $server)
     {
@@ -299,23 +298,11 @@ class Aggregate implements Executable, Explainable
 
         $result = current($cursor->toArray());
 
-        if (! isset($result->result) || ! is_array($result->result)) {
+        if (!isset($result->result) || !is_array($result->result)) {
             throw new UnexpectedValueException('aggregate command did not return a "result" array');
         }
 
         return new ArrayIterator($result->result);
-    }
-
-    /**
-     * Returns the command document for this operation.
-     *
-     * @see Explainable::getCommandDocument()
-     * @param Server $server
-     * @return array
-     */
-    public function getCommandDocument(Server $server)
-    {
-        return $this->createCommandDocument();
     }
 
     /**
@@ -338,12 +325,12 @@ class Aggregate implements Executable, Explainable
 
         foreach (['collation', 'let'] as $option) {
             if (isset($this->options[$option])) {
-                $cmd[$option] = (object) $this->options[$option];
+                $cmd[$option] = (object)$this->options[$option];
             }
         }
 
         if (isset($this->options['hint'])) {
-            $cmd['hint'] = is_array($this->options['hint']) ? (object) $this->options['hint'] : $this->options['hint'];
+            $cmd['hint'] = is_array($this->options['hint']) ? (object)$this->options['hint'] : $this->options['hint'];
         }
 
         if ($this->options['useCursor']) {
@@ -387,7 +374,7 @@ class Aggregate implements Executable, Explainable
             $options['writeConcern'] = $this->options['writeConcern'];
         }
 
-        if (! $this->isWrite) {
+        if (!$this->isWrite) {
             return $server->executeReadCommand($this->databaseName, $command, $options);
         }
 
@@ -400,5 +387,17 @@ class Aggregate implements Executable, Explainable
         }
 
         return $server->executeReadWriteCommand($this->databaseName, $command, $options);
+    }
+
+    /**
+     * Returns the command document for this operation.
+     *
+     * @param Server $server
+     * @return array
+     * @see Explainable::getCommandDocument()
+     */
+    public function getCommandDocument(Server $server)
+    {
+        return $this->createCommandDocument();
     }
 }

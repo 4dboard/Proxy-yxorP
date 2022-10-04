@@ -5,139 +5,77 @@
 Represents a promise that iterates over many promises and invokes
 side-effect functions in the process.
 
-
-
 * Full name: `\GuzzleHttp\Promise\EachPromise`
 * This class implements:
-[`\GuzzleHttp\Promise\PromisorInterface`](./PromisorInterface.md)
-
-
+  [`\GuzzleHttp\Promise\PromisorInterface`](./PromisorInterface.md)
 
 ## Properties
 
-
 ### pending
-
-
 
 ```php
 private $pending
 ```
 
-
-
-
-
-
 ***
 
 ### nextPendingIndex
-
-
 
 ```php
 private $nextPendingIndex
 ```
 
-
-
-
-
-
 ***
 
 ### iterable
-
-
 
 ```php
 private \Iterator|null $iterable
 ```
 
-
-
-
-
-
 ***
 
 ### concurrency
-
-
 
 ```php
 private callable|int|null $concurrency
 ```
 
-
-
-
-
-
 ***
 
 ### onFulfilled
-
-
 
 ```php
 private callable|null $onFulfilled
 ```
 
-
-
-
-
-
 ***
 
 ### onRejected
-
-
 
 ```php
 private callable|null $onRejected
 ```
 
-
-
-
-
-
 ***
 
 ### aggregate
-
-
 
 ```php
 private \GuzzleHttp\Promise\Promise|null $aggregate
 ```
 
-
-
-
-
-
 ***
 
 ### mutex
-
-
 
 ```php
 private bool|null $mutex
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -162,20 +100,12 @@ public __construct(mixed $iterable, array $config = []): mixed
   allowed number of outstanding concurrently executing promises,
   creating a capped pool of promises. There is no limit by default.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$iterable` | **mixed** | Promises or values to iterate. |
 | `$config` | **array** | Configuration options |
-
-
-
 
 ***
 
@@ -187,112 +117,45 @@ Returns a promise.
 public promise(): \GuzzleHttp\Promise\PromiseInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createPromise
-
-
 
 ```php
 private createPromise(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### refillPending
-
-
 
 ```php
 private refillPending(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### addPending
-
-
 
 ```php
 private addPending(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### advanceIterator
-
-
 
 ```php
 private advanceIterator(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### step
 
-
-
 ```php
 private step(mixed $idx): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -300,28 +163,13 @@ private step(mixed $idx): mixed
 |-----------|------|-------------|
 | `$idx` | **mixed** |  |
 
-
-
-
 ***
 
 ### checkIfFinished
 
-
-
 ```php
 private checkIfFinished(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

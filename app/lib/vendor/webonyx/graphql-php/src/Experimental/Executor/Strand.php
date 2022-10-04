@@ -29,7 +29,7 @@ class Strand
     public function __construct(Generator $coroutine)
     {
         $this->current = $coroutine;
-        $this->stack   = [];
-        $this->depth   = 0;
+        $this->stack = [];
+        $this->depth = 0;
     }
 }

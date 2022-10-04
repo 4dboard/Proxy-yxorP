@@ -2,81 +2,45 @@
 
 # response
 
-
-
-
-
 * Full name: `\yxorP\app\lib\proxy\psr7\response`
 * This class implements:
-[`\yxorP\app\lib\psr\http\message\responseInterface`](../../psr/http/message/responseInterface.md)
-
-
+  [`\yxorP\app\lib\psr\http\message\responseInterface`](../../psr/http/message/responseInterface.md)
 
 ## Properties
 
-
 ### phrases
-
-
 
 ```php
 private static $phrases
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### reasonPhrase
 
-
-
 ```php
 private $reasonPhrase
 ```
-
-
-
-
-
 
 ***
 
 ### statusCode
 
-
-
 ```php
 private $statusCode
 ```
-
-
-
-
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $status = 200, array $headers = [], mixed $body = null, mixed $version = &#039;1.1&#039;, mixed $reason = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -88,60 +52,33 @@ public __construct(mixed $status = 200, array $headers = [], mixed $body = null,
 | `$version` | **mixed** |  |
 | `$reason` | **mixed** |  |
 
-
-
-
 ***
 
 ### assertStatusCodeIsInteger
-
-
 
 ```php
 private assertStatusCodeIsInteger(mixed $statusCode): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$statusCode` | **mixed** |  |
-
-
-
 
 ***
 
 ### assertStatusCodeRange
 
-
-
 ```php
 private assertStatusCodeRange(mixed $statusCode): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$statusCode` | **mixed** |  |
-
-
-
 
 ***
 
@@ -155,12 +92,6 @@ public getStatusCode(): int
 
 The status code is a 3-digit integer result code of the server's attempt
 to understand and satisfy the request.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -183,12 +114,6 @@ status line, the reason phrase value MAY be null. Implementations MAY
 choose to return the default RFC 7231 recommended reason phrase (or those
 listed in the IANA HTTP Status Code Registry) for the response's
 status code.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -214,11 +139,6 @@ This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that has the
 updated status and reason phrase.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -226,49 +146,23 @@ updated status and reason phrase.
 | `$code` | **mixed** | The 3-digit integer result code to set. |
 | `$reasonPhrase` | **mixed** | The reason phrase to use with the<br />provided status code; if none is provided, implementations MAY<br />use the defaults as suggested in the HTTP specification. |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### getProtocolVersion
-
-
 
 ```php
 public getProtocolVersion(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### withProtocolVersion
 
-
-
 ```php
 public withProtocolVersion(mixed $version): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -276,123 +170,63 @@ public withProtocolVersion(mixed $version): mixed
 |-----------|------|-------------|
 | `$version` | **mixed** |  |
 
-
-
-
 ***
 
 ### getHeaders
-
-
 
 ```php
 public getHeaders(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasHeader
-
-
 
 ```php
 public hasHeader(mixed $header): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
-
-
-
 
 ***
 
 ### getHeaderLine
 
-
-
 ```php
 public getHeaderLine(mixed $header): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
-
-
-
 
 ***
 
 ### getHeader
 
-
-
 ```php
 public getHeader(mixed $header): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
-
-
-
 
 ***
 
 ### withHeader
 
-
-
 ```php
 public withHeader(mixed $header, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -400,26 +234,14 @@ public withHeader(mixed $header, mixed $value): mixed
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### withAddedHeader
 
-
-
 ```php
 public withAddedHeader(mixed $header, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -428,25 +250,13 @@ public withAddedHeader(mixed $header, mixed $value): mixed
 | `$header` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### withoutHeader
 
-
-
 ```php
 public withoutHeader(mixed $header): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -454,45 +264,21 @@ public withoutHeader(mixed $header): mixed
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 
-
-
-
 ***
 
 ### getBody
-
-
 
 ```php
 public getBody(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### withBody
 
-
-
 ```php
 public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -500,25 +286,13 @@ public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
 |-----------|------|-------------|
 | `$body` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
 
-
-
-
 ***
 
 ### assertHeader
 
-
-
 ```php
 private assertHeader(mixed $header): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -526,25 +300,13 @@ private assertHeader(mixed $header): mixed
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 
-
-
-
 ***
 
 ### normalizeHeaderValue
 
-
-
 ```php
 private normalizeHeaderValue(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -552,25 +314,13 @@ private normalizeHeaderValue(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### trimHeaderValues
 
-
-
 ```php
 private trimHeaderValues(array $values): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -578,34 +328,19 @@ private trimHeaderValues(array $values): mixed
 |-----------|------|-------------|
 | `$values` | **array** |  |
 
-
-
-
 ***
 
 ### setHeaders
 
-
-
 ```php
 private setHeaders(array $headers): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$headers` | **array** |  |
-
-
-
 
 ***
 

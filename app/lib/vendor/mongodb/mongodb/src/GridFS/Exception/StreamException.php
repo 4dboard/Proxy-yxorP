@@ -3,7 +3,6 @@
 namespace MongoDB\GridFS\Exception;
 
 use MongoDB\Exception\RuntimeException;
-
 use function MongoDB\BSON\fromPHP;
 use function MongoDB\BSON\toJSON;
 use function sprintf;
@@ -24,7 +23,7 @@ class StreamException extends RuntimeException
     }
 
     /**
-     * @param mixed    $id
+     * @param mixed $id
      * @param resource $source
      * @param resource $destination
      */

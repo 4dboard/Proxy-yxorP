@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace GuzzleHttp\Psr7;
 
 use Psr\Http\Message\UriInterface;
+use function strcasecmp;
 
 /**
  * Provides methods to determine if a modified URL should be considered cross-origin.
@@ -13,13 +14,18 @@ use Psr\Http\Message\UriInterface;
  */
 final class UriComparator
 {
+    private function __construct()
+    {
+        // cannot be instantiated
+    }
+
     /**
      * Determines if a modified URL should be considered cross-origin with
      * respect to an original URL.
      */
     public static function isCrossOrigin(UriInterface $original, UriInterface $modified): bool
     {
-        if (\strcasecmp($original->getHost(), $modified->getHost()) !== 0) {
+        if (strcasecmp($original->getHost(), $modified->getHost()) !== 0) {
             return true;
         }
 
@@ -43,10 +49,5 @@ final class UriComparator
         }
 
         return 'https' === $uri->getScheme() ? 443 : 80;
-    }
-
-    private function __construct()
-    {
-        // cannot be instantiated
     }
 }

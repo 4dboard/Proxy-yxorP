@@ -22,7 +22,6 @@ use JsonSerializable;
 use MongoDB\BSON\Serializable;
 use MongoDB\BSON\Unserializable;
 use ReturnTypeWillChange;
-
 use function MongoDB\recursive_copy;
 
 /**
@@ -35,30 +34,6 @@ use function MongoDB\recursive_copy;
  */
 class BSONDocument extends ArrayObject implements JsonSerializable, Serializable, Unserializable
 {
-    /**
-     * Deep clone this BSONDocument.
-     */
-    public function __clone()
-    {
-        foreach ($this as $key => $value) {
-            $this[$key] = recursive_copy($value);
-        }
-    }
-
-    /**
-     * This overrides the parent constructor to allow property access of entries
-     * by default.
-     *
-     * @see http://php.net/arrayobject.construct
-     * @param array   $input
-     * @param integer $flags
-     * @param string  $iteratorClass
-     */
-    public function __construct($input = [], $flags = ArrayObject::ARRAY_AS_PROPS, $iteratorClass = 'ArrayIterator')
-    {
-        parent::__construct($input, $flags, $iteratorClass);
-    }
-
     /**
      * Factory method for var_export().
      *
@@ -76,6 +51,16 @@ class BSONDocument extends ArrayObject implements JsonSerializable, Serializable
     }
 
     /**
+     * Deep clone this BSONDocument.
+     */
+    public function __clone()
+    {
+        foreach ($this as $key => $value) {
+            $this[$key] = recursive_copy($value);
+        }
+    }
+
+    /**
      * Serialize the document to BSON.
      *
      * @see http://php.net/mongodb-bson-serializable.bsonserialize
@@ -83,7 +68,7 @@ class BSONDocument extends ArrayObject implements JsonSerializable, Serializable
      */
     public function bsonSerialize()
     {
-        return (object) $this->getArrayCopy();
+        return (object)$this->getArrayCopy();
     }
 
     /**
@@ -98,6 +83,20 @@ class BSONDocument extends ArrayObject implements JsonSerializable, Serializable
     }
 
     /**
+     * This overrides the parent constructor to allow property access of entries
+     * by default.
+     *
+     * @see http://php.net/arrayobject.construct
+     * @param array $input
+     * @param integer $flags
+     * @param string $iteratorClass
+     */
+    public function __construct($input = [], $flags = ArrayObject::ARRAY_AS_PROPS, $iteratorClass = 'ArrayIterator')
+    {
+        parent::__construct($input, $flags, $iteratorClass);
+    }
+
+    /**
      * Serialize the array to JSON.
      *
      * @see http://php.net/jsonserializable.jsonserialize
@@ -106,6 +105,6 @@ class BSONDocument extends ArrayObject implements JsonSerializable, Serializable
     #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return (object) $this->getArrayCopy();
+        return (object)$this->getArrayCopy();
     }
 }

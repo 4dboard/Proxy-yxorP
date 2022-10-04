@@ -4,63 +4,34 @@
 
 Extends \SplFileInfo to support relative paths.
 
-
-
 * Full name: `\Symfony\Component\Finder\SplFileInfo`
 * Parent class: [`SplFileInfo`](../../../SplFileInfo.md)
 
-
-
 ## Properties
 
-
 ### relativePath
-
-
 
 ```php
 private string $relativePath
 ```
 
-
-
-
-
-
 ***
 
 ### relativePathname
-
-
 
 ```php
 private string $relativePathname
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $file, string $relativePath, string $relativePathname): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -69,9 +40,6 @@ public __construct(string $file, string $relativePath, string $relativePathname)
 | `$file` | **string** | The file name |
 | `$relativePath` | **string** | The relative path |
 | `$relativePathname` | **string** | The relative path name |
-
-
-
 
 ***
 
@@ -117,21 +85,9 @@ This path contains the file name.
 
 ### getFilenameWithoutExtension
 
-
-
 ```php
 public getFilenameWithoutExtension(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -142,16 +98,6 @@ Returns the contents of the file.
 ```php
 public getContents(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

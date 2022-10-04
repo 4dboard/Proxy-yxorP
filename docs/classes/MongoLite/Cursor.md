@@ -4,139 +4,77 @@
 
 Cursor object.
 
-
-
 * Full name: `\MongoLite\Cursor`
 * This class implements:
-[`\Iterator`](../Iterator.md)
-
-
+  [`\Iterator`](../Iterator.md)
 
 ## Properties
 
-
 ### position
-
-
 
 ```php
 protected bool|int $position
 ```
 
-
-
-
-
-
 ***
 
 ### data
-
-
 
 ```php
 protected array $data
 ```
 
-
-
-
-
-
 ***
 
 ### collection
-
-
 
 ```php
 protected \MongoLite\Collection $collection
 ```
 
-
-
-
-
-
 ***
 
 ### criteria
-
-
 
 ```php
 protected ?string $criteria
 ```
 
-
-
-
-
-
 ***
 
 ### projection
-
-
 
 ```php
 protected ?array $projection
 ```
 
-
-
-
-
-
 ***
 
 ### limit
-
-
 
 ```php
 protected ?int $limit
 ```
 
-
-
-
-
-
 ***
 
 ### skip
-
-
 
 ```php
 protected ?int $skip
 ```
 
-
-
-
-
-
 ***
 
 ### sort
-
-
 
 ```php
 protected ?array $sort
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -146,13 +84,6 @@ Constructor
 public __construct(object $collection, mixed $criteria, ?array $projection = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -160,9 +91,6 @@ public __construct(object $collection, mixed $criteria, ?array $projection = nul
 | `$collection` | **object** |  |
 | `$criteria` | **mixed** |  |
 | `$projection` | **?array** |  |
-
-
-
 
 ***
 
@@ -174,16 +102,6 @@ Documents count
 public count(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### limit
@@ -194,19 +112,11 @@ Set limit
 public limit(int $limit): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$limit` | **int** |  |
-
 
 **Return Value:**
 
@@ -224,19 +134,11 @@ Set sort
 public sort(mixed $sorts): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$sorts` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -254,19 +156,11 @@ Set skip
 public skip(int $skip): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$skip` | **int** |  |
-
 
 **Return Value:**
 
@@ -284,21 +178,11 @@ Loop through result set
 public each(mixed $callable): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **mixed** |  |
-
-
-
 
 ***
 
@@ -310,16 +194,6 @@ Get documents matching criteria
 public toArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getData
@@ -329,16 +203,6 @@ Get documents matching criteria
 ```php
 protected getData(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -350,95 +214,37 @@ Iterator implementation
 public rewind(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### current
-
-
 
 ```php
 public current(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### key
-
-
 
 ```php
 public key(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### next
-
-
 
 ```php
 public next(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### valid
 
-
-
 ```php
 public valid(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

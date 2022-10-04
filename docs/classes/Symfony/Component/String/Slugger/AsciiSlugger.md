@@ -2,14 +2,10 @@
 
 # AsciiSlugger
 
-
-
-
-
 * Full name: `\Symfony\Component\String\Slugger\AsciiSlugger`
 * This class implements:
-[`\Symfony\Component\String\Slugger\SluggerInterface`](./SluggerInterface.md), [`\Symfony\Contracts\Translation\LocaleAwareInterface`](../../../Contracts/Translation/LocaleAwareInterface.md)
-
+  [`\Symfony\Component\String\Slugger\SluggerInterface`](./SluggerInterface.md)
+  , [`\Symfony\Contracts\Translation\LocaleAwareInterface`](../../../Contracts/Translation/LocaleAwareInterface.md)
 
 ## Constants
 
@@ -19,34 +15,19 @@
 
 ## Properties
 
-
 ### defaultLocale
-
-
 
 ```php
 private ?string $defaultLocale
 ```
 
-
-
-
-
-
 ***
 
 ### symbolsMap
 
-
-
 ```php
 private \Closure|array $symbolsMap
 ```
-
-
-
-
-
 
 ***
 
@@ -58,30 +39,15 @@ Cache of transliterators per locale.
 private array $transliterators
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $defaultLocale = null, array|\Closure $symbolsMap = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -89,9 +55,6 @@ public __construct(string $defaultLocale = null, array|\Closure $symbolsMap = nu
 |-----------|------|-------------|
 | `$defaultLocale` | **string** |  |
 | `$symbolsMap` | **array&#124;\Closure** |  |
-
-
-
 
 ***
 
@@ -103,21 +66,11 @@ public __construct(string $defaultLocale = null, array|\Closure $symbolsMap = nu
 public setLocale(string $locale): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -129,16 +82,6 @@ public setLocale(string $locale): mixed
 public getLocale(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### slug
@@ -149,13 +92,6 @@ Creates a slug for the given string and locale, using appropriate transliteratio
 public slug(string $string, string $separator = &#039;-&#039;, string $locale = null): \Symfony\Component\String\AbstractUnicodeString
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -164,25 +100,13 @@ public slug(string $string, string $separator = &#039;-&#039;, string $locale = 
 | `$separator` | **string** |  |
 | `$locale` | **string** |  |
 
-
-
-
 ***
 
 ### createTransliterator
 
-
-
 ```php
 private createTransliterator(string $locale): ?\Transliterator
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -190,34 +114,21 @@ private createTransliterator(string $locale): ?\Transliterator
 |-----------|------|-------------|
 | `$locale` | **string** |  |
 
-
-
-
 ***
 
 ### getParentLocale
-
-
 
 ```php
 private static getParentLocale(?string $locale): ?string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **?string** |  |
-
-
-
 
 ***
 

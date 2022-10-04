@@ -15,43 +15,62 @@ use OpenApi\Generator;
 class Header extends AbstractAnnotation
 {
     /**
+     * @inheritdoc
+     */
+    public static $_required = ['header', 'schema'];
+    /**
+     * @inheritdoc
+     */
+    public static $_types = [
+        'header' => 'string',
+        'description' => 'string',
+    ];
+    /**
+     * @inheritdoc
+     */
+    public static $_nested = [
+        Schema::class => 'schema',
+        Attachable::class => ['attachables'],
+    ];
+    /**
+     * @inheritdoc
+     */
+    public static $_parents = [
+        Components::class,
+        Response::class,
+    ];
+    /**
      * $ref See https://swagger.io/docs/specification/using-ref/.
      *
      * @var string
      */
     public $ref = Generator::UNDEFINED;
-
     /**
      * @var string
      */
     public $header = Generator::UNDEFINED;
-
     /**
      * @var string
      */
     public $description = Generator::UNDEFINED;
-
     /**
      * A brief description of the parameter. This could contain examples of use. CommonMark syntax MAY be used for rich text representation.
      *
      * @var bool
      */
     public $required = Generator::UNDEFINED;
-
     /**
      * Schema object.
      *
-     * @var \OpenApi\Annotations\Schema
+     * @var Schema
      */
     public $schema = Generator::UNDEFINED;
-
     /**
      * Specifies that a parameter is deprecated and SHOULD be transitioned out of usage.
      *
      * @var bool
      */
     public $deprecated = Generator::UNDEFINED;
-
     /**
      * Sets the ability to pass empty-valued parameters.
      * This is valid only for query parameters and allows sending a parameter with an empty value.
@@ -61,33 +80,4 @@ class Header extends AbstractAnnotation
      * @var bool
      */
     public $allowEmptyValue = Generator::UNDEFINED;
-
-    /**
-     * @inheritdoc
-     */
-    public static $_required = ['header', 'schema'];
-
-    /**
-     * @inheritdoc
-     */
-    public static $_types = [
-        'header' => 'string',
-        'description' => 'string',
-    ];
-
-    /**
-     * @inheritdoc
-     */
-    public static $_nested = [
-        Schema::class => 'schema',
-        Attachable::class => ['attachables'],
-    ];
-
-    /**
-     * @inheritdoc
-     */
-    public static $_parents = [
-        Components::class,
-        Response::class,
-    ];
 }

@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
-class Dashboard extends App {
+class Dashboard extends App
+{
 
-    public function index() {
+    public function index()
+    {
 
         $this->helper('theme')->pageClass('dashboard-page');
 

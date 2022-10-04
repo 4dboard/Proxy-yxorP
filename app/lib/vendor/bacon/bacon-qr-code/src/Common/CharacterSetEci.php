@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BaconQrCode\Common;
 
@@ -68,39 +68,27 @@ final class CharacterSetEci extends AbstractEnum
     protected const BIG5 = [[28]];
     protected const GB18030 = [[29], 'GB2312', 'EUC_CN', 'GBK'];
     protected const EUC_KR = [[30], 'EUC-KR'];
-
+    /**
+     * @var array<int, self>|null
+     */
+    private static $valueToEci;
+    /**
+     * @var array<string, self>|null
+     */
+    private static $nameToEci;
     /**
      * @var int[]
      */
     private $values;
-
     /**
      * @var string[]
      */
     private $otherEncodingNames;
 
-    /**
-     * @var array<int, self>|null
-     */
-    private static $valueToEci;
-
-    /**
-     * @var array<string, self>|null
-     */
-    private static $nameToEci;
-
     public function __construct(array $values, string ...$otherEncodingNames)
     {
         $this->values = $values;
         $this->otherEncodingNames = $otherEncodingNames;
-    }
-
-    /**
-     * Returns the primary value.
-     */
-    public function getValue() : int
-    {
-        return $this->values[0];
     }
 
     /**
@@ -110,7 +98,7 @@ final class CharacterSetEci extends AbstractEnum
      *
      * @throws InvalidArgumentException if value is not between 0 and 900
      */
-    public static function getCharacterSetEciByValue(int $value) : ?self
+    public static function getCharacterSetEciByValue(int $value): ?self
     {
         if ($value < 0 || $value >= 900) {
             throw new InvalidArgumentException('Value must be between 0 and 900');
@@ -118,31 +106,14 @@ final class CharacterSetEci extends AbstractEnum
 
         $valueToEci = self::valueToEci();
 
-        if (! array_key_exists($value, $valueToEci)) {
+        if (!array_key_exists($value, $valueToEci)) {
             return null;
         }
 
         return $valueToEci[$value];
     }
 
-    /**
-     * Returns character set ECI by name.
-     *
-     * Returns the representing ECI of a given name, or null if it is legal but unsupported
-     */
-    public static function getCharacterSetEciByName(string $name) : ?self
-    {
-        $nameToEci = self::nameToEci();
-        $name = strtolower($name);
-
-        if (! array_key_exists($name, $nameToEci)) {
-            return null;
-        }
-
-        return $nameToEci[$name];
-    }
-
-    private static function valueToEci() : array
+    private static function valueToEci(): array
     {
         if (null !== self::$valueToEci) {
             return self::$valueToEci;
@@ -159,7 +130,24 @@ final class CharacterSetEci extends AbstractEnum
         return self::$valueToEci;
     }
 
-    private static function nameToEci() : array
+    /**
+     * Returns character set ECI by name.
+     *
+     * Returns the representing ECI of a given name, or null if it is legal but unsupported
+     */
+    public static function getCharacterSetEciByName(string $name): ?self
+    {
+        $nameToEci = self::nameToEci();
+        $name = strtolower($name);
+
+        if (!array_key_exists($name, $nameToEci)) {
+            return null;
+        }
+
+        return $nameToEci[$name];
+    }
+
+    private static function nameToEci(): array
     {
         if (null !== self::$nameToEci) {
             return self::$nameToEci;
@@ -176,5 +164,13 @@ final class CharacterSetEci extends AbstractEnum
         }
 
         return self::$nameToEci;
+    }
+
+    /**
+     * Returns the primary value.
+     */
+    public function getValue(): int
+    {
+        return $this->values[0];
     }
 }

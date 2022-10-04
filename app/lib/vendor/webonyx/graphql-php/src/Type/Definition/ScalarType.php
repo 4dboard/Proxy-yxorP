@@ -40,11 +40,11 @@ abstract class ScalarType extends Type implements OutputType, InputType, LeafTyp
      */
     public function __construct(array $config = [])
     {
-        $this->name              = $config['name'] ?? $this->tryInferName();
-        $this->description       = $config['description'] ?? $this->description;
-        $this->astNode           = $config['astNode'] ?? null;
+        $this->name = $config['name'] ?? $this->tryInferName();
+        $this->description = $config['description'] ?? $this->description;
+        $this->astNode = $config['astNode'] ?? null;
         $this->extensionASTNodes = $config['extensionASTNodes'] ?? null;
-        $this->config            = $config;
+        $this->config = $config;
 
         Utils::invariant(is_string($this->name), 'Must provide name.');
     }

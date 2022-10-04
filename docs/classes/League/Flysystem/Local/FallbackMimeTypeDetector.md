@@ -2,14 +2,9 @@
 
 # FallbackMimeTypeDetector
 
-
-
-
-
 * Full name: `\League\Flysystem\Local\FallbackMimeTypeDetector`
 * This class implements:
-[`\League\MimeTypeDetection\MimeTypeDetector`](../../MimeTypeDetection/MimeTypeDetector.md)
-
+  [`\League\MimeTypeDetection\MimeTypeDetector`](../../MimeTypeDetection/MimeTypeDetector.md)
 
 ## Constants
 
@@ -19,54 +14,29 @@
 
 ## Properties
 
-
 ### detector
-
-
 
 ```php
 private \League\MimeTypeDetection\MimeTypeDetector $detector
 ```
 
-
-
-
-
-
 ***
 
 ### inconclusiveMimetypes
-
-
 
 ```php
 private array $inconclusiveMimetypes
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\League\MimeTypeDetection\MimeTypeDetector $detector, array $inconclusiveMimetypes = self::INCONCLUSIVE_MIME_TYPES): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -75,25 +45,13 @@ public __construct(\League\MimeTypeDetection\MimeTypeDetector $detector, array $
 | `$detector` | **\League\MimeTypeDetection\MimeTypeDetector** |  |
 | `$inconclusiveMimetypes` | **array** |  |
 
-
-
-
 ***
 
 ### detectMimeType
 
-
-
 ```php
 public detectMimeType(string $path, mixed $contents): ?string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -102,25 +60,13 @@ public detectMimeType(string $path, mixed $contents): ?string
 | `$path` | **string** |  |
 | `$contents` | **mixed** |  |
 
-
-
-
 ***
 
 ### detectMimeTypeFromBuffer
 
-
-
 ```php
 public detectMimeTypeFromBuffer(string $contents): ?string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -128,60 +74,33 @@ public detectMimeTypeFromBuffer(string $contents): ?string
 |-----------|------|-------------|
 | `$contents` | **string** |  |
 
-
-
-
 ***
 
 ### detectMimeTypeFromPath
-
-
 
 ```php
 public detectMimeTypeFromPath(string $path): ?string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
 ### detectMimeTypeFromFile
 
-
-
 ```php
 public detectMimeTypeFromFile(string $path): ?string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 

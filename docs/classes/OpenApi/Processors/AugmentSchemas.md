@@ -8,35 +8,19 @@ Merges properties.
 
 * Full name: `\OpenApi\Processors\AugmentSchemas`
 
-
-
-
 ## Methods
 
-
 ### __invoke
-
-
 
 ```php
 public __invoke(\OpenApi\Analysis $analysis): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$analysis` | **\OpenApi\Analysis** |  |
-
-
-
 
 ***
 

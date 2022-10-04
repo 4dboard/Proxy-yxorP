@@ -11,10 +11,15 @@
 
 namespace Symfony\Component\Console\Helper;
 
+use InvalidArgumentException;
+use LogicException;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
+use TypeError;
+use function is_array;
+use function is_string;
 
 /**
  * The ProcessHelper class provides helpers to run external processes.
@@ -26,16 +31,41 @@ use Symfony\Component\Process\Process;
 class ProcessHelper extends Helper
 {
     /**
+     * Runs the process.
+     *
+     * This is identical to run() except that an exception is thrown if the process
+     * exits with a non-zero exit code.
+     *
+     * @param array|Process $cmd An instance of Process or a command to run
+     * @param callable|null $callback A PHP callback to run whenever there is some
+     *                                output available on STDOUT or STDERR
+     *
+     * @throws ProcessFailedException
+     *
+     * @see run()
+     */
+    public function mustRun(OutputInterface $output, $cmd, string $error = null, callable $callback = null): Process
+    {
+        $process = $this->run($output, $cmd, $error, $callback);
+
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+
+        return $process;
+    }
+
+    /**
      * Runs an external process.
      *
-     * @param array|Process $cmd      An instance of Process or an array of the command and arguments
+     * @param array|Process $cmd An instance of Process or an array of the command and arguments
      * @param callable|null $callback A PHP callback to run whenever there is some
      *                                output available on STDOUT or STDERR
      */
     public function run(OutputInterface $output, $cmd, string $error = null, callable $callback = null, int $verbosity = OutputInterface::VERBOSITY_VERY_VERBOSE): Process
     {
         if (!class_exists(Process::class)) {
-            throw new \LogicException('The ProcessHelper cannot be run as the Process component is not installed. Try running "compose require symfony/process".');
+            throw new LogicException('The ProcessHelper cannot be run as the Process component is not installed. Try running "compose require symfony/process".');
         }
 
         if ($output instanceof ConsoleOutputInterface) {
@@ -48,18 +78,18 @@ class ProcessHelper extends Helper
             $cmd = [$cmd];
         }
 
-        if (!\is_array($cmd)) {
-            throw new \TypeError(sprintf('The "command" argument of "%s()" must be an array or a "%s" instance, "%s" given.', __METHOD__, Process::class, get_debug_type($cmd)));
+        if (!is_array($cmd)) {
+            throw new TypeError(sprintf('The "command" argument of "%s()" must be an array or a "%s" instance, "%s" given.', __METHOD__, Process::class, get_debug_type($cmd)));
         }
 
-        if (\is_string($cmd[0] ?? null)) {
+        if (is_string($cmd[0] ?? null)) {
             $process = new Process($cmd);
             $cmd = [];
         } elseif (($cmd[0] ?? null) instanceof Process) {
             $process = $cmd[0];
             unset($cmd[0]);
         } else {
-            throw new \InvalidArgumentException(sprintf('Invalid command provided to "%s()": the command should be an array whose first element is either the path to the binary to run or a "Process" object.', __METHOD__));
+            throw new InvalidArgumentException(sprintf('Invalid command provided to "%s()": the command should be an array whose first element is either the path to the binary to run or a "Process" object.', __METHOD__));
         }
 
         if ($verbosity <= $output->getVerbosity()) {
@@ -84,29 +114,9 @@ class ProcessHelper extends Helper
         return $process;
     }
 
-    /**
-     * Runs the process.
-     *
-     * This is identical to run() except that an exception is thrown if the process
-     * exits with a non-zero exit code.
-     *
-     * @param array|Process $cmd      An instance of Process or a command to run
-     * @param callable|null $callback A PHP callback to run whenever there is some
-     *                                output available on STDOUT or STDERR
-     *
-     * @throws ProcessFailedException
-     *
-     * @see run()
-     */
-    public function mustRun(OutputInterface $output, $cmd, string $error = null, callable $callback = null): Process
+    private function escapeString(string $str): string
     {
-        $process = $this->run($output, $cmd, $error, $callback);
-
-        if (!$process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
-
-        return $process;
+        return str_replace('<', '\\<', $str);
     }
 
     /**
@@ -127,11 +137,6 @@ class ProcessHelper extends Helper
                 $callback($type, $buffer);
             }
         };
-    }
-
-    private function escapeString(string $str): string
-    {
-        return str_replace('<', '\\<', $str);
     }
 
     /**

@@ -11,21 +11,25 @@
 
 namespace Symfony\Component\Finder\Iterator;
 
+use Closure;
+use IteratorAggregate;
+use Traversable;
+
 /**
  * @author Jérémy Derussé <jeremy@derusse.com>
  *
  * @internal
  */
-class LazyIterator implements \IteratorAggregate
+class LazyIterator implements IteratorAggregate
 {
-    private \Closure $iteratorFactory;
+    private Closure $iteratorFactory;
 
     public function __construct(callable $iteratorFactory)
     {
-        $this->iteratorFactory = $iteratorFactory instanceof \Closure ? $iteratorFactory : \Closure::fromCallable($iteratorFactory);
+        $this->iteratorFactory = $iteratorFactory instanceof Closure ? $iteratorFactory : Closure::fromCallable($iteratorFactory);
     }
 
-    public function getIterator(): \Traversable
+    public function getIterator(): Traversable
     {
         yield from ($this->iteratorFactory)();
     }

@@ -21,7 +21,6 @@ use IteratorAggregate;
 use ReturnTypeWillChange;
 use stdClass;
 use Traversable;
-
 use function call_user_func;
 
 /**
@@ -50,16 +49,16 @@ class MapReduceResult implements IteratorAggregate
     private $timing;
 
     /**
-     * @internal
      * @param callable $getIterator Callback that returns a Traversable for mapReduce results
-     * @param stdClass $result      Result document from the mapReduce command
+     * @param stdClass $result Result document from the mapReduce command
+     * @internal
      */
     public function __construct(callable $getIterator, stdClass $result)
     {
         $this->getIterator = $getIterator;
-        $this->executionTimeMS = isset($result->timeMillis) ? (integer) $result->timeMillis : 0;
-        $this->counts = isset($result->counts) ? (array) $result->counts : [];
-        $this->timing = isset($result->timing) ? (array) $result->timing : [];
+        $this->executionTimeMS = isset($result->timeMillis) ? (integer)$result->timeMillis : 0;
+        $this->counts = isset($result->counts) ? (array)$result->counts : [];
+        $this->timing = isset($result->timing) ? (array)$result->timing : [];
     }
 
     /**
@@ -79,7 +78,7 @@ class MapReduceResult implements IteratorAggregate
      */
     public function getExecutionTimeMS()
     {
-        return (integer) $this->executionTimeMS;
+        return (integer)$this->executionTimeMS;
     }
 
     /**

@@ -66,7 +66,7 @@ class AugmentProperties
             if ($property->ref !== Generator::UNDEFINED) {
                 continue;
             }
-            $comment = str_replace("\r\n", "\n", (string) $context->comment);
+            $comment = str_replace("\r\n", "\n", (string)$context->comment);
             if ($property->type === Generator::UNDEFINED && $context->type && $context->type !== Generator::UNDEFINED) {
                 if ($context->nullable === true) {
                     $property->nullable = true;
@@ -149,27 +149,6 @@ class AugmentProperties
         }
     }
 
-    protected function isNullable(string $typeDescription): bool
-    {
-        return in_array('null', explode('|', strtolower($typeDescription)));
-    }
-
-    protected function stripNull(string $typeDescription): string
-    {
-        if (strpos($typeDescription, '|') === false) {
-            return $typeDescription;
-        }
-        $types = [];
-        foreach (explode('|', $typeDescription) as $type) {
-            if (strtolower($type) === 'null') {
-                continue;
-            }
-            $types[] = $type;
-        }
-
-        return implode('|', $types);
-    }
-
     protected function applyType(Property $property, $type): void
     {
         if (is_array($type)) {
@@ -194,5 +173,26 @@ class AugmentProperties
         } else {
             $property->ref = $ref;
         }
+    }
+
+    protected function isNullable(string $typeDescription): bool
+    {
+        return in_array('null', explode('|', strtolower($typeDescription)));
+    }
+
+    protected function stripNull(string $typeDescription): string
+    {
+        if (strpos($typeDescription, '|') === false) {
+            return $typeDescription;
+        }
+        $types = [];
+        foreach (explode('|', $typeDescription) as $type) {
+            if (strtolower($type) === 'null') {
+                continue;
+            }
+            $types[] = $type;
+        }
+
+        return implode('|', $types);
     }
 }

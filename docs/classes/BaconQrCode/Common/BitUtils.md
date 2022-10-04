@@ -11,29 +11,13 @@ systems.
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
-
-
-
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 private __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -50,18 +34,12 @@ languages.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$a` | **int** |  |
 | `$b` | **int** |  |
-
-
-
 
 ***
 
@@ -73,21 +51,13 @@ Gets the number of trailing zeros.
 public static numberOfTrailingZeros(int $i): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$i` | **int** |  |
-
-
-
 
 ***
 

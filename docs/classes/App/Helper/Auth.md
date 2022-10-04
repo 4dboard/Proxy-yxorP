@@ -2,50 +2,26 @@
 
 # Auth
 
-
-
-
-
 * Full name: `\App\Helper\Auth`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
-
-
 ## Properties
 
-
 ### sessionKey
-
-
 
 ```php
 public string $sessionKey
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### authenticate
-
-
 
 ```php
 public authenticate(array $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -53,25 +29,13 @@ public authenticate(array $data): mixed
 |-----------|------|-------------|
 | `$data` | **array** |  |
 
-
-
-
 ***
 
 ### getUser
 
-
-
 ```php
 public getUser(?string $prop = null, mixed $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -80,25 +44,13 @@ public getUser(?string $prop = null, mixed $default = null): mixed
 | `$prop` | **?string** |  |
 | `$default` | **mixed** |  |
 
-
-
-
 ***
 
 ### setUser
 
-
-
 ```php
 public setUser(array $user, bool $permanent = true): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -107,49 +59,23 @@ public setUser(array $user, bool $permanent = true): void
 | `$user` | **array** |  |
 | `$permanent` | **bool** |  |
 
-
-
-
 ***
 
 ### logout
-
-
 
 ```php
 public logout(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -158,45 +84,21 @@ public __construct(\Lime\App $app, mixed $context = null): mixed
 | `$app` | **\Lime\App** |  |
 | `$context` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 protected initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -205,25 +107,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -231,34 +121,19 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 

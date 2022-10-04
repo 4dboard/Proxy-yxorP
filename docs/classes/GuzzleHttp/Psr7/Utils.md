@@ -2,19 +2,11 @@
 
 # Utils
 
-
-
-
-
 * Full name: `\GuzzleHttp\Psr7\Utils`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
-
-
-
 ## Methods
-
 
 ### caselessRemove
 
@@ -24,12 +16,7 @@ Remove the items given by the keys, case insensitively from the data.
 public static caselessRemove(string[] $keys, array $data): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -37,9 +24,6 @@ public static caselessRemove(string[] $keys, array $data): array
 |-----------|------|-------------|
 | `$keys` | **string[]** |  |
 | `$data` | **array** |  |
-
-
-
 
 ***
 
@@ -52,12 +36,7 @@ of bytes have been read.
 public static copyToStream(\Psr\Http\Message\StreamInterface $source, \Psr\Http\Message\StreamInterface $dest, int $maxLen = -1): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -66,9 +45,6 @@ public static copyToStream(\Psr\Http\Message\StreamInterface $source, \Psr\Http\
 | `$source` | **\Psr\Http\Message\StreamInterface** | Stream to read from |
 | `$dest` | **\Psr\Http\Message\StreamInterface** | Stream to write to |
 | `$maxLen` | **int** | Maximum number of bytes to read. Pass -1<br />to read the entire stream. |
-
-
-
 
 ***
 
@@ -81,12 +57,7 @@ bytes have been read.
 public static copyToString(\Psr\Http\Message\StreamInterface $stream, int $maxLen = -1): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -94,9 +65,6 @@ public static copyToString(\Psr\Http\Message\StreamInterface $stream, int $maxLe
 |-----------|------|-------------|
 | `$stream` | **\Psr\Http\Message\StreamInterface** | Stream to read |
 | `$maxLen` | **int** | Maximum number of bytes to read. Pass -1<br />to read the entire stream. |
-
-
-
 
 ***
 
@@ -113,9 +81,6 @@ on PHP's `hash_init` functions.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -123,9 +88,6 @@ on PHP's `hash_init` functions.
 | `$stream` | **\Psr\Http\Message\StreamInterface** | Stream to calculate the hash for |
 | `$algo` | **string** | Hash algorithm (e.g. md5, crc32, etc) |
 | `$rawOutput` | **bool** | Whether or not to use raw output |
-
-
-
 
 ***
 
@@ -141,6 +103,7 @@ This method is useful for reducing the number of clones needed to mutate
 a message.
 
 The changes can be one of:
+
 - method: (string) Changes the HTTP method.
 - set_headers: (array) Sets the given headers.
 - remove_headers: (array) Remove the given headers.
@@ -151,18 +114,12 @@ The changes can be one of:
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Psr\Http\Message\RequestInterface** | Request to clone and modify. |
 | `$changes` | **array** | Changes to apply. |
-
-
-
 
 ***
 
@@ -174,12 +131,7 @@ Read a line from the stream up to the maximum allowed buffer length.
 public static readLine(\Psr\Http\Message\StreamInterface $stream, int|null $maxLength = null): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -187,9 +139,6 @@ public static readLine(\Psr\Http\Message\StreamInterface $stream, int|null $maxL
 |-----------|------|-------------|
 | `$stream` | **\Psr\Http\Message\StreamInterface** | Stream to read from |
 | `$maxLength` | **int&#124;null** | Maximum buffer length |
-
-
-
 
 ***
 
@@ -202,10 +151,12 @@ public static streamFor(resource|string|int|float|bool|\Psr\Http\Message\StreamI
 ```
 
 Options is an associative array that can contain the following keys:
+
 - metadata: Array of custom metadata.
 - size: Size of the stream.
 
 This method accepts the following `$resource` types:
+
 - `Psr\Http\Message\StreamInterface`: Returns the value as-is.
 - `string`: Creates a stream object that uses the given string as the contents.
 - `resource`: Creates a stream object that wraps the given PHP stream resource.
@@ -229,18 +180,12 @@ This method accepts the following `$resource` types:
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **resource&#124;string&#124;int&#124;float&#124;bool&#124;\Psr\Http\Message\StreamInterface&#124;callable&#124;\Iterator&#124;null** | Entity body data |
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -257,18 +202,12 @@ error handler that checks for errors and throws an exception instead.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filename` | **string** | File to open |
 | `$mode` | **string** | Mode used to open the file |
-
-
-
 
 ***
 
@@ -286,17 +225,11 @@ exception instead.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$stream` | **resource** |  |
-
-
-
 
 ***
 
@@ -314,17 +247,11 @@ UriInterface, it is returned as-is.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **string&#124;\Psr\Http\Message\UriInterface** |  |
-
-
-
 
 ***
 

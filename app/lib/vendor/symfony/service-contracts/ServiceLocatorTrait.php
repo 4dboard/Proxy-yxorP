@@ -11,8 +11,14 @@
 
 namespace Symfony\Contracts\Service;
 
+use InvalidArgumentException;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use ReflectionFunction;
+use ReflectionNamedType;
+use RuntimeException;
+use function array_slice;
+use function is_callable;
 
 // Help opcache.preload discover always-needed symbols
 class_exists(ContainerExceptionInterface::class);
@@ -57,7 +63,7 @@ trait ServiceLocatorTrait
 
         if (isset($this->loading[$id])) {
             $ids = array_values($this->loading);
-            $ids = \array_slice($this->loading, array_search($id, $ids));
+            $ids = array_slice($this->loading, array_search($id, $ids));
             $ids[] = $id;
 
             throw $this->createCircularReferenceException($id, $ids);
@@ -69,28 +75,6 @@ trait ServiceLocatorTrait
         } finally {
             unset($this->loading[$id]);
         }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getProvidedServices(): array
-    {
-        if (!isset($this->providedTypes)) {
-            $this->providedTypes = [];
-
-            foreach ($this->factories as $name => $factory) {
-                if (!\is_callable($factory)) {
-                    $this->providedTypes[$name] = '?';
-                } else {
-                    $type = (new \ReflectionFunction($factory))->getReturnType();
-
-                    $this->providedTypes[$name] = $type ? ($type->allowsNull() ? '?' : '').($type instanceof \ReflectionNamedType ? $type->getName() : $type) : '?';
-                }
-            }
-        }
-
-        return $this->providedTypes;
     }
 
     private function createNotFoundException(string $id): NotFoundExceptionInterface
@@ -112,13 +96,35 @@ trait ServiceLocatorTrait
             $message = sprintf('Service "%s" not found: the current service locator %s', $id, $message);
         }
 
-        return new class($message) extends \InvalidArgumentException implements NotFoundExceptionInterface {
+        return new class($message) extends InvalidArgumentException implements NotFoundExceptionInterface {
         };
     }
 
     private function createCircularReferenceException(string $id, array $path): ContainerExceptionInterface
     {
-        return new class(sprintf('Circular reference detected for service "%s", path: "%s".', $id, implode(' -> ', $path))) extends \RuntimeException implements ContainerExceptionInterface {
+        return new class(sprintf('Circular reference detected for service "%s", path: "%s".', $id, implode(' -> ', $path))) extends RuntimeException implements ContainerExceptionInterface {
         };
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getProvidedServices(): array
+    {
+        if (!isset($this->providedTypes)) {
+            $this->providedTypes = [];
+
+            foreach ($this->factories as $name => $factory) {
+                if (!is_callable($factory)) {
+                    $this->providedTypes[$name] = '?';
+                } else {
+                    $type = (new ReflectionFunction($factory))->getReturnType();
+
+                    $this->providedTypes[$name] = $type ? ($type->allowsNull() ? '?' : '') . ($type instanceof ReflectionNamedType ? $type->getName() : $type) : '?';
+                }
+            }
+        }
+
+        return $this->providedTypes;
     }
 }

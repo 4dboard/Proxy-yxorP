@@ -20,11 +20,7 @@ Based on the Perl Text::Glob module.
 
 * Full name: `\Symfony\Component\Finder\Glob`
 
-
-
-
 ## Methods
-
 
 ### toRegex
 
@@ -34,12 +30,7 @@ Returns a regexp which is the equivalent of the glob pattern.
 public static toRegex(string $glob, bool $strictLeadingDot = true, bool $strictWildcardSlash = true, string $delimiter = &#039;#&#039;): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -49,9 +40,6 @@ public static toRegex(string $glob, bool $strictLeadingDot = true, bool $strictW
 | `$strictLeadingDot` | **bool** |  |
 | `$strictWildcardSlash` | **bool** |  |
 | `$delimiter` | **string** |  |
-
-
-
 
 ***
 

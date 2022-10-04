@@ -1,37 +1,16 @@
 <?php
 
 namespace System\Helper;
-class Locales extends \Lime\Helper {
+use Lime\Helper;
+use Throwable;
+
+class Locales extends Helper
+{
 
     protected array $locales = [];
 
-    protected function initialize() {
-
-        $this->locales = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.locales', function() {
-            return $this->cache();
-        });
-    }
-
-    public function locales(bool $assoc = false): array {
-
-        if ($assoc) {
-            return $this->locales;
-        }
-
-        $locales = [];
-
-        foreach ($this->locales as $locale) {
-
-            $locales[] = [
-                'i18n' => $locale['i18n'],
-                'name' => $locale['name'],
-            ];
-        }
-
-        return $locales;
-    }
-
-    public function applyLocales($obj, $locale = 'default') {
+    public function applyLocales($obj, $locale = 'default')
+    {
 
         static $locales;
 
@@ -43,11 +22,11 @@ class Locales extends \Lime\Helper {
             $locales = array_keys($this->locales(true));
         }
 
-        $apply = function($obj) use($locales, $locale) {
+        $apply = function ($obj) use ($locales, $locale) {
 
             if (!is_array($obj)) return $obj;
 
-            $keys = array_filter(array_keys($obj), function($key) use($locales) {
+            $keys = array_filter(array_keys($obj), function ($key) use ($locales) {
 
                 foreach ($locales as $l) {
                     if (preg_match("/_{$l}$/", $key)) return false;
@@ -93,7 +72,36 @@ class Locales extends \Lime\Helper {
         return $obj;
     }
 
-    public function cache(bool $persistent = true): array {
+    public function locales(bool $assoc = false): array
+    {
+
+        if ($assoc) {
+            return $this->locales;
+        }
+
+        $locales = [];
+
+        foreach ($this->locales as $locale) {
+
+            $locales[] = [
+                'i18n' => $locale['i18n'],
+                'name' => $locale['name'],
+            ];
+        }
+
+        return $locales;
+    }
+
+    protected function initialize()
+    {
+
+        $this->locales = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.locales', function () {
+            return $this->cache();
+        });
+    }
+
+    public function cache(bool $persistent = true): array
+    {
 
         $cache = [
             'default' => [
@@ -117,7 +125,7 @@ class Locales extends \Lime\Helper {
                 $cache[$locale['i18n']] = $locale;
             }
 
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $locales = null;
         }
 

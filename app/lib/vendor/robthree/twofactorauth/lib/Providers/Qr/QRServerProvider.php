@@ -78,16 +78,6 @@ class QRServerProvider extends BaseHTTPQRCodeProvider
     }
 
     /**
-     * @param string $value
-     *
-     * @return string
-     */
-    private function decodeColor($value)
-    {
-        return vsprintf('%d-%d-%d', sscanf($value, "%02x%02x%02x"));
-    }
-
-    /**
      * @param string $qrtext the value to encode in the QR code
      * @param int|string $size the desired size of the QR code
      *
@@ -104,5 +94,15 @@ class QRServerProvider extends BaseHTTPQRCodeProvider
             . '&color=' . $this->decodeColor($this->color)
             . '&format=' . strtolower($this->format)
             . '&data=' . rawurlencode($qrtext);
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return string
+     */
+    private function decodeColor($value)
+    {
+        return vsprintf('%d-%d-%d', sscanf($value, "%02x%02x%02x"));
     }
 }

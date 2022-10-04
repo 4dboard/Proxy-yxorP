@@ -73,40 +73,6 @@ class Color
     }
 
     /**
-     * Calculates integer value of current color instance.
-     */
-    public function getInt(): int
-    {
-        return ($this->red << 16) + ($this->green << 8) + $this->blue;
-    }
-
-    /**
-     * Calculates hexadecimal value of current color instance.
-     */
-    public function getHex(string $prefix = ''): string
-    {
-        return sprintf('%s%02x%02x%02x', $prefix, $this->red, $this->green, $this->blue);
-    }
-
-    /**
-     * Calculates RGB in array format of current color instance.
-     *
-     * @phpstan-return ColorRGB
-     */
-    public function getArray(): array
-    {
-        return [$this->red, $this->green, $this->blue];
-    }
-
-    /**
-     * Calculates RGB in string format of current color instance.
-     */
-    public function getRgb(): string
-    {
-        return sprintf('rgb(%d, %d, %d)', $this->red, $this->green, $this->blue);
-    }
-
-    /**
      * Formats current color instance into given format.
      *
      * @return string|int|array|self
@@ -133,6 +99,40 @@ class Color
             default:
                 throw new NotSupportedException("Color format ({$type}) is not supported.");
         }
+    }
+
+    /**
+     * Calculates RGB in string format of current color instance.
+     */
+    public function getRgb(): string
+    {
+        return sprintf('rgb(%d, %d, %d)', $this->red, $this->green, $this->blue);
+    }
+
+    /**
+     * Calculates hexadecimal value of current color instance.
+     */
+    public function getHex(string $prefix = ''): string
+    {
+        return sprintf('%s%02x%02x%02x', $prefix, $this->red, $this->green, $this->blue);
+    }
+
+    /**
+     * Calculates integer value of current color instance.
+     */
+    public function getInt(): int
+    {
+        return ($this->red << 16) + ($this->green << 8) + $this->blue;
+    }
+
+    /**
+     * Calculates RGB in array format of current color instance.
+     *
+     * @phpstan-return ColorRGB
+     */
+    public function getArray(): array
+    {
+        return [$this->red, $this->green, $this->blue];
     }
 
     /**

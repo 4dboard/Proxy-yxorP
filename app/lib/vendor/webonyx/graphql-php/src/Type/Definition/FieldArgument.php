@@ -60,11 +60,11 @@ class FieldArgument
      *
      * @return FieldArgument[]
      */
-    public static function createMap(array $config) : array
+    public static function createMap(array $config): array
     {
         $map = [];
         foreach ($config as $name => $argConfig) {
-            if (! is_array($argConfig)) {
+            if (!is_array($argConfig)) {
                 $argConfig = ['type' => $argConfig];
             }
             $map[] = new self($argConfig + ['name' => $name]);
@@ -73,29 +73,29 @@ class FieldArgument
         return $map;
     }
 
-    public function getType() : Type
+    public function isRequired(): bool
     {
-        if (! isset($this->type)) {
+        return $this->getType() instanceof NonNull && !$this->defaultValueExists();
+    }
+
+    public function getType(): Type
+    {
+        if (!isset($this->type)) {
             /**
              * TODO: replace this phpstan cast with native assert
              *
              * @var Type&InputType
              */
-            $type       = Schema::resolveType($this->config['type']);
+            $type = Schema::resolveType($this->config['type']);
             $this->type = $type;
         }
 
         return $this->type;
     }
 
-    public function defaultValueExists() : bool
+    public function defaultValueExists(): bool
     {
         return array_key_exists('defaultValue', $this->config);
-    }
-
-    public function isRequired() : bool
-    {
-        return $this->getType() instanceof NonNull && ! $this->defaultValueExists();
     }
 
     public function assertValid(FieldDefinition $parentField, Type $parentType)

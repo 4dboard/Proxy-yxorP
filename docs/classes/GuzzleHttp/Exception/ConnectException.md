@@ -9,60 +9,33 @@ Note that no response is present for a ConnectException
 * Full name: `\GuzzleHttp\Exception\ConnectException`
 * Parent class: [`\GuzzleHttp\Exception\TransferException`](./TransferException.md)
 * This class implements:
-[`\Psr\Http\Client\NetworkExceptionInterface`](../../Psr/Http/Client/NetworkExceptionInterface.md)
-
-
+  [`\Psr\Http\Client\NetworkExceptionInterface`](../../Psr/Http/Client/NetworkExceptionInterface.md)
 
 ## Properties
 
-
 ### request
-
-
 
 ```php
 private \Psr\Http\Message\RequestInterface $request
 ```
 
-
-
-
-
-
 ***
 
 ### handlerContext
-
-
 
 ```php
 private array $handlerContext
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $message, \Psr\Http\Message\RequestInterface $request, \Throwable $previous = null, array $handlerContext = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -73,9 +46,6 @@ public __construct(string $message, \Psr\Http\Message\RequestInterface $request,
 | `$previous` | **\Throwable** |  |
 | `$handlerContext` | **array** |  |
 
-
-
-
 ***
 
 ### getRequest
@@ -85,16 +55,6 @@ Get the request that caused the exception
 ```php
 public getRequest(): \Psr\Http\Message\RequestInterface
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

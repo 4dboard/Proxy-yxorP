@@ -41,15 +41,6 @@ class Logger
         };
     }
 
-    public static function getInstance(): Logger
-    {
-        if (self::$instance === null) {
-            self::$instance = new Logger();
-        }
-
-        return self::$instance;
-    }
-
     /**
      * Log a OpenApi warning.
      *
@@ -58,6 +49,15 @@ class Logger
     public static function warning($entry): void
     {
         call_user_func(self::getInstance()->log, $entry, E_USER_WARNING);
+    }
+
+    public static function getInstance(): Logger
+    {
+        if (self::$instance === null) {
+            self::$instance = new Logger();
+        }
+
+        return self::$instance;
     }
 
     /**

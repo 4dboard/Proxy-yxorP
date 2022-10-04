@@ -4,23 +4,25 @@
 
 namespace Composer\Autoload;
 
+use Closure;
+
 class ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c
 {
-    public static $prefixLengthsPsr4 = array (
-        'C' => 
-        array (
-            'ColorThief\\' => 11,
-        ),
+    public static $prefixLengthsPsr4 = array(
+        'C' =>
+            array(
+                'ColorThief\\' => 11,
+            ),
     );
 
-    public static $prefixDirsPsr4 = array (
-        'ColorThief\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/ksubileau/color-thief-php/src/ColorThief',
-        ),
+    public static $prefixDirsPsr4 = array(
+        'ColorThief\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/ksubileau/color-thief-php/src/ColorThief',
+            ),
     );
 
-    public static $classMap = array (
+    public static $classMap = array(
         'ColorThief\\Color' => __DIR__ . '/..' . '/ksubileau/color-thief-php/src/ColorThief/Color.php',
         'ColorThief\\ColorThief' => __DIR__ . '/..' . '/ksubileau/color-thief-php/src/ColorThief/ColorThief.php',
         'ColorThief\\Exception\\Exception' => __DIR__ . '/..' . '/ksubileau/color-thief-php/src/ColorThief/Exception/Exception.php',
@@ -41,7 +43,7 @@ class ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c
 
     public static function getInitializer(ClassLoader $loader)
     {
-        return \Closure::bind(function () use ($loader) {
+        return Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c::$classMap;

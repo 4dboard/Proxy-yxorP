@@ -1,4 +1,4 @@
-import { FieldTypes } from "../js/settings.js"
+import {FieldTypes} from "../js/settings.js"
 
 let instanceCount = 0;
 
@@ -46,7 +46,9 @@ let FieldsManager = {
 
     watch: {
         fields: {
-            handler() { this.update() },
+            handler() {
+                this.update()
+            },
             deep: true
         },
         modelValue(val) {
@@ -60,7 +62,7 @@ let FieldsManager = {
             let groups = [];
 
             this.fields.forEach(f => {
-                if (f.group && f.group.trim() && this.field !==  f) groups.push(f.group);
+                if (f.group && f.group.trim() && this.field !== f) groups.push(f.group);
             })
 
             return _.uniq(groups).sort();
@@ -144,7 +146,7 @@ let FieldsManager = {
 
             try {
                 this.$emit('update:modelValue', this.fields)
-            } catch(e) {
+            } catch (e) {
                 this.error = `${e.lineNumber}: ${e.message}`;
             }
         }
@@ -256,7 +258,7 @@ let FieldsManager = {
                                 <div class="kiss-margin-bottom kiss-flex kiss-flex-right" v-if="fieldTypes[field.type] && fieldTypes[field.type].settings">
                                     <div class="kiss-button-group">
                                         <button class="kiss-button kiss-button-small" :class="{'kiss-button-primary': state.optionsView != 'json'}" @click="state.optionsView = 'form'" type="button">Fields</button>
-                                        <button class="kiss-button kiss-button-small" :class="{'kiss-button-primary': state.optionsView === 'json'}" @click="state.optionsView = 'json'" type="button">JSON</button>
+                                        <button class="kiss-button kiss-button-small" :class="{'kiss-button-primary': state.optionsView == 'json'}" @click="state.optionsView = 'json'" type="button">JSON</button>
                                     </div>
                                 </div>
 
@@ -264,7 +266,7 @@ let FieldsManager = {
                                     <fields-renderer v-model="field.opts" :fields="fieldTypes[field.type].settings" v-if="fieldTypes[field.type] && fieldTypes[field.type].settings"></fields-renderer>
                                 </div>
 
-                                <div class="kiss-margin" v-if="!(fieldTypes[field.type] && fieldTypes[field.type].settings) || state.optionsView === 'json'">
+                                <div class="kiss-margin" v-if="!(fieldTypes[field.type] && fieldTypes[field.type].settings) || state.optionsView == 'json'">
                                     <field-object v-model="field.opts"></field-object>
                                 </div>
 

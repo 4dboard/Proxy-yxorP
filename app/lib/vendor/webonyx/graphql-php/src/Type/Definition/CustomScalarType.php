@@ -63,7 +63,7 @@ class CustomScalarType extends ScalarType
             'is also used as an input type, ensure "parseValue" and "parseLiteral" ' .
             'functions are also provided.'
         );
-        if (! isset($this->config['parseValue']) && ! isset($this->config['parseLiteral'])) {
+        if (!isset($this->config['parseValue']) && !isset($this->config['parseLiteral'])) {
             return;
         }
 

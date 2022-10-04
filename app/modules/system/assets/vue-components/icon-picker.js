@@ -1,4 +1,3 @@
-
 let promise = {};
 
 function getIcons(src) {
@@ -54,7 +53,7 @@ let IconPicker = {
             this.update();
         },
         modelValue(val) {
-            this.icon = typeof(val) === 'string' ? val : null;
+            this.icon = typeof (val) == 'string' ? val : null;
         },
         select(val) {
 
@@ -94,7 +93,7 @@ let IconPicker = {
 
             try {
                 this.$emit('update:modelValue', this.icon);
-            } catch(e) {
+            } catch (e) {
                 this.error = `${e.lineNumber}: ${e.message}`;
             }
         }

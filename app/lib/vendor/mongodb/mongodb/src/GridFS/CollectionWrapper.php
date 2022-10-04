@@ -26,7 +26,6 @@ use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\UpdateResult;
 use MultipleIterator;
 use stdClass;
-
 use function abs;
 use function count;
 use function is_numeric;
@@ -57,17 +56,17 @@ class CollectionWrapper
     /**
      * Constructs a GridFS collection wrapper.
      *
-     * @see Collection::__construct() for supported options
-     * @param Manager $manager           Manager instance from the driver
-     * @param string  $databaseName      Database name
-     * @param string  $bucketName        Bucket name
-     * @param array   $collectionOptions Collection options
+     * @param Manager $manager Manager instance from the driver
+     * @param string $databaseName Database name
+     * @param string $bucketName Bucket name
+     * @param array $collectionOptions Collection options
      * @throws InvalidArgumentException
+     * @see Collection::__construct() for supported options
      */
     public function __construct(Manager $manager, $databaseName, $bucketName, array $collectionOptions = [])
     {
-        $this->databaseName = (string) $databaseName;
-        $this->bucketName = (string) $bucketName;
+        $this->databaseName = (string)$databaseName;
+        $this->bucketName = (string)$bucketName;
 
         $this->filesCollection = new Collection($manager, $databaseName, sprintf('%s.files', $bucketName), $collectionOptions);
         $this->chunksCollection = new Collection($manager, $databaseName, sprintf('%s.chunks', $bucketName), $collectionOptions);
@@ -106,7 +105,7 @@ class CollectionWrapper
     /**
      * Finds GridFS chunk documents for a given file ID and optional offset.
      *
-     * @param mixed   $id        File ID
+     * @param mixed $id File ID
      * @param integer $fromChunk Starting chunk (inclusive)
      * @return Cursor
      */
@@ -136,16 +135,16 @@ class CollectionWrapper
      *  * -2 = the second most recent revision
      *  * -1 = the most recent revision
      *
-     * @see Bucket::downloadToStreamByName()
-     * @see Bucket::openDownloadStreamByName()
-     * @param string  $filename
+     * @param string $filename
      * @param integer $revision
      * @return stdClass|null
+     * @see Bucket::openDownloadStreamByName()
+     * @see Bucket::downloadToStreamByName()
      */
     public function findFileByFilenameAndRevision($filename, $revision)
     {
-        $filename = (string) $filename;
-        $revision = (integer) $revision;
+        $filename = (string)$filename;
+        $revision = (integer)$revision;
 
         if ($revision < 0) {
             $skip = abs($revision) - 1;
@@ -182,10 +181,10 @@ class CollectionWrapper
     /**
      * Finds documents from the GridFS bucket's files collection.
      *
-     * @see Find::__construct() for supported options
-     * @param array|object $filter  Query by which to filter documents
-     * @param array        $options Additional options
+     * @param array|object $filter Query by which to filter documents
+     * @param array $options Additional options
      * @return Cursor
+     * @see Find::__construct() for supported options
      */
     public function findFiles($filter, array $options = [])
     {
@@ -195,8 +194,8 @@ class CollectionWrapper
     /**
      * Finds a single document from the GridFS bucket's files collection.
      *
-     * @param array|object $filter  Query by which to filter documents
-     * @param array        $options Additional options
+     * @param array|object $filter Query by which to filter documents
+     * @param array $options Additional options
      * @return array|object|null
      */
     public function findOneFile($filter, array $options = [])
@@ -251,7 +250,7 @@ class CollectionWrapper
      */
     public function insertChunk($chunk)
     {
-        if (! $this->checkedIndexes) {
+        if (!$this->checkedIndexes) {
             $this->ensureIndexes();
         }
 
@@ -259,34 +258,85 @@ class CollectionWrapper
     }
 
     /**
-     * Inserts a document into the files collection.
+     * Ensure indexes on the files and chunks collections exist.
      *
-     * The file document should be inserted after all chunks have been inserted.
-     *
-     * @param array|object $file File document
+     * This method is called once before the first write operation on a GridFS
+     * bucket. Indexes are only be created if the files collection is empty.
      */
-    public function insertFile($file)
+    private function ensureIndexes()
     {
-        if (! $this->checkedIndexes) {
-            $this->ensureIndexes();
+        if ($this->checkedIndexes) {
+            return;
         }
 
-        $this->filesCollection->insertOne($file);
+        $this->checkedIndexes = true;
+
+        if (!$this->isFilesCollectionEmpty()) {
+            return;
+        }
+
+        $this->ensureFilesIndex();
+        $this->ensureChunksIndex();
     }
 
     /**
-     * Updates the filename field in the file document for a given ID.
+     * Returns whether the files collection is empty.
      *
-     * @param mixed  $id
-     * @param string $filename
-     * @return UpdateResult
+     * @return boolean
      */
-    public function updateFilenameForId($id, $filename)
+    private function isFilesCollectionEmpty()
     {
-        return $this->filesCollection->updateOne(
-            ['_id' => $id],
-            ['$set' => ['filename' => (string) $filename]]
-        );
+        return null === $this->filesCollection->findOne([], [
+                'readPreference' => new ReadPreference(ReadPreference::RP_PRIMARY),
+                'projection' => ['_id' => 1],
+                'typeMap' => [],
+            ]);
+    }
+
+    /**
+     * Create an index on the files collection if it does not already exist.
+     */
+    private function ensureFilesIndex()
+    {
+        $expectedIndex = ['filename' => 1, 'uploadDate' => 1];
+
+        foreach ($this->filesCollection->listIndexes() as $index) {
+            if ($this->indexKeysMatch($expectedIndex, $index->getKey())) {
+                return;
+            }
+        }
+
+        $this->filesCollection->createIndex($expectedIndex);
+    }
+
+    private function indexKeysMatch(array $expectedKeys, array $actualKeys): bool
+    {
+        if (count($expectedKeys) !== count($actualKeys)) {
+            return false;
+        }
+
+        $iterator = new MultipleIterator(MultipleIterator::MIT_NEED_ANY);
+        $iterator->attachIterator(new ArrayIterator($expectedKeys));
+        $iterator->attachIterator(new ArrayIterator($actualKeys));
+
+        foreach ($iterator as $key => $value) {
+            [$expectedKey, $actualKey] = $key;
+            [$expectedValue, $actualValue] = $value;
+
+            if ($expectedKey !== $actualKey) {
+                return false;
+            }
+
+            /* Since we don't expect special indexes (e.g. text), we mark any
+             * index with a non-numeric definition as unequal. All others are
+             * compared against their int value to avoid differences due to
+             * some drivers using float values in the key specification. */
+            if (!is_numeric($actualValue) || (int)$expectedValue !== (int)$actualValue) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
@@ -306,84 +356,33 @@ class CollectionWrapper
     }
 
     /**
-     * Create an index on the files collection if it does not already exist.
+     * Inserts a document into the files collection.
+     *
+     * The file document should be inserted after all chunks have been inserted.
+     *
+     * @param array|object $file File document
      */
-    private function ensureFilesIndex()
+    public function insertFile($file)
     {
-        $expectedIndex = ['filename' => 1, 'uploadDate' => 1];
-
-        foreach ($this->filesCollection->listIndexes() as $index) {
-            if ($this->indexKeysMatch($expectedIndex, $index->getKey())) {
-                return;
-            }
+        if (!$this->checkedIndexes) {
+            $this->ensureIndexes();
         }
 
-        $this->filesCollection->createIndex($expectedIndex);
+        $this->filesCollection->insertOne($file);
     }
 
     /**
-     * Ensure indexes on the files and chunks collections exist.
+     * Updates the filename field in the file document for a given ID.
      *
-     * This method is called once before the first write operation on a GridFS
-     * bucket. Indexes are only be created if the files collection is empty.
+     * @param mixed $id
+     * @param string $filename
+     * @return UpdateResult
      */
-    private function ensureIndexes()
+    public function updateFilenameForId($id, $filename)
     {
-        if ($this->checkedIndexes) {
-            return;
-        }
-
-        $this->checkedIndexes = true;
-
-        if (! $this->isFilesCollectionEmpty()) {
-            return;
-        }
-
-        $this->ensureFilesIndex();
-        $this->ensureChunksIndex();
-    }
-
-    private function indexKeysMatch(array $expectedKeys, array $actualKeys): bool
-    {
-        if (count($expectedKeys) !== count($actualKeys)) {
-            return false;
-        }
-
-        $iterator = new MultipleIterator(MultipleIterator::MIT_NEED_ANY);
-        $iterator->attachIterator(new ArrayIterator($expectedKeys));
-        $iterator->attachIterator(new ArrayIterator($actualKeys));
-
-        foreach ($iterator as $key => $value) {
-            [$expectedKey, $actualKey]     = $key;
-            [$expectedValue, $actualValue] = $value;
-
-            if ($expectedKey !== $actualKey) {
-                return false;
-            }
-
-            /* Since we don't expect special indexes (e.g. text), we mark any
-             * index with a non-numeric definition as unequal. All others are
-             * compared against their int value to avoid differences due to
-             * some drivers using float values in the key specification. */
-            if (! is_numeric($actualValue) || (int) $expectedValue !== (int) $actualValue) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * Returns whether the files collection is empty.
-     *
-     * @return boolean
-     */
-    private function isFilesCollectionEmpty()
-    {
-        return null === $this->filesCollection->findOne([], [
-            'readPreference' => new ReadPreference(ReadPreference::RP_PRIMARY),
-            'projection' => ['_id' => 1],
-            'typeMap' => [],
-        ]);
+        return $this->filesCollection->updateOne(
+            ['_id' => $id],
+            ['$set' => ['filename' => (string)$filename]]
+        );
     }
 }

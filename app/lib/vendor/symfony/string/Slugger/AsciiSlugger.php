@@ -11,12 +11,19 @@
 
 namespace Symfony\Component\String\Slugger;
 
+use Closure;
+use LogicException;
 use Symfony\Component\String\AbstractUnicodeString;
 use Symfony\Component\String\UnicodeString;
 use Symfony\Contracts\Translation\LocaleAwareInterface;
+use Transliterator;
+use function array_key_exists;
+use function function_exists;
+use function is_array;
+use function strlen;
 
 if (!interface_exists(LocaleAwareInterface::class)) {
-    throw new \LogicException('You cannot use the "Symfony\Component\String\Slugger\AsciiSlugger" as the "symfony/translation-contracts" package is not installed. Try running "composer require symfony/translation-contracts".');
+    throw new LogicException('You cannot use the "Symfony\Component\String\Slugger\AsciiSlugger" as the "symfony/translation-contracts" package is not installed. Try running "composer require symfony/translation-contracts".');
 }
 
 /**
@@ -55,18 +62,18 @@ class AsciiSlugger implements SluggerInterface, LocaleAwareInterface
     ];
 
     private ?string $defaultLocale;
-    private \Closure|array $symbolsMap = [
+    private Closure|array $symbolsMap = [
         'en' => ['@' => 'at', '&' => 'and'],
     ];
 
     /**
      * Cache of transliterators per locale.
      *
-     * @var \Transliterator[]
+     * @var Transliterator[]
      */
     private array $transliterators = [];
 
-    public function __construct(string $defaultLocale = null, array|\Closure $symbolsMap = null)
+    public function __construct(string $defaultLocale = null, array|Closure $symbolsMap = null)
     {
         $this->defaultLocale = $defaultLocale;
         $this->symbolsMap = $symbolsMap ?? $this->symbolsMap;
@@ -99,11 +106,11 @@ class AsciiSlugger implements SluggerInterface, LocaleAwareInterface
         if ($locale && ('de' === $locale || 0 === strpos($locale, 'de_'))) {
             // Use the shortcut for German in UnicodeString::ascii() if possible (faster and no requirement on intl)
             $transliterator = ['de-ASCII'];
-        } elseif (\function_exists('transliterator_transliterate') && $locale) {
-            $transliterator = (array) $this->createTransliterator($locale);
+        } elseif (function_exists('transliterator_transliterate') && $locale) {
+            $transliterator = (array)$this->createTransliterator($locale);
         }
 
-        if ($this->symbolsMap instanceof \Closure) {
+        if ($this->symbolsMap instanceof Closure) {
             // If the symbols map is passed as a closure, there is no need to fallback to the parent locale
             // as the closure can just provide substitutions for all locales of interest.
             $symbolsMap = $this->symbolsMap;
@@ -114,7 +121,7 @@ class AsciiSlugger implements SluggerInterface, LocaleAwareInterface
 
         $unicodeString = (new UnicodeString($string))->ascii($transliterator);
 
-        if (\is_array($this->symbolsMap)) {
+        if (is_array($this->symbolsMap)) {
             $map = null;
             if (isset($this->symbolsMap[$locale])) {
                 $map = $this->symbolsMap[$locale];
@@ -126,26 +133,25 @@ class AsciiSlugger implements SluggerInterface, LocaleAwareInterface
             }
             if ($map) {
                 foreach ($map as $char => $replace) {
-                    $unicodeString = $unicodeString->replace($char, ' '.$replace.' ');
+                    $unicodeString = $unicodeString->replace($char, ' ' . $replace . ' ');
                 }
             }
         }
 
         return $unicodeString
             ->replaceMatches('/[^A-Za-z0-9]++/', $separator)
-            ->trim($separator)
-        ;
+            ->trim($separator);
     }
 
-    private function createTransliterator(string $locale): ?\Transliterator
+    private function createTransliterator(string $locale): ?Transliterator
     {
-        if (\array_key_exists($locale, $this->transliterators)) {
+        if (array_key_exists($locale, $this->transliterators)) {
             return $this->transliterators[$locale];
         }
 
         // Exact locale supported, cache and return
         if ($id = self::LOCALE_TO_TRANSLITERATOR_ID[$locale] ?? null) {
-            return $this->transliterators[$locale] = \Transliterator::create($id.'/BGN') ?? \Transliterator::create($id);
+            return $this->transliterators[$locale] = Transliterator::create($id . '/BGN') ?? Transliterator::create($id);
         }
 
         // Locale not supported and no parent, fallback to any-latin
@@ -155,7 +161,7 @@ class AsciiSlugger implements SluggerInterface, LocaleAwareInterface
 
         // Try to use the parent locale (ie. try "de" for "de_AT") and cache both locales
         if ($id = self::LOCALE_TO_TRANSLITERATOR_ID[$parent] ?? null) {
-            $transliterator = \Transliterator::create($id.'/BGN') ?? \Transliterator::create($id);
+            $transliterator = Transliterator::create($id . '/BGN') ?? Transliterator::create($id);
         }
 
         return $this->transliterators[$locale] = $this->transliterators[$parent] = $transliterator ?? null;
@@ -171,6 +177,6 @@ class AsciiSlugger implements SluggerInterface, LocaleAwareInterface
             return null;
         }
 
-        return substr($locale, 0, -\strlen($str));
+        return substr($locale, 0, -strlen($str));
     }
 }

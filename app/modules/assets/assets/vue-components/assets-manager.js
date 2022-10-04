@@ -18,10 +18,10 @@ function getUppy(meta = {}) {
     }).use(Uppy.XHRUpload, {
         endpoint: App.route('/assets/upload'),
         bundle: true
-    }).use(Uppy.Webcam, { target: Uppy.Dashboard, showVideoSourceDropdown: true })
-    .use(Uppy.ScreenCapture, { target: Uppy.Dashboard })
-    //.use(Uppy.Url, { target: Uppy.Dashboard, companionUrl: 'https://companion.uppy.io' })
-    .use(Uppy.ImageEditor, { target: Uppy.Dashboard });
+    }).use(Uppy.Webcam, {target: Uppy.Dashboard, showVideoSourceDropdown: true})
+        .use(Uppy.ScreenCapture, {target: Uppy.Dashboard})
+        //.use(Uppy.Url, { target: Uppy.Dashboard, companionUrl: 'https://companion.uppy.io' })
+        .use(Uppy.ImageEditor, {target: Uppy.Dashboard});
 }
 
 
@@ -154,7 +154,8 @@ export default {
                     App.ui.notify('Asset removed!');
                 }).catch(rsp => {
                     App.ui.notify(rsp.error || 'Deleting asset failed!', 'error');
-                });;
+                });
+
             });
         },
 
@@ -260,7 +261,7 @@ export default {
         },
 
         copyAssetLinkID(asset) {
-            App.utils.copyText(location.origin + App.base(`/assets/link/${asset._id}`), () =>  App.ui.notify('Asset link copied!'));
+            App.utils.copyText(location.origin + App.base(`/assets/link/${asset._id}`), () => App.ui.notify('Asset link copied!'));
         },
     },
 

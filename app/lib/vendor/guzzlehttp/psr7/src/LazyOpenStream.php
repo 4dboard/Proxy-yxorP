@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace GuzzleHttp\Psr7;
 
+use AllowDynamicProperties;
 use Psr\Http\Message\StreamInterface;
 
 /**
  * Lazily reads or writes to a file that is opened only after an IO operation
  * take place on the stream.
  */
-#[\AllowDynamicProperties]
+#[AllowDynamicProperties]
 final class LazyOpenStream implements StreamInterface
 {
     use StreamDecoratorTrait;
@@ -23,7 +24,7 @@ final class LazyOpenStream implements StreamInterface
 
     /**
      * @param string $filename File to lazily open
-     * @param string $mode     fopen mode to use when opening the stream
+     * @param string $mode fopen mode to use when opening the stream
      */
     public function __construct(string $filename, string $mode)
     {

@@ -11,6 +11,9 @@
 
 namespace Symfony\Component\Finder\Iterator;
 
+use FilterIterator;
+use Iterator;
+use SplFileInfo;
 use Symfony\Component\Finder\Comparator\NumberComparator;
 
 /**
@@ -18,17 +21,17 @@ use Symfony\Component\Finder\Comparator\NumberComparator;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
- * @extends \FilterIterator<string, \SplFileInfo>
+ * @extends FilterIterator<string, SplFileInfo>
  */
-class SizeRangeFilterIterator extends \FilterIterator
+class SizeRangeFilterIterator extends FilterIterator
 {
     private array $comparators = [];
 
     /**
-     * @param \Iterator<string, \SplFileInfo> $iterator
-     * @param NumberComparator[]              $comparators
+     * @param Iterator<string, SplFileInfo> $iterator
+     * @param NumberComparator[] $comparators
      */
-    public function __construct(\Iterator $iterator, array $comparators)
+    public function __construct(Iterator $iterator, array $comparators)
     {
         $this->comparators = $comparators;
 

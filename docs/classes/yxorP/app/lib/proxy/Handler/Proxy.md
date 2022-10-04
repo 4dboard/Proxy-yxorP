@@ -2,32 +2,17 @@
 
 # proxy
 
-
-
-
-
 * Full name: `\yxorP\app\lib\proxy\handler\proxy`
-
-
-
 
 ## Methods
 
-
 ### wrapSync
-
-
 
 ```php
 public static wrapSync(callable $default, callable $sync): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -36,25 +21,15 @@ public static wrapSync(callable $default, callable $sync): mixed
 | `$default` | **callable** |  |
 | `$sync` | **callable** |  |
 
-
-
-
 ***
 
 ### wrapStreaming
-
-
 
 ```php
 public static wrapStreaming(callable $default, callable $streaming): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -62,9 +37,6 @@ public static wrapStreaming(callable $default, callable $streaming): mixed
 |-----------|------|-------------|
 | `$default` | **callable** |  |
 | `$streaming` | **callable** |  |
-
-
-
 
 ***
 

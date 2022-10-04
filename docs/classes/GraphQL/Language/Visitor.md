@@ -42,76 +42,67 @@ visitor API:
 
 1) Named visitors triggered when entering a node a specific kind.
 
-    Visitor::visit($ast, [
-      'Kind' => function ($node) {
-        // enter the "Kind" node
-      }
-    ]);
+   Visitor::visit($ast, [
+   'Kind' => function ($node) {
+   // enter the "Kind" node
+   }
+   ]);
 
 2) Named visitors that trigger upon entering and leaving a node of
    a specific kind.
 
-    Visitor::visit($ast, [
-      'Kind' => [
-        'enter' => function ($node) {
-          // enter the "Kind" node
-        }
-        'leave' => function ($node) {
-          // leave the "Kind" node
-        }
-      ]
-    ]);
+   Visitor::visit($ast, [
+   'Kind' => [
+   'enter' => function ($node) {
+   // enter the "Kind" node
+   }
+   'leave' => function ($node) {
+   // leave the "Kind" node
+   }
+   ]
+   ]);
 
 3) Generic visitors that trigger upon entering and leaving any node.
 
-    Visitor::visit($ast, [
-      'enter' => function ($node) {
-        // enter any node
-      },
-      'leave' => function ($node) {
-        // leave any node
-      }
-    ]);
+   Visitor::visit($ast, [
+   'enter' => function ($node) {
+   // enter any node
+   },
+   'leave' => function ($node) {
+   // leave any node
+   }
+   ]);
 
 4) Parallel visitors for entering and leaving nodes of a specific kind.
 
-    Visitor::visit($ast, [
-      'enter' => [
-        'Kind' => function($node) {
-          // enter the "Kind" node
-        }
-      },
-      'leave' => [
-        'Kind' => function ($node) {
-          // leave the "Kind" node
-        }
-      ]
-    ]);
+   Visitor::visit($ast, [
+   'enter' => [
+   'Kind' => function($node) {
+   // enter the "Kind" node
+   }
+   },
+   'leave' => [
+   'Kind' => function ($node) {
+   // leave the "Kind" node
+   }
+   ]
+   ]);
 
 * Full name: `\GraphQL\Language\Visitor`
 
-
-
 ## Properties
 
-
 ### visitorKeys
-
-
 
 ```php
 public static string[][] $visitorKeys
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### visit
 
@@ -121,12 +112,7 @@ Visit the AST (see class description for details)
 public static visit(\GraphQL\Language\AST\Node|\ArrayObject|\stdClass $root, callable[] $visitor, array|null $keyMap = null): \GraphQL\Language\AST\Node|mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -135,9 +121,6 @@ public static visit(\GraphQL\Language\AST\Node|\ArrayObject|\stdClass $root, cal
 | `$root` | **\GraphQL\Language\AST\Node&#124;\ArrayObject&#124;\stdClass** |  |
 | `$visitor` | **callable[]** |  |
 | `$keyMap` | **array&#124;null** |  |
-
-
-
 
 ***
 
@@ -149,15 +132,7 @@ Returns marker for visitor break
 public static stop(): \GraphQL\Language\VisitorOperation
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -169,15 +144,7 @@ Returns marker for skipping current node
 public static skipNode(): \GraphQL\Language\VisitorOperation
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -189,41 +156,23 @@ Returns marker for removing a node
 public static removeNode(): \GraphQL\Language\VisitorOperation
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### visitInParallel
 
-
-
 ```php
 public static visitInParallel(callable[][] $visitors): array&lt;string,callable&gt;
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$visitors` | **callable[][]** |  |
-
-
-
 
 ***
 
@@ -236,12 +185,7 @@ along with visiting visitor.
 public static visitWithTypeInfo(\GraphQL\Utils\TypeInfo $typeInfo, mixed $visitor): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -250,25 +194,15 @@ public static visitWithTypeInfo(\GraphQL\Utils\TypeInfo $typeInfo, mixed $visito
 | `$typeInfo` | **\GraphQL\Utils\TypeInfo** |  |
 | `$visitor` | **mixed** |  |
 
-
-
-
 ***
 
 ### getVisitFn
-
-
 
 ```php
 public static getVisitFn(callable[]|null $visitor, string $kind, bool $isLeaving): ?callable
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -277,9 +211,6 @@ public static getVisitFn(callable[]|null $visitor, string $kind, bool $isLeaving
 | `$visitor` | **callable[]&#124;null** |  |
 | `$kind` | **string** |  |
 | `$isLeaving` | **bool** |  |
-
-
-
 
 ***
 

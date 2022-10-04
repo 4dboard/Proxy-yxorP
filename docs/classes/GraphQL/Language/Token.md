@@ -5,10 +5,7 @@
 Represents a range of characters represented by a lexical token
 within a Source.
 
-
-
 * Full name: `\GraphQL\Language\Token`
-
 
 ## Constants
 
@@ -39,7 +36,6 @@ within a Source.
 
 ## Properties
 
-
 ### kind
 
 The kind of Token (see one of constants above).
@@ -47,11 +43,6 @@ The kind of Token (see one of constants above).
 ```php
 public string $kind
 ```
-
-
-
-
-
 
 ***
 
@@ -63,11 +54,6 @@ The character offset at which this Node begins.
 public int $start
 ```
 
-
-
-
-
-
 ***
 
 ### end
@@ -77,11 +63,6 @@ The character offset at which this Node ends.
 ```php
 public int $end
 ```
-
-
-
-
-
 
 ***
 
@@ -93,11 +74,6 @@ The 1-indexed line number on which this Token appears.
 public int $line
 ```
 
-
-
-
-
-
 ***
 
 ### column
@@ -108,25 +84,13 @@ The 1-indexed column number at which this Token begins.
 public int $column
 ```
 
-
-
-
-
-
 ***
 
 ### value
 
-
-
 ```php
 public string|null $value
 ```
-
-
-
-
-
 
 ***
 
@@ -140,45 +104,23 @@ the last.
 public \GraphQL\Language\Token $prev
 ```
 
-
-
-
-
-
 ***
 
 ### next
-
-
 
 ```php
 public \GraphQL\Language\Token|null $next
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $kind, int $start, int $end, int $line, int $column, ?\GraphQL\Language\Token $previous = null, mixed $value = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -192,48 +134,21 @@ public __construct(string $kind, int $start, int $end, int $line, int $column, ?
 | `$previous` | **?\GraphQL\Language\Token** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### getDescription
-
-
 
 ```php
 public getDescription(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toArray
 
-
-
 ```php
 public toArray(): (string|int|null)[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

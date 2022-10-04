@@ -29,7 +29,6 @@ use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\ResumeTokenException;
 use MongoDB\Exception\UnexpectedValueException;
 use ReturnTypeWillChange;
-
 use function count;
 use function is_array;
 use function is_integer;
@@ -70,23 +69,23 @@ class ChangeStreamIterator extends IteratorIterator implements CommandSubscriber
     private $server;
 
     /**
-     * @internal
-     * @param Cursor            $cursor
-     * @param integer           $firstBatchSize
+     * @param Cursor $cursor
+     * @param integer $firstBatchSize
      * @param array|object|null $initialResumeToken
-     * @param object|null       $postBatchResumeToken
+     * @param object|null $postBatchResumeToken
+     * @internal
      */
     public function __construct(Cursor $cursor, $firstBatchSize, $initialResumeToken, $postBatchResumeToken)
     {
-        if (! is_integer($firstBatchSize)) {
+        if (!is_integer($firstBatchSize)) {
             throw InvalidArgumentException::invalidType('$firstBatchSize', $firstBatchSize, 'integer');
         }
 
-        if (isset($initialResumeToken) && ! is_array($initialResumeToken) && ! is_object($initialResumeToken)) {
+        if (isset($initialResumeToken) && !is_array($initialResumeToken) && !is_object($initialResumeToken)) {
             throw InvalidArgumentException::invalidType('$initialResumeToken', $initialResumeToken, 'array or object');
         }
 
-        if (isset($postBatchResumeToken) && ! is_object($postBatchResumeToken)) {
+        if (isset($postBatchResumeToken) && !is_object($postBatchResumeToken)) {
             throw InvalidArgumentException::invalidType('$postBatchResumeToken', $postBatchResumeToken, 'object');
         }
 
@@ -97,6 +96,14 @@ class ChangeStreamIterator extends IteratorIterator implements CommandSubscriber
         $this->postBatchResumeToken = $postBatchResumeToken;
         $this->resumeToken = $initialResumeToken;
         $this->server = $cursor->getServer();
+    }
+
+    /**
+     * Returns the server the cursor is running on.
+     */
+    public function getServer(): Server
+    {
+        return $this->server;
     }
 
     /** @internal */
@@ -125,7 +132,7 @@ class ChangeStreamIterator extends IteratorIterator implements CommandSubscriber
 
         $reply = $event->getReply();
 
-        if (! isset($reply->cursor->nextBatch) || ! is_array($reply->cursor->nextBatch)) {
+        if (!isset($reply->cursor->nextBatch) || !is_array($reply->cursor->nextBatch)) {
             throw new UnexpectedValueException('getMore command did not return a "cursor.nextBatch" array');
         }
 
@@ -134,16 +141,6 @@ class ChangeStreamIterator extends IteratorIterator implements CommandSubscriber
         if (isset($reply->cursor->postBatchResumeToken) && is_object($reply->cursor->postBatchResumeToken)) {
             $this->postBatchResumeToken = $reply->cursor->postBatchResumeToken;
         }
-    }
-
-    /**
-     * @see https://php.net/iteratoriterator.current
-     * @return mixed
-     */
-    #[ReturnTypeWillChange]
-    public function current()
-    {
-        return $this->isValid ? parent::current() : null;
     }
 
     /**
@@ -158,14 +155,6 @@ class ChangeStreamIterator extends IteratorIterator implements CommandSubscriber
     public function getResumeToken()
     {
         return $this->resumeToken;
-    }
-
-    /**
-     * Returns the server the cursor is running on.
-     */
-    public function getServer(): Server
-    {
-        return $this->server;
     }
 
     /**
@@ -198,74 +187,12 @@ class ChangeStreamIterator extends IteratorIterator implements CommandSubscriber
 
         try {
             parent::next();
-            $this->onIteration(! $getMore);
+            $this->onIteration(!$getMore);
         } finally {
             if ($getMore) {
                 removeSubscriber($this);
             }
         }
-    }
-
-    /**
-     * @see https://php.net/iteratoriterator.rewind
-     * @return void
-     */
-    #[ReturnTypeWillChange]
-    public function rewind()
-    {
-        if ($this->isRewindNop) {
-            return;
-        }
-
-        parent::rewind();
-        $this->onIteration(false);
-    }
-
-    /**
-     * @see https://php.net/iteratoriterator.valid
-     * @return boolean
-     */
-    #[ReturnTypeWillChange]
-    public function valid()
-    {
-        return $this->isValid;
-    }
-
-    /**
-     * Extracts the resume token (i.e. "_id" field) from a change document.
-     *
-     * @param array|object $document Change document
-     * @return array|object
-     * @throws InvalidArgumentException
-     * @throws ResumeTokenException if the resume token is not found or invalid
-     */
-    private function extractResumeToken($document)
-    {
-        if (! is_array($document) && ! is_object($document)) {
-            throw InvalidArgumentException::invalidType('$document', $document, 'array or object');
-        }
-
-        if ($document instanceof Serializable) {
-            return $this->extractResumeToken($document->bsonSerialize());
-        }
-
-        $resumeToken = is_array($document)
-            ? ($document['_id'] ?? null)
-            : ($document->_id ?? null);
-
-        if (! isset($resumeToken)) {
-            $this->isValid = false;
-
-            throw ResumeTokenException::notFound();
-        }
-
-        if (! is_array($resumeToken) && ! is_object($resumeToken)) {
-            $this->isValid = false;
-
-            throw ResumeTokenException::invalidType($resumeToken);
-        }
-
-        return $resumeToken;
     }
 
     /**
@@ -310,5 +237,77 @@ class ChangeStreamIterator extends IteratorIterator implements CommandSubscriber
         } elseif ($this->isValid) {
             $this->resumeToken = $this->extractResumeToken($this->current());
         }
+    }
+
+    /**
+     * @see https://php.net/iteratoriterator.valid
+     * @return boolean
+     */
+    #[ReturnTypeWillChange]
+    public function valid()
+    {
+        return $this->isValid;
+    }
+
+    /**
+     * Extracts the resume token (i.e. "_id" field) from a change document.
+     *
+     * @param array|object $document Change document
+     * @return array|object
+     * @throws InvalidArgumentException
+     * @throws ResumeTokenException if the resume token is not found or invalid
+     */
+    private function extractResumeToken($document)
+    {
+        if (!is_array($document) && !is_object($document)) {
+            throw InvalidArgumentException::invalidType('$document', $document, 'array or object');
+        }
+
+        if ($document instanceof Serializable) {
+            return $this->extractResumeToken($document->bsonSerialize());
+        }
+
+        $resumeToken = is_array($document)
+            ? ($document['_id'] ?? null)
+            : ($document->_id ?? null);
+
+        if (!isset($resumeToken)) {
+            $this->isValid = false;
+
+            throw ResumeTokenException::notFound();
+        }
+
+        if (!is_array($resumeToken) && !is_object($resumeToken)) {
+            $this->isValid = false;
+
+            throw ResumeTokenException::invalidType($resumeToken);
+        }
+
+        return $resumeToken;
+    }
+
+    /**
+     * @see https://php.net/iteratoriterator.current
+     * @return mixed
+     */
+    #[ReturnTypeWillChange]
+    public function current()
+    {
+        return $this->isValid ? parent::current() : null;
+    }
+
+    /**
+     * @see https://php.net/iteratoriterator.rewind
+     * @return void
+     */
+    #[ReturnTypeWillChange]
+    public function rewind()
+    {
+        if ($this->isRewindNop) {
+            return;
+        }
+
+        parent::rewind();
+        $this->onIteration(false);
     }
 }

@@ -20,10 +20,10 @@ class SingleFieldSubscription extends ValidationRule
     /**
      * @return array<string, callable>
      */
-    public function getVisitor(ValidationContext $context) : array
+    public function getVisitor(ValidationContext $context): array
     {
         return [
-            NodeKind::OPERATION_DEFINITION => static function (OperationDefinitionNode $node) use ($context) : VisitorOperation {
+            NodeKind::OPERATION_DEFINITION => static function (OperationDefinitionNode $node) use ($context): VisitorOperation {
                 if ($node->operation === 'subscription') {
                     $selections = $node->selectionSet->selections;
 
@@ -46,7 +46,7 @@ class SingleFieldSubscription extends ValidationRule
         ];
     }
 
-    public static function multipleFieldsInOperation(?string $operationName) : string
+    public static function multipleFieldsInOperation(?string $operationName): string
     {
         if ($operationName === null) {
             return sprintf('Anonymous Subscription must select only one top level field.');

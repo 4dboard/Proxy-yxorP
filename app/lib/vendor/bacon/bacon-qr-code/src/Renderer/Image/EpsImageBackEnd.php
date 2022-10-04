@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BaconQrCode\Renderer\Image;
 
@@ -27,7 +27,7 @@ final class EpsImageBackEnd implements ImageBackEndInterface
      */
     private $eps;
 
-    public function new(int $size, ColorInterface $backgroundColor) : void
+    public function new(int $size, ColorInterface $backgroundColor): void
     {
         $this->eps = "%!PS-Adobe-3.0 EPSF-3.0\n"
             . "%%Creator: BaconQrCode\n"
@@ -59,17 +59,57 @@ final class EpsImageBackEnd implements ImageBackEndInterface
 
         $this->eps .= wordwrap(
             '0 0 m'
-            . sprintf(' %s 0 l', (string) $size)
-            . sprintf(' %s %s l', (string) $size, (string) $size)
-            . sprintf(' 0 %s l', (string) $size)
+            . sprintf(' %s 0 l', (string)$size)
+            . sprintf(' %s %s l', (string)$size, (string)$size)
+            . sprintf(' 0 %s l', (string)$size)
             . ' z'
-            . ' ' .$this->getColorSetString($backgroundColor) . " f\n",
+            . ' ' . $this->getColorSetString($backgroundColor) . " f\n",
             75,
             "\n "
         );
     }
 
-    public function scale(float $size) : void
+    private function getColorSetString(ColorInterface $color): string
+    {
+        if ($color instanceof Rgb) {
+            return $this->getColorString($color) . ' rgb';
+        }
+
+        if ($color instanceof Cmyk) {
+            return $this->getColorString($color) . ' cmyk';
+        }
+
+        if ($color instanceof Gray) {
+            return $this->getColorString($color) . ' gray';
+        }
+
+        return $this->getColorSetString($color->toCmyk());
+    }
+
+    private function getColorString(ColorInterface $color): string
+    {
+        if ($color instanceof Rgb) {
+            return sprintf('%s %s %s', $color->getRed() / 255, $color->getGreen() / 255, $color->getBlue() / 255);
+        }
+
+        if ($color instanceof Cmyk) {
+            return sprintf(
+                '%s %s %s %s',
+                $color->getCyan() / 100,
+                $color->getMagenta() / 100,
+                $color->getYellow() / 100,
+                $color->getBlack() / 100
+            );
+        }
+
+        if ($color instanceof Gray) {
+            return sprintf('%s', $color->getGray() / 100);
+        }
+
+        return $this->getColorString($color->toCmyk());
+    }
+
+    public function scale(float $size): void
     {
         if (null === $this->eps) {
             throw new RuntimeException('No image has been started');
@@ -78,7 +118,7 @@ final class EpsImageBackEnd implements ImageBackEndInterface
         $this->eps .= sprintf("%1\$s %1\$s s\n", round($size, self::PRECISION));
     }
 
-    public function translate(float $x, float $y) : void
+    public function translate(float $x, float $y): void
     {
         if (null === $this->eps) {
             throw new RuntimeException('No image has been started');
@@ -87,7 +127,7 @@ final class EpsImageBackEnd implements ImageBackEndInterface
         $this->eps .= sprintf("%s %s t\n", round($x, self::PRECISION), round($y, self::PRECISION));
     }
 
-    public function rotate(int $degrees) : void
+    public function rotate(int $degrees): void
     {
         if (null === $this->eps) {
             throw new RuntimeException('No image has been started');
@@ -96,7 +136,7 @@ final class EpsImageBackEnd implements ImageBackEndInterface
         $this->eps .= sprintf("%d r\n", $degrees);
     }
 
-    public function push() : void
+    public function push(): void
     {
         if (null === $this->eps) {
             throw new RuntimeException('No image has been started');
@@ -105,7 +145,7 @@ final class EpsImageBackEnd implements ImageBackEndInterface
         $this->eps .= "q\n";
     }
 
-    public function pop() : void
+    public function pop(): void
     {
         if (null === $this->eps) {
             throw new RuntimeException('No image has been started');
@@ -114,7 +154,7 @@ final class EpsImageBackEnd implements ImageBackEndInterface
         $this->eps .= "Q\n";
     }
 
-    public function drawPathWithColor(Path $path, ColorInterface $color) : void
+    public function drawPathWithColor(Path $path, ColorInterface $color): void
     {
         if (null === $this->eps) {
             throw new RuntimeException('No image has been started');
@@ -131,43 +171,7 @@ final class EpsImageBackEnd implements ImageBackEndInterface
         );
     }
 
-    public function drawPathWithGradient(
-        Path $path,
-        Gradient $gradient,
-        float $x,
-        float $y,
-        float $width,
-        float $height
-    ) : void {
-        if (null === $this->eps) {
-            throw new RuntimeException('No image has been started');
-        }
-
-        $fromX = 0;
-        $fromY = 0;
-        $this->eps .= wordwrap(
-            'q n ' . $this->drawPathOperations($path, $fromX, $fromY) . "\n",
-            75,
-            "\n "
-        );
-
-        $this->createGradientFill($gradient, $x, $y, $width, $height);
-    }
-
-    public function done() : string
-    {
-        if (null === $this->eps) {
-            throw new RuntimeException('No image has been started');
-        }
-
-        $this->eps .= "%%TRAILER\nend restore\n%%EOF";
-        $blob = $this->eps;
-        $this->eps = null;
-
-        return $blob;
-    }
-
-    private function drawPathOperations(Iterable $ops, &$fromX, &$fromY) : string
+    private function drawPathOperations(Iterable $ops, &$fromX, &$fromY): string
     {
         $pathData = [];
 
@@ -211,7 +215,31 @@ final class EpsImageBackEnd implements ImageBackEndInterface
         return implode(' ', $pathData);
     }
 
-    private function createGradientFill(Gradient $gradient, float $x, float $y, float $width, float $height) : void
+    public function drawPathWithGradient(
+        Path     $path,
+        Gradient $gradient,
+        float    $x,
+        float    $y,
+        float    $width,
+        float    $height
+    ): void
+    {
+        if (null === $this->eps) {
+            throw new RuntimeException('No image has been started');
+        }
+
+        $fromX = 0;
+        $fromY = 0;
+        $this->eps .= wordwrap(
+            'q n ' . $this->drawPathOperations($path, $fromX, $fromY) . "\n",
+            75,
+            "\n "
+        );
+
+        $this->createGradientFill($gradient, $x, $y, $width, $height);
+    }
+
+    private function createGradientFill(Gradient $gradient, float $x, float $y, float $width, float $height): void
     {
         $startColor = $gradient->getStartColor();
         $endColor = $gradient->getEndColor();
@@ -222,7 +250,7 @@ final class EpsImageBackEnd implements ImageBackEndInterface
 
         $startColorType = get_class($startColor);
 
-        if (! in_array($startColorType, [Rgb::class, Cmyk::class, Gray::class])) {
+        if (!in_array($startColorType, [Rgb::class, Cmyk::class, Gray::class])) {
             $startColorType = Cmyk::class;
             $startColor = $startColor->toCmyk();
         }
@@ -334,43 +362,16 @@ final class EpsImageBackEnd implements ImageBackEndInterface
             . " >>\n>>\nshfill\nQ\n";
     }
 
-    private function getColorSetString(ColorInterface $color) : string
+    public function done(): string
     {
-        if ($color instanceof Rgb) {
-            return $this->getColorString($color) . ' rgb';
+        if (null === $this->eps) {
+            throw new RuntimeException('No image has been started');
         }
 
-        if ($color instanceof Cmyk) {
-            return $this->getColorString($color) . ' cmyk';
-        }
+        $this->eps .= "%%TRAILER\nend restore\n%%EOF";
+        $blob = $this->eps;
+        $this->eps = null;
 
-        if ($color instanceof Gray) {
-            return $this->getColorString($color) . ' gray';
-        }
-
-        return $this->getColorSetString($color->toCmyk());
-    }
-
-    private function getColorString(ColorInterface $color) : string
-    {
-        if ($color instanceof Rgb) {
-            return sprintf('%s %s %s', $color->getRed() / 255, $color->getGreen() / 255, $color->getBlue() / 255);
-        }
-
-        if ($color instanceof Cmyk) {
-            return sprintf(
-                '%s %s %s %s',
-                $color->getCyan() / 100,
-                $color->getMagenta() / 100,
-                $color->getYellow() / 100,
-                $color->getBlack() / 100
-            );
-        }
-
-        if ($color instanceof Gray) {
-            return sprintf('%s', $color->getGray() / 100);
-        }
-
-        return $this->getColorString($color->toCmyk());
+        return $blob;
     }
 }

@@ -4,15 +4,10 @@
 
 The openapi annotation base class.
 
-
-
 * Full name: `\OpenApi\Annotations\Parameter`
 * Parent class: [`\OpenApi\Annotations\AbstractAnnotation`](./AbstractAnnotation.md)
 
-
-
 ## Properties
-
 
 ### ref
 
@@ -21,11 +16,6 @@ $ref See https://swagger.io/docs/specification/using-ref/.
 ```php
 public string $ref
 ```
-
-
-
-
-
 
 ***
 
@@ -36,11 +26,6 @@ The key into Components->parameters or PathItem->parameters array.
 ```php
 public string $parameter
 ```
-
-
-
-
-
 
 ***
 
@@ -54,7 +39,8 @@ public string $name
 
 Parameter names are case sensitive.
 If in is "path", the name field must correspond to the associated path segment from the path field in the Paths Object.
-If in is "header" and the name field is "Accept", "Content-Type" or "Authorization", the parameter definition shall be ignored.
+If in is "header" and the name field is "Accept", "Content-Type" or "Authorization", the parameter definition shall be
+ignored.
 For all other cases, the name corresponds to the parameter name used by the in property.
 
 
@@ -117,11 +103,6 @@ Specifies that a parameter is deprecated and should be transitioned out of usage
 public bool $deprecated
 ```
 
-
-
-
-
-
 ***
 
 ### allowEmptyValue
@@ -133,7 +114,8 @@ public bool $allowEmptyValue
 ```
 
 This is valid only for query parameters and allows sending a parameter with an empty value.
-Default value is false. If style is used, and if behavior is n/a (cannot be serialized), the value of allowEmptyValue shall be ignored.
+Default value is false. If style is used, and if behavior is n/a (cannot be serialized), the value of allowEmptyValue
+shall be ignored.
 
 
 
@@ -157,7 +139,8 @@ Default values (based on value of in): for query - form; for path - simple; for 
 
 ### explode
 
-When this is true, parameter values of type array or object generate separate parameters for each value of the array or key-value pair of the map.
+When this is true, parameter values of type array or object generate separate parameters for each value of the array or
+key-value pair of the map.
 
 ```php
 public bool $explode
@@ -174,7 +157,8 @@ For all other styles, the default value is false.
 
 ### allowReserved
 
-Determines whether the parameter value should allow reserved characters, as defined by RFC3986 :/?#[]@!$&'()*+,;= to be included without percent-encoding.
+Determines whether the parameter value should allow reserved characters, as defined by RFC3986 :/?#[]@!$&'()*+,;= to be
+included without percent-encoding.
 
 ```php
 public bool $allowReserved
@@ -196,11 +180,6 @@ The schema defining the type used for the parameter.
 public \OpenApi\Annotations\Schema $schema
 ```
 
-
-
-
-
-
 ***
 
 ### example
@@ -213,8 +192,10 @@ public $example
 
 The example should match the specified schema and encoding properties if present.
 The example object is mutually exclusive of the examples object.
-Furthermore, if referencing a schema which contains an example, the example value shall override the example provided by the schema.
-To represent examples of media types that cannot naturally be represented in JSON or YAML, a string value can contain the example with escaping where necessary.
+Furthermore, if referencing a schema which contains an example, the example value shall override the example provided by
+the schema.
+To represent examples of media types that cannot naturally be represented in JSON or YAML, a string value can contain
+the example with escaping where necessary.
 
 
 
@@ -231,7 +212,8 @@ public array $examples
 
 Each example should contain a value in the correct format as specified in the parameter encoding.
 The examples object is mutually exclusive of the example object.
-Furthermore, if referencing a schema which contains an example, the examples value shall override the example provided by the schema.
+Furthermore, if referencing a schema which contains an example, the examples value shall override the example provided
+by the schema.
 
 
 
@@ -262,11 +244,6 @@ Path-style parameters defined by https://tools.ietf.org/html/rfc6570#section-3.2
 public $matrix
 ```
 
-
-
-
-
-
 ***
 
 ### label
@@ -277,26 +254,17 @@ Label style parameters defined by https://tools.ietf.org/html/rfc6570#section-3.
 public $label
 ```
 
-
-
-
-
-
 ***
 
 ### form
 
 Form style parameters defined by https://tools.ietf.org/html/rfc6570#section-3.2.8
-This option replaces collectionFormat with a csv (when explode is false) or multi (when explode is true) value from OpenAPI 2.0.
+This option replaces collectionFormat with a csv (when explode is false) or multi (when explode is true) value from
+OpenAPI 2.0.
 
 ```php
 public $form
 ```
-
-
-
-
-
 
 ***
 
@@ -308,11 +276,6 @@ This option replaces collectionFormat with a csv value from OpenAPI 2.0.
 ```php
 public array $simple
 ```
-
-
-
-
-
 
 ***
 
@@ -354,25 +317,18 @@ Provides a simple way of rendering nested objects using form parameters.
 public $deepObject
 ```
 
-
-
-
-
-
 ***
 
 ### _required
 
-The properties which are required by [the spec](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md).
+The properties which are required
+by [the spec](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md).
 
 ```php
 public static array $_required
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -384,10 +340,7 @@ Specify the type of the property.
 public static array $_types
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -399,10 +352,7 @@ Declarative mapping of Annotation types to properties.
 public static array $_nested
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -414,15 +364,11 @@ Reverse mapping of $_nested with the allowed parent annotations.
 public static string[] $_parents
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### validate
 
@@ -432,13 +378,6 @@ Validate annotation tree, and log notices & warnings.
 public validate(array $parents = [], array $skip = [], string $ref = &#039;&#039;): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -446,9 +385,6 @@ public validate(array $parents = [], array $skip = [], string $ref = &#039;&#039
 | `$parents` | **array** | the path of annotations above this annotation in the tree |
 | `$skip` | **array** | (prevent stack overflow, when traversing an infinite dependency graph) |
 | `$ref` | **string** |  |
-
-
-
 
 ***
 
@@ -460,36 +396,15 @@ Return a identity for easy debugging.
 public identity(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $properties): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -497,25 +412,13 @@ public __construct(array $properties): mixed
 |-----------|------|-------------|
 | `$properties` | **array** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $property): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -523,25 +426,13 @@ public __get(mixed $property): mixed
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
 
-
-
-
 ***
 
 ### __set
 
-
-
 ```php
 public __set(mixed $property, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -549,9 +440,6 @@ public __set(mixed $property, mixed $value): mixed
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -565,18 +453,12 @@ public merge(\OpenApi\Annotations\AbstractAnnotation[] $annotations, bool $ignor
 
 Annotations that couldn't be merged are added to the _unmerged array.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$annotations` | **\OpenApi\Annotations\AbstractAnnotation[]** |  |
 | `$ignore` | **bool** | Ignore unmerged annotations |
-
 
 **Return Value:**
 
@@ -596,19 +478,11 @@ public mergeProperties(object $object): void
 
 Prevents overwriting properties that are already configured.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$object` | **object** |  |
-
-
-
 
 ***
 
@@ -620,21 +494,11 @@ Generate the documentation in YAML format.
 public toYaml(mixed $flags = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flags` | **mixed** |  |
-
-
-
 
 ***
 
@@ -646,41 +510,19 @@ Generate the documentation in YAML format.
 public toJson(mixed $flags = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flags` | **mixed** |  |
 
-
-
-
 ***
 
 ### __debugInfo
 
-
-
 ```php
 public __debugInfo(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -692,16 +534,6 @@ Customize the way json_encode() renders the annotations.
 public jsonSerialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### validate
@@ -712,13 +544,6 @@ Validate annotation tree, and log notices & warnings.
 public validate(array $parents = [], array $skip = [], string $ref = &#039;&#039;): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -726,9 +551,6 @@ public validate(array $parents = [], array $skip = [], string $ref = &#039;&#039
 | `$parents` | **array** | the path of annotations above this annotation in the tree |
 | `$skip` | **array** | (prevent stack overflow, when traversing an infinite dependency graph) |
 | `$ref` | **string** |  |
-
-
-
 
 ***
 
@@ -740,12 +562,7 @@ Recursively validate all annotation properties.
 private static _validate(array|object $fields, array $parents, array $skip, string $baseRef): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -755,9 +572,6 @@ private static _validate(array|object $fields, array $parents, array $skip, stri
 | `$parents` | **array** | the path of annotations above this annotation in the tree |
 | `$skip` | **array** | List of objects already validated |
 | `$baseRef` | **string** |  |
-
-
-
 
 ***
 
@@ -789,16 +603,6 @@ An annotation is a root if it is the top-level / outermost annotation in a PHP d
 public isRoot(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### matchNested
@@ -809,19 +613,13 @@ Find matching nested details.
 public static matchNested(string $class): null|object
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** | the class to match |
-
 
 **Return Value:**
 
@@ -839,21 +637,11 @@ Helper for generating the identity().
 protected _identity(array $properties): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$properties` | **array** |  |
-
-
-
 
 ***
 
@@ -865,22 +653,12 @@ Validates the matching of the property value to a annotation type.
 private validateType(string $type, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | The annotations property type |
 | `$value` | **mixed** | The property value |
-
-
-
 
 ***
 
@@ -892,22 +670,12 @@ Validates default Open Api types.
 private validateDefaultTypes(string $type, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | The property type |
 | `$value` | **mixed** | The value to validate |
-
-
-
 
 ***
 
@@ -919,21 +687,11 @@ Validate array type.
 private validateArrayType(mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -945,22 +703,12 @@ Wrap the context with a reference to the annotation it is nested in.
 private nested(\OpenApi\Annotations\AbstractAnnotation $annotation, \OpenApi\Context $nestedContext): \OpenApi\Annotations\AbstractAnnotation
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$annotation` | **\OpenApi\Annotations\AbstractAnnotation** |  |
 | `$nestedContext` | **\OpenApi\Context** |  |
-
-
-
 
 ***
 

@@ -2,7 +2,7 @@ kiss-popoutmenu {
     display: flex;
     align-items: flex-start;
     position: fixed;
-    background: var(--kiss-popoutmenu-background, rgba(0,0,0,.1));
+    background: var(--kiss-popoutmenu-background, rgba(0, 0, 0, .1));
     top: 0;
     left: 0;
     right: 0;
@@ -46,6 +46,7 @@ kiss-popoutmenu[open] {
     opacity: 1;
     pointer-events: auto;
 }
+
 kiss-popoutmenu[open] > kiss-content {
     transform: translateY(10px);
 }

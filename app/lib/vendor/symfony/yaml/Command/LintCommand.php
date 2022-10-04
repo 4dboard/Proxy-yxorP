@@ -11,6 +11,11 @@
 
 namespace Symfony\Component\Yaml\Command;
 
+use Closure;
+use FilesystemIterator;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use SplFileInfo;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\CI\GithubActionReporter;
 use Symfony\Component\Console\Command\Command;
@@ -26,6 +31,11 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Parser;
 use Symfony\Component\Yaml\Yaml;
+use function count;
+use function in_array;
+use const E_USER_DEPRECATED;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
 
 /**
  * Validates YAML files syntax and outputs encountered errors.
@@ -39,15 +49,22 @@ class LintCommand extends Command
     private $parser;
     private ?string $format = null;
     private bool $displayCorrectFiles;
-    private ?\Closure $directoryIteratorProvider;
-    private ?\Closure $isReadableProvider;
+    private ?Closure $directoryIteratorProvider;
+    private ?Closure $isReadableProvider;
 
     public function __construct(string $name = null, callable $directoryIteratorProvider = null, callable $isReadableProvider = null)
     {
         parent::__construct($name);
 
-        $this->directoryIteratorProvider = null === $directoryIteratorProvider || $directoryIteratorProvider instanceof \Closure ? $directoryIteratorProvider : \Closure::fromCallable($directoryIteratorProvider);
-        $this->isReadableProvider = null === $isReadableProvider || $isReadableProvider instanceof \Closure ? $isReadableProvider : \Closure::fromCallable($isReadableProvider);
+        $this->directoryIteratorProvider = null === $directoryIteratorProvider || $directoryIteratorProvider instanceof Closure ? $directoryIteratorProvider : Closure::fromCallable($directoryIteratorProvider);
+        $this->isReadableProvider = null === $isReadableProvider || $isReadableProvider instanceof Closure ? $isReadableProvider : Closure::fromCallable($isReadableProvider);
+    }
+
+    public function complete(CompletionInput $input, CompletionSuggestions $suggestions): void
+    {
+        if ($input->mustSuggestOptionValuesFor('format')) {
+            $suggestions->suggestValues(['txt', 'json', 'github']);
+        }
     }
 
     /**
@@ -82,14 +99,13 @@ You can also exclude one or more specific files:
   <info>php %command.full_name% dirname --exclude="dirname/foo.yaml" --exclude="dirname/bar.yaml"</info>
 
 EOF
-            )
-        ;
+            );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $filenames = (array) $input->getArgument('filename');
+        $filenames = (array)$input->getArgument('filename');
         $excludes = $input->getOption('exclude');
         $this->format = $input->getOption('format');
         $flags = $input->getOption('parse-tags');
@@ -122,34 +138,13 @@ EOF
             }
 
             foreach ($this->getFiles($filename) as $file) {
-                if (!\in_array($file->getPathname(), $excludes, true)) {
+                if (!in_array($file->getPathname(), $excludes, true)) {
                     $filesInfo[] = $this->validate(file_get_contents($file), $flags, $file);
                 }
             }
         }
 
         return $this->display($io, $filesInfo);
-    }
-
-    private function validate(string $content, int $flags, string $file = null)
-    {
-        $prevErrorHandler = set_error_handler(function ($level, $message, $file, $line) use (&$prevErrorHandler) {
-            if (\E_USER_DEPRECATED === $level) {
-                throw new ParseException($message, $this->getParser()->getRealCurrentLineNb() + 1);
-            }
-
-            return $prevErrorHandler ? $prevErrorHandler($level, $message, $file, $line) : false;
-        });
-
-        try {
-            $this->getParser()->parse($content, Yaml::PARSE_CONSTANT | $flags);
-        } catch (ParseException $e) {
-            return ['file' => $file, 'line' => $e->getParsedLine(), 'valid' => false, 'message' => $e->getMessage()];
-        } finally {
-            restore_error_handler();
-        }
-
-        return ['file' => $file, 'valid' => true];
     }
 
     private function display(SymfonyStyle $io, array $files): int
@@ -168,7 +163,7 @@ EOF
 
     private function displayTxt(SymfonyStyle $io, array $filesInfo, bool $errorAsGithubAnnotations = false): int
     {
-        $countFiles = \count($filesInfo);
+        $countFiles = count($filesInfo);
         $erroredFiles = 0;
         $suggestTagOption = false;
 
@@ -178,10 +173,10 @@ EOF
 
         foreach ($filesInfo as $info) {
             if ($info['valid'] && $this->displayCorrectFiles) {
-                $io->comment('<info>OK</info>'.($info['file'] ? sprintf(' in %s', $info['file']) : ''));
+                $io->comment('<info>OK</info>' . ($info['file'] ? sprintf(' in %s', $info['file']) : ''));
             } elseif (!$info['valid']) {
                 ++$erroredFiles;
-                $io->text('<error> ERROR </error>'.($info['file'] ? sprintf(' in %s', $info['file']) : ''));
+                $io->text('<error> ERROR </error>' . ($info['file'] ? sprintf(' in %s', $info['file']) : ''));
                 $io->text(sprintf('<error> >> %s</error>', $info['message']));
 
                 if (false !== strpos($info['message'], 'PARSE_CUSTOM_TAGS')) {
@@ -208,7 +203,7 @@ EOF
         $errors = 0;
 
         array_walk($filesInfo, function (&$v) use (&$errors) {
-            $v['file'] = (string) $v['file'];
+            $v['file'] = (string)$v['file'];
             if (!$v['valid']) {
                 ++$errors;
             }
@@ -218,47 +213,35 @@ EOF
             }
         });
 
-        $io->writeln(json_encode($filesInfo, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES));
+        $io->writeln(json_encode($filesInfo, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
         return min($errors, 1);
     }
 
-    private function getFiles(string $fileOrDirectory): iterable
+    private function validate(string $content, int $flags, string $file = null)
     {
-        if (is_file($fileOrDirectory)) {
-            yield new \SplFileInfo($fileOrDirectory);
-
-            return;
-        }
-
-        foreach ($this->getDirectoryIterator($fileOrDirectory) as $file) {
-            if (!\in_array($file->getExtension(), ['yml', 'yaml'])) {
-                continue;
+        $prevErrorHandler = set_error_handler(function ($level, $message, $file, $line) use (&$prevErrorHandler) {
+            if (E_USER_DEPRECATED === $level) {
+                throw new ParseException($message, $this->getParser()->getRealCurrentLineNb() + 1);
             }
 
-            yield $file;
+            return $prevErrorHandler ? $prevErrorHandler($level, $message, $file, $line) : false;
+        });
+
+        try {
+            $this->getParser()->parse($content, Yaml::PARSE_CONSTANT | $flags);
+        } catch (ParseException $e) {
+            return ['file' => $file, 'line' => $e->getParsedLine(), 'valid' => false, 'message' => $e->getMessage()];
+        } finally {
+            restore_error_handler();
         }
+
+        return ['file' => $file, 'valid' => true];
     }
 
     private function getParser(): Parser
     {
         return $this->parser ??= new Parser();
-    }
-
-    private function getDirectoryIterator(string $directory): iterable
-    {
-        $default = function ($directory) {
-            return new \RecursiveIteratorIterator(
-                new \RecursiveDirectoryIterator($directory, \FilesystemIterator::SKIP_DOTS | \FilesystemIterator::FOLLOW_SYMLINKS),
-                \RecursiveIteratorIterator::LEAVES_ONLY
-            );
-        };
-
-        if (null !== $this->directoryIteratorProvider) {
-            return ($this->directoryIteratorProvider)($directory, $default);
-        }
-
-        return $default($directory);
     }
 
     private function isReadable(string $fileOrDirectory): bool
@@ -274,10 +257,36 @@ EOF
         return $default($fileOrDirectory);
     }
 
-    public function complete(CompletionInput $input, CompletionSuggestions $suggestions): void
+    private function getFiles(string $fileOrDirectory): iterable
     {
-        if ($input->mustSuggestOptionValuesFor('format')) {
-            $suggestions->suggestValues(['txt', 'json', 'github']);
+        if (is_file($fileOrDirectory)) {
+            yield new SplFileInfo($fileOrDirectory);
+
+            return;
         }
+
+        foreach ($this->getDirectoryIterator($fileOrDirectory) as $file) {
+            if (!in_array($file->getExtension(), ['yml', 'yaml'])) {
+                continue;
+            }
+
+            yield $file;
+        }
+    }
+
+    private function getDirectoryIterator(string $directory): iterable
+    {
+        $default = function ($directory) {
+            return new RecursiveIteratorIterator(
+                new RecursiveDirectoryIterator($directory, FilesystemIterator::SKIP_DOTS | FilesystemIterator::FOLLOW_SYMLINKS),
+                RecursiveIteratorIterator::LEAVES_ONLY
+            );
+        };
+
+        if (null !== $this->directoryIteratorProvider) {
+            return ($this->directoryIteratorProvider)($directory, $default);
+        }
+
+        return $default($directory);
     }
 }

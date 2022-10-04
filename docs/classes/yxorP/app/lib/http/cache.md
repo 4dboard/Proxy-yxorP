@@ -4,15 +4,9 @@
 
 A class that is used to cache data.
 
-
-
 * Full name: `\yxorP\app\lib\http\cache`
 
-
-
-
 ## Methods
-
 
 ### get
 
@@ -22,21 +16,13 @@ Checking if the cache file is valid and if it is, it is including the cache file
 public static get(?string $key = null): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **?string** |  |
-
-
-
 
 ***
 
@@ -48,21 +34,13 @@ Used to check if the cache file exists.
 public static isValid(?string $key = null): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **?string** |  |
-
-
-
 
 ***
 
@@ -74,21 +52,13 @@ A PHPDoc annotation that is used to tell the IDE that the function returns an ar
 private static gen(?string $key): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **?string** |  |
-
-
-
 
 ***
 
@@ -100,12 +70,7 @@ It's writing the content to the cache file.
 public static set(mixed $content, ?string $key = null): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -113,9 +78,6 @@ public static set(mixed $content, ?string $key = null): void
 |-----------|------|-------------|
 | `$content` | **mixed** |  |
 | `$key` | **?string** |  |
-
-
-
 
 ***
 

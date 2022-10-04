@@ -12,7 +12,6 @@ implement is Unicode-aware but doesn't care about code points vs grapheme cluste
 * Parent class: [`\Symfony\Component\String\AbstractString`](./AbstractString.md)
 * This class is an **Abstract class**
 
-
 ## Constants
 
 | Constant | Visibility | Type | Value |
@@ -31,78 +30,51 @@ implement is Unicode-aware but doesn't care about code points vs grapheme cluste
 
 ## Properties
 
-
 ### transliterators
-
-
 
 ```php
 private static $transliterators
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### tableZero
 
-
-
 ```php
 private static $tableZero
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### tableWide
 
-
-
 ```php
 private static $tableWide
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### fromCodePoints
-
-
 
 ```php
 public static fromCodePoints(int $codes): static
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$codes` | **int** |  |
-
-
-
 
 ***
 
@@ -116,56 +88,27 @@ public ascii(string[]|\Transliterator[]|\Closure[] $rules = []): self
 
 Install the intl extension for best results.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rules` | **string[]&#124;\Transliterator[]&#124;\Closure[]** | See &quot;*-Latin&quot; rules from Transliterator::listIDs() |
 
-
-
-
 ***
 
 ### camel
-
-
 
 ```php
 public camel(): static
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### codePointsAt
 
-
-
 ```php
 public codePointsAt(int $offset): int[]
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -173,25 +116,13 @@ public codePointsAt(int $offset): int[]
 |-----------|------|-------------|
 | `$offset` | **int** |  |
 
-
-
-
 ***
 
 ### folded
 
-
-
 ```php
 public folded(bool $compat = true): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -199,25 +130,13 @@ public folded(bool $compat = true): static
 |-----------|------|-------------|
 | `$compat` | **bool** |  |
 
-
-
-
 ***
 
 ### join
 
-
-
 ```php
 public join(array $strings, string $lastGlue = null): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -226,28 +145,13 @@ public join(array $strings, string $lastGlue = null): static
 | `$strings` | **array** |  |
 | `$lastGlue` | **string** |  |
 
-
-
-
 ***
 
 ### lower
 
-
-
 ```php
 public lower(): static
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -261,11 +165,6 @@ public match(string $regexp, int $flags, int $offset): array
 
 Pass PREG_PATTERN_ORDER or PREG_SET_ORDER as $flags to get all occurrences matching the regular expression.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -273,7 +172,6 @@ Pass PREG_PATTERN_ORDER or PREG_SET_ORDER as $flags to get all occurrences match
 | `$regexp` | **string** |  |
 | `$flags` | **int** |  |
 | `$offset` | **int** |  |
-
 
 **Return Value:**
 
@@ -285,18 +183,9 @@ All matches in a multi-dimensional array ordered according to flags
 
 ### normalize
 
-
-
 ```php
 public normalize(int $form = self::NFC): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -304,52 +193,28 @@ public normalize(int $form = self::NFC): static
 |-----------|------|-------------|
 | `$form` | **int** |  |
 
-
-
-
 ***
 
 ### padBoth
-
-
 
 ```php
 public padBoth(int $length, string $padStr = &#039; &#039;): static
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$length` | **int** |  |
 | `$padStr` | **string** |  |
-
-
-
 
 ***
 
 ### padEnd
 
-
-
 ```php
 public padEnd(int $length, string $padStr = &#039; &#039;): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -357,26 +222,14 @@ public padEnd(int $length, string $padStr = &#039; &#039;): static
 |-----------|------|-------------|
 | `$length` | **int** |  |
 | `$padStr` | **string** |  |
-
-
-
 
 ***
 
 ### padStart
 
-
-
 ```php
 public padStart(int $length, string $padStr = &#039; &#039;): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -385,25 +238,13 @@ public padStart(int $length, string $padStr = &#039; &#039;): static
 | `$length` | **int** |  |
 | `$padStr` | **string** |  |
 
-
-
-
 ***
 
 ### replaceMatches
 
-
-
 ```php
 public replaceMatches(string $fromRegexp, string|callable $to): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -412,65 +253,29 @@ public replaceMatches(string $fromRegexp, string|callable $to): static
 | `$fromRegexp` | **string** |  |
 | `$to` | **string&#124;callable** |  |
 
-
-
-
 ***
 
 ### reverse
-
-
 
 ```php
 public reverse(): static
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### snake
-
-
 
 ```php
 public snake(): static
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### title
 
-
-
 ```php
 public title(bool $allWords = false): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -478,53 +283,31 @@ public title(bool $allWords = false): static
 |-----------|------|-------------|
 | `$allWords` | **bool** |  |
 
-
-
-
 ***
 
 ### trim
 
-
-
 ```php
 public trim(string $chars = &quot; 	
-  ﻿&quot;): static
+
+  ﻿&quot;): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$chars` | **string** |  |
-
-
-
 
 ***
 
 ### trimEnd
 
-
-
 ```php
 public trimEnd(string $chars = &quot; 	
-  ﻿&quot;): static
+
+  ﻿&quot;): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -532,25 +315,13 @@ public trimEnd(string $chars = &quot;
 |-----------|------|-------------|
 | `$chars` | **string** |  |
 
-
-
-
 ***
 
 ### trimPrefix
 
-
-
 ```php
 public trimPrefix(mixed $prefix): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -558,26 +329,15 @@ public trimPrefix(mixed $prefix): static
 |-----------|------|-------------|
 | `$prefix` | **mixed** |  |
 
-
-
-
 ***
 
 ### trimStart
 
-
-
 ```php
 public trimStart(string $chars = &quot; 	
-  ﻿&quot;): static
+
+  ﻿&quot;): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -585,25 +345,13 @@ public trimStart(string $chars = &quot;
 |-----------|------|-------------|
 | `$chars` | **string** |  |
 
-
-
-
 ***
 
 ### trimSuffix
 
-
-
 ```php
 public trimSuffix(mixed $suffix): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -611,28 +359,13 @@ public trimSuffix(mixed $suffix): static
 |-----------|------|-------------|
 | `$suffix` | **mixed** |  |
 
-
-
-
 ***
 
 ### upper
 
-
-
 ```php
 public upper(): static
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -644,38 +377,19 @@ Returns the printable length on a terminal.
 public width(bool $ignoreAnsiDecoration = true): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ignoreAnsiDecoration` | **bool** |  |
 
-
-
-
 ***
 
 ### pad
 
-
-
 ```php
 private pad(int $len, self $pad, int $type): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -684,9 +398,6 @@ private pad(int $len, self $pad, int $type): static
 | `$len` | **int** |  |
 | `$pad` | **self** |  |
 | `$type` | **int** |  |
-
-
-
 
 ***
 
@@ -698,51 +409,29 @@ Based on https://github.com/jquast/wcwidth, a Python implementation of https://w
 private wcswidth(string $string): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $string = &#039;&#039;): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -754,21 +443,13 @@ Unwraps instances of AbstractString back to strings.
 public static unwrap(array $values): string[]|array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **array** |  |
-
-
-
 
 ***
 
@@ -780,12 +461,7 @@ Wraps (and normalizes) strings in instances of AbstractString.
 public static wrap(array $values): static[]|array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -793,26 +469,14 @@ public static wrap(array $values): static[]|array
 |-----------|------|-------------|
 | `$values` | **array** |  |
 
-
-
-
 ***
 
 ### after
-
-
 
 ```php
 public after(string|string[] $needle, bool $includeNeedle = false, int $offset): static
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -820,26 +484,14 @@ public after(string|string[] $needle, bool $includeNeedle = false, int $offset):
 | `$needle` | **string&#124;string[]** |  |
 | `$includeNeedle` | **bool** |  |
 | `$offset` | **int** |  |
-
-
-
 
 ***
 
 ### afterLast
 
-
-
 ```php
 public afterLast(string|string[] $needle, bool $includeNeedle = false, int $offset): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -849,25 +501,15 @@ public afterLast(string|string[] $needle, bool $includeNeedle = false, int $offs
 | `$includeNeedle` | **bool** |  |
 | `$offset` | **int** |  |
 
-
-
-
 ***
 
 ### append
-
-
 
 ```php
 public append(string $suffix): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -875,26 +517,14 @@ public append(string $suffix): static
 |-----------|------|-------------|
 | `$suffix` | **string** |  |
 
-
-
-
 ***
 
 ### before
-
-
 
 ```php
 public before(string|string[] $needle, bool $includeNeedle = false, int $offset): static
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -902,26 +532,14 @@ public before(string|string[] $needle, bool $includeNeedle = false, int $offset)
 | `$needle` | **string&#124;string[]** |  |
 | `$includeNeedle` | **bool** |  |
 | `$offset` | **int** |  |
-
-
-
 
 ***
 
 ### beforeLast
 
-
-
 ```php
 public beforeLast(string|string[] $needle, bool $includeNeedle = false, int $offset): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -931,25 +549,13 @@ public beforeLast(string|string[] $needle, bool $includeNeedle = false, int $off
 | `$includeNeedle` | **bool** |  |
 | `$offset` | **int** |  |
 
-
-
-
 ***
 
 ### bytesAt
 
-
-
 ```php
 public bytesAt(int $offset): int[]
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -957,45 +563,25 @@ public bytesAt(int $offset): int[]
 |-----------|------|-------------|
 | `$offset` | **int** |  |
 
-
-
-
 ***
 
 ### camel
-
-
 
 ```php
 public camel(): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
 ### chunk
 
-
-
 ```php
 public chunk(int $length = 1): static[]
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1003,45 +589,21 @@ public chunk(int $length = 1): static[]
 |-----------|------|-------------|
 | `$length` | **int** |  |
 
-
-
-
 ***
 
 ### collapseWhitespace
-
-
 
 ```php
 public collapseWhitespace(): static
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### containsAny
 
-
-
 ```php
 public containsAny(string|string[] $needle): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1049,25 +611,13 @@ public containsAny(string|string[] $needle): bool
 |-----------|------|-------------|
 | `$needle` | **string&#124;string[]** |  |
 
-
-
-
 ***
 
 ### endsWith
 
-
-
 ```php
 public endsWith(string|string[] $suffix): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1075,25 +625,13 @@ public endsWith(string|string[] $suffix): bool
 |-----------|------|-------------|
 | `$suffix` | **string&#124;string[]** |  |
 
-
-
-
 ***
 
 ### ensureEnd
 
-
-
 ```php
 public ensureEnd(string $suffix): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1101,25 +639,13 @@ public ensureEnd(string $suffix): static
 |-----------|------|-------------|
 | `$suffix` | **string** |  |
 
-
-
-
 ***
 
 ### ensureStart
 
-
-
 ```php
 public ensureStart(string $prefix): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1127,25 +653,13 @@ public ensureStart(string $prefix): static
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
 
-
-
-
 ***
 
 ### equalsTo
 
-
-
 ```php
 public equalsTo(string|string[] $string): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1153,65 +667,31 @@ public equalsTo(string|string[] $string): bool
 |-----------|------|-------------|
 | `$string` | **string&#124;string[]** |  |
 
-
-
-
 ***
 
 ### folded
-
-
 
 ```php
 public folded(): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
 ### ignoreCase
 
-
-
 ```php
 public ignoreCase(): static
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### indexOf
 
-
-
 ```php
 public indexOf(string|string[] $needle, int $offset): ?int
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1219,26 +699,14 @@ public indexOf(string|string[] $needle, int $offset): ?int
 |-----------|------|-------------|
 | `$needle` | **string&#124;string[]** |  |
 | `$offset` | **int** |  |
-
-
-
 
 ***
 
 ### indexOfLast
 
-
-
 ```php
 public indexOfLast(string|string[] $needle, int $offset): ?int
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1247,45 +715,23 @@ public indexOfLast(string|string[] $needle, int $offset): ?int
 | `$needle` | **string&#124;string[]** |  |
 | `$offset` | **int** |  |
 
-
-
-
 ***
 
 ### isEmpty
-
-
 
 ```php
 public isEmpty(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### join
-
-
 
 ```php
 public join(array $strings, string $lastGlue = null): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1294,68 +740,33 @@ public join(array $strings, string $lastGlue = null): static
 | `$strings` | **array** |  |
 | `$lastGlue` | **string** |  |
 
-
-
-
 ***
 
 ### jsonSerialize
-
-
 
 ```php
 public jsonSerialize(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### length
-
-
 
 ```php
 public length(): int
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
 ### lower
 
-
-
 ```php
 public lower(): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -1369,10 +780,7 @@ public match(string $regexp, int $flags, int $offset): array
 
 Pass PREG_PATTERN_ORDER or PREG_SET_ORDER as $flags to get all occurrences matching the regular expression.
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1381,7 +789,6 @@ Pass PREG_PATTERN_ORDER or PREG_SET_ORDER as $flags to get all occurrences match
 | `$regexp` | **string** |  |
 | `$flags` | **int** |  |
 | `$offset` | **int** |  |
-
 
 **Return Value:**
 
@@ -1393,18 +800,11 @@ All matches in a multi-dimensional array ordered according to flags
 
 ### padBoth
 
-
-
 ```php
 public padBoth(int $length, string $padStr = &#039; &#039;): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1412,26 +812,16 @@ public padBoth(int $length, string $padStr = &#039; &#039;): static
 |-----------|------|-------------|
 | `$length` | **int** |  |
 | `$padStr` | **string** |  |
-
-
-
 
 ***
 
 ### padEnd
 
-
-
 ```php
 public padEnd(int $length, string $padStr = &#039; &#039;): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1439,26 +829,16 @@ public padEnd(int $length, string $padStr = &#039; &#039;): static
 |-----------|------|-------------|
 | `$length` | **int** |  |
 | `$padStr` | **string** |  |
-
-
-
 
 ***
 
 ### padStart
 
-
-
 ```php
 public padStart(int $length, string $padStr = &#039; &#039;): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1467,25 +847,15 @@ public padStart(int $length, string $padStr = &#039; &#039;): static
 | `$length` | **int** |  |
 | `$padStr` | **string** |  |
 
-
-
-
 ***
 
 ### prepend
-
-
 
 ```php
 public prepend(string $prefix): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1493,25 +863,13 @@ public prepend(string $prefix): static
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
 
-
-
-
 ***
 
 ### repeat
 
-
-
 ```php
 public repeat(int $multiplier): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1519,25 +877,15 @@ public repeat(int $multiplier): static
 |-----------|------|-------------|
 | `$multiplier` | **int** |  |
 
-
-
-
 ***
 
 ### replace
-
-
 
 ```php
 public replace(string $from, string $to): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1546,25 +894,15 @@ public replace(string $from, string $to): static
 | `$from` | **string** |  |
 | `$to` | **string** |  |
 
-
-
-
 ***
 
 ### replaceMatches
-
-
 
 ```php
 public replaceMatches(string $fromRegexp, string|callable $to): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1573,45 +911,25 @@ public replaceMatches(string $fromRegexp, string|callable $to): static
 | `$fromRegexp` | **string** |  |
 | `$to` | **string&#124;callable** |  |
 
-
-
-
 ***
 
 ### reverse
-
-
 
 ```php
 public reverse(): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
 ### slice
 
-
-
 ```php
 public slice(int $start, int $length = null): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1620,45 +938,25 @@ public slice(int $start, int $length = null): static
 | `$start` | **int** |  |
 | `$length` | **int** |  |
 
-
-
-
 ***
 
 ### snake
-
-
 
 ```php
 public snake(): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
 ### splice
 
-
-
 ```php
 public splice(string $replacement, int $start, int $length = null): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1668,25 +966,13 @@ public splice(string $replacement, int $start, int $length = null): static
 | `$start` | **int** |  |
 | `$length` | **int** |  |
 
-
-
-
 ***
 
 ### split
 
-
-
 ```php
 public split(string $delimiter, int $limit = null, int $flags = null): static[]
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1696,25 +982,13 @@ public split(string $delimiter, int $limit = null, int $flags = null): static[]
 | `$limit` | **int** |  |
 | `$flags` | **int** |  |
 
-
-
-
 ***
 
 ### startsWith
 
-
-
 ```php
 public startsWith(string|string[] $prefix): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1722,25 +996,15 @@ public startsWith(string|string[] $prefix): bool
 |-----------|------|-------------|
 | `$prefix` | **string&#124;string[]** |  |
 
-
-
-
 ***
 
 ### title
-
-
 
 ```php
 public title(bool $allWords = false): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1748,25 +1012,13 @@ public title(bool $allWords = false): static
 |-----------|------|-------------|
 | `$allWords` | **bool** |  |
 
-
-
-
 ***
 
 ### toByteString
 
-
-
 ```php
 public toByteString(string $toEncoding = null): \Symfony\Component\String\ByteString
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1774,113 +1026,59 @@ public toByteString(string $toEncoding = null): \Symfony\Component\String\ByteSt
 |-----------|------|-------------|
 | `$toEncoding` | **string** |  |
 
-
-
-
 ***
 
 ### toCodePointString
-
-
 
 ```php
 public toCodePointString(): \Symfony\Component\String\CodePointString
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toString
-
-
 
 ```php
 public toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toUnicodeString
-
-
 
 ```php
 public toUnicodeString(): \Symfony\Component\String\UnicodeString
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### trim
 
-
-
 ```php
 public trim(string $chars = &quot; 	
-  ﻿&quot;): static
+
+  ﻿&quot;): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$chars` | **string** |  |
-
-
-
 
 ***
 
 ### trimEnd
 
-
-
 ```php
 public trimEnd(string $chars = &quot; 	
-  ﻿&quot;): static
+
+  ﻿&quot;): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1888,25 +1086,13 @@ public trimEnd(string $chars = &quot;
 |-----------|------|-------------|
 | `$chars` | **string** |  |
 
-
-
-
 ***
 
 ### trimPrefix
 
-
-
 ```php
 public trimPrefix(string|string[] $prefix): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1914,26 +1100,17 @@ public trimPrefix(string|string[] $prefix): static
 |-----------|------|-------------|
 | `$prefix` | **string&#124;string[]** |  |
 
-
-
-
 ***
 
 ### trimStart
 
-
-
 ```php
 public trimStart(string $chars = &quot; 	
-  ﻿&quot;): static
+
+  ﻿&quot;): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1941,25 +1118,13 @@ public trimStart(string $chars = &quot;
 |-----------|------|-------------|
 | `$chars` | **string** |  |
 
-
-
-
 ***
 
 ### trimSuffix
 
-
-
 ```php
 public trimSuffix(string|string[] $suffix): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1967,25 +1132,13 @@ public trimSuffix(string|string[] $suffix): static
 |-----------|------|-------------|
 | `$suffix` | **string&#124;string[]** |  |
 
-
-
-
 ***
 
 ### truncate
 
-
-
 ```php
 public truncate(int $length, string $ellipsis = &#039;&#039;, bool $cut = true): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1995,28 +1148,15 @@ public truncate(int $length, string $ellipsis = &#039;&#039;, bool $cut = true):
 | `$ellipsis` | **string** |  |
 | `$cut` | **bool** |  |
 
-
-
-
 ***
 
 ### upper
-
-
 
 ```php
 public upper(): static
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -2028,12 +1168,7 @@ Returns the printable length on a terminal.
 public width(bool $ignoreAnsiDecoration = true): int
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -2041,26 +1176,14 @@ public width(bool $ignoreAnsiDecoration = true): int
 |-----------|------|-------------|
 | `$ignoreAnsiDecoration` | **bool** |  |
 
-
-
-
 ***
 
 ### wordwrap
-
-
 
 ```php
 public wordwrap(int $width = 75, string $break = &quot;
 &quot;, bool $cut = false): static
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -2070,68 +1193,29 @@ public wordwrap(int $width = 75, string $break = &quot;
 | `$break` | **string** |  |
 | `$cut` | **bool** |  |
 
-
-
-
 ***
 
 ### __sleep
-
-
 
 ```php
 public __sleep(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __clone
-
-
 
 ```php
 public __clone(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __toString
 
-
-
 ```php
 public __toString(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

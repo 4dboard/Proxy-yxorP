@@ -2,20 +2,12 @@
 
 # RequestError
 
-
-
-
-
 * Full name: `\GraphQL\Server\RequestError`
 * Parent class: [`Exception`](../../Exception.md)
 * This class implements:
-[`\GraphQL\Error\ClientAware`](../Error/ClientAware.md)
-
-
-
+  [`\GraphQL\Error\ClientAware`](../Error/ClientAware.md)
 
 ## Methods
-
 
 ### isClientSafe
 
@@ -24,16 +16,6 @@ Returns true when exception message is safe to be displayed to client
 ```php
 public isClientSafe(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

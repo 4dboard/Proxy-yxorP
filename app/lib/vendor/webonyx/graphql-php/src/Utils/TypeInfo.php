@@ -79,11 +79,11 @@ class TypeInfo
      */
     public function __construct(Schema $schema, $initialType = null)
     {
-        $this->schema            = $schema;
-        $this->typeStack         = [];
-        $this->parentTypeStack   = [];
-        $this->inputTypeStack    = [];
-        $this->fieldDefStack     = [];
+        $this->schema = $schema;
+        $this->typeStack = [];
+        $this->parentTypeStack = [];
+        $this->inputTypeStack = [];
+        $this->fieldDefStack = [];
         $this->defaultValueStack = [];
 
         if ($initialType === null) {
@@ -96,7 +96,7 @@ class TypeInfo
         if (Type::isCompositeType($initialType)) {
             $this->parentTypeStack[] = $initialType;
         }
-        if (! Type::isOutputType($initialType)) {
+        if (!Type::isOutputType($initialType)) {
             return;
         }
 
@@ -108,7 +108,7 @@ class TypeInfo
      *
      * @codeCoverageIgnore
      */
-    public static function isEqualType(Type $typeA, Type $typeB) : bool
+    public static function isEqualType(Type $typeA, Type $typeB): bool
     {
         return TypeComparators::isEqualType($typeA, $typeB);
     }
@@ -134,6 +134,22 @@ class TypeInfo
     }
 
     /**
+     * @param Type[] $typeMap
+     *
+     * @return Type[]
+     */
+    public static function extractTypesFromDirectives(Directive $directive, array $typeMap = [])
+    {
+        if (is_array($directive->args)) {
+            foreach ($directive->args as $arg) {
+                $typeMap = self::extractTypes($arg->getType(), $typeMap);
+            }
+        }
+
+        return $typeMap;
+    }
+
+    /**
      * Given root type scans through all fields to find nested types. Returns array where keys are for type name
      * and value contains corresponding type instance.
      *
@@ -144,17 +160,17 @@ class TypeInfo
      *     ...
      * ]
      *
-     * @param Type|null   $type
+     * @param Type|null $type
      * @param Type[]|null $typeMap
      *
      * @return Type[]|null
      */
     public static function extractTypes($type, ?array $typeMap = null)
     {
-        if (! $typeMap) {
+        if (!$typeMap) {
             $typeMap = [];
         }
-        if (! $type) {
+        if (!$type) {
             return $typeMap;
         }
 
@@ -162,16 +178,16 @@ class TypeInfo
             return self::extractTypes($type->getWrappedType(true), $typeMap);
         }
 
-        if (! $type instanceof Type) {
+        if (!$type instanceof Type) {
             // Preserve these invalid types in map (at numeric index) to make them
             // detectable during $schema->validate()
-            $i            = 0;
+            $i = 0;
             $alreadyInMap = false;
             while (isset($typeMap[$i])) {
                 $alreadyInMap = $alreadyInMap || $typeMap[$i] === $type;
                 $i++;
             }
-            if (! $alreadyInMap) {
+            if (!$alreadyInMap) {
                 $typeMap[$i] = $type;
             }
 
@@ -202,7 +218,7 @@ class TypeInfo
             foreach ($type->getFields() as $field) {
                 if (count($field->args) > 0) {
                     $fieldArgTypes = array_map(
-                        static function (FieldArgument $arg) : Type {
+                        static function (FieldArgument $arg): Type {
                             return $arg->getType();
                         },
                         $field->args
@@ -226,30 +242,22 @@ class TypeInfo
     }
 
     /**
-     * @param Type[] $typeMap
-     *
-     * @return Type[]
+     * @return (Type & OutputType) | null
      */
-    public static function extractTypesFromDirectives(Directive $directive, array $typeMap = [])
+    public function getType(): ?OutputType
     {
-        if (is_array($directive->args)) {
-            foreach ($directive->args as $arg) {
-                $typeMap = self::extractTypes($arg->getType(), $typeMap);
-            }
-        }
-
-        return $typeMap;
+        return $this->typeStack[count($this->typeStack) - 1] ?? null;
     }
 
     /**
      * @return (Type&InputType)|null
      */
-    public function getParentInputType() : ?InputType
+    public function getParentInputType(): ?InputType
     {
         return $this->inputTypeStack[count($this->inputTypeStack) - 2] ?? null;
     }
 
-    public function getArgument() : ?FieldArgument
+    public function getArgument(): ?FieldArgument
     {
         return $this->argument;
     }
@@ -272,13 +280,13 @@ class TypeInfo
         // which occurs before guarantees of schema and document validity.
         switch (true) {
             case $node instanceof SelectionSetNode:
-                $namedType               = Type::getNamedType($this->getType());
+                $namedType = Type::getNamedType($this->getType());
                 $this->parentTypeStack[] = Type::isCompositeType($namedType) ? $namedType : null;
                 break;
 
             case $node instanceof FieldNode:
                 $parentType = $this->getParentType();
-                $fieldDef   = null;
+                $fieldDef = null;
                 if ($parentType) {
                     $fieldDef = self::getFieldDefinition($schema, $parentType, $node);
                 }
@@ -287,7 +295,7 @@ class TypeInfo
                     $fieldType = $fieldDef->getType();
                 }
                 $this->fieldDefStack[] = $fieldDef;
-                $this->typeStack[]     = Type::isOutputType($fieldType) ? $fieldType : null;
+                $this->typeStack[] = Type::isOutputType($fieldType) ? $fieldType : null;
                 break;
 
             case $node instanceof DirectiveNode:
@@ -309,7 +317,7 @@ class TypeInfo
             case $node instanceof InlineFragmentNode:
             case $node instanceof FragmentDefinitionNode:
                 $typeConditionNode = $node->typeCondition;
-                $outputType        = $typeConditionNode
+                $outputType = $typeConditionNode
                     ? self::typeFromAST(
                         $schema,
                         $typeConditionNode
@@ -319,18 +327,18 @@ class TypeInfo
                 break;
 
             case $node instanceof VariableDefinitionNode:
-                $inputType              = self::typeFromAST($schema, $node->type);
+                $inputType = self::typeFromAST($schema, $node->type);
                 $this->inputTypeStack[] = Type::isInputType($inputType) ? $inputType : null; // push
                 break;
 
             case $node instanceof ArgumentNode:
                 $fieldOrDirective = $this->getDirective() ?? $this->getFieldDef();
-                $argDef           = $argType = null;
+                $argDef = $argType = null;
                 if ($fieldOrDirective) {
                     /** @var FieldArgument $argDef */
                     $argDef = Utils::find(
                         $fieldOrDirective->args,
-                        static function ($arg) use ($node) : bool {
+                        static function ($arg) use ($node): bool {
                             return $arg->name === $node->name->value;
                         }
                     );
@@ -338,38 +346,38 @@ class TypeInfo
                         $argType = $argDef->getType();
                     }
                 }
-                $this->argument            = $argDef;
+                $this->argument = $argDef;
                 $this->defaultValueStack[] = $argDef && $argDef->defaultValueExists() ? $argDef->defaultValue : Utils::undefined();
-                $this->inputTypeStack[]    = Type::isInputType($argType) ? $argType : null;
+                $this->inputTypeStack[] = Type::isInputType($argType) ? $argType : null;
                 break;
 
             case $node instanceof ListValueNode:
-                $type     = $this->getInputType();
+                $type = $this->getInputType();
                 $listType = $type === null ? null : Type::getNullableType($type);
                 $itemType = $listType instanceof ListOfType
                     ? $listType->getWrappedType()
                     : $listType;
                 // List positions never have a default value.
                 $this->defaultValueStack[] = Utils::undefined();
-                $this->inputTypeStack[]    = Type::isInputType($itemType) ? $itemType : null;
+                $this->inputTypeStack[] = Type::isInputType($itemType) ? $itemType : null;
                 break;
 
             case $node instanceof ObjectFieldNode:
-                $objectType     = Type::getNamedType($this->getInputType());
-                $fieldType      = null;
-                $inputField     = null;
+                $objectType = Type::getNamedType($this->getInputType());
+                $fieldType = null;
+                $inputField = null;
                 $inputFieldType = null;
                 if ($objectType instanceof InputObjectType) {
-                    $tmp            = $objectType->getFields();
-                    $inputField     = $tmp[$node->name->value] ?? null;
+                    $tmp = $objectType->getFields();
+                    $inputField = $tmp[$node->name->value] ?? null;
                     $inputFieldType = $inputField ? $inputField->getType() : null;
                 }
                 $this->defaultValueStack[] = $inputField && $inputField->defaultValueExists() ? $inputField->defaultValue : Utils::undefined();
-                $this->inputTypeStack[]    = Type::isInputType($inputFieldType) ? $inputFieldType : null;
+                $this->inputTypeStack[] = Type::isInputType($inputFieldType) ? $inputFieldType : null;
                 break;
 
             case $node instanceof EnumValueNode:
-                $enumType  = Type::getNamedType($this->getInputType());
+                $enumType = Type::getNamedType($this->getInputType());
                 $enumValue = null;
                 if ($enumType instanceof EnumType) {
                     $this->enumValue = $enumType->getValue($node->value);
@@ -380,17 +388,9 @@ class TypeInfo
     }
 
     /**
-     * @return (Type & OutputType) | null
-     */
-    public function getType() : ?OutputType
-    {
-        return $this->typeStack[count($this->typeStack) - 1] ?? null;
-    }
-
-    /**
      * @return (CompositeType & Type) | null
      */
-    public function getParentType() : ?CompositeType
+    public function getParentType(): ?CompositeType
     {
         return $this->parentTypeStack[count($this->parentTypeStack) - 1] ?? null;
     }
@@ -400,9 +400,9 @@ class TypeInfo
      * statically evaluated environment we do not always have an Object type,
      * and need to handle Interface and Union types.
      */
-    private static function getFieldDefinition(Schema $schema, Type $parentType, FieldNode $fieldNode) : ?FieldDefinition
+    private static function getFieldDefinition(Schema $schema, Type $parentType, FieldNode $fieldNode): ?FieldDefinition
     {
-        $name       = $fieldNode->name->value;
+        $name = $fieldNode->name->value;
         $schemaMeta = Introspection::schemaMetaFieldDef();
         if ($name === $schemaMeta->name && $schema->getQueryType() === $parentType) {
             return $schemaMeta;
@@ -426,24 +426,32 @@ class TypeInfo
         return null;
     }
 
+    public function getDirective(): ?Directive
+    {
+        return $this->directive;
+    }
+
     /**
      * @param NamedTypeNode|ListTypeNode|NonNullTypeNode $inputTypeNode
      *
      * @throws InvariantViolation
      */
-    public static function typeFromAST(Schema $schema, $inputTypeNode) : ?Type
+    public static function typeFromAST(Schema $schema, $inputTypeNode): ?Type
     {
         return AST::typeFromAST($schema, $inputTypeNode);
     }
 
-    public function getDirective() : ?Directive
-    {
-        return $this->directive;
-    }
-
-    public function getFieldDef() : ?FieldDefinition
+    public function getFieldDef(): ?FieldDefinition
     {
         return $this->fieldDefStack[count($this->fieldDefStack) - 1] ?? null;
+    }
+
+    /**
+     * @return (Type & InputType) | null
+     */
+    public function getInputType(): ?InputType
+    {
+        return $this->inputTypeStack[count($this->inputTypeStack) - 1] ?? null;
     }
 
     /**
@@ -452,14 +460,6 @@ class TypeInfo
     public function getDefaultValue()
     {
         return $this->defaultValueStack[count($this->defaultValueStack) - 1] ?? null;
-    }
-
-    /**
-     * @return (Type & InputType) | null
-     */
-    public function getInputType() : ?InputType
-    {
-        return $this->inputTypeStack[count($this->inputTypeStack) - 1] ?? null;
     }
 
     public function leave(Node $node)

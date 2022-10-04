@@ -5,20 +5,16 @@ namespace System\Controller;
 use App\Controller\App;
 use ArrayObject;
 
-class Locales extends App {
+class Locales extends App
+{
 
-    protected function before() {
-
-        if (!$this->isAllowed('app/locales/manage')) {
-            return $this->stop(401);
-        }
-    }
-
-    public function index() {
+    public function index()
+    {
         return $this->render('system:views/locales/index.php');
     }
 
-    public function locale($id = null) {
+    public function locale($id = null)
+    {
 
         if (!$id) {
             return $this->stop(['error' => 'local id is missing'], 412);
@@ -42,11 +38,12 @@ class Locales extends App {
         return $this->render('system:views/locales/locale.php', compact('locale'));
     }
 
-    public function create() {
+    public function create()
+    {
 
         $locale = [
             'i18n' => '',
-            'name'  => '',
+            'name' => '',
             'enabled' => true,
             'meta' => new ArrayObject([]),
         ];
@@ -54,7 +51,8 @@ class Locales extends App {
         return $this->render('system:views/locales/locale.php', compact('locale'));
     }
 
-    public function remove() {
+    public function remove()
+    {
 
         $locale = $this->param('locale');
 
@@ -71,7 +69,13 @@ class Locales extends App {
         return ['success' => true];
     }
 
-    public function save() {
+    protected function cache()
+    {
+        $this->helper('locales')->cache();
+    }
+
+    public function save()
+    {
 
         $locale = $this->param('locale');
 
@@ -118,7 +122,8 @@ class Locales extends App {
         return $locale;
     }
 
-    public function load() {
+    public function load()
+    {
 
         $this->helper('session')->close();
 
@@ -129,7 +134,11 @@ class Locales extends App {
         return $locales;
     }
 
-    protected function cache() {
-        $this->helper('locales')->cache();
+    protected function before()
+    {
+
+        if (!$this->isAllowed('app/locales/manage')) {
+            return $this->stop(401);
+        }
     }
 }

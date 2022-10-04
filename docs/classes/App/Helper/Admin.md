@@ -2,33 +2,16 @@
 
 # Admin
 
-
-
-
-
 * Full name: `\App\Helper\Admin`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
-
-
-
 ## Methods
 
-
 ### isResourceLocked
-
-
 
 ```php
 public isResourceLocked(mixed $resourceId, mixed $ttl = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -37,25 +20,13 @@ public isResourceLocked(mixed $resourceId, mixed $ttl = null): mixed
 | `$resourceId` | **mixed** |  |
 | `$ttl` | **mixed** |  |
 
-
-
-
 ***
 
 ### isResourceEditableByCurrentUser
 
-
-
 ```php
 public isResourceEditableByCurrentUser(mixed $resourceId, mixed& $meta = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -64,25 +35,13 @@ public isResourceEditableByCurrentUser(mixed $resourceId, mixed& $meta = null): 
 | `$resourceId` | **mixed** |  |
 | `$meta` | **mixed** |  |
 
-
-
-
 ***
 
 ### lockResourceId
 
-
-
 ```php
 public lockResourceId(mixed $resourceId, mixed $user = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -91,51 +50,27 @@ public lockResourceId(mixed $resourceId, mixed $user = null): mixed
 | `$resourceId` | **mixed** |  |
 | `$user` | **mixed** |  |
 
-
-
-
 ***
 
 ### updateLockedResourceId
-
-
 
 ```php
 public updateLockedResourceId(mixed $resourceId): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resourceId` | **mixed** |  |
-
-
-
 
 ***
 
 ### unlockResourceId
 
-
-
 ```php
 public unlockResourceId(mixed $resourceId): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -143,29 +78,15 @@ public unlockResourceId(mixed $resourceId): mixed
 |-----------|------|-------------|
 | `$resourceId` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -174,45 +95,21 @@ public __construct(\Lime\App $app, mixed $context = null): mixed
 | `$app` | **\Lime\App** |  |
 | `$context` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 protected initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -221,25 +118,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -247,34 +132,19 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 

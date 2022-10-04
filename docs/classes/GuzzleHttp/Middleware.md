@@ -4,17 +4,11 @@
 
 Functions used to create and wrap handlers with handler middleware.
 
-
-
 * Full name: `\GuzzleHttp\Middleware`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
-
-
-
 ## Methods
-
 
 ### cookies
 
@@ -28,10 +22,6 @@ The options array must be set to a CookieJarInterface in order to use
 cookies. This is typically handled for you by a client.
 
 * This method is **static**.
-
-
-
-
 
 **Return Value:**
 
@@ -50,21 +40,13 @@ Middleware that throws exceptions for 4xx or 5xx responses when the
 public static httpErrors(\GuzzleHttp\BodySummarizerInterface|null $bodySummarizer = null): callable
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$bodySummarizer` | **\GuzzleHttp\BodySummarizerInterface&#124;null** | The body summarizer to use in exception messages. |
-
-
-
 
 ***
 
@@ -76,21 +58,13 @@ Middleware that pushes history data to an ArrayAccess container.
 public static history(array|\ArrayAccess&lt;int,array&gt;& $container): callable
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$container` | **array&#124;\ArrayAccess<int,array>** | Container to hold the history (by reference). |
-
-
-
 
 ***
 
@@ -109,16 +83,12 @@ listener accepts a request, options array, and response promise.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$before` | **callable** | Function to invoke before forwarding the request. |
 | `$after` | **callable** | Function invoked after forwarding. |
-
 
 **Return Value:**
 
@@ -136,13 +106,7 @@ Middleware that handles request redirects.
 public static redirect(): callable
 ```
 
-
-
 * This method is **static**.
-
-
-
-
 
 **Return Value:**
 
@@ -166,16 +130,12 @@ backoff will be utilized.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$decider` | **callable** | Function that accepts the number of retries,<br />a request, [response], and [exception] and<br />returns true if the request is to be retried. |
 | `$delay` | **callable** | Function that accepts the number of retries and<br />returns the number of milliseconds to delay. |
-
 
 **Return Value:**
 
@@ -194,12 +154,7 @@ formatter.
 public static log(\Psr\Log\LoggerInterface $logger, \GuzzleHttp\MessageFormatterInterface|\GuzzleHttp\MessageFormatter $formatter, string $logLevel = &#039;info&#039;): callable
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -208,7 +163,6 @@ public static log(\Psr\Log\LoggerInterface $logger, \GuzzleHttp\MessageFormatter
 | `$logger` | **\Psr\Log\LoggerInterface** | Logs messages. |
 | `$formatter` | **\GuzzleHttp\MessageFormatterInterface&#124;\GuzzleHttp\MessageFormatter** | Formatter used to create message strings. |
 | `$logLevel` | **string** | Level at which to log requests. |
-
 
 **Return Value:**
 
@@ -227,15 +181,7 @@ content-length or transfer-encoding header, and the expect header.
 public static prepareBody(): callable
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -248,21 +194,13 @@ the next handler.
 public static mapRequest(callable $fn): callable
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fn` | **callable** | Function that accepts a RequestInterface and returns<br />a RequestInterface. |
-
-
-
 
 ***
 
@@ -275,21 +213,13 @@ response.
 public static mapResponse(callable $fn): callable
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fn` | **callable** | Function that accepts a ResponseInterface and<br />returns a ResponseInterface. |
-
-
-
 
 ***
 

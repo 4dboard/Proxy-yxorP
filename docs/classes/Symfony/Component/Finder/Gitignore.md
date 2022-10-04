@@ -4,15 +4,9 @@
 
 Gitignore matches against text.
 
-
-
 * Full name: `\Symfony\Component\Finder\Gitignore`
 
-
-
-
 ## Methods
-
 
 ### toRegex
 
@@ -26,34 +20,21 @@ Format specification: https://git-scm.com/docs/gitignore#_pattern_format
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$gitignoreFileContent` | **string** |  |
-
-
-
 
 ***
 
 ### toRegexMatchingNegatedPatterns
 
-
-
 ```php
 public static toRegexMatchingNegatedPatterns(string $gitignoreFileContent): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -61,25 +42,15 @@ public static toRegexMatchingNegatedPatterns(string $gitignoreFileContent): stri
 |-----------|------|-------------|
 | `$gitignoreFileContent` | **string** |  |
 
-
-
-
 ***
 
 ### buildRegex
-
-
 
 ```php
 private static buildRegex(string $gitignoreFileContent, bool $inverted): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -88,34 +59,21 @@ private static buildRegex(string $gitignoreFileContent, bool $inverted): string
 | `$gitignoreFileContent` | **string** |  |
 | `$inverted` | **bool** |  |
 
-
-
-
 ***
 
 ### lineToRegex
-
-
 
 ```php
 private static lineToRegex(string $gitignoreLine): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$gitignoreLine` | **string** |  |
-
-
-
 
 ***
 

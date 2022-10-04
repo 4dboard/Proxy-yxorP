@@ -11,6 +11,8 @@
 
 namespace Symfony\Component\String\Exception;
 
-interface ExceptionInterface extends \Throwable
+use Throwable;
+
+interface ExceptionInterface extends Throwable
 {
 }

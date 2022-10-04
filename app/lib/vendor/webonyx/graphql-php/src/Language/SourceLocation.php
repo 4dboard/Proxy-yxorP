@@ -21,19 +21,17 @@ class SourceLocation implements JsonSerializable
      */
     public function __construct($line, $col)
     {
-        $this->line   = $line;
+        $this->line = $line;
         $this->column = $col;
     }
 
     /**
      * @return int[]
      */
-    public function toArray()
+    #[ReturnTypeWillChange]
+    public function jsonSerialize()
     {
-        return [
-            'line'   => $this->line,
-            'column' => $this->column,
-        ];
+        return $this->toSerializableArray();
     }
 
     /**
@@ -47,9 +45,11 @@ class SourceLocation implements JsonSerializable
     /**
      * @return int[]
      */
-    #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function toArray()
     {
-        return $this->toSerializableArray();
+        return [
+            'line' => $this->line,
+            'column' => $this->column,
+        ];
     }
 }

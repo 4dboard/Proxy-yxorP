@@ -31,7 +31,7 @@ export default {
             },
 
             data() {
-                return  {
+                return {
                     data
                 }
             },
@@ -50,12 +50,12 @@ export default {
         offcanvas.$view = offcanvas.querySelector('.vue-offcanvas');
 
         VueView.compile(offcanvas.$view, def);
-        setTimeout(() => offcanvas.show(), 50);
+        setTimeout(() => offcanvas.show());
 
         return offcanvas;
     },
 
-    modal(url, data, callbacks, options, modaltype) {
+    modal(url, data, callbacks, options) {
 
         data = data || {};
         callbacks = callbacks || {};
@@ -85,13 +85,13 @@ export default {
 
             data() {
 
-                return  {
+                return {
                     data
                 }
             },
 
             components: {
-                'vue-dialog-content':  url
+                'vue-dialog-content': url
             }
         };
 
@@ -99,7 +99,7 @@ export default {
             <div class="vue-modal">
                 <vue-dialog-content v-bind="data"></vue-dialog-content>
             </div>
-        `, options || {}, modaltype);
+        `, options || {});
 
         dialog.$view = dialog.querySelector('.vue-modal');
 

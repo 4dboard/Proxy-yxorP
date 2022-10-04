@@ -2,51 +2,27 @@
 
 # rejectedPromise
 
-
-
-
-
 * Full name: `\yxorP\app\lib\proxy\promise\rejectedPromise`
 * This class implements:
-[`\yxorP\app\lib\proxy\promise\promiseInterface`](./promiseInterface.md)
-
-
+  [`\yxorP\app\lib\proxy\promise\promiseInterface`](./promiseInterface.md)
 
 ## Properties
 
-
 ### reason
-
-
 
 ```php
 private $reason
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $reason): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -54,25 +30,13 @@ public __construct(mixed $reason): mixed
 |-----------|------|-------------|
 | `$reason` | **mixed** |  |
 
-
-
-
 ***
 
 ### otherwise
 
-
-
 ```php
 public otherwise(callable $onRejected): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -80,25 +44,13 @@ public otherwise(callable $onRejected): mixed
 |-----------|------|-------------|
 | `$onRejected` | **callable** |  |
 
-
-
-
 ***
 
 ### then
 
-
-
 ```php
 public then(callable $onFulfilled = null, callable $onRejected = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -107,25 +59,13 @@ public then(callable $onFulfilled = null, callable $onRejected = null): mixed
 | `$onFulfilled` | **callable** |  |
 | `$onRejected` | **callable** |  |
 
-
-
-
 ***
 
 ### wait
 
-
-
 ```php
 public wait(mixed $unwrap = true, mixed $defaultDelivery = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -134,45 +74,21 @@ public wait(mixed $unwrap = true, mixed $defaultDelivery = null): mixed
 | `$unwrap` | **mixed** |  |
 | `$defaultDelivery` | **mixed** |  |
 
-
-
-
 ***
 
 ### getState
-
-
 
 ```php
 public getState(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### resolve
 
-
-
 ```php
 public resolve(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -180,25 +96,13 @@ public resolve(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### reject
 
-
-
 ```php
 public reject(mixed $reason): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -206,28 +110,13 @@ public reject(mixed $reason): mixed
 |-----------|------|-------------|
 | `$reason` | **mixed** |  |
 
-
-
-
 ***
 
 ### cancel
 
-
-
 ```php
 public cancel(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

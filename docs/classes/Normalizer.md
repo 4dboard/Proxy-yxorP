@@ -2,13 +2,8 @@
 
 # Normalizer
 
-
-
-
-
 * Full name: `\Normalizer`
 * Parent class: [`Normalizer`](./Symfony/Polyfill/Intl/Normalizer/Normalizer.md)
-
 
 ## Constants
 
@@ -23,9 +18,6 @@
 |`NFKD`|public| |8|
 |`NFC`|public| |16|
 |`NFKC`|public| |32|
-
-
-
 
 ***
 

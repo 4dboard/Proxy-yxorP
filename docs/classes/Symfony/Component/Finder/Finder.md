@@ -10,12 +10,11 @@ All rules may be invoked several times.
 
 All methods return the current Finder object to allow chaining:
 
-    $finder = Finder::create()->files()->name('*.php')->in(dirname(__FILE__));
+    $finder = Finder::create()->files()->name('*.php')->in(__DIR__);
 
 * Full name: `\Symfony\Component\Finder\Finder`
 * This class implements:
-[`\IteratorAggregate`](../../../IteratorAggregate.md), [`\Countable`](../../../Countable.md)
-
+  [`\IteratorAggregate`](../../../IteratorAggregate.md), [`\Countable`](../../../Countable.md)
 
 ## Constants
 
@@ -27,327 +26,175 @@ All methods return the current Finder object to allow chaining:
 
 ## Properties
 
-
 ### mode
-
-
 
 ```php
 private int $mode
 ```
 
-
-
-
-
-
 ***
 
 ### names
-
-
 
 ```php
 private array $names
 ```
 
-
-
-
-
-
 ***
 
 ### notNames
-
-
 
 ```php
 private array $notNames
 ```
 
-
-
-
-
-
 ***
 
 ### exclude
-
-
 
 ```php
 private array $exclude
 ```
 
-
-
-
-
-
 ***
 
 ### filters
-
-
 
 ```php
 private array $filters
 ```
 
-
-
-
-
-
 ***
 
 ### depths
-
-
 
 ```php
 private array $depths
 ```
 
-
-
-
-
-
 ***
 
 ### sizes
-
-
 
 ```php
 private array $sizes
 ```
 
-
-
-
-
-
 ***
 
 ### followLinks
-
-
 
 ```php
 private bool $followLinks
 ```
 
-
-
-
-
-
 ***
 
 ### reverseSorting
-
-
 
 ```php
 private bool $reverseSorting
 ```
 
-
-
-
-
-
 ***
 
 ### sort
-
-
 
 ```php
 private \Closure|int|false $sort
 ```
 
-
-
-
-
-
 ***
 
 ### ignore
-
-
 
 ```php
 private int $ignore
 ```
 
-
-
-
-
-
 ***
 
 ### dirs
-
-
 
 ```php
 private array $dirs
 ```
 
-
-
-
-
-
 ***
 
 ### dates
-
-
 
 ```php
 private array $dates
 ```
 
-
-
-
-
-
 ***
 
 ### iterators
-
-
 
 ```php
 private array $iterators
 ```
 
-
-
-
-
-
 ***
 
 ### contains
-
-
 
 ```php
 private array $contains
 ```
 
-
-
-
-
-
 ***
 
 ### notContains
-
-
 
 ```php
 private array $notContains
 ```
 
-
-
-
-
-
 ***
 
 ### paths
-
-
 
 ```php
 private array $paths
 ```
 
-
-
-
-
-
 ***
 
 ### notPaths
-
-
 
 ```php
 private array $notPaths
 ```
 
-
-
-
-
-
 ***
 
 ### ignoreUnreadableDirs
-
-
 
 ```php
 private bool $ignoreUnreadableDirs
 ```
 
-
-
-
-
-
 ***
 
 ### vcsPatterns
-
-
 
 ```php
 private static array $vcsPatterns
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -359,15 +206,7 @@ Creates a new Finder.
 public static create(): static
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -379,16 +218,6 @@ Restricts the matching to directories only.
 public directories(): $this
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### files
@@ -398,16 +227,6 @@ Restricts the matching to files only.
 ```php
 public files(): $this
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -425,22 +244,16 @@ $finder->depth('> 1') // the Finder will start matching at level 1.
 $finder->depth('< 3') // the Finder will descend at most 3 levels of directories below the starting point.
 $finder->depth(['>= 1', '< 3'])
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$levels` | **string&#124;int&#124;string[]&#124;int[]** | The depth level expression or an array of depth levels |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\DepthRangeFilterIterator - * \Symfony\Component\Finder\Comparator\NumberComparator - 
+* \Symfony\Component\Finder\Iterator\DepthRangeFilterIterator - * \Symfony\Component\Finder\Comparator\NumberComparator
+  -
 
 ***
 
@@ -460,22 +273,16 @@ $finder->date('> now - 2 hours');
 $finder->date('>= 2005-10-15');
 $finder->date(['>= 2005-10-15', '<= 2006-05-27']);
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dates` | **string&#124;string[]** | A date range string or an array of date ranges |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\strtotime - * \Symfony\Component\Finder\Iterator\DateRangeFilterIterator - * \Symfony\Component\Finder\Comparator\DateComparator - 
+* \Symfony\Component\Finder\strtotime - * \Symfony\Component\Finder\Iterator\DateRangeFilterIterator - *
+  \Symfony\Component\Finder\Comparator\DateComparator -
 
 ***
 
@@ -494,22 +301,15 @@ $finder->name('/\.php$/') // same as above
 $finder->name('test.php')
 $finder->name(['test.py', 'test.php'])
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$patterns` | **string&#124;string[]** | A pattern (a regexp, a glob, or a string) or an array of patterns |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\FilenameFilterIterator - 
+* \Symfony\Component\Finder\Iterator\FilenameFilterIterator -
 
 ***
 
@@ -521,24 +321,15 @@ Adds rules that files must not match.
 public notName(string|string[] $patterns): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$patterns` | **string&#124;string[]** | A pattern (a regexp, a glob, or a string) or an array of patterns |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\FilenameFilterIterator - 
+* \Symfony\Component\Finder\Iterator\FilenameFilterIterator -
 
 ***
 
@@ -556,22 +347,15 @@ $finder->contains('Lorem ipsum')
 $finder->contains('/Lorem ipsum/i')
 $finder->contains(['dolor', '/ipsum/i'])
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$patterns` | **string&#124;string[]** | A pattern (string or regexp) or an array of patterns |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\FilecontentFilterIterator - 
+* \Symfony\Component\Finder\Iterator\FilecontentFilterIterator -
 
 ***
 
@@ -589,22 +373,15 @@ $finder->notContains('Lorem ipsum')
 $finder->notContains('/Lorem ipsum/i')
 $finder->notContains(['lorem', '/dolor/i'])
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$patterns` | **string&#124;string[]** | A pattern (string or regexp) or an array of patterns |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\FilecontentFilterIterator - 
+* \Symfony\Component\Finder\Iterator\FilecontentFilterIterator -
 
 ***
 
@@ -624,22 +401,15 @@ You can use patterns (delimited with / sign) or simple strings.
 
 Use only / as dirname separator.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$patterns` | **string&#124;string[]** | A pattern (a regexp or a string) or an array of patterns |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\FilenameFilterIterator - 
+* \Symfony\Component\Finder\Iterator\FilenameFilterIterator -
 
 ***
 
@@ -659,22 +429,15 @@ You can use patterns (delimited with / sign) or simple strings.
 
 Use only / as dirname separator.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$patterns` | **string&#124;string[]** | A pattern (a regexp or a string) or an array of patterns |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\FilenameFilterIterator - 
+* \Symfony\Component\Finder\Iterator\FilenameFilterIterator -
 
 ***
 
@@ -691,22 +454,15 @@ $finder->size('<= 1Ki');
 $finder->size(4);
 $finder->size(['> 10K', '< 20K'])
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$sizes` | **string&#124;int&#124;string[]&#124;int[]** | A size range string or an integer or an array of size ranges |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\SizeRangeFilterIterator - * \Symfony\Component\Finder\Comparator\NumberComparator - 
+* \Symfony\Component\Finder\Iterator\SizeRangeFilterIterator - * \Symfony\Component\Finder\Comparator\NumberComparator -
 
 ***
 
@@ -720,12 +476,7 @@ public exclude(string|array $dirs): $this
 
 Directories passed as argument must be relative to the ones defined with the `in()` method. For example:
 
-$finder->in(dirname(__FILE__))->exclude('ruby');
-
-
-
-
-
+$finder->in(__DIR__)->exclude('ruby');
 
 **Parameters:**
 
@@ -733,11 +484,9 @@ $finder->in(dirname(__FILE__))->exclude('ruby');
 |-----------|------|-------------|
 | `$dirs` | **string&#124;array** | A directory path or an array of directories |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\ExcludeDirectoryFilterIterator - 
+* \Symfony\Component\Finder\Iterator\ExcludeDirectoryFilterIterator -
 
 ***
 
@@ -751,22 +500,15 @@ public ignoreDotFiles(bool $ignoreDotFiles): $this
 
 This option is enabled by default.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ignoreDotFiles` | **bool** |  |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\ExcludeDirectoryFilterIterator - 
+* \Symfony\Component\Finder\Iterator\ExcludeDirectoryFilterIterator -
 
 ***
 
@@ -780,22 +522,15 @@ public ignoreVCS(bool $ignoreVCS): $this
 
 This option is enabled by default.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ignoreVCS` | **bool** |  |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\ExcludeDirectoryFilterIterator - 
+* \Symfony\Component\Finder\Iterator\ExcludeDirectoryFilterIterator -
 
 ***
 
@@ -809,19 +544,11 @@ public ignoreVCSIgnored(bool $ignoreVCSIgnored): $this
 
 This option is disabled by default.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ignoreVCSIgnored` | **bool** |  |
-
-
-
 
 ***
 
@@ -833,12 +560,7 @@ Adds VCS patterns.
 public static addVCSPattern(string|string[] $pattern): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -846,11 +568,9 @@ public static addVCSPattern(string|string[] $pattern): mixed
 |-----------|------|-------------|
 | `$pattern` | **string&#124;string[]** | VCS patterns to ignore |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\ignoreVCS() - 
+* \Symfony\Component\Finder\ignoreVCS() -
 
 ***
 
@@ -866,22 +586,15 @@ The anonymous function receives two \SplFileInfo instances to compare.
 
 This can be slow as all the matching files and directories must be retrieved for comparison.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$closure` | **\Closure** |  |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\SortableIterator - 
+* \Symfony\Component\Finder\Iterator\SortableIterator -
 
 ***
 
@@ -895,22 +608,15 @@ public sortByName(bool $useNaturalSort = false): $this
 
 This can be slow as all the matching files and directories must be retrieved for comparison.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$useNaturalSort` | **bool** |  |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\SortableIterator - 
+* \Symfony\Component\Finder\Iterator\SortableIterator -
 
 ***
 
@@ -924,16 +630,9 @@ public sortByType(): $this
 
 This can be slow as all the matching files and directories must be retrieved for comparison.
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\SortableIterator - 
+* \Symfony\Component\Finder\Iterator\SortableIterator -
 
 ***
 
@@ -949,16 +648,9 @@ This is the time that the file was last accessed, read or written to.
 
 This can be slow as all the matching files and directories must be retrieved for comparison.
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\SortableIterator - 
+* \Symfony\Component\Finder\Iterator\SortableIterator -
 
 ***
 
@@ -969,16 +661,6 @@ Reverses the sorting.
 ```php
 public reverseSorting(): $this
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -996,16 +678,9 @@ On Windows, since inode is not available, changed time is actually the file crea
 
 This can be slow as all the matching files and directories must be retrieved for comparison.
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\SortableIterator - 
+* \Symfony\Component\Finder\Iterator\SortableIterator -
 
 ***
 
@@ -1021,16 +696,9 @@ This is the last time the actual contents of the file were last modified.
 
 This can be slow as all the matching files and directories must be retrieved for comparison.
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\SortableIterator - 
+* \Symfony\Component\Finder\Iterator\SortableIterator -
 
 ***
 
@@ -1045,22 +713,15 @@ public filter(\Closure $closure): $this
 The anonymous function receives a \SplFileInfo and must return false
 to remove files.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$closure` | **\Closure** |  |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\CustomFilterIterator - 
+* \Symfony\Component\Finder\Iterator\CustomFilterIterator -
 
 ***
 
@@ -1071,16 +732,6 @@ Forces the following of symlinks.
 ```php
 public followLinks(): $this
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1094,19 +745,11 @@ public ignoreUnreadableDirs(bool $ignore = true): $this
 
 By default, scanning unreadable directories content throws an AccessDeniedException.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ignore` | **bool** |  |
-
-
-
 
 ***
 
@@ -1118,21 +761,11 @@ Searches files and directories which match defined rules.
 public in(string|string[] $dirs): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirs` | **string&#124;string[]** | A directory path or an array of directories |
-
-
-
 
 ***
 
@@ -1166,19 +799,11 @@ public append(iterable $iterator): $this
 
 The set can be another Finder, an Iterator, an IteratorAggregate, or even a plain array.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$iterator` | **iterable** |  |
-
-
-
 
 ***
 
@@ -1190,16 +815,6 @@ Check if any results were found.
 public hasResults(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### count
@@ -1210,41 +825,19 @@ Counts all the results collected by the iterators.
 public count(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### searchInDirectory
 
-
-
 ```php
 private searchInDirectory(string $dir): \Iterator
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dir` | **string** |  |
-
-
-
 
 ***
 
@@ -1258,19 +851,11 @@ private normalizeDir(string $dir): string
 
 Excluding: (s)ftp:// or ssh2.(s)ftp:// wrapper
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dir` | **string** |  |
-
-
-
 
 ***
 

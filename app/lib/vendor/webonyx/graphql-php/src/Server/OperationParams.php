@@ -67,11 +67,11 @@ class OperationParams
      *
      * @api
      */
-    public static function create(array $params, bool $readonly = false) : OperationParams
+    public static function create(array $params, bool $readonly = false): OperationParams
     {
         $instance = new static();
 
-        $params                  = array_change_key_case($params, CASE_LOWER);
+        $params = array_change_key_case($params, CASE_LOWER);
         $instance->originalInput = $params;
 
         $params += [
@@ -90,7 +90,7 @@ class OperationParams
 
         // Some parameters could be provided as serialized JSON.
         foreach (['extensions', 'variables'] as $param) {
-            if (! is_string($params[$param])) {
+            if (!is_string($params[$param])) {
                 continue;
             }
 
@@ -102,12 +102,12 @@ class OperationParams
             $params[$param] = $tmp;
         }
 
-        $instance->query      = $params['query'];
-        $instance->queryId    = $params['queryid'] ?? $params['documentid'] ?? $params['id'];
-        $instance->operation  = $params['operationname'];
-        $instance->variables  = $params['variables'];
+        $instance->query = $params['query'];
+        $instance->queryId = $params['queryid'] ?? $params['documentid'] ?? $params['id'];
+        $instance->operation = $params['operationname'];
+        $instance->variables = $params['variables'];
         $instance->extensions = $params['extensions'];
-        $instance->readOnly   = $readonly;
+        $instance->readOnly = $readonly;
 
         // Apollo server/client compatibility: look for the queryid in extensions
         if (isset($instance->extensions['persistedQuery']['sha256Hash']) && strlen($instance->query ?? '') === 0 && strlen($instance->queryId ?? '') === 0) {

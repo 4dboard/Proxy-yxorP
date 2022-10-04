@@ -27,5 +27,5 @@ kiss-navlist ul > li > * {
 
 .kiss-nav-divider {
     margin: var(--kiss-navlist-padding-vertical, 5px) var(--kiss-navlist-padding-horizontal, 0);
-    border-top: 1px solid var(--kiss-navlist-divider-color, var(--kiss-hr-color, rgba(0,0,0,.1)));
+    border-top: 1px solid var(--kiss-navlist-divider-color, var(--kiss-hr-color, rgba(0, 0, 0, .1)));
 }

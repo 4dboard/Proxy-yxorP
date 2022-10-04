@@ -39,7 +39,7 @@ let App = {
     },
 
     reroute: function (url) {
-        location.href = /^http/.test(url) ? url : this.route(url);
+        location.href = url.match(/^http/) ? url : this.route(url);
     },
 
     request: function (url, data, type) {
@@ -73,7 +73,7 @@ let App = {
 
                 let resdata = xhr.responseText;
 
-                if (type === 'json') {
+                if (type == 'json') {
                     try {
                         resdata = JSON.parse(xhr.responseText);
                     } catch (e) {
@@ -118,7 +118,7 @@ let App = {
 
         if (!this._events[name]) return;
 
-        let event = { name, params };
+        let event = {name, params};
 
         for (let i = 0; i < this._events[name].length; i++) {
             this._events[name][i].apply(App, [event]);
@@ -156,8 +156,8 @@ App.ui = ui;
 App.utils = utils;
 
 // custom utils
-App.utils.import = function(uri) {
-    return import(App.base(uri)+'?v='+App.version);
+App.utils.import = function (uri) {
+    return import(App.base(uri) + '?v=' + App.version);
 };
 
 window.App = App;

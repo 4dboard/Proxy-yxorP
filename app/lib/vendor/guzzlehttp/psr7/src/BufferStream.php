@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace GuzzleHttp\Psr7;
 
 use Psr\Http\Message\StreamInterface;
+use RuntimeException;
 
 /**
  * Provides a buffer stream that can be written to to fill a buffer, and read
@@ -47,16 +48,16 @@ final class BufferStream implements StreamInterface
         return $buffer;
     }
 
-    public function close(): void
-    {
-        $this->buffer = '';
-    }
-
     public function detach()
     {
         $this->close();
 
         return null;
+    }
+
+    public function close(): void
+    {
+        $this->buffer = '';
     }
 
     public function getSize(): ?int
@@ -86,7 +87,7 @@ final class BufferStream implements StreamInterface
 
     public function seek($offset, $whence = SEEK_SET): void
     {
-        throw new \RuntimeException('Cannot seek a BufferStream');
+        throw new RuntimeException('Cannot seek a BufferStream');
     }
 
     public function eof(): bool
@@ -96,7 +97,7 @@ final class BufferStream implements StreamInterface
 
     public function tell(): int
     {
-        throw new \RuntimeException('Cannot determine the position of a BufferStream');
+        throw new RuntimeException('Cannot determine the position of a BufferStream');
     }
 
     /**

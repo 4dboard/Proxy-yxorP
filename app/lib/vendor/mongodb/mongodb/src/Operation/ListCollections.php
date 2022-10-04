@@ -57,22 +57,22 @@ class ListCollections implements Executable
      *  * session (MongoDB\Driver\Session): Client session.
      *
      * @param string $databaseName Database name
-     * @param array  $options      Command options
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, array $options = [])
     {
-        $this->databaseName = (string) $databaseName;
+        $this->databaseName = (string)$databaseName;
         $this->listCollections = new ListCollectionsCommand($databaseName, ['nameOnly' => false] + $options);
     }
 
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return CollectionInfoIterator
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
     public function execute(Server $server)
     {

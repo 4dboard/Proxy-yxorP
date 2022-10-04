@@ -13,7 +13,7 @@ final class InvalidArgument extends InvalidArgumentException
     /**
      * @param mixed $argument
      */
-    public static function fromExpectedTypeAndArgument(string $expectedType, $argument) : self
+    public static function fromExpectedTypeAndArgument(string $expectedType, $argument): self
     {
         return new self(sprintf('Expected type "%s", got "%s"', $expectedType, gettype($argument)));
     }

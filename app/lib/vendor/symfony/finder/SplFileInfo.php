@@ -11,6 +11,9 @@
 
 namespace Symfony\Component\Finder;
 
+use RuntimeException;
+use const PATHINFO_FILENAME;
+
 /**
  * Extends \SplFileInfo to support relative paths.
  *
@@ -22,8 +25,8 @@ class SplFileInfo extends \SplFileInfo
     private string $relativePathname;
 
     /**
-     * @param string $file             The file name
-     * @param string $relativePath     The relative path
+     * @param string $file The file name
+     * @param string $relativePath The relative path
      * @param string $relativePathname The relative path name
      */
     public function __construct(string $file, string $relativePath, string $relativePathname)
@@ -57,24 +60,26 @@ class SplFileInfo extends \SplFileInfo
     {
         $filename = $this->getFilename();
 
-        return pathinfo($filename, \PATHINFO_FILENAME);
+        return pathinfo($filename, PATHINFO_FILENAME);
     }
 
     /**
      * Returns the contents of the file.
      *
-     * @throws \RuntimeException
+     * @throws RuntimeException
      */
     public function getContents(): string
     {
-        set_error_handler(function ($type, $msg) use (&$error) { $error = $msg; });
+        set_error_handler(function ($type, $msg) use (&$error) {
+            $error = $msg;
+        });
         try {
             $content = file_get_contents($this->getPathname());
         } finally {
             restore_error_handler();
         }
         if (false === $content) {
-            throw new \RuntimeException($error);
+            throw new RuntimeException($error);
         }
 
         return $content;

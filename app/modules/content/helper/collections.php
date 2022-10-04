@@ -2,9 +2,13 @@
 
 namespace Collections\Helper;
 
-class Collections extends \Lime\Helper {
+use Lime\Helper;
 
-    public function index() {
+class Collections extends Helper
+{
+
+    public function index()
+    {
         return 1;
     }
 }

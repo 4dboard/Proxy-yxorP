@@ -4,10 +4,7 @@
 
 Represents a pizza base.
 
-
-
 * Full name: `\PhpDocumentorMarkdown\Example\Pizza\Base`
-
 
 ## Constants
 
@@ -19,7 +16,6 @@ Represents a pizza base.
 
 ## Properties
 
-
 ### sauce
 
 The sauce used.
@@ -27,11 +23,6 @@ The sauce used.
 ```php
 protected \PhpDocumentorMarkdown\Example\Pizza\Sauce $sauce
 ```
-
-
-
-
-
 
 ***
 
@@ -43,30 +34,15 @@ Type of yeast used.
 protected int $yeast
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\PhpDocumentorMarkdown\Example\Pizza\Sauce $sauce, int $yeast = self::YEAST_SOURDOUGH_STARTER): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -75,48 +51,21 @@ public __construct(\PhpDocumentorMarkdown\Example\Pizza\Sauce $sauce, int $yeast
 | `$sauce` | **\PhpDocumentorMarkdown\Example\Pizza\Sauce** |  |
 | `$yeast` | **int** |  |
 
-
-
-
 ***
 
 ### getSauce
-
-
 
 ```php
 public getSauce(): \PhpDocumentorMarkdown\Example\Pizza\Sauce
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getYeast
 
-
-
 ```php
 public getYeast(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

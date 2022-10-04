@@ -24,17 +24,17 @@ class UnresolvedFieldDefinition
      */
     public function __construct(Type $type, string $name, callable $resolver)
     {
-        $this->type     = $type;
-        $this->name     = $name;
+        $this->type = $type;
+        $this->name = $name;
         $this->resolver = $resolver;
     }
 
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function resolve() : FieldDefinition
+    public function resolve(): FieldDefinition
     {
         $field = ($this->resolver)();
 
@@ -48,11 +48,11 @@ class UnresolvedFieldDefinition
             return $field;
         }
 
-        if (! is_array($field)) {
+        if (!is_array($field)) {
             return FieldDefinition::create(['name' => $this->name, 'type' => $field]);
         }
 
-        if (! isset($field['name'])) {
+        if (!isset($field['name'])) {
             $field['name'] = $this->name;
         } elseif ($field['name'] !== $this->name) {
             throw new InvariantViolation(
@@ -60,7 +60,7 @@ class UnresolvedFieldDefinition
             );
         }
 
-        if (isset($field['args']) && ! is_array($field['args'])) {
+        if (isset($field['args']) && !is_array($field['args'])) {
             throw new InvariantViolation(
                 sprintf('%s.%s args must be an array.', $this->type->name, $this->name)
             );

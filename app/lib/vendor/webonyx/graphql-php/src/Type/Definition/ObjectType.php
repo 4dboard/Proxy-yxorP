@@ -85,18 +85,18 @@ class ObjectType extends TypeWithFields implements OutputType, CompositeType, Nu
      */
     public function __construct(array $config)
     {
-        if (! isset($config['name'])) {
+        if (!isset($config['name'])) {
             $config['name'] = $this->tryInferName();
         }
 
         Utils::invariant(is_string($config['name']), 'Must provide name.');
 
-        $this->name              = $config['name'];
-        $this->description       = $config['description'] ?? null;
-        $this->resolveFieldFn    = $config['resolveField'] ?? null;
-        $this->astNode           = $config['astNode'] ?? null;
+        $this->name = $config['name'];
+        $this->description = $config['description'] ?? null;
+        $this->resolveFieldFn = $config['resolveField'] ?? null;
+        $this->astNode = $config['astNode'] ?? null;
         $this->extensionASTNodes = $config['extensionASTNodes'] ?? [];
-        $this->config            = $config;
+        $this->config = $config;
     }
 
     /**
@@ -106,7 +106,7 @@ class ObjectType extends TypeWithFields implements OutputType, CompositeType, Nu
      *
      * @throws InvariantViolation
      */
-    public static function assertObjectType($type) : self
+    public static function assertObjectType($type): self
     {
         Utils::invariant(
             $type instanceof self,
@@ -116,13 +116,13 @@ class ObjectType extends TypeWithFields implements OutputType, CompositeType, Nu
         return $type;
     }
 
-    public function implementsInterface(InterfaceType $interfaceType) : bool
+    public function implementsInterface(InterfaceType $interfaceType): bool
     {
-        if (! isset($this->interfaceMap)) {
+        if (!isset($this->interfaceMap)) {
             $this->interfaceMap = [];
             foreach ($this->getInterfaces() as $interface) {
                 /** @var Type&InterfaceType $interface */
-                $interface                            = Schema::resolveType($interface);
+                $interface = Schema::resolveType($interface);
                 $this->interfaceMap[$interface->name] = $interface;
             }
         }
@@ -133,15 +133,15 @@ class ObjectType extends TypeWithFields implements OutputType, CompositeType, Nu
     /**
      * @return array<int, InterfaceType>
      */
-    public function getInterfaces() : array
+    public function getInterfaces(): array
     {
-        if (! isset($this->interfaces)) {
+        if (!isset($this->interfaces)) {
             $interfaces = $this->config['interfaces'] ?? [];
             if (is_callable($interfaces)) {
                 $interfaces = $interfaces();
             }
 
-            if ($interfaces !== null && ! is_array($interfaces)) {
+            if ($interfaces !== null && !is_array($interfaces)) {
                 throw new InvariantViolation(
                     sprintf('%s interfaces must be an Array or a callable which returns an Array.', $this->name)
                 );
@@ -179,7 +179,7 @@ class ObjectType extends TypeWithFields implements OutputType, CompositeType, Nu
      *
      * @throws InvariantViolation
      */
-    public function assertValid() : void
+    public function assertValid(): void
     {
         parent::assertValid();
 

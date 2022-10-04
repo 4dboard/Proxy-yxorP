@@ -11,6 +11,9 @@
 
 namespace Symfony\Component\Finder\Comparator;
 
+use InvalidArgumentException;
+use function in_array;
+
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -21,8 +24,8 @@ class Comparator
 
     public function __construct(string $target, string $operator = '==')
     {
-        if (!\in_array($operator, ['>', '<', '>=', '<=', '==', '!='])) {
-            throw new \InvalidArgumentException(sprintf('Invalid operator "%s".', $operator));
+        if (!in_array($operator, ['>', '<', '>=', '<=', '==', '!='])) {
+            throw new InvalidArgumentException(sprintf('Invalid operator "%s".', $operator));
         }
 
         $this->target = $target;

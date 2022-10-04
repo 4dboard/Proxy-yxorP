@@ -2,36 +2,42 @@
 
 namespace System\Helper;
 
-use ArrayObject;
+use Lime\Helper;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
-class System extends \Lime\Helper {
+class System extends Helper
+{
 
 
-    public function try(callable $callback, $rescue = null, bool $report = true) {
+    public function try(callable $callback, $rescue = null, $report = true)
+    {
         try {
             return $callback();
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             if ($report) {
                 $this->report($e);
             }
 
-            return $rescue instanceof \Closure ? $rescue($e) : $rescue;
+            return $rescue instanceof Closure ? $rescue($e) : $rescue;
         }
     }
 
-    public function report(mixed $error) {
+    public function report()
+    {
         // to be implemented
     }
 
-    public function flushCache() {
+    public function flushCache()
+    {
 
-        $dirs = ['#cache:','#tmp:'];
+        $dirs = ['#cache:', '#tmp:'];
         $fs = $this->app->helper('fs');
 
         foreach ($dirs as $dir) {
 
             $path = $this->app->path($dir);
-            $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path), \RecursiveIteratorIterator::SELF_FIRST);
+            $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path), RecursiveIteratorIterator::SELF_FIRST);
 
             foreach ($files as $file) {
 

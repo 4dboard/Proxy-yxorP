@@ -11,6 +11,8 @@
 
 namespace Symfony\Component\Finder;
 
+use function strlen;
+
 /**
  * Glob matches globbing patterns against text.
  *
@@ -44,7 +46,7 @@ class Glob
         $escaping = false;
         $inCurlies = 0;
         $regex = '';
-        $sizeGlob = \strlen($glob);
+        $sizeGlob = strlen($glob);
         for ($i = 0; $i < $sizeGlob; ++$i) {
             $car = $glob[$i];
             if ($firstByte && $strictLeadingDot && '.' !== $car) {
@@ -53,17 +55,17 @@ class Glob
 
             $firstByte = '/' === $car;
 
-            if ($firstByte && $strictWildcardSlash && isset($glob[$i + 2]) && '**' === $glob[$i + 1].$glob[$i + 2] && (!isset($glob[$i + 3]) || '/' === $glob[$i + 3])) {
+            if ($firstByte && $strictWildcardSlash && isset($glob[$i + 2]) && '**' === $glob[$i + 1] . $glob[$i + 2] && (!isset($glob[$i + 3]) || '/' === $glob[$i + 3])) {
                 $car = '[^/]++/';
                 if (!isset($glob[$i + 3])) {
                     $car .= '?';
                 }
 
                 if ($strictLeadingDot) {
-                    $car = '(?=[^\.])'.$car;
+                    $car = '(?=[^\.])' . $car;
                 }
 
-                $car = '/(?:'.$car.')*';
+                $car = '/(?:' . $car . ')*';
                 $i += 2 + isset($glob[$i + 3]);
 
                 if ('/' === $delimiter) {
@@ -104,6 +106,6 @@ class Glob
             $escaping = false;
         }
 
-        return $delimiter.'^'.$regex.'$'.$delimiter;
+        return $delimiter . '^' . $regex . '$' . $delimiter;
     }
 }

@@ -2,6 +2,8 @@
 
 namespace RobThree\Auth\Providers\Time;
 
+use Exception;
+
 /**
  * Takes the time from any NTP server
  */
@@ -53,17 +55,17 @@ class NTPTimeProvider implements ITimeProvider
 
             /* Receive response and close socket */
             if (socket_recv($sock, $recv, 48, MSG_WAITALL) === false) {
-                throw new \Exception(socket_strerror(socket_last_error($sock)));
+                throw new Exception(socket_strerror(socket_last_error($sock)));
             }
             socket_close($sock);
 
             /* Interpret response */
             $data = unpack('N12', $recv);
-            $timestamp = (int) sprintf('%u', $data[9]);
+            $timestamp = (int)sprintf('%u', $data[9]);
 
             /* NTP is number of seconds since 0000 UT on 1 January 1900 Unix time is seconds since 0000 UT on 1 January 1970 */
             return $timestamp - 2208988800;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             throw new TimeException(sprintf('Unable to retrieve time from %s (%s)', $this->host, $ex->getMessage()));
         }
     }

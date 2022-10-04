@@ -23,77 +23,12 @@ class Components extends AbstractAnnotation
      * @var string
      */
     const SCHEMA_REF = '#/components/schemas/';
-
-    /**
-     * Reusable Schemas.
-     *
-     * @var Schema[]
-     */
-    public $schemas = Generator::UNDEFINED;
-
-    /**
-     * Reusable Responses.
-     *
-     * @var Response[]
-     */
-    public $responses = Generator::UNDEFINED;
-
-    /**
-     * Reusable Parameters.
-     *
-     * @var Parameter[]
-     */
-    public $parameters = Generator::UNDEFINED;
-
-    /**
-     * Reusable Examples.
-     *
-     * @var Examples[]
-     */
-    public $examples = Generator::UNDEFINED;
-
-    /**
-     * Reusable Request Bodys.
-     *
-     * @var RequestBody[]
-     */
-    public $requestBodies = Generator::UNDEFINED;
-
-    /**
-     * Reusable Headers.
-     *
-     * @var Header[]
-     */
-    public $headers = Generator::UNDEFINED;
-
-    /**
-     * Reusable Security Schemes.
-     *
-     * @var SecurityScheme[]
-     */
-    public $securitySchemes = Generator::UNDEFINED;
-
-    /**
-     * Reusable Links.
-     *
-     * @var Link[]
-     */
-    public $links = Generator::UNDEFINED;
-
-    /**
-     * Reusable Callbacks.
-     *
-     * @var callable[]
-     */
-    public $callbacks = Generator::UNDEFINED;
-
     /**
      * @inheritdoc
      */
     public static $_parents = [
         OpenApi::class,
     ];
-
     /**
      * @inheritdoc
      */
@@ -108,4 +43,58 @@ class Components extends AbstractAnnotation
         Link::class => ['links', 'link'],
         Attachable::class => ['attachables'],
     ];
+    /**
+     * Reusable Schemas.
+     *
+     * @var Schema[]
+     */
+    public $schemas = Generator::UNDEFINED;
+    /**
+     * Reusable Responses.
+     *
+     * @var Response[]
+     */
+    public $responses = Generator::UNDEFINED;
+    /**
+     * Reusable Parameters.
+     *
+     * @var Parameter[]
+     */
+    public $parameters = Generator::UNDEFINED;
+    /**
+     * Reusable Examples.
+     *
+     * @var Examples[]
+     */
+    public $examples = Generator::UNDEFINED;
+    /**
+     * Reusable Request Bodys.
+     *
+     * @var RequestBody[]
+     */
+    public $requestBodies = Generator::UNDEFINED;
+    /**
+     * Reusable Headers.
+     *
+     * @var Header[]
+     */
+    public $headers = Generator::UNDEFINED;
+    /**
+     * Reusable Security Schemes.
+     *
+     * @var SecurityScheme[]
+     */
+    public $securitySchemes = Generator::UNDEFINED;
+    /**
+     * Reusable Links.
+     *
+     * @var Link[]
+     */
+    public $links = Generator::UNDEFINED;
+    /**
+     * Reusable Callbacks.
+     *
+     * @var callable[]
+     */
+    public $callbacks = Generator::UNDEFINED;
 }

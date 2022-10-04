@@ -2,10 +2,13 @@
 
 namespace MongoLite\Aggregation;
 
+use Closure;
+use Iterator;
 use MongoLite\Collection;
 use MongoLite\UtilArrayQuery;
 
-class Cursor implements \Iterator {
+class Cursor implements Iterator
+{
 
     protected bool|int $position = false;
     protected array $data = [];
@@ -14,7 +17,8 @@ class Cursor implements \Iterator {
     protected Collection $collection;
 
 
-    public function __construct(Collection $collection, array $pipeline) {
+    public function __construct(Collection $collection, array $pipeline)
+    {
 
         $this->collection = $collection;
         $this->pipeline = $pipeline;
@@ -25,7 +29,8 @@ class Cursor implements \Iterator {
      *
      * @return array
      */
-    public function toArray(): array {
+    public function toArray(): array
+    {
         return $this->getData();
     }
 
@@ -35,7 +40,8 @@ class Cursor implements \Iterator {
      *
      * @return array
      */
-    protected function getData(): array {
+    protected function getData(): array
+    {
 
         $filter = [];
         $pipeline = $this->pipeline;
@@ -76,41 +82,8 @@ class Cursor implements \Iterator {
         return $data;
     }
 
-    /**
-     * Iterator implementation
-     */
-    public function rewind(): void {
-
-        if ($this->position !== false) {
-            $this->position = 0;
-        }
-    }
-
-    public function current(): array {
-
-        return $this->data[$this->position];
-    }
-
-    public function key(): int {
-        return $this->position;
-    }
-
-    public function next(): void {
-        ++$this->position;
-    }
-
-    public function valid(): bool {
-
-        if ($this->position === false) {
-
-            $this->data     = $this->getData();
-            $this->position = 0;
-        }
-
-        return isset($this->data[$this->position]);
-    }
-
-    protected function make_cmp(array $sortValues): \Closure {
+    protected function make_cmp(array $sortValues): Closure
+    {
 
         return function ($a, $b) use (&$sortValues) {
 
@@ -125,6 +98,45 @@ class Cursor implements \Iterator {
 
             return 0;
         };
+    }
+
+    /**
+     * Iterator implementation
+     */
+    public function rewind(): void
+    {
+
+        if ($this->position !== false) {
+            $this->position = 0;
+        }
+    }
+
+    public function current(): array
+    {
+
+        return $this->data[$this->position];
+    }
+
+    public function key(): int
+    {
+        return $this->position;
+    }
+
+    public function next(): void
+    {
+        ++$this->position;
+    }
+
+    public function valid(): bool
+    {
+
+        if ($this->position === false) {
+
+            $this->data = $this->getData();
+            $this->position = 0;
+        }
+
+        return isset($this->data[$this->position]);
     }
 
 }

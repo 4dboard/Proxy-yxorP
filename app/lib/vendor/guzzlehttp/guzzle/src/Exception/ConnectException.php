@@ -4,6 +4,7 @@ namespace GuzzleHttp\Exception;
 
 use Psr\Http\Client\NetworkExceptionInterface;
 use Psr\Http\Message\RequestInterface;
+use Throwable;
 
 /**
  * Exception thrown when a connection cannot be established.
@@ -23,11 +24,12 @@ class ConnectException extends TransferException implements NetworkExceptionInte
     private $handlerContext;
 
     public function __construct(
-        string $message,
+        string           $message,
         RequestInterface $request,
-        \Throwable $previous = null,
-        array $handlerContext = []
-    ) {
+        Throwable       $previous = null,
+        array            $handlerContext = []
+    )
+    {
         parent::__construct($message, 0, $previous);
         $this->request = $request;
         $this->handlerContext = $handlerContext;

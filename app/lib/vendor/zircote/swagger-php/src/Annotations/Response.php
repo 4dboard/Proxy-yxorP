@@ -17,65 +17,15 @@ use OpenApi\Generator;
 class Response extends AbstractAnnotation
 {
     /**
-     * $ref See https://swagger.io/docs/specification/using-ref/.
-     *
-     * @var string
-     */
-    public $ref = Generator::UNDEFINED;
-
-    /**
-     * The key into Operations->responses array.
-     *
-     * @var string a HTTP Status Code or "default"
-     */
-    public $response = Generator::UNDEFINED;
-
-    /**
-     * A short description of the response.
-     * CommonMark syntax may be used for rich text representation.
-     *
-     * @var string
-     */
-    public $description = Generator::UNDEFINED;
-
-    /**
-     * Maps a header name to its definition.
-     * RFC7230 states header names are case insensitive. https://tools.ietf.org/html/rfc7230#page-22
-     * If a response header is defined with the name "Content-Type", it shall be ignored.
-     *
-     * @var Header[]
-     */
-    public $headers = Generator::UNDEFINED;
-
-    /**
-     * A map containing descriptions of potential response payloads.
-     * The key is a media type or media type range and the value describes it.
-     * For responses that match multiple keys, only the most specific key is applicable. e.g. text/plain overrides text/*.
-     *
-     * @var MediaType[]
-     */
-    public $content = Generator::UNDEFINED;
-
-    /**
-     * A map of operations links that can be followed from the response.
-     * The key of the map is a short name for the link, following the naming constraints of the names for Component Objects.
-     *
-     * @var array
-     */
-    public $links = Generator::UNDEFINED;
-
-    /**
      * @inheritdoc
      */
     public static $_required = ['description'];
-
     /**
      * @inheritdoc
      */
     public static $_types = [
         'description' => 'string',
     ];
-
     /**
      * @inheritdoc
      */
@@ -85,7 +35,6 @@ class Response extends AbstractAnnotation
         Link::class => ['links', 'link'],
         Attachable::class => ['attachables'],
     ];
-
     /**
      * @inheritdoc
      */
@@ -101,4 +50,46 @@ class Response extends AbstractAnnotation
         Options::class,
         Trace::class,
     ];
+    /**
+     * $ref See https://swagger.io/docs/specification/using-ref/.
+     *
+     * @var string
+     */
+    public $ref = Generator::UNDEFINED;
+    /**
+     * The key into Operations->responses array.
+     *
+     * @var string a HTTP Status Code or "default"
+     */
+    public $response = Generator::UNDEFINED;
+    /**
+     * A short description of the response.
+     * CommonMark syntax may be used for rich text representation.
+     *
+     * @var string
+     */
+    public $description = Generator::UNDEFINED;
+    /**
+     * Maps a header name to its definition.
+     * RFC7230 states header names are case insensitive. https://tools.ietf.org/html/rfc7230#page-22
+     * If a response header is defined with the name "Content-Type", it shall be ignored.
+     *
+     * @var Header[]
+     */
+    public $headers = Generator::UNDEFINED;
+    /**
+     * A map containing descriptions of potential response payloads.
+     * The key is a media type or media type range and the value describes it.
+     * For responses that match multiple keys, only the most specific key is applicable. e.g. text/plain overrides text/*.
+     *
+     * @var MediaType[]
+     */
+    public $content = Generator::UNDEFINED;
+    /**
+     * A map of operations links that can be followed from the response.
+     * The key of the map is a short name for the link, following the naming constraints of the names for Component Objects.
+     *
+     * @var array
+     */
+    public $links = Generator::UNDEFINED;
 }

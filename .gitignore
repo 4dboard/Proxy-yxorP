@@ -8,3 +8,4 @@
 !/override/.htaccess
 !/override/example
 !/override/global
+.phpdoc

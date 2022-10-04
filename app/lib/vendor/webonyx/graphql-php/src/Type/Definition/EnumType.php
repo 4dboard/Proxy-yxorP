@@ -23,14 +23,14 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
 {
     /** @var EnumTypeDefinitionNode|null */
     public $astNode;
-
+    /** @var EnumTypeExtensionNode[] */
+    public $extensionASTNodes;
     /**
      * Lazily initialized.
      *
      * @var EnumValueDefinition[]
      */
     private $values;
-
     /**
      * Lazily initialized.
      *
@@ -39,26 +39,22 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
      * @var MixedStore
      */
     private $valueLookup;
-
     /** @var ArrayObject<string, EnumValueDefinition> */
     private $nameLookup;
 
-    /** @var EnumTypeExtensionNode[] */
-    public $extensionASTNodes;
-
     public function __construct($config)
     {
-        if (! isset($config['name'])) {
+        if (!isset($config['name'])) {
             $config['name'] = $this->tryInferName();
         }
 
         Utils::invariant(is_string($config['name']), 'Must provide name.');
 
-        $this->name              = $config['name'];
-        $this->description       = $config['description'] ?? null;
-        $this->astNode           = $config['astNode'] ?? null;
+        $this->name = $config['name'];
+        $this->description = $config['description'] ?? null;
+        $this->astNode = $config['astNode'] ?? null;
         $this->extensionASTNodes = $config['extensionASTNodes'] ?? null;
-        $this->config            = $config;
+        $this->config = $config;
     }
 
     /**
@@ -70,16 +66,16 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
     {
         $lookup = $this->getNameLookup();
 
-        if (! is_string($name)) {
+        if (!is_string($name)) {
             return null;
         }
 
         return $lookup[$name] ?? null;
     }
 
-    private function getNameLookup() : ArrayObject
+    private function getNameLookup(): ArrayObject
     {
-        if (! $this->nameLookup) {
+        if (!$this->nameLookup) {
             /** @var ArrayObject<string, EnumValueDefinition> $lookup */
             $lookup = new ArrayObject();
             foreach ($this->getValues() as $value) {
@@ -94,14 +90,14 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
     /**
      * @return EnumValueDefinition[]
      */
-    public function getValues() : array
+    public function getValues(): array
     {
-        if (! isset($this->values)) {
+        if (!isset($this->values)) {
             $this->values = [];
-            $config       = $this->config;
+            $config = $this->config;
 
             if (isset($config['values'])) {
-                if (! is_array($config['values'])) {
+                if (!is_array($config['values'])) {
                     throw new InvariantViolation(sprintf('%s values must be an array', $this->name));
                 }
                 foreach ($config['values'] as $name => $value) {
@@ -149,9 +145,9 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
     /**
      * Actually returns a MixedStore<mixed, EnumValueDefinition>, PHPStan won't let us type it that way
      */
-    private function getValueLookup() : MixedStore
+    private function getValueLookup(): MixedStore
     {
-        if (! isset($this->valueLookup)) {
+        if (!isset($this->valueLookup)) {
             $this->valueLookup = new MixedStore();
 
             foreach ($this->getValues() as $valueName => $value) {
@@ -217,7 +213,7 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
         $values = $this->getValues();
         foreach ($values as $value) {
             Utils::invariant(
-                ! isset($value->config['isDeprecated']),
+                !isset($value->config['isDeprecated']),
                 sprintf(
                     '%s.%s should provide "deprecationReason" instead of "isDeprecated".',
                     $this->name,

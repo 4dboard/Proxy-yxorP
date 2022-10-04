@@ -2,15 +2,22 @@
 
 namespace App\Controller;
 
+use Exception;
+use function compact;
+use function is_string;
+use function substr;
+
 /**
  * Class Controller
  * @package App
  */
-class Auth extends Base {
+class Auth extends Base
+{
 
     protected $layout = 'app:layouts/canvas.php';
 
-    public function login() {
+    public function login()
+    {
 
         if ($this->helper('auth')->getUser()) {
             $this->app->reroute('/');
@@ -20,18 +27,19 @@ class Auth extends Base {
 
         $redirectTo = $this->param('to', '/');
 
-        if (\substr($redirectTo, 0, 1) !== '/') {
+        if (substr($redirectTo, 0, 1) !== '/') {
             $redirectTo = '/';
         }
 
-        $redirectTo = htmlspecialchars($this->app->routeUrl($redirectTo), ENT_QUOTES, 'UTF-8');
+        $redirectTo = htmlspecialchars($this->routeUrl($redirectTo), ENT_QUOTES, 'UTF-8');
 
         $this->helper('theme')->pageClass('login-page');
 
-        return $this->render('app:views/auth/login.php', \compact('redirectTo'));
+        return $this->render('app:views/auth/login.php', compact('redirectTo'));
     }
 
-    public function logout() {
+    public function logout()
+    {
 
         $this->helper('auth')->logout();
 
@@ -42,7 +50,8 @@ class Auth extends Base {
         }
     }
 
-    public function check() {
+    public function check()
+    {
 
         if ($this->helper('auth')->getUser()) {
             return false;
@@ -50,7 +59,7 @@ class Auth extends Base {
 
         $auth = $this->param('auth');
 
-        if (!$auth || !isset($auth['user'], $auth['password']) || !\is_string($auth['user']) || !\is_string($auth['password'])) {
+        if (!$auth || !isset($auth['user'], $auth['password']) || !is_string($auth['user']) || !is_string($auth['password'])) {
             return $this->stop(412);
         }
 
@@ -65,7 +74,7 @@ class Auth extends Base {
 
         if (isset($auth['user']) && $this->helper('utils')->isEmail($auth['user'])) {
             $auth['email'] = $auth['user'];
-            $auth['user']  = '';
+            $auth['user'] = '';
         }
 
         $user = $this->helper('auth')->authenticate($auth);
@@ -84,19 +93,14 @@ class Auth extends Base {
                         'name' => $user['name'],
                         'user' => $user['user'],
                         'email' => $user['email'],
-                        'twofa' => $this->helper('jwt')->create([
-                            '_id'   => $user['_id'],
-                            'user'  => $user['user'],
-                            'name'  => $user['name'],
-                            'email' => $user['email'],
-                            'role'  => $user['role'],
-                        ])
+                        'twofa' => $this->helper('jwt')->create($user)
                     ]
                 ];
-            }
 
-            // remove 2FA settings from user session
-            unset($user['twofa']);
+            } else {
+                // remove twofa settings
+                unset($user['twofa']);
+            }
 
             $this->app->trigger('app.user.disguise', [&$user]);
 
@@ -111,14 +115,15 @@ class Auth extends Base {
         return ['success' => false];
     }
 
-    public function validate2FA() {
+    public function validate2FA()
+    {
 
         $code = $this->param('code', null);
         $token = $this->param('token', null);
 
         try {
-            $user = (array) $this->app->helper('jwt')->decode($token);
-        } catch(\Exception $e) {
+            $user = (array)$this->app->helper('jwt')->decode($token);
+        } catch (Exception $e) {
             return $this->stop(412);
         }
 
@@ -137,7 +142,7 @@ class Auth extends Base {
             $this->helper('auth')->setUser($user);
             $this->helper('session')->write('app.session.start', time());
 
-            $this->app->trigger('app.user.login', [&$user]);
+            $this->trigger('app.user.login', [&$user]);
 
             return ['success' => true, 'user' => $user];
         }

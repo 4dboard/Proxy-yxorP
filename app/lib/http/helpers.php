@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\http;
 
 use App;
+use Cockpit;
 use yxorP;
 use yxorP\app\lib\proxy\client;
 use yxorP\app\lib\proxy\cookie\fileCookieJar;
@@ -337,7 +338,7 @@ class helpers
         /**
          * Storing the app object in the cache store.
          */
-        store::handler(YXORP_APP, \Cockpit::instance());
+        store::handler(YXORP_APP, Cockpit::instance());
 
         /**
          * Reading the file and then calling the env function on each line.

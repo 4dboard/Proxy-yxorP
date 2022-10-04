@@ -14,12 +14,11 @@ class Delete extends Operation
     /**
      * @inheritdoc
      */
-    public $method = 'delete';
-
-    /**
-     * @inheritdoc
-     */
     public static $_parents = [
         PathItem::class,
     ];
+    /**
+     * @inheritdoc
+     */
+    public $method = 'delete';
 }

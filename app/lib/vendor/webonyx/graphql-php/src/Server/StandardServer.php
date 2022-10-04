@@ -46,26 +46,6 @@ class StandardServer
     private $helper;
 
     /**
-     * Converts and exception to error and sends spec-compliant HTTP 500 error.
-     * Useful when an exception is thrown somewhere outside of server execution context
-     * (e.g. during schema instantiation).
-     *
-     * @param Throwable $error
-     * @param int       $debug
-     * @param bool      $exitWhenDone
-     *
-     * @api
-     */
-    public static function send500Error($error, $debug = DebugFlag::NONE, $exitWhenDone = false)
-    {
-        $response = [
-            'errors' => [FormattedError::createFromException($error, $debug)],
-        ];
-        $helper   = new Helper();
-        $helper->emitResponse($response, 500, $exitWhenDone);
-    }
-
-    /**
      * Creates new instance of a standard GraphQL HTTP server
      *
      * @param ServerConfig|mixed[] $config
@@ -77,11 +57,31 @@ class StandardServer
         if (is_array($config)) {
             $config = ServerConfig::create($config);
         }
-        if (! $config instanceof ServerConfig) {
+        if (!$config instanceof ServerConfig) {
             throw new InvariantViolation('Expecting valid server config, but got ' . Utils::printSafe($config));
         }
         $this->config = $config;
         $this->helper = new Helper();
+    }
+
+    /**
+     * Converts and exception to error and sends spec-compliant HTTP 500 error.
+     * Useful when an exception is thrown somewhere outside of server execution context
+     * (e.g. during schema instantiation).
+     *
+     * @param Throwable $error
+     * @param int $debug
+     * @param bool $exitWhenDone
+     *
+     * @api
+     */
+    public static function send500Error($error, $debug = DebugFlag::NONE, $exitWhenDone = false)
+    {
+        $response = [
+            'errors' => [FormattedError::createFromException($error, $debug)],
+        ];
+        $helper = new Helper();
+        $helper->emitResponse($response, 500, $exitWhenDone);
     }
 
     /**
@@ -95,7 +95,7 @@ class StandardServer
      * (e.g. using Response object of some framework)
      *
      * @param OperationParams|OperationParams[] $parsedBody
-     * @param bool                              $exitWhenDone
+     * @param bool $exitWhenDone
      *
      * @api
      */
@@ -147,10 +147,11 @@ class StandardServer
      * @api
      */
     public function processPsrRequest(
-        RequestInterface $request,
+        RequestInterface  $request,
         ResponseInterface $response,
-        StreamInterface $writableBodyStream
-    ) {
+        StreamInterface   $writableBodyStream
+    )
+    {
         $result = $this->executePsrRequest($request);
 
         return $this->helper->toPsrResponse($result, $response, $writableBodyStream);

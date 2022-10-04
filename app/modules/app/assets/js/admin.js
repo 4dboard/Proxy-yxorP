@@ -1,8 +1,7 @@
-
-let checkSessionTimeout = function() {
+let checkSessionTimeout = function () {
 
     let csrf;
-    let check = function() {
+    let check = function () {
 
         let isActive = document.getElementById('app-session-login');
 
@@ -23,7 +22,7 @@ let checkSessionTimeout = function() {
 
     setInterval(check, 30000);
 
-    document.addEventListener('visibilitychange', function() {
+    document.addEventListener('visibilitychange', function () {
         if (!document.hidden) check();
     }, false);
 
@@ -34,29 +33,17 @@ let checkSessionTimeout = function() {
 
 }
 
-let showAppSearch = function() {
-
-    let isActive = document.getElementById('app-search'),
-        isLoggedOut = document.getElementById('app-session-login');
-
-    if (!isActive && !isLoggedOut) {
-        VueView.ui.modal('app:assets/dialog/app-search.js', {}, {}, {size:'large'}, 'app-search');
-    } else if (isActive && !isLoggedOut){
-        document.getElementById('app-search').querySelector('input').focus();
-    }
-}
-
-window.AppEventStream =  {
+window.AppEventStream = {
     _idle: null,
     _registry: {
         notify: [
-            function(evt) {
+            function (evt) {
                 App.ui.notify(evt.data.message, evt.data.status || 'info', evt.data.timeout || false);
             }
         ],
 
         alert: [
-            function(evt) {
+            function (evt) {
                 App.ui.alert(evt.data.message);
             }
         ]
@@ -103,23 +90,23 @@ window.AppEventStream =  {
 }
 
 document.addEventListener('DOMContentLoaded', e => {
-
     checkSessionTimeout();
-
     AppEventStream.start();
 
     // bind global command for app search
-    Mousetrap.bind(['alt+f'], function(e) {
+    Mousetrap.bind(['alt+f'], function (e) {
         e.preventDefault();
-        showAppSearch();
+
+        let isActive = document.getElementById('app-search'),
+            isLoggedOut = document.getElementById('app-session-login');
+
+        if (!isActive && !isLoggedOut) {
+            VueView.ui.modal('app:assets/dialog/app-search.js', {}, {}, {size: 'large'});
+        } else if (isActive && !isLoggedOut) {
+            document.getElementById('app-search').querySelector('input').focus();
+        }
+
         return false;
     });
-
-    document.querySelectorAll('[app-search]').forEach(ele => {
-        ele.addEventListener('click', e => {
-            e.preventDefault();
-            showAppSearch();
-        });
-    })
 
 }, false);

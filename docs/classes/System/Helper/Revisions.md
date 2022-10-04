@@ -2,70 +2,34 @@
 
 # Revisions
 
-
-
-
-
 * Full name: `\System\Helper\Revisions`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
-
-
 ## Properties
 
-
 ### storage
-
-
 
 ```php
 protected $storage
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### count
 
-
-
 ```php
 public count(mixed $id): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -73,25 +37,13 @@ public count(mixed $id): mixed
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
 
-
-
-
 ***
 
 ### getList
 
-
-
 ```php
 public getList(string $id, int $limit = 50, int $skip): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -101,25 +53,13 @@ public getList(string $id, int $limit = 50, int $skip): mixed
 | `$limit` | **int** |  |
 | `$skip` | **int** |  |
 
-
-
-
 ***
 
 ### add
 
-
-
 ```php
 public add(mixed $id, mixed $data, mixed $meta = null, mixed $by = null, mixed $created = null, mixed $ref = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -132,51 +72,27 @@ public add(mixed $id, mixed $data, mixed $meta = null, mixed $by = null, mixed $
 | `$created` | **mixed** |  |
 | `$ref` | **mixed** |  |
 
-
-
-
 ***
 
 ### get
-
-
 
 ```php
 public get(mixed $id): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
-
-
-
 
 ***
 
 ### latest
 
-
-
 ```php
 public latest(mixed $id): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -184,25 +100,13 @@ public latest(mixed $id): mixed
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
 
-
-
-
 ***
 
 ### remove
 
-
-
 ```php
 public remove(mixed $rid): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -210,25 +114,13 @@ public remove(mixed $rid): mixed
 |-----------|------|-------------|
 | `$rid` | **mixed** |  |
 
-
-
-
 ***
 
 ### removeAll
 
-
-
 ```php
 public removeAll(mixed $id): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -236,29 +128,15 @@ public removeAll(mixed $id): mixed
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -267,45 +145,21 @@ public __construct(\Lime\App $app, mixed $context = null): mixed
 | `$app` | **\Lime\App** |  |
 | `$context` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 protected initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -314,25 +168,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -340,34 +182,19 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 

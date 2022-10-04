@@ -38,34 +38,38 @@ namespace PHPMailer\PHPMailer;
  * Plenty to choose from here:
  * @see http://oauth2-client.thephpleague.com/providers/thirdparty/
  */
+
 //@see https://github.com/thephpleague/oauth2-google
-use League\OAuth2\Client\Provider\Google;
-//@see https://packagist.org/packages/hayageek/oauth2-yahoo
 use Hayageek\OAuth2\Client\Provider\Yahoo;
-//@see https://github.com/stevenmaguire/oauth2-microsoft
+use League\OAuth2\Client\Provider\Google;
 use Stevenmaguire\OAuth2\Client\Provider\Microsoft;
+
+//@see https://packagist.org/packages/hayageek/oauth2-yahoo
+
+//@see https://github.com/stevenmaguire/oauth2-microsoft
 
 if (!isset($_GET['code']) && !isset($_POST['provider'])) {
     ?>
-<html>
-<body>
-<form method="post">
-    <h1>Select Provider</h1>
-    <input type="radio" name="provider" value="Google" id="providerGoogle">
-    <label for="providerGoogle">Google</label><br>
-    <input type="radio" name="provider" value="Yahoo" id="providerYahoo">
-    <label for="providerYahoo">Yahoo</label><br>
-    <input type="radio" name="provider" value="Microsoft" id="providerMicrosoft">
-    <label for="providerMicrosoft">Microsoft</label><br>
-    <h1>Enter id and secret</h1>
-    <p>These details are obtained by setting up an app in your provider's developer console.
-    </p>
-    <p>ClientId: <input type="text" name="clientId"><p>
-    <p>ClientSecret: <input type="text" name="clientSecret"></p>
-    <input type="submit" value="Continue">
-</form>
-</body>
-</html>
+    <html>
+    <body>
+    <form method="post">
+        <h1>Select Provider</h1>
+        <input type="radio" name="provider" value="Google" id="providerGoogle">
+        <label for="providerGoogle">Google</label><br>
+        <input type="radio" name="provider" value="Yahoo" id="providerYahoo">
+        <label for="providerYahoo">Yahoo</label><br>
+        <input type="radio" name="provider" value="Microsoft" id="providerMicrosoft">
+        <label for="providerMicrosoft">Microsoft</label><br>
+        <h1>Enter id and secret</h1>
+        <p>These details are obtained by setting up an app in your provider's developer console.
+        </p>
+        <p>ClientId: <input type="text" name="clientId">
+        <p>
+        <p>ClientSecret: <input type="text" name="clientSecret"></p>
+        <input type="submit" value="Continue">
+    </form>
+    </body>
+    </html>
     <?php
     exit;
 }

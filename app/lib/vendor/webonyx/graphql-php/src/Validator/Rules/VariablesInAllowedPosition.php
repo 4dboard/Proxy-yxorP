@@ -32,18 +32,18 @@ class VariablesInAllowedPosition extends ValidationRule
     {
         return [
             NodeKind::OPERATION_DEFINITION => [
-                'enter' => function () : void {
+                'enter' => function (): void {
                     $this->varDefMap = [];
                 },
-                'leave' => function (OperationDefinitionNode $operation) use ($context) : void {
+                'leave' => function (OperationDefinitionNode $operation) use ($context): void {
                     $usages = $context->getRecursiveVariableUsages($operation);
 
                     foreach ($usages as $usage) {
-                        $node         = $usage['node'];
-                        $type         = $usage['type'];
+                        $node = $usage['node'];
+                        $type = $usage['type'];
                         $defaultValue = $usage['defaultValue'];
-                        $varName      = $node->name->value;
-                        $varDef       = $this->varDefMap[$varName] ?? null;
+                        $varName = $node->name->value;
+                        $varDef = $this->varDefMap[$varName] ?? null;
 
                         if ($varDef === null || $type === null) {
                             continue;
@@ -54,10 +54,10 @@ class VariablesInAllowedPosition extends ValidationRule
                         // the variable type is non-null when the expected type is nullable.
                         // If both are list types, the variable item type can be more strict
                         // than the expected item type (contravariant).
-                        $schema  = $context->getSchema();
+                        $schema = $context->getSchema();
                         $varType = TypeInfo::typeFromAST($schema, $varDef->type);
 
-                        if (! $varType || $this->allowedVariableUsage($schema, $varType, $varDef->defaultValue, $type, $defaultValue)) {
+                        if (!$varType || $this->allowedVariableUsage($schema, $varType, $varDef->defaultValue, $type, $defaultValue)) {
                             continue;
                         }
 
@@ -68,10 +68,34 @@ class VariablesInAllowedPosition extends ValidationRule
                     }
                 },
             ],
-            NodeKind::VARIABLE_DEFINITION  => function (VariableDefinitionNode $varDefNode) : void {
+            NodeKind::VARIABLE_DEFINITION => function (VariableDefinitionNode $varDefNode): void {
                 $this->varDefMap[$varDefNode->variable->name->value] = $varDefNode;
             },
         ];
+    }
+
+    /**
+     * Returns true if the variable is allowed in the location it was found,
+     * which includes considering if default values exist for either the variable
+     * or the location at which it is located.
+     *
+     * @param ValueNode|null $varDefaultValue
+     * @param mixed $locationDefaultValue
+     */
+    private function allowedVariableUsage(Schema $schema, Type $varType, $varDefaultValue, Type $locationType, $locationDefaultValue): bool
+    {
+        if ($locationType instanceof NonNull && !$varType instanceof NonNull) {
+            $hasNonNullVariableDefaultValue = $varDefaultValue && !$varDefaultValue instanceof NullValueNode;
+            $hasLocationDefaultValue = !Utils::isInvalid($locationDefaultValue);
+            if (!$hasNonNullVariableDefaultValue && !$hasLocationDefaultValue) {
+                return false;
+            }
+            $nullableLocationType = $locationType->getWrappedType();
+
+            return TypeComparators::isTypeSubTypeOf($schema, $varType, $nullableLocationType);
+        }
+
+        return TypeComparators::isTypeSubTypeOf($schema, $varType, $locationType);
     }
 
     /**
@@ -88,29 +112,5 @@ class VariablesInAllowedPosition extends ValidationRule
             $varType,
             $expectedType
         );
-    }
-
-    /**
-     * Returns true if the variable is allowed in the location it was found,
-     * which includes considering if default values exist for either the variable
-     * or the location at which it is located.
-     *
-     * @param ValueNode|null $varDefaultValue
-     * @param mixed          $locationDefaultValue
-     */
-    private function allowedVariableUsage(Schema $schema, Type $varType, $varDefaultValue, Type $locationType, $locationDefaultValue) : bool
-    {
-        if ($locationType instanceof NonNull && ! $varType instanceof NonNull) {
-            $hasNonNullVariableDefaultValue = $varDefaultValue && ! $varDefaultValue instanceof NullValueNode;
-            $hasLocationDefaultValue        = ! Utils::isInvalid($locationDefaultValue);
-            if (! $hasNonNullVariableDefaultValue && ! $hasLocationDefaultValue) {
-                return false;
-            }
-            $nullableLocationType = $locationType->getWrappedType();
-
-            return TypeComparators::isTypeSubTypeOf($schema, $varType, $nullableLocationType);
-        }
-
-        return TypeComparators::isTypeSubTypeOf($schema, $varType, $locationType);
     }
 }

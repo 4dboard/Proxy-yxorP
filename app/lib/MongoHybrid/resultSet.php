@@ -2,7 +2,10 @@
 
 namespace MongoHybrid;
 
-class ResultSet extends \ArrayObject {
+use ArrayObject;
+
+class ResultSet extends ArrayObject
+{
 
     /** Driver */
     protected Mongo|MongoLite $driver;
@@ -15,15 +18,17 @@ class ResultSet extends \ArrayObject {
      * @param $driver
      * @param iterable $documents
      */
-    public function __construct(Mongo|MongoLite $driver, array &$documents) {
+    public function __construct(Mongo|MongoLite $driver, array &$documents)
+    {
 
         $this->driver = $driver;
-        $this->cache  = [];
+        $this->cache = [];
 
         parent::__construct($documents);
     }
 
-    public function hasOne(array $collections): void {
+    public function hasOne(array $collections): void
+    {
 
         foreach ($this as &$doc) {
 
@@ -42,7 +47,8 @@ class ResultSet extends \ArrayObject {
 
     }
 
-    public function hasMany(array $collections): void {
+    public function hasMany(array $collections): void
+    {
 
         foreach ($this as &$doc) {
 
@@ -50,17 +56,19 @@ class ResultSet extends \ArrayObject {
 
                 foreach ($collections as $collection => $fkey) {
 
-                    $doc[$collection] = $this->driver->find($collection, ['filter' => [$fkey=>$doc['_id']]]);
+                    $doc[$collection] = $this->driver->find($collection, ['filter' => [$fkey => $doc['_id']]]);
                 }
             }
         }
     }
 
-    public function toArray(): array {
+    public function toArray(): array
+    {
         return $this->getArrayCopy();
     }
 
-    public function __toString(): string {
+    public function __toString(): string
+    {
         return json_encode($this->getArrayCopy());
     }
 }

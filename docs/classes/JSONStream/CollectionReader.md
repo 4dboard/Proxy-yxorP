@@ -2,12 +2,7 @@
 
 # CollectionReader
 
-
-
-
-
 * Full name: `\JSONStream\CollectionReader`
-
 
 ## Constants
 
@@ -17,84 +12,45 @@
 
 ## Properties
 
-
 ### resource
-
-
 
 ```php
 protected $resource
 ```
 
-
-
-
-
-
 ***
 
 ### asArray
-
-
 
 ```php
 protected bool $asArray
 ```
 
-
-
-
-
-
 ***
 
 ### buffer
-
-
 
 ```php
 protected string $buffer
 ```
 
-
-
-
-
-
 ***
 
 ### nestingLevel
-
-
 
 ```php
 protected int $nestingLevel
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $path, bool $asArray = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -103,65 +59,29 @@ public __construct(string $path, bool $asArray = true): mixed
 | `$path` | **string** |  |
 | `$asArray` | **bool** |  |
 
-
-
-
 ***
 
 ### close
-
-
 
 ```php
 public close(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### get
-
-
 
 ```php
 public get(): \Generator
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### parseChunk
 
-
-
 ```php
 private parseChunk(mixed $chunk): \Generator
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -169,28 +89,13 @@ private parseChunk(mixed $chunk): \Generator
 |-----------|------|-------------|
 | `$chunk` | **mixed** |  |
 
-
-
-
 ***
 
 ### __destruct
 
-
-
 ```php
 public __destruct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

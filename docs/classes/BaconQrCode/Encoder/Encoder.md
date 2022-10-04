@@ -4,12 +4,9 @@
 
 Encoder.
 
-
-
 * Full name: `\BaconQrCode\Encoder\Encoder`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
-
 
 ## Constants
 
@@ -17,6 +14,7 @@ Encoder.
 |:---------|:-----------|:-----|:------|
 |`DEFAULT_BYTE_MODE_ECODING`|public| |&#039;ISO-8859-1&#039;|
 |`ALPHANUMERIC_TABLE`|private| |[
+
     -1,
     -1,
     -1,
@@ -118,10 +116,10 @@ Encoder.
     -1,
     -1,
     -1,
+
 ]|
 
 ## Properties
-
 
 ### codecs
 
@@ -131,15 +129,11 @@ Codec cache.
 private static array $codecs
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### encode
 
@@ -149,12 +143,7 @@ Encodes "content" with the error correction level "ecLevel".
 public static encode(string $content, \BaconQrCode\Common\ErrorCorrectionLevel $ecLevel, string $encoding = self::DEFAULT_BYTE_MODE_ECODING, ?\BaconQrCode\Common\Version $forcedVersion = null): \BaconQrCode\Encoder\QrCode
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -164,9 +153,6 @@ public static encode(string $content, \BaconQrCode\Common\ErrorCorrectionLevel $
 | `$ecLevel` | **\BaconQrCode\Common\ErrorCorrectionLevel** |  |
 | `$encoding` | **string** |  |
 | `$forcedVersion` | **?\BaconQrCode\Common\Version** |  |
-
-
-
 
 ***
 
@@ -178,21 +164,13 @@ Gets the alphanumeric code for a byte.
 private static getAlphanumericCode(int $code): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$code` | **int** |  |
-
-
-
 
 ***
 
@@ -204,12 +182,7 @@ Chooses the best mode for a given content.
 private static chooseMode(string $content, string $encoding = null): \BaconQrCode\Common\Mode
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -217,9 +190,6 @@ private static chooseMode(string $content, string $encoding = null): \BaconQrCod
 |-----------|------|-------------|
 | `$content` | **string** |  |
 | `$encoding` | **string** |  |
-
-
-
 
 ***
 
@@ -231,21 +201,13 @@ Calculates the mask penalty for a matrix.
 private static calculateMaskPenalty(\BaconQrCode\Encoder\ByteMatrix $matrix): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
-
-
-
 
 ***
 
@@ -257,21 +219,13 @@ Checks if content only consists of double-byte kanji characters.
 private static isOnlyDoubleByteKanji(string $content): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** |  |
-
-
-
 
 ***
 
@@ -283,12 +237,7 @@ Chooses the best mask pattern for a matrix.
 private static chooseMaskPattern(\BaconQrCode\Common\BitArray $bits, \BaconQrCode\Common\ErrorCorrectionLevel $ecLevel, \BaconQrCode\Common\Version $version, \BaconQrCode\Encoder\ByteMatrix $matrix): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -298,9 +247,6 @@ private static chooseMaskPattern(\BaconQrCode\Common\BitArray $bits, \BaconQrCod
 | `$ecLevel` | **\BaconQrCode\Common\ErrorCorrectionLevel** |  |
 | `$version` | **\BaconQrCode\Common\Version** |  |
 | `$matrix` | **\BaconQrCode\Encoder\ByteMatrix** |  |
-
-
-
 
 ***
 
@@ -312,12 +258,7 @@ Chooses the best version for the input.
 private static chooseVersion(int $numInputBits, \BaconQrCode\Common\ErrorCorrectionLevel $ecLevel): \BaconQrCode\Common\Version
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -325,9 +266,6 @@ private static chooseVersion(int $numInputBits, \BaconQrCode\Common\ErrorCorrect
 |-----------|------|-------------|
 | `$numInputBits` | **int** |  |
 | `$ecLevel` | **\BaconQrCode\Common\ErrorCorrectionLevel** |  |
-
-
-
 
 ***
 
@@ -339,12 +277,7 @@ Terminates the bits in a bit array.
 private static terminateBits(int $numDataBytes, \BaconQrCode\Common\BitArray $bits): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -352,9 +285,6 @@ private static terminateBits(int $numDataBytes, \BaconQrCode\Common\BitArray $bi
 |-----------|------|-------------|
 | `$numDataBytes` | **int** |  |
 | `$bits` | **\BaconQrCode\Common\BitArray** |  |
-
-
-
 
 ***
 
@@ -366,12 +296,7 @@ Gets number of data- and EC bytes for a block ID.
 private static getNumDataBytesAndNumEcBytesForBlockId(int $numTotalBytes, int $numDataBytes, int $numRsBlocks, int $blockId): int[]
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -381,9 +306,6 @@ private static getNumDataBytesAndNumEcBytesForBlockId(int $numTotalBytes, int $n
 | `$numDataBytes` | **int** |  |
 | `$numRsBlocks` | **int** |  |
 | `$blockId` | **int** |  |
-
-
-
 
 ***
 
@@ -395,12 +317,7 @@ Interleaves data with EC bytes.
 private static interleaveWithEcBytes(\BaconQrCode\Common\BitArray $bits, int $numTotalBytes, int $numDataBytes, int $numRsBlocks): \BaconQrCode\Common\BitArray
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -410,9 +327,6 @@ private static interleaveWithEcBytes(\BaconQrCode\Common\BitArray $bits, int $nu
 | `$numTotalBytes` | **int** |  |
 | `$numDataBytes` | **int** |  |
 | `$numRsBlocks` | **int** |  |
-
-
-
 
 ***
 
@@ -424,12 +338,7 @@ Generates EC bytes for given data.
 private static generateEcBytes(\SplFixedArray&lt;int&gt; $dataBytes, int $numEcBytesInBlock): \SplFixedArray&lt;int&gt;
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -437,9 +346,6 @@ private static generateEcBytes(\SplFixedArray&lt;int&gt; $dataBytes, int $numEcB
 |-----------|------|-------------|
 | `$dataBytes` | **\SplFixedArray<int>** |  |
 | `$numEcBytesInBlock` | **int** |  |
-
-
-
 
 ***
 
@@ -451,12 +357,7 @@ Gets an RS codec and caches it.
 private static getCodec(int $numDataBytes, int $numEcBytesInBlock): \BaconQrCode\Common\ReedSolomonCodec
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -464,9 +365,6 @@ private static getCodec(int $numDataBytes, int $numEcBytesInBlock): \BaconQrCode
 |-----------|------|-------------|
 | `$numDataBytes` | **int** |  |
 | `$numEcBytesInBlock` | **int** |  |
-
-
-
 
 ***
 
@@ -478,12 +376,7 @@ Appends mode information to a bit array.
 private static appendModeInfo(\BaconQrCode\Common\Mode $mode, \BaconQrCode\Common\BitArray $bits): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -491,9 +384,6 @@ private static appendModeInfo(\BaconQrCode\Common\Mode $mode, \BaconQrCode\Commo
 |-----------|------|-------------|
 | `$mode` | **\BaconQrCode\Common\Mode** |  |
 | `$bits` | **\BaconQrCode\Common\BitArray** |  |
-
-
-
 
 ***
 
@@ -505,12 +395,7 @@ Appends length information to a bit array.
 private static appendLengthInfo(int $numLetters, \BaconQrCode\Common\Version $version, \BaconQrCode\Common\Mode $mode, \BaconQrCode\Common\BitArray $bits): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -520,9 +405,6 @@ private static appendLengthInfo(int $numLetters, \BaconQrCode\Common\Version $ve
 | `$version` | **\BaconQrCode\Common\Version** |  |
 | `$mode` | **\BaconQrCode\Common\Mode** |  |
 | `$bits` | **\BaconQrCode\Common\BitArray** |  |
-
-
-
 
 ***
 
@@ -534,12 +416,7 @@ Appends bytes to a bit array in a specific mode.
 private static appendBytes(string $content, \BaconQrCode\Common\Mode $mode, \BaconQrCode\Common\BitArray $bits, string $encoding): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -549,9 +426,6 @@ private static appendBytes(string $content, \BaconQrCode\Common\Mode $mode, \Bac
 | `$mode` | **\BaconQrCode\Common\Mode** |  |
 | `$bits` | **\BaconQrCode\Common\BitArray** |  |
 | `$encoding` | **string** |  |
-
-
-
 
 ***
 
@@ -563,12 +437,7 @@ Appends numeric bytes to a bit array.
 private static appendNumericBytes(string $content, \BaconQrCode\Common\BitArray $bits): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -576,9 +445,6 @@ private static appendNumericBytes(string $content, \BaconQrCode\Common\BitArray 
 |-----------|------|-------------|
 | `$content` | **string** |  |
 | `$bits` | **\BaconQrCode\Common\BitArray** |  |
-
-
-
 
 ***
 
@@ -590,12 +456,7 @@ Appends alpha-numeric bytes to a bit array.
 private static appendAlphanumericBytes(string $content, \BaconQrCode\Common\BitArray $bits): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -603,9 +464,6 @@ private static appendAlphanumericBytes(string $content, \BaconQrCode\Common\BitA
 |-----------|------|-------------|
 | `$content` | **string** |  |
 | `$bits` | **\BaconQrCode\Common\BitArray** |  |
-
-
-
 
 ***
 
@@ -617,12 +475,7 @@ Appends regular 8-bit bytes to a bit array.
 private static append8BitBytes(string $content, \BaconQrCode\Common\BitArray $bits, string $encoding): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -631,9 +484,6 @@ private static append8BitBytes(string $content, \BaconQrCode\Common\BitArray $bi
 | `$content` | **string** |  |
 | `$bits` | **\BaconQrCode\Common\BitArray** |  |
 | `$encoding` | **string** |  |
-
-
-
 
 ***
 
@@ -645,12 +495,7 @@ Appends KANJI bytes to a bit array.
 private static appendKanjiBytes(string $content, \BaconQrCode\Common\BitArray $bits): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -658,9 +503,6 @@ private static appendKanjiBytes(string $content, \BaconQrCode\Common\BitArray $b
 |-----------|------|-------------|
 | `$content` | **string** |  |
 | `$bits` | **\BaconQrCode\Common\BitArray** |  |
-
-
-
 
 ***
 
@@ -672,12 +514,7 @@ Appends ECI information to a bit array.
 private static appendEci(\BaconQrCode\Common\CharacterSetEci $eci, \BaconQrCode\Common\BitArray $bits): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -685,9 +522,6 @@ private static appendEci(\BaconQrCode\Common\CharacterSetEci $eci, \BaconQrCode\
 |-----------|------|-------------|
 | `$eci` | **\BaconQrCode\Common\CharacterSetEci** |  |
 | `$bits` | **\BaconQrCode\Common\BitArray** |  |
-
-
-
 
 ***
 

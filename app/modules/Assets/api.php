@@ -8,7 +8,7 @@
  * )
  */
 
-$this->on('restApi.config', function($restApi) {
+$this->on('restApi.config', function ($restApi) {
 
     /**
      * @OA\Get(
@@ -84,7 +84,7 @@ $this->on('restApi.config', function($restApi) {
 
     $restApi->addEndPoint('/assets/image/{id}', [
 
-        'GET' => function($params, $app) {
+        'GET' => function ($params, $app) {
 
             $mime = $app->param('mime', 'auto');
 
@@ -93,12 +93,12 @@ $this->on('restApi.config', function($restApi) {
                 $mime = null;
 
                 if (strpos($this->app->request->headers['Accept'] ?? '', 'image/avif') !== false) {
-                    $gdinfo = \gd_info();
+                    $gdinfo = gd_info();
                     $mime = isset($gdinfo['AVIF Support']) && $gdinfo['AVIF Support'] ? 'avif' : null;
                 }
 
                 if (!$mime && strpos($app->request->headers['Accept'] ?? '', 'image/webp') !== false) {
-                    $gdinfo = \gd_info();
+                    $gdinfo = gd_info();
                     $mime = isset($gdinfo['WebP Support']) && $gdinfo['WebP Support'] ? 'webp' : null;
                 }
             }
@@ -108,7 +108,7 @@ $this->on('restApi.config', function($restApi) {
                 'fp' => $app->param('fp', null),
                 'mode' => $app->param('m', 'thumbnail'),
                 'mime' => $mime,
-                'filters' => (array) $app->param('f', []),
+                'filters' => (array)$app->param('f', []),
                 'width' => intval($app->param('w', null)),
                 'height' => intval($app->param('h', null)),
                 'quality' => intval($app->param('q:int', 80)),
@@ -161,9 +161,9 @@ $this->on('restApi.config', function($restApi) {
 
     $restApi->addEndPoint('/assets/{id}', [
 
-        'GET' => function($params, $app) {
+        'GET' => function ($params, $app) {
 
-            return  $app->dataStorage->findOne('assets', ['_id' => $params['id']]) ?? false;
+            return $app->dataStorage->findOne('assets', ['_id' => $params['id']]) ?? false;
         }
     ]);
 });

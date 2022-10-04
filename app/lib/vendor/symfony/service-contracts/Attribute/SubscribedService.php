@@ -11,6 +11,7 @@
 
 namespace Symfony\Contracts\Service\Attribute;
 
+use Attribute;
 use Symfony\Contracts\Service\ServiceSubscriberTrait;
 
 /**
@@ -19,7 +20,7 @@ use Symfony\Contracts\Service\ServiceSubscriberTrait;
  *
  * @author Kevin Bond <kevinbond@gmail.com>
  */
-#[\Attribute(\Attribute::TARGET_METHOD)]
+#[Attribute(Attribute::TARGET_METHOD)]
 final class SubscribedService
 {
     /**
@@ -28,6 +29,7 @@ final class SubscribedService
      */
     public function __construct(
         public ?string $key = null
-    ) {
+    )
+    {
     }
 }

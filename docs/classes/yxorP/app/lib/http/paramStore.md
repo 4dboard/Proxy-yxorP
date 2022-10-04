@@ -4,14 +4,9 @@
 
 A class that stores parameters.
 
-
-
 * Full name: `\yxorP\app\lib\http\paramStore`
 
-
-
 ## Properties
-
 
 ### data
 
@@ -20,11 +15,6 @@ Declaring a private variable called `$data` that is an array.
 ```php
 private array $data
 ```
-
-
-
-
-
 
 ***
 
@@ -36,15 +26,9 @@ Declaring a private variable called `$case_sensitive` that can be of any type.
 private string|array|object|null $case_sensitive
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -54,22 +38,12 @@ A constructor.
 public __construct(mixed $parameters = array(), mixed $case_sensitive): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parameters` | **mixed** |  |
 | `$case_sensitive` | **mixed** |  |
-
-
-
 
 ***
 
@@ -81,21 +55,11 @@ Replacing the data in the `$data` variable with the data in the `$data` paramete
 public replace(array $data): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **array** |  |
-
-
-
 
 ***
 
@@ -107,16 +71,6 @@ Clearing the data in the `$data` variable.
 public clear(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### set
@@ -127,13 +81,6 @@ Setting the value of the `$key` parameter to the `$value` parameter.
 public set(mixed $key, mixed $value, mixed $replace = true): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -141,9 +88,6 @@ public set(mixed $key, mixed $value, mixed $replace = true): void
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 | `$replace` | **mixed** |  |
-
-
-
 
 ***
 
@@ -155,21 +99,11 @@ Normalizing the key.
 private normalizeKey(mixed $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -181,21 +115,11 @@ Checking if the `$key` parameter is in the `$data` variable.
 public has(mixed $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -207,21 +131,11 @@ Removing the `$key` parameter from the `$data` variable.
 public remove(mixed $key): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -234,22 +148,12 @@ Getting the value of the `$key` parameter from the `$data` variable. If the `$ke
 public get(mixed $key, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -261,16 +165,6 @@ Returning the `$data` variable.
 public all(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __toString
@@ -280,16 +174,6 @@ Returning the `$data` variable as a JSON string.
 ```php
 public __toString(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

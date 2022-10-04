@@ -20,7 +20,6 @@ namespace MongoDB\Model;
 use ArrayAccess;
 use MongoDB\Exception\BadMethodCallException;
 use ReturnTypeWillChange;
-
 use function array_key_exists;
 
 /**
@@ -64,7 +63,7 @@ class DatabaseInfo implements ArrayAccess
      */
     public function getName()
     {
-        return (string) $this->info['name'];
+        return (string)$this->info['name'];
     }
 
     /**
@@ -75,7 +74,7 @@ class DatabaseInfo implements ArrayAccess
     public function getSizeOnDisk()
     {
         /* The MongoDB server might return this number as an integer or float */
-        return (integer) $this->info['sizeOnDisk'];
+        return (integer)$this->info['sizeOnDisk'];
     }
 
     /**
@@ -85,7 +84,7 @@ class DatabaseInfo implements ArrayAccess
      */
     public function isEmpty()
     {
-        return (boolean) $this->info['empty'];
+        return (boolean)$this->info['empty'];
     }
 
     /**

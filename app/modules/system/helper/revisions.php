@@ -2,31 +2,38 @@
 
 namespace System\Helper;
 
-class Revisions extends \Lime\Helper {
+use Lime\Helper;
+
+class Revisions extends Helper
+{
 
     protected $storage;
 
-    public function initialize(){
+    public function initialize()
+    {
         $this->storage = $this->app->dataStorage;
     }
 
-    public function count($id) {
+    public function count($id)
+    {
         return $this->storage->count('system/revisions', ['_oid' => $id]);
     }
 
-    public function getList(string $id, int $limit = 50, int $skip = 0) {
+    public function getList(string $id, int $limit = 50, int $skip = 0)
+    {
 
         $options = [
             'filter' => ['_oid' => $id],
-            'sort'   => ['_created' => -1],
-            'limit'  => $limit,
-            'skip'   => $skip
+            'sort' => ['_created' => -1],
+            'limit' => $limit,
+            'skip' => $skip
         ];
 
         return $this->storage->find('system/revisions', $options)->toArray();
     }
 
-    public function add($id, $data, $meta = null, $by = null, $created = null, $ref = null) {
+    public function add($id, $data, $meta = null, $by = null, $created = null, $ref = null)
+    {
 
         if ($by === true) {
 
@@ -40,7 +47,7 @@ class Revisions extends \Lime\Helper {
 
         $filtered = [];
 
-        foreach($data as $key => $value) {
+        foreach ($data as $key => $value) {
 
             if ($key[0] == '_') {
                 continue;
@@ -83,17 +90,19 @@ class Revisions extends \Lime\Helper {
         return $revision;
     }
 
-    public function get($id) {
+    public function get($id)
+    {
         return $this->storage->findOne('system/revisions', ['_oid' => $id]);
     }
 
 
-    public function latest($id) {
+    public function latest($id)
+    {
 
         $options = [
             'filter' => ['_oid' => $id],
-            'sort'   => ['_created' => -1],
-            'limit'  => 1
+            'sort' => ['_created' => -1],
+            'limit' => 1
         ];
 
         $revs = $this->storage->find('system/revisions', $options)->toArray();
@@ -101,13 +110,14 @@ class Revisions extends \Lime\Helper {
         return $revs[0] ?? null;
     }
 
-
-    public function remove($rid) {
-        return $this->storage->remove('system/revisions', ['_id' => $rid]);
+    public function removeAll($id)
+    {
+        return $this->storage->remove('system/revisions', ['_oid' => $id]);
     }
 
-    public function removeAll($id) {
-        return $this->storage->remove('system/revisions', ['_oid' => $id]);
+    public function remove($rid)
+    {
+        return $this->storage->remove('system/revisions', ['_id' => $rid]);
     }
 
 }

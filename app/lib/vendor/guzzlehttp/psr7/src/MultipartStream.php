@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace GuzzleHttp\Psr7;
 
+use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
+use UnexpectedValueException;
+use function is_string;
+use function substr;
 
 /**
  * Stream that when read returns bytes for a streaming multipart or
@@ -21,7 +25,7 @@ final class MultipartStream implements StreamInterface
     private $stream;
 
     /**
-     * @param array  $elements Array of associative arrays, each containing a
+     * @param array $elements Array of associative arrays, each containing a
      *                         required "name" key mapping to the form field,
      *                         name, a required "contents" key mapping to a
      *                         StreamInterface/resource/string, an optional
@@ -30,37 +34,12 @@ final class MultipartStream implements StreamInterface
      *                         string to send as the filename in the part.
      * @param string $boundary You can optionally provide a specific boundary
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function __construct(array $elements = [], string $boundary = null)
     {
         $this->boundary = $boundary ?: sha1(uniqid('', true));
         $this->stream = $this->createStream($elements);
-    }
-
-    public function getBoundary(): string
-    {
-        return $this->boundary;
-    }
-
-    public function isWritable(): bool
-    {
-        return false;
-    }
-
-    /**
-     * Get the headers needed before transferring the content of a POST file
-     *
-     * @param array<string, string> $headers
-     */
-    private function getHeaders(array $headers): string
-    {
-        $str = '';
-        foreach ($headers as $key => $value) {
-            $str .= "{$key}: {$value}\r\n";
-        }
-
-        return "--{$this->boundary}\r\n" . trim($str) . "\r\n\r\n";
     }
 
     /**
@@ -72,7 +51,7 @@ final class MultipartStream implements StreamInterface
 
         foreach ($elements as $element) {
             if (!is_array($element)) {
-                throw new \UnexpectedValueException("An array is expected");
+                throw new UnexpectedValueException("An array is expected");
             }
             $this->addElement($stream, $element);
         }
@@ -87,7 +66,7 @@ final class MultipartStream implements StreamInterface
     {
         foreach (['contents', 'name'] as $key) {
             if (!array_key_exists($key, $element)) {
-                throw new \InvalidArgumentException("A '{$key}' key is required");
+                throw new InvalidArgumentException("A '{$key}' key is required");
             }
         }
 
@@ -95,7 +74,7 @@ final class MultipartStream implements StreamInterface
 
         if (empty($element['filename'])) {
             $uri = $element['contents']->getMetadata('uri');
-            if ($uri && \is_string($uri) && \substr($uri, 0, 6) !== 'php://' && \substr($uri, 0, 7) !== 'data://') {
+            if ($uri && is_string($uri) && substr($uri, 0, 6) !== 'php://' && substr($uri, 0, 7) !== 'data://') {
                 $element['filename'] = $uri;
             }
         }
@@ -130,7 +109,7 @@ final class MultipartStream implements StreamInterface
         $length = $this->getHeader($headers, 'content-length');
         if (!$length) {
             if ($length = $stream->getSize()) {
-                $headers['Content-Length'] = (string) $length;
+                $headers['Content-Length'] = (string)$length;
             }
         }
 
@@ -155,5 +134,30 @@ final class MultipartStream implements StreamInterface
         }
 
         return null;
+    }
+
+    /**
+     * Get the headers needed before transferring the content of a POST file
+     *
+     * @param array<string, string> $headers
+     */
+    private function getHeaders(array $headers): string
+    {
+        $str = '';
+        foreach ($headers as $key => $value) {
+            $str .= "{$key}: {$value}\r\n";
+        }
+
+        return "--{$this->boundary}\r\n" . trim($str) . "\r\n\r\n";
+    }
+
+    public function getBoundary(): string
+    {
+        return $this->boundary;
+    }
+
+    public function isWritable(): bool
+    {
+        return false;
     }
 }

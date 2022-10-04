@@ -14,6 +14,7 @@ namespace Symfony\Component\Console\Tester;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Completion\CompletionInput;
 use Symfony\Component\Console\Completion\CompletionSuggestions;
+use function count;
 
 /**
  * Eases the testing of command completion.
@@ -34,7 +35,7 @@ class CommandCompletionTester
      */
     public function complete(array $input): array
     {
-        $currentIndex = \count($input);
+        $currentIndex = count($input);
         if ('' === end($input)) {
             array_pop($input);
         }
@@ -48,7 +49,7 @@ class CommandCompletionTester
 
         $options = [];
         foreach ($suggestions->getOptionSuggestions() as $option) {
-            $options[] = '--'.$option->getName();
+            $options[] = '--' . $option->getName();
         }
 
         return array_map('strval', array_merge($options, $suggestions->getValueSuggestions()));

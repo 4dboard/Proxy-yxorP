@@ -2,18 +2,10 @@
 
 # ObjectExtension
 
-
-
-
-
 * Full name: `\PhpDocumentorMarkdown\Extension\ObjectExtension`
 * Parent class: [`AbstractExtension`](../../Twig/Extension/AbstractExtension.md)
 
-
-
-
 ## Methods
-
 
 ### getFunctions
 
@@ -22,16 +14,6 @@
 ```php
 public getFunctions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -43,13 +25,6 @@ Add an object property.
 public addProperty(mixed $object, string $key, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -57,9 +32,6 @@ public addProperty(mixed $object, string $key, mixed $value): mixed
 | `$object` | **mixed** |  |
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 

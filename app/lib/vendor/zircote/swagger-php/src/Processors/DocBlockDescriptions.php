@@ -50,18 +50,6 @@ class DocBlockDescriptions
         }
     }
 
-    private function description($annotation): void
-    {
-        if ($annotation->description !== Generator::UNDEFINED) {
-            if ($annotation->description === null) {
-                $annotation->description = Generator::UNDEFINED;
-            }
-
-            return;
-        }
-        $annotation->description = $annotation->_context->phpdocContent();
-    }
-
     private function summaryAndDescription($annotation): void
     {
         $ignoreSummary = $annotation->summary !== Generator::UNDEFINED;
@@ -85,5 +73,17 @@ class DocBlockDescriptions
             $annotation->summary = $annotation->_context->phpdocSummary();
             $annotation->description = $annotation->_context->phpdocDescription();
         }
+    }
+
+    private function description($annotation): void
+    {
+        if ($annotation->description !== Generator::UNDEFINED) {
+            if ($annotation->description === null) {
+                $annotation->description = Generator::UNDEFINED;
+            }
+
+            return;
+        }
+        $annotation->description = $annotation->_context->phpdocContent();
     }
 }

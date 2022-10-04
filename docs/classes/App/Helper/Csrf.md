@@ -2,33 +2,16 @@
 
 # Csrf
 
-
-
-
-
 * Full name: `\App\Helper\Csrf`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
-
-
-
 ## Methods
 
-
 ### generateToken
-
-
 
 ```php
 public generateToken(string $key, ?int $expire = null): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -37,25 +20,13 @@ public generateToken(string $key, ?int $expire = null): string
 | `$key` | **string** |  |
 | `$expire` | **?int** |  |
 
-
-
-
 ***
 
 ### token
 
-
-
 ```php
 public token(string $key, bool $generate = false, ?int $expire = null): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -65,25 +36,13 @@ public token(string $key, bool $generate = false, ?int $expire = null): string
 | `$generate` | **bool** |  |
 | `$expire` | **?int** |  |
 
-
-
-
 ***
 
 ### isValid
 
-
-
 ```php
 public isValid(string $key, string $token, bool $checkpayload = false): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -93,29 +52,15 @@ public isValid(string $key, string $token, bool $checkpayload = false): bool
 | `$token` | **string** |  |
 | `$checkpayload` | **bool** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -124,45 +69,21 @@ public __construct(\Lime\App $app, mixed $context = null): mixed
 | `$app` | **\Lime\App** |  |
 | `$context` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 protected initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -171,25 +92,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -197,34 +106,19 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 

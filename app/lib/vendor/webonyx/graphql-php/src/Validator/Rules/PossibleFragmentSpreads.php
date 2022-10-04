@@ -23,12 +23,12 @@ class PossibleFragmentSpreads extends ValidationRule
     public function getVisitor(ValidationContext $context)
     {
         return [
-            NodeKind::INLINE_FRAGMENT => function (InlineFragmentNode $node) use ($context) : void {
-                $fragType   = $context->getType();
+            NodeKind::INLINE_FRAGMENT => function (InlineFragmentNode $node) use ($context): void {
+                $fragType = $context->getType();
                 $parentType = $context->getParentType();
 
-                if (! ($fragType instanceof CompositeType) ||
-                    ! ($parentType instanceof CompositeType) ||
+                if (!($fragType instanceof CompositeType) ||
+                    !($parentType instanceof CompositeType) ||
                     $this->doTypesOverlap($context->getSchema(), $fragType, $parentType)) {
                     return;
                 }
@@ -38,13 +38,13 @@ class PossibleFragmentSpreads extends ValidationRule
                     [$node]
                 ));
             },
-            NodeKind::FRAGMENT_SPREAD => function (FragmentSpreadNode $node) use ($context) : void {
-                $fragName   = $node->name->value;
-                $fragType   = $this->getFragmentType($context, $fragName);
+            NodeKind::FRAGMENT_SPREAD => function (FragmentSpreadNode $node) use ($context): void {
+                $fragName = $node->name->value;
+                $fragType = $this->getFragmentType($context, $fragName);
                 $parentType = $context->getParentType();
 
-                if (! $fragType ||
-                    ! $parentType ||
+                if (!$fragType ||
+                    !$parentType ||
                     $this->doTypesOverlap($context->getSchema(), $fragType, $parentType)
                 ) {
                     return;

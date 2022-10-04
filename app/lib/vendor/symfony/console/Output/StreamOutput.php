@@ -13,6 +13,10 @@ namespace Symfony\Component\Console\Output;
 
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Formatter\OutputFormatterInterface;
+use function function_exists;
+use function is_resource;
+use const DIRECTORY_SEPARATOR;
+use const PHP_EOL;
 
 /**
  * StreamOutput writes the output to a given stream.
@@ -32,16 +36,16 @@ class StreamOutput extends Output
     private $stream;
 
     /**
-     * @param resource                      $stream    A stream resource
-     * @param int                           $verbosity The verbosity level (one of the VERBOSITY constants in OutputInterface)
-     * @param bool|null                     $decorated Whether to decorate messages (null for auto-guessing)
+     * @param resource $stream A stream resource
+     * @param int $verbosity The verbosity level (one of the VERBOSITY constants in OutputInterface)
+     * @param bool|null $decorated Whether to decorate messages (null for auto-guessing)
      * @param OutputFormatterInterface|null $formatter Output formatter instance (null to use default OutputFormatter)
      *
      * @throws InvalidArgumentException When first argument is not a real stream
      */
     public function __construct($stream, int $verbosity = self::VERBOSITY_NORMAL, bool $decorated = null, OutputFormatterInterface $formatter = null)
     {
-        if (!\is_resource($stream) || 'stream' !== get_resource_type($stream)) {
+        if (!is_resource($stream) || 'stream' !== get_resource_type($stream)) {
             throw new InvalidArgumentException('The StreamOutput class needs a stream as its first argument.');
         }
 
@@ -52,30 +56,6 @@ class StreamOutput extends Output
         }
 
         parent::__construct($verbosity, $decorated, $formatter);
-    }
-
-    /**
-     * Gets the stream attached to this StreamOutput instance.
-     *
-     * @return resource
-     */
-    public function getStream()
-    {
-        return $this->stream;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function doWrite(string $message, bool $newline)
-    {
-        if ($newline) {
-            $message .= \PHP_EOL;
-        }
-
-        @fwrite($this->stream, $message);
-
-        fflush($this->stream);
     }
 
     /**
@@ -102,14 +82,38 @@ class StreamOutput extends Output
             return true;
         }
 
-        if (\DIRECTORY_SEPARATOR === '\\') {
-            return (\function_exists('sapi_windows_vt100_support')
-                && @sapi_windows_vt100_support($this->stream))
+        if (DIRECTORY_SEPARATOR === '\\') {
+            return (function_exists('sapi_windows_vt100_support')
+                    && @sapi_windows_vt100_support($this->stream))
                 || false !== getenv('ANSICON')
                 || 'ON' === getenv('ConEmuANSI')
                 || 'xterm' === getenv('TERM');
         }
 
         return stream_isatty($this->stream);
+    }
+
+    /**
+     * Gets the stream attached to this StreamOutput instance.
+     *
+     * @return resource
+     */
+    public function getStream()
+    {
+        return $this->stream;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function doWrite(string $message, bool $newline)
+    {
+        if ($newline) {
+            $message .= PHP_EOL;
+        }
+
+        @fwrite($this->stream, $message);
+
+        fflush($this->stream);
     }
 }

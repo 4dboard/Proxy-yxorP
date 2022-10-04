@@ -11,6 +11,10 @@
 
 namespace Symfony\Component\Finder\Comparator;
 
+use DateTime;
+use Exception;
+use InvalidArgumentException;
+
 /**
  * DateCompare compiles date comparisons.
  *
@@ -21,19 +25,19 @@ class DateComparator extends Comparator
     /**
      * @param string $test A comparison string
      *
-     * @throws \InvalidArgumentException If the test is not understood
+     * @throws InvalidArgumentException If the test is not understood
      */
     public function __construct(string $test)
     {
         if (!preg_match('#^\s*(==|!=|[<>]=?|after|since|before|until)?\s*(.+?)\s*$#i', $test, $matches)) {
-            throw new \InvalidArgumentException(sprintf('Don\'t understand "%s" as a date test.', $test));
+            throw new InvalidArgumentException(sprintf('Don\'t understand "%s" as a date test.', $test));
         }
 
         try {
-            $date = new \DateTime($matches[2]);
+            $date = new DateTime($matches[2]);
             $target = $date->format('U');
-        } catch (\Exception $e) {
-            throw new \InvalidArgumentException(sprintf('"%s" is not a valid date.', $matches[2]));
+        } catch (Exception $e) {
+            throw new InvalidArgumentException(sprintf('"%s" is not a valid date.', $matches[2]));
         }
 
         $operator = $matches[1] ?? '==';

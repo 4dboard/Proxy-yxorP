@@ -3,13 +3,15 @@
 use League\Flysystem\Filesystem;
 use League\Flysystem\MountManager;
 
-class FileStorage {
+class FileStorage
+{
 
     protected array $config = [];
     protected array $storages = [];
     protected MountManager $manager;
 
-    public function __construct(array $config = []) {
+    public function __construct(array $config = [])
+    {
 
         $this->manager = new MountManager();
 
@@ -18,7 +20,8 @@ class FileStorage {
         }
     }
 
-    public function addStorage(string $name, array $config): self {
+    public function addStorage(string $name, array $config): self
+    {
 
         $this->config[$name] = $config;
 
@@ -29,44 +32,18 @@ class FileStorage {
         return $this;
     }
 
-    public function use(string $name): ?Filesystem {
-
-        if (!isset($this->storages[$name]) && isset($this->config[$name])) {
-            $this->initStorage($name);
-        }
-
-        return $this->storages[$name] ?? null;
-    }
-
-    public function getURL(string $file): ?string {
-
-        $url = null;
-
-        list($prefix, $path) = explode('://', $file, 2);
-
-        if (isset($this->config[$prefix]['url'])) {
-
-            if (!$path) {
-                $url = $this->config[$prefix]['url'];
-            } elseif ($this->manager->fileExists($file)) {
-                $url = rtrim($this->config[$prefix]['url'], '/').'/'.ltrim($path, '/');
-            }
-        }
-
-        return $url;
-    }
-
-    protected function initStorage(string $name): Filesystem  {
+    protected function initStorage(string $name): Filesystem
+    {
 
         static $mountMethod;
 
         if (!$mountMethod) {
-            $mountMethod = new \ReflectionMethod('League\Flysystem\MountManager', 'mountFilesystem');
+            $mountMethod = new ReflectionMethod('League\Flysystem\MountManager', 'mountFilesystem');
             $mountMethod->setAccessible(true);
         }
 
         $config = $this->config[$name];
-        $adapter = new \ReflectionClass($config['adapter']);
+        $adapter = new ReflectionClass($config['adapter']);
         $this->storages[$name] = new Filesystem($adapter->newInstanceArgs($config['args'] ?: []));
 
         if (isset($config['mount']) && $config['mount']) {
@@ -76,7 +53,37 @@ class FileStorage {
         return $this->storages[$name];
     }
 
-    public function __call($name, $args) {
+    public function use(string $name): ?Filesystem
+    {
+
+        if (!isset($this->storages[$name]) && isset($this->config[$name])) {
+            $this->initStorage($name);
+        }
+
+        return $this->storages[$name] ?? null;
+    }
+
+    public function getURL(string $file): ?string
+    {
+
+        $url = null;
+
+        list($prefix, $path) = explode('://', $file, 2);
+
+        if (isset($this->config[$prefix]['url'])) {
+
+            if (!$path) {
+                $url = $this->config[$prefix]['url'];
+            } elseif ($this->fileExists($file)) {
+                $url = rtrim($this->config[$prefix]['url'], '/') . '/' . ltrim($path, '/');
+            }
+        }
+
+        return $url;
+    }
+
+    public function __call($name, $args)
+    {
 
         return call_user_func_array([$this->manager, $name], $args);
     }

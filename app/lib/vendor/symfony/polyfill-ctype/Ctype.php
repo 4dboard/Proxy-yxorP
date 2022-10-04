@@ -11,6 +11,12 @@
 
 namespace Symfony\Polyfill\Ctype;
 
+use function chr;
+use function is_int;
+use function is_string;
+use const E_USER_DEPRECATED;
+use const PHP_VERSION_ID;
+
 /**
  * Ctype implementation through regex.
  *
@@ -33,7 +39,41 @@ final class Ctype
     {
         $text = self::convert_int_to_char_for_ctype($text, __FUNCTION__);
 
-        return \is_string($text) && '' !== $text && !preg_match('/[^A-Za-z0-9]/', $text);
+        return is_string($text) && '' !== $text && !preg_match('/[^A-Za-z0-9]/', $text);
+    }
+
+    /**
+     * Converts integers to their char versions according to normal ctype behaviour, if needed.
+     *
+     * If an integer between -128 and 255 inclusive is provided,
+     * it is interpreted as the ASCII value of a single character
+     * (negative values have 256 added in order to allow characters in the Extended ASCII range).
+     * Any other integer is interpreted as a string containing the decimal digits of the integer.
+     *
+     * @param mixed $int
+     * @param string $function
+     *
+     * @return mixed
+     */
+    private static function convert_int_to_char_for_ctype($int, $function)
+    {
+        if (!is_int($int)) {
+            return $int;
+        }
+
+        if ($int < -128 || $int > 255) {
+            return (string)$int;
+        }
+
+        if (PHP_VERSION_ID >= 80100) {
+            @trigger_error($function . '(): Argument of type int will be interpreted as string in the future', E_USER_DEPRECATED);
+        }
+
+        if ($int < 0) {
+            $int += 256;
+        }
+
+        return chr($int);
     }
 
     /**
@@ -49,7 +89,7 @@ final class Ctype
     {
         $text = self::convert_int_to_char_for_ctype($text, __FUNCTION__);
 
-        return \is_string($text) && '' !== $text && !preg_match('/[^A-Za-z]/', $text);
+        return is_string($text) && '' !== $text && !preg_match('/[^A-Za-z]/', $text);
     }
 
     /**
@@ -65,7 +105,7 @@ final class Ctype
     {
         $text = self::convert_int_to_char_for_ctype($text, __FUNCTION__);
 
-        return \is_string($text) && '' !== $text && !preg_match('/[^\x00-\x1f\x7f]/', $text);
+        return is_string($text) && '' !== $text && !preg_match('/[^\x00-\x1f\x7f]/', $text);
     }
 
     /**
@@ -81,7 +121,7 @@ final class Ctype
     {
         $text = self::convert_int_to_char_for_ctype($text, __FUNCTION__);
 
-        return \is_string($text) && '' !== $text && !preg_match('/[^0-9]/', $text);
+        return is_string($text) && '' !== $text && !preg_match('/[^0-9]/', $text);
     }
 
     /**
@@ -97,7 +137,7 @@ final class Ctype
     {
         $text = self::convert_int_to_char_for_ctype($text, __FUNCTION__);
 
-        return \is_string($text) && '' !== $text && !preg_match('/[^!-~]/', $text);
+        return is_string($text) && '' !== $text && !preg_match('/[^!-~]/', $text);
     }
 
     /**
@@ -113,7 +153,7 @@ final class Ctype
     {
         $text = self::convert_int_to_char_for_ctype($text, __FUNCTION__);
 
-        return \is_string($text) && '' !== $text && !preg_match('/[^a-z]/', $text);
+        return is_string($text) && '' !== $text && !preg_match('/[^a-z]/', $text);
     }
 
     /**
@@ -129,7 +169,7 @@ final class Ctype
     {
         $text = self::convert_int_to_char_for_ctype($text, __FUNCTION__);
 
-        return \is_string($text) && '' !== $text && !preg_match('/[^ -~]/', $text);
+        return is_string($text) && '' !== $text && !preg_match('/[^ -~]/', $text);
     }
 
     /**
@@ -145,7 +185,7 @@ final class Ctype
     {
         $text = self::convert_int_to_char_for_ctype($text, __FUNCTION__);
 
-        return \is_string($text) && '' !== $text && !preg_match('/[^!-\/\:-@\[-`\{-~]/', $text);
+        return is_string($text) && '' !== $text && !preg_match('/[^!-\/\:-@\[-`\{-~]/', $text);
     }
 
     /**
@@ -161,7 +201,7 @@ final class Ctype
     {
         $text = self::convert_int_to_char_for_ctype($text, __FUNCTION__);
 
-        return \is_string($text) && '' !== $text && !preg_match('/[^\s]/', $text);
+        return is_string($text) && '' !== $text && !preg_match('/[^\s]/', $text);
     }
 
     /**
@@ -177,7 +217,7 @@ final class Ctype
     {
         $text = self::convert_int_to_char_for_ctype($text, __FUNCTION__);
 
-        return \is_string($text) && '' !== $text && !preg_match('/[^A-Z]/', $text);
+        return is_string($text) && '' !== $text && !preg_match('/[^A-Z]/', $text);
     }
 
     /**
@@ -193,40 +233,6 @@ final class Ctype
     {
         $text = self::convert_int_to_char_for_ctype($text, __FUNCTION__);
 
-        return \is_string($text) && '' !== $text && !preg_match('/[^A-Fa-f0-9]/', $text);
-    }
-
-    /**
-     * Converts integers to their char versions according to normal ctype behaviour, if needed.
-     *
-     * If an integer between -128 and 255 inclusive is provided,
-     * it is interpreted as the ASCII value of a single character
-     * (negative values have 256 added in order to allow characters in the Extended ASCII range).
-     * Any other integer is interpreted as a string containing the decimal digits of the integer.
-     *
-     * @param mixed  $int
-     * @param string $function
-     *
-     * @return mixed
-     */
-    private static function convert_int_to_char_for_ctype($int, $function)
-    {
-        if (!\is_int($int)) {
-            return $int;
-        }
-
-        if ($int < -128 || $int > 255) {
-            return (string) $int;
-        }
-
-        if (\PHP_VERSION_ID >= 80100) {
-            @trigger_error($function.'(): Argument of type int will be interpreted as string in the future', \E_USER_DEPRECATED);
-        }
-
-        if ($int < 0) {
-            $int += 256;
-        }
-
-        return \chr($int);
+        return is_string($text) && '' !== $text && !preg_match('/[^A-Fa-f0-9]/', $text);
     }
 }

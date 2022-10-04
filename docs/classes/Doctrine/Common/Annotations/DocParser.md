@@ -10,10 +10,7 @@ It is strongly discouraged to change the default annotation parsing process.
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
-
-
 ## Properties
-
 
 ### classIdentifiers
 
@@ -23,10 +20,7 @@ An array of all valid tokens for a class name.
 private static $classIdentifiers
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -38,11 +32,6 @@ The lexer.
 private \Doctrine\Common\Annotations\DocLexer $lexer
 ```
 
-
-
-
-
-
 ***
 
 ### target
@@ -52,11 +41,6 @@ Current target context.
 ```php
 private int $target
 ```
-
-
-
-
-
 
 ***
 
@@ -68,10 +52,7 @@ Doc parser used to collect annotation target.
 private static \Doctrine\Common\Annotations\DocParser $metadataParser
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -82,11 +63,6 @@ Flag to control if the current annotation is nested or not.
 ```php
 private bool $isNestedAnnotation
 ```
-
-
-
-
-
 
 ***
 
@@ -99,11 +75,6 @@ the given doc block.
 private array&lt;string,class-string&gt; $imports
 ```
 
-
-
-
-
-
 ***
 
 ### classExists
@@ -115,11 +86,6 @@ look-ups.
 private array&lt;class-string,bool&gt; $classExists
 ```
 
-
-
-
-
-
 ***
 
 ### ignoreNotImportedAnnotations
@@ -130,11 +96,6 @@ Whether annotations that have not been imported should be ignored.
 private bool $ignoreNotImportedAnnotations
 ```
 
-
-
-
-
-
 ***
 
 ### namespaces
@@ -144,11 +105,6 @@ An array of default namespaces if operating in simple mode.
 ```php
 private string[] $namespaces
 ```
-
-
-
-
-
 
 ***
 
@@ -176,25 +132,13 @@ that are not causing exceptions when not resolved to an annotation class.
 private bool[] $ignoredAnnotationNamespaces
 ```
 
-
-
-
-
-
 ***
 
 ### context
 
-
-
 ```php
 private string $context
 ```
-
-
-
-
-
 
 ***
 
@@ -206,10 +150,7 @@ Hash-map for caching annotation metadata.
 private static array&lt;class-string,array&gt; $annotationMetadata
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -221,15 +162,11 @@ Hash-map for handle types declaration.
 private static array&lt;string,string&gt; $typeMap
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -238,16 +175,6 @@ Constructs a new DocParser.
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -262,19 +189,11 @@ public setIgnoredAnnotationNames(bool[] $names): void
 The names are supposed to be the raw names as used in the class, not the
 fully qualified class names.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$names` | **bool[]** | indexed by annotation name |
-
-
-
 
 ***
 
@@ -286,21 +205,11 @@ Sets the annotation namespaces that are ignored during the parsing process.
 public setIgnoredAnnotationNamespaces(bool[] $ignoredAnnotationNamespaces): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ignoredAnnotationNamespaces` | **bool[]** | indexed by annotation namespace name |
-
-
-
 
 ***
 
@@ -312,21 +221,11 @@ Sets ignore on not-imported annotations.
 public setIgnoreNotImportedAnnotations(bool $bool): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$bool` | **bool** |  |
-
-
-
 
 ***
 
@@ -338,21 +237,11 @@ Sets the default namespaces.
 public addNamespace(string $namespace): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** |  |
-
-
-
 
 ***
 
@@ -364,21 +253,11 @@ Sets the imports.
 public setImports(array&lt;string,class-string&gt; $imports): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$imports` | **array<string,class-string>** |  |
-
-
-
 
 ***
 
@@ -390,21 +269,11 @@ Sets current target context as bitmask.
 public setTarget(int $target): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$target` | **int** |  |
-
-
-
 
 ***
 
@@ -416,22 +285,12 @@ Parses the given docblock string for annotations.
 public parse(string $input, string $context = &#039;&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **string** | The docblock string to parse. |
 | `$context` | **string** | The parsing context. |
-
-
-
 
 ***
 
@@ -443,21 +302,11 @@ Finds the first valid annotation
 private findInitialTokenPosition(string $input): ?int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **string** | The docblock string to parse |
-
-
-
 
 ***
 
@@ -471,17 +320,11 @@ private match(int $token): bool
 
 If they match, updates the lookahead token; otherwise raises a syntax error.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **int** | Type of token. |
-
 
 **Return Value:**
 
@@ -502,19 +345,11 @@ private matchAny(array $tokens): bool
 If any of them matches, this method updates the lookahead token; otherwise
 a syntax error is raised.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tokens` | **array** |  |
-
-
-
 
 ***
 
@@ -526,22 +361,12 @@ Generates a new syntax error.
 private syntaxError(string $expected, array|null $token = null): \Doctrine\Common\Annotations\AnnotationException
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$expected` | **string** | Expected string. |
 | `$token` | **array&#124;null** | Optional token. |
-
-
-
 
 ***
 
@@ -554,21 +379,11 @@ but uses the {@link AnnotationRegistry} to load classes.
 private classExists(class-string $fqcn): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fqcn` | **class-string** |  |
-
-
-
 
 ***
 
@@ -580,21 +395,11 @@ Collects parsing metadata for a given annotation class
 private collectAnnotationMetadata(class-string $name): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **class-string** | The annotation name |
-
-
-
 
 ***
 
@@ -606,22 +411,12 @@ Collects parsing metadata for a given attribute.
 private collectAttributeTypeMetadata(array& $metadata, \Doctrine\Common\Annotations\Annotation\Attribute $attribute): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$metadata` | **array** |  |
 | `$attribute` | **\Doctrine\Common\Annotations\Annotation\Attribute** |  |
-
-
-
 
 ***
 
@@ -632,16 +427,6 @@ Annotations ::= Annotation {[ "*" ]* [Annotation]}*
 ```php
 private Annotations(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -656,14 +441,6 @@ SimpleName     ::= identifier | null | false | true
 ```php
 private Annotation(): object|false
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -681,16 +458,6 @@ MethodCall ::= ["(" [Values] ")"]
 private MethodCall(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### Values
@@ -700,16 +467,6 @@ Values ::= Array | Value {"," Value}* [","]
 ```php
 private Values(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -721,93 +478,47 @@ Constant ::= integer | string | float | boolean
 private Constant(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### identifierStartsWithBackslash
-
-
 
 ```php
 private identifierStartsWithBackslash(string $identifier): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$identifier` | **string** |  |
-
-
-
 
 ***
 
 ### identifierEndsWithClassConstant
 
-
-
 ```php
 private identifierEndsWithClassConstant(string $identifier): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$identifier` | **string** |  |
-
-
-
 
 ***
 
 ### getClassConstantPositionInIdentifier
 
-
-
 ```php
 private getClassConstantPositionInIdentifier(string $identifier): int|false
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$identifier` | **string** |  |
-
-
-
 
 ***
 
@@ -819,16 +530,6 @@ Identifier ::= string
 private Identifier(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### Value
@@ -839,16 +540,6 @@ Value ::= PlainValue | FieldAssignment
 private Value(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### PlainValue
@@ -858,16 +549,6 @@ PlainValue ::= integer | string | float | boolean | Array | Annotation
 ```php
 private PlainValue(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -880,16 +561,6 @@ FieldName ::= identifier
 private FieldAssignment(): \stdClass
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### Arrayx
@@ -899,16 +570,6 @@ Array ::= "{" ArrayEntry {"," ArrayEntry}* [","] "}"
 ```php
 private Arrayx(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -922,16 +583,6 @@ Key ::= string | integer | Constant
 private ArrayEntry(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isIgnoredAnnotation
@@ -942,21 +593,11 @@ Checks whether the given $name matches any ignored annotation name or namespace
 private isIgnoredAnnotation(string $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -968,22 +609,12 @@ Resolve positional arguments (without name) to named ones
 private resolvePositionalValues(array&lt;string,mixed&gt; $arguments, string $name): array&lt;string,mixed&gt;
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$arguments` | **array<string,mixed>** |  |
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -995,13 +626,6 @@ Try to instantiate the annotation and catch and process any exceptions related t
 private instantiateAnnotiation(string $originalName, string $context, class-string $name, array&lt;string,mixed&gt; $arguments): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1010,9 +634,6 @@ private instantiateAnnotiation(string $originalName, string $context, class-stri
 | `$context` | **string** |  |
 | `$name` | **class-string** |  |
 | `$arguments` | **array<string,mixed>** |  |
-
-
-
 
 ***
 

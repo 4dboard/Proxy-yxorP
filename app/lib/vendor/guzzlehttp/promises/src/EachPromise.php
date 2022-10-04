@@ -2,6 +2,10 @@
 
 namespace GuzzleHttp\Promise;
 
+use Exception;
+use Iterator;
+use Throwable;
+
 /**
  * Represents a promise that iterates over many promises and invokes
  * side-effect functions in the process.
@@ -12,7 +16,7 @@ class EachPromise implements PromisorInterface
 
     private $nextPendingIndex = 0;
 
-    /** @var \Iterator|null */
+    /** @var Iterator|null */
     private $iterable;
 
     /** @var callable|int|null */
@@ -49,7 +53,7 @@ class EachPromise implements PromisorInterface
      *   creating a capped pool of promises. There is no limit by default.
      *
      * @param mixed $iterable Promises or values to iterate.
-     * @param array $config   Configuration options
+     * @param array $config Configuration options
      */
     public function __construct($iterable, array $config = [])
     {
@@ -80,9 +84,17 @@ class EachPromise implements PromisorInterface
             /** @psalm-assert Promise $this->aggregate */
             $this->iterable->rewind();
             $this->refillPending();
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
+            /**
+             * @psalm-suppress NullReference
+             * @phpstan-ignore-next-line
+             */
             $this->aggregate->reject($e);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
+            /**
+             * @psalm-suppress NullReference
+             * @phpstan-ignore-next-line
+             */
             $this->aggregate->reject($e);
         }
 
@@ -122,11 +134,22 @@ class EachPromise implements PromisorInterface
         $this->aggregate->then($clearFn, $clearFn);
     }
 
+    private function checkIfFinished()
+    {
+        if (!$this->pending && !$this->iterable->valid()) {
+            // Resolve the promise if there's nothing left to do.
+            $this->aggregate->resolve(null);
+            return true;
+        }
+
+        return false;
+    }
+
     private function refillPending()
     {
         if (!$this->concurrency) {
             // Add all pending promises.
-            while ($this->addPending() && $this->advanceIterator());
+            while ($this->addPending() && $this->advanceIterator()) ;
             return;
         }
 
@@ -147,7 +170,7 @@ class EachPromise implements PromisorInterface
         // next value to yield until promise callbacks are called.
         while (--$concurrency
             && $this->advanceIterator()
-            && $this->addPending());
+            && $this->addPending()) ;
     }
 
     private function addPending()
@@ -191,31 +214,6 @@ class EachPromise implements PromisorInterface
         return true;
     }
 
-    private function advanceIterator()
-    {
-        // Place a lock on the iterator so that we ensure to not recurse,
-        // preventing fatal generator errors.
-        if ($this->mutex) {
-            return false;
-        }
-
-        $this->mutex = true;
-
-        try {
-            $this->iterable->next();
-            $this->mutex = false;
-            return true;
-        } catch (\Throwable $e) {
-            $this->aggregate->reject($e);
-            $this->mutex = false;
-            return false;
-        } catch (\Exception $e) {
-            $this->aggregate->reject($e);
-            $this->mutex = false;
-            return false;
-        }
-    }
-
     private function step($idx)
     {
         // If the promise was already resolved, then ignore this step.
@@ -234,14 +232,28 @@ class EachPromise implements PromisorInterface
         }
     }
 
-    private function checkIfFinished()
+    private function advanceIterator()
     {
-        if (!$this->pending && !$this->iterable->valid()) {
-            // Resolve the promise if there's nothing left to do.
-            $this->aggregate->resolve(null);
-            return true;
+        // Place a lock on the iterator so that we ensure to not recurse,
+        // preventing fatal generator errors.
+        if ($this->mutex) {
+            return false;
         }
 
-        return false;
+        $this->mutex = true;
+
+        try {
+            $this->iterable->next();
+            $this->mutex = false;
+            return true;
+        } catch (Throwable $e) {
+            $this->aggregate->reject($e);
+            $this->mutex = false;
+            return false;
+        } catch (Exception $e) {
+            $this->aggregate->reject($e);
+            $this->mutex = false;
+            return false;
+        }
     }
 }

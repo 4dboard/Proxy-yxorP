@@ -17,32 +17,16 @@ use OpenApi\Generator;
 class ExternalDocumentation extends AbstractAnnotation
 {
     /**
-     * A short description of the target documentation. GFM syntax can be used for rich text representation.
-     *
-     * @var string
-     */
-    public $description = Generator::UNDEFINED;
-
-    /**
-     * The URL for the target documentation.
-     *
-     * @var string
-     */
-    public $url = Generator::UNDEFINED;
-
-    /**
      * @inheritdoc
      */
     public static $_types = [
         'description' => 'string',
         'url' => 'string',
     ];
-
     /**
      * @inheritdoc
      */
     public static $_required = ['url'];
-
     /**
      * @inheritdoc
      */
@@ -65,11 +49,22 @@ class ExternalDocumentation extends AbstractAnnotation
         JsonContent::class,
         XmlContent::class,
     ];
-
     /**
      * @inheritdoc
      */
     public static $_nested = [
         Attachable::class => ['attachables'],
     ];
+    /**
+     * A short description of the target documentation. GFM syntax can be used for rich text representation.
+     *
+     * @var string
+     */
+    public $description = Generator::UNDEFINED;
+    /**
+     * The URL for the target documentation.
+     *
+     * @var string
+     */
+    public $url = Generator::UNDEFINED;
 }

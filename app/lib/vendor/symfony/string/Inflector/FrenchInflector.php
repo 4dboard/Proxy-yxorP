@@ -100,7 +100,7 @@ final class FrenchInflector implements InflectorInterface
         ['/^mes(sieur|seigneur)s$/', 'mon\1'],
         ['/^Mes(sieur|seigneur)s$/', 'Mon\1'],
 
-        // Default rule
+        //Default rule
         ['/s$/i', ''],
     ];
 
@@ -130,6 +130,11 @@ final class FrenchInflector implements InflectorInterface
         return [$plural];
     }
 
+    private function isInflectedWord(string $word): bool
+    {
+        return 1 === preg_match(self::UNINFLECTED, $word);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -147,11 +152,6 @@ final class FrenchInflector implements InflectorInterface
             }
         }
 
-        return [$singular.'s'];
-    }
-
-    private function isInflectedWord(string $word): bool
-    {
-        return 1 === preg_match(self::UNINFLECTED, $word);
+        return [$singular . 's'];
     }
 }

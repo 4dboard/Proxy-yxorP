@@ -1,7 +1,6 @@
-
 export let FieldTypes = {
 
-    _fields : null,
+    _fields: null,
 
     async get() {
 
@@ -11,9 +10,9 @@ export let FieldTypes = {
 
         Object.keys(VueView.components).forEach((c, match, promise) => {
 
-            match = /^field\-(.*)/.test(c);
+            match = c.match(/^field\-(.*)/);
 
-            if (match && typeof(VueView.components[c]) === 'string') {
+            if (match && typeof (VueView.components[c]) == 'string') {
 
                 promises.push(App.utils.import(VueView.components[c]).then(def => {
 

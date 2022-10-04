@@ -40,7 +40,7 @@ export default {
                 _diff = Diff.diffChars(JSON.stringify(this.selectedRev.data[key], null, ' '), JSON.stringify(this.current[key], null, ' '));
                 _diffhtml = '';
 
-                for (let i=0; i < _diff.length; i++) {
+                for (let i = 0; i < _diff.length; i++) {
 
                     if (_diff[i].added && _diff[i + 1] && _diff[i + 1].removed) {
                         let swap = _diff[i];
@@ -49,9 +49,9 @@ export default {
                     }
 
                     if (_diff[i].removed) {
-                        _diffhtml += '<del>'+_diff[i].value+'</del>';
+                        _diffhtml += '<del>' + _diff[i].value + '</del>';
                     } else if (_diff[i].added) {
-                        _diffhtml += '<ins>'+_diff[i].value+'</ins>';
+                        _diffhtml += '<ins>' + _diff[i].value + '</ins>';
                     } else {
                         _diffhtml += _diff[i].value;
                     }
