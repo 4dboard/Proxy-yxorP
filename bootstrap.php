@@ -10,8 +10,8 @@ namespace yxorP;
 
 use yxorP\app\lib\yP;
 
-require __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'yP.php';
-require __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'http' . DIRECTORY_SEPARATOR . 'store.php';
+require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'yP.php';
+require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'http' . DIRECTORY_SEPARATOR . 'store.php';
 
 /**
  *  Proxy to the yxorP::proxy() method.
@@ -19,4 +19,4 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'lib' . DI
  *  Calling the `proxy()` method of the `yxorP` class.
  */
 
-new yP(__DIR__);
+new yP(dirname(__FILE__));

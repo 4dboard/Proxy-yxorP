@@ -62,7 +62,7 @@ class ResponseCache extends \Lime\Helper {
 
                 $this->trigger('app.response.cache.after');
 
-                return $this->stop();
+                $this->stop();
             });
 
             return true;
@@ -80,7 +80,7 @@ class ResponseCacheFileHandler extends \Lime\AppAware {
 
         $this->app->fileStorage->write("cache://{$hash}", '<?php return '.var_export([
             'mime' => $response->mime,
-            'eol' => (time() + $this->retrieve('response/cache/duration', 60)),
+            'eol' => (time() + $this->app->retrieve('response/cache/duration', 60)),
             'contents' => is_object($response->body) ? json_decode(json_encode($response->body), true) : $response->body
         ], true ).';');
     }
@@ -113,7 +113,7 @@ class ResponseCacheMemoryeHandler extends \Lime\AppAware {
 
         $this->app->memory->set($hash, [
             'mime' => $response->mime,
-            'eol' => (time() + $this->retrieve('response/cache/duration', 60)),
+            'eol' => (time() + $this->app->retrieve('response/cache/duration', 60)),
             'contents' => is_object($response->body) ? json_decode(json_encode($response->body), true) : $response->body
         ]);
     }

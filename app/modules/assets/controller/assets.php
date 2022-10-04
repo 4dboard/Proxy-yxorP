@@ -176,8 +176,6 @@ class Assets extends App {
 
         $asset = $result['assets'][0];
 
-        $this->app->trigger('assets.asset.update', [&$asset]);
-
         return $asset;
     }
 
@@ -215,6 +213,10 @@ class Assets extends App {
             '_p' => $parent,
             '_by' => $this->helper('auth')->getUser('_id'),
         ]);
+
+        if (!$this->isAllowed(!isset($folder['_id']) ? 'assets/folders/create' : 'assets/folders/edit')) {
+            return $this->stop(['error' => 'Editing folder not allowed'], 401);
+        }
 
         $folder['name'] = $name;
 

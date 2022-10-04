@@ -1,7 +1,7 @@
 
 :root {
     --kiss-base-font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    --kiss-base-background-color: #000000;
+    --kiss-base-background-color: #131720;
     --kiss-base-text-color: #fafafa;
     --kiss-base-font-size: 15px;
     --kiss-font-size-1: 2rem;
@@ -15,7 +15,7 @@
 
     --kiss-color-alternate: var(--kiss-base-text-color);
     --kiss-color-contrast: #10131a;
-    --kiss-color-primary: #5f0087;
+    --kiss-color-primary: #0e8fff;
     --kiss-color-success: #4caf50;
     --kiss-color-warning: orange;
     --kiss-color-danger: #f91941;
@@ -57,7 +57,7 @@
 
     --kiss-breadcrumbs-size: 11px;
     --kiss-table-heading-background-color: #171b24;
-    --kiss-table-row-hover-color: #000000;
+    --kiss-table-row-hover-color: #222;
 }
 
 [kiss-container="medium"],
@@ -226,8 +226,8 @@ kiss-card[hover="shadow"]:hover {
 
 kiss-card[theme*="contrast"],
 kiss-card[hover*="contrast"]:hover {
-    background: var(--kiss-card-theme-contrast-color, #5f0087);
-    background: var(--kiss-card-theme-contrast-color, #5f0087);
+    background: var(--kiss-card-theme-contrast-color, #141923);
+    background: var(--kiss-card-theme-contrast-color, #171d28);
 }
 
 .kiss-button-group {

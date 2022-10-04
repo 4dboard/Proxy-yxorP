@@ -41,7 +41,7 @@ app-loader[mode="orbit"] div div:nth-child(1) {
     left: 0;
     width: 50%;
     height: 50%;
-    background: var(--app-loader-color1, #5f0087);
+    background: var(--app-loader-color1, #0e8fff);
     animation: app-loader-orbit-pulse 1000ms infinite ease alternate;
     animation-delay: 0;
 }
@@ -74,7 +74,7 @@ app-loader[mode="orbit"] div div:nth-child(4) {
     left: 50%;
     width: 50%;
     height: 50%;
-    background: var(--app-loader-color4, #5f0087);
+    background: var(--app-loader-color4, #0e8fff);
     animation: app-loader-orbit-pulse 1000ms infinite ease alternate;
     animation-delay: 750ms;
 }

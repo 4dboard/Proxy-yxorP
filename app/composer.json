@@ -1,0 +1,50 @@
+{
+
+    "name": "cockpit-hq/cockpit",
+    "type": "project",
+    "description": "Cockpit Content Platform",
+    "keywords": ["cms", "headless", "api", "cockpit"],
+    "homepage": "https://getcockpit.com/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Artur Heinze",
+            "email": "artur@agentejo.com"
+        }
+    ],
+
+    "scripts": {
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "php -S localhost:8080 index.php"
+        ]
+    },
+
+    "require": {
+        "php": "^8.0.0",
+        "ext-json": "*",
+        "phpmailer/phpmailer": "^6.4",
+        "claviska/simpleimage": "^3.6",
+        "league/flysystem": "^3.0",
+        "firebase/php-jwt": "^6.0",
+        "mongodb/mongodb": "^1.10",
+        "maennchen/zipstream-php": "^0.5.2",
+        "colinodell/json5": "^2.2",
+        "robthree/twofactorauth": "^1.8",
+        "bacon/bacon-qr-code": "^2.0",
+        "symfony/polyfill-mbstring": "^1.22",
+        "symfony/polyfill-php81": "^1.22",
+        "webonyx/graphql-php": "^14.6",
+        "zircote/swagger-php": "^3.2",
+        "guzzlehttp/guzzle": "^7.0",
+        "symfony/console": "^5.3"
+    },
+
+    "config": {
+        "vendor-dir": "lib/vendor",
+        "optimize-autoloader": true,
+        "prefer-dist": true,
+        "lock": false,
+        "ignore-platform-reqs": true
+    }
+}
