@@ -19,9 +19,10 @@ class onWriteAction extends wrapper
     public function onWrite(): void
     {
         /* Getting the response body from the `VAR_RESPONSE` variable. */
-        $content = store::handler(VAR_RESPONSE)->getBody();
+        $content = store::handler(VAR_RESPONSE) ? store::handler(VAR_RESPONSE)->getBody() : null;
+
         /* Checking if the MIME type is HTML. */
-        if (helpers::MIME() === VAR_TEXT_HTML) {
+        if ($content && helpers::MIME() === VAR_TEXT_HTML) {
 
             $css = [];
             $styles = null;
@@ -61,9 +62,9 @@ class onWriteAction extends wrapper
 
         /* Checking if the response is not empty and if the MIME type is HTML, JavaScript, CSS, XML, text or HTML. If it
         is, it will cache the response. */
-        if (!store::handler(YXORP_CONTENT) && store::handler(VAR_RESPONSE)) {
+        if ($content && !store::handler(YXORP_CONTENT) && store::handler(VAR_RESPONSE)) {
 
-            if ((store::handler(VAR_RESPONSE)) && (helpers::MIME() === VAR_TEXT_HTML
+            if ($content && (helpers::MIME() === VAR_TEXT_HTML
                     || helpers::MIME() === 'application/javascript'
                     || helpers::MIME() === 'text/css'
                     || helpers::MIME() === 'application/xml'
@@ -102,6 +103,10 @@ class onWriteAction extends wrapper
 
                 $content = (minify::createDefault())->process(str_ireplace($search, $replace, preg_replace($psearch, $preplace, $content)));
             }
+
+            /**
+             * Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. Importing the `minify` class from the `yxorP\app\lib\minify` namespace.   Extending the `wrapper` class.
+             */
 
             echo store::handler(YXORP_CONTENT, $content);
 

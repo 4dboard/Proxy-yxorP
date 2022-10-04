@@ -15,7 +15,7 @@ class Models extends App {
 
         $type = $this->param('type', 'collection');
 
-        if (!\in_array($type, ['collection', 'tree', 'singleton'])) {
+        if (!\in_array($type, ['collection', 'singleton'])) {
             $type = 'collection';
         }
 
@@ -27,8 +27,7 @@ class Models extends App {
             'color' => null,
             'revisions' => false,
             'fields' => [],
-            'preview' => [],
-            'meta' => null
+            'preview' => []
         ];
 
         $isUpdate = false;
@@ -150,7 +149,7 @@ class Models extends App {
 
             $current = null;
 
-            if (in_array($model['type'], ['collection', 'tree'])) {
+            if ($model['type'] == 'collection') {
                 $current = $this->module('content')->item($model['name'], ['_id' => $item['_id']]);
             } else {
                 $current = $this->module('content')->item($model['name']);

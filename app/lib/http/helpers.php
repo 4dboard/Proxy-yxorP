@@ -1,9 +1,9 @@
 <?php namespace yxorP\app\lib\http;
 
 use App;
+use Cockpit;
 use yxorP;
 use yxorP\app\lib\proxy\client;
-use yxorP\app\lib\proxy\cookie\fileCookieJar;
 
 
 /**
@@ -330,14 +330,14 @@ class helpers
      */
     public static function define(?array $request): void
     {
-        date_default_timezone_set('UTC');
-        define('APP_START_TIME', microtime(true));
+        \date_default_timezone_set('UTC');
+        define('APP_START_TIME', \microtime(true));
         define('APP_ADMIN', true);
         require(PATH_SITE_BOOTSTRAP);
         /**
          * Storing the app object in the cache store.
          */
-        store::handler(YXORP_APP, \Cockpit::instance());
+        store::handler(YXORP_APP, Cockpit::instance());
 
         /**
          * Reading the file and then calling the env function on each line.
@@ -397,10 +397,9 @@ class helpers
         /**
          * Defining constants.
          */
-
         define('YXORP_PROXY_URL', VAR_FETCH . YXORP_REQUEST_URI);
 
-        define('YXORP_DIR_FULL', DIR_ROOT . DIR_OVERRIDE . str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
+        define('YXORP_DIR_FULL', DIR_ROOT . DIR_OVERRIDE . \str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
 
         /**
          * Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the
@@ -412,11 +411,10 @@ class helpers
          * Setting the pattern, replace, and plugins variables.
          */
         foreach ([YXORP_GLOBAL_PATTERN => VAR_PATTERN, YXORP_GLOBAL_REPLACE => VAR_REPLACE, YXORP_GLOBAL_CSS => VAR_CSS, YXORP_GLOBAL_JS => VAR_JS] as $key => $value) store::handler($key, store::handler(SITE_DETAILS_GLOBAL, store::handler(YXORP_APP)->dataStorage->findOne(SITE_CONTENT . CHAR_SLASH . SITE_SINGLETONS, [SITE_MODULE => SITE_SETTINGS]))[$value]);
-        if (!is_file(PATH_COOKIE_JAR)) file_put_contents(PATH_COOKIE_JAR, '[]');     // Save our content to the file.
         /**
          * Loading the Proxy Snag class.
          */
-        store::handler(VAR_PROXY, new client([VAR_COOKIES => new fileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_IDN_CONVERSION => true]));
+        store::handler(VAR_PROXY, new client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_IDN_CONVERSION => true]));
 
 
     }

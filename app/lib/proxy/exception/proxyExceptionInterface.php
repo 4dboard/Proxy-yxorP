@@ -2,6 +2,6 @@
 
 use Throwable;
 
-interface proxyException extends Throwable
+interface proxyExceptionInterface extends Throwable
 {
 }

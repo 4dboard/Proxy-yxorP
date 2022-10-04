@@ -7,7 +7,9 @@ use yxorP\app\lib\psr\http\message\responseInterface;
 use yxorP\app\lib\psr\http\message\uriInterface;
 use function yxorP\app\lib\proxy\psr7\get_message_body_summary;
 
-class aRequestException extends transferExceptionInterface
+require_once('aaTransferException.php');
+
+class aRequestException extends aaTransferException
 {
     private $request;
     private $response;

@@ -41,13 +41,6 @@ class rejectedPromise implements promiseInterface
         return $p;
     }
 
-    public function wait($unwrap = true, $defaultDelivery = null)
-    {
-        if ($unwrap) {
-            throw exception_for($this->reason);
-        }
-    }
-
     public function getState()
     {
         return self::REJECTED;
@@ -62,6 +55,13 @@ class rejectedPromise implements promiseInterface
     {
         if ($reason !== $this->reason) {
             throw new LogicException("Cannot reject a rejected promise");
+        }
+    }
+
+    public function wait($unwrap = true, $defaultDelivery = null)
+    {
+        if ($unwrap) {
+            throw exception_for($this->reason);
         }
     }
 
