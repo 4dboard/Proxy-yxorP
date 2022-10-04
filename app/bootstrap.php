@@ -9,7 +9,10 @@ if (!defined('APP_ADMIN')) define('APP_ADMIN', false);
 define('APP_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
 
 // Autoload vendor libs
-include_once(__DIR__.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php');
+include_once(__DIR__.'/lib/_autoload.php');
+
+// load .env file if exists
+DotEnv::load(APP_DIR);
 
 /*
  * Autoload from lib folder (PSR-0)
@@ -19,63 +22,6 @@ spl_autoload_register(function($class) {
     if (file_exists($class_path)) include_once($class_path);
 });
 
-function DotEnvLoad(string $dir = '.'): bool {
-
-    $config = is_file($dir) ? $dir : "{$dir}/.env";
-
-    if (file_exists($config)) {
-
-        $vars = DotEnvParse(file_get_contents($config));
-
-        foreach ($vars as $key => $value) {
-            $_ENV[$key] = $value;
-            putenv("{$key}={$value}");
-        }
-
-        return true;
-    }
-
-    return false;
-}
-
-function DotEnvParse(string $str, bool $expand = true): array {
-
-    $lines = explode("\n", $str);
-    $vars = [];
-
-    foreach ($lines as &$line) {
-
-        $line = trim($line);
-
-        if (!$line) continue;
-        if ($line[0] == '#') continue;
-        if (!strpos($line, '=')) continue;
-
-        list($name, $value) = explode('=', $line, 2);
-
-        $value = trim($value, '"\' ');
-        $name = trim($name);
-
-        $vars[$name] = $value;
-    }
-
-    if ($expand) {
-
-        $envs = array_merge(getenv(), $vars);
-
-        foreach ($envs as $key => $value) {
-            $str = str_replace('${'.$key.'}', $value, $str);
-        }
-
-        $vars = DotEnvParse($str, false);
-    }
-
-    return $vars;
-}
-
-
-// load .env file if exists
-DotEnvLoad(APP_DIR);
 
 class Cockpit {
 
@@ -105,7 +51,7 @@ class Cockpit {
         }
 
         if ($appDir != $envDir) {
-            DotEnvLoad($envDir);
+            DotEnv::load($envDir);
         }
 
         if (file_exists("{$envDir}/config/config.php")) {
