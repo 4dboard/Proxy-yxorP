@@ -39,7 +39,6 @@ protected ?string $logo
 
 ***
 
-<<<<<<< HEAD
 ### logoLarge
 
 ```php
@@ -48,8 +47,6 @@ protected ?string $logoLarge
 
 ***
 
-=======
->>>>>>> 9f62fca1b3d18300dfe5a27f82022a98f38e98ac
 ### pageClass
 
 ```php
@@ -97,7 +94,6 @@ public favicon(?string $url = null, ?string $color = null): ?string
 
 ***
 
-<<<<<<< HEAD
 ### logoLarge
 
 ```php
@@ -112,8 +108,6 @@ public logoLarge(?string $url = null): ?string
 
 ***
 
-=======
->>>>>>> 9f62fca1b3d18300dfe5a27f82022a98f38e98ac
 ### logo
 
 ```php
