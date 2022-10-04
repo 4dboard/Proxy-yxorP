@@ -477,6 +477,14 @@ public exclude(string|array $dirs): $this
 Directories passed as argument must be relative to the ones defined with the `in()` method. For example:
 
 $finder->in(__DIR__)->exclude('ruby');
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> 9f62fca1b3d18300dfe5a27f82022a98f38e98ac
 
 **Parameters:**
 

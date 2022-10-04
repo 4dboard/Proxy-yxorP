@@ -1,8 +1,5 @@
 .idea
 .env
-/.php/
-/.phpdoc/
-/vendor/
 /override/*
 !/override/.gitignore
 !/override/.htaccess

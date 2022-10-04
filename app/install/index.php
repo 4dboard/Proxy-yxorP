@@ -57,7 +57,11 @@ foreach ($checks as $info => $check) {
 if (!count($failed)) {
 
     if (!class_exists('App')) {
+<<<<<<< HEAD
         include(__DIR__ . '/../bootstrap.php');
+=======
+        include (__DIR__.'/../bootstrap.php');
+>>>>>>> 9f62fca1b3d18300dfe5a27f82022a98f38e98ac
     }
 
     $app = Cockpit::instance();
