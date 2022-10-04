@@ -1,6 +1,5 @@
 <?php
 
-exit('1');
 // Allow from any origin
 if (isset($_SERVER['HTTP_ORIGIN'])) {
     header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
@@ -21,4 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 $file = (($dir = __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR . ($key = urlencode($_SERVER['HTTP_HOST']))) . DIRECTORY_SEPARATOR) . rtrim(strtr(base64_encode($_SERVER['REQUEST_URI']), '+/=', '._-')) . '.cache';
 if (isset($_GET["CLECHE"])) array_map('unlink', glob("$dir/*.*"));
+
+exit('1');
 if ($cacheExits = file_exists($file)) exit(die(@include $file)); else require __DIR__ . DIRECTORY_SEPARATOR . 'bootstrap.php'; ?>
