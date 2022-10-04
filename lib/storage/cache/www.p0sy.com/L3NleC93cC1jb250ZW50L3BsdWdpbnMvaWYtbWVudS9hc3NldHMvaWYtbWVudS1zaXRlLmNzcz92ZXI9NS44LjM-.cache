@@ -1,9 +1,0 @@
-<?php header('Content-type: text/css'); exit(die('
-@keyframes ifMenuFadeIn { from { opacity: 0; transform: translate3d(20%, 0, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); }
-} .if-menu-peek { position: relative;
-} .if-menu-peek a { opacity: 0.8;
-} .if-menu-peek::before { content: "If Menu peek"; position: absolute; text-align: center; top: 50%; left: calc(100% + 15px); background: #f6f9fc; box-shadow: 0 0 0 1px rgba(136,152,170,.1), 0 15px 35px 0 rgba(49,49,93,.1), 0 5px 15px 0 rgba(0,0,0,.08); border-radius: 4px; width: 140px; margin-top: -17px; padding: 10px 15px; font-size: 14px; opacity: 0; pointer-events: none;
-} .if-menu-peek:hover::before { animation: ifMenuFadeIn ease-in-out .2s forwards;
-} .if-menu-peek::after { content: ""; position: absolute; width: 20px; height: 17px; background: url(icon-visibility.svg); color: rgb(80,169,47); background-size: cover; top: -14px; right: -15px; border-radius: 50%;
-}
-')); ?>
