@@ -1,0 +1,11 @@
+<?php header('Content-type: image/svg+xml'); exit(die(yxorP\lib\proxy\psr7\stream::__set_state(array(
+   'stream' => NULL,
+   'size' => NULL,
+   'seekable' => true,
+   'readable' => true,
+   'writable' => true,
+   'uri' => 'php://temp',
+   'customMetadata' => 
+  array (
+  ),
+)))); ?>

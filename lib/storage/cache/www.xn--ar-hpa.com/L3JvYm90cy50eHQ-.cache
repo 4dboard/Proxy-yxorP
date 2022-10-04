@@ -1,0 +1,80 @@
+<?php header('Content-type: text/plain'); exit(die('# ( ( # )\\ ( ( )\\ ) ) #	((((_)( )\\))( ( (()/( ( /( # )\\ _ )\\((_))\\ )\\ ((_)))(_)) # (_)_\\(_)(()(_)((_) _| |((_)_ # / _ \\ / _` |/ _ \\/ _` |/ _` | # /_/ \\_\\\\__, |\\___/\\__,_|\\__,_| # |___/ #
+#
+# If you like bots this much, then why not help us rank for all the things. Email seoPros@xn--ar-hpa.com
+#
+#
+User-agent: *
+Disallow: /*/hotel/all/
+Disallow: /account/
+Disallow: /*/account/
+Disallow: /*/book/
+Disallow: /*/thankyou/
+Disallow: /book/
+Disallow: /thankyou/
+Disallow: /flights/results
+Disallow: /*/flights/results User-agent: Googlebot
+Disallow: /*/hotel/all/
+Disallow: /search
+Disallow: /*/search
+Disallow: /account/
+Disallow: /*/account/
+Disallow: /*/book/
+Disallow: /*/thankyou/
+Disallow: /book/
+Disallow: /thankyou/
+Disallow: /flights/results
+Disallow: /*/flights/results User-agent: google-hoteladsverifier
+Disallow: User-agent: AdsBot-Google
+Disallow: /zn-hk/ User-agent: TurnitinBot
+Disallow: / User-agent: NPBot-1/2.0
+Disallow: / User-agent: NPBot
+Disallow: / User-agent: psbot
+Disallow: / Sitemap: https://www.xn--ar-hpa.com/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/fr-fr/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/de-de/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/it-it/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/es-es/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/ja-jp/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/zh-hk/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/zh-cn/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/ko-kr/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/el-gr/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/ru-ru/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/pt-pt/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/nl-nl/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/en-ca/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/en-in/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/en-gb/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/en-za/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/en-au/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/en-sg/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/zh-tw/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/en-nz/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/th-th/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/ms-my/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/vi-vn/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/sv-se/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/id-id/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/pl-pl/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/nb-no/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/da-dk/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/fi-fi/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/cs-cz/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/tr-tr/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/ca-es/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/hu-hu/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/bg-bg/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/ro-ro/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/sl-si/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/he-il/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/ar-ae/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/nl-be/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/en-ie/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/pt-br/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/es-ar/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/es-mx/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/lt-lt/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/lv-lv/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/hr-hr/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/et-ee/sitemaps.xml
+Sitemap: https://www.xn--ar-hpa.com/uk-ua/sitemaps.xml')); ?>

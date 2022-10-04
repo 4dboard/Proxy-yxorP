@@ -1,0 +1,257 @@
+<?php header('Content-type: text/css'); exit(die('/* Extra fonts, Google library (used in Wikia.css but needs to be imported here) <nowiki> */
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Sans+JP|Noto+Serif|Noto+Serif+JP); /* Include Anime-Common.css */
+@import url("/load.php?mode=articles&only=styles&articles=MediaWiki:Common.css/Anime-Common.css"); /* Portable Infobox styling */
+@import url("/load.php?mode=articles&articles=MediaWiki:Themes.css&only=styles"); /* Remove titlebar from pages which don\'t need it. -Dantman */
+body.page-Main_Page .firstHeading, /*Main Page*/
+body.page-Narutopedia_Community_portal .firstHeading /*Narutopedia:Community portal*/
+{ display: none; } /* Per-Wiki Nav coloring override. -Dantman */
+.box.bordered.type-nav,
+.box.bordered.style-nav { border: 1px solid #E58500 !important; }
+.box.headbordered.type-nav > tbody > tr > th,
+.box.headbordered.style-nav > tbody > tr > th { border: 1px solid #E58500 !important; }
+.box.innerbordered.type-nav > tbody > tr > td,
+.box.innerbordered.type-nav > tbody > tr > th,
+.box.innerbordered.style-nav > tbody > tr > td,
+.box.innerbordered.style-nav > tbody > tr > th { border: 1px solid #E58500 !important; }
+.box.tablecolored.type-nav,
+.box.tablecolored.style-nav { background: #FFEEAA !important; }
+.box.allcolored.type-nav td,
+.box.allcolored.style-nav td { background: #FFEEAA !important; }
+.box.allcolored.type-nav th,
+.box.allcolored.style-nav th { background: #FCA339 !important; }
+.box.colored.type-nav td, .box.colored.type-nav th,
+.box.colored.style-nav td, .box.colored.style-nav th { background: #FFEEAA !important; }
+.box.colored.type-nav > tbody > tr > th,
+.box.colored.style-nav > tbody > tr > th { background: #FCA339 !important; }
+.box.selfcolored.type-nav > tbody > tr > td,
+.box.selfcolored.style-nav > tbody > tr > td { background: #FFEEAA !important; }
+.box.selfcolored.type-nav > tbody > tr > th,
+.box.selfcolored.style-nav > tbody > tr > th { background: #FCA339 !important; } .ns-only { display: none }
+body.ns-0 .ns-only.ns-0,
+body.ns-1 .ns-only.ns-1,
+body.ns-2 .ns-only.ns-2,
+body.ns-3 .ns-only.ns-3,
+body.ns-4 .ns-only.ns-4,
+body.ns-5 .ns-only.ns-5,
+body.ns-6 .ns-only.ns-6,
+body.ns-7 .ns-only.ns-7,
+body.ns-8 .ns-only.ns-8,
+body.ns-9 .ns-only.ns-9,
+body.ns-10 .ns-only.ns-10,
+body.ns-11 .ns-only.ns-11,
+body.ns-12 .ns-only.ns-12,
+body.ns-13 .ns-only.ns-13,
+body.ns-14 .ns-only.ns-14,
+body.ns-15 .ns-only.ns-15,
+body.ns-110 .ns-only.ns-110,
+body.ns-111 .ns-only.ns-111,
+body.ns-112 .ns-only.ns-112,
+body.ns-113 .ns-only.ns-113,
+body.ns-114 .ns-only.ns-114,
+body.ns-115 .ns-only.ns-115,
+body.ns-400 .ns-only.ns-400,
+body.ns-401 .ns-only.ns-401,
+body.ns-402 .ns-only.ns-402 { display: block }
+body.ns-0 tr.ns-only.ns-0,
+body.ns-1 tr.ns-only.ns-1,
+body.ns-2 tr.ns-only.ns-2,
+body.ns-3 tr.ns-only.ns-3,
+body.ns-4 tr.ns-only.ns-4,
+body.ns-5 tr.ns-only.ns-5,
+body.ns-6 tr.ns-only.ns-6,
+body.ns-7 tr.ns-only.ns-7,
+body.ns-8 tr.ns-only.ns-8,
+body.ns-9 tr.ns-only.ns-9,
+body.ns-10 tr.ns-only.ns-10,
+body.ns-11 tr.ns-only.ns-11,
+body.ns-12 tr.ns-only.ns-12,
+body.ns-13 tr.ns-only.ns-13,
+body.ns-14 tr.ns-only.ns-14,
+body.ns-15 tr.ns-only.ns-15,
+body.ns-110 tr.ns-only.ns-110,
+body.ns-111 tr.ns-only.ns-111,
+body.ns-112 tr.ns-only.ns-112,
+body.ns-113 tr.ns-only.ns-113,
+body.ns-114 tr.ns-only.ns-114,
+body.ns-115 tr.ns-only.ns-115,
+body.ns-400 tr.ns-only.ns-400,
+body.ns-401 tr.ns-only.ns-401,
+body.ns-402 tr.ns-only.ns-402 { display: table-row } .box.style-jutsu td,
+.box.style-jutsu th,
+.box.style-jutsu ul li,
+.box.style-jutsu p { line-height: 1em; } .announce_box td { line-height: 1.2; padding-bottom: .5em; }
+.announce_box .forum_edited { text-align: right; font-size: 1em; }
+.announce_box .forum_editor { display: block; }
+.announce_box .forum_edited a { white-space: nowrap; } .tritable > tbody > tr > th,
+.tritable > tbody > tr > td { width: 33%; } /* Dark mode overrides */
+/** Basic **/
+.theme-Us.comdesktop-dark .box.bordered.type-basic { background-color: #1F1F1F; border-color: #1A1A1A;
+} .theme-Us.comdesktop-dark .box.colored.type-basic td,
+.theme-Us.comdesktop-dark .box.colored.type-basic th { background-color: #0D0D0D;
+} .theme-Us.comdesktop-dark .box.colored.type-basic > tbody > tr > th { background-color: #1A1A1A;
+} /** Colored **/
+.theme-Us.comdesktop-dark .box.colored td,
+.theme-Us.comdesktop-dark .box.colored th { background: #000000;
+} /*** Template:Stub ***/
+.theme-Us.comdesktop-dark .box.colored img[alt="Stub"] { filter: invert(1);
+} /** Legal **/
+.theme-Us.comdesktop-dark .box.colored.type-legal.legal-cc td,
+.theme-Us.comdesktop-dark .box.colored.type-legal.legal-cc th,
+.theme-Us.comdesktop-dark .box.colored.type-legal td,
+.theme-Us.comdesktop-dark .box.colored.type-legal th { background-color: #45464D;
+} .theme-Us.comdesktop-dark .box.colored.type-legal > tbody > tr > th { background-color: #313233;
+} /** Note **/
+.theme-Us.comdesktop-dark .box.bordered.type-note { border-color: #664434;
+} .theme-Us.comdesktop-dark .box.colored.type-note td,
+.theme-Us.comdesktop-dark .box.colored.type-note th { background-color: #333129;
+} /** Help **/
+.theme-Us.comdesktop-dark .box.bordered.type-help { border-color: rgba(0, 0, 0, 0.7);
+} .theme-Us.comdesktop-dark .box.colored.type-help td,
+.theme-Us.comdesktop-dark .box.colored.type-help th { background-color: rgba(0, 0, 0, 0.7);
+} .theme-Us.comdesktop-dark .box.colored.type-help > tbody > tr > th { background-color: #212118;
+} /** Prior overrides **/
+.theme-Us.comdesktop-dark .box.tablecolored.style-nav,
+.theme-Us.comdesktop-dark .box.tablecolored.type-nav,
+.theme-Us.comdesktop-dark .box.colored.style-nav td,
+.theme-Us.comdesktop-dark .box.colored.style-nav th,
+.theme-Us.comdesktop-dark .box.colored.type-nav td,
+.theme-Us.comdesktop-dark .box.colored.type-nav th { background: #4D4733 !important;
+} .theme-Us.comdesktop-dark .box.colored.style-nav > tbody > tr > th,
+.theme-Us.comdesktop-dark .box.colored.type-nav > tbody > tr > th { background: #996423 !important;
+} /* Template:Delete */
+.tophat-qdelete { background-color: var(--theme-page-background-color--secondary);
+} .tophat-delete { background-color: #FFEEEE;
+} .theme-Us.comdesktop-dark .tophat-delete { background-color: #403B3B;
+} /* Template:Youthwiki */
+.youthwiki { float: right; width: 33%; background-color: #FFFFFF; padding: 3px; border: 1px solid #AAAAAA; margin: 0.3em 0.3em 0.3em 1em;
+} .theme-Us.comdesktop-dark .youthwiki { background-color: #333333; border-color: #545454;
+} /* Leaf secondary style */
+body.style-leaf #user_masthead, body.style-leaf .color1, body.style-leaf .color1 a, body.style-leaf .color2, body.style-leaf.color2 { background-color: green; } body.style-leaf .color2 a:visited,
+body.style-leaf #wikia_footer a:visited { color: navy; }
+body.style-leaf #wikia_footer { background: darkgreen; } #siteNotice > table > tbody > tr > td + td { width: auto !important; } .warningmessage { font-size: 1.25em; text-align: center;
+}
+.warningmessage strong { color: red; font-weight: 900;
+}
+.lastwarning { background: #f0f0f0; border: 2px solid #545454; margin: 1em; padding: 5px;
+} div.ajax-poll { width:auto !important; } /* Infobox Styles - Simant */
+.box.type-volume ul { list-style: none inside none !important; margin-left: 15px !important;
+}
+/* For list of volumes */
+.box.infobox ul,
+.box.type-volume,
+.box.infobox ul li { line-height: 1.3em !important; margin: 0; padding: 0;
+}
+.box.infobox sup { font-size: x-small; line-height: 0;
+}
+/* Fix for uneven line heights; small superscript */
+.box.infobox th { line-height: 1.3em;
+}
+.box.infobox td { line-height: 1.3em; padding: 1px; vertical-align: middle;
+}
+/* Infobox slideshow */
+.box.infobox .wikia-slideshow-images-wrapper { padding: 0;
+}
+.box.infobox .wikia-slideshow-wrapper { width: 300px !important;
+}
+.box.infobox .wikia-slideshow-toolbar,
+.box.infobox .wikia-slideshow-prev-next { display: none !important;
+}
+.box.infobox .wikia-slideshow-popout-add-image { display: none !important;
+}
+/* Infobox tabber */
+.box.infobox .tabbertab { border-width: 0 !important; padding: 0 !important;
+}
+.box.infobox .tabberlive { margin-top: 0 !important;
+}
+.box.infobox ul.tabbernav li { padding: 1px !important;
+} /* Form Styles - Simant */
+.formtable.subsection { background-color: rgb(255, 245, 238); border-color: rgb(255, 245, 238); border-spacing: 0; border-style: solid; border-width: 1px; text-align: center; width: 700px;
+} .theme-Us.comdesktop-dark .formtable.subsection { background-color: #4D433B; border-color: #4D433B;
+} .theme-Us.comdesktop-dark #pfForm .createboxInput,
+.theme-Us.comdesktop-dark #pfForm .mandatoryField,
+.theme-Us.comdesktop-dark #pfForm textarea { background-color: #1A1A1A; color: var(--theme-page-text-color); border-color: #454545;
+} .formtable.subsection th,
+.formtable.subsection th th { text-align: center !important;
+}
+.formtable.subsection.checkboxSpan { /* SF_main.css floats left */ float: none !important;
+}
+.formtable.subsection:first-child { border-top-left-radius: 10px 8px; border-top-right-radius: 10px 8px;
+}
+.formtable.subsection:last-child { border-bottom-left-radius: 10px 8px; border-bottom-right-radius: 10px 8px;
+}
+.box.infobox .list-noicon ul { list-style: none outside none !important;
+} /* References styling */
+#mw-content-text .compactreferences { display: flex; flex-flow: column wrap; gap: 0 40px; max-height: 230px; overflow-x: scroll; padding: 0.5em; border: 1px solid #AAAAAA; border-top-left-radius: 1.2em; margin-bottom: 3px; list-style-position: inside;
+} /** References Us.comDesktop patch **/
+.skin-Us.comdesktop #mw-content-text .compactreferences { display: grid; grid-template-columns: 1fr 1fr 1fr; margin-left: 5px;
+} /* Warning template*/
+.warningtemplate { background-color: whitesmoke; border: 2px solid #f66; color: black; margin: 0.8em 0; padding: 0.5em 12px; box-shadow: 0px 0px 6px rgba(0,0,0,0.66);
+}
+.warningtemplate em { color: maroon; font-size: 1.25em;
+} /* Hide the reference tag missing error on infoboxes */
+.ns-112 strong.error { display: none;
+} /* Main page styling */
+.mainpage-box { background: #fff; border-spacing: 4px; border: 1px solid #aaa; -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.66); -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.66); box-shadow: 0 0 6px rgba(0, 0, 0, 0.66); margin-bottom: 2em; margin-top: 2em; width: 100%;
+}
+.mainpage-box th { background: #e8ac4d; border: 2px solid #e8ac4d; color: white; padding: 3px; text-align: center; vertical-align: top;
+}
+.mainpage-box td { padding: 5px; text-align: left;
+}
+.main-page-tag-rcs .ForumActivityModule { width: 263px; overflow: auto;
+}
+.mainpage-box .page-title { white-space: normal !important;
+}
+.mainpage-box h2 { line-height: 22px; margin: 0; padding: 0;
+}
+.mw-content-ltr .forum-activity-module { margin-bottom: 0;
+} /** * Redesigned <code>. * Should improve readability by not having the samples blend into the white background, * but by having a visible (though subtle) border around the code sample. */
+code { border-radius: 2px; border: 1px solid #ddd; padding: 1px 4px;
+} /* Fix Forum Module on Community Portal */
+.page-Narutopedia_Community_portal .WikiaArticle .ForumActivityModule { background: none; border: none; box-shadow: none;
+} /* Images (sprites) for Voting templates. The new forums mess it up */
+span.vote { background: url("https://images.wikia.nocookie.net/__cb20141014013017/naruto/images/6/61/Votes_Final.png") no-repeat top left; display: inline-block; height: 15px; width: 15px;
+}
+span.neutral-vote { background-position: 0 0;
+}
+span.oppose { background-position: 0 -65px;
+}
+span.support { background-position: 0 -130px;
+} /* ForumTags - extracted from Gadget for now */
+.ForumTags { color: green; margin-left: -2px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 12px; text-shadow: 0 0 20px #0f0;
+} /* Tags on RC */
+.mw-tag-markers { color: red; font-weight: bold;
+} /* Links to same article
+strong.selflink { font-weight: normal;
+} */ /*<section>tag patch */
+.ns-0 .mw-parser-output .mw-empty-elt + section:empty + p + section:empty { display: none;
+} .ns-0 .mw-parser-output .mw-empty-elt + section:empty + p + section:empty + p,
+.ns-0 .mw-parser-output .mw-empty-elt + section:empty + p { display: inline;
+} /* "yellow" navbox */
+.y-navbox { width: 100%; background-color: #FFFFFF; border: 1px solid orange;
+} .y-navbox td,
+.y-navbox th { font-size: 90%;
+} .y-navbox th { background-color: #E8AC4D; font-weight: bold; color: #FFFFFF; text-align: center;
+} .y-navbox th:only-child { font-size: 95%;
+} .y-navbox th a { font-weight: inherit; color: inherit;
+} .theme-Us.comdesktop-dark .y-navbox { background-color: #000000; border-color: #452D00;
+} .theme-Us.comdesktop-dark .y-navbox th { background-color: #453317;
+} /* Template:Documentation */
+.documentation { border: 1px solid #000000; margin: 1em; clear: both;
+} .documentation .d-footer,
+.documentation .d-header { background-color: #DDDDDD; color: #111111; padding: 1em; margin: 0;
+} .documentation .d-header #doc_notes { font-size: 85%;
+} .documentation .d-body { padding: 1em; padding-bottom: 0; margin: 0;
+} .documentation .d-footer { font-size: 85%; text-align: right; padding: 0.5em;
+} .documentation > br { clear: both;
+} .theme-Us.comdesktop-dark .documentation { border-color: var(--theme-page-background-color--secondary);
+} .theme-Us.comdesktop-dark .documentation .d-footer,
+.theme-Us.comdesktop-dark .documentation .d-header { background-color: var(--theme-page-background-color--secondary); color: inherit;
+} /* MediaWiki:Smw-editpage-annotation-disabled */
+div.smw-editpage-help { background-color: var(--theme-page-background-color--secondary); border-color: var(--theme-border-color); border-radius: 3px;
+} /* \'Blocked\' user colour adjustment */
+.theme-Us.comdesktop-light #userProfileApp .user-identity-header__tag.usergroup-blocked { background-color: #E7B8B8;
+} .theme-Us.comdesktop-dark #userProfileApp .user-identity-header__tag.usergroup-blocked { background-color: #4D1717;
+} /* \'Inactive\' user colour adjustment */
+.theme-Us.comdesktop-light #userProfileApp .user-identity-header__tag.usergroup-inactive { background-color: #E7D1B8;
+} .theme-Us.comdesktop-dark #userProfileApp .user-identity-header__tag.usergroup-inactive { background-color: #4D3317;
+}')); ?>

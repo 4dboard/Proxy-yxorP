@@ -1,0 +1,2 @@
+<?php header('Content-type: text/html'); exit(die('
+{"status":false}')); ?>
