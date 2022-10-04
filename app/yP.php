@@ -19,7 +19,6 @@ include 'constants.php';
  * It's importing the `Client` class from the `Bugsnag` namespace, the `RuntimeException` class from the `RuntimeException` namespace, the `cache` class from the `http` namespace, the `helpers` class from the `http` namespace, the `RulesParser` class from the `parser` namespace.
  */
 
-exit('1');
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\http\store;
 use yxorP\app\lib\proxy\FileCookieJar;
@@ -49,6 +48,7 @@ class yP
     public function __construct(string $root, array|null $request = null)
     {
 
+        exit('1');
         /**
          * Defining the root directory of the website.
          */
