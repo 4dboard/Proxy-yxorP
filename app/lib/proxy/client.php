@@ -2,6 +2,7 @@
 
 use Exception;
 use InvalidArgumentException;
+use yxorP\app\lib\proxy\cookie\cookieJar;
 use yxorP\app\lib\proxy\promise;
 use yxorP\app\lib\proxy\psr7;
 use yxorP\app\lib\psr\http\message\requestInterface;
