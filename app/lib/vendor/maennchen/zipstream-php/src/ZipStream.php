@@ -248,8 +248,8 @@ class ZipStream
      *   ));
      *
      * @return void
-     * @throws FileNotFoundException
-     * @throws FileNotReadableException
+     * @throws \ZipStream\Exception\FileNotFoundException
+     * @throws \ZipStream\Exception\FileNotReadableException
      */
     public function addFileFromPath($name, $path, $opt = array(), $storage_method = "deflate")
     {
@@ -291,7 +291,7 @@ class ZipStream
      * @param String $path
      * @param array $opt
      * @return void
-     * @throws InvalidOptionException
+     * @throws \ZipStream\Exception\InvalidOptionException
      */
     protected function addLargeFile($name, $path, $opt = array())
     {
@@ -701,9 +701,12 @@ class ZipStream
         $crc = $zlen = $len = 0;
         $hash_ctx = hash_init($algo);
 
-        if ($storage_method == self::METHOD_DEFLATE) {
+        if ($storage_method == self::METHOD_DEFLATE)
+        {
             $deflateCtx = deflate_init(ZLIB_ENCODING_RAW, ['level' => 6]);
-        } else {
+        }
+        else
+        {
             $deflateCtx = null;
         }
 
@@ -722,9 +725,12 @@ class ZipStream
                 break;
             }
 
-            if ($deflateCtx !== null) {
+            if ($deflateCtx !== null)
+            {
                 $zdata = deflate_add($deflateCtx, $data, ZLIB_NO_FLUSH);
-            } else {
+            }
+            else
+            {
                 $zdata = $data;
             }
 
@@ -736,7 +742,8 @@ class ZipStream
             $zlen += strlen($zdata);
         }
 
-        if ($deflateCtx !== null) {
+        if ($deflateCtx !== null)
+        {
             //finalize the compressed data
             $zdata = deflate_add($deflateCtx, '', ZLIB_FINISH);
             $zlen += strlen($zdata);

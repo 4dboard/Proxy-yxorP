@@ -11,14 +11,12 @@
 
 namespace Symfony\Component\Console\Helper;
 
-use Exception;
 use Symfony\Component\Console\Formatter\OutputFormatter;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use const PHP_OS_FAMILY;
 
 /**
  * Symfony Style Guide compliant question helper.
@@ -85,19 +83,10 @@ class SymfonyQuestionHelper extends QuestionHelper
         $output->write($prompt);
     }
 
-    private function getEofShortcut(): string
-    {
-        if ('Windows' === PHP_OS_FAMILY) {
-            return '<comment>Ctrl+Z</comment> then <comment>Enter</comment>';
-        }
-
-        return '<comment>Ctrl+D</comment>';
-    }
-
     /**
      * {@inheritdoc}
      */
-    protected function writeError(OutputInterface $output, Exception $error)
+    protected function writeError(OutputInterface $output, \Exception $error)
     {
         if ($output instanceof SymfonyStyle) {
             $output->newLine();
@@ -107,5 +96,14 @@ class SymfonyQuestionHelper extends QuestionHelper
         }
 
         parent::writeError($output, $error);
+    }
+
+    private function getEofShortcut(): string
+    {
+        if ('Windows' === \PHP_OS_FAMILY) {
+            return '<comment>Ctrl+Z</comment> then <comment>Enter</comment>';
+        }
+
+        return '<comment>Ctrl+D</comment>';
     }
 }

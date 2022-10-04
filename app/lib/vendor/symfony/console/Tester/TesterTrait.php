@@ -11,17 +11,12 @@
 
 namespace Symfony\Component\Console\Tester;
 
-use LogicException;
 use PHPUnit\Framework\Assert;
-use ReflectionObject;
-use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Output\StreamOutput;
 use Symfony\Component\Console\Tester\Constraint\CommandIsSuccessful;
-use function array_key_exists;
-use const PHP_EOL;
 
 /**
  * @author Amrouche Hamza <hamza.simperfit@gmail.com>
@@ -38,32 +33,16 @@ trait TesterTrait
     private $statusCode;
 
     /**
-     * @return resource
-     */
-    private static function createStream(array $inputs)
-    {
-        $stream = fopen('php://memory', 'r+', false);
-
-        foreach ($inputs as $input) {
-            fwrite($stream, $input . PHP_EOL);
-        }
-
-        rewind($stream);
-
-        return $stream;
-    }
-
-    /**
      * Gets the display returned by the last execution of the command or application.
      *
-     * @throws RuntimeException If it's called before the execute method
+     * @throws \RuntimeException If it's called before the execute method
      *
      * @return string
      */
     public function getDisplay(bool $normalize = false)
     {
         if (null === $this->output) {
-            throw new RuntimeException('Output not initialized, did you execute the command before requesting the display?');
+            throw new \RuntimeException('Output not initialized, did you execute the command before requesting the display?');
         }
 
         rewind($this->output->getStream());
@@ -71,7 +50,7 @@ trait TesterTrait
         $display = stream_get_contents($this->output->getStream());
 
         if ($normalize) {
-            $display = str_replace(PHP_EOL, "\n", $display);
+            $display = str_replace(\PHP_EOL, "\n", $display);
         }
 
         return $display;
@@ -87,7 +66,7 @@ trait TesterTrait
     public function getErrorOutput(bool $normalize = false)
     {
         if (!$this->captureStreamsIndependently) {
-            throw new LogicException('The error output is not available when the tester is run without "capture_stderr_separately" option set.');
+            throw new \LogicException('The error output is not available when the tester is run without "capture_stderr_separately" option set.');
         }
 
         rewind($this->output->getErrorOutput()->getStream());
@@ -95,7 +74,7 @@ trait TesterTrait
         $display = stream_get_contents($this->output->getErrorOutput()->getStream());
 
         if ($normalize) {
-            $display = str_replace(PHP_EOL, "\n", $display);
+            $display = str_replace(\PHP_EOL, "\n", $display);
         }
 
         return $display;
@@ -124,14 +103,14 @@ trait TesterTrait
     /**
      * Gets the status code returned by the last execution of the command or application.
      *
-     * @throws RuntimeException If it's called before the execute method
+     * @throws \RuntimeException If it's called before the execute method
      *
      * @return int
      */
     public function getStatusCode()
     {
         if (null === $this->statusCode) {
-            throw new RuntimeException('Status code not initialized, did you execute the command before requesting the status code?');
+            throw new \RuntimeException('Status code not initialized, did you execute the command before requesting the status code?');
         }
 
         return $this->statusCode;
@@ -168,7 +147,7 @@ trait TesterTrait
      */
     private function initOutput(array $options)
     {
-        $this->captureStreamsIndependently = array_key_exists('capture_stderr_separately', $options) && $options['capture_stderr_separately'];
+        $this->captureStreamsIndependently = \array_key_exists('capture_stderr_separately', $options) && $options['capture_stderr_separately'];
         if (!$this->captureStreamsIndependently) {
             $this->output = new StreamOutput(fopen('php://memory', 'w', false));
             if (isset($options['decorated'])) {
@@ -188,7 +167,7 @@ trait TesterTrait
             $errorOutput->setVerbosity($this->output->getVerbosity());
             $errorOutput->setDecorated($this->output->isDecorated());
 
-            $reflectedOutput = new ReflectionObject($this->output);
+            $reflectedOutput = new \ReflectionObject($this->output);
             $strErrProperty = $reflectedOutput->getProperty('stderr');
             $strErrProperty->setAccessible(true);
             $strErrProperty->setValue($this->output, $errorOutput);
@@ -198,5 +177,21 @@ trait TesterTrait
             $streamProperty->setAccessible(true);
             $streamProperty->setValue($this->output, fopen('php://memory', 'w', false));
         }
+    }
+
+    /**
+     * @return resource
+     */
+    private static function createStream(array $inputs)
+    {
+        $stream = fopen('php://memory', 'r+', false);
+
+        foreach ($inputs as $input) {
+            fwrite($stream, $input.\PHP_EOL);
+        }
+
+        rewind($stream);
+
+        return $stream;
     }
 }

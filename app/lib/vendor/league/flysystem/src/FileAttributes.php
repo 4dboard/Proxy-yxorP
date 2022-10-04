@@ -44,32 +44,19 @@ class FileAttributes implements StorageAttributes
     private $extraMetadata;
 
     public function __construct(
-        string  $path,
-        ?int    $fileSize = null,
+        string $path,
+        ?int $fileSize = null,
         ?string $visibility = null,
-        ?int    $lastModified = null,
+        ?int $lastModified = null,
         ?string $mimeType = null,
-        array   $extraMetadata = []
-    )
-    {
+        array $extraMetadata = []
+    ) {
         $this->path = ltrim($path, '/');
         $this->fileSize = $fileSize;
         $this->visibility = $visibility;
         $this->lastModified = $lastModified;
         $this->mimeType = $mimeType;
         $this->extraMetadata = $extraMetadata;
-    }
-
-    public static function fromArray(array $attributes): StorageAttributes
-    {
-        return new FileAttributes(
-            $attributes[StorageAttributes::ATTRIBUTE_PATH],
-            $attributes[StorageAttributes::ATTRIBUTE_FILE_SIZE] ?? null,
-            $attributes[StorageAttributes::ATTRIBUTE_VISIBILITY] ?? null,
-            $attributes[StorageAttributes::ATTRIBUTE_LAST_MODIFIED] ?? null,
-            $attributes[StorageAttributes::ATTRIBUTE_MIME_TYPE] ?? null,
-            $attributes[StorageAttributes::ATTRIBUTE_EXTRA_METADATA] ?? []
-        );
     }
 
     public function type(): string
@@ -117,12 +104,24 @@ class FileAttributes implements StorageAttributes
         return false;
     }
 
-    public function withPath(string $path): StorageAttributes
+    public function withPath(string $path): self
     {
         $clone = clone $this;
         $clone->path = $path;
 
         return $clone;
+    }
+
+    public static function fromArray(array $attributes): self
+    {
+        return new FileAttributes(
+            $attributes[StorageAttributes::ATTRIBUTE_PATH],
+            $attributes[StorageAttributes::ATTRIBUTE_FILE_SIZE] ?? null,
+            $attributes[StorageAttributes::ATTRIBUTE_VISIBILITY] ?? null,
+            $attributes[StorageAttributes::ATTRIBUTE_LAST_MODIFIED] ?? null,
+            $attributes[StorageAttributes::ATTRIBUTE_MIME_TYPE] ?? null,
+            $attributes[StorageAttributes::ATTRIBUTE_EXTRA_METADATA] ?? []
+        );
     }
 
     public function jsonSerialize(): array

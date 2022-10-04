@@ -8,11 +8,6 @@ use Psr\Http\Client\RequestExceptionInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
-use Throwable;
-use function floor;
-use function sprintf;
-use function strpos;
-use function substr;
 
 /**
  * HTTP Request exception
@@ -35,13 +30,12 @@ class RequestException extends TransferException implements RequestExceptionInte
     private $handlerContext;
 
     public function __construct(
-        string            $message,
-        RequestInterface  $request,
+        string $message,
+        RequestInterface $request,
         ResponseInterface $response = null,
-        Throwable        $previous = null,
-        array             $handlerContext = []
-    )
-    {
+        \Throwable $previous = null,
+        array $handlerContext = []
+    ) {
         // Set the code of the exception if the response is set and not future.
         $code = $response ? $response->getStatusCode() : 0;
         parent::__construct($message, $code, $previous);
@@ -53,7 +47,7 @@ class RequestException extends TransferException implements RequestExceptionInte
     /**
      * Wrap non-RequestExceptions with a RequestException
      */
-    public static function wrapException(RequestInterface $request, Throwable $e): RequestException
+    public static function wrapException(RequestInterface $request, \Throwable $e): RequestException
     {
         return $e instanceof RequestException ? $e : new RequestException($e->getMessage(), $request, null, $e);
     }
@@ -61,20 +55,19 @@ class RequestException extends TransferException implements RequestExceptionInte
     /**
      * Factory method to create a new exception with a normalized error message
      *
-     * @param RequestInterface $request Request sent
-     * @param ResponseInterface $response Response received
-     * @param Throwable|null $previous Previous exception
-     * @param array $handlerContext Optional handler context
+     * @param RequestInterface             $request        Request sent
+     * @param ResponseInterface            $response       Response received
+     * @param \Throwable|null              $previous       Previous exception
+     * @param array                        $handlerContext Optional handler context
      * @param BodySummarizerInterface|null $bodySummarizer Optional body summarizer
      */
     public static function create(
-        RequestInterface        $request,
-        ResponseInterface       $response = null,
-        Throwable              $previous = null,
-        array                   $handlerContext = [],
+        RequestInterface $request,
+        ResponseInterface $response = null,
+        \Throwable $previous = null,
+        array $handlerContext = [],
         BodySummarizerInterface $bodySummarizer = null
-    ): self
-    {
+    ): self {
         if (!$response) {
             return new self(
                 'Error completing request',
@@ -85,7 +78,7 @@ class RequestException extends TransferException implements RequestExceptionInte
             );
         }
 
-        $level = (int)floor($response->getStatusCode() / 100);
+        $level = (int) \floor($response->getStatusCode() / 100);
         if ($level === 4) {
             $label = 'Client error';
             $className = ClientException::class;
@@ -102,7 +95,7 @@ class RequestException extends TransferException implements RequestExceptionInte
 
         // Client Error: `GET /` resulted in a `404 Not Found` response:
         // <html> ... (truncated)
-        $message = sprintf(
+        $message = \sprintf(
             '%s: `%s %s` resulted in a `%s %s` response',
             $label,
             $request->getMethod(),
@@ -127,8 +120,8 @@ class RequestException extends TransferException implements RequestExceptionInte
     {
         $userInfo = $uri->getUserInfo();
 
-        if (false !== ($pos = strpos($userInfo, ':'))) {
-            return $uri->withUserInfo(substr($userInfo, 0, $pos), '***');
+        if (false !== ($pos = \strpos($userInfo, ':'))) {
+            return $uri->withUserInfo(\substr($userInfo, 0, $pos), '***');
         }
 
         return $uri;

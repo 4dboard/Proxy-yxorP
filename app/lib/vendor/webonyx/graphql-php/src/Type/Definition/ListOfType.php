@@ -20,7 +20,7 @@ class ListOfType extends Type implements WrappingType, OutputType, NullableType,
         $this->ofType = is_callable($type) ? $type : Type::assertType($type);
     }
 
-    public function toString(): string
+    public function toString() : string
     {
         return '[' . $this->getOfType()->toString() . ']';
     }
@@ -30,7 +30,7 @@ class ListOfType extends Type implements WrappingType, OutputType, NullableType,
         return Schema::resolveType($this->ofType);
     }
 
-    public function getWrappedType(bool $recurse = false): Type
+    public function getWrappedType(bool $recurse = false) : Type
     {
         $type = $this->getOfType();
 

@@ -2,9 +2,6 @@
 
 namespace Psr\Http\Message;
 
-use InvalidArgumentException;
-use RuntimeException;
-
 interface StreamFactoryInterface
 {
     /**
@@ -30,8 +27,8 @@ interface StreamFactoryInterface
      * @param string $mode Mode with which to open the underlying filename/stream.
      *
      * @return StreamInterface
-     * @throws RuntimeException If the file cannot be opened.
-     * @throws InvalidArgumentException If the mode is invalid.
+     * @throws \RuntimeException If the file cannot be opened.
+     * @throws \InvalidArgumentException If the mode is invalid.
      */
     public function createStreamFromFile(string $filename, string $mode = 'r'): StreamInterface;
 

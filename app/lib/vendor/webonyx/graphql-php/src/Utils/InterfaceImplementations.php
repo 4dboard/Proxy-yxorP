@@ -21,19 +21,19 @@ class InterfaceImplementations
     private $interfaces;
 
     /**
-     * @param array<int, ObjectType> $objects
+     * @param array<int, ObjectType>    $objects
      * @param array<int, InterfaceType> $interfaces
      */
     public function __construct(array $objects, array $interfaces)
     {
-        $this->objects = $objects;
+        $this->objects    = $objects;
         $this->interfaces = $interfaces;
     }
 
     /**
      * @return array<int, ObjectType>
      */
-    public function objects(): array
+    public function objects() : array
     {
         return $this->objects;
     }
@@ -41,7 +41,7 @@ class InterfaceImplementations
     /**
      * @return array<int, InterfaceType>
      */
-    public function interfaces(): array
+    public function interfaces() : array
     {
         return $this->interfaces;
     }

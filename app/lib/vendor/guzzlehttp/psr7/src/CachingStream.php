@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace GuzzleHttp\Psr7;
 
-use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
 
 /**
@@ -35,10 +34,20 @@ final class CachingStream implements StreamInterface
     public function __construct(
         StreamInterface $stream,
         StreamInterface $target = null
-    )
-    {
+    ) {
         $this->remoteStream = $stream;
         $this->stream = $target ?: new Stream(Utils::tryFopen('php://temp', 'r+'));
+    }
+
+    public function getSize(): ?int
+    {
+        $remoteSize = $this->remoteStream->getSize();
+
+        if (null === $remoteSize) {
+            return null;
+        }
+
+        return max($this->stream->getSize(), $remoteSize);
     }
 
     public function rewind(): void
@@ -59,7 +68,7 @@ final class CachingStream implements StreamInterface
             }
             $byte = $size + $offset;
         } else {
-            throw new InvalidArgumentException('Invalid whence');
+            throw new \InvalidArgumentException('Invalid whence');
         }
 
         $diff = $byte - $this->stream->getSize();
@@ -75,30 +84,6 @@ final class CachingStream implements StreamInterface
             // We can just do a normal seek since we've already seen this byte.
             $this->stream->seek($byte);
         }
-    }
-
-    public function getSize(): ?int
-    {
-        $remoteSize = $this->remoteStream->getSize();
-
-        if (null === $remoteSize) {
-            return null;
-        }
-
-        return max($this->stream->getSize(), $remoteSize);
-    }
-
-    private function cacheEntireStream(): int
-    {
-        $target = new FnStream(['write' => 'strlen']);
-        Utils::copyToStream($this, $target);
-
-        return $this->tell();
-    }
-
-    public function eof(): bool
-    {
-        return $this->stream->eof() && $this->remoteStream->eof();
     }
 
     public function read($length): string
@@ -144,6 +129,11 @@ final class CachingStream implements StreamInterface
         return $this->stream->write($string);
     }
 
+    public function eof(): bool
+    {
+        return $this->stream->eof() && $this->remoteStream->eof();
+    }
+
     /**
      * Close both the remote stream and buffer stream
      */
@@ -151,5 +141,13 @@ final class CachingStream implements StreamInterface
     {
         $this->remoteStream->close();
         $this->stream->close();
+    }
+
+    private function cacheEntireStream(): int
+    {
+        $target = new FnStream(['write' => 'strlen']);
+        Utils::copyToStream($this, $target);
+
+        return $this->tell();
     }
 }

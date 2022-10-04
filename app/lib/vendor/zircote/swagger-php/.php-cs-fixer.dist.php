@@ -4,7 +4,8 @@ $finder = PhpCsFixer\Finder::create()
     ->path('src')->name('*.php')
     ->path('tests')->name('*.php')
     ->exclude('tests/Fixtures')
-    ->in(__DIR__);
+    ->in(__DIR__)
+;
 
 return (new PhpCsFixer\Config())
     ->setRules([
@@ -59,4 +60,5 @@ return (new PhpCsFixer\Config())
         'phpdoc_no_empty_return' => true,
         'phpdoc_no_alias_tag' => true,
     ])
-    ->setFinder($finder);
+    ->setFinder($finder)
+;

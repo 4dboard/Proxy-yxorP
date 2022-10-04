@@ -24,9 +24,9 @@ class FieldsOnCorrectType extends ValidationRule
     public function getVisitor(ValidationContext $context)
     {
         return [
-            NodeKind::FIELD => function (FieldNode $node) use ($context): void {
+            NodeKind::FIELD => function (FieldNode $node) use ($context) : void {
                 $type = $context->getParentType();
-                if (!$type) {
+                if (! $type) {
                     return;
                 }
 
@@ -36,7 +36,7 @@ class FieldsOnCorrectType extends ValidationRule
                 }
 
                 // This isn't valid. Let's find suggestions, if any.
-                $schema = $context->getSchema();
+                $schema    = $context->getSchema();
                 $fieldName = $node->name->value;
                 // First determine if there are any suggested types to condition on.
                 $suggestedTypeNames = $this->getSuggestedTypeNames(
@@ -74,7 +74,7 @@ class FieldsOnCorrectType extends ValidationRule
      * with Interfaces.
      *
      * @param ObjectType|InterfaceType $type
-     * @param string $fieldName
+     * @param string                   $fieldName
      *
      * @return string[]
      */
@@ -82,21 +82,21 @@ class FieldsOnCorrectType extends ValidationRule
     {
         if (Type::isAbstractType($type)) {
             $suggestedObjectTypes = [];
-            $interfaceUsageCount = [];
+            $interfaceUsageCount  = [];
 
             foreach ($schema->getPossibleTypes($type) as $possibleType) {
-                if (!$possibleType->hasField($fieldName)) {
+                if (! $possibleType->hasField($fieldName)) {
                     continue;
                 }
                 // This object type defines this field.
                 $suggestedObjectTypes[] = $possibleType->name;
                 foreach ($possibleType->getInterfaces() as $possibleInterface) {
-                    if (!$possibleInterface->hasField($fieldName)) {
+                    if (! $possibleInterface->hasField($fieldName)) {
                         continue;
                     }
                     // This interface type defines this field.
                     $interfaceUsageCount[$possibleInterface->name] =
-                        !isset($interfaceUsageCount[$possibleInterface->name])
+                        ! isset($interfaceUsageCount[$possibleInterface->name])
                             ? 0
                             : $interfaceUsageCount[$possibleInterface->name] + 1;
                 }
@@ -119,7 +119,7 @@ class FieldsOnCorrectType extends ValidationRule
      * that may be the result of a typo.
      *
      * @param ObjectType|InterfaceType $type
-     * @param string $fieldName
+     * @param string                   $fieldName
      *
      * @return array|string[]
      */
@@ -136,8 +136,8 @@ class FieldsOnCorrectType extends ValidationRule
     }
 
     /**
-     * @param string $fieldName
-     * @param string $type
+     * @param string   $fieldName
+     * @param string   $type
      * @param string[] $suggestedTypeNames
      * @param string[] $suggestedFieldNames
      *
@@ -148,8 +148,7 @@ class FieldsOnCorrectType extends ValidationRule
         $type,
         array $suggestedTypeNames,
         array $suggestedFieldNames
-    )
-    {
+    ) {
         $message = sprintf('Cannot query field "%s" on type "%s".', $fieldName, $type);
 
         if ($suggestedTypeNames) {

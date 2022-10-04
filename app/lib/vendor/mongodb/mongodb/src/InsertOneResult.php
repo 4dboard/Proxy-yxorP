@@ -36,7 +36,7 @@ class InsertOneResult
 
     /**
      * @param WriteResult $writeResult
-     * @param mixed $insertedId
+     * @param mixed       $insertedId
      */
     public function __construct(WriteResult $writeResult, $insertedId)
     {
@@ -46,30 +46,13 @@ class InsertOneResult
     }
 
     /**
-     * Return whether this insert was acknowledged by the server.
-     *
-     * If the insert was not acknowledged, other fields from the WriteResult
-     * (e.g. insertedCount) will be undefined.
-     *
-     * If the insert was not acknowledged, other fields from the WriteResult
-     * (e.g. insertedCount) will be undefined and their getter methods should
-     * not be invoked.
-     *
-     * @return boolean
-     */
-    public function isAcknowledged()
-    {
-        return $this->writeResult->isAcknowledged();
-    }
-
-    /**
      * Return the number of documents that were inserted.
      *
      * This method should only be called if the write was acknowledged.
      *
+     * @see InsertOneResult::isAcknowledged()
      * @return integer
      * @throws BadMethodCallException is the write result is unacknowledged
-     * @see InsertOneResult::isAcknowledged()
      */
     public function getInsertedCount()
     {
@@ -92,5 +75,22 @@ class InsertOneResult
     public function getInsertedId()
     {
         return $this->insertedId;
+    }
+
+    /**
+     * Return whether this insert was acknowledged by the server.
+     *
+     * If the insert was not acknowledged, other fields from the WriteResult
+     * (e.g. insertedCount) will be undefined.
+     *
+     * If the insert was not acknowledged, other fields from the WriteResult
+     * (e.g. insertedCount) will be undefined and their getter methods should
+     * not be invoked.
+     *
+     * @return boolean
+     */
+    public function isAcknowledged()
+    {
+        return $this->writeResult->isAcknowledged();
     }
 }

@@ -23,6 +23,7 @@ use MongoDB\Driver\Server;
 use MongoDB\Driver\Session;
 use MongoDB\Driver\WriteConcern;
 use MongoDB\Exception\InvalidArgumentException;
+
 use function current;
 use function is_array;
 
@@ -55,20 +56,20 @@ class DropDatabase implements Executable
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
      * @param string $databaseName Database name
-     * @param array $options Command options
+     * @param array  $options      Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, array $options = [])
     {
-        if (isset($options['session']) && !$options['session'] instanceof Session) {
+        if (isset($options['session']) && ! $options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['typeMap']) && !is_array($options['typeMap'])) {
+        if (isset($options['typeMap']) && ! is_array($options['typeMap'])) {
             throw InvalidArgumentException::invalidType('"typeMap" option', $options['typeMap'], 'array');
         }
 
-        if (isset($options['writeConcern']) && !$options['writeConcern'] instanceof WriteConcern) {
+        if (isset($options['writeConcern']) && ! $options['writeConcern'] instanceof WriteConcern) {
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
@@ -76,17 +77,17 @@ class DropDatabase implements Executable
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string)$databaseName;
+        $this->databaseName = (string) $databaseName;
         $this->options = $options;
     }
 
     /**
      * Execute the operation.
      *
+     * @see Executable::execute()
      * @param Server $server
      * @return array|object Command result document
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
-     * @see Executable::execute()
      */
     public function execute(Server $server)
     {

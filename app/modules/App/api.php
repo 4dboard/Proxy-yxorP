@@ -16,18 +16,18 @@
 $app = $this;
 
 // GraphQl service
-$this->service('gql', function () use ($app) {
+$this->service('gql', function() use($app) {
     $gql = new App\GraphQL\Query($app);
     return $gql;
 });
 
 // Rest Api service
-$this->service('restApi', function () use ($app) {
+$this->service('restApi', function() use($app) {
     $restApi = new App\RestApi\Query($app);
     return $restApi;
 });
 
-$this->bind('/api/*', function ($params) {
+$this->bind('/api/*', function($params) {
 
     $token = $this->param('api_key', $this->request->server['HTTP_API_KEY'] ?? $this->request->getBearerToken());
 
@@ -52,7 +52,7 @@ $this->bind('/api/*', function ($params) {
         $apiUser['user'] = $user['user'];
         $apiUser['role'] = $user['role'];
 
-        // is jwt token?
+    // is jwt token?
     } elseif ($token != 'public' && preg_match('/^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]*$/', $token)) {
 
         // todo
@@ -120,7 +120,7 @@ $this->bind('/api/*', function ($params) {
     }
 
     // rest api query
-    $path = '/' . $params[':splat'][0];
+    $path = '/'.$params[':splat'][0];
 
     return $this->restApi->process($path, $this->request->method);
 });

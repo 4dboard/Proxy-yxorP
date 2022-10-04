@@ -20,6 +20,7 @@ namespace MongoDB\Model;
 use ArrayAccess;
 use MongoDB\Exception\BadMethodCallException;
 use ReturnTypeWillChange;
+
 use function array_key_exists;
 
 /**
@@ -60,27 +61,27 @@ class CollectionInfo implements ArrayAccess
     /**
      * Return the maximum number of documents to keep in the capped collection.
      *
-     * @return integer|null
      * @deprecated 1.0 Deprecated in favor of using getOptions
      *
+     * @return integer|null
      */
     public function getCappedMax()
     {
         /* The MongoDB server might return this number as an integer or float */
-        return isset($this->info['options']['max']) ? (integer)$this->info['options']['max'] : null;
+        return isset($this->info['options']['max']) ? (integer) $this->info['options']['max'] : null;
     }
 
     /**
      * Return the maximum size (in bytes) of the capped collection.
      *
-     * @return integer|null
      * @deprecated 1.0 Deprecated in favor of using getOptions
      *
+     * @return integer|null
      */
     public function getCappedSize()
     {
         /* The MongoDB server might return this number as an integer or float */
-        return isset($this->info['options']['size']) ? (integer)$this->info['options']['size'] : null;
+        return isset($this->info['options']['size']) ? (integer) $this->info['options']['size'] : null;
     }
 
     /**
@@ -90,7 +91,7 @@ class CollectionInfo implements ArrayAccess
      */
     public function getIdIndex(): array
     {
-        return (array)($this->info['idIndex'] ?? []);
+        return (array) ($this->info['idIndex'] ?? []);
     }
 
     /**
@@ -101,7 +102,7 @@ class CollectionInfo implements ArrayAccess
      */
     public function getInfo(): array
     {
-        return (array)($this->info['info'] ?? []);
+        return (array) ($this->info['info'] ?? []);
     }
 
     /**
@@ -112,7 +113,7 @@ class CollectionInfo implements ArrayAccess
      */
     public function getName()
     {
-        return (string)$this->info['name'];
+        return (string) $this->info['name'];
     }
 
     /**
@@ -123,7 +124,7 @@ class CollectionInfo implements ArrayAccess
      */
     public function getOptions()
     {
-        return (array)($this->info['options'] ?? []);
+        return (array) ($this->info['options'] ?? []);
     }
 
     /**
@@ -134,19 +135,19 @@ class CollectionInfo implements ArrayAccess
      */
     public function getType(): string
     {
-        return (string)$this->info['type'];
+        return (string) $this->info['type'];
     }
 
     /**
      * Return whether the collection is a capped collection.
      *
-     * @return boolean
      * @deprecated 1.0 Deprecated in favor of using getOptions
      *
+     * @return boolean
      */
     public function isCapped()
     {
-        return !empty($this->info['options']['capped']);
+        return ! empty($this->info['options']['capped']);
     }
 
     /**

@@ -14,11 +14,12 @@ class Patch extends Operation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
-        PathItem::class,
-    ];
+    public $method = 'patch';
+
     /**
      * @inheritdoc
      */
-    public $method = 'patch';
+    public static $_parents = [
+        PathItem::class,
+    ];
 }

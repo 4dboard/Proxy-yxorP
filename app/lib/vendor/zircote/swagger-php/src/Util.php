@@ -15,11 +15,53 @@ use Symfony\Component\Finder\Finder;
 class Util
 {
     /**
+     * Turns the given $fullPath into a relative path based on $basePaths, which can either
+     * be a single string path, or a list of possible paths. If a list is given, the first
+     * matching basePath in the list will be used to compute the relative path. If no
+     * relative path could be computed, the original string will be returned because there
+     * is always a chance it was a valid relative path to begin with.
+     *
+     * It should be noted that these are "relative paths" primarily in Finder's sense of them,
+     * and conform specifically to what is expected by functions like `exclude()` and `notPath()`.
+     * In particular, leading and trailing slashes are removed.
+     *
+     * @param array|string $basePaths
+     */
+    public static function getRelativePath(string $fullPath, $basePaths): string
+    {
+        $relativePath = null;
+        if (is_string($basePaths)) { // just a single path, not an array of possible paths
+            $relativePath = self::removePrefix($fullPath, $basePaths);
+        } else { // an array of paths
+            foreach ($basePaths as $basePath) {
+                $relativePath = self::removePrefix($fullPath, $basePath);
+                if (!empty($relativePath)) {
+                    break;
+                }
+            }
+        }
+
+        return !empty($relativePath) ? trim($relativePath, '/') : $fullPath;
+    }
+
+    /**
+     * Removes a prefix from the start of a string if it exists, or null otherwise.
+     */
+    private static function removePrefix(string $str, string $prefix): ?string
+    {
+        if (substr($str, 0, strlen($prefix)) == $prefix) {
+            return substr($str, strlen($prefix));
+        }
+
+        return null;
+    }
+
+    /**
      * Build a Symfony Finder object that scans the given $directory.
      *
      * @param array|Finder|string $directory The directory(s) or filename(s)
-     * @param null|array|string $exclude The directory(s) or filename(s) to exclude (as absolute or relative paths)
-     * @param null|string $pattern The pattern of the files to scan
+     * @param null|array|string   $exclude   The directory(s) or filename(s) to exclude (as absolute or relative paths)
+     * @param null|string         $pattern   The pattern of the files to scan
      *
      * @throws InvalidArgumentException
      */
@@ -70,48 +112,6 @@ class Util
     }
 
     /**
-     * Turns the given $fullPath into a relative path based on $basePaths, which can either
-     * be a single string path, or a list of possible paths. If a list is given, the first
-     * matching basePath in the list will be used to compute the relative path. If no
-     * relative path could be computed, the original string will be returned because there
-     * is always a chance it was a valid relative path to begin with.
-     *
-     * It should be noted that these are "relative paths" primarily in Finder's sense of them,
-     * and conform specifically to what is expected by functions like `exclude()` and `notPath()`.
-     * In particular, leading and trailing slashes are removed.
-     *
-     * @param array|string $basePaths
-     */
-    public static function getRelativePath(string $fullPath, $basePaths): string
-    {
-        $relativePath = null;
-        if (is_string($basePaths)) { // just a single path, not an array of possible paths
-            $relativePath = self::removePrefix($fullPath, $basePaths);
-        } else { // an array of paths
-            foreach ($basePaths as $basePath) {
-                $relativePath = self::removePrefix($fullPath, $basePath);
-                if (!empty($relativePath)) {
-                    break;
-                }
-            }
-        }
-
-        return !empty($relativePath) ? trim($relativePath, '/') : $fullPath;
-    }
-
-    /**
-     * Removes a prefix from the start of a string if it exists, or null otherwise.
-     */
-    private static function removePrefix(string $str, string $prefix): ?string
-    {
-        if (substr($str, 0, strlen($prefix)) == $prefix) {
-            return substr($str, strlen($prefix));
-        }
-
-        return null;
-    }
-
-    /**
      * Escapes the special characters "/" and "~".
      *
      * https://swagger.io/docs/specification/using-ref/
@@ -143,7 +143,7 @@ class Util
     public static function shorten($classes)
     {
         $short = [];
-        foreach ((array)$classes as $class) {
+        foreach ((array) $classes as $class) {
             $short[] = '@' . str_replace('OpenApi\\Annotations\\', 'OA\\', $class);
         }
 

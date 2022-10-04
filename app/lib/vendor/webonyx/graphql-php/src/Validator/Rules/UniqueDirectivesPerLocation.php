@@ -27,12 +27,17 @@ class UniqueDirectivesPerLocation extends ValidationRule
         return $this->getASTVisitor($context);
     }
 
+    public function getSDLVisitor(SDLValidationContext $context)
+    {
+        return $this->getASTVisitor($context);
+    }
+
     public function getASTVisitor(ASTValidationContext $context)
     {
         /** @var array<string, true> $uniqueDirectiveMap */
         $uniqueDirectiveMap = [];
 
-        $schema = $context->getSchema();
+        $schema            = $context->getSchema();
         $definedDirectives = $schema !== null
             ? $schema->getDirectives()
             : Directive::getInternalDirectives();
@@ -46,7 +51,7 @@ class UniqueDirectivesPerLocation extends ValidationRule
 
         $astDefinitions = $context->getDocument()->definitions;
         foreach ($astDefinitions as $definition) {
-            if (!($definition instanceof DirectiveDefinitionNode)
+            if (! ($definition instanceof DirectiveDefinitionNode)
                 || $definition->repeatable
             ) {
                 continue;
@@ -56,8 +61,8 @@ class UniqueDirectivesPerLocation extends ValidationRule
         }
 
         return [
-            'enter' => static function (Node $node) use ($uniqueDirectiveMap, $context): void {
-                if (!isset($node->directives)) {
+            'enter' => static function (Node $node) use ($uniqueDirectiveMap, $context) : void {
+                if (! isset($node->directives)) {
                     return;
                 }
 
@@ -67,7 +72,7 @@ class UniqueDirectivesPerLocation extends ValidationRule
                 foreach ($node->directives as $directive) {
                     $directiveName = $directive->name->value;
 
-                    if (!isset($uniqueDirectiveMap[$directiveName])) {
+                    if (! isset($uniqueDirectiveMap[$directiveName])) {
                         continue;
                     }
 
@@ -87,10 +92,5 @@ class UniqueDirectivesPerLocation extends ValidationRule
     public static function duplicateDirectiveMessage($directiveName)
     {
         return sprintf('The directive "%s" can only be used once at this location.', $directiveName);
-    }
-
-    public function getSDLVisitor(SDLValidationContext $context)
-    {
-        return $this->getASTVisitor($context);
     }
 }

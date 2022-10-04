@@ -18,9 +18,20 @@ class JsonContent extends Schema
 {
 
     /**
+     * @var object
+     */
+    public $example = Generator::UNDEFINED;
+
+    /**
+     * @var object
+     */
+    public $examples = Generator::UNDEFINED;
+
+    /**
      * @inheritdoc
      */
     public static $_parents = [];
+
     /**
      * @inheritdoc
      */
@@ -33,12 +44,4 @@ class JsonContent extends Schema
         Examples::class => ['examples', 'example'],
         Attachable::class => ['attachables'],
     ];
-    /**
-     * @var object
-     */
-    public $example = Generator::UNDEFINED;
-    /**
-     * @var object
-     */
-    public $examples = Generator::UNDEFINED;
 }

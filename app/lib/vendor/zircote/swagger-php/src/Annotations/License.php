@@ -17,38 +17,43 @@ use OpenApi\Generator;
 class License extends AbstractAnnotation
 {
     /**
-     * @inheritdoc
-     */
-    public static $_types = [
-        'name' => 'string',
-        'url' => 'string',
-    ];
-    /**
-     * @inheritdoc
-     */
-    public static $_required = ['name'];
-    /**
-     * @inheritdoc
-     */
-    public static $_parents = [
-        Info::class,
-    ];
-    /**
-     * @inheritdoc
-     */
-    public static $_nested = [
-        Attachable::class => ['attachables'],
-    ];
-    /**
      * The license name used for the API.
      *
      * @var string
      */
     public $name = Generator::UNDEFINED;
+
     /**
      * A URL to the license used for the API.
      *
      * @var string
      */
     public $url = Generator::UNDEFINED;
+
+    /**
+     * @inheritdoc
+     */
+    public static $_types = [
+        'name' => 'string',
+        'url' => 'string',
+    ];
+
+    /**
+     * @inheritdoc
+     */
+    public static $_required = ['name'];
+
+    /**
+     * @inheritdoc
+     */
+    public static $_parents = [
+        Info::class,
+    ];
+
+    /**
+     * @inheritdoc
+     */
+    public static $_nested = [
+        Attachable::class => ['attachables'],
+    ];
 }

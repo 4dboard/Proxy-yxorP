@@ -17,6 +17,27 @@ use OpenApi\Generator;
 class Contact extends AbstractAnnotation
 {
     /**
+     * The identifying name of the contact person/organization.
+     *
+     * @var string
+     */
+    public $name = Generator::UNDEFINED;
+
+    /**
+     * The URL pointing to the contact information.
+     *
+     * @var string
+     */
+    public $url = Generator::UNDEFINED;
+
+    /**
+     * The email address of the contact person/organization.
+     *
+     * @var string
+     */
+    public $email = Generator::UNDEFINED;
+
+    /**
      * @inheritdoc
      */
     public static $_types = [
@@ -24,34 +45,18 @@ class Contact extends AbstractAnnotation
         'url' => 'string',
         'email' => 'string',
     ];
+
     /**
      * @inheritdoc
      */
     public static $_parents = [
         Info::class,
     ];
+
     /**
      * @inheritdoc
      */
     public static $_nested = [
         Attachable::class => ['attachables'],
     ];
-    /**
-     * The identifying name of the contact person/organization.
-     *
-     * @var string
-     */
-    public $name = Generator::UNDEFINED;
-    /**
-     * The URL pointing to the contact information.
-     *
-     * @var string
-     */
-    public $url = Generator::UNDEFINED;
-    /**
-     * The email address of the contact person/organization.
-     *
-     * @var string
-     */
-    public $email = Generator::UNDEFINED;
 }

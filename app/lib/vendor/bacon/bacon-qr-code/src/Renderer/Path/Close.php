@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace BaconQrCode\Renderer\Path;
 
@@ -14,7 +14,7 @@ final class Close implements OperationInterface
     {
     }
 
-    public static function instance(): self
+    public static function instance() : self
     {
         return self::$instance ?: self::$instance = new self();
     }
@@ -22,7 +22,7 @@ final class Close implements OperationInterface
     /**
      * @return self
      */
-    public function translate(float $x, float $y): OperationInterface
+    public function translate(float $x, float $y) : OperationInterface
     {
         return $this;
     }

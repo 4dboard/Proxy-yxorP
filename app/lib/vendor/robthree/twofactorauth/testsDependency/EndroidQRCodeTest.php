@@ -3,9 +3,9 @@
 namespace TestsDependency;
 
 use PHPUnit\Framework\TestCase;
+use RobThree\Auth\TwoFactorAuth;
 use RobThree\Auth\Providers\Qr\EndroidQrCodeProvider;
 use RobThree\Auth\Providers\Qr\HandlesDataUri;
-use RobThree\Auth\TwoFactorAuth;
 
 class EndroidQRCodeTest extends TestCase
 {

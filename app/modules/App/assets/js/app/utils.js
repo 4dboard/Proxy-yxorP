@@ -1,13 +1,11 @@
 let formatSize = function (bytes) {
-    if (bytes == 0) {
-        return "0.00 B";
-    }
+    if (bytes == 0) { return "0.00 B"; }
     let e = Math.floor(Math.log(bytes) / Math.log(1024));
     return ((bytes / Math.pow(1024, e)).toFixed(2) + ' ' + ' KMGTP'.charAt(e) + 'B').replace('.00', '');
 }
 
-let formatNumber = function (num, round = 2) {
-    return (new Intl.NumberFormat(navigator.language, {style: 'decimal', maximumFractionDigits: round})).format(num);
+let formatNumber = function(num, round = 2) {
+    return (new Intl.NumberFormat(navigator.language, { style: 'decimal', maximumFractionDigits: round})).format(num);
 }
 
 let formatDuration = function (time) {
@@ -55,19 +53,16 @@ let on = function (element, name, delegate, fn) {
     return element;
 };
 
-let toKebabCase = function (str) {
+let toKebabCase = function(str) {
     return str.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase();
 };
 
 let copyText = function (text, cb) {
-    var inp = document.createElement('textarea');
+    let inp = document.createElement('textarea');
     document.body.appendChild(inp)
     inp.value = text
     inp.select();
-    try {
-        document.execCommand('copy', false);
-    } catch (e) {
-    }
+    try { document.execCommand('copy', false); } catch (e) { }
     inp.remove();
     if (cb) cb();
 }
@@ -78,18 +73,18 @@ let interpolate = function (str, params) {
     return new Function(...names, `return \`${str}\`;`)(...vals);
 }
 
-let uuid = function () {
-    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+let uuid = function() {
+    return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
     );
 }
 
-let truncate = function (text, length, clamp = '...') {
+let truncate = function(text, length, clamp = '...') {
     let content = text || '';
     return content.length > length ? content.slice(0, length) + clamp : content;
 };
 
-let stripTags = function (input, allowed) {
+let stripTags = function(input, allowed) {
 
     // making sure the allowed arg is a string containing only tags in lowercase (<a><b><c>)
     allowed = (((allowed || '') + '').toLowerCase().match(/<[a-z][a-z0-9]*>/g) || []).join('');

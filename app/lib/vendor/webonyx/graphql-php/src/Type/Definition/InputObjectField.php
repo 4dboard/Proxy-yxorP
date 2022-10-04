@@ -23,12 +23,15 @@ class InputObjectField
 
     /** @var string|null */
     public $description;
-    /** @var InputValueDefinitionNode|null */
-    public $astNode;
-    /** @var mixed[] */
-    public $config;
+
     /** @var Type&InputType */
     private $type;
+
+    /** @var InputValueDefinitionNode|null */
+    public $astNode;
+
+    /** @var mixed[] */
+    public $config;
 
     /**
      * @param mixed[] $opts
@@ -52,7 +55,7 @@ class InputObjectField
         $this->config = $opts;
     }
 
-    public function __isset(string $name): bool
+    public function __isset(string $name) : bool
     {
         switch ($name) {
             case 'type':
@@ -107,29 +110,29 @@ class InputObjectField
     /**
      * @return Type&InputType
      */
-    public function getType(): Type
+    public function getType() : Type
     {
-        if (!isset($this->type)) {
+        if (! isset($this->type)) {
             /**
              * TODO: replace this phpstan cast with native assert
              *
              * @var Type&InputType
              */
-            $type = Schema::resolveType($this->config['type']);
+            $type       = Schema::resolveType($this->config['type']);
             $this->type = $type;
         }
 
         return $this->type;
     }
 
-    public function isRequired(): bool
-    {
-        return $this->getType() instanceof NonNull && !$this->defaultValueExists();
-    }
-
-    public function defaultValueExists(): bool
+    public function defaultValueExists() : bool
     {
         return array_key_exists('defaultValue', $this->config);
+    }
+
+    public function isRequired() : bool
+    {
+        return $this->getType() instanceof NonNull && ! $this->defaultValueExists();
     }
 
     /**
@@ -156,7 +159,7 @@ class InputObjectField
             )
         );
         Utils::invariant(
-            !array_key_exists('resolve', $this->config),
+            ! array_key_exists('resolve', $this->config),
             sprintf(
                 '%s.%s field has a resolve property, but Input Types cannot define resolvers.',
                 $parentType->name,

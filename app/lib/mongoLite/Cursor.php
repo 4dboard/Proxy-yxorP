@@ -2,17 +2,10 @@
 
 namespace MongoLite;
 
-use Iterator;
-use PDO;
-use function array_diff_key;
-use function implode;
-use function json_decode;
-
 /**
  * Cursor object.
  */
-class Cursor implements Iterator
-{
+class Cursor implements \Iterator {
 
     /**
      * @var boolean|integer
@@ -60,11 +53,10 @@ class Cursor implements Iterator
      * @param object $collection
      * @param mixed $criteria
      */
-    public function __construct(Collection $collection, mixed $criteria, ?array $projection = null)
-    {
-        $this->collection = $collection;
-        $this->criteria = $criteria;
-        $this->projection = $projection;
+    public function __construct(Collection $collection, mixed $criteria, ?array $projection = null) {
+        $this->collection  = $collection;
+        $this->criteria    = $criteria;
+        $this->projection  = $projection;
     }
 
     /**
@@ -72,39 +64,37 @@ class Cursor implements Iterator
      *
      * @return integer
      */
-    public function count(): int
-    {
+    public function count(): int {
 
         if (!$this->criteria) {
 
-            $stmt = $this->collection->database->connection->query('SELECT COUNT(*) AS C FROM ' . $this->collection->database->connection->quote($this->collection->name));
+            $stmt = $this->collection->database->connection->query('SELECT COUNT(*) AS C FROM '.$this->collection->database->connection->quote($this->collection->name));
 
         } else {
 
-            $sql = ['SELECT COUNT(*) AS C FROM ' . $this->collection->database->connection->quote($this->collection->name)];
+            $sql = ['SELECT COUNT(*) AS C FROM '.$this->collection->database->connection->quote($this->collection->name)];
 
-            $sql[] = 'WHERE document_criteria("' . $this->criteria . '", document)';
+            $sql[] = 'WHERE document_criteria("'.$this->criteria.'", document)';
 
             if ($this->limit) {
-                $sql[] = 'LIMIT ' . $this->limit;
+                $sql[] = 'LIMIT '.$this->limit;
             }
 
-            $stmt = $this->collection->database->connection->query(implode(' ', $sql));
+            $stmt = $this->collection->database->connection->query(\implode(' ', $sql));
         }
 
-        $res = $stmt->fetch(PDO::FETCH_ASSOC);
+        $res  = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        return intval(isset($res['C']) ? $res['C'] : 0);
+        return intval(isset($res['C']) ? $res['C']:0);
     }
 
     /**
      * Set limit
      *
-     * @param int $limit
+     * @param  int $limit
      * @return object       Cursor
      */
-    public function limit(?int $limit): self
-    {
+    public function limit(?int $limit): self {
 
         $this->limit = $limit;
 
@@ -114,11 +104,10 @@ class Cursor implements Iterator
     /**
      * Set sort
      *
-     * @param mixed $sorts
+     * @param  mixed $sorts
      * @return object       Cursor
      */
-    public function sort(?array $sorts): self
-    {
+    public function sort(?array $sorts): self {
 
         $this->sort = $sorts;
 
@@ -128,11 +117,10 @@ class Cursor implements Iterator
     /**
      * Set skip
      *
-     * @param int $skip
+     * @param  int $skip
      * @return object       Cursor
      */
-    public function skip(?int $skip): self
-    {
+    public function skip(?int $skip): self {
 
         $this->skip = $skip;
 
@@ -142,11 +130,10 @@ class Cursor implements Iterator
     /**
      * Loop through result set
      *
-     * @param mixed $callable
+     * @param  mixed $callable
      * @return object
      */
-    public function each(mixed $callable): self
-    {
+    public function each(mixed $callable): self {
 
 
         foreach ($this->current() as $document) {
@@ -156,36 +143,29 @@ class Cursor implements Iterator
         return $this;
     }
 
-    public function current(): array
-    {
-
-        return $this->data[$this->position];
-    }
-
     /**
      * Get documents matching criteria
      *
      * @return array
      */
-    public function toArray(): array
-    {
+    public function toArray(): array {
         return $this->getData();
     }
 
+
     /**
      * Get documents matching criteria
      *
      * @return array
      */
-    protected function getData(): array
-    {
+    protected function getData(): array {
 
         $conn = $this->collection->database->connection;
-        $sql = ['SELECT document FROM ' . $conn->quote($this->collection->name)];
+        $sql = ['SELECT document FROM '.$conn->quote($this->collection->name)];
 
         if ($this->criteria) {
 
-            $sql[] = 'WHERE document_criteria("' . $this->criteria . '", document)';
+            $sql[] = 'WHERE document_criteria("'.$this->criteria.'", document)';
         }
 
         if ($this->sort) {
@@ -193,30 +173,28 @@ class Cursor implements Iterator
             $orders = [];
 
             foreach ($this->sort as $field => $direction) {
-                $orders[] = 'document_key(' . $conn->quote($field) . ', document) ' . ($direction == -1 ? 'DESC' : 'ASC');
+                $orders[] = 'document_key('.$conn->quote($field).', document) '.($direction==-1 ? 'DESC':'ASC');
             }
 
-            $sql[] = 'ORDER BY ' . implode(',', $orders);
+            $sql[] = 'ORDER BY '.\implode(',', $orders);
         }
 
         if ($this->limit) {
-            $sql[] = 'LIMIT ' . $this->limit;
+            $sql[] = 'LIMIT '.$this->limit;
 
-            if ($this->skip) {
-                $sql[] = 'OFFSET ' . $this->skip;
-            }
+            if ($this->skip) { $sql[] = 'OFFSET '.$this->skip; }
         }
 
         $sql = implode(' ', $sql);
 
-        $stmt = $conn->query($sql);
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt      = $conn->query($sql);
+        $result    = $stmt->fetchAll( \PDO::FETCH_ASSOC);
         $documents = [];
 
         if (!$this->projection) {
 
             foreach ($result as &$doc) {
-                $documents[] = json_decode($doc['document'], true);
+                $documents[] = \json_decode($doc['document'], true);
             }
 
         } else {
@@ -235,11 +213,11 @@ class Cursor implements Iterator
 
             foreach ($result as &$doc) {
 
-                $item = json_decode($doc['document'], true);
-                $id = $item['_id'];
+                $item = \json_decode($doc['document'], true);
+                $id   = $item['_id'];
 
                 if ($exclude) {
-                    $item = array_diff_key($item, $exclude);
+                    $item = \array_diff_key($item, $exclude);
                 }
 
                 if ($include) {
@@ -260,30 +238,31 @@ class Cursor implements Iterator
     /**
      * Iterator implementation
      */
-    public function rewind(): void
-    {
+    public function rewind(): void {
 
-        if ($this->position !== false) {
+        if ($this->position!==false) {
             $this->position = 0;
         }
     }
 
-    public function key(): int
-    {
+    public function current(): array {
+
+        return $this->data[$this->position];
+    }
+
+    public function key(): int {
         return $this->position;
     }
 
-    public function next(): void
-    {
+    public function next(): void {
         ++$this->position;
     }
 
-    public function valid(): bool
-    {
+    public function valid(): bool {
 
-        if ($this->position === false) {
+        if ($this->position===false) {
 
-            $this->data = $this->getData();
+            $this->data     = $this->getData();
             $this->position = 0;
         }
 
@@ -292,8 +271,7 @@ class Cursor implements Iterator
 
 }
 
-function array_key_intersect(&$a, &$b): array
-{
+function array_key_intersect(&$a, &$b): array {
 
     $array = [];
 

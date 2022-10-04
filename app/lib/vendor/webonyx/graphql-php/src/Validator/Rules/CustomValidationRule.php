@@ -14,7 +14,7 @@ class CustomValidationRule extends ValidationRule
 
     public function __construct($name, callable $visitorFn)
     {
-        $this->name = $name;
+        $this->name      = $name;
         $this->visitorFn = $visitorFn;
     }
 

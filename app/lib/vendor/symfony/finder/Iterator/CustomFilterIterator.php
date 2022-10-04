@@ -11,12 +11,6 @@
 
 namespace Symfony\Component\Finder\Iterator;
 
-use FilterIterator;
-use InvalidArgumentException;
-use Iterator;
-use SplFileInfo;
-use function is_callable;
-
 /**
  * CustomFilterIterator filters files by applying anonymous functions.
  *
@@ -25,23 +19,23 @@ use function is_callable;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
- * @extends FilterIterator<string, SplFileInfo>
+ * @extends \FilterIterator<string, \SplFileInfo>
  */
-class CustomFilterIterator extends FilterIterator
+class CustomFilterIterator extends \FilterIterator
 {
     private array $filters = [];
 
     /**
-     * @param Iterator<string, SplFileInfo> $iterator The Iterator to filter
-     * @param callable[] $filters An array of PHP callbacks
+     * @param \Iterator<string, \SplFileInfo> $iterator The Iterator to filter
+     * @param callable[]                      $filters  An array of PHP callbacks
      *
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
-    public function __construct(Iterator $iterator, array $filters)
+    public function __construct(\Iterator $iterator, array $filters)
     {
         foreach ($filters as $filter) {
-            if (!is_callable($filter)) {
-                throw new InvalidArgumentException('Invalid PHP callback.');
+            if (!\is_callable($filter)) {
+                throw new \InvalidArgumentException('Invalid PHP callback.');
             }
         }
         $this->filters = $filters;

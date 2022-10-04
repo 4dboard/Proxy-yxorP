@@ -97,12 +97,11 @@ class DocumentValidator
      * @api
      */
     public static function validate(
-        Schema       $schema,
+        Schema $schema,
         DocumentNode $ast,
-        ?array       $rules = null,
-        ?TypeInfo    $typeInfo = null
-    )
-    {
+        ?array $rules = null,
+        ?TypeInfo $typeInfo = null
+    ) {
         if ($rules === null) {
             $rules = static::allRules();
         }
@@ -126,8 +125,8 @@ class DocumentValidator
      */
     public static function allRules()
     {
-        if (!self::$initRules) {
-            static::$rules = array_merge(static::defaultRules(), self::securityRules(), self::$rules);
+        if (! self::$initRules) {
+            static::$rules     = array_merge(static::defaultRules(), self::securityRules(), self::$rules);
             static::$initRules = true;
         }
 
@@ -138,32 +137,32 @@ class DocumentValidator
     {
         if (self::$defaultRules === null) {
             self::$defaultRules = [
-                ExecutableDefinitions::class => new ExecutableDefinitions(),
-                UniqueOperationNames::class => new UniqueOperationNames(),
-                LoneAnonymousOperation::class => new LoneAnonymousOperation(),
-                SingleFieldSubscription::class => new SingleFieldSubscription(),
-                KnownTypeNames::class => new KnownTypeNames(),
-                FragmentsOnCompositeTypes::class => new FragmentsOnCompositeTypes(),
-                VariablesAreInputTypes::class => new VariablesAreInputTypes(),
-                ScalarLeafs::class => new ScalarLeafs(),
-                FieldsOnCorrectType::class => new FieldsOnCorrectType(),
-                UniqueFragmentNames::class => new UniqueFragmentNames(),
-                KnownFragmentNames::class => new KnownFragmentNames(),
-                NoUnusedFragments::class => new NoUnusedFragments(),
-                PossibleFragmentSpreads::class => new PossibleFragmentSpreads(),
-                NoFragmentCycles::class => new NoFragmentCycles(),
-                UniqueVariableNames::class => new UniqueVariableNames(),
-                NoUndefinedVariables::class => new NoUndefinedVariables(),
-                NoUnusedVariables::class => new NoUnusedVariables(),
-                KnownDirectives::class => new KnownDirectives(),
-                UniqueDirectivesPerLocation::class => new UniqueDirectivesPerLocation(),
-                KnownArgumentNames::class => new KnownArgumentNames(),
-                UniqueArgumentNames::class => new UniqueArgumentNames(),
-                ValuesOfCorrectType::class => new ValuesOfCorrectType(),
-                ProvidedRequiredArguments::class => new ProvidedRequiredArguments(),
-                VariablesInAllowedPosition::class => new VariablesInAllowedPosition(),
+                ExecutableDefinitions::class        => new ExecutableDefinitions(),
+                UniqueOperationNames::class         => new UniqueOperationNames(),
+                LoneAnonymousOperation::class       => new LoneAnonymousOperation(),
+                SingleFieldSubscription::class      => new SingleFieldSubscription(),
+                KnownTypeNames::class               => new KnownTypeNames(),
+                FragmentsOnCompositeTypes::class    => new FragmentsOnCompositeTypes(),
+                VariablesAreInputTypes::class       => new VariablesAreInputTypes(),
+                ScalarLeafs::class                  => new ScalarLeafs(),
+                FieldsOnCorrectType::class          => new FieldsOnCorrectType(),
+                UniqueFragmentNames::class          => new UniqueFragmentNames(),
+                KnownFragmentNames::class           => new KnownFragmentNames(),
+                NoUnusedFragments::class            => new NoUnusedFragments(),
+                PossibleFragmentSpreads::class      => new PossibleFragmentSpreads(),
+                NoFragmentCycles::class             => new NoFragmentCycles(),
+                UniqueVariableNames::class          => new UniqueVariableNames(),
+                NoUndefinedVariables::class         => new NoUndefinedVariables(),
+                NoUnusedVariables::class            => new NoUnusedVariables(),
+                KnownDirectives::class              => new KnownDirectives(),
+                UniqueDirectivesPerLocation::class  => new UniqueDirectivesPerLocation(),
+                KnownArgumentNames::class           => new KnownArgumentNames(),
+                UniqueArgumentNames::class          => new UniqueArgumentNames(),
+                ValuesOfCorrectType::class          => new ValuesOfCorrectType(),
+                ProvidedRequiredArguments::class    => new ProvidedRequiredArguments(),
+                VariablesInAllowedPosition::class   => new VariablesInAllowedPosition(),
                 OverlappingFieldsCanBeMerged::class => new OverlappingFieldsCanBeMerged(),
-                UniqueInputFieldNames::class => new UniqueInputFieldNames(),
+                UniqueInputFieldNames::class        => new UniqueInputFieldNames(),
             ];
         }
 
@@ -182,12 +181,29 @@ class DocumentValidator
         if (self::$securityRules === null) {
             self::$securityRules = [
                 DisableIntrospection::class => new DisableIntrospection(DisableIntrospection::DISABLED), // DEFAULT DISABLED
-                QueryDepth::class => new QueryDepth(QueryDepth::DISABLED), // default disabled
-                QueryComplexity::class => new QueryComplexity(QueryComplexity::DISABLED), // default disabled
+                QueryDepth::class           => new QueryDepth(QueryDepth::DISABLED), // default disabled
+                QueryComplexity::class      => new QueryComplexity(QueryComplexity::DISABLED), // default disabled
             ];
         }
 
         return self::$securityRules;
+    }
+
+    public static function sdlRules()
+    {
+        if (self::$sdlRules === null) {
+            self::$sdlRules = [
+                LoneSchemaDefinition::class                  => new LoneSchemaDefinition(),
+                KnownDirectives::class                       => new KnownDirectives(),
+                KnownArgumentNamesOnDirectives::class        => new KnownArgumentNamesOnDirectives(),
+                UniqueDirectivesPerLocation::class           => new UniqueDirectivesPerLocation(),
+                UniqueArgumentNames::class                   => new UniqueArgumentNames(),
+                UniqueInputFieldNames::class                 => new UniqueInputFieldNames(),
+                ProvidedRequiredArgumentsOnDirectives::class => new ProvidedRequiredArgumentsOnDirectives(),
+            ];
+        }
+
+        return self::$sdlRules;
     }
 
     /**
@@ -200,7 +216,7 @@ class DocumentValidator
      */
     public static function visitUsingRules(Schema $schema, TypeInfo $typeInfo, DocumentNode $documentNode, array $rules)
     {
-        $context = new ValidationContext($schema, $documentNode, $typeInfo);
+        $context  = new ValidationContext($schema, $documentNode, $typeInfo);
         $visitors = [];
         foreach ($rules as $rule) {
             $visitors[] = $rule->getVisitor($context);
@@ -250,7 +266,7 @@ class DocumentValidator
         return is_array($value)
             ? count(array_filter(
                 $value,
-                static function ($item): bool {
+                static function ($item) : bool {
                     return $item instanceof Throwable;
                 }
             )) === count($value)
@@ -274,19 +290,42 @@ class DocumentValidator
      * Deprecated. Rely on validation for documents co
      * ntaining literal values.
      *
-     * @return Error[]
      * @deprecated
      *
+     * @return Error[]
      */
     public static function isValidLiteralValue(Type $type, $valueNode)
     {
         $emptySchema = new Schema([]);
-        $emptyDoc = new DocumentNode(['definitions' => []]);
-        $typeInfo = new TypeInfo($emptySchema, $type);
-        $context = new ValidationContext($emptySchema, $emptyDoc, $typeInfo);
-        $validator = new ValuesOfCorrectType();
-        $visitor = $validator->getVisitor($context);
+        $emptyDoc    = new DocumentNode(['definitions' => []]);
+        $typeInfo    = new TypeInfo($emptySchema, $type);
+        $context     = new ValidationContext($emptySchema, $emptyDoc, $typeInfo);
+        $validator   = new ValuesOfCorrectType();
+        $visitor     = $validator->getVisitor($context);
         Visitor::visit($valueNode, Visitor::visitWithTypeInfo($typeInfo, $visitor));
+
+        return $context->getErrors();
+    }
+
+    /**
+     * @param ValidationRule[]|null $rules
+     *
+     * @return Error[]
+     *
+     * @throws Exception
+     */
+    public static function validateSDL(
+        DocumentNode $documentAST,
+        ?Schema $schemaToExtend = null,
+        ?array $rules = null
+    ) {
+        $usedRules = $rules ?? self::sdlRules();
+        $context   = new SDLValidationContext($documentAST, $schemaToExtend);
+        $visitors  = [];
+        foreach ($usedRules as $rule) {
+            $visitors[] = $rule->getSDLVisitor($context);
+        }
+        Visitor::visit($documentAST, Visitor::visitInParallel($visitors));
 
         return $context->getErrors();
     }
@@ -299,51 +338,18 @@ class DocumentValidator
         }
     }
 
-    /**
-     * @param ValidationRule[]|null $rules
-     *
-     * @return Error[]
-     *
-     * @throws Exception
-     */
-    public static function validateSDL(
-        DocumentNode $documentAST,
-        ?Schema      $schemaToExtend = null,
-        ?array       $rules = null
-    )
+    public static function assertValidSDLExtension(DocumentNode $documentAST, Schema $schema)
     {
-        $usedRules = $rules ?? self::sdlRules();
-        $context = new SDLValidationContext($documentAST, $schemaToExtend);
-        $visitors = [];
-        foreach ($usedRules as $rule) {
-            $visitors[] = $rule->getSDLVisitor($context);
+        $errors = self::validateSDL($documentAST, $schema);
+        if (count($errors) > 0) {
+            throw new Error(self::combineErrorMessages($errors));
         }
-        Visitor::visit($documentAST, Visitor::visitInParallel($visitors));
-
-        return $context->getErrors();
-    }
-
-    public static function sdlRules()
-    {
-        if (self::$sdlRules === null) {
-            self::$sdlRules = [
-                LoneSchemaDefinition::class => new LoneSchemaDefinition(),
-                KnownDirectives::class => new KnownDirectives(),
-                KnownArgumentNamesOnDirectives::class => new KnownArgumentNamesOnDirectives(),
-                UniqueDirectivesPerLocation::class => new UniqueDirectivesPerLocation(),
-                UniqueArgumentNames::class => new UniqueArgumentNames(),
-                UniqueInputFieldNames::class => new UniqueInputFieldNames(),
-                ProvidedRequiredArgumentsOnDirectives::class => new ProvidedRequiredArgumentsOnDirectives(),
-            ];
-        }
-
-        return self::$sdlRules;
     }
 
     /**
      * @param Error[] $errors
      */
-    private static function combineErrorMessages(array $errors): string
+    private static function combineErrorMessages(array $errors) : string
     {
         $str = '';
         foreach ($errors as $error) {
@@ -351,13 +357,5 @@ class DocumentValidator
         }
 
         return $str;
-    }
-
-    public static function assertValidSDLExtension(DocumentNode $documentAST, Schema $schema)
-    {
-        $errors = self::validateSDL($documentAST, $schema);
-        if (count($errors) > 0) {
-            throw new Error(self::combineErrorMessages($errors));
-        }
     }
 }

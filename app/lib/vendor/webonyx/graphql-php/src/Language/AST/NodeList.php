@@ -7,6 +7,7 @@ namespace GraphQL\Language\AST;
 use ArrayAccess;
 use Countable;
 use GraphQL\Utils\AST;
+use InvalidArgumentException;
 use IteratorAggregate;
 use ReturnTypeWillChange;
 use Traversable;
@@ -32,6 +33,17 @@ class NodeList implements ArrayAccess, IteratorAggregate, Countable
      * @param Node[] $nodes
      *
      * @phpstan-param array<T> $nodes
+     * @phpstan-return self<T>
+     */
+    public static function create(array $nodes) : self
+    {
+        return new static($nodes);
+    }
+
+    /**
+     * @param Node[] $nodes
+     *
+     * @phpstan-param array<T> $nodes
      */
     public function __construct(array $nodes)
     {
@@ -39,85 +51,11 @@ class NodeList implements ArrayAccess, IteratorAggregate, Countable
     }
 
     /**
-     * @param Node[] $nodes
-     *
-     * @phpstan-param array<T> $nodes
-     * @phpstan-return self<T>
-     */
-    public static function create(array $nodes): self
-    {
-        return new static($nodes);
-    }
-
-    /**
      * @param int|string $offset
      */
-    public function offsetExists($offset): bool
+    public function offsetExists($offset) : bool
     {
         return isset($this->nodes[$offset]);
-    }
-
-    /**
-     * @param int|string|null $offset
-     * @param Node|mixed[] $value
-     *
-     * @phpstan-param T|mixed[] $value
-     */
-    public function offsetSet($offset, $value): void
-    {
-        if (is_array($value)) {
-            /** @phpstan-var T $value */
-            $value = AST::fromArray($value);
-        }
-
-        // Happens when a Node is pushed via []=
-        if ($offset === null) {
-            $this->nodes[] = $value;
-
-            return;
-        }
-
-        $this->nodes[$offset] = $value;
-    }
-
-    /**
-     * @param int|string $offset
-     */
-    public function offsetUnset($offset): void
-    {
-        unset($this->nodes[$offset]);
-    }
-
-    /**
-     * @param mixed $replacement
-     *
-     * @phpstan-return NodeList<T>
-     */
-    public function splice(int $offset, int $length, $replacement = null): NodeList
-    {
-        return new NodeList(array_splice($this->nodes, $offset, $length, $replacement));
-    }
-
-    /**
-     * @param NodeList|Node[] $list
-     *
-     * @phpstan-param NodeList<T>|array<T> $list
-     * @phpstan-return NodeList<T>
-     */
-    public function merge($list): NodeList
-    {
-        if ($list instanceof self) {
-            $list = $list->nodes;
-        }
-
-        return new NodeList(array_merge($this->nodes, $list));
-    }
-
-    public function getIterator(): Traversable
-    {
-        foreach ($this->nodes as $key => $_) {
-            yield $this->offsetGet($key);
-        }
     }
 
     /**
@@ -139,14 +77,77 @@ class NodeList implements ArrayAccess, IteratorAggregate, Countable
 
         if (is_array($item) && isset($item['kind'])) {
             /** @phpstan-var T $node */
-            $node = AST::fromArray($item);
+            $node                 = AST::fromArray($item);
             $this->nodes[$offset] = $node;
         }
 
         return $this->nodes[$offset];
     }
 
-    public function count(): int
+    /**
+     * @param int|string|null $offset
+     * @param Node|mixed[]    $value
+     *
+     * @phpstan-param T|mixed[] $value
+     */
+    public function offsetSet($offset, $value) : void
+    {
+        if (is_array($value)) {
+            /** @phpstan-var T $value */
+            $value = AST::fromArray($value);
+        }
+
+        // Happens when a Node is pushed via []=
+        if ($offset === null) {
+            $this->nodes[] = $value;
+
+            return;
+        }
+
+        $this->nodes[$offset] = $value;
+    }
+
+    /**
+     * @param int|string $offset
+     */
+    public function offsetUnset($offset) : void
+    {
+        unset($this->nodes[$offset]);
+    }
+
+    /**
+     * @param mixed $replacement
+     *
+     * @phpstan-return NodeList<T>
+     */
+    public function splice(int $offset, int $length, $replacement = null) : NodeList
+    {
+        return new NodeList(array_splice($this->nodes, $offset, $length, $replacement));
+    }
+
+    /**
+     * @param NodeList|Node[] $list
+     *
+     * @phpstan-param NodeList<T>|array<T> $list
+     * @phpstan-return NodeList<T>
+     */
+    public function merge($list) : NodeList
+    {
+        if ($list instanceof self) {
+            $list = $list->nodes;
+        }
+
+        return new NodeList(array_merge($this->nodes, $list));
+    }
+
+    public function getIterator() : Traversable
+    {
+        foreach ($this->nodes as $key => $_) {
+            yield $this->offsetGet($key);
+        }
+    }
+
+    public function count() : int
     {
         return count($this->nodes);
     }

@@ -2,14 +2,10 @@
 
 namespace MongoLite;
 
-use DirectoryIterator;
-use function rtrim;
-
 /**
  * Client object.
  */
-class Client
-{
+class Client {
 
     /**
      * @var array
@@ -30,11 +26,10 @@ class Client
      * Constructor
      *
      * @param string $path - Pathname to database file or :memory:
-     * @param array $options
+     * @param array  $options
      */
-    public function __construct(string $path, array $options = [])
-    {
-        $this->path = rtrim($path, '\\');
+    public function __construct(string $path, array $options = []) {
+        $this->path    = \rtrim($path, '\\');
         $this->options = $options;
     }
 
@@ -43,8 +38,7 @@ class Client
      *
      * @return array List of database names
      */
-    public function listDBs(): array
-    {
+    public function listDBs(): array {
 
         // Return all databases available in memory
         if ($this->path === Database::DSN_PATH_MEMORY) {
@@ -54,7 +48,7 @@ class Client
         // Return all databases available on disk
         $databases = [];
 
-        foreach (new DirectoryIterator($this->path) as $fileInfo) {
+        foreach (new \DirectoryIterator($this->path) as $fileInfo) {
             if ($fileInfo->getExtension() === 'sqlite') {
                 $databases[] = $fileInfo->getBasename('.sqlite');
             }
@@ -66,23 +60,21 @@ class Client
     /**
      * Select Collection
      *
-     * @param string $database
-     * @param string $collection
+     * @param  string $database
+     * @param  string $collection
      * @return Collection
      */
-    public function selectCollection(string $database, string $collection): Collection
-    {
+    public function selectCollection(string $database, string $collection): Collection {
         return $this->selectDB($database)->selectCollection($collection);
     }
 
     /**
      * Select database
      *
-     * @param string $name
+     * @param  string $name
      * @return Database
      */
-    public function selectDB(string $name): Database
-    {
+    public function selectDB(string $name): Database {
 
         if (!isset($this->databases[$name])) {
             $this->databases[$name] = new Database(
@@ -94,8 +86,7 @@ class Client
         return $this->databases[$name];
     }
 
-    public function __get($database)
-    {
+    public function __get($database) {
 
         return $this->selectDB($database);
     }

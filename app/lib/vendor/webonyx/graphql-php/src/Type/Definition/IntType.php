@@ -9,7 +9,9 @@ use GraphQL\Error\Error;
 use GraphQL\Language\AST\IntValueNode;
 use GraphQL\Language\AST\Node;
 use GraphQL\Utils\Utils;
+use function floatval;
 use function floor;
+use function intval;
 use function is_bool;
 use function is_float;
 use function is_int;
@@ -48,7 +50,7 @@ values. Int can represent values between -(2^31) and 2^31 - 1. ';
         }
 
         $float = is_numeric($value) || is_bool($value)
-            ? (float)$value
+            ? (float) $value
             : null;
 
         if ($float === null || floor($float) !== $float) {
@@ -65,7 +67,7 @@ values. Int can represent values between -(2^31) and 2^31 - 1. ';
             );
         }
 
-        return (int)$float;
+        return (int) $float;
     }
 
     /**
@@ -73,11 +75,11 @@ values. Int can represent values between -(2^31) and 2^31 - 1. ';
      *
      * @throws Error
      */
-    public function parseValue($value): int
+    public function parseValue($value) : int
     {
         $isInt = is_int($value) || (is_float($value) && floor($value) === $value);
 
-        if (!$isInt) {
+        if (! $isInt) {
             throw new Error(
                 'Int cannot represent non-integer value: ' .
                 Utils::printSafe($value)
@@ -91,7 +93,7 @@ values. Int can represent values between -(2^31) and 2^31 - 1. ';
             );
         }
 
-        return (int)$value;
+        return (int) $value;
     }
 
     /**
@@ -104,8 +106,8 @@ values. Int can represent values between -(2^31) and 2^31 - 1. ';
     public function parseLiteral(Node $valueNode, ?array $variables = null)
     {
         if ($valueNode instanceof IntValueNode) {
-            $val = (int)$valueNode->value;
-            if ($valueNode->value === (string)$val && self::MIN_INT <= $val && $val <= self::MAX_INT) {
+            $val = (int) $valueNode->value;
+            if ($valueNode->value === (string) $val && self::MIN_INT <= $val && $val <= self::MAX_INT) {
                 return $val;
             }
         }

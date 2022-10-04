@@ -2,8 +2,6 @@
 
 namespace Psr\Http\Message;
 
-use InvalidArgumentException;
-
 /**
  * Representation of an outgoing, client-side request.
  *
@@ -82,7 +80,7 @@ interface RequestInterface extends MessageInterface
      *
      * @param string $method Case-sensitive method.
      * @return static
-     * @throws InvalidArgumentException for invalid HTTP methods.
+     * @throws \InvalidArgumentException for invalid HTTP methods.
      */
     public function withMethod($method);
 

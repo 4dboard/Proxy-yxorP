@@ -51,7 +51,7 @@ interface LeafType
      * In the case of an invalid node or value this method must throw an Exception
      *
      * @param IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|NullValueNode $valueNode
-     * @param mixed[]|null $variables
+     * @param mixed[]|null                                                               $variables
      *
      * @return mixed
      *

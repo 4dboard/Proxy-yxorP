@@ -24,21 +24,21 @@ class NoUnusedFragments extends ValidationRule
     public function getVisitor(ValidationContext $context)
     {
         $this->operationDefs = [];
-        $this->fragmentDefs = [];
+        $this->fragmentDefs  = [];
 
         return [
-            NodeKind::OPERATION_DEFINITION => function ($node): VisitorOperation {
+            NodeKind::OPERATION_DEFINITION => function ($node) : VisitorOperation {
                 $this->operationDefs[] = $node;
 
                 return Visitor::skipNode();
             },
-            NodeKind::FRAGMENT_DEFINITION => function (FragmentDefinitionNode $def): VisitorOperation {
+            NodeKind::FRAGMENT_DEFINITION  => function (FragmentDefinitionNode $def) : VisitorOperation {
                 $this->fragmentDefs[] = $def;
 
                 return Visitor::skipNode();
             },
-            NodeKind::DOCUMENT => [
-                'leave' => function () use ($context): void {
+            NodeKind::DOCUMENT             => [
+                'leave' => function () use ($context) : void {
                     $fragmentNameUsed = [];
 
                     foreach ($this->operationDefs as $operation) {

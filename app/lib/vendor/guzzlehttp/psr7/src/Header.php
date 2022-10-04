@@ -4,12 +4,6 @@ declare(strict_types=1);
 
 namespace GuzzleHttp\Psr7;
 
-use TypeError;
-use function is_array;
-use function is_string;
-use function strlen;
-use function trim;
-
 final class Header
 {
     /**
@@ -25,7 +19,7 @@ final class Header
         static $trimmed = "\"'  \n\t\r";
         $params = $matches = [];
 
-        foreach ((array)$header as $value) {
+        foreach ((array) $header as $value) {
             foreach (self::splitList($value) as $val) {
                 $part = [];
                 foreach (preg_split('/;(?=([^"]*"[^"]*")*[^"]*$)/', $val) as $kvp) {
@@ -48,6 +42,26 @@ final class Header
     }
 
     /**
+     * Converts an array of header values that may contain comma separated
+     * headers into an array of headers with no comma separated values.
+     *
+     * @param string|array $header Header to normalize.
+     *
+     * @deprecated Use self::splitList() instead.
+     */
+    public static function normalize($header): array
+    {
+        $result = [];
+        foreach ((array) $header as $value) {
+            foreach (self::splitList($value) as $parsed) {
+                $result[] = $parsed;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * Splits a HTTP header defined to contain comma-separated list into
      * each individual value. Empty values will be removed.
      *
@@ -62,20 +76,20 @@ final class Header
      */
     public static function splitList($values): array
     {
-        if (!is_array($values)) {
+        if (!\is_array($values)) {
             $values = [$values];
         }
 
         $result = [];
         foreach ($values as $value) {
-            if (!is_string($value)) {
-                throw new TypeError('$header must either be a string or an array containing strings.');
+            if (!\is_string($value)) {
+                throw new \TypeError('$header must either be a string or an array containing strings.');
             }
 
             $v = '';
             $isQuoted = false;
             $isEscaped = false;
-            for ($i = 0, $max = strlen($value); $i < $max; $i++) {
+            for ($i = 0, $max = \strlen($value); $i < $max; $i++) {
                 if ($isEscaped) {
                     $v .= $value[$i];
                     $isEscaped = false;
@@ -84,7 +98,7 @@ final class Header
                 }
 
                 if (!$isQuoted && $value[$i] === ',') {
-                    $v = trim($v);
+                    $v = \trim($v);
                     if ($v !== '') {
                         $result[] = $v;
                     }
@@ -109,29 +123,9 @@ final class Header
                 $v .= $value[$i];
             }
 
-            $v = trim($v);
+            $v = \trim($v);
             if ($v !== '') {
                 $result[] = $v;
-            }
-        }
-
-        return $result;
-    }
-
-    /**
-     * Converts an array of header values that may contain comma separated
-     * headers into an array of headers with no comma separated values.
-     *
-     * @param string|array $header Header to normalize.
-     *
-     * @deprecated Use self::splitList() instead.
-     */
-    public static function normalize($header): array
-    {
-        $result = [];
-        foreach ((array)$header as $value) {
-            foreach (self::splitList($value) as $parsed) {
-                $result[] = $parsed;
             }
         }
 

@@ -16,9 +16,19 @@ use GraphQL\Validator\SDLValidationContext;
  */
 class LoneSchemaDefinition extends ValidationRule
 {
+    public static function schemaDefinitionNotAloneMessage()
+    {
+        return 'Must provide only one schema definition.';
+    }
+
+    public static function canNotDefineSchemaWithinExtensionMessage()
+    {
+        return 'Cannot define a new schema within a schema extension.';
+    }
+
     public function getSDLVisitor(SDLValidationContext $context)
     {
-        $oldSchema = $context->getSchema();
+        $oldSchema      = $context->getSchema();
         $alreadyDefined = $oldSchema !== null
             ? (
                 $oldSchema->getAstNode() !== null ||
@@ -31,7 +41,7 @@ class LoneSchemaDefinition extends ValidationRule
         $schemaDefinitionsCount = 0;
 
         return [
-            NodeKind::SCHEMA_DEFINITION => static function (SchemaDefinitionNode $node) use ($alreadyDefined, $context, &$schemaDefinitionsCount): void {
+            NodeKind::SCHEMA_DEFINITION => static function (SchemaDefinitionNode $node) use ($alreadyDefined, $context, &$schemaDefinitionsCount) : void {
                 if ($alreadyDefined !== false) {
                     $context->reportError(new Error(self::canNotDefineSchemaWithinExtensionMessage(), $node));
 
@@ -45,15 +55,5 @@ class LoneSchemaDefinition extends ValidationRule
                 ++$schemaDefinitionsCount;
             },
         ];
-    }
-
-    public static function canNotDefineSchemaWithinExtensionMessage()
-    {
-        return 'Cannot define a new schema within a schema extension.';
-    }
-
-    public static function schemaDefinitionNotAloneMessage()
-    {
-        return 'Must provide only one schema definition.';
     }
 }

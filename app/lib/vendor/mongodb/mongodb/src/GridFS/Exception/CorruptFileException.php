@@ -18,6 +18,7 @@
 namespace MongoDB\GridFS\Exception;
 
 use MongoDB\Exception\RuntimeException;
+
 use function sprintf;
 
 class CorruptFileException extends RuntimeException
@@ -36,7 +37,7 @@ class CorruptFileException extends RuntimeException
     /**
      * Thrown when a chunk has an unexpected index number.
      *
-     * @param integer $index Actual index number (i.e. "n" field)
+     * @param integer $index         Actual index number (i.e. "n" field)
      * @param integer $expectedIndex Expected index number
      * @return self
      */
@@ -48,7 +49,7 @@ class CorruptFileException extends RuntimeException
     /**
      * Thrown when a chunk has an unexpected data size.
      *
-     * @param integer $size Actual size (i.e. "data" field length)
+     * @param integer $size         Actual size (i.e. "data" field length)
      * @param integer $expectedSize Expected size
      * @return self
      */

@@ -50,13 +50,13 @@ class InputObjectCircularRefs
      * It does not terminate when a cycle was found but continues to explore
      * the graph to find all possible cycles.
      */
-    public function validate(InputObjectType $inputObj): void
+    public function validate(InputObjectType $inputObj) : void
     {
         if (isset($this->visitedTypes[$inputObj->name])) {
             return;
         }
 
-        $this->visitedTypes[$inputObj->name] = true;
+        $this->visitedTypes[$inputObj->name]             = true;
         $this->fieldPathIndexByTypeName[$inputObj->name] = count($this->fieldPath);
 
         $fieldMap = $inputObj->getFields();
@@ -71,13 +71,13 @@ class InputObjectCircularRefs
                 if ($fieldType instanceof InputObjectType) {
                     $this->fieldPath[] = $field;
 
-                    if (!isset($this->fieldPathIndexByTypeName[$fieldType->name])) {
+                    if (! isset($this->fieldPathIndexByTypeName[$fieldType->name])) {
                         $this->validate($fieldType);
                     } else {
                         $cycleIndex = $this->fieldPathIndexByTypeName[$fieldType->name];
-                        $cyclePath = array_slice($this->fieldPath, $cycleIndex);
+                        $cyclePath  = array_slice($this->fieldPath, $cycleIndex);
                         $fieldNames = array_map(
-                            static function (InputObjectField $field): string {
+                            static function (InputObjectField $field) : string {
                                 return $field->name;
                             },
                             $cyclePath
@@ -87,7 +87,7 @@ class InputObjectCircularRefs
                             'Cannot reference Input Object "' . $fieldType->name . '" within itself '
                             . 'through a series of non-null fields: "' . implode('.', $fieldNames) . '".',
                             array_map(
-                                static function (InputObjectField $field): ?InputValueDefinitionNode {
+                                static function (InputObjectField $field) : ?InputValueDefinitionNode {
                                     return $field->astNode;
                                 },
                                 $cyclePath

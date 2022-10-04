@@ -11,13 +11,11 @@
 
 namespace Symfony\Component\Yaml\Exception;
 
-use Throwable;
-
 /**
  * Exception interface for all exceptions thrown by the component.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface ExceptionInterface extends Throwable
+interface ExceptionInterface extends \Throwable
 {
 }

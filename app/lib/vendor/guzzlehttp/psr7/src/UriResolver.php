@@ -15,9 +15,39 @@ use Psr\Http\Message\UriInterface;
  */
 final class UriResolver
 {
-    private function __construct()
+    /**
+     * Removes dot segments from a path and returns the new path.
+     *
+     * @link http://tools.ietf.org/html/rfc3986#section-5.2.4
+     */
+    public static function removeDotSegments(string $path): string
     {
-        // cannot be instantiated
+        if ($path === '' || $path === '/') {
+            return $path;
+        }
+
+        $results = [];
+        $segments = explode('/', $path);
+        foreach ($segments as $segment) {
+            if ($segment === '..') {
+                array_pop($results);
+            } elseif ($segment !== '.') {
+                $results[] = $segment;
+            }
+        }
+
+        $newPath = implode('/', $results);
+
+        if ($path[0] === '/' && (!isset($newPath[0]) || $newPath[0] !== '/')) {
+            // Re-add the leading slash if necessary for cases like "/.."
+            $newPath = '/' . $newPath;
+        } elseif ($newPath !== '' && ($segment === '.' || $segment === '..')) {
+            // Add the trailing slash if necessary
+            // If newPath is not empty, then $segment must be set and is the last segment from the foreach
+            $newPath .= '/';
+        }
+
+        return $newPath;
     }
 
     /**
@@ -27,7 +57,7 @@ final class UriResolver
      */
     public static function resolve(UriInterface $base, UriInterface $rel): UriInterface
     {
-        if ((string)$rel === '') {
+        if ((string) $rel === '') {
             // we can simply return the same base URI instance for this same-document reference
             return $base;
         }
@@ -72,41 +102,6 @@ final class UriResolver
             $targetQuery,
             $rel->getFragment()
         ));
-    }
-
-    /**
-     * Removes dot segments from a path and returns the new path.
-     *
-     * @link http://tools.ietf.org/html/rfc3986#section-5.2.4
-     */
-    public static function removeDotSegments(string $path): string
-    {
-        if ($path === '' || $path === '/') {
-            return $path;
-        }
-
-        $results = [];
-        $segments = explode('/', $path);
-        foreach ($segments as $segment) {
-            if ($segment === '..') {
-                array_pop($results);
-            } elseif ($segment !== '.') {
-                $results[] = $segment;
-            }
-        }
-
-        $newPath = implode('/', $results);
-
-        if ($path[0] === '/' && (!isset($newPath[0]) || $newPath[0] !== '/')) {
-            // Re-add the leading slash if necessary for cases like "/.."
-            $newPath = '/' . $newPath;
-        } elseif ($newPath !== '' && ($segment === '.' || $segment === '..')) {
-            // Add the trailing slash if necessary
-            // If newPath is not empty, then $segment must be set and is the last segment from the foreach
-            $newPath .= '/';
-        }
-
-        return $newPath;
     }
 
     /**
@@ -207,5 +202,10 @@ final class UriResolver
         }
 
         return $relativePath;
+    }
+
+    private function __construct()
+    {
+        // cannot be instantiated
     }
 }

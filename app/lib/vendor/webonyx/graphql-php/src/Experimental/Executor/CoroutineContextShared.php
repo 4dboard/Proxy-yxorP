@@ -49,14 +49,14 @@ class CoroutineContextShared
     public $childContextsIfType2;
 
     /**
-     * @param FieldNode[] $fieldNodes
+     * @param FieldNode[]  $fieldNodes
      * @param mixed[]|null $argumentValueMap
      */
     public function __construct(array $fieldNodes, string $fieldName, string $resultName, ?array $argumentValueMap)
     {
-        $this->fieldNodes = $fieldNodes;
-        $this->fieldName = $fieldName;
-        $this->resultName = $resultName;
+        $this->fieldNodes       = $fieldNodes;
+        $this->fieldName        = $fieldName;
+        $this->resultName       = $resultName;
         $this->argumentValueMap = $argumentValueMap;
     }
 }

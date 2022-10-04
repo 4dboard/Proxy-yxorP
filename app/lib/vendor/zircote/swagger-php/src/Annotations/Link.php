@@ -21,31 +21,19 @@ class Link extends AbstractAnnotation
 {
 
     /**
-     * @inheritdoc
-     */
-    public static $_nested = [
-        Server::class => 'server',
-        Attachable::class => ['attachables'],
-    ];
-    /**
-     * @inheritdoc
-     */
-    public static $_parents = [
-        Components::class,
-        Response::class,
-    ];
-    /**
      * $ref See https://swagger.io/docs/specification/using-ref/.
      *
      * @var string
      */
     public $ref = Generator::UNDEFINED;
+
     /**
      * The key into MediaType->links array.
      *
      * @var string
      */
     public $link = Generator::UNDEFINED;
+
     /**
      * A relative or absolute reference to an OA operation.
      * This field is mutually exclusive of the operationId field, and must point to an Operation Object.
@@ -54,6 +42,7 @@ class Link extends AbstractAnnotation
      * @var string
      */
     public $operationRef = Generator::UNDEFINED;
+
     /**
      * The name of an existing, resolvable OA operation, as defined with a unique operationId.
      * This field is mutually exclusive of the operationRef field.
@@ -61,16 +50,19 @@ class Link extends AbstractAnnotation
      * @var string
      */
     public $operationId = Generator::UNDEFINED;
+
     /**
      * A map representing parameters to pass to an operation as specified with operationId or identified via operationRef.
      * The key is the parameter name to be used, whereas the value can be a constant or an expression to be evaluated and passed to the linked operation.
      * The parameter name can be qualified using the parameter location [{in}.]{name} for operations that use the same parameter name in different locations (e.g. path.id).
      */
     public $parameters = Generator::UNDEFINED;
+
     /**
      * A literal value or {expression} to use as a request body when calling the target operation.
      */
     public $requestBody = Generator::UNDEFINED;
+
     /**
      * A description of the link.
      * CommonMark syntax may be used for rich text representation.
@@ -78,10 +70,27 @@ class Link extends AbstractAnnotation
      * @var string
      */
     public $description = Generator::UNDEFINED;
+
     /**
      * A server object to be used by the target operation.
      *
      * @var Server
      */
     public $server = Generator::UNDEFINED;
+
+    /**
+     * @inheritdoc
+     */
+    public static $_nested = [
+        Server::class => 'server',
+        Attachable::class => ['attachables'],
+    ];
+
+    /**
+     * @inheritdoc
+     */
+    public static $_parents = [
+        Components::class,
+        Response::class,
+    ];
 }

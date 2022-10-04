@@ -10,6 +10,7 @@ use function is_file;
 use function str_replace;
 use function stream_resolve_include_path;
 use function strpos;
+
 use const DIRECTORY_SEPARATOR;
 
 final class AnnotationRegistry
@@ -50,9 +51,9 @@ final class AnnotationRegistry
     public static function reset(): void
     {
         self::$autoloadNamespaces = [];
-        self::$loaders = [];
-        self::$failedToAutoload = [];
-        self::$registerFileUsed = false;
+        self::$loaders            = [];
+        self::$failedToAutoload   = [];
+        self::$registerFileUsed   = false;
     }
 
     /**
@@ -88,29 +89,14 @@ final class AnnotationRegistry
      *
      * Loading of this namespaces will be done with a PSR-0 namespace loading algorithm.
      *
-     * @param string[][]|string[]|null[] $namespaces indexed by namespace name
      * @deprecated This method is deprecated and will be removed in
      *             doctrine/annotations 2.0. Annotations will be autoloaded in 2.0.
      *
+     * @param string[][]|string[]|null[] $namespaces indexed by namespace name
      */
     public static function registerAutoloadNamespaces(array $namespaces): void
     {
         self::$autoloadNamespaces = array_merge(self::$autoloadNamespaces, $namespaces);
-    }
-
-    /**
-     * Registers an autoloading callable for annotations, if it is not already registered
-     *
-     * @deprecated This method is deprecated and will be removed in
-     *             doctrine/annotations 2.0. Annotations will be autoloaded in 2.0.
-     */
-    public static function registerUniqueLoader(callable $callable): void
-    {
-        if (in_array($callable, self::$loaders, true)) {
-            return;
-        }
-
-        self::registerLoader($callable);
     }
 
     /**
@@ -126,7 +112,22 @@ final class AnnotationRegistry
     {
         // Reset our static cache now that we have a new loader to work with
         self::$failedToAutoload = [];
-        self::$loaders[] = $callable;
+        self::$loaders[]        = $callable;
+    }
+
+    /**
+     * Registers an autoloading callable for annotations, if it is not already registered
+     *
+     * @deprecated This method is deprecated and will be removed in
+     *             doctrine/annotations 2.0. Annotations will be autoloaded in 2.0.
+     */
+    public static function registerUniqueLoader(callable $callable): void
+    {
+        if (in_array($callable, self::$loaders, true)) {
+            return;
+        }
+
+        self::registerLoader($callable);
     }
 
     /**
@@ -157,7 +158,7 @@ final class AnnotationRegistry
                     return true;
                 }
             } else {
-                foreach ((array)$dirs as $dir) {
+                foreach ((array) $dirs as $dir) {
                     if (is_file($dir . DIRECTORY_SEPARATOR . $file)) {
                         require $dir . DIRECTORY_SEPARATOR . $file;
 

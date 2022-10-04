@@ -2,7 +2,6 @@
 
 namespace OpenApi\Logger;
 
-use Exception;
 use Psr\Log\AbstractLogger;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
@@ -51,9 +50,9 @@ class ConsoleLogger extends AbstractLogger implements LoggerInterface
         }
         $stop = !empty($color) ? static::COLOR_STOP : '';
 
-        /** @var ?Exception $exception */
+        /** @var ?\Exception $exception */
         $exception = $context['exception'] ?? null;
-        if ($message instanceof Exception) {
+        if ($message instanceof \Exception) {
             $exception = $message;
             $message = $exception->getMessage();
         }
@@ -65,7 +64,7 @@ class ConsoleLogger extends AbstractLogger implements LoggerInterface
             if ($exception) {
                 error_log($exception->getTraceAsString());
             } elseif (!empty($logLine)) {
-                $stack = explode(PHP_EOL, (new Exception())->getTraceAsString());
+                $stack = explode(PHP_EOL, (new \Exception())->getTraceAsString());
                 // self
                 array_shift($stack);
                 // AbstractLogger

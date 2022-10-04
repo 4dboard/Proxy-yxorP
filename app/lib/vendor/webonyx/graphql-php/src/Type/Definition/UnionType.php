@@ -18,14 +18,14 @@ class UnionType extends Type implements AbstractType, OutputType, CompositeType,
 {
     /** @var UnionTypeDefinitionNode */
     public $astNode;
-    /** @var UnionTypeExtensionNode[] */
-    public $extensionASTNodes;
+
     /**
      * Lazily initialized.
      *
      * @var ObjectType[]
      */
     private $types;
+
     /**
      * Lazily initialized.
      *
@@ -33,12 +33,15 @@ class UnionType extends Type implements AbstractType, OutputType, CompositeType,
      */
     private $possibleTypeNames;
 
+    /** @var UnionTypeExtensionNode[] */
+    public $extensionASTNodes;
+
     /**
      * @param mixed[] $config
      */
     public function __construct(array $config)
     {
-        if (!isset($config['name'])) {
+        if (! isset($config['name'])) {
             $config['name'] = $this->tryInferName();
         }
 
@@ -49,20 +52,20 @@ class UnionType extends Type implements AbstractType, OutputType, CompositeType,
          * the default implementation will call `isTypeOf` on each implementing
          * Object type.
          */
-        $this->name = $config['name'];
-        $this->description = $config['description'] ?? null;
-        $this->astNode = $config['astNode'] ?? null;
+        $this->name              = $config['name'];
+        $this->description       = $config['description'] ?? null;
+        $this->astNode           = $config['astNode'] ?? null;
         $this->extensionASTNodes = $config['extensionASTNodes'] ?? null;
-        $this->config = $config;
+        $this->config            = $config;
     }
 
-    public function isPossibleType(Type $type): bool
+    public function isPossibleType(Type $type) : bool
     {
-        if (!$type instanceof ObjectType) {
+        if (! $type instanceof ObjectType) {
             return false;
         }
 
-        if (!isset($this->possibleTypeNames)) {
+        if (! isset($this->possibleTypeNames)) {
             $this->possibleTypeNames = [];
             foreach ($this->getTypes() as $possibleType) {
                 $this->possibleTypeNames[$possibleType->name] = true;
@@ -77,15 +80,15 @@ class UnionType extends Type implements AbstractType, OutputType, CompositeType,
      *
      * @throws InvariantViolation
      */
-    public function getTypes(): array
+    public function getTypes() : array
     {
-        if (!isset($this->types)) {
+        if (! isset($this->types)) {
             $types = $this->config['types'] ?? null;
             if (is_callable($types)) {
                 $types = $types();
             }
 
-            if (!is_array($types)) {
+            if (! is_array($types)) {
                 throw new InvariantViolation(
                     sprintf(
                         'Must provide Array of types or a callable which returns such an array for Union %s',
@@ -109,7 +112,7 @@ class UnionType extends Type implements AbstractType, OutputType, CompositeType,
      * Resolves concrete ObjectType for given object value
      *
      * @param object $objectValue
-     * @param mixed $context
+     * @param mixed  $context
      *
      * @return callable|null
      */
@@ -127,11 +130,11 @@ class UnionType extends Type implements AbstractType, OutputType, CompositeType,
     /**
      * @throws InvariantViolation
      */
-    public function assertValid(): void
+    public function assertValid() : void
     {
         parent::assertValid();
 
-        if (!isset($this->config['resolveType'])) {
+        if (! isset($this->config['resolveType'])) {
             return;
         }
 

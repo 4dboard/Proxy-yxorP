@@ -36,6 +36,7 @@ use function is_scalar;
 use function is_string;
 use function json_encode;
 use function levenshtein;
+use function max;
 use function mb_convert_encoding;
 use function mb_strlen;
 use function mb_substr;
@@ -53,6 +54,13 @@ use function unpack;
 
 class Utils
 {
+    public static function undefined()
+    {
+        static $undefined;
+
+        return $undefined ?? $undefined = new stdClass();
+    }
+
     /**
      * Check if the value is invalid
      *
@@ -65,16 +73,9 @@ class Utils
         return self::undefined() === $value;
     }
 
-    public static function undefined()
-    {
-        static $undefined;
-
-        return $undefined ?? $undefined = new stdClass();
-    }
-
     /**
-     * @param object $obj
-     * @param mixed[] $vars
+     * @param object   $obj
+     * @param mixed[]  $vars
      * @param string[] $requiredKeys
      *
      * @return object
@@ -82,13 +83,13 @@ class Utils
     public static function assign($obj, array $vars, array $requiredKeys = [])
     {
         foreach ($requiredKeys as $key) {
-            if (!isset($vars[$key])) {
+            if (! isset($vars[$key])) {
                 throw new InvalidArgumentException(sprintf('Key %s is expected to be set and not to be null', $key));
             }
         }
 
         foreach ($vars as $key => $value) {
-            if (!property_exists($obj, $key)) {
+            if (! property_exists($obj, $key)) {
                 $cls = get_class($obj);
                 Warning::warn(
                     sprintf("Trying to set non-existing property '%s' on class '%s'", $key, $cls),
@@ -123,30 +124,13 @@ class Utils
     }
 
     /**
-     * @param bool $test
-     * @param string $message
-     */
-    public static function invariant($test, $message = '')
-    {
-        if (!$test) {
-            if (func_num_args() > 2) {
-                $args = func_get_args();
-                array_shift($args);
-                $message = sprintf(...$args);
-            }
-            // TODO switch to Error here
-            throw new InvariantViolation($message);
-        }
-    }
-
-    /**
      * @param iterable<mixed> $iterable
      *
      * @return array<mixed>
      *
      * @throws Exception
      */
-    public static function filter($iterable, callable $predicate): array
+    public static function filter($iterable, callable $predicate) : array
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -154,12 +138,12 @@ class Utils
         );
 
         $result = [];
-        $assoc = false;
+        $assoc  = false;
         foreach ($iterable as $key => $value) {
-            if (!$assoc && !is_int($key)) {
+            if (! $assoc && ! is_int($key)) {
                 $assoc = true;
             }
-            if (!$predicate($value, $key)) {
+            if (! $predicate($value, $key)) {
                 continue;
             }
 
@@ -176,7 +160,7 @@ class Utils
      *
      * @throws Exception
      */
-    public static function map($iterable, callable $fn): array
+    public static function map($iterable, callable $fn) : array
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -198,7 +182,7 @@ class Utils
      *
      * @throws Exception
      */
-    public static function mapKeyValue($iterable, callable $fn): array
+    public static function mapKeyValue($iterable, callable $fn) : array
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -208,7 +192,7 @@ class Utils
         $map = [];
         foreach ($iterable as $key => $value) {
             [$newKey, $newValue] = $fn($value, $key);
-            $map[$newKey] = $newValue;
+            $map[$newKey]        = $newValue;
         }
 
         return $map;
@@ -221,7 +205,7 @@ class Utils
      *
      * @throws Exception
      */
-    public static function keyMap($iterable, callable $keyFn): array
+    public static function keyMap($iterable, callable $keyFn) : array
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -231,7 +215,7 @@ class Utils
         $map = [];
         foreach ($iterable as $key => $value) {
             $newKey = $keyFn($value, $key);
-            if (!is_scalar($newKey)) {
+            if (! is_scalar($newKey)) {
                 continue;
             }
 
@@ -244,7 +228,7 @@ class Utils
     /**
      * @param iterable<mixed> $iterable
      */
-    public static function each($iterable, callable $fn): void
+    public static function each($iterable, callable $fn) : void
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -272,7 +256,7 @@ class Utils
      *
      * @return array<array<mixed>>
      */
-    public static function groupBy($iterable, callable $keyFn): array
+    public static function groupBy($iterable, callable $keyFn) : array
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -281,7 +265,7 @@ class Utils
 
         $grouped = [];
         foreach ($iterable as $key => $value) {
-            $newKeys = (array)$keyFn($value, $key);
+            $newKeys = (array) $keyFn($value, $key);
             foreach ($newKeys as $newKey) {
                 $grouped[$newKey][] = $value;
             }
@@ -295,7 +279,7 @@ class Utils
      *
      * @return array<mixed>
      */
-    public static function keyValMap($iterable, callable $keyFn, callable $valFn): array
+    public static function keyValMap($iterable, callable $keyFn, callable $valFn) : array
     {
         $map = [];
         foreach ($iterable as $item) {
@@ -308,10 +292,10 @@ class Utils
     /**
      * @param iterable<mixed> $iterable
      */
-    public static function every($iterable, callable $predicate): bool
+    public static function every($iterable, callable $predicate) : bool
     {
         foreach ($iterable as $key => $value) {
-            if (!$predicate($value, $key)) {
+            if (! $predicate($value, $key)) {
                 return false;
             }
         }
@@ -322,7 +306,7 @@ class Utils
     /**
      * @param iterable<mixed> $iterable
      */
-    public static function some($iterable, callable $predicate): bool
+    public static function some($iterable, callable $predicate) : bool
     {
         foreach ($iterable as $key => $value) {
             if ($predicate($value, $key)) {
@@ -331,6 +315,23 @@ class Utils
         }
 
         return false;
+    }
+
+    /**
+     * @param bool   $test
+     * @param string $message
+     */
+    public static function invariant($test, $message = '')
+    {
+        if (! $test) {
+            if (func_num_args() > 2) {
+                $args = func_get_args();
+                array_shift($args);
+                $message = sprintf(...$args);
+            }
+            // TODO switch to Error here
+            throw new InvariantViolation($message);
+        }
     }
 
     /**
@@ -360,7 +361,7 @@ class Utils
     public static function printSafeJson($var)
     {
         if ($var instanceof stdClass) {
-            $var = (array)$var;
+            $var = (array) $var;
         }
         if (is_array($var)) {
             return json_encode($var);
@@ -381,7 +382,7 @@ class Utils
             return sprintf('"%s"', $var);
         }
         if (is_scalar($var)) {
-            return (string)$var;
+            return (string) $var;
         }
 
         return gettype($var);
@@ -399,7 +400,7 @@ class Utils
         }
         if (is_object($var)) {
             if (method_exists($var, '__toString')) {
-                return (string)$var;
+                return (string) $var;
             }
 
             return 'instance of ' . get_class($var);
@@ -423,25 +424,27 @@ class Utils
             return $var;
         }
         if (is_scalar($var)) {
-            return (string)$var;
+            return (string) $var;
         }
 
         return gettype($var);
     }
 
     /**
-     * Returns UTF-8 char code at given $positing of the $string
+     * UTF-8 compatible chr()
      *
-     * @param string $string
-     * @param int $position
+     * @param string $ord
+     * @param string $encoding
      *
-     * @return mixed
+     * @return string
      */
-    public static function charCodeAt($string, $position)
+    public static function chr($ord, $encoding = 'UTF-8')
     {
-        $char = mb_substr($string, $position, 1, 'UTF-8');
+        if ($encoding === 'UCS-4BE') {
+            return pack('N', $ord);
+        }
 
-        return self::ord($char);
+        return mb_convert_encoding(self::chr($ord, 'UCS-4BE'), $encoding, 'UCS-4BE');
     }
 
     /**
@@ -454,10 +457,10 @@ class Utils
      */
     public static function ord($char, $encoding = 'UTF-8')
     {
-        if (!$char && $char !== '0') {
+        if (! $char && $char !== '0') {
             return 0;
         }
-        if (!isset($char[1])) {
+        if (! isset($char[1])) {
             return ord($char);
         }
         if ($encoding !== 'UCS-4BE') {
@@ -465,6 +468,21 @@ class Utils
         }
 
         return unpack('N', $char)[1];
+    }
+
+    /**
+     * Returns UTF-8 char code at given $positing of the $string
+     *
+     * @param string $string
+     * @param int    $position
+     *
+     * @return mixed
+     */
+    public static function charCodeAt($string, $position)
+    {
+        $char = mb_substr($string, $position, 1, 'UTF-8');
+
+        return self::ord($char);
     }
 
     /**
@@ -486,23 +504,6 @@ class Utils
     }
 
     /**
-     * UTF-8 compatible chr()
-     *
-     * @param string $ord
-     * @param string $encoding
-     *
-     * @return string
-     */
-    public static function chr($ord, $encoding = 'UTF-8')
-    {
-        if ($encoding === 'UCS-4BE') {
-            return pack('N', $ord);
-        }
-
-        return mb_convert_encoding(self::chr($ord, 'UCS-4BE'), $encoding, 'UCS-4BE');
-    }
-
-    /**
      * Upholds the spec rules about naming.
      *
      * @param string $name
@@ -520,7 +521,7 @@ class Utils
     /**
      * Returns an Error if a name is invalid.
      *
-     * @param string $name
+     * @param string    $name
      * @param Node|null $node
      *
      * @return Error|null
@@ -537,7 +538,7 @@ class Utils
             );
         }
 
-        if (!preg_match('/^[_a-zA-Z][_a-zA-Z0-9]*$/', $name)) {
+        if (! preg_match('/^[_a-zA-Z][_a-zA-Z0-9]*$/', $name)) {
             return new Error(
                 sprintf('Names must match /^[_a-zA-Z][_a-zA-Z0-9]*$/ but "%s" does not.', $name),
                 $node
@@ -559,7 +560,7 @@ class Utils
     {
         return static function () use ($fn, &$errors) {
             // Catch custom errors (to report them in query results)
-            set_error_handler(static function ($severity, $message, $file, $line) use (&$errors): void {
+            set_error_handler(static function ($severity, $message, $file, $line) use (&$errors) : void {
                 $errors[] = new ErrorException($message, 0, $severity, $file, $line);
             });
 
@@ -579,7 +580,7 @@ class Utils
     public static function quotedOrList(array $items)
     {
         $items = array_map(
-            static function ($item): string {
+            static function ($item) : string {
                 return sprintf('"%s"', $item);
             },
             $items
@@ -598,9 +599,9 @@ class Utils
         if (count($items) === 0) {
             throw new LogicException('items must not need to be empty.');
         }
-        $selected = array_slice($items, 0, 5);
+        $selected       = array_slice($items, 0, 5);
         $selectedLength = count($selected);
-        $firstSelected = $selected[0];
+        $firstSelected  = $selected[0];
 
         if ($selectedLength === 1) {
             return $firstSelected;
@@ -608,7 +609,7 @@ class Utils
 
         return array_reduce(
             range(1, $selectedLength - 1),
-            static function ($list, $index) use ($selected, $selectedLength): string {
+            static function ($list, $index) use ($selected, $selectedLength) : string {
                 return $list .
                     ($selectedLength > 2 ? ', ' : ' ') .
                     ($index === $selectedLength - 1 ? 'or ' : '') .
@@ -626,7 +627,7 @@ class Utils
      * as a single edit which helps identify mis-cased values with an edit distance
      * of 1
      *
-     * @param string $input
+     * @param string   $input
      * @param string[] $options
      *
      * @return string[]
@@ -634,7 +635,7 @@ class Utils
     public static function suggestionList($input, array $options)
     {
         $optionsByDistance = [];
-        $threshold = mb_strlen($input) * 0.4 + 1;
+        $threshold         = mb_strlen($input) * 0.4 + 1;
         foreach ($options as $option) {
             if ($input === $option) {
                 $distance = 0;

@@ -18,9 +18,52 @@ use OpenApi\Generator;
 class Info extends AbstractAnnotation
 {
     /**
+     * The title of the application.
+     *
+     * @var string
+     */
+    public $title = Generator::UNDEFINED;
+
+    /**
+     * A short description of the application. CommonMark syntax may be used for rich text representation.
+     *
+     * @var string
+     */
+    public $description = Generator::UNDEFINED;
+
+    /**
+     * A URL to the Terms of Service for the API. must be in the format of a url.
+     *
+     * @var string
+     */
+    public $termsOfService = Generator::UNDEFINED;
+
+    /**
+     * The contact information for the exposed API.
+     *
+     * @var Contact
+     */
+    public $contact = Generator::UNDEFINED;
+
+    /**
+     * The license information for the exposed API.
+     *
+     * @var License
+     */
+    public $license = Generator::UNDEFINED;
+
+    /**
+     * The version of the OpenAPI document (which is distinct from the OpenAPI Specification version or the API implementation version).
+     *
+     * @var string
+     */
+    public $version = Generator::UNDEFINED;
+
+    /**
      * @inheritdoc
      */
     public static $_required = ['title', 'version'];
+
     /**
      * @inheritdoc
      */
@@ -30,6 +73,7 @@ class Info extends AbstractAnnotation
         'description' => 'string',
         'termsOfService' => 'string',
     ];
+
     /**
      * @inheritdoc
      */
@@ -38,46 +82,11 @@ class Info extends AbstractAnnotation
         License::class => 'license',
         Attachable::class => ['attachables'],
     ];
+
     /**
      * @inheritdoc
      */
     public static $_parents = [
         OpenApi::class,
     ];
-    /**
-     * The title of the application.
-     *
-     * @var string
-     */
-    public $title = Generator::UNDEFINED;
-    /**
-     * A short description of the application. CommonMark syntax may be used for rich text representation.
-     *
-     * @var string
-     */
-    public $description = Generator::UNDEFINED;
-    /**
-     * A URL to the Terms of Service for the API. must be in the format of a url.
-     *
-     * @var string
-     */
-    public $termsOfService = Generator::UNDEFINED;
-    /**
-     * The contact information for the exposed API.
-     *
-     * @var Contact
-     */
-    public $contact = Generator::UNDEFINED;
-    /**
-     * The license information for the exposed API.
-     *
-     * @var License
-     */
-    public $license = Generator::UNDEFINED;
-    /**
-     * The version of the OpenAPI document (which is distinct from the OpenAPI Specification version or the API implementation version).
-     *
-     * @var string
-     */
-    public $version = Generator::UNDEFINED;
 }

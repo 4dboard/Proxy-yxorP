@@ -15,7 +15,7 @@ abstract class ValidationRule
 
     public function getName()
     {
-        return $this->name === '' || $this->name === null ? static::class : $this->name;
+        return $this->name === '' || $this->name === null  ? static::class : $this->name;
     }
 
     public function __invoke(ValidationContext $context)
@@ -26,9 +26,9 @@ abstract class ValidationRule
     /**
      * Returns structure suitable for GraphQL\Language\Visitor
      *
-     * @return mixed[]
      * @see \GraphQL\Language\Visitor
      *
+     * @return mixed[]
      */
     public function getVisitor(ValidationContext $context)
     {
@@ -38,9 +38,9 @@ abstract class ValidationRule
     /**
      * Returns structure suitable for GraphQL\Language\Visitor
      *
-     * @return mixed[]
      * @see \GraphQL\Language\Visitor
      *
+     * @return mixed[]
      */
     public function getSDLVisitor(SDLValidationContext $context)
     {

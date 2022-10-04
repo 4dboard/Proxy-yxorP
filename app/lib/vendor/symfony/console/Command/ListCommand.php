@@ -27,21 +27,6 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class ListCommand extends Command
 {
-    public function complete(CompletionInput $input, CompletionSuggestions $suggestions): void
-    {
-        if ($input->mustSuggestArgumentValuesFor('namespace')) {
-            $descriptor = new ApplicationDescription($this->getApplication());
-            $suggestions->suggestValues(array_keys($descriptor->getNamespaces()));
-
-            return;
-        }
-
-        if ($input->mustSuggestOptionValuesFor('format')) {
-            $helper = new DescriptorHelper();
-            $suggestions->suggestValues($helper->getFormats());
-        }
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -73,7 +58,8 @@ It's also possible to get raw list of commands (useful for embedding command run
 
   <info>%command.full_name% --raw</info>
 EOF
-            );
+            )
+        ;
     }
 
     /**
@@ -90,5 +76,20 @@ EOF
         ]);
 
         return 0;
+    }
+
+    public function complete(CompletionInput $input, CompletionSuggestions $suggestions): void
+    {
+        if ($input->mustSuggestArgumentValuesFor('namespace')) {
+            $descriptor = new ApplicationDescription($this->getApplication());
+            $suggestions->suggestValues(array_keys($descriptor->getNamespaces()));
+
+            return;
+        }
+
+        if ($input->mustSuggestOptionValuesFor('format')) {
+            $helper = new DescriptorHelper();
+            $suggestions->suggestValues($helper->getFormats());
+        }
     }
 }

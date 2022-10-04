@@ -38,27 +38,13 @@ class UpdateResult
     }
 
     /**
-     * Return whether this update was acknowledged by the server.
-     *
-     * If the update was not acknowledged, other fields from the WriteResult
-     * (e.g. matchedCount) will be undefined and their getter methods should not
-     * be invoked.
-     *
-     * @return boolean
-     */
-    public function isAcknowledged()
-    {
-        return $this->isAcknowledged;
-    }
-
-    /**
      * Return the number of documents that were matched by the filter.
      *
      * This method should only be called if the write was acknowledged.
      *
+     * @see UpdateResult::isAcknowledged()
      * @return integer
      * @throws BadMethodCallException is the write result is unacknowledged
-     * @see UpdateResult::isAcknowledged()
      */
     public function getMatchedCount()
     {
@@ -77,9 +63,9 @@ class UpdateResult
      *
      * This method should only be called if the write was acknowledged.
      *
+     * @see UpdateResult::isAcknowledged()
      * @return integer|null
      * @throws BadMethodCallException is the write result is unacknowledged
-     * @see UpdateResult::isAcknowledged()
      */
     public function getModifiedCount()
     {
@@ -95,9 +81,9 @@ class UpdateResult
      *
      * This method should only be called if the write was acknowledged.
      *
+     * @see UpdateResult::isAcknowledged()
      * @return integer
      * @throws BadMethodCallException is the write result is unacknowledged
-     * @see UpdateResult::isAcknowledged()
      */
     public function getUpsertedCount()
     {
@@ -119,9 +105,9 @@ class UpdateResult
      *
      * This method should only be called if the write was acknowledged.
      *
+     * @see UpdateResult::isAcknowledged()
      * @return mixed|null
      * @throws BadMethodCallException is the write result is unacknowledged
-     * @see UpdateResult::isAcknowledged()
      */
     public function getUpsertedId()
     {
@@ -134,5 +120,19 @@ class UpdateResult
         }
 
         throw BadMethodCallException::unacknowledgedWriteResultAccess(__METHOD__);
+    }
+
+    /**
+     * Return whether this update was acknowledged by the server.
+     *
+     * If the update was not acknowledged, other fields from the WriteResult
+     * (e.g. matchedCount) will be undefined and their getter methods should not
+     * be invoked.
+     *
+     * @return boolean
+     */
+    public function isAcknowledged()
+    {
+        return $this->isAcknowledged;
     }
 }

@@ -14,10 +14,10 @@ interface ContainerInterface
      *
      * @param string $id Identifier of the entry to look for.
      *
-     * @return mixed Entry.
+     * @throws NotFoundExceptionInterface  No entry was found for **this** identifier.
      * @throws ContainerExceptionInterface Error while retrieving the entry.
      *
-     * @throws NotFoundExceptionInterface  No entry was found for **this** identifier.
+     * @return mixed Entry.
      */
     public function get(string $id);
 

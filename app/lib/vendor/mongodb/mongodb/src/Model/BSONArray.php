@@ -22,6 +22,7 @@ use JsonSerializable;
 use MongoDB\BSON\Serializable;
 use MongoDB\BSON\Unserializable;
 use ReturnTypeWillChange;
+
 use function array_values;
 use function MongoDB\recursive_copy;
 
@@ -36,6 +37,16 @@ use function MongoDB\recursive_copy;
 class BSONArray extends ArrayObject implements JsonSerializable, Serializable, Unserializable
 {
     /**
+     * Clone this BSONArray.
+     */
+    public function __clone()
+    {
+        foreach ($this as $key => $value) {
+            $this[$key] = recursive_copy($value);
+        }
+    }
+
+    /**
      * Factory method for var_export().
      *
      * @see http://php.net/oop5.magic#object.set-state
@@ -49,16 +60,6 @@ class BSONArray extends ArrayObject implements JsonSerializable, Serializable, U
         $array->exchangeArray($properties);
 
         return $array;
-    }
-
-    /**
-     * Clone this BSONArray.
-     */
-    public function __clone()
-    {
-        foreach ($this as $key => $value) {
-            $this[$key] = recursive_copy($value);
-        }
     }
 
     /**

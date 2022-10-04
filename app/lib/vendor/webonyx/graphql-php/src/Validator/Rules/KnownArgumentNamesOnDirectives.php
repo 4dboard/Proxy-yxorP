@@ -29,20 +29,38 @@ use function sprintf;
  */
 class KnownArgumentNamesOnDirectives extends ValidationRule
 {
+    /**
+     * @param string[] $suggestedArgs
+     */
+    public static function unknownDirectiveArgMessage($argName, $directiveName, array $suggestedArgs)
+    {
+        $message = sprintf('Unknown argument "%s" on directive "@%s".', $argName, $directiveName);
+        if (isset($suggestedArgs[0])) {
+            $message .= sprintf(' Did you mean %s?', Utils::quotedOrList($suggestedArgs));
+        }
+
+        return $message;
+    }
+
     public function getSDLVisitor(SDLValidationContext $context)
+    {
+        return $this->getASTVisitor($context);
+    }
+
+    public function getVisitor(ValidationContext $context)
     {
         return $this->getASTVisitor($context);
     }
 
     public function getASTVisitor(ASTValidationContext $context)
     {
-        $directiveArgs = [];
-        $schema = $context->getSchema();
+        $directiveArgs     = [];
+        $schema            = $context->getSchema();
         $definedDirectives = $schema !== null ? $schema->getDirectives() : Directive::getInternalDirectives();
 
         foreach ($definedDirectives as $directive) {
             $directiveArgs[$directive->name] = array_map(
-                static function (FieldArgument $arg): string {
+                static function (FieldArgument $arg) : string {
                     return $arg->name;
                 },
                 $directive->args
@@ -51,7 +69,7 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
 
         $astDefinitions = $context->getDocument()->definitions;
         foreach ($astDefinitions as $def) {
-            if (!($def instanceof DirectiveDefinitionNode)) {
+            if (! ($def instanceof DirectiveDefinitionNode)) {
                 continue;
             }
 
@@ -59,7 +77,7 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
             if ($def->arguments !== null) {
                 $directiveArgs[$name] = Utils::map(
                     $def->arguments ?? [],
-                    static function (InputValueDefinitionNode $arg): string {
+                    static function (InputValueDefinitionNode $arg) : string {
                         return $arg->name->value;
                     }
                 );
@@ -69,9 +87,9 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
         }
 
         return [
-            NodeKind::DIRECTIVE => static function (DirectiveNode $directiveNode) use ($directiveArgs, $context): VisitorOperation {
+            NodeKind::DIRECTIVE => static function (DirectiveNode $directiveNode) use ($directiveArgs, $context) : VisitorOperation {
                 $directiveName = $directiveNode->name->value;
-                $knownArgs = $directiveArgs[$directiveName] ?? null;
+                $knownArgs     = $directiveArgs[$directiveName] ?? null;
 
                 if ($directiveNode->arguments === null || $knownArgs === null) {
                     return Visitor::skipNode();
@@ -93,23 +111,5 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
                 return Visitor::skipNode();
             },
         ];
-    }
-
-    /**
-     * @param string[] $suggestedArgs
-     */
-    public static function unknownDirectiveArgMessage($argName, $directiveName, array $suggestedArgs)
-    {
-        $message = sprintf('Unknown argument "%s" on directive "@%s".', $argName, $directiveName);
-        if (isset($suggestedArgs[0])) {
-            $message .= sprintf(' Did you mean %s?', Utils::quotedOrList($suggestedArgs));
-        }
-
-        return $message;
-    }
-
-    public function getVisitor(ValidationContext $context)
-    {
-        return $this->getASTVisitor($context);
     }
 }

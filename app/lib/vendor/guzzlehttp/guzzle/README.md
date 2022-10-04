@@ -47,6 +47,7 @@ We use GitHub issues only to discuss bugs and new features. For support please r
 - [#guzzle](https://app.slack.com/client/T0D2S9JCT/CE6UAAKL4) channel on [PHP-HTTP Slack](https://slack.httplug.io/)
 - [Gitter](https://gitter.im/guzzle/guzzle)
 
+
 ## Installing Guzzle
 
 The recommended way to install Guzzle is through
@@ -55,6 +56,7 @@ The recommended way to install Guzzle is through
 ```bash
 composer require guzzlehttp/guzzle
 ```
+
 
 ## Version Guidance
 
@@ -67,28 +69,19 @@ composer require guzzlehttp/guzzle
 | 7.x     | Latest         | `guzzlehttp/guzzle` | `GuzzleHttp` | [v7][guzzle-7-repo] | [v7][guzzle-7-docs] | Yes   | >=7.2.5,<8.2 |
 
 [guzzle-3-repo]: https://github.com/guzzle/guzzle3
-
 [guzzle-4-repo]: https://github.com/guzzle/guzzle/tree/4.x
-
 [guzzle-5-repo]: https://github.com/guzzle/guzzle/tree/5.3
-
 [guzzle-6-repo]: https://github.com/guzzle/guzzle/tree/6.5
-
 [guzzle-7-repo]: https://github.com/guzzle/guzzle
-
 [guzzle-3-docs]: https://guzzle3.readthedocs.io/
-
 [guzzle-5-docs]: https://docs.guzzlephp.org/en/5.3/
-
 [guzzle-6-docs]: https://docs.guzzlephp.org/en/6.5/
-
 [guzzle-7-docs]: https://docs.guzzlephp.org/en/latest/
+
 
 ## Security
 
-If you discover a security vulnerability within this package, please send an email to security@tidelift.com. All
-security vulnerabilities will be promptly addressed. Please do not disclose security-related issues publicly until a fix
-has been announced. Please see [Security Policy](https://github.com/guzzle/guzzle/security/policy) for more information.
+If you discover a security vulnerability within this package, please send an email to security@tidelift.com. All security vulnerabilities will be promptly addressed. Please do not disclose security-related issues publicly until a fix has been announced. Please see [Security Policy](https://github.com/guzzle/guzzle/security/policy) for more information.
 
 ## License
 
@@ -98,7 +91,4 @@ Guzzle is made available under the MIT License (MIT). Please see [License File](
 
 Available as part of the Tidelift Subscription
 
-The maintainers of Guzzle and thousands of other packages are working with Tidelift to deliver commercial support and
-maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve
-code health, while paying the maintainers of the exact dependencies you
-use. [Learn more.](https://tidelift.com/subscription/pkg/packagist-guzzlehttp-guzzle?utm_source=packagist-guzzlehttp-guzzle&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)
+The maintainers of Guzzle and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. [Learn more.](https://tidelift.com/subscription/pkg/packagist-guzzlehttp-guzzle?utm_source=packagist-guzzlehttp-guzzle&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)

@@ -34,6 +34,19 @@ class StaticAnalyser
     }
 
     /**
+     * Extract and process all doc-comments from the contents.
+     *
+     * @param string  $code    PHP code. (including <?php tags)
+     * @param Context $context the original location of the contents
+     */
+    public function fromCode(string $code, Context $context): Analysis
+    {
+        $tokens = token_get_all($code);
+
+        return $this->fromTokens($tokens, $context);
+    }
+
+    /**
      * Shared implementation for parseFile() & parseContents().
      *
      * @param array $tokens The result of a token_get_all()
@@ -377,6 +390,14 @@ class StaticAnalyser
     }
 
     /**
+     * Parse comment and add annotations to analysis.
+     */
+    private function analyseComment(Analysis $analysis, Analyser $analyser, string $comment, Context $context): void
+    {
+        $analysis->addAnnotations($analyser->fromComment($comment, $context), $context);
+    }
+
+    /**
      * The next non-whitespace, non-comment token.
      *
      *
@@ -424,12 +445,9 @@ class StaticAnalyser
         }
     }
 
-    /**
-     * Parse comment and add annotations to analysis.
-     */
-    private function analyseComment(Analysis $analysis, Analyser $analyser, string $comment, Context $context): void
+    private function php8NamespaceToken()
     {
-        $analysis->addAnnotations($analyser->fromComment($comment, $context), $context);
+        return defined('T_NAME_QUALIFIED') ? [T_NAME_QUALIFIED, T_NAME_FULLY_QUALIFIED] : [];
     }
 
     /**
@@ -450,11 +468,6 @@ class StaticAnalyser
         return $namespace;
     }
 
-    private function php8NamespaceToken()
-    {
-        return defined('T_NAME_QUALIFIED') ? [T_NAME_QUALIFIED, T_NAME_FULLY_QUALIFIED] : [];
-    }
-
     /**
      * Parse comma separated list of namespaced strings.
      */
@@ -469,37 +482,6 @@ class StaticAnalyser
         }
 
         return $namespaces;
-    }
-
-    /**
-     * Parse type of variable (if it exists).
-     */
-    private function parseTypeAndNextToken(array &$tokens, Context $parseContext): array
-    {
-        $type = Generator::UNDEFINED;
-        $nullable = false;
-        $token = $this->nextToken($tokens, $parseContext);
-
-        if ($token[0] === T_STATIC) {
-            $token = $this->nextToken($tokens, $parseContext);
-        }
-
-        if ($token === '?') { // nullable type
-            $nullable = true;
-            $token = $this->nextToken($tokens, $parseContext);
-        }
-
-        $qualifiedToken = array_merge([T_NS_SEPARATOR, T_STRING, T_ARRAY], $this->php8NamespaceToken());
-        $typeToken = array_merge([T_STRING], $this->php8NamespaceToken());
-        // drill down namespace segments to basename property type declaration
-        while (in_array($token[0], $qualifiedToken)) {
-            if (in_array($token[0], $typeToken)) {
-                $type = $token[1];
-            }
-            $token = $this->nextToken($tokens, $parseContext);
-        }
-
-        return [$type, $nullable, $token];
     }
 
     /**
@@ -547,15 +529,33 @@ class StaticAnalyser
     }
 
     /**
-     * Extract and process all doc-comments from the contents.
-     *
-     * @param string $code PHP code. (including <?php tags)
-     * @param Context $context the original location of the contents
+     * Parse type of variable (if it exists).
      */
-    public function fromCode(string $code, Context $context): Analysis
+    private function parseTypeAndNextToken(array &$tokens, Context $parseContext): array
     {
-        $tokens = token_get_all($code);
+        $type = Generator::UNDEFINED;
+        $nullable = false;
+        $token = $this->nextToken($tokens, $parseContext);
 
-        return $this->fromTokens($tokens, $context);
+        if ($token[0] === T_STATIC) {
+            $token = $this->nextToken($tokens, $parseContext);
+        }
+
+        if ($token === '?') { // nullable type
+            $nullable = true;
+            $token = $this->nextToken($tokens, $parseContext);
+        }
+
+        $qualifiedToken = array_merge([T_NS_SEPARATOR, T_STRING, T_ARRAY], $this->php8NamespaceToken());
+        $typeToken = array_merge([T_STRING], $this->php8NamespaceToken());
+        // drill down namespace segments to basename property type declaration
+        while (in_array($token[0], $qualifiedToken)) {
+            if (in_array($token[0], $typeToken)) {
+                $type = $token[1];
+            }
+            $token = $this->nextToken($tokens, $parseContext);
+        }
+
+        return [$type, $nullable, $token];
     }
 }

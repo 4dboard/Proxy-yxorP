@@ -14,11 +14,12 @@ class Trace extends Operation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
-        PathItem::class,
-    ];
+    public $method = 'trace';
+
     /**
      * @inheritdoc
      */
-    public $method = 'trace';
+    public static $_parents = [
+        PathItem::class,
+    ];
 }

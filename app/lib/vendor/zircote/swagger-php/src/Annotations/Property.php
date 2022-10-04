@@ -14,6 +14,20 @@ use OpenApi\Generator;
 class Property extends Schema
 {
     /**
+     * The key into Schema->properties array.
+     *
+     * @var string
+     */
+    public $property = Generator::UNDEFINED;
+
+    /**
+     * Indicates the property is nullable.
+     *
+     * @var bool
+     */
+    public $nullable = Generator::UNDEFINED;
+
+    /**
      * @inheritdoc
      */
     public static $_parents = [
@@ -24,6 +38,7 @@ class Property extends Schema
         Property::class,
         Items::class,
     ];
+
     /**
      * @inheritdoc
      */
@@ -36,16 +51,4 @@ class Property extends Schema
         AdditionalProperties::class => 'additionalProperties',
         Attachable::class => ['attachables'],
     ];
-    /**
-     * The key into Schema->properties array.
-     *
-     * @var string
-     */
-    public $property = Generator::UNDEFINED;
-    /**
-     * Indicates the property is nullable.
-     *
-     * @var bool
-     */
-    public $nullable = Generator::UNDEFINED;
 }

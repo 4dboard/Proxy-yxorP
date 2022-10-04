@@ -1,5 +1,4 @@
 # graphql-php
-
 ![CI](https://github.com/webonyx/graphql-php/workflows/CI/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/webonyx/graphql-php/badge.svg?branch=14.x)](https://coveralls.io/github/webonyx/graphql-php?branch=14.x)
 [![Latest Stable Version](https://poser.pugx.org/webonyx/graphql-php/version)](https://packagist.org/packages/webonyx/graphql-php)
@@ -9,29 +8,24 @@ This is a PHP implementation of the GraphQL [specification](https://github.com/f
 based on the [reference implementation in JavaScript](https://github.com/graphql/graphql-js).
 
 ## Installation
-
 Via composer:
-
 ```
 composer require webonyx/graphql-php
 ```
 
 ## Documentation
-
-Full documentation is available on the [Documentation site](https://webonyx.github.io/graphql-php/) as well
+Full documentation is available on the [Documentation site](https://webonyx.github.io/graphql-php/) as well 
 as in the [docs](docs/) folder of the distribution.
 
 If you don't know what GraphQL is, visit the [official website](http://graphql.org) first.
 
 ## Examples
-
 There are several ready examples in the [examples](examples) folder of the distribution,
 with a specific README file per example.
 
 ## Contributors
 
-This project exists thanks to [all the people](https://github.com/webonyx/graphql-php/graphs/contributors) who
-contribute. [[Contribute](CONTRIBUTING.md)].
+This project exists thanks to [all the people](https://github.com/webonyx/graphql-php/graphs/contributors) who contribute. [[Contribute](CONTRIBUTING.md)].
 
 ## Backers
 
@@ -39,8 +33,7 @@ contribute. [[Contribute](CONTRIBUTING.md)].
 
 ## Sponsors
 
-Support this project by becoming a sponsor. Your logo will show up here with a link to your
-website. [[Become a sponsor](https://opencollective.com/webonyx-graphql-php#sponsor)]
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/webonyx-graphql-php#sponsor)]
 
 <a href="https://opencollective.com/webonyx-graphql-php/sponsor/0/website" target="_blank"><img src="https://opencollective.com/webonyx-graphql-php/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/webonyx-graphql-php/sponsor/1/website" target="_blank"><img src="https://opencollective.com/webonyx-graphql-php/sponsor/1/avatar.svg"></a>

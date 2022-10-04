@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Jean85\Exception;
 
-use Exception;
-
-class ProvidedPackageException extends Exception implements VersionMissingExceptionInterface
+class ProvidedPackageException extends \Exception implements VersionMissingExceptionInterface
 {
     public static function create(string $packageName): VersionMissingExceptionInterface
     {

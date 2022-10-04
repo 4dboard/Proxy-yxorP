@@ -18,32 +18,19 @@ class MediaType extends AbstractAnnotation
 {
 
     /**
-     * @inheritdoc
-     */
-    public static $_nested = [
-        Schema::class => 'schema',
-        Examples::class => ['examples', 'example'],
-        Attachable::class => ['attachables'],
-    ];
-    /**
-     * @inheritdoc
-     */
-    public static $_parents = [
-        Response::class,
-        RequestBody::class,
-    ];
-    /**
      * The key into Operation->content array.
      *
      * @var string
      */
     public $mediaType = Generator::UNDEFINED;
+
     /**
      * The schema defining the type used for the request body.
      *
      * @var Schema
      */
     public $schema = Generator::UNDEFINED;
+
     /**
      * Example of the media type.
      * The example object should be in the correct format as specified by the media type.
@@ -51,6 +38,7 @@ class MediaType extends AbstractAnnotation
      * Furthermore, if referencing a schema which contains an example, the example value shall override the example provided by the schema.
      */
     public $example = Generator::UNDEFINED;
+
     /**
      * Examples of the media type.
      * Each example object should match the media type and specified schema if present.
@@ -60,10 +48,28 @@ class MediaType extends AbstractAnnotation
      * @var array
      */
     public $examples = Generator::UNDEFINED;
+
     /**
      * A map between a property name and its encoding information.
      * The key, being the property name, must exist in the schema as a property.
      * The encoding object shall only apply to requestBody objects when the media type is multipart or application/x-www-form-urlencoded.
      */
     public $encoding = Generator::UNDEFINED;
+
+    /**
+     * @inheritdoc
+     */
+    public static $_nested = [
+        Schema::class => 'schema',
+        Examples::class => ['examples', 'example'],
+        Attachable::class => ['attachables'],
+    ];
+
+    /**
+     * @inheritdoc
+     */
+    public static $_parents = [
+        Response::class,
+        RequestBody::class,
+    ];
 }

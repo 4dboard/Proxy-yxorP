@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace DASPRiD\Enum;
 
@@ -18,7 +18,7 @@ final class NullValue
     {
     }
 
-    public static function instance(): self
+    public static function instance() : self
     {
         return self::$instance ?: self::$instance = new self();
     }
@@ -38,7 +38,7 @@ final class NullValue
      *
      * @throws SerializeNotSupportedException
      */
-    final public function __sleep(): array
+    final public function __sleep() : array
     {
         throw new SerializeNotSupportedException();
     }
@@ -48,7 +48,7 @@ final class NullValue
      *
      * @throws UnserializeNotSupportedException
      */
-    final public function __wakeup(): void
+    final public function __wakeup() : void
     {
         throw new UnserializeNotSupportedException();
     }

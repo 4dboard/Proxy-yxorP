@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace BaconQrCode\Encoder;
 
@@ -53,13 +53,12 @@ final class QrCode
     private $matrix;
 
     public function __construct(
-        Mode                 $mode,
+        Mode $mode,
         ErrorCorrectionLevel $errorCorrectionLevel,
-        Version              $version,
-        int                  $maskPattern,
-        ByteMatrix           $matrix
-    )
-    {
+        Version $version,
+        int $maskPattern,
+        ByteMatrix $matrix
+    ) {
         $this->mode = $mode;
         $this->errorCorrectionLevel = $errorCorrectionLevel;
         $this->version = $version;
@@ -68,17 +67,9 @@ final class QrCode
     }
 
     /**
-     * Validates whether a mask pattern is valid.
-     */
-    public static function isValidMaskPattern(int $maskPattern): bool
-    {
-        return $maskPattern > 0 && $maskPattern < self::NUM_MASK_PATTERNS;
-    }
-
-    /**
      * Gets the mode.
      */
-    public function getMode(): Mode
+    public function getMode() : Mode
     {
         return $this->mode;
     }
@@ -86,7 +77,7 @@ final class QrCode
     /**
      * Gets the EC level.
      */
-    public function getErrorCorrectionLevel(): ErrorCorrectionLevel
+    public function getErrorCorrectionLevel() : ErrorCorrectionLevel
     {
         return $this->errorCorrectionLevel;
     }
@@ -94,7 +85,7 @@ final class QrCode
     /**
      * Gets the version.
      */
-    public function getVersion(): Version
+    public function getVersion() : Version
     {
         return $this->version;
     }
@@ -102,7 +93,7 @@ final class QrCode
     /**
      * Gets the mask pattern.
      */
-    public function getMaskPattern(): int
+    public function getMaskPattern() : int
     {
         return $this->maskPattern;
     }
@@ -118,15 +109,23 @@ final class QrCode
     }
 
     /**
+     * Validates whether a mask pattern is valid.
+     */
+    public static function isValidMaskPattern(int $maskPattern) : bool
+    {
+        return $maskPattern > 0 && $maskPattern < self::NUM_MASK_PATTERNS;
+    }
+
+    /**
      * Returns a string representation of the QR code.
      */
-    public function __toString(): string
+    public function __toString() : string
     {
         $result = "<<\n"
-            . ' mode: ' . $this->mode . "\n"
-            . ' ecLevel: ' . $this->errorCorrectionLevel . "\n"
-            . ' version: ' . $this->version . "\n"
-            . ' maskPattern: ' . $this->maskPattern . "\n";
+                . ' mode: ' . $this->mode . "\n"
+                . ' ecLevel: ' . $this->errorCorrectionLevel . "\n"
+                . ' version: ' . $this->version . "\n"
+                . ' maskPattern: ' . $this->maskPattern . "\n";
 
         if ($this->matrix === null) {
             $result .= " matrix: null\n";

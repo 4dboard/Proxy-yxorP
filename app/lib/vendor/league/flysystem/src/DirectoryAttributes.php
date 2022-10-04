@@ -41,16 +41,6 @@ class DirectoryAttributes implements StorageAttributes
         $this->extraMetadata = $extraMetadata;
     }
 
-    public static function fromArray(array $attributes): StorageAttributes
-    {
-        return new DirectoryAttributes(
-            $attributes[StorageAttributes::ATTRIBUTE_PATH],
-            $attributes[StorageAttributes::ATTRIBUTE_VISIBILITY] ?? null,
-            $attributes[StorageAttributes::ATTRIBUTE_LAST_MODIFIED] ?? null,
-            $attributes[StorageAttributes::ATTRIBUTE_EXTRA_METADATA] ?? []
-        );
-    }
-
     public function path(): string
     {
         return $this->path;
@@ -86,12 +76,22 @@ class DirectoryAttributes implements StorageAttributes
         return true;
     }
 
-    public function withPath(string $path): StorageAttributes
+    public function withPath(string $path): self
     {
         $clone = clone $this;
         $clone->path = $path;
 
         return $clone;
+    }
+
+    public static function fromArray(array $attributes): self
+    {
+        return new DirectoryAttributes(
+            $attributes[StorageAttributes::ATTRIBUTE_PATH],
+            $attributes[StorageAttributes::ATTRIBUTE_VISIBILITY] ?? null,
+            $attributes[StorageAttributes::ATTRIBUTE_LAST_MODIFIED] ?? null,
+            $attributes[StorageAttributes::ATTRIBUTE_EXTRA_METADATA] ?? []
+        );
     }
 
     /**

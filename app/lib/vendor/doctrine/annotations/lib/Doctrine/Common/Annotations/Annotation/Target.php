@@ -3,6 +3,7 @@
 namespace Doctrine\Common\Annotations\Annotation;
 
 use InvalidArgumentException;
+
 use function array_keys;
 use function get_class;
 use function gettype;
@@ -20,20 +21,20 @@ use function sprintf;
  */
 final class Target
 {
-    public const TARGET_CLASS = 1;
-    public const TARGET_METHOD = 2;
-    public const TARGET_PROPERTY = 4;
+    public const TARGET_CLASS      = 1;
+    public const TARGET_METHOD     = 2;
+    public const TARGET_PROPERTY   = 4;
     public const TARGET_ANNOTATION = 8;
-    public const TARGET_FUNCTION = 16;
-    public const TARGET_ALL = 31;
+    public const TARGET_FUNCTION   = 16;
+    public const TARGET_ALL        = 31;
 
     /** @var array<string, int> */
     private static $map = [
-        'ALL' => self::TARGET_ALL,
-        'CLASS' => self::TARGET_CLASS,
-        'METHOD' => self::TARGET_METHOD,
-        'PROPERTY' => self::TARGET_PROPERTY,
-        'FUNCTION' => self::TARGET_FUNCTION,
+        'ALL'        => self::TARGET_ALL,
+        'CLASS'      => self::TARGET_CLASS,
+        'METHOD'     => self::TARGET_METHOD,
+        'PROPERTY'   => self::TARGET_PROPERTY,
+        'FUNCTION'   => self::TARGET_FUNCTION,
         'ANNOTATION' => self::TARGET_ANNOTATION,
     ];
 
@@ -61,7 +62,7 @@ final class Target
      */
     public function __construct(array $values)
     {
-        if (!isset($values['value'])) {
+        if (! isset($values['value'])) {
             $values['value'] = null;
         }
 
@@ -69,7 +70,7 @@ final class Target
             $values['value'] = [$values['value']];
         }
 
-        if (!is_array($values['value'])) {
+        if (! is_array($values['value'])) {
             throw new InvalidArgumentException(
                 sprintf(
                     '@Target expects either a string value, or an array of strings, "%s" given.',
@@ -80,7 +81,7 @@ final class Target
 
         $bitmask = 0;
         foreach ($values['value'] as $literal) {
-            if (!isset(self::$map[$literal])) {
+            if (! isset(self::$map[$literal])) {
                 throw new InvalidArgumentException(
                     sprintf(
                         'Invalid Target "%s". Available targets: [%s]',
@@ -94,7 +95,7 @@ final class Target
         }
 
         $this->targets = $bitmask;
-        $this->value = $values['value'];
+        $this->value   = $values['value'];
         $this->literal = implode(', ', $this->value);
     }
 }

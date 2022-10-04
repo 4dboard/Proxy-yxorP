@@ -29,7 +29,7 @@ class Executor
     /** @var callable */
     private static $implementationFactory = [ReferenceExecutor::class, 'create'];
 
-    public static function getDefaultFieldResolver(): callable
+    public static function getDefaultFieldResolver() : callable
     {
         return self::$defaultFieldResolver;
     }
@@ -42,6 +42,11 @@ class Executor
         self::$defaultFieldResolver = $fieldResolver;
     }
 
+    public static function getPromiseAdapter() : PromiseAdapter
+    {
+        return self::$defaultPromiseAdapter ?? (self::$defaultPromiseAdapter = new SyncPromiseAdapter());
+    }
+
     /**
      * Set a custom default promise adapter.
      */
@@ -50,7 +55,7 @@ class Executor
         self::$defaultPromiseAdapter = $defaultPromiseAdapter;
     }
 
-    public static function getImplementationFactory(): callable
+    public static function getImplementationFactory() : callable
     {
         return self::$implementationFactory;
     }
@@ -69,25 +74,24 @@ class Executor
      * Always returns ExecutionResult and never throws.
      * All errors which occur during operation execution are collected in `$result->errors`.
      *
-     * @param mixed|null $rootValue
-     * @param mixed|null $contextValue
+     * @param mixed|null                    $rootValue
+     * @param mixed|null                    $contextValue
      * @param array<mixed>|ArrayAccess|null $variableValues
-     * @param string|null $operationName
+     * @param string|null                   $operationName
      *
      * @return ExecutionResult|Promise
      *
      * @api
      */
     public static function execute(
-        Schema       $schema,
+        Schema $schema,
         DocumentNode $documentNode,
-                     $rootValue = null,
-                     $contextValue = null,
-                     $variableValues = null,
-                     $operationName = null,
-        ?callable    $fieldResolver = null
-    )
-    {
+        $rootValue = null,
+        $contextValue = null,
+        $variableValues = null,
+        $operationName = null,
+        ?callable $fieldResolver = null
+    ) {
         // TODO: deprecate (just always use SyncAdapter here) and have `promiseToExecute()` for other cases
 
         $promiseAdapter = static::getPromiseAdapter();
@@ -110,21 +114,16 @@ class Executor
         return $result;
     }
 
-    public static function getPromiseAdapter(): PromiseAdapter
-    {
-        return self::$defaultPromiseAdapter ?? (self::$defaultPromiseAdapter = new SyncPromiseAdapter());
-    }
-
     /**
      * Same as execute(), but requires promise adapter and returns a promise which is always
      * fulfilled with an instance of ExecutionResult and never rejected.
      *
      * Useful for async PHP platforms.
      *
-     * @param mixed|null $rootValue
-     * @param mixed|null $contextValue
+     * @param mixed|null        $rootValue
+     * @param mixed|null        $contextValue
      * @param array<mixed>|null $variableValues
-     * @param string|null $operationName
+     * @param string|null       $operationName
      *
      * @return Promise
      *
@@ -132,15 +131,14 @@ class Executor
      */
     public static function promiseToExecute(
         PromiseAdapter $promiseAdapter,
-        Schema         $schema,
-        DocumentNode   $documentNode,
-                       $rootValue = null,
-                       $contextValue = null,
-                       $variableValues = null,
-                       $operationName = null,
-        ?callable      $fieldResolver = null
-    )
-    {
+        Schema $schema,
+        DocumentNode $documentNode,
+        $rootValue = null,
+        $contextValue = null,
+        $variableValues = null,
+        $operationName = null,
+        ?callable $fieldResolver = null
+    ) {
         $factory = self::$implementationFactory;
 
         /** @var ExecutorImplementation $executor */
@@ -164,16 +162,16 @@ class Executor
      * and returns it as the result, or if it's a function, returns the result
      * of calling that function while passing along args and context.
      *
-     * @param mixed $objectValue
+     * @param mixed                $objectValue
      * @param array<string, mixed> $args
-     * @param mixed|null $contextValue
+     * @param mixed|null           $contextValue
      *
      * @return mixed|null
      */
     public static function defaultFieldResolver($objectValue, $args, $contextValue, ResolveInfo $info)
     {
         $fieldName = $info->fieldName;
-        $property = null;
+        $property  = null;
 
         if (is_array($objectValue) || $objectValue instanceof ArrayAccess) {
             if (isset($objectValue[$fieldName])) {

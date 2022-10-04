@@ -21,6 +21,7 @@ use MongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use MongoDB\Driver\Server;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\UnsupportedException;
+
 use function is_array;
 use function is_integer;
 use function is_object;
@@ -86,24 +87,24 @@ class FindOneAndUpdate implements Executable, Explainable
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param string $databaseName Database name
-     * @param string $collectionName Collection name
-     * @param array|object $filter Query by which to filter documents
-     * @param array|object $update Update to apply to the matched document
-     * @param array $options Command options
+     * @param string       $databaseName   Database name
+     * @param string       $collectionName Collection name
+     * @param array|object $filter         Query by which to filter documents
+     * @param array|object $update         Update to apply to the matched document
+     * @param array        $options        Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, $filter, $update, array $options = [])
     {
-        if (!is_array($filter) && !is_object($filter)) {
+        if (! is_array($filter) && ! is_object($filter)) {
             throw InvalidArgumentException::invalidType('$filter', $filter, 'array or object');
         }
 
-        if (!is_array($update) && !is_object($update)) {
+        if (! is_array($update) && ! is_object($update)) {
             throw InvalidArgumentException::invalidType('$update', $update, 'array or object');
         }
 
-        if (!is_first_key_operator($update) && !is_pipeline($update)) {
+        if (! is_first_key_operator($update) && ! is_pipeline($update)) {
             throw new InvalidArgumentException('Expected an update document with operator as first key or a pipeline');
         }
 
@@ -112,11 +113,11 @@ class FindOneAndUpdate implements Executable, Explainable
             'upsert' => false,
         ];
 
-        if (isset($options['projection']) && !is_array($options['projection']) && !is_object($options['projection'])) {
+        if (isset($options['projection']) && ! is_array($options['projection']) && ! is_object($options['projection'])) {
             throw InvalidArgumentException::invalidType('"projection" option', $options['projection'], 'array or object');
         }
 
-        if (!is_integer($options['returnDocument'])) {
+        if (! is_integer($options['returnDocument'])) {
             throw InvalidArgumentException::invalidType('"returnDocument" option', $options['returnDocument'], 'integer');
         }
 
@@ -145,11 +146,11 @@ class FindOneAndUpdate implements Executable, Explainable
     /**
      * Execute the operation.
      *
+     * @see Executable::execute()
      * @param Server $server
      * @return array|object|null
      * @throws UnsupportedException if collation or write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
-     * @see Executable::execute()
      */
     public function execute(Server $server)
     {
@@ -159,9 +160,9 @@ class FindOneAndUpdate implements Executable, Explainable
     /**
      * Returns the command document for this operation.
      *
+     * @see Explainable::getCommandDocument()
      * @param Server $server
      * @return array
-     * @see Explainable::getCommandDocument()
      */
     public function getCommandDocument(Server $server)
     {

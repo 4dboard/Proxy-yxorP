@@ -41,11 +41,11 @@ When expected as an input type, any string (such as `"4"`) or integer
             || is_int($value)
             || (is_object($value) && method_exists($value, '__toString'));
 
-        if (!$canCast) {
+        if (! $canCast) {
             throw new Error('ID cannot represent value: ' . Utils::printSafe($value));
         }
 
-        return (string)$value;
+        return (string) $value;
     }
 
     /**
@@ -53,10 +53,10 @@ When expected as an input type, any string (such as `"4"`) or integer
      *
      * @throws Error
      */
-    public function parseValue($value): string
+    public function parseValue($value) : string
     {
         if (is_string($value) || is_int($value)) {
-            return (string)$value;
+            return (string) $value;
         }
         throw new Error('ID cannot represent value: ' . Utils::printSafe($value));
     }

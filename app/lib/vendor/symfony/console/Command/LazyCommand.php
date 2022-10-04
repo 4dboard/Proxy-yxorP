@@ -11,7 +11,6 @@
 
 namespace Symfony\Component\Console\Command;
 
-use Closure;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Completion\CompletionInput;
 use Symfony\Component\Console\Completion\CompletionSuggestions;
@@ -28,7 +27,7 @@ final class LazyCommand extends Command
     private $command;
     private $isEnabled;
 
-    public function __construct(string $name, array $aliases, string $description, bool $isHidden, Closure $commandFactory, ?bool $isEnabled = true)
+    public function __construct(string $name, array $aliases, string $description, bool $isHidden, \Closure $commandFactory, ?bool $isEnabled = true)
     {
         $this->setName($name)
             ->setAliases($aliases)
@@ -42,30 +41,6 @@ final class LazyCommand extends Command
     public function ignoreValidationErrors(): void
     {
         $this->getCommand()->ignoreValidationErrors();
-    }
-
-    public function getCommand(): parent
-    {
-        if (!$this->command instanceof Closure) {
-            return $this->command;
-        }
-
-        $command = $this->command = ($this->command)();
-        $command->setApplication($this->getApplication());
-
-        if (null !== $this->getHelperSet()) {
-            $command->setHelperSet($this->getHelperSet());
-        }
-
-        $command->setName($this->getName())
-            ->setAliases($this->getAliases())
-            ->setHidden($this->isHidden())
-            ->setDescription($this->getDescription());
-
-        // Will throw if the command is not correctly initialized.
-        $command->getDefinition();
-
-        return $command;
     }
 
     public function setApplication(Application $application = null): void
@@ -84,11 +59,6 @@ final class LazyCommand extends Command
         }
 
         parent::setHelperSet($helperSet);
-    }
-
-    public function getDefinition(): InputDefinition
-    {
-        return $this->getCommand()->getDefinition();
     }
 
     public function isEnabled(): bool
@@ -132,6 +102,11 @@ final class LazyCommand extends Command
         $this->getCommand()->setDefinition($definition);
 
         return $this;
+    }
+
+    public function getDefinition(): InputDefinition
+    {
+        return $this->getCommand()->getDefinition();
     }
 
     public function getNativeDefinition(): InputDefinition
@@ -215,5 +190,29 @@ final class LazyCommand extends Command
     public function getHelper(string $name)
     {
         return $this->getCommand()->getHelper($name);
+    }
+
+    public function getCommand(): parent
+    {
+        if (!$this->command instanceof \Closure) {
+            return $this->command;
+        }
+
+        $command = $this->command = ($this->command)();
+        $command->setApplication($this->getApplication());
+
+        if (null !== $this->getHelperSet()) {
+            $command->setHelperSet($this->getHelperSet());
+        }
+
+        $command->setName($this->getName())
+            ->setAliases($this->getAliases())
+            ->setHidden($this->isHidden())
+            ->setDescription($this->getDescription());
+
+        // Will throw if the command is not correctly initialized.
+        $command->getDefinition();
+
+        return $command;
     }
 }
