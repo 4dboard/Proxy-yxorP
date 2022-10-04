@@ -1,1 +1,0 @@
-<?php header('Content-type: text/html'); exit(die(' {"message":"csrf_token is required!","status":false}')); ?>
