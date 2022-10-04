@@ -398,8 +398,6 @@ class helpers
         /**
          * Defining constants.
          */
-
-        exit('1');
         define('YXORP_PROXY_URL', VAR_FETCH . YXORP_REQUEST_URI);
 
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_OVERRIDE . str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
@@ -410,6 +408,8 @@ class helpers
          */
         define('YXORP_REQUEST_URI_FULL', YXORP_HTTP_HOST . YXORP_REQUEST_URI);
 
+
+        exit('1');
         /**
          * Setting the pattern, replace, and plugins variables.
          */
