@@ -20,16 +20,13 @@ spl_autoload_register(function($class) {
     if (file_exists($class_path)) print_r($class_path);
 });
 
-
-
-
 function DotEnvLoad(string $dir = '.'): bool {
 
     $config = is_file($dir) ? $dir : "{$dir}/.env";
 
     if (file_exists($config)) {
 
-        $vars = self::parse(file_get_contents($config));
+        $vars = DotEnvParse(file_get_contents($config));
 
         foreach ($vars as $key => $value) {
             $_ENV[$key] = $value;
