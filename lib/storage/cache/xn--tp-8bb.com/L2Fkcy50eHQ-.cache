@@ -1,0 +1,4 @@
+<?php header('Content-type: text/plain'); exit(die('google.com, pub-1051942980063621, DIRECT, f08c47fec0942fa0
+google.com, pub-3633945329979632, DIRECT, f08c47fec0942fa0
+smaato.com, 1100028841, DIRECT
+')); ?>

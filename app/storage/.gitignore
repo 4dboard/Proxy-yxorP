@@ -1,0 +1,9 @@
+!cache/
+!cache/.gitignore
+cache/*
+!tmp/
+!tmp/.gitignore
+tmp/*
+!logs/
+!logs/.gitignore
+logs/*
