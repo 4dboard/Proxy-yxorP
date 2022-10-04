@@ -4,7 +4,6 @@ use App;
 use Cockpit;
 use yxorP;
 use yxorP\app\lib\proxy\client;
-use yxorP\app\lib\proxy\cookie\fileCookieJar;
 
 
 /**
@@ -331,8 +330,8 @@ class helpers
      */
     public static function define(?array $request): void
     {
-        date_default_timezone_set('UTC');
-        define('APP_START_TIME', microtime(true));
+        \date_default_timezone_set('UTC');
+        define('APP_START_TIME', \microtime(true));
         define('APP_ADMIN', true);
         require(PATH_SITE_BOOTSTRAP);
         /**
