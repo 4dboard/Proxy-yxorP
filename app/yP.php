@@ -88,7 +88,6 @@ class yP
 
         helpers::define($request);
 
-        exit('1');
         /**
          * Loading the actions.
          */
