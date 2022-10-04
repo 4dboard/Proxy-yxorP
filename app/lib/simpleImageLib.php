@@ -8,7 +8,7 @@ use claviska\SimpleImage;
 
 class SimpleImageLib extends SimpleImage {
 
-    protected const ERR_AVIF_NOT_ENABLED = 12;
+    const ERR_AVIF_NOT_ENABLED = 12;
 
     /**
      * Loads an image from a data URI.

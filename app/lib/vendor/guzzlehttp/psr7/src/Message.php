@@ -67,7 +67,6 @@ final class Message
             return null;
         }
 
-        $body->rewind();
         $summary = $body->read($truncateAt);
         $body->rewind();
 

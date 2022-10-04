@@ -21,13 +21,13 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_APP_ADMIN"
         },                {
-            "fqsen": "\\PATH_DIR_APP",
-            "name": "PATH_DIR_APP",
+            "fqsen": "\\APP_DIR",
+            "name": "APP_DIR",
             "summary": "",
-            "url": "namespaces/default.html#constant_PATH_DIR_APP"
+            "url": "namespaces/default.html#constant_APP_DIR"
         },                {
             "fqsen": "\\Cockpit",
-            "name": "yxorP",
+            "name": "Cockpit",
             "summary": "",
             "url": "classes/Cockpit.html"
         },                {

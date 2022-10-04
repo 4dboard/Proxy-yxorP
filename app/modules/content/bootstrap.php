@@ -49,7 +49,7 @@ $this->module('content')->extend([
             'fields'    => [],
             'preview'   => [],
             'group'     => null,
-            'meta'      => null,
+            'sortable'  => false,
             '_created'  => $time,
             '_modified' => $time
         ], $data);
@@ -116,7 +116,7 @@ $this->module('content')->extend([
 
         if ($model['type'] == 'singleton') {
             $this->app->dataStorage->remove('content/singletons', ['_model' => $name]);
-        } elseif (in_array($model['type'], ['collection', 'tree'])) {
+        } elseif ($model['type'] == 'collection') {
             $this->app->dataStorage->dropCollection("content/collections/{$name}");
         }
 
@@ -234,15 +234,15 @@ $this->module('content')->extend([
 
             $item = array_merge($current, $item);
 
-        } elseif (in_array($model['type'], ['collection', 'tree'])) {
+        } elseif ($model['type'] == 'collection') {
 
             $collection = "content/collections/{$modelName}";
+            $item = array_merge($default, $item);
 
             if (isset($item['_id'])) {
                 $isUpdate = true;
-            } else {
-                $item = array_merge($default, $item);
             }
+
         }
 
         $item['_modified'] = $time;
@@ -258,13 +258,9 @@ $this->module('content')->extend([
             return null;
         }
 
-        $this->app->trigger('content.item.save.before', [$modelName, &$item, $isUpdate]);
-        $this->app->trigger("content.item.save.before.{$modelName}", [&$item, $isUpdate]);
-
         $this->app->dataStorage->save($collection, $item);
 
         $this->app->trigger('content.item.save', [$modelName, $item, $isUpdate]);
-        $this->app->trigger("content.item.save.{$modelName}", [&$item, $isUpdate]);
 
         return $item;
     },
@@ -287,7 +283,7 @@ $this->module('content')->extend([
 
             $item['_model'] = $modelName;
 
-        } elseif (in_array($model['type'], ['collection', 'tree'])) {
+        } elseif ($model['type'] == 'collection') {
 
             $collection = "content/collections/{$modelName}";
             $item = $this->app->dataStorage->findOne($collection, $filter, $fields);
@@ -312,7 +308,7 @@ $this->module('content')->extend([
             throw new Exception('Try to access unknown model "'.$modelName.'"');
         }
 
-        if (!in_array($model['type'], ['collection', 'tree'])) {
+        if ($model['type'] != 'collection') {
             return [];
         }
 
@@ -362,7 +358,7 @@ $this->module('content')->extend([
             return 1;
         }
 
-        if (!in_array($model['type'], ['collection', 'tree'])) {
+        if ($model['type'] != 'collection') {
             return 1;
         }
 

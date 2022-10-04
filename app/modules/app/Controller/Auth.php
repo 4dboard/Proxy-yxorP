@@ -24,7 +24,7 @@ class Auth extends Base {
             $redirectTo = '/';
         }
 
-        $redirectTo = htmlspecialchars($this->app->routeUrl($redirectTo), ENT_QUOTES, 'UTF-8');
+        $redirectTo = htmlspecialchars($this->routeUrl($redirectTo), ENT_QUOTES, 'UTF-8');
 
         $this->helper('theme')->pageClass('login-page');
 
@@ -84,19 +84,14 @@ class Auth extends Base {
                         'name' => $user['name'],
                         'user' => $user['user'],
                         'email' => $user['email'],
-                        'twofa' => $this->helper('jwt')->create([
-                            '_id'   => $user['_id'],
-                            'user'  => $user['user'],
-                            'name'  => $user['name'],
-                            'email' => $user['email'],
-                            'role'  => $user['role'],
-                        ])
+                        'twofa' => $this->helper('jwt')->create($user)
                     ]
                 ];
-            }
 
-            // remove 2FA settings from user session
-            unset($user['twofa']);
+            } else {
+                // remove twofa settings
+                unset($user['twofa']);
+            }
 
             $this->app->trigger('app.user.disguise', [&$user]);
 
@@ -137,7 +132,7 @@ class Auth extends Base {
             $this->helper('auth')->setUser($user);
             $this->helper('session')->write('app.session.start', time());
 
-            $this->app->trigger('app.user.login', [&$user]);
+            $this->trigger('app.user.login', [&$user]);
 
             return ['success' => true, 'user' => $user];
         }

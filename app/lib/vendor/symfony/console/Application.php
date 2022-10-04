@@ -983,30 +983,22 @@ class Application implements ResetInterface
             }
         }
 
-        if ($this->signalsToDispatchEvent) {
-            $commandSignals = $command instanceof SignalableCommandInterface ? $command->getSubscribedSignals() : [];
+        if ($command instanceof SignalableCommandInterface && ($this->signalsToDispatchEvent || $command->getSubscribedSignals())) {
+            if (!$this->signalRegistry) {
+                throw new RuntimeException('Unable to subscribe to signal events. Make sure that the `pcntl` extension is installed and that "pcntl_*" functions are not disabled by your php.ini\'s "disable_functions" directive.');
+            }
 
-            if ($commandSignals || null !== $this->dispatcher) {
-                if (!$this->signalRegistry) {
-                    throw new RuntimeException('Unable to subscribe to signal events. Make sure that the `pcntl` extension is installed and that "pcntl_*" functions are not disabled by your php.ini\'s "disable_functions" directive.');
-                }
+            if (Terminal::hasSttyAvailable()) {
+                $sttyMode = shell_exec('stty -g');
 
-                if (Terminal::hasSttyAvailable()) {
-                    $sttyMode = shell_exec('stty -g');
-
-                    foreach ([\SIGINT, \SIGTERM] as $signal) {
-                        $this->signalRegistry->register($signal, static function () use ($sttyMode) {
-                            shell_exec('stty '.$sttyMode);
-                        });
-                    }
-                }
-
-                foreach ($commandSignals as $signal) {
-                    $this->signalRegistry->register($signal, [$command, 'handleSignal']);
+                foreach ([\SIGINT, \SIGTERM] as $signal) {
+                    $this->signalRegistry->register($signal, static function () use ($sttyMode) {
+                        shell_exec('stty '.$sttyMode);
+                    });
                 }
             }
 
-            if (null !== $this->dispatcher) {
+            if ($this->dispatcher) {
                 foreach ($this->signalsToDispatchEvent as $signal) {
                     $event = new ConsoleSignalEvent($command, $input, $output, $signal);
 
@@ -1021,6 +1013,10 @@ class Application implements ResetInterface
                         }
                     });
                 }
+            }
+
+            foreach ($command->getSubscribedSignals() as $signal) {
+                $this->signalRegistry->register($signal, [$command, 'handleSignal']);
             }
         }
 

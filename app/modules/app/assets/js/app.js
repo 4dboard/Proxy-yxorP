@@ -39,7 +39,7 @@ let App = {
     },
 
     reroute: function (url) {
-        location.href = /^http/.test(url) ? url : this.route(url);
+        location.href = url.match(/^http/) ? url : this.route(url);
     },
 
     request: function (url, data, type) {
@@ -73,7 +73,7 @@ let App = {
 
                 let resdata = xhr.responseText;
 
-                if (type === 'json') {
+                if (type == 'json') {
                     try {
                         resdata = JSON.parse(xhr.responseText);
                     } catch (e) {

@@ -14,7 +14,7 @@ class SVGSanitizer
     /**
      * Regex to catch script and data values in attributes
      */
-    protected const SCRIPT_REGEX = '/(?:\w+script|data):/xi';
+    const SCRIPT_REGEX = '/(?:\w+script|data):/xi';
 
     /**
      * @var DOMDocument
@@ -70,7 +70,7 @@ class SVGSanitizer
     /**
      *
      */
-    public function __construct()
+    function __construct()
     {
         // Load default tags/attributes
         $this->allowedAttrs = [
@@ -362,6 +362,7 @@ class SVGSanitizer
 
         // If we couldn't parse the XML then we go no further. Reset and return false
         if (!$loaded) {
+            $this->resetAfter();
             return false;
         }
 
@@ -380,6 +381,8 @@ class SVGSanitizer
             $clean = $this->xmlDocument->saveXML($this->xmlDocument, $this->xmlOptions);
         }
 
+        $this->resetAfter();
+
         // Remove any extra whitespaces when minifying
         if ($this->minifyXML) {
             $clean = preg_replace('/\s+/', ' ', $clean);
@@ -394,9 +397,24 @@ class SVGSanitizer
      */
     protected function setUpBefore()
     {
+        if (!version_compare(phpversion(), '8.0.0', '>=')) {
+            // Turn off the entity loader
+            $this->xmlLoaderValue = libxml_disable_entity_loader(true);
+        }
 
         // Suppress the errors because we don't really have to worry about formation before cleansing
         libxml_use_internal_errors(true);
+    }
+
+    /**
+     * Reset the class after use
+     */
+    protected function resetAfter()
+    {
+        if (!version_compare(phpversion(), '8.0.0', '>=')) {
+            // Reset the entity loader
+            libxml_disable_entity_loader($this->xmlLoaderValue);
+        }
     }
 
     /**

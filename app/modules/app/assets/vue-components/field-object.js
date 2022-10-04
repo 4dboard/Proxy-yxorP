@@ -1,3 +1,5 @@
+import FieldCode from "./field-code.js"
+
 export default {
 
     _meta: {
@@ -38,9 +40,7 @@ export default {
     },
 
     components: {
-        'field-code': Vue.defineAsyncComponent(() =>
-            App.utils.import('app:assets/vue-components/field-code.js')
-        )
+        'field-code': FieldCode
     },
 
     watch: {
@@ -51,7 +51,7 @@ export default {
         modelValue: {
             handler(val) {
 
-                if (this.code && this.code.editor && !this.code.editor.hasFocus()) {
+                if (this.code.editor && !this.code.editor.hasFocus()) {
 
                     if (this.asString && typeof(val) == 'string') {
                         this.val = val;

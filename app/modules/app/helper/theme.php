@@ -8,6 +8,7 @@ class Theme extends \Lime\Helper {
     protected ?string $title = null;
     protected ?string $favicon = null;
     protected ?string $logo = null;
+    protected ?string $logoLarge = null;
     protected ?string $pageClass = null;
 
     protected function initialize() {
@@ -64,10 +65,30 @@ class Theme extends \Lime\Helper {
         return $this->pathToUrl('#app:favicon.png');
     }
 
+
+
+    public function logoLarge(?string $url = null): ?string {
+
+        if ($url) {
+            $this->logoLarge = $this->pathToUrl($url);
+            return null;
+        }
+
+        if ($this->logoLarge) {
+            return $this->logoLarge;
+        }
+
+        if ($this->app->path('#config:logo.png')) {
+            return $this->app->pathToUrl('#config:logo.png');
+        }
+
+        return $this->baseUrl('app:assets/logo.png');
+    }
+
     public function logo(?string $url = null): ?string {
 
         if ($url) {
-            $this->logo = $this->app->pathToUrl($url);
+            $this->logo = $this->pathToUrl($url);
             return null;
         }
 
@@ -79,7 +100,7 @@ class Theme extends \Lime\Helper {
             return $this->app->pathToUrl('#config:logo.svg');
         }
 
-        return $this->app->baseUrl('app:assets/logo.svg');
+        return $this->baseUrl('app:assets/logo.svg');
     }
 
     public function theme() {

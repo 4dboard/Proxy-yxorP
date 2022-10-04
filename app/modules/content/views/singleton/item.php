@@ -8,9 +8,6 @@
         <div class="kiss-margin-small-right">
             <kiss-svg class="kiss-margin-auto" src="<?=$this->base(isset($model['icon']) && $model['icon'] ? $model['icon'] : 'content:assets/icons/singleton.svg')?>" width="30" height="30" style="color:<?=($this->escape($model['color'] ?? 'inherit'))?>"><canvas width="35" height="35"></canvas></kiss-svg>
         </div>
-        <a class="kiss-color-muted kiss-margin-small-right" href="javascript:VueView.ui.offcanvas('content:assets/dialogs/switch-model-view.js')">
-            <icon>expand_circle_down</icon>
-        </a>
         <div class="kiss-margin-small-right">
             <div class="kiss-size-5 kiss-text-bold"><?=$this->escape($model['label'] ? $model['label'] : $model['name'])?></div>
         </div>
@@ -37,7 +34,7 @@
 
             <kiss-row class="kiss-margin-large" gap="large" :class="{'kiss-disabled': saving}" v-if="fields.length">
                 <div class="kiss-flex-1">
-                    <div class="kiss-width-3-4@xl">
+                    <div class="kiss-width-3-4@xl kiss-margin-auto">
                         <fields-renderer v-model="item" :fields="fields" :locales="locales"></fields-renderer>
                     </div>
                 </div>
@@ -68,7 +65,6 @@
                         </kiss-card>
                     </div>
 
-                    <?php if ($this->helper('acl')->isAllowed("content/{$model['name']}/publish")): ?>
                     <div class="kiss-margin">
 
                         <div class="kiss-text-caption kiss-size-xsmall kiss-text-bold">{{ t('State') }}</div>
@@ -82,7 +78,6 @@
                         </div>
 
                     </div>
-                    <?php endif ?>
 
                     <div class="kiss-margin" v-if="hasLocales">
 
@@ -164,7 +159,6 @@
                 </kiss-content>
             </kiss-popoutmenu>
 
-            <?php if ($this->helper('acl')->isAllowed("content/{$model['name']}/publish")): ?>
             <kiss-popoutmenu id="model-item-menu-state">
                 <kiss-content>
                     <kiss-navlist class="kiss-margin-small">
@@ -188,7 +182,6 @@
                     </kiss-navlist>
                 </kiss-content>
             </kiss-popoutmenu>
-            <?php endif ?>
 
             <kiss-popoutmenu id="model-item-preview-links" v-if="model.preview && model.preview.length">
                 <kiss-content>

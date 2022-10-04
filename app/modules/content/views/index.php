@@ -1,4 +1,4 @@
-<kiss-container class="kiss-margin-large">
+<kiss-container class="kiss-margin-large" size="medium">
 
     <ul class="kiss-breadcrumbs">
         <li><a href="<?=$this->route('/content')?>"><?=t('Content')?></a></li>
@@ -18,94 +18,77 @@
 
             <div class="kiss-margin-large" v-if="!loading && models.length">
 
-                <div class="kiss-margin-large-bottom">
+                <div class="kiss-margin">
                     <input type="text" class="kiss-input" :placeholder="t('Filter models...')" v-model="filter">
                 </div>
 
+                <div class="kiss-margin-large-top" v-if="singletons.length">
 
-                <div class="animated fadeIn kiss-height-30vh kiss-flex kiss-flex-middle kiss-flex-center kiss-align-center kiss-color-muted kiss-margin-large" v-if="!singletons.length && !lists.length">
-                    <div>
-                        <kiss-svg src="<?=$this->base('content:icon.svg')?>" width="40" height="40"></kiss-svg>
-                        <p class="kiss-size-large kiss-margin-top"><?=t('No models found')?></p>
-                    </div>
+                    <kiss-grid cols="3@m" gap="small">
+
+                        <kiss-card class="animated fadeIn kiss-flex" theme="shadowed contrast" hover="shadow" v-for="model in singletons">
+                            <div class="kiss-position-relative kiss-padding-small kiss-bgcolor-contrast kiss-width-1-6">
+                                <canvas width="600" height="200"></canvas>
+                                <div class="kiss-cover kiss-flex kiss-flex-middle kiss-flex-center">
+                                    <div :style="{color: model.color || 'inherit' }"><kiss-svg :src="$base(model.icon || 'content:assets/icons/singleton.svg')" width="30" height="30"></kiss-svg></div>
+                                </div>
+                                <a class="kiss-cover" :href="$route(`/content/singleton/item/${model.name}`)"></a>
+                            </div>
+                            <div class="kiss-padding-small kiss-flex-1">
+                                <div class="kiss-flex kiss-flex-middle">
+                                    <a class="kiss-flex-1 kiss-margin-right kiss-text-bold kiss-link-muted" :href="$route(`/content/singleton/item/${model.name}`)">{{ model.label || model.name }}</a>
+                                    <a @click="toggleModelActions(model)"><icon>more_horiz</icon></a>
+                                </div>
+                                <div class="kiss-margin-xsmall-top kiss-color-muted kiss-size-xsmall">{{model.info || t('Singleton')}}</div>
+                            </div>
+                        </kiss-card>
+
+                        <kiss-card class="animated fadeIn kiss-padding kiss-flex kiss-flex-middle kiss-flex-center" theme="bordered" hover="shadow">
+                            <a class="kiss-size-large" href="<?=$this->route('/content/models/create')?>?type=singleton" title="<?=t('Add singleton model')?>"><icon>add_circle_outline</icon></a>
+                        </kiss-card>
+
+                    </kiss-grid>
+
                 </div>
 
-                <kiss-row v-if="singletons.length || lists.length" gap="large">
 
-                    <div class="kiss-flex-1">
+                <div class="kiss-margin-large" v-if="collections.length">
 
-                        <kiss-grid cols="2@m 3@xl" class="kiss-margin" gap="small" v-if="singletons.length">
+                    <div class="kiss-margin kiss-text-caption kiss-text-bold kiss-color-muted kiss-size-small"><?=t('Collections')?></div>
 
-                            <kiss-card class="animated fadeIn kiss-flex" theme="shadowed contrast" hover="shadow" v-for="model in singletons">
-                                <div class="kiss-position-relative kiss-padding-small kiss-bgcolor-contrast">
-                                    <canvas width="40" height="40"></canvas>
-                                    <div class="kiss-cover kiss-flex kiss-padding-small kiss-flex-middle kiss-flex-center">
-                                        <div :style="{color: model.color || 'inherit' }"><kiss-svg :src="$base(model.icon || 'content:assets/icons/singleton.svg')" width="30" height="30"></kiss-svg></div>
-                                    </div>
-                                    <a class="kiss-cover" :href="$route(`/content/singleton/item/${model.name}`)"></a>
+                    <div class="kiss-margin-small" v-for="model in collections">
+                        <kiss-card class="animated fadeIn" theme="shadowed contrast" hover="shadow">
+                            <div class="kiss-padding kiss-flex kiss-flex-middle">
+                                <div class="kiss-margin-small-right" :style="{color: model.color || 'inherit' }">
+                                    <kiss-svg class="kiss-margin-auto" :src="$base(model.icon || 'content:assets/icons/collection.svg')" width="30" height="30"></kiss-svg>
                                 </div>
-                                <div class="kiss-padding-small kiss-flex-1 kiss-position-relative">
-                                    <div class="kiss-size-small kiss-text-bold kiss-text-truncate">{{ model.label || model.name }}</div>
-                                    <div class="kiss-margin-xsmall-top kiss-color-muted kiss-size-xsmall kiss-text-truncate">{{model.info || t('Singleton')}}</div>
-                                    <a class="kiss-cover" :href="$route(`/content/singleton/item/${model.name}`)"></a>
+                                <div class="kiss-flex-1 kiss-position-relative kiss-margin-right kiss-text-bold kiss-link-muted">
+                                    {{ model.label || model.name }}
+                                    <a class="kiss-cover" :href="$route(`/content/collection/items/${model.name}`)"></a>
                                 </div>
-                                <a class="kiss-padding-small" @click="toggleModelActions(model)"><icon>more_horiz</icon></a>
-                            </kiss-card>
-
-                        </kiss-grid>
-
-                        <div class="kiss-margin" v-if="lists.length">
-
-                            <div class="kiss-margin kiss-text-caption kiss-text-bold kiss-color-muted kiss-size-small"><?=t('Lists')?></div>
-
-                            <kiss-card class="kiss-margin-small kiss-flex animated fadeIn" theme="shadowed contrast" hover="shadow" v-for="model in lists">
-                                <div class="kiss-position-relative kiss-padding-small kiss-bgcolor-contrast">
-                                    <canvas width="40" height="40"></canvas>
-                                    <div class="kiss-cover kiss-flex kiss-flex-middle kiss-flex-center">
-                                        <div :style="{color: model.color || 'inherit' }"><kiss-svg :src="$base(model.icon || 'content:assets/icons/'+model.type+'.svg')" width="30" height="30"></kiss-svg></div>
-                                    </div>
-                                    <a class="kiss-cover" :href="$route(`/content/${model.type}/items/${model.name}`)"></a>
+                                <div class="kiss-color-muted kiss-size-xsmall kiss-margin-right kiss-visible@m " v-if="model.info">
+                                    {{model.info}}
                                 </div>
-                                <div class="kiss-padding-small kiss-flex-1 kiss-position-relative">
-                                    <div class="kiss-size-small kiss-text-bold kiss-text-truncate">{{ model.label || model.name }}</div>
-                                    <div class="kiss-margin-xsmall-top kiss-color-muted kiss-size-xsmall kiss-text-truncate">{{model.info || model.type}}</div>
-                                    <a class="kiss-cover" :href="$route(`/content/${model.type}/items/${model.name}`)"></a>
+                                <div>
+                                    <a @click="toggleModelActions(model)"><icon>more_horiz</icon></a>
                                 </div>
-                                <a class="kiss-padding-small" @click="toggleModelActions(model)"><icon>more_horiz</icon></a>
-                            </kiss-card>
-
-                        </div>
+                            </div>
+                        </kiss-card>
                     </div>
 
-                    <div class="kiss-width-1-4@m kiss-width-1-5@l">
-
-                        <div class="kiss-margin" v-if="group">
-                            <span class="kiss-size-xsmall kiss-color-muted"><?=t('Group')?></span>
-                            <div class="kiss-size-4 kiss-text-bold">{{ group }}</div>
-                        </div>
-
-                        <kiss-grid cols="2" gap="small">
-                            <kiss-card class="kiss-padding kiss-bgcolor-contrast" theme="bordered">
-                                <span class="kiss-size-xsmall"><?=t('Models')?></span>
-                                <div class="kiss-size-2 kiss-text-bold">{{ (singletons.length + lists.length) }}</div>
-                            </kiss-card>
-                            <div class="kiss-padding" v-if="lists.length">
-                                <span class="kiss-size-xsmall kiss-color-muted"><?=t('Lists')?></span>
-                                <div class="kiss-size-2 kiss-color-muted">{{ lists.length }}</div>
-                            </div>
-                            <div class="kiss-padding" v-if="singletons.length">
-                                <span class="kiss-size-xsmall kiss-color-muted"><?=t('Singletons')?></span>
-                                <div class="kiss-size-2 kiss-color-muted">{{ singletons.length }}</div>
-                            </div>
-                        </kiss-grid>
+                    <div>
+                        <kiss-card class="animated fadeIn kiss-padding-small kiss-align-center">
+                            <a class="kiss-size-large" href="<?=$this->route('/content/models/create')?>?type=collection" title="<?=t('Add collection model')?>"><icon>add_circle_outline</icon></a>
+                        </kiss-card>
                     </div>
-                </kiss-row>
+
+                </div>
 
             </div>
 
             <app-actionbar>
 
-                <kiss-container>
+                <kiss-container size="medium">
                     <div class="kiss-flex kiss-flex-middle">
                         <div v-if="groups.length">
                             <span class="kiss-text-caption kiss-color-muted"><?=t('group')?></span>
@@ -179,14 +162,14 @@
 
                 computed: {
 
-                    lists() {
+                    collections() {
                         return this.models.filter(model => {
 
                             if (this.filter && !`${model.name} ${model.label}`.toLocaleLowerCase().includes(this.filter.toLocaleLowerCase())) {
                                 return false;
                             }
 
-                            return ['collection', 'tree'].includes(model.type) && (!this.group || this.group == model.group);
+                            return model.type == 'collection' && (!this.group || this.group == model.group)
                         });
                     },
 
@@ -273,47 +256,3 @@
 
 
 </kiss-container>
-
-
-<?php $this->start('app-side-panel') ?>
-
-<h2 class="kiss-size-4"><?=t('Content')?></h2>
-<kiss-navlist>
-    <ul>
-        <li>
-            <a class="kiss-link-muted kiss-flex kiss-flex-middle kiss-text-bold" href="<?=$this->route('/content')?>">
-                <kiss-svg class="kiss-margin-small-right" src="<?=$this->base('content:icon.svg')?>" width="20" height="20"><canvas width="20" height="20"></canvas></kiss-svg>
-                <?=t('Overview')?>
-            </a>
-        </li>
-        <?php if ($this->helper('acl')->isAllowed("content/models/manage")): ?>
-        <li class="kiss-nav-header kiss-margin-top kiss-margin-xsmall-bottom"><?=t('Create')?></li>
-        <li>
-            <a class="kiss-color-muted kiss-flex kiss-flex-middle" href="<?=$this->route('/content/models/create')?>?type=singleton">
-                <kiss-svg class="kiss-margin-small-right" src="<?=$this->base('content:assets/icons/singleton.svg')?>" width="20" height="20"><canvas width="20" height="20"></canvas></kiss-svg>
-                <?=t('Singleton')?>
-            </a>
-        </li>
-        <li class="kiss-nav-divider"></li>
-        <li>
-            <a class="kiss-color-muted kiss-flex kiss-flex-middle" href="<?=$this->route('/content/models/create')?>?type=collection">
-                <kiss-svg class="kiss-margin-small-right" src="<?=$this->base('content:assets/icons/collection.svg')?>" width="20" height="20"><canvas width="20" height="20"></canvas></kiss-svg>
-                <?=t('Collection')?>
-            </a>
-        </li>
-        <li>
-            <a class="kiss-color-muted kiss-flex kiss-flex-middle" href="<?=$this->route('/content/models/create')?>?type=tree">
-                <kiss-svg class="kiss-margin-small-right" src="<?=$this->base('content:assets/icons/tree.svg')?>" width="20" height="20"><canvas width="20" height="20"></canvas></kiss-svg>
-                <?=t('Tree')?>
-            </a>
-        </li>
-        <?php endif ?>
-    </ul>
-</kiss-navlist>
-
-<div class="kiss-margin kiss-visible@m">
-
-
-</div>
-
-<?php $this->end('app-side-panel') ?>

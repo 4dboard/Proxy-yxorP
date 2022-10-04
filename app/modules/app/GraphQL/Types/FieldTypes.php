@@ -29,11 +29,6 @@ class FieldTypes {
         foreach ($meta['fields'] as $field) {
 
             $def = self::getType($field);
-            $name = $field['name'];
-
-            if (is_numeric($name)) {
-                $name = "_{$name}_";
-            }
 
             if ($def) {
 
@@ -42,9 +37,9 @@ class FieldTypes {
                 }
 
                 if ($field['multiple']) {
-                    $fields[$name] = Type::listOf($def['type']);
+                    $fields[$field['name']] = Type::listOf($def['type']);
                 } else {
-                    $fields[$name] = $def;
+                    $fields[$field['name']] = $def;
                 }
             }
         }

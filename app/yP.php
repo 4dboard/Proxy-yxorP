@@ -10,7 +10,6 @@ namespace yxorP\app\lib;
  */
 ini_set('memory_limit', '-1');
 error_reporting(1);
-
 /**
  * Importing the constants class from the inc folder.
  */
@@ -22,6 +21,9 @@ include 'constants.php';
 
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\http\store;
+use yxorP\app\lib\proxy\FileCookieJar;
+
+
 /**
  * It's a class that's used to dispatch events.
  */

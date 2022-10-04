@@ -132,13 +132,13 @@ class CachedKeySet implements ArrayAccess
 
     private function keyIdExists(string $keyId): bool
     {
+        $keySetToCache = null;
         if (null === $this->keySet) {
             $item = $this->getCacheItem();
             // Try to load keys from cache
             if ($item->isHit()) {
                 // item found! Return it
-                $jwks = $item->get();
-                $this->keySet = JWK::parseKeySet(json_decode($jwks, true), $this->defaultAlg);
+                $this->keySet = $item->get();
             }
         }
 
@@ -148,15 +148,17 @@ class CachedKeySet implements ArrayAccess
             }
             $request = $this->httpFactory->createRequest('get', $this->jwksUri);
             $jwksResponse = $this->httpClient->sendRequest($request);
-            $jwks = (string) $jwksResponse->getBody();
-            $this->keySet = JWK::parseKeySet(json_decode($jwks, true), $this->defaultAlg);
+            $jwks = json_decode((string) $jwksResponse->getBody(), true);
+            $this->keySet = $keySetToCache = JWK::parseKeySet($jwks, $this->defaultAlg);
 
             if (!isset($this->keySet[$keyId])) {
                 return false;
             }
+        }
 
+        if ($keySetToCache) {
             $item = $this->getCacheItem();
-            $item->set($jwks);
+            $item->set($keySetToCache);
             if ($this->expiresAfter) {
                 $item->expiresAfter($this->expiresAfter);
             }

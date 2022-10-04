@@ -74,21 +74,6 @@ protected ?string $logo
 
 ***
 
-### logoLarge
-
-
-
-```php
-protected ?string $logoLarge
-```
-
-
-
-
-
-
-***
-
 ### pageClass
 
 
@@ -174,32 +159,6 @@ public favicon(?string $url = null, ?string $color = null): ?string
 |-----------|------|-------------|
 | `$url` | **?string** |  |
 | `$color` | **?string** |  |
-
-
-
-
-***
-
-### logoLarge
-
-
-
-```php
-public logoLarge(?string $url = null): ?string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$url` | **?string** |  |
 
 
 

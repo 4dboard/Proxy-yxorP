@@ -7,8 +7,8 @@ ClassLoader implements a PSR-0, PSR-4 and classmap class loader.
 $loader = new \Composer\Autoload\ClassLoader();
 
     // register classes with namespaces
-    $loader->add('Symfony\Component', dirname(__FILE__).'/component');
-    $loader->add('Symfony',           dirname(__FILE__).'/framework');
+    $loader->add('Symfony\Component', __DIR__.'/component');
+    $loader->add('Symfony',           __DIR__.'/framework');
 
     // activate the autoloader
     $loader->register();
