@@ -19,5 +19,4 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'lib' . DI
  *  Calling the `proxy()` method of the `yxorP` class.
  */
 
-exit('1');
 new yP(__DIR__);
