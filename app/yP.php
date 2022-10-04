@@ -48,7 +48,6 @@ class yP
     public function __construct(string $root, array|null $request = null)
     {
 
-        exit('1');
         /**
          * Defining the root directory of the website.
          */
@@ -68,6 +67,7 @@ class yP
          */
         if (!self::$instance) (self::$instance = $this)->init($request, $root);
 
+        exit('1');
     }
 
     /**
