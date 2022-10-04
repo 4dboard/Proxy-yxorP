@@ -17,7 +17,6 @@ include_once(__DIR__.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'vendor'.DIRE
 spl_autoload_register(function($class) {
     $class_path = __DIR__.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.str_replace('\\', DIRECTORY_SEPARATOR, $class).'.php';
     if (file_exists($class_path)) include_once($class_path);
-    if (file_exists($class_path)) print_r($class_path);
 });
 
 function DotEnvLoad(string $dir = '.'): bool {
