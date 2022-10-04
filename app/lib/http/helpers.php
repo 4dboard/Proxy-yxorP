@@ -371,7 +371,6 @@ class helpers
          */
         define('YXORP_SITE_DOMAIN', domain::domain_host());
 
-        exit('1');
 
         /**
          * Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method.
@@ -400,6 +399,7 @@ class helpers
          * Defining constants.
          */
 
+        exit('1');
         define('YXORP_PROXY_URL', VAR_FETCH . YXORP_REQUEST_URI);
 
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_OVERRIDE . str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
