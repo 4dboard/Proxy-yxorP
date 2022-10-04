@@ -1,8 +1,8 @@
-let ready = new Promise(function (resolve) {
+let ready = new Promise(function(resolve) {
 
     App.assets.require([
         'app:assets/vendor/tinymce/tinymce.min.js'
-    ], function () {
+    ], function() {
         resolve(window.tinymce);
     });
 });
@@ -62,12 +62,12 @@ export default {
                 target: this.$el.querySelector('.wysiwyg-container'),
                 menubar: false,
                 plugins: [
-                    'advlist autolink lists link image imagetools preview anchor',
+                    'advlist autolink lists link image preview anchor',
                     'searchreplace visualblocks code fullscreen',
-                    'insertdatetime media table hr paste code wordcount'
-                ],
+                    'insertdatetime media table code wordcount'
+                ].join(' '),
                 toolbar: [
-                    'undo redo | formatselect',
+                    'undo redo | blocks',
                     'bold italic | alignleft aligncenter',
                     'alignright alignjustify | bullist numlist outdent indent',
                     'removeformat | hr image link table'
@@ -78,8 +78,8 @@ export default {
                 content_style: '',
 
                 skin_url: App.base('app:assets/css/vendor/tinymce'),
-                relative_urls: false,
-                paste_as_text: true
+                relative_urls : false,
+                paste_as_text: true,
 
             }, this.tinymce || {});
 
@@ -103,12 +103,15 @@ export default {
                         this.$emit('update:modelValue', editor.getContent())
                     });
 
-                    editor.on('focus blur', e => {
-                        editor.isFocused = !editor.isFocused;
-                        this.$el.dispatchEvent(new Event(editor.isFocused ? 'focusin' : 'focusout', {
-                            bubbles: true,
-                            cancelable: true
-                        }));
+                    editor.on('focus blur input', e => {
+
+                        if (e.type == 'input') {
+                            editor.isFocused = true;
+                            return;
+                        }
+
+                        editor.isFocused = e.type == 'focus';
+                        this.$el.dispatchEvent(new Event(editor.isFocused ? 'focusin':'focusout', { bubbles: true, cancelable: true }));
                     });
                 });
 

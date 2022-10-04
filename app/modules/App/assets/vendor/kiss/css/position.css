@@ -1,14 +1,6 @@
-.kiss-position-absolute {
-    position: absolute;
-}
-
-.kiss-position-relative {
-    position: relative;
-}
-
-.kiss-position-fixed {
-    position: fixed;
-}
+.kiss-position-absolute { position: absolute; }
+.kiss-position-relative { position: relative; }
+.kiss-position-fixed { position: fixed; }
 
 
 .kiss-position-absolute[center] {

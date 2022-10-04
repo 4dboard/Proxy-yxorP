@@ -1,3 +1,4 @@
+
 let instanceCount = 0;
 
 export default {
@@ -17,7 +18,7 @@ export default {
         ],
         render(value, field, context) {
 
-            if (typeof (value) === 'object') {
+            if (typeof(value) === 'object') {
                 value = JSON.stringify(value);
             }
 
@@ -78,8 +79,7 @@ export default {
 
     computed: {
         countIndicator() {
-            return Math.abs((this.maxlength || 0) - (this.val || '').length);
-
+            return Math.abs((this.maxlength || 0) - (this.val || '').length);;
         }
     },
 

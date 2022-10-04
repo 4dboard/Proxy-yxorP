@@ -1,7 +1,8 @@
+
 <kiss-container class="kiss-margin" size="small">
 
     <ul class="kiss-breadcrumbs">
-        <li><a href="<?= $this->route('/system') ?>"><?= t('Settings') ?></a></li>
+        <li><a href="<?=$this->route('/system')?>"><?=t('Settings')?></a></li>
     </ul>
 
     <vue-view>
@@ -9,103 +10,75 @@
         <template>
 
             <div class="kiss-flex kiss-flex-middle">
-                <div class="kiss-size-4 kiss-flex-1"><strong><?= t('API & Security') ?></strong></div>
+                <div class="kiss-size-4 kiss-flex-1"><strong><?=t('API & Security')?></strong></div>
             </div>
 
             <kiss-card class="kiss-margin kiss-margin-large-bottom kiss-bgcolor-contrast">
                 <div class="kiss-padding">
-                    <label><?= ('REST-API endpoint') ?></label>
+                    <label><?=('REST-API endpoint')?></label>
                     <div class="kiss-flex kiss-flex-middle">
                         <div class="kiss-text-truncate kiss-text-monospace kiss-flex-1">
-                            <?= $this->getSiteUrl(true) ?>/api
+                        <?=$this->module('system')->spaceUrl('/api')?>
                         </div>
-                        <div class="kiss-margin-left"><a href="#"
-                                                         @click.prevent="copyEndpoint('<?= $this->getSiteUrl(true) ?>/api', 'REST-Api endpoint copied!')">
-                                <icon>content_copy</icon>
-                            </a></div>
-                        <div class="kiss-margin-small-left kiss-width-1-5 kiss-visible@m"><a
-                                class="kiss-button kiss-button-small kiss-width-1-1" href="#" @click="showApiViewer()">{{
-                                t('Playground') }}</a></div>
+                        <div class="kiss-margin-left"><a href="#" @click.prevent="copyEndpoint('<?=$this->module('system')->spaceUrl('/api')?>', 'REST-Api endpoint copied!')"><icon>content_copy</icon></a></div>
+                        <div class="kiss-margin-small-left kiss-width-1-5 kiss-visible@m"><a class="kiss-button kiss-button-small kiss-width-1-1" href="#" @click="showApiViewer()">{{ t('Playground') }}</a></div>
                     </div>
                 </div>
                 <hr class="kiss-margin-remove">
                 <div class="kiss-padding">
-                    <label><?= ('GraphQL endpoint') ?></label>
+                    <label><?=('GraphQL endpoint')?></label>
                     <div class="kiss-flex kiss-flex-middle">
                         <div class="kiss-text-truncate kiss-text-monospace kiss-flex-1">
-                            <?= $this->getSiteUrl(true) ?>/api/gql
+                        <?=$this->module('system')->spaceUrl('/api/gql')?>
                         </div>
-                        <div class="kiss-margin-left"><a href="#"
-                                                         @click.prevent="copyEndpoint('<?= $this->getSiteUrl(true) ?>/api/gql', 'GraphQL endpoint copied!')">
-                                <icon>content_copy</icon>
-                            </a></div>
-                        <div class="kiss-margin-small-left kiss-width-1-5 kiss-visible@m"><a
-                                class="kiss-button kiss-button-small kiss-width-1-1" href="#"
-                                @click="showGraphQLViewer()">{{ t('Playground') }}</a></div>
+                        <div class="kiss-margin-left"><a href="#" @click.prevent="copyEndpoint('<?=$this->getSiteUrl(true)?>/api/gql', 'GraphQL endpoint copied!')"><icon>content_copy</icon></a></div>
+                        <div class="kiss-margin-small-left kiss-width-1-5 kiss-visible@m"><a class="kiss-button kiss-button-small kiss-width-1-1" href="#" @click="showGraphQLViewer()">{{ t('Playground') }}</a></div>
                     </div>
                 </div>
             </kiss-card>
 
             <div class="kiss-text-caption kiss-text-bold kiss-margin-large-top">
-                <?= t('Access') ?>
+                <?=t('Access')?>
             </div>
 
             <kiss-card class="kiss-padding kiss-flex kiss-flex-middle kiss-margin-small" theme="bordered contrast">
-                <div></div>
-                <icon>public</icon>
-                </div>
+                <div></div><icon>public</icon></div>
                 <div class="kiss-flex-1 kiss-margin-small-left kiss-margin-small-right">
                     <div class="kiss-color-muted kiss-size-small">
-                        <?= t('Public API access permissions for unauthenticated requests.') ?>
+                        <?=t('Public API access permissions for unauthenticated requests.')?>
                     </div>
                 </div>
-                <div class="kiss-margin-small-left kiss-width-1-5"><a
-                        class="kiss-button kiss-button-small kiss-width-1-1"
-                        :href="$route('/system/api/public')"><?= t('Configure') ?></a></div>
+                <div class="kiss-margin-small-left kiss-width-1-5"><a class="kiss-button kiss-button-small kiss-width-1-1" :href="$route('/system/api/public')"><?=t('Configure')?></a></div>
             </kiss-card>
 
             <app-loader class="kiss-margin-large" v-if="loading"></app-loader>
 
-            <div
-                class="animated fadeIn kiss-height-50vh kiss-flex kiss-flex-middle kiss-flex-center kiss-align-center kiss-color-muted"
-                v-if="keys && !keys.length">
+            <div class="animated fadeIn kiss-height-50vh kiss-flex kiss-flex-middle kiss-flex-center kiss-align-center kiss-color-muted" v-if="keys && !keys.length">
                 <div>
                     <icon class="kiss-size-xlarge">vpn_key</icon>
-                    <p class="kiss-size-large"><?= t('No api keys') ?></p>
+                    <p class="kiss-size-large"><?=t('No api keys')?></p>
                 </div>
             </div>
 
             <kiss-card class="animated fadeIn kiss-padding kiss-margin" theme="bordered" v-if="keys && keys.length">
 
-                <div class="kiss-margin kiss-text-caption"><strong><?= t('Api keys') ?></strong></div>
+                <div class="kiss-margin kiss-text-caption"><strong><?=t('Api keys')?></strong></div>
 
                 <ul class="app-list-items">
 
                     <li v-for="(key, idx) in keys">
                         <div class="kiss-margin kiss-flex kiss-flex-middle">
-                            <div class="kiss-margin-small-right">
-                                <icon>vpn_key</icon>
-                            </div>
+                            <div class="kiss-margin-small-right"><icon>vpn_key</icon></div>
                             <div class="kiss-size-5 kiss-position-relative">
                                 <strong>{{key.name}}</strong>
                                 <a class="kiss-cover" :href="$route('/system/api/key/'+key._id)"></a>
                             </div>
-                            <div
-                                class="kiss-flex-1 kiss-margin-left kiss-align-right kiss-text-monospace kiss-color-muted">
-                                *****{{ key.key.substr(-5, 5)}}
-                            </div>
-                            <a class="kiss-margin-left" href="#" @click="copyApiKey(key.key)">
-                                <icon>content_copy</icon>
-                            </a>
-                            <a class="kiss-margin-small-left kiss-color-danger" @click="remove(key)">
-                                <icon>delete</icon>
-                            </a>
-                            <div class="kiss-margin-left kiss-width-1-5 kiss-button-group kiss-visible@m"
-                                 :class="{'kiss-disabled': !key.key}">
-                                <a class="kiss-button kiss-button-small kiss-flex-1" href="#"
-                                   @click="showApiViewer(key.key)">REST</a>
-                                <a class="kiss-button kiss-button-small kiss-flex-1" href="#"
-                                   @click="showGraphQLViewer(key.key)">GraphQL</a>
+                            <div class="kiss-flex-1 kiss-margin-left kiss-align-right kiss-text-monospace kiss-color-muted">*****{{ key.key.substr(-5, 5)}}</div>
+                            <a class="kiss-margin-left" href="#" @click="copyApiKey(key.key)"><icon>content_copy</icon></a>
+                            <a class="kiss-margin-small-left kiss-color-danger" @click="remove(key)"><icon>delete</icon></a>
+                            <div class="kiss-margin-left kiss-width-1-5 kiss-button-group kiss-visible@m" :class="{'kiss-disabled': !key.key}">
+                                <a class="kiss-button kiss-button-small kiss-flex-1" href="#" @click="showApiViewer(key.key)">REST</a>
+                                <a class="kiss-button kiss-button-small kiss-flex-1" href="#" @click="showGraphQLViewer(key.key)">GraphQL</a>
                             </div>
                         </div>
                     </li>
@@ -118,8 +91,7 @@
 
                 <kiss-container size="small">
                     <div class="kiss-flex kiss-flex-middle kiss-flex-right">
-                        <a class="kiss-button kiss-button-primary"
-                           href="<?= $this->route('/system/api/create') ?>"><?= t('Add key') ?></a>
+                        <a class="kiss-button kiss-button-primary" href="<?=$this->route('/system/api/create')?>"><?=t('Add key')?></a>
                     </div>
                 </kiss-container>
 
@@ -147,7 +119,7 @@
 
                         this.loading = true;
 
-                        this.$request('/system/api/load', {options: {}}).then(keys => {
+                        this.$request('/system/api/load', {options:{}}).then(keys => {
 
                             this.keys = keys;
                             this.loading = false;

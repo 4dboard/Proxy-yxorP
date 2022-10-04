@@ -2,16 +2,20 @@
 
 namespace App\Helper;
 
-use Lime\AppAware;
-use Lime\Helper;
-
-class ResponseCache extends Helper
-{
+class ResponseCache extends \Lime\Helper {
 
     protected $cacheHandler = null;
 
-    public function handle($request)
-    {
+    protected function initialize() {
+
+        if ($this->app->retrieve('response/cache/handler', 'memory') == 'memory') {
+            $this->cacheHandler = new ResponseCacheMemoryeHandler($this->app);
+        } else {
+            $this->cacheHandler = new ResponseCacheFileHandler($this->app);
+        }
+    }
+
+    public function handle($request) {
 
         if (!$request->param('rspc')) {
             return;
@@ -25,14 +29,28 @@ class ResponseCache extends Helper
         return true;
     }
 
-    protected function getCache($request)
-    {
+    protected function cache($request) {
+
+        $cacheHandler = $this->cacheHandler;
+
+        $this->app->on('after', function() use($request, $cacheHandler) {
+
+            if ($request->stopped || $this->response->status != 200) {
+                return;
+            }
+
+            $cacheHandler->cache($request, $this->response);
+
+        }, -2000);
+    }
+
+    protected function getCache($request) {
 
         $cache = $this->cacheHandler->getCache($request);
 
         if ($cache) {
 
-            $this->app->on('before', function () use ($cache) {
+            $this->app->on('before', function() use($cache) {
 
                 if (!isset($this->response)) {
                     return;
@@ -44,7 +62,7 @@ class ResponseCache extends Helper
 
                 $this->trigger('app.response.cache.after');
 
-                return $this->stop();
+                $this->stop();
             });
 
             return true;
@@ -52,53 +70,24 @@ class ResponseCache extends Helper
 
         return false;
     }
-
-    protected function cache($request)
-    {
-
-        $cacheHandler = $this->cacheHandler;
-
-        $this->app->on('after', function () use ($request, $cacheHandler) {
-
-            if ($request->stopped || $this->response->status != 200) {
-                return;
-            }
-
-            $cacheHandler->cache($request, $this->response);
-
-        }, -2000);
-    }
-
-    protected function initialize()
-    {
-
-        if ($this->app->retrieve('response/cache/handler', 'memory') == 'memory') {
-            $this->cacheHandler = new ResponseCacheMemoryeHandler($this->app);
-        } else {
-            $this->cacheHandler = new ResponseCacheFileHandler($this->app);
-        }
-    }
 }
 
-class ResponseCacheFileHandler extends AppAware
-{
+class ResponseCacheFileHandler extends \Lime\AppAware {
 
-    public function cache($request, $response)
-    {
+    public function cache($request, $response) {
 
-        $hash = trim($request->route . '/' . md5(serialize($request->request)), '/') . '.php';
+        $hash = trim($request->route.'/'.md5(serialize($request->request)), '/').'.php';
 
-        $this->app->fileStorage->write("cache://{$hash}", '<?php return ' . var_export([
-                'mime' => $response->mime,
-                'eol' => (time() + $this->retrieve('response/cache/duration', 60)),
-                'contents' => is_object($response->body) ? json_decode(json_encode($response->body), true) : $response->body
-            ], true) . ';');
+        $this->app->fileStorage->write("cache://{$hash}", '<?php return '.var_export([
+            'mime' => $response->mime,
+            'eol' => (time() + $this->app->retrieve('response/cache/duration', 60)),
+            'contents' => is_object($response->body) ? json_decode(json_encode($response->body), true) : $response->body
+        ], true ).';');
     }
 
-    public function getCache($request)
-    {
+    public function getCache($request) {
 
-        $hash = trim($request->route . '/' . md5(serialize($request->request)), '/') . '.php';
+        $hash = trim($request->route.'/'.md5(serialize($request->request)), '/').'.php';
         $file = $this->app->path("#cache:{$hash}");
         $cache = null;
 
@@ -116,25 +105,22 @@ class ResponseCacheFileHandler extends AppAware
     }
 }
 
-class ResponseCacheMemoryeHandler extends AppAware
-{
+class ResponseCacheMemoryeHandler extends \Lime\AppAware {
 
-    public function cache($request, $response)
-    {
+    public function cache($request, $response) {
 
-        $hash = trim($request->route . '/' . md5(serialize($request->request)), '/');
+        $hash = trim($request->route.'/'.md5(serialize($request->request)), '/');
 
         $this->app->memory->set($hash, [
             'mime' => $response->mime,
-            'eol' => (time() + $this->retrieve('response/cache/duration', 60)),
+            'eol' => (time() + $this->app->retrieve('response/cache/duration', 60)),
             'contents' => is_object($response->body) ? json_decode(json_encode($response->body), true) : $response->body
         ]);
     }
 
-    public function getCache($request)
-    {
+    public function getCache($request) {
 
-        $hash = trim($request->route . '/' . md5(serialize($request->request)), '/');
+        $hash = trim($request->route.'/'.md5(serialize($request->request)), '/');
         $cache = $this->app->memory->get($hash);
 
         if ($cache) {

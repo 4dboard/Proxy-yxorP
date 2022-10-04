@@ -3,26 +3,20 @@
 namespace System\Controller;
 
 use App\Controller\App;
-use ArrayObject;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
 
-class Utils extends App
-{
+class Utils extends App {
 
 
-    public function user($id)
-    {
+    public function user($id) {
 
         $this->helper('session')->close();
 
         $user = $this->app->dataStorage->findOne('system/users', ['_id' => $id]);
 
-        return $user ? ['_id' => $id, 'user' => $user['user']] : false;
+        return $user ? ['_id' => $id, 'user' => $user['user']]: false;
     }
 
-    public function revisions($oid)
-    {
+    public function revisions($oid) {
 
         $this->helper('session')->close();
 
@@ -54,11 +48,10 @@ class Utils extends App
 
     }
 
-    public function icons()
-    {
+    public function icons() {
 
-        $icons = new ArrayObject([]);
-        $dirs = [
+        $icons = new \ArrayObject([]);
+        $dirs  = [
             '#config:icons',
         ];
 
@@ -68,8 +61,8 @@ class Utils extends App
 
             if (!$path) continue;
 
-            $dir = new RecursiveDirectoryIterator($path);
-            $iterator = new RecursiveIteratorIterator($dir);
+            $dir = new \RecursiveDirectoryIterator($path);
+            $iterator = new \RecursiveIteratorIterator($dir);
 
 
             foreach ($iterator as $f) {
@@ -79,7 +72,7 @@ class Utils extends App
 
                 $icons[] = [
                     'name' => $f->getBasename('.svg'),
-                    'path' => $p . str_replace($path, '', $f->getRealPath()),
+                    'path' => $p.str_replace($path, '', $f->getRealPath()),
                 ];
             }
 

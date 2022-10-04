@@ -16,13 +16,6 @@ namespace ColorThief\Image;
 use ColorThief\Exception\NotReadableException;
 use ColorThief\Exception\NotSupportedException;
 use ColorThief\Image\Adapter\AdapterInterface;
-use ColorThief\Image\Adapter\GdAdapter;
-use ColorThief\Image\Adapter\GmagickAdapter;
-use ColorThief\Image\Adapter\ImagickAdapter;
-use Exception;
-use GdImage;
-use function is_resource;
-use const PHP_VERSION;
 
 class ImageLoader
 {
@@ -83,40 +76,6 @@ class ImageLoader
     }
 
     /**
-     * Determines if given source data is a GD image.
-     *
-     * @param mixed $data
-     */
-    public function isGdImage($data): bool
-    {
-        if (version_compare(PHP_VERSION, '8.0.0') >= 0) {
-            return $data instanceof GdImage;
-        }
-
-        return is_resource($data) && 'gd' == get_resource_type($data);
-    }
-
-    /**
-     * Determines if given source data is an Imagick object.
-     *
-     * @param mixed $data
-     */
-    public function isImagick($data): bool
-    {
-        return is_a($data, 'Imagick');
-    }
-
-    /**
-     * Determines if given source data is a Gmagick object.
-     *
-     * @param mixed $data
-     */
-    public function isGmagick($data): bool
-    {
-        return is_a($data, 'Gmagick');
-    }
-
-    /**
      * Creates an adapter instance according to config settings.
      *
      * @param string|AdapterInterface|null $preferredAdapter
@@ -125,11 +84,11 @@ class ImageLoader
     {
         if (null === $preferredAdapter) {
             // Select first available adapter
-            if (ImagickAdapter::isAvailable()) {
+            if (\ColorThief\Image\Adapter\ImagickAdapter::isAvailable()) {
                 $preferredAdapter = 'Imagick';
-            } elseif (GmagickAdapter::isAvailable()) {
+            } elseif (\ColorThief\Image\Adapter\GmagickAdapter::isAvailable()) {
                 $preferredAdapter = 'Gmagick';
-            } elseif (GdAdapter::isAvailable()) {
+            } elseif (\ColorThief\Image\Adapter\GdAdapter::isAvailable()) {
                 $preferredAdapter = 'Gd';
             } else {
                 throw new NotSupportedException('At least one of GD, Imagick or Gmagick extension must be installed. None of them was found.');
@@ -155,31 +114,37 @@ class ImageLoader
     }
 
     /**
-     * Determines if given source data is binary data.
+     * Determines if given source data is a GD image.
      *
      * @param mixed $data
      */
-    public function isBinary($data): bool
+    public function isGdImage($data): bool
     {
-        if (is_string($data)) {
-            $finfo = finfo_open(FILEINFO_MIME_TYPE);
-            $mime = finfo_buffer($finfo, $data);
-            finfo_close($finfo);
-
-            return 'text' != substr($mime, 0, 4) && 'application/x-empty' != $mime;
+        if (version_compare(\PHP_VERSION, '8.0.0') >= 0) {
+            return $data instanceof \GdImage;
         }
 
-        return false;
+        return \is_resource($data) && 'gd' == get_resource_type($data);
     }
 
     /**
-     * Determines if given source data is url.
+     * Determines if given source data is an Imagick object.
      *
      * @param mixed $data
      */
-    public function isUrl($data): bool
+    public function isImagick($data): bool
     {
-        return (bool)filter_var($data, FILTER_VALIDATE_URL);
+        return is_a($data, 'Imagick');
+    }
+
+    /**
+     * Determines if given source data is a Gmagick object.
+     *
+     * @param mixed $data
+     */
+    public function isGmagick($data): bool
+    {
+        return is_a($data, 'Gmagick');
     }
 
     /**
@@ -192,9 +157,37 @@ class ImageLoader
         if (is_string($data)) {
             try {
                 return is_file($data);
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 return false;
             }
+        }
+
+        return false;
+    }
+
+    /**
+     * Determines if given source data is url.
+     *
+     * @param mixed $data
+     */
+    public function isUrl($data): bool
+    {
+        return (bool) filter_var($data, FILTER_VALIDATE_URL);
+    }
+
+    /**
+     * Determines if given source data is binary data.
+     *
+     * @param mixed $data
+     */
+    public function isBinary($data): bool
+    {
+        if (is_string($data)) {
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            $mime = finfo_buffer($finfo, $data);
+            finfo_close($finfo);
+
+            return 'text' != substr($mime, 0, 4) && 'application/x-empty' != $mime;
         }
 
         return false;

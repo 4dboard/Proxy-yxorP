@@ -1,4 +1,4 @@
-import {on} from '../../js/events.js';
+import { on } from '../../js/events.js';
 
 customElements.define('kiss-dialog', class extends HTMLElement {
 

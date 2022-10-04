@@ -2,25 +2,29 @@
 
 namespace App\RestApi;
 
-use Lime\AppAware;
-use function call_user_func;
-use function is_callable;
+use ArrayObject;
 
-class Query extends AppAware
-{
+class Query extends \Lime\AppAware {
 
     protected array $endpoints = [];
     protected bool $initialized = false;
 
-    public function process(string $path, string $method = 'GET', ?string $apiKey = null)
-    {
+    public function init() {
+
+        if ($this->initialized) return;
+
+        $this->app->trigger('restApi.config', [$this]);
+        $this->initialized = true;
+    }
+
+    public function process(string $path, string $method = 'GET', ?string $apiKey = null) {
 
         if (!$this->initialized) {
             $this->init();
         }
 
         $handler = false;
-        $params = [];
+        $params  = [];
         $idx = $method;
 
         foreach ($this->endpoints as $pattern => $endpoint) {
@@ -32,8 +36,8 @@ class Query extends AppAware
             }
         }
 
-        if ($handler && is_callable($handler)) {
-            return call_user_func($handler, $params, $this->app);
+        if ($handler && \is_callable($handler)) {
+            return \call_user_func($handler, $params, $this->app);
         }
 
         // custom file based route
@@ -42,10 +46,13 @@ class Query extends AppAware
             $path = implode('/', array_filter(explode('/', $path), fn($s) => trim($s, '.')));
         }
 
-        if ($file = $this->app->path('#config:api/' . trim($path, '/') . '.php')) {
+        if ($custom = $this->resolveCustomApiRoute($path, $method)) {
 
-            $handler = (function () use ($file) {
-                return include($file);
+            $API_FILE = $custom['file'];
+            $API_ARGS = $custom['args'];
+
+            $handler = (function() use($API_FILE, $API_ARGS) {
+                return include($API_FILE);
             })->bindTo($this->app, $this->app);
 
             return $handler();
@@ -54,17 +61,12 @@ class Query extends AppAware
         return false;
     }
 
-    public function init()
-    {
+    public function addEndPoint(string $path, array $methods = []) {
 
-        if ($this->initialized) return;
-
-        $this->app->trigger('restApi.config', [$this]);
-        $this->initialized = true;
+        $this->endpoints[$path] = $methods;
     }
 
-    protected function isPathMatching($path, $pattern, &$params = null)
-    {
+    protected function isPathMatching($path, $pattern, &$params = null) {
 
         $params = [];
 
@@ -88,8 +90,7 @@ class Query extends AppAware
         return false;
     }
 
-    protected function getRegex($pattern)
-    {
+    protected function getRegex($pattern) {
 
         if (preg_match('/[^-:\/_{}()a-zA-Z\d]/', $pattern)) return false; // Invalid pattern
 
@@ -106,7 +107,7 @@ class Query extends AppAware
 
         // Create capture group for '{parameter}'
         $pattern = preg_replace(
-            '/{(' . $allowedParamChars . ')}/',    # Replace "{parameter}"
+            '/{('. $allowedParamChars .')}/',    # Replace "{parameter}"
             '(?<$1>' . $allowedParamChars . ')', # with "(?<parameter>[a-zA-Z0-9\_\-]+)"
             $pattern
         );
@@ -117,9 +118,78 @@ class Query extends AppAware
         return $patternAsRegex;
     }
 
-    public function addEndPoint(string $path, array $methods = [])
-    {
+    protected function resolveCustomApiRoute(string $route, string $method) {
 
-        $this->endpoints[$path] = $methods;
+        $root   = $this->app->path('#config:api');
+        $method = strtolower($method);
+        $route  = trim($route, '/');
+        $parts  = explode('/', $route);
+        $dir    = '';
+
+        if (!$root) {
+            return null;
+        }
+
+        if (strpos($route, '[...all]') !== false) {
+            return null;
+        }
+
+        if (file_exists("{$root}/{$route}.{$method}.php")) {
+
+            return [
+                'args' => [],
+                'file' => "{$root}/{$route}.{$method}.php"
+            ];
+        }
+
+        if (file_exists("{$root}/{$route}.php")) {
+
+            return [
+                'args' => [],
+                'file' => "{$root}/{$route}.php"
+            ];
+        }
+
+        foreach ($parts as $idx => $p) {
+
+            $path = trim("{$dir}/$p", '/');
+            $file = null;
+
+            if (file_exists("{$root}/{$path}")) {
+                $dir = $path;
+                continue;
+            }
+
+            // catch all route file
+            if (file_exists("{$root}/{$dir}/[...all].{$method}.php")) {
+                $file = "{$root}/{$dir}/[...all].{$method}.php";
+            } elseif (file_exists("{$root}/{$dir}/[...all].php")) {
+                $file = "{$root}/{$dir}/[...all].php";
+            }
+
+            // catch all route file
+            if ($file) {
+
+                $splat = [];
+
+                foreach (array_splice($parts, $idx) as $s) {
+
+                    $param = explode(':', $s, 2);
+
+                    if (isset($param[1])) {
+                        $splat[trim($param[0])] = trim($param[1]);
+                    } else {
+                        $splat[] = $s;
+                    }
+                }
+
+                return [
+                    'args' => $splat,
+                    'file' => $file
+                ];
+            }
+        }
+
+        return null;
     }
 }

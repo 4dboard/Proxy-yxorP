@@ -1,3 +1,4 @@
+
 let instanceCount = 0;
 
 export default {
@@ -30,8 +31,8 @@ export default {
 
                 App.request(`/content/collection/find/${field.opts.link}`, {
                     options: {
-                        filter: {_id: value._id},
-                        limit: 1
+                        filter:{_id:value._id},
+                        limit:1
                     }
                 }).then(resp => resolve(resp.items[0] || null));
             }))
@@ -42,9 +43,8 @@ export default {
 
                 if (item) {
                     try {
-                        html = App.utils.interpolate(field.opts.display, {item, data: item});
-                    } catch (e) {
-                    }
+                        html = App.utils.interpolate(field.opts.display, {item, data:item});
+                    } catch(e) {}
                 }
 
                 ele = document.querySelector(`#${id}`);
@@ -109,10 +109,7 @@ export default {
 
         pickItem() {
 
-            VueView.ui.modal('content:assets/dialogs/select-content-item.js', {
-                model: this.model,
-                filter: this.filter
-            }, {
+            VueView.ui.modal('content:assets/dialogs/select-content-item.js', {model: this.model, filter: this.filter}, {
                 pickItem: (item) => {
 
                     this.val = {
@@ -135,8 +132,8 @@ export default {
 
                     this.$request(`/content/collection/find/${this.model.name}`, {
                         options: {
-                            filter: {_id: this.val._id},
-                            limit: 1
+                            filter:{_id:this.val._id},
+                            limit:1
                         }
                     }).then(resp => {
                         this.item = resp.items[0] || null;
@@ -149,10 +146,10 @@ export default {
 
                 let html = '';
 
-                if (item) {
+                    if (item) {
                     try {
-                        html = App.utils.interpolate(this.display, { /* deprecated */ item, data: item});
-                    } catch (e) {
+                        html = App.utils.interpolate(this.display, { /* deprecated */ item, data:item});
+                    } catch(e) {
                         html = 'ERROR';
                     }
 
@@ -178,7 +175,7 @@ export default {
                 {{ t('No model selected') }}
             </div>
 
-            <div class="kiss-size-small kiss-color-muted" v-if="model === false">
+            <div class="kiss-size-small kiss-color-muted" v-if="link && model === false">
                 {{ t('Unknown model') }}
             </div>
 
@@ -193,7 +190,7 @@ export default {
                 <div class="kiss-margin-small kiss-position-relative" v-if="val && val._id">
                     <div class="kiss-size-small" v-if="display" v-html="getDisplay()"></div>
                     <span class="kiss-badge kiss-badge-outline kiss-color-primary" v-else>{{ val._id}}</span>
-                    <a class="kiss-cover" :href="$route('/content/collection/item/'+model.name+'/'+val._id)" target="_blank" rel="noopener"></a>
+                    <a class="kiss-cover" :href="$route('/content/'+model.type+'/item/'+model.name+'/'+val._id)" target="_blank" rel="noopener"></a>
                 </div>
 
                 <a class="kiss-button kiss-button-small" @click="pickItem()">

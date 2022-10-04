@@ -130,9 +130,7 @@ export default {
 
     watch: {
         val: {
-            handler() {
-                this.update()
-            },
+            handler() { this.update() },
             deep: true
         },
         modelValue() {
@@ -164,7 +162,9 @@ export default {
 
         edit(item) {
 
-            VueView.ui.modal(editItem, {item, fields: this.fields, url: this.url}, {}, {size: 'large'})
+            VueView.ui.modal(editItem, {item, fields: this.fields, url: this.url}, {
+
+            }, {size: 'large'})
         },
 
         remove(item) {

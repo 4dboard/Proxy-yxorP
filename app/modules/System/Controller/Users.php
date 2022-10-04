@@ -3,20 +3,24 @@
 namespace System\Controller;
 
 use App\Controller\App;
-use Exception;
-use function preg_match;
 
-class Users extends App
-{
+class Users extends App {
 
-    public function index()
-    {
+    protected function before() {
+
+        $isAccountView = $this->context['action'] == 'user' && !count($this->context['params']);
+
+        if (!$isAccountView && !$this->isAllowed('app/users/manage')) {
+            return $this->stop(401);
+        }
+    }
+
+    public function index() {
 
         return $this->render('system:views/users/index.php');
     }
 
-    public function user($id = null)
-    {
+    public function user($id = null) {
 
         $isAccountView = !$id;
 
@@ -39,33 +43,15 @@ class Users extends App
         return $this->render('system:views/users/user.php', compact('user', 'isAccountView', 'languages'));
     }
 
-    protected function geti18n()
-    {
-
-        $languages = [['i18n' => 'en', 'language' => 'English']];
-
-        foreach ($this->app->helper('fs')->ls('*.php', '#config:i18n/App') as $file) {
-
-            $lang = include($file->getRealPath());
-            $i18n = $file->getBasename('.php');
-            $language = $lang['@meta']['language'] ?? $i18n;
-
-            $languages[] = ['i18n' => $i18n, 'language' => $language];
-        }
-
-        return $languages;
-    }
-
-    public function create()
-    {
+    public function create() {
 
         $user = [
             'active' => true,
-            'user' => '',
-            'email' => '',
-            'role' => 'admin',
-            'theme' => 'auto',
-            'i18n' => $this->app->helper('i18n')->locale
+            'user'   => '',
+            'email'  => '',
+            'role'   => 'admin',
+            'theme'  => 'auto',
+            'i18n'   => $this->app->helper('i18n')->locale
         ];
 
         $isAccountView = false;
@@ -74,8 +60,7 @@ class Users extends App
         return $this->render('system:views/users/user.php', compact('user', 'isAccountView', 'languages'));
     }
 
-    public function save()
-    {
+    public function save() {
 
         $user = $this->param('user');
 
@@ -102,7 +87,7 @@ class Users extends App
 
         if (isset($user['password'])) {
 
-            if (strlen($user['password'])) {
+            if (strlen($user['password'])){
                 $user['password'] = $this->app->hash($user['password']);
             } else {
                 unset($user['password']);
@@ -130,13 +115,13 @@ class Users extends App
         $_user = $this->app->dataStorage->findOne('system/users', ['user' => $user['user']]);
 
         if ($_user && (!isset($user['_id']) || $user['_id'] != $_user['_id'])) {
-            return $this->app->stop(['error' => 'Username is already used!'], 412);
+            return $this->app->stop(['error' =>  'Username is already used!'], 412);
         }
 
-        $_user = $this->app->dataStorage->findOne('system/users', ['email' => $user['email']]);
+        $_user = $this->app->dataStorage->findOne('system/users', ['email'  => $user['email']]);
 
         if ($_user && (!isset($user['_id']) || $user['_id'] != $_user['_id'])) {
-            return $this->app->stop(['error' => 'Email is already used!'], 412);
+            return $this->app->stop(['error' =>  'Email is already used!'], 412);
         }
         // --
 
@@ -154,8 +139,7 @@ class Users extends App
         return $user;
     }
 
-    public function remove()
-    {
+    public function remove() {
 
         $user = $this->param('user');
 
@@ -172,26 +156,24 @@ class Users extends App
         return ['success' => true];
     }
 
-    public function load()
-    {
+    public function load() {
 
         $this->helper('session')->close();
 
         $options = array_merge([
-            'sort' => ['user' => 1],
-            'limit' => 1
+            'sort'   => ['user' => 1],
+            'limit'  => 1
         ], $this->param('options', []));
 
         if (isset($options['filter']) && $options['filter'] && is_string($options['filter'])) {
 
             $filter = null;
 
-            if (preg_match('/^\{(.*)\}$/', $options['filter'])) {
+            if (\preg_match('/^\{(.*)\}$/', $options['filter'])) {
 
                 try {
                     $filter = json5_decode($options['filter'], true);
-                } catch (Exception $e) {
-                }
+                } catch (\Exception $e) {}
             }
 
             if (!$filter) {
@@ -210,7 +192,7 @@ class Users extends App
         $users = $this->app->dataStorage->find('system/users', $options)->toArray();
         $count = (!isset($options['skip']) && !isset($options['limit'])) ? count($users) : $this->app->dataStorage->count('system/users', isset($options['filter']) ? $options['filter'] : []);
         $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
-        $page = 1;
+        $page  = 1;
 
         if ($pages > 1 && isset($options['skip'])) {
             $page = ceil($options['skip'] / $options['limit']) + 1;
@@ -223,8 +205,7 @@ class Users extends App
         return compact('users', 'count', 'pages', 'page');
     }
 
-    public function getSecretQRCode($secret = null, $size = 150)
-    {
+    public function getSecretQRCode($secret = null, $size = 150) {
 
         $this->helper('session')->close();
 
@@ -237,13 +218,19 @@ class Users extends App
         return $this->helper('twfa')->getQRCodeImage($secret, intval($size));
     }
 
-    protected function before()
-    {
+    protected function geti18n() {
 
-        $isAccountView = $this->context['action'] == 'user' && !count($this->context['params']);
+        $languages = [['i18n' => 'en', 'language' => 'English']];
 
-        if (!$isAccountView && !$this->isAllowed('app/users/manage')) {
-            return $this->stop(401);
+        foreach ($this->app->helper('fs')->ls('*.php', '#config:i18n/App') as $file) {
+
+            $lang     = include($file->getRealPath());
+            $i18n     = $file->getBasename('.php');
+            $language = $lang['@meta']['language'] ?? $i18n;
+
+            $languages[] = ['i18n' => $i18n, 'language'=> $language];
         }
+
+        return $languages;
     }
 }

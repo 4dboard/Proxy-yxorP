@@ -2,33 +2,26 @@
 
 namespace System\Helper;
 
-use Lime\Helper;
-
-class Api extends Helper
-{
+class Api extends \Lime\Helper {
 
     protected array $keys = [];
 
-    public function getKey(string $key)
-    {
-        return $this->keys[$key] ?? null;
-    }
+    protected function initialize() {
 
-    public function keys(): array
-    {
-        return array_keys($this->keys);
-    }
-
-    protected function initialize()
-    {
-
-        $this->keys = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.api.keys', function () {
+        $this->keys = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.api.keys', function() {
             return $this->cache();
         });
     }
 
-    public function cache(bool $persistent = true): array
-    {
+    public function getKey(string $key) {
+        return $this->keys[$key] ?? null;
+    }
+
+    public function keys(): array {
+        return array_keys($this->keys);
+    }
+
+    public function cache(bool $persistent = true): array {
 
         $cache = [];
         $keys = $this->app->dataStorage->find('system/api_keys')->toArray();

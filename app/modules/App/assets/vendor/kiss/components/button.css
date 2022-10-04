@@ -17,8 +17,8 @@
     text-decoration: none;
     text-transform: uppercase;
 
-    background-color: var(--kiss-button-default-background, rgba(0, 0, 0, .5));
-    border: 1px var(--kiss-button-default-background, rgba(0, 0, 0, .5)) solid;
+    background-color: var(--kiss-button-default-background, rgba(0,0,0,.5));
+    border: 1px var(--kiss-button-default-background, rgba(0,0,0,.5)) solid;
     color: var(--kiss-button-default-color, #fff);
 }
 
@@ -33,9 +33,7 @@
     color: currentColor;
 }
 
-.kiss-button:not(:disabled) {
-    cursor: pointer;
-}
+.kiss-button:not(:disabled) { cursor: pointer; }
 
 .kiss-button:disabled {
     opacity: .8;

@@ -4,19 +4,21 @@ namespace System\Controller\Users;
 
 use App\Controller\App;
 use ArrayObject;
-use function is_array;
-use function strtolower;
 
-class Roles extends App
-{
+class Roles extends App {
 
-    public function index()
-    {
+    protected function before() {
+
+        if (!$this->isAllowed('app/roles/manage')) {
+            $this->stop(401);
+        }
+    }
+
+    public function index() {
         return $this->render('system:views/users/roles/index.php');
     }
 
-    public function role($id = null)
-    {
+    public function role($id = null) {
 
         if (!$id) {
             return $this->stop(['error' => 'Role id is missing'], 412);
@@ -35,21 +37,19 @@ class Roles extends App
         return $this->render('system:views/users/roles/role.php', compact('role'));
     }
 
-    public function create()
-    {
+    public function create() {
 
         $role = [
             'appid' => '',
-            'name' => '',
-            'info' => '',
+            'name'  => '',
+            'info'  => '',
             'permissions' => new ArrayObject([])
         ];
 
         return $this->render('system:views/users/roles/role.php', compact('role'));
     }
 
-    public function remove()
-    {
+    public function remove() {
 
         $role = $this->param('role');
 
@@ -65,13 +65,7 @@ class Roles extends App
         return ['success' => true];
     }
 
-    protected function cache()
-    {
-        $this->helper('acl')->cache();
-    }
-
-    public function save()
-    {
+    public function save() {
 
         $role = $this->param('role');
 
@@ -83,7 +77,7 @@ class Roles extends App
         $isUpdate = isset($role['_id']);
 
         if (!$isUpdate) {
-            $role['appid'] = strtolower($role['appid']);
+            $role['appid'] = \strtolower($role['appid']);
             $role['_created'] = $role['_modified'];
         }
 
@@ -109,7 +103,7 @@ class Roles extends App
         }
 
         // cleanup permissions
-        if (isset($role['permissions']) && is_array($role['permissions'])) {
+        if (isset($role['permissions']) && \is_array($role['permissions'])) {
 
             foreach ($role['permissions'] as $key => $value) {
                 if (!$value) unset($role['permissions'][$key]);
@@ -124,7 +118,7 @@ class Roles extends App
 
         $role = $this->app->dataStorage->findOne('system/roles', ['_id' => $role['_id']]);
 
-        $role['permissions'] = new ArrayObject($role['permissions']);
+        $role['permissions'] = new ArrayObject( $role['permissions']);
 
         $this->cache();
 
@@ -132,8 +126,7 @@ class Roles extends App
     }
 
 
-    public function load()
-    {
+    public function load() {
 
         $this->helper('session')->close();
 
@@ -144,12 +137,8 @@ class Roles extends App
         return $roles;
     }
 
-    protected function before()
-    {
-
-        if (!$this->isAllowed('app/roles/manage')) {
-            $this->stop(401);
-        }
+    protected function cache() {
+        $this->helper('acl')->cache();
     }
 
 }

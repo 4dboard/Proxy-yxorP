@@ -13,9 +13,9 @@ $this->bindClass('System\\Controller\\Utils', '/system/utils');
 $this->bindClass('System\\Controller\\Settings', '/system');
 
 $this->helper('menus')->addLink('modules', [
-    'label' => 'Api',
-    'icon' => 'system:assets/icons/api.svg',
-    'route' => '/system/api',
+    'label'  => 'Api',
+    'icon'   => 'system:assets/icons/api.svg',
+    'route'  => '/system/api',
     'active' => false
 ]);
 
@@ -37,7 +37,7 @@ $this->on('app.permissions.collect', function (ArrayObject $permissions) {
 
 });
 
-$this->on('app.user.login', function ($user) {
+$this->on('app.user.login', function($user) {
 
     $this->module('system')->log("User Login: {$user['user']}", type: 'info', context: [
         '_id' => $user['_id'],
@@ -49,7 +49,7 @@ $this->on('app.user.login', function ($user) {
 });
 
 
-$this->on('app.search', function ($search, $findings) {
+$this->on('app.search', function($search, $findings) {
 
     if (!$this->helper('acl')->isAllowed('app/users/manage')) {
         return;

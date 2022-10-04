@@ -2,19 +2,15 @@
 
 namespace App\Helper;
 
-use Lime\Helper;
-
-class Auth extends Helper
-{
+class Auth extends \Lime\Helper {
 
     public string $sessionKey = 'app.auth.user';
 
-    public function authenticate(array $data): mixed
-    {
+    public function authenticate(array $data): mixed {
 
         $data = array_merge([
-            'user' => '',
-            'email' => '',
+            'user'     => '',
+            'email'    => '',
             'password' => ''
         ], $data);
 
@@ -30,7 +26,7 @@ class Auth extends Helper
 
         $user = $this->app->dataStorage->findOne('system/users', $filter);
 
-        if ($user && (password_verify($data['password'], $user['password']))) {
+        if ($user && (password_verify($data['password'], $user['password']))){
 
             $user = array_merge($data, (array)$user);
 
@@ -44,8 +40,22 @@ class Auth extends Helper
         return false;
     }
 
-    public function setUser(array $user, bool $permanent = true): void
-    {
+    public function getUser(?string $prop = null, mixed $default = null): mixed {
+
+        $user = $this->app->retrieve($this->sessionKey);
+
+        if (is_null($user)) {
+            $user = $this->app->helper('session')->read($this->sessionKey, null);
+        }
+
+        if (!is_null($prop)) {
+            return $user && isset($user[$prop]) ? $user[$prop] : $default;
+        }
+
+        return $user;
+    }
+
+    public function setUser(array $user, bool $permanent = true): void {
 
         if (isset($user['name'])) {
             $user['name_short'] = explode(' ', $user['name'])[0];
@@ -61,8 +71,7 @@ class Auth extends Helper
         $this->app->set($this->sessionKey, $user);
     }
 
-    public function logout(): void
-    {
+    public function logout(): void {
 
         $this->app->trigger('app.user.logout', [$this->getUser()]);
         $this->app->helper('session')->delete($this->sessionKey);
@@ -70,21 +79,5 @@ class Auth extends Helper
 
         // prevent session fixation attacks
         $this->app->helper('session')->regenerateId(true);
-    }
-
-    public function getUser(?string $prop = null, mixed $default = null): mixed
-    {
-
-        $user = $this->app->retrieve($this->sessionKey);
-
-        if (is_null($user)) {
-            $user = $this->app->helper('session')->read($this->sessionKey, null);
-        }
-
-        if (!is_null($prop)) {
-            return $user && isset($user[$prop]) ? $user[$prop] : $default;
-        }
-
-        return $user;
     }
 }

@@ -1,3 +1,4 @@
+
 export default {
 
     _meta: {
@@ -12,8 +13,8 @@ export default {
                 opts: {
                     display: '${value.name}',
                     fields: [
-                        {name: 'name', type: 'text', required: true},
-                        {name: 'label', type: 'text'},
+                        {name:'name', type:'text', required: true},
+                        {name:'label', type:'text'},
                     ]
                 }
             },
@@ -63,7 +64,7 @@ export default {
         cols() {
 
             let cols = [
-                {rowHandle: true, formatter: "handle", headerSort: false, frozen: true, width: 30, minWidth: 30}
+                {rowHandle:true, formatter:"handle", headerSort:false, frozen:true, width:30, minWidth:30}
             ];
 
             this.columns.forEach(col => {
@@ -89,8 +90,7 @@ export default {
                 //     this.update();
                 // },
 
-                headerSort: false, frozen: true, width: 30, minWidth: 30
-            })
+                headerSort:false, frozen:true, width:30, minWidth:30})
 
             return cols;
         }

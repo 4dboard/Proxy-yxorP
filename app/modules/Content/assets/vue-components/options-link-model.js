@@ -17,9 +17,7 @@ export default {
 
     watch: {
         val: {
-            handler() {
-                this.update()
-            },
+            handler() { this.update() },
             deep: true
         },
         modelValue(val) {
@@ -36,7 +34,7 @@ export default {
 
     computed: {
         collections() {
-            return (this.models || []).filter(m => m.type == 'collection');
+            return (this.models || []).filter(m => ['collection', 'tree'].includes(m.type));
         }
     },
 

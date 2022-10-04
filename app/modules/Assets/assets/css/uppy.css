@@ -1,8 +1,6 @@
 @import url(../vendor/uppy/uppy.css);
 
-.uppy-Dashboard-poweredBy {
-    display: none !important
-}
+.uppy-Dashboard-poweredBy { display: none !important }
 
 .uppy-Dashboard-AddFiles-title,
 .uppy-Root {
@@ -52,7 +50,6 @@
     background-color: transparent;
 }
 
-
 .uppy-StatusBar,
 .uppy-DashboardContent-bar,
 .uppy-DashboardContent-panel,
@@ -62,7 +59,7 @@
 .uppy-StatusBar:not([aria-hidden=true]).is-waiting {
     background: var(--kiss-dialog-content-background);
     background-color: var(--kiss-dialog-content-background);
-    border-color: var(--kiss-dialog-content-background);
+    border-color:   var(--kiss-dialog-content-background);
     color: inherit;
 }
 
@@ -72,4 +69,8 @@
 
 .uppy-DashboardTab-btn:hover {
     background-color: var(--kiss-color-contrast);
+}
+
+.uppy-Dashboard-close {
+    color: var(--kiss-base-text-color);
 }
