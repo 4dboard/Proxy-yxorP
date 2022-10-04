@@ -6,30 +6,29 @@
 
 use claviska\SimpleImage;
 
-class SimpleImageLib extends SimpleImage
-{
+class SimpleImageLib extends SimpleImage {
 
-    const ERR_AVIF_NOT_ENABLED = 12;
+    protected const ERR_AVIF_NOT_ENABLED = 12;
 
     /**
      * Loads an image from a data URI.
      *
      * @param string $uri A data URI.
+     * @throws \Exception Thrown if URI or image data is invalid.
      * @return \claviska\SimpleImage
-     * @throws Exception Thrown if URI or image data is invalid.
      */
     public function fromDataUri($uri)
     {
         // Basic formatting check
         preg_match('/^data:(.*?);/', $uri, $matches);
         if (!count($matches)) {
-            throw new Exception('Invalid data URI.', self::ERR_INVALID_DATA_URI);
+            throw new \Exception('Invalid data URI.', self::ERR_INVALID_DATA_URI);
         }
 
         // Determine mime type
         $this->mimeType = $matches[1];
         if (!preg_match('/^image\/(avif|gif|jpeg|png|webp)$/', $this->mimeType)) {
-            throw new Exception(
+            throw new \Exception(
                 'Unsupported format: ' . $this->mimeType,
                 self::ERR_UNSUPPORTED_FORMAT
             );
@@ -39,7 +38,7 @@ class SimpleImageLib extends SimpleImage
         $uri = base64_decode(preg_replace('/^data:(.*?);base64,/', '', $uri));
         $this->image = imagecreatefromstring($uri);
         if (!$this->image) {
-            throw new Exception("Invalid image data.", self::ERR_INVALID_IMAGE);
+            throw new \Exception("Invalid image data.", self::ERR_INVALID_IMAGE);
         }
 
         return $this;
@@ -49,8 +48,8 @@ class SimpleImageLib extends SimpleImage
      * Loads an image from a file.
      *
      * @param string $file The image file to load.
+     * @throws \Exception Thrown if file or image data is invalid.
      * @return \claviska\SimpleImage
-     * @throws Exception Thrown if file or image data is invalid.
      */
     public function fromFile($file)
     {
@@ -58,14 +57,14 @@ class SimpleImageLib extends SimpleImage
         // because not all URL wrappers support the latter.
         $handle = @fopen($file, 'r');
         if ($handle === false) {
-            throw new Exception("File not found: $file", self::ERR_FILE_NOT_FOUND);
+            throw new \Exception("File not found: $file", self::ERR_FILE_NOT_FOUND);
         }
         fclose($handle);
 
         // Get image info
         $info = @getimagesize($file);
         if ($info === false) {
-            throw new Exception("Invalid image file: $file", self::ERR_INVALID_IMAGE);
+            throw new \Exception("Invalid image file: $file", self::ERR_INVALID_IMAGE);
         }
         $this->mimeType = $info['mime'];
 
@@ -79,7 +78,7 @@ class SimpleImageLib extends SimpleImage
                     // workaround to prevent imagepalettetruecolor() from borking transparency.
                     $width = imagesx($gif);
                     $height = imagesy($gif);
-                    $this->image = imagecreatetruecolor((int)$width, (int)$height);
+                    $this->image = imagecreatetruecolor((int) $width, (int) $height);
                     $transparentColor = imagecolorallocatealpha($this->image, 0, 0, 0, 127);
                     imagecolortransparent($this->image, $transparentColor);
                     imagefill($this->image, 0, 0, $transparentColor);
@@ -106,7 +105,7 @@ class SimpleImageLib extends SimpleImage
                 break;
         }
         if (!$this->image) {
-            throw new Exception("Unsupported format: " . $this->mimeType, self::ERR_UNSUPPORTED_FORMAT);
+            throw new \Exception("Unsupported format: " . $this->mimeType, self::ERR_UNSUPPORTED_FORMAT);
         }
 
         // Convert pallete images to true color images
@@ -130,8 +129,8 @@ class SimpleImageLib extends SimpleImage
      *
      * @param string $mimeType The image format to output as a mime type (defaults to the original mime type).
      * @param integer $quality Image quality as a percentage (default 100).
+     * @throws \Exception Thrown when WEBP support is not enabled or unsupported format.
      * @return array Returns an array containing the image data and mime type ['data' => '', 'mimeType' => ''].
-     * @throws Exception Thrown when WEBP support is not enabled or unsupported format.
      */
     protected function generate($mimeType = null, $quality = 100)
     {
@@ -140,7 +139,7 @@ class SimpleImageLib extends SimpleImage
 
         // Ensure quality is a valid integer
         if ($quality === null) $quality = 100;
-        $quality = self::keepWithin((int)$quality, 0, 100);
+        $quality = self::keepWithin((int) $quality, 0, 100);
 
         // Capture output
         ob_start();
@@ -163,7 +162,7 @@ class SimpleImageLib extends SimpleImage
             case 'image/webp':
                 // Not all versions of PHP will have webp support enabled
                 if (!function_exists('imagewebp')) {
-                    throw new Exception(
+                    throw new \Exception(
                         'WEBP support is not enabled in your version of PHP.',
                         self::ERR_WEBP_NOT_ENABLED
                     );
@@ -174,7 +173,7 @@ class SimpleImageLib extends SimpleImage
             case 'image/avif':
                 // Not all versions of PHP will have webp support enabled
                 if (!function_exists('imageavif')) {
-                    throw new Exception(
+                    throw new \Exception(
                         'AVIF support is not enabled in your version of PHP.',
                         self::ERR_AVIF_NOT_ENABLED
                     );
@@ -187,7 +186,7 @@ class SimpleImageLib extends SimpleImage
             case 'image/x-windows-bmp':
                 // Not all versions of PHP support bmp
                 if (!function_exists('imagebmp')) {
-                    throw new Exception(
+                    throw new \Exception(
                         'BMP support is not available in your version of PHP.',
                         self::ERR_UNSUPPORTED_FORMAT
                     );
@@ -196,7 +195,7 @@ class SimpleImageLib extends SimpleImage
                 imagebmp($this->image, null, $quality);
                 break;
             default:
-                throw new Exception('Unsupported format: ' . $mimeType, self::ERR_UNSUPPORTED_FORMAT);
+                throw new \Exception('Unsupported format: ' . $mimeType, self::ERR_UNSUPPORTED_FORMAT);
         }
 
         // Stop capturing
