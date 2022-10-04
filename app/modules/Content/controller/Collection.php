@@ -60,11 +60,13 @@ class Collection extends App {
 
         if ($id) {
 
-            $item = $this->module('content')->item($model['name'], ['_id' => $id]);
+            $current = $this->module('content')->item($model['name'], ['_id' => $id]);
 
-            if (!$id) {
+            if (!$current) {
                 return false;
             }
+
+            $item = array_merge($item, $current);
 
             $this->checkAndLockResource($id);
         }
@@ -94,7 +96,7 @@ class Collection extends App {
 
         $model = $this->module('content')->model($model);
 
-        if (!$model || $model['type'] != 'collection') {
+        if (!$model || !in_array($model['type'], ['collection', 'tree'])) {
             return $this->stop(404);
         }
 
