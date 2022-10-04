@@ -841,7 +841,7 @@ final class Mbstring
 
     private static function getData($file)
     {
-        if (file_exists($file = dirname(__FILE__).'/Resources/unidata/'.$file.'.php')) {
+        if (file_exists($file = __DIR__.'/Resources/unidata/'.$file.'.php')) {
             return require $file;
         }
 

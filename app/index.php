@@ -1,24 +1,5 @@
 <?php
 
-// Allow from any origin
-if (isset($_SERVER['HTTP_ORIGIN'])) {
-    header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
-    header('Access-Control-Allow-Credentials: true');
-    header('Access-Control-Max-Age: 86400');    // cache for 1 day
-}
-
-// Access-Control headers are received during OPTIONS requests
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-
-    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-
-    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
-        header("Access-Control-Allow-Headers:        {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
-
-    exit(0);
-}
-
 // set default timezone
 date_default_timezone_set('UTC');
 
@@ -26,14 +7,14 @@ define('APP_START_TIME', microtime(true));
 define('APP_ADMIN', true);
 
 // bootstrap app
-require(dirname(__FILE__).'/bootstrap.php');
+require(__DIR__.'/bootstrap.php');
 
 /*
  * Collect needed paths
  */
-$APP_SPACE_DIR = dirname(__FILE__);
-$APP_DIR = str_replace(DIRECTORY_SEPARATOR, '/', dirname(__FILE__));
-$APP_DOCUMENT_ROOT = str_replace(DIRECTORY_SEPARATOR, '/', isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : dirname(__FILE__));
+$APP_SPACE_DIR = __DIR__;
+$APP_DIR = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__);
+$APP_DOCUMENT_ROOT = str_replace(DIRECTORY_SEPARATOR, '/', isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : __DIR__);
 
 # make sure that $_SERVER['DOCUMENT_ROOT'] is set correctly
 if (strpos($APP_DIR, $APP_DOCUMENT_ROOT)!==0 && isset($_SERVER['SCRIPT_NAME'])) {
@@ -74,20 +55,25 @@ if (PHP_SAPI == 'cli-server') {
     $APP_ROUTE       = preg_replace('#'.preg_quote($APP_BASE_URL, '#').'#', '', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), 1);
 }
 
+$APP_SPACE = null;
+
 // support /:myenv/* to load custom cockpit instance from /.envs/*
 if ($APP_ROUTE && substr($APP_ROUTE, 0, 2) == '/:') {
 
     $parts  = explode('/', $APP_ROUTE);
     $env    = substr($parts[1], 1);
-    $spaceDir = dirname(__FILE__)."/.spaces/{$env}";
+    $spaceDir = __DIR__."/.spaces/{$env}";
 
     if (file_exists($spaceDir)) {
         $APP_ROUTE = '/'.trim(implode('/', array_slice($parts, 2)), '/');
         $APP_BASE_URL .= "/.spaces/{$env}";
         $APP_BASE_ROUTE .= "/:{$env}";
         $APP_SPACE_DIR = $spaceDir;
+        $APP_SPACE = $env;
     }
 }
+
+define('APP_SPACE', $APP_SPACE ?? false);
 
 if ($APP_ROUTE == '') {
     $APP_ROUTE = '/';
@@ -98,6 +84,7 @@ define('APP_BASE_URL', $APP_BASE_URL);
 define('APP_API_REQUEST', strpos($APP_ROUTE, '/api/') === 0 ? 1:0);
 
 $app = Cockpit::instance($APP_SPACE_DIR, [
+    'app_space' => $APP_SPACE,
     'base_route' => $APP_BASE_ROUTE,
     'base_url' => $APP_BASE_URL
 ]);
@@ -137,9 +124,9 @@ if (APP_API_REQUEST) {
         $this->response->headers['Access-Control-Allow-Origin']      = $cors['allowedOrigins'] ?? '*';
         $this->response->headers['Access-Control-Allow-Credentials'] = $cors['allowCredentials'] ?? 'true';
         $this->response->headers['Access-Control-Max-Age']           = $cors['maxAge'] ?? '1000';
-        $this->response->headers['Access-Control-Allow-Headers']     = $cors['allowedHeaders'] ?? 'X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding, API-TOKEN';
+        $this->response->headers['Access-Control-Allow-Headers']     = $cors['allowedHeaders'] ?? 'X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding, API-KEY';
         $this->response->headers['Access-Control-Allow-Methods']     = $cors['allowedMethods'] ?? 'PUT, POST, GET, OPTIONS, DELETE';
-        $this->response->headers['Access-Control-Expose-Headers']    = $cors['exposedHeaders'] ?? 'true';
+        $this->response->headers['Access-Control-Expose-Headers']    = $cors['exposedHeaders'] ?? ($this->retrieve('debug') ? '*' : 'false');
     });
 
     if ($request->is('preflight')) {

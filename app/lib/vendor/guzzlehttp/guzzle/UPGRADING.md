@@ -972,7 +972,7 @@ class YourClient extends \Guzzle\Service\Client
         );
         $client->setConfig($config);
 
-        $client->setDescription(ServiceDescription::factory(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'client.json'));
+        $client->setDescription(ServiceDescription::factory(__DIR__ . DIRECTORY_SEPARATOR . 'client.json'));
 
         return $client;
     }
@@ -998,7 +998,7 @@ class YourClient extends \Guzzle\Service\Client
         );
         $client->setConfig($config);
 
-        $client->setDescription(ServiceDescription::factory(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'client.json'));
+        $client->setDescription(ServiceDescription::factory(__DIR__ . DIRECTORY_SEPARATOR . 'client.json'));
 
         return $client;
     }

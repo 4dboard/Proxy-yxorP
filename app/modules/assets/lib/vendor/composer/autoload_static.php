@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c
 {
     public static $prefixLengthsPsr4 = array (
-        'C' =>
+        'C' => 
         array (
             'ColorThief\\' => 11,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'ColorThief\\' =>
+        'ColorThief\\' => 
         array (
             0 => __DIR__ . '/..' . '/ksubileau/color-thief-php/src/ColorThief',
         ),

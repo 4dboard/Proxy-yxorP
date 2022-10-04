@@ -356,7 +356,7 @@ abstract class AbstractUnicodeString extends AbstractString
 
     public function snake(): static
     {
-        $str = $this->camel()->title();
+        $str = $this->camel();
         $str->string = mb_strtolower(preg_replace(['/(\p{Lu}+)(\p{Lu}\p{Ll})/u', '/([\p{Ll}0-9])(\p{Lu})/u'], '\1_\2', $str->string), 'UTF-8');
 
         return $str;
@@ -484,8 +484,11 @@ abstract class AbstractUnicodeString extends AbstractString
                 )|[\p{Cc}\x7F]++)/xu', '', $s);
             }
 
-            // Non printable characters have been dropped, so wcswidth cannot logically return -1.
-            $width += $this->wcswidth($s);
+            $lineWidth = $this->wcswidth($s);
+
+            if ($lineWidth > $width) {
+                $width = $lineWidth;
+            }
         }
 
         return $width;
@@ -556,7 +559,7 @@ abstract class AbstractUnicodeString extends AbstractString
             }
 
             if (null === self::$tableZero) {
-                self::$tableZero = require dirname(__FILE__).'/Resources/data/wcswidth_table_zero.php';
+                self::$tableZero = require __DIR__.'/Resources/data/wcswidth_table_zero.php';
             }
 
             if ($codePoint >= self::$tableZero[0][0] && $codePoint <= self::$tableZero[$ubound = \count(self::$tableZero) - 1][1]) {
@@ -575,7 +578,7 @@ abstract class AbstractUnicodeString extends AbstractString
             }
 
             if (null === self::$tableWide) {
-                self::$tableWide = require dirname(__FILE__).'/Resources/data/wcswidth_table_wide.php';
+                self::$tableWide = require __DIR__.'/Resources/data/wcswidth_table_wide.php';
             }
 
             if ($codePoint >= self::$tableWide[0][0] && $codePoint <= self::$tableWide[$ubound = \count(self::$tableWide) - 1][1]) {

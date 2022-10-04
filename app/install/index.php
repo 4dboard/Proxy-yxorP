@@ -15,7 +15,7 @@ function hasSQLiteSupport() {
 
 function ensureWritableStorageFolder($path) {
     try {
-        $dir = dirname(__FILE__).'/../storage'.$path;
+        $dir = __DIR__.'/../storage'.$path;
         if (!file_exists($dir)) {
             mkdir($dir, 0700, true);
             if ($path === '/data') {
@@ -53,8 +53,8 @@ foreach ($checks as $info => $check) {
 
 if (!count($failed)) {
 
-    if (!class_exists('App')) {
-        include (dirname(__FILE__).'/../bootstrap.php');
+    if (!class_exists('Cockpit')) {
+        include (__DIR__.'/../bootstrap.php');
     }
 
     $app = Cockpit::instance();

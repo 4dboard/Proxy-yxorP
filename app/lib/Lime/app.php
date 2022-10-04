@@ -27,8 +27,8 @@ namespace Lime;
 
 use ArrayObject;
 
-include(dirname(__FILE__).'/Request.php');
-include(dirname(__FILE__).'/Response.php');
+include(__DIR__.'/Request.php');
+include(__DIR__.'/Response.php');
 
 
 class App implements \ArrayAccess {
@@ -234,6 +234,11 @@ class App implements \ArrayAccess {
         }
 
         $this->request->stopped = true;
+
+        $this->trigger('app:request:stop');
+        $this->trigger('after', [true]);
+
+        exit;
     }
 
     /**
@@ -856,6 +861,19 @@ class App implements \ArrayAccess {
         $this->response = new Response();
         $this->trigger('before');
 
+        if ($flush) {
+
+            $this->on('app:request:stop', function() {
+
+                if ($this->response->status === 307 && isset($this->response->headers['Location'])) {
+                    \header("Location: {$this->response->headers['Location']}");
+                    exit;
+                }
+
+                $this->response->flush();
+            });
+        }
+
         if (!$this->request->stopped) {
 
             $contents = $this->dispatch($route);
@@ -1340,8 +1358,8 @@ class Module extends AppAware {
 class Helper extends AppAware { }
 
 
-include(dirname(__FILE__).'/Helper/Session.php');
-include(dirname(__FILE__).'/Helper/Cache.php');
+include(__DIR__.'/Helper/Session.php');
+include(__DIR__.'/Helper/Cache.php');
 
 // helper functions
 

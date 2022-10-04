@@ -89,7 +89,7 @@ EOH
         }
 
         $shell = $input->getArgument('shell') ?? self::guessShell();
-        $completionFile = dirname(__FILE__).'/../Resources/completion.'.$shell;
+        $completionFile = __DIR__.'/../Resources/completion.'.$shell;
         if (!file_exists($completionFile)) {
             $supportedShells = $this->getSupportedShells();
 
@@ -128,6 +128,6 @@ EOH
     {
         return array_map(function ($f) {
             return pathinfo($f, \PATHINFO_EXTENSION);
-        }, glob(dirname(__FILE__).'/../Resources/completion.*'));
+        }, glob(__DIR__.'/../Resources/completion.*'));
     }
 }

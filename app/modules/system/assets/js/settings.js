@@ -11,9 +11,9 @@ export let FieldTypes = {
 
         Object.keys(VueView.components).forEach((c, match, promise) => {
 
-            match = c.match(/^field\-(.*)/);
+            match = /^field\-(.*)/.test(c);
 
-            if (match && typeof(VueView.components[c]) == 'string') {
+            if (match && typeof(VueView.components[c]) === 'string') {
 
                 promises.push(App.utils.import(VueView.components[c]).then(def => {
 

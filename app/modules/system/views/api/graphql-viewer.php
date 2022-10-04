@@ -29,10 +29,10 @@
 <body>
   <script>
       // Parse the search string to get url parameters.
-      var search = window.location.search;
-      var parameters = {};
+      let search = window.location.search;
+      let parameters = {};
       search.substr(1).split('&').forEach(function (entry) {
-        var eq = entry.indexOf('=');
+        let eq = entry.indexOf('=');
         if (eq >= 0) {
           parameters[decodeURIComponent(entry.slice(0, eq))] =
             decodeURIComponent(entry.slice(eq + 1));
@@ -65,7 +65,7 @@
         updateURL();
       }
       function updateURL() {
-        var newSearch = '?' + Object.keys(parameters).filter(function (key) {
+        let newSearch = '?' + Object.keys(parameters).filter(function (key) {
           return Boolean(parameters[key]);
         }).map(function (key) {
           return encodeURIComponent(key) + '=' +
@@ -221,9 +221,9 @@ color: #CACDD3;
 
 .graphiql-container .execute-button {
   background: #10131a;
-  border: 1px solid <?=($primaryColor ? $primaryColor : '#5f0087')?>;
+  border: 1px solid <?=($primaryColor ? $primaryColor : '#0e8fff')?>;
   box-shadow: none !important;
-  fill: <?=($primaryColor ? $primaryColor : '#5f0087')?>;
+  fill: <?=($primaryColor ? $primaryColor : '#0e8fff')?>;
 }
 
 .graphiql-container .history-contents p {

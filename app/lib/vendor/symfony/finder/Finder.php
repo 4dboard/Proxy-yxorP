@@ -33,7 +33,7 @@ use Symfony\Component\Finder\Iterator\SortableIterator;
  *
  * All methods return the current Finder object to allow chaining:
  *
- *     $finder = Finder::create()->files()->name('*.php')->in(dirname(__FILE__));
+ *     $finder = Finder::create()->files()->name('*.php')->in(__DIR__);
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
@@ -317,7 +317,7 @@ class Finder implements \IteratorAggregate, \Countable
      *
      * Directories passed as argument must be relative to the ones defined with the `in()` method. For example:
      *
-     *     $finder->in(dirname(__FILE__))->exclude('ruby');
+     *     $finder->in(__DIR__)->exclude('ruby');
      *
      * @param string|array $dirs A directory path or an array of directories
      *

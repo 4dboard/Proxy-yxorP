@@ -1,26 +1,24 @@
 <?php
 
-define('APP_VERSION', '2.0.2');
+define('APP_VERSION', '2.3.0');
 
 if (!defined('APP_START_TIME')) define('APP_START_TIME', microtime(true));
 if (!defined('APP_CLI')) define('APP_CLI', PHP_SAPI == 'cli');
 if (!defined('APP_ADMIN')) define('APP_ADMIN', false);
 
-define('APP_DIR', str_replace(DIRECTORY_SEPARATOR, '/', dirname(__FILE__)));
+define('APP_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
 
 // Autoload vendor libs
-include_once(dirname(__FILE__).'/lib/_autoload.php');
+include_once(__DIR__.'/lib/_autoload.php');
 
 // load .env file if exists
 DotEnv::load(APP_DIR);
-
-use Lime\App;
 
 /*
  * Autoload from lib folder (PSR-0)
  */
 spl_autoload_register(function($class) {
-    $class_path = dirname(__FILE__).'/lib/'.str_replace('\\', '/', $class).'.php';
+    $class_path = __DIR__.'/lib/'.str_replace('\\', '/', $class).'.php';
     if (file_exists($class_path)) include_once($class_path);
 });
 
@@ -29,7 +27,7 @@ class Cockpit {
 
     protected static $instance = [];
 
-    public static function instance(?string $envDir = null, array $config = []): mixed {
+    public static function instance(?string $envDir = null, array $config = []): Lime\App {
 
         if (!$envDir) {
             $envDir = APP_DIR;
@@ -42,7 +40,7 @@ class Cockpit {
         return static::$instance[$envDir];
     }
 
-    protected static function init(?string $envDir = null, array $config = []): mixed {
+    protected static function init(?string $envDir = null, array $config = []): Lime\App {
 
         $appDir = APP_DIR;
         $app    = null;
@@ -64,7 +62,7 @@ class Cockpit {
 
             'docs_root' => defined('APP_DOCUMENT_ROOT') ? APP_DOCUMENT_ROOT : null,
             'debug' => APP_CLI ? true : preg_match('/(localhost|::1|\.local)$/', $_SERVER['SERVER_NAME'] ?? ''),
-            'app.name' => 'yxorP',
+            'app.name' => 'Cockpit',
             'app.version'  => APP_VERSION,
             'session.name' => md5($envDir),
             'sec-key' => 'c3b40c4c-db44-s5h7-a814-b5931a15e5e1', // change me in custom config
@@ -81,7 +79,7 @@ class Cockpit {
             ],
 
             'paths' => [
-                '#app'     => dirname(__FILE__),
+                '#app'     => __DIR__,
                 '#root'    => $envDir,
                 '#config'  => $envDir.'/config',
                 '#modules' => $envDir.'/modules',

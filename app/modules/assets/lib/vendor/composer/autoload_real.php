@@ -9,7 +9,7 @@ class ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c
     public static function loadClassLoader($class)
     {
         if ('Composer\Autoload\ClassLoader' === $class) {
-            require dirname(__FILE__) . '/ClassLoader.php';
+            require __DIR__ . '/ClassLoader.php';
         }
     }
 
@@ -22,7 +22,7 @@ class ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c
             return self::$loader;
         }
 
-        require dirname(__FILE__) . '/platform_check.php';
+        require __DIR__ . '/platform_check.php';
 
         spl_autoload_register(array('ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c', 'loadClassLoader'), true, true);
         self::$loader = $loader = new \Composer\Autoload\ClassLoader(\dirname(\dirname(__FILE__)));
@@ -30,21 +30,21 @@ class ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c
 
         $useStaticLoader = PHP_VERSION_ID >= 50600 && !defined('HHVM_VERSION') && (!function_exists('zend_loader_file_encoded') || !zend_loader_file_encoded());
         if ($useStaticLoader) {
-            require dirname(__FILE__) . '/autoload_static.php';
+            require __DIR__ . '/autoload_static.php';
 
             call_user_func(\Composer\Autoload\ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c::getInitializer($loader));
         } else {
-            $map = require dirname(__FILE__) . '/autoload_namespaces.php';
+            $map = require __DIR__ . '/autoload_namespaces.php';
             foreach ($map as $namespace => $path) {
                 $loader->set($namespace, $path);
             }
 
-            $map = require dirname(__FILE__) . '/autoload_psr4.php';
+            $map = require __DIR__ . '/autoload_psr4.php';
             foreach ($map as $namespace => $path) {
                 $loader->setPsr4($namespace, $path);
             }
 
-            $classMap = require dirname(__FILE__) . '/autoload_classmap.php';
+            $classMap = require __DIR__ . '/autoload_classmap.php';
             if ($classMap) {
                 $loader->addClassMap($classMap);
             }

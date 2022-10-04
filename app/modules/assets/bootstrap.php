@@ -1,19 +1,19 @@
 <?php
 
-include_once(dirname(__FILE__).'/lib/vendor/autoload.php');
-include_once(dirname(__FILE__).'/lib/SVGSanitizer.php');
+include_once(__DIR__.'/lib/vendor/autoload.php');
+include_once(__DIR__.'/lib/SVGSanitizer.php');
 
 // Register Helpers
 $this->helpers['asset'] = 'Assets\\Helper\\Asset';
 
 // load admin related code
 $this->on('app.admin.init', function() {
-    include(dirname(__FILE__).'/admin.php');
+    include(__DIR__.'/admin.php');
 });
 
 // load api request related code
 $this->on('app.api.request', function() {
-    include(dirname(__FILE__).'/api.php');
+    include(__DIR__.'/api.php');
 });
 
 // assets api
@@ -55,8 +55,8 @@ $this->module('assets')->extend([
 
         $files = [];
 
-        if (is_string($param) && isset($_FILES[$param])) {
-            $files = $_FILES[$param];
+        if (is_string($param) && isset($this->app->request->files[$param])) {
+            $files = $this->app->request->files[$param];
         } elseif (is_array($param) && isset($param['name'], $param['error'], $param['tmp_name'])) {
             $files = $param;
         }
@@ -72,7 +72,9 @@ $this->module('assets')->extend([
 
         if (isset($files['name']) && is_array($files['name'])) {
 
-            for ($i = 0; $i < count($files['name']); $i++) {
+            $cnt = count($files['name']);
+
+            for ($i = 0; $i < $cnt; $i++) {
 
                 $_file  = $this->app->path('#tmp:').'/'.$files['name'][$i];
                 $_isAllowed = $allowed === true ? true : preg_match("/\.({$allowed})$/i", $_file);
@@ -136,6 +138,7 @@ $this->module('assets')->extend([
                 'colors' => null,
                 'width' => null,
                 'height' => null,
+                '_hash' => hash_file('md5', $file),
                 '_created' => $created,
                 '_modified' => $created,
                 '_cby' => $by
@@ -224,6 +227,8 @@ $this->module('assets')->extend([
                 $this->app->dataStorage->insert('assets', $assets);
             }
         }
+
+        $this->app->trigger('assets.uploaded', [$assets]);
 
         return $assets;
     },

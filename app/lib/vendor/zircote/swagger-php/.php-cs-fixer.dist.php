@@ -4,7 +4,7 @@ $finder = PhpCsFixer\Finder::create()
     ->path('src')->name('*.php')
     ->path('tests')->name('*.php')
     ->exclude('tests/Fixtures')
-    ->in(dirname(__FILE__))
+    ->in(__DIR__)
 ;
 
 return (new PhpCsFixer\Config())

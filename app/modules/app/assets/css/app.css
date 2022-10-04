@@ -17,18 +17,13 @@
 vue-view { display: block; }
 vue-view:not([init="true"]) { display: none; }
 
-html.dashboard-page {
-
-    background: url("../img/wallpapper.gif");
-}
-
 :root {
 
-    --app-header-background: #00000cde;
+    --app-header-background: var(--kiss-base-background-color);
     --app-border-radius: 3px;
     --app-shadow-color: rgba(0,0,0,0.12);
 
-    --app-actionbar-bgcolor: #00000cde;
+    --app-actionbar-bgcolor: #131720e6;
 
     --app-loader-color1: var(--kiss-color-primary);
     --app-loader-color2: #fff;
@@ -70,7 +65,6 @@ html[data-theme='light'] {
     --kiss-table-row-hover-color: #efefef;
 
     --app-shadow-color: rgba(0,0,0,0.12);
-    --app-header-background: #eff7f7f0;
     --app-actionbar-bgcolor: #eff7f7e8;
     --app-loader-color2: #333;
     --app-fieldcontainer-border-color-inactive: rgba(0,0,0, .1);
@@ -168,72 +162,86 @@ del { background: #c92a2a }
     z-index: 5;
 }
 
-.app-container-aside-float {
+.has-side-panel .app-container-aside {
+    width: 350px;
+}
+
+.app-container-aside-menu {
     position: fixed;
     display: flex;
     top: 0;
     left: 0;
     width: 50px;
-    padding-top: 5px;
+    height: 100vh;
+    padding-top: 10px;
     padding-bottom: 20px;
     flex-direction: column;
-    height: 100vh;
-
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    animation-name: fadeInLeft;
 }
 
-.app-container-aside kiss-navlist a {
+.app-container-aside-panel {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 50px;
+    padding: 20px 25px;
+    flex-direction: column;
+    width: 300px;
+    height: 100vh;
+    background: var(--kiss-card-theme-contrast-color, #171d28);
+    box-shadow: 0 0 5px rgb(0 0 0 / 30%);
+    overflow: auto;
+}
+
+.app-container-aside-menu kiss-navlist a {
     text-align: center;
 }
 
-.app-container-aside kiss-navlist kiss-svg {
+.app-container-aside-menu kiss-navlist kiss-svg {
     margin-left: auto;
     margin-right: auto;
 }
 
-.app-container-aside kiss-navlist ul > li > a {
+.app-container-aside-menu kiss-navlist ul > li > a {
     color: inherit;
     opacity: .65;
     transition: all 250ms;
 }
 
-.app-container-aside kiss-navlist ul > li > a:hover{
+.app-container-aside-menu kiss-navlist ul > li > a:hover{
     color: inherit;
     opacity: 1;
 }
 
-.app-container-aside kiss-navlist ul > li.active > a {
+.app-container-aside-menu kiss-navlist ul > li.active > a {
     position: relative;
     color: var(--kiss-color-primary);
     font-weight: bold;
     opacity: 1;
 }
 
-.app-container-aside kiss-navlist ul > li.active > a:before {
+.app-container-aside-menu kiss-navlist ul > li.active > a:before {
     content: "";
     position: absolute;
     width: 2px;
-    top: 0;
+    top: 8px;
     left: 0;
-    bottom: 0;
+    bottom: 8px;
     background: var(--kiss-color-primary);
 }
 
-.app-container-aside kiss-navlist ul > li > * {
+.app-container-aside-menu kiss-navlist ul > li > * {
     display: flex;
     align-items: center;
     padding: 8px 0;
     letter-spacing: 1.5px;
 }
 
-.app-container-aside kiss-navlist[space="small"] ul > li > * {
+.app-container-aside-menu kiss-navlist[space="small"] ul > li > * {
     padding: 6px 0;
     font-size: 18px;
 }
 
-.app-container-aside kiss-navlist .kiss-nav-divider {
+.app-container-aside-menu kiss-navlist .kiss-nav-divider {
     margin-top: 1.2rem;
     margin-bottom: 1.2rem;
     opacity: .8;
@@ -307,7 +315,7 @@ app-fieldcontainer label {
 app-header {
     display: block;
     position: relative;
-    padding: 15px 0;
+    padding: 20px 0;
     background: var(--app-header-background);
     z-index: 6;
 }
@@ -385,6 +393,11 @@ app-fieldcontainer app-fieldcontainer {
     z-index: 1;
 }
 
+.table-scroll thead {
+    position: relative;
+    z-index: 2;
+}
+
 .table-scroll [fixed="top"] { top: 0; }
 .table-scroll [fixed="left"] { left: 0; }
 .table-scroll [fixed="right"] { right: 0; }
@@ -392,6 +405,10 @@ app-fieldcontainer app-fieldcontainer {
 
 .table-scroll th[fixed] {background-color: var(--kiss-table-heading-background-color);}
 .table-scroll td[fixed] {background: var(--kiss-color-contrast);}
+
+kiss-dialog[type="app-search"] > kiss-content {
+    margin-top: 15vh;
+}
 
 @media (min-width: 768px) {
 
@@ -403,6 +420,10 @@ app-fieldcontainer app-fieldcontainer {
 
     app-actionbar {
         padding-left: 70px;
+    }
+
+    .has-side-panel app-actionbar {
+        padding-left: 370px;
     }
 
     .app-container-aside {

@@ -5,12 +5,12 @@ $this->helpers['content'] = 'Content\\Helper\\Content';
 
 // load admin related code
 $this->on('app.admin.init', function() {
-    include(dirname(__FILE__).'/admin.php');
+    include(__DIR__.'/admin.php');
 });
 
 // load api request related code
 $this->on('app.api.request', function() {
-    include(dirname(__FILE__).'/api.php');
+    include(__DIR__.'/api.php');
 });
 
 // content api
@@ -49,7 +49,7 @@ $this->module('content')->extend([
             'fields'    => [],
             'preview'   => [],
             'group'     => null,
-            'sortable'  => false,
+            'meta'      => null,
             '_created'  => $time,
             '_modified' => $time
         ], $data);
@@ -116,7 +116,7 @@ $this->module('content')->extend([
 
         if ($model['type'] == 'singleton') {
             $this->app->dataStorage->remove('content/singletons', ['_model' => $name]);
-        } elseif ($model['type'] == 'collection') {
+        } elseif (in_array($model['type'], ['collection', 'tree'])) {
             $this->app->dataStorage->dropCollection("content/collections/{$name}");
         }
 
@@ -234,15 +234,15 @@ $this->module('content')->extend([
 
             $item = array_merge($current, $item);
 
-        } elseif ($model['type'] == 'collection') {
+        } elseif (in_array($model['type'], ['collection', 'tree'])) {
 
             $collection = "content/collections/{$modelName}";
-            $item = array_merge($default, $item);
 
             if (isset($item['_id'])) {
                 $isUpdate = true;
+            } else {
+                $item = array_merge($default, $item);
             }
-
         }
 
         $item['_modified'] = $time;
@@ -258,9 +258,13 @@ $this->module('content')->extend([
             return null;
         }
 
+        $this->app->trigger('content.item.save.before', [$modelName, &$item, $isUpdate]);
+        $this->app->trigger("content.item.save.before.{$modelName}", [&$item, $isUpdate]);
+
         $this->app->dataStorage->save($collection, $item);
 
         $this->app->trigger('content.item.save', [$modelName, $item, $isUpdate]);
+        $this->app->trigger("content.item.save.{$modelName}", [&$item, $isUpdate]);
 
         return $item;
     },
@@ -283,7 +287,7 @@ $this->module('content')->extend([
 
             $item['_model'] = $modelName;
 
-        } elseif ($model['type'] == 'collection') {
+        } elseif (in_array($model['type'], ['collection', 'tree'])) {
 
             $collection = "content/collections/{$modelName}";
             $item = $this->app->dataStorage->findOne($collection, $filter, $fields);
@@ -308,7 +312,7 @@ $this->module('content')->extend([
             throw new Exception('Try to access unknown model "'.$modelName.'"');
         }
 
-        if ($model['type'] != 'collection') {
+        if (!in_array($model['type'], ['collection', 'tree'])) {
             return [];
         }
 
@@ -358,7 +362,7 @@ $this->module('content')->extend([
             return 1;
         }
 
-        if ($model['type'] != 'collection') {
+        if (!in_array($model['type'], ['collection', 'tree'])) {
             return 1;
         }
 
