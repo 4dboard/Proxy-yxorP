@@ -1,3 +1,5 @@
+#!/bin/bash
+cd "$(dirname "$0")"
 rm -r './app/storage/cache';
 rm -r './app/storage/tmp';
 mkdir './app/storage/cache' -p;
