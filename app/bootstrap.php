@@ -24,6 +24,7 @@ spl_autoload_register(function($class) {
 DotEnv::load(APP_DIR);
 
 
+
 class Cockpit {
 
     protected static $instance = [];
