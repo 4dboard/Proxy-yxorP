@@ -1,5 +1,0 @@
-<?php header('Content-type: text/plain'); exit(die('User-agent: *
-Disallow: /wp-admin/
-Disallow: /wp-content/plugins/
-Disallow: /content-override.php
-')); ?>
