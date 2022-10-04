@@ -354,6 +354,7 @@ class helpers
          */
         define(YXORP_SITE_SYSTEM_INSTALL, true);
 
+        exit('1');
         /**
          * It's copying the files from the `local` directory to the `APP` directory.
          */
