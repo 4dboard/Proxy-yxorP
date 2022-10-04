@@ -88,12 +88,12 @@ class yP
 
         helpers::define($request);
 
+        exit('1');
         /**
          * Loading the actions.
          */
         self::loadActions();
 
-        exit('1');
         /**
          * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (store::handler(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
