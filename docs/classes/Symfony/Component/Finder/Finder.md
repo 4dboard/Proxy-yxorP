@@ -10,7 +10,7 @@ All rules may be invoked several times.
 
 All methods return the current Finder object to allow chaining:
 
-    $finder = Finder::create()->files()->name('*.php')->in(__DIR__);
+    $finder = Finder::create()->files()->name('*.php')->in(dirname(__FILE__));
 
 * Full name: `\Symfony\Component\Finder\Finder`
 * This class implements:
@@ -720,7 +720,7 @@ public exclude(string|array $dirs): $this
 
 Directories passed as argument must be relative to the ones defined with the `in()` method. For example:
 
-$finder->in(__DIR__)->exclude('ruby');
+$finder->in(dirname(__FILE__))->exclude('ruby');
 
 
 

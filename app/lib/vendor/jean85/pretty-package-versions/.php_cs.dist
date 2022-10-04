@@ -112,7 +112,7 @@ $config->setRules([
 ]);
 
 $finder = PhpCsFixer\Finder::create();
-$finder->in(__DIR__);
+$finder->in(dirname(__FILE__));
 $config->setFinder($finder);
 
 return $config;

@@ -26,14 +26,14 @@ define('APP_START_TIME', microtime(true));
 define('APP_ADMIN', true);
 
 // bootstrap app
-require(__DIR__.'/bootstrap.php');
+require(dirname(__FILE__).'/bootstrap.php');
 
 /*
  * Collect needed paths
  */
-$APP_SPACE_DIR = __DIR__;
-$APP_DIR = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__);
-$APP_DOCUMENT_ROOT = str_replace(DIRECTORY_SEPARATOR, '/', isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : __DIR__);
+$APP_SPACE_DIR = dirname(__FILE__);
+$APP_DIR = str_replace(DIRECTORY_SEPARATOR, '/', dirname(__FILE__));
+$APP_DOCUMENT_ROOT = str_replace(DIRECTORY_SEPARATOR, '/', isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : dirname(__FILE__));
 
 # make sure that $_SERVER['DOCUMENT_ROOT'] is set correctly
 if (strpos($APP_DIR, $APP_DOCUMENT_ROOT)!==0 && isset($_SERVER['SCRIPT_NAME'])) {
@@ -79,7 +79,7 @@ if ($APP_ROUTE && substr($APP_ROUTE, 0, 2) == '/:') {
 
     $parts  = explode('/', $APP_ROUTE);
     $env    = substr($parts[1], 1);
-    $spaceDir = __DIR__."/.spaces/{$env}";
+    $spaceDir = dirname(__FILE__)."/.spaces/{$env}";
 
     if (file_exists($spaceDir)) {
         $APP_ROUTE = '/'.trim(implode('/', array_slice($parts, 2)), '/');

@@ -619,7 +619,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_PATH_DIR_APP">PATH_DIR_APP</a>
     <span>
-        &nbsp;= \str_replace(\DIRECTORY_SEPARATOR, &#039;/&#039;, __DIR__)                            </span>
+        &nbsp;= \str_replace(\DIRECTORY_SEPARATOR, &#039;/&#039;, dirname(__FILE__))                            </span>
 </dt>
 <dd></dd>
 
@@ -723,7 +723,7 @@
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">PATH_DIR_APP</span>
-    = <span class="phpdocumentor-signature__default-value">\str_replace(\DIRECTORY_SEPARATOR, &#039;/&#039;, __DIR__)</span>
+    = <span class="phpdocumentor-signature__default-value">\str_replace(\DIRECTORY_SEPARATOR, &#039;/&#039;, dirname(__FILE__))</span>
 </code>
 
 

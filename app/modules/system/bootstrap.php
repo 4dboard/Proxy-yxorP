@@ -8,7 +8,7 @@ $this->helpers['revisions'] = 'System\\Helper\\Revisions';
 $this->helpers['system']  = 'System\\Helper\\System';
 
 $this->on('app.admin.init', function() {
-    include(__DIR__.'/admin.php');
+    include(dirname(__FILE__).'/admin.php');
 }, 500);
 
 $app->on('error', function($error, $exception) {

@@ -33,7 +33,7 @@
       "include", "instance_sizeof", "lib", "macro", "module", "next", "of", "out", "pointerof",
       "private", "protected", "rescue", "return", "require", "select", "sizeof", "struct",
       "super", "then", "type", "typeof", "uninitialized", "union", "unless", "until", "when", "while", "with",
-      "yield", "__DIR__", "__END_LINE__", "__FILE__", "__LINE__"
+      "yield", "dirname(__FILE__)", "__END_LINE__", "__FILE__", "__LINE__"
     ]);
     var atomWords = wordRegExp(["true", "false", "nil", "self"]);
     var indentKeywordsArray = [

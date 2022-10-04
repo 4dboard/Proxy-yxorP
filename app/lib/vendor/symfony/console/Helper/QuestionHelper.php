@@ -407,7 +407,7 @@ class QuestionHelper extends Helper
     private function getHiddenResponse(OutputInterface $output, $inputStream, bool $trimmable = true): string
     {
         if ('\\' === \DIRECTORY_SEPARATOR) {
-            $exe = __DIR__.'/../Resources/bin/hiddeninput.exe';
+            $exe = dirname(__FILE__).'/../Resources/bin/hiddeninput.exe';
 
             // handle code running from a phar
             if ('phar:' === substr(__FILE__, 0, 5)) {

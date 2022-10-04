@@ -263,6 +263,6 @@ $this->on('restApi.config', function($restApi) {
 
 $this->on('graphql.config', function($gql) {
     $app = $this;
-    include(__DIR__.'/graphql/content.php');
-    include(__DIR__.'/graphql/models.php');
+    include(dirname(__FILE__).'/graphql/content.php');
+    include(dirname(__FILE__).'/graphql/models.php');
 });

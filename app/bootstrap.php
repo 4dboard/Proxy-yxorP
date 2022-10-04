@@ -6,19 +6,21 @@ if (!defined('APP_START_TIME')) define('APP_START_TIME', microtime(true));
 if (!defined('APP_CLI')) define('APP_CLI', PHP_SAPI == 'cli');
 if (!defined('APP_ADMIN')) define('APP_ADMIN', false);
 
-define('APP_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
+define('APP_DIR', str_replace(DIRECTORY_SEPARATOR, '/', dirname(__FILE__)));
 
 // Autoload vendor libs
-include_once(__DIR__.'/lib/_autoload.php');
+include_once(dirname(__FILE__).'/lib/_autoload.php');
 
 // load .env file if exists
 DotEnv::load(APP_DIR);
+
+use Lime\App;
 
 /*
  * Autoload from lib folder (PSR-0)
  */
 spl_autoload_register(function($class) {
-    $class_path = __DIR__.'/lib/'.str_replace('\\', '/', $class).'.php';
+    $class_path = dirname(__FILE__).'/lib/'.str_replace('\\', '/', $class).'.php';
     if (file_exists($class_path)) include_once($class_path);
 });
 
@@ -27,7 +29,7 @@ class Cockpit {
 
     protected static $instance = [];
 
-    public static function instance(?string $envDir = null, array $config = []): Lime\App {
+    public static function instance(?string $envDir = null, array $config = []): mixed {
 
         if (!$envDir) {
             $envDir = APP_DIR;
@@ -40,7 +42,7 @@ class Cockpit {
         return static::$instance[$envDir];
     }
 
-    protected static function init(?string $envDir = null, array $config = []): Lime\App {
+    protected static function init(?string $envDir = null, array $config = []): mixed {
 
         $appDir = APP_DIR;
         $app    = null;
@@ -79,7 +81,7 @@ class Cockpit {
             ],
 
             'paths' => [
-                '#app'     => __DIR__,
+                '#app'     => dirname(__FILE__),
                 '#root'    => $envDir,
                 '#config'  => $envDir.'/config',
                 '#modules' => $envDir.'/modules',

@@ -5,12 +5,12 @@ $this->helpers['content'] = 'Content\\Helper\\Content';
 
 // load admin related code
 $this->on('app.admin.init', function() {
-    include(__DIR__.'/admin.php');
+    include(dirname(__FILE__).'/admin.php');
 });
 
 // load api request related code
 $this->on('app.api.request', function() {
-    include(__DIR__.'/api.php');
+    include(dirname(__FILE__).'/api.php');
 });
 
 // content api

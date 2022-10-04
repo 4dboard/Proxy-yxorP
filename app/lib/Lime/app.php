@@ -27,8 +27,8 @@ namespace Lime;
 
 use ArrayObject;
 
-include(__DIR__.'/Request.php');
-include(__DIR__.'/Response.php');
+include(dirname(__FILE__).'/Request.php');
+include(dirname(__FILE__).'/Response.php');
 
 
 class App implements \ArrayAccess {
@@ -1340,8 +1340,8 @@ class Module extends AppAware {
 class Helper extends AppAware { }
 
 
-include(__DIR__.'/Helper/Session.php');
-include(__DIR__.'/Helper/Cache.php');
+include(dirname(__FILE__).'/Helper/Session.php');
+include(dirname(__FILE__).'/Helper/Cache.php');
 
 // helper functions
 

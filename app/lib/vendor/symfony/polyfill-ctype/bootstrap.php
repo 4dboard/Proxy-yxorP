@@ -12,7 +12,7 @@
 use Symfony\Polyfill\Ctype as p;
 
 if (\PHP_VERSION_ID >= 80000) {
-    return require __DIR__.'/bootstrap80.php';
+    return require dirname(__FILE__).'/bootstrap80.php';
 }
 
 if (!function_exists('ctype_alnum')) {

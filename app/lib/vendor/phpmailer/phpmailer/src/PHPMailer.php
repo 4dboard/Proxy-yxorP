@@ -2284,7 +2284,7 @@ class PHPMailer
         ];
         if (empty($lang_path)) {
             //Calculate an absolute path so it can work if CWD is not here
-            $lang_path = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'language' . DIRECTORY_SEPARATOR;
+            $lang_path = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'language' . DIRECTORY_SEPARATOR;
         }
 
         //Validate $langcode

@@ -19,7 +19,7 @@ if (!function_exists('is_countable')) {
     function is_countable($value) { return is_array($value) || $value instanceof Countable || $value instanceof ResourceBundle || $value instanceof SimpleXmlElement; }
 }
 if (!function_exists('hrtime')) {
-    require_once __DIR__.'/Php73.php';
+    require_once dirname(__FILE__).'/Php73.php';
     p\Php73::$startAt = (int) microtime(true);
     function hrtime($as_number = false) { return p\Php73::hrtime($as_number); }
 }

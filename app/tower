@@ -7,7 +7,7 @@ if (PHP_SAPI !== 'cli') {
 
 define('APP_CLI', true);
 
-require __DIR__.'/bootstrap.php';
+require dirname(__FILE__).'/bootstrap.php';
 
 use Symfony\Component\Console\Application;
 

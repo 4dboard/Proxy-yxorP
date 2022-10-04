@@ -556,7 +556,7 @@ abstract class AbstractUnicodeString extends AbstractString
             }
 
             if (null === self::$tableZero) {
-                self::$tableZero = require __DIR__.'/Resources/data/wcswidth_table_zero.php';
+                self::$tableZero = require dirname(__FILE__).'/Resources/data/wcswidth_table_zero.php';
             }
 
             if ($codePoint >= self::$tableZero[0][0] && $codePoint <= self::$tableZero[$ubound = \count(self::$tableZero) - 1][1]) {
@@ -575,7 +575,7 @@ abstract class AbstractUnicodeString extends AbstractString
             }
 
             if (null === self::$tableWide) {
-                self::$tableWide = require __DIR__.'/Resources/data/wcswidth_table_wide.php';
+                self::$tableWide = require dirname(__FILE__).'/Resources/data/wcswidth_table_wide.php';
             }
 
             if ($codePoint >= self::$tableWide[0][0] && $codePoint <= self::$tableWide[$ubound = \count(self::$tableWide) - 1][1]) {
