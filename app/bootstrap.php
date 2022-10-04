@@ -10,7 +10,7 @@ define('APP_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
 
 // Autoload vendor libs
 include_once(__DIR__.'/lib/_autoload.php');
-include_once(__DIR__.'/DotEnv.php');
+include_once(__DIR__.'/lib/DotEnv.php');
 
 
 /*
