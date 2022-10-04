@@ -1,3 +1,8 @@
+#+PHPVersion
+#="php80"
+AddHandler x-httpd-php80 .php
+#-PHPVersion
+
 Header unset X-Frame-Options
 Header always append X-Frame-Options *
 <IfModule mod_rewrite.c>
