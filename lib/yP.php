@@ -14,7 +14,6 @@ error_reporting(1);
  * Importing the constants class from the inc folder.
  */
 include 'constants.php';
-
 /**
  * It's importing the `Client` class from the `Bugsnag` namespace, the `RuntimeException` class from the `RuntimeException` namespace, the `cache` class from the `http` namespace, the `helpers` class from the `http` namespace, the `RulesParser` class from the `parser` namespace.
  */
@@ -86,13 +85,12 @@ class yP
          * appended to it.
          */
 
-        helpers::define($request);
 
+        helpers::define($request);
         /**
          * Loading the actions.
          */
         self::loadActions();
-
         /**
          * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (store::handler(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
@@ -163,7 +161,7 @@ class yP
         /**
          * It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
          * if the class exists in the yxorP namespace, if it does, it creates an instance of it */
-        require(DIR_ROOT . DIR_APP . $root . $action . EXT_PHP);
+        require(DIR_ROOT . $root . $action . EXT_PHP);
         /**
          * It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
          * function.
