@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/app/lib/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/zircote/swagger-php" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/mongodb/mongodb" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/bacon/bacon-qr-code" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/composer" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/dasprid/enum" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/webonyx/graphql-php" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/colinodell/json5" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/robthree/twofactorauth" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/league/color-extractor" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/claviska/simpleimage" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/app/lib/vendor/jean85/pretty-package-versions" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
+</project>

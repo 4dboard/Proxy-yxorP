@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/maennchen/zipstream-php" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/zircote/swagger-php" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/polyfill-php81" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/mongodb/mongodb" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/bacon/bacon-qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/dasprid/enum" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/webonyx/graphql-php" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/colinodell/json5" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/robthree/twofactorauth" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/league/color-extractor" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/league/mime-type-detection" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/phpmailer/phpmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/claviska/simpleimage" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/firebase/php-jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/app/lib/vendor/jean85/pretty-package-versions" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
