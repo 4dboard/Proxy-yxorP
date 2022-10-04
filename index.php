@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
     exit(0);
 }
+
 $file = (($dir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR . ($key = urlencode($_SERVER['HTTP_HOST']))) . DIRECTORY_SEPARATOR) . rtrim(strtr(base64_encode($_SERVER['REQUEST_URI']), '+/=', '._-')) . '.cache';
 if (isset($_GET["CLECHE"])) array_map('unlink', glob("$dir/*.*"));
+
 if ($cacheExits = file_exists($file)) exit(die(@include $file)); else require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'bootstrap.php'; ?>
