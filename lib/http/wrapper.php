@@ -107,8 +107,7 @@ abstract class wrapper
      * A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
      *
      */
-    public
-    function onCache(): void
+    public function onCache(): void
     {
     }
 
@@ -116,8 +115,7 @@ abstract class wrapper
      * Used to check if the event should be executed.
      *
      */
-    public
-    function onCheck(): self
+    public function onCheck(): self
     {
         return $this;
     }
@@ -126,8 +124,7 @@ abstract class wrapper
      * A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered.
      *
      */
-    public
-    function onContext(): void
+    public function onContext(): void
     {
     }
 
@@ -135,8 +132,7 @@ abstract class wrapper
      * A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered.
      *
      */
-    public
-    function onIncludes(): void
+    public function onIncludes(): void
     {
     }
 
@@ -144,8 +140,7 @@ abstract class wrapper
      * A method that is called when the event `EVENT_BUILD_HEADERS` is triggered.
      *
      */
-    public
-    function onHeaders(): void
+    public function onHeaders(): void
     {
     }
 
@@ -153,8 +148,7 @@ abstract class wrapper
      * A method that is called when the event `EVENT_BUILD_REQUEST` is triggered.
      *
      */
-    public
-    function onRequest(): void
+    public function onRequest(): void
     {
     }
 
@@ -162,8 +156,7 @@ abstract class wrapper
      * Used to build the result.
      *
      */
-    public
-    function onBeforeSend(): void
+    public function onBeforeSend(): void
     {
     }
 
@@ -171,8 +164,7 @@ abstract class wrapper
      * Used to execute code when the request is sent.
      *
      */
-    public
-    function onSend(): void
+    public function onSend(): void
     {
     }
 
@@ -180,8 +172,7 @@ abstract class wrapper
      * Used to execute code before the request is sent.
      *
      */
-    public
-    function onSent(): void
+    public function onSent(): void
     {
     }
 
@@ -189,8 +180,7 @@ abstract class wrapper
      * Used to execute code when the headers are received.
      *
      */
-    public
-    function onWrite(): void
+    public function onWrite(): void
     {
     }
 
@@ -198,8 +188,7 @@ abstract class wrapper
      * Used to execute code when the headers are received.
      *
      */
-    public
-    function onComplete(): void
+    public function onComplete(): void
     {
     }
 
@@ -207,8 +196,7 @@ abstract class wrapper
      * Used to execute code when the request is completed.
      *
      */
-    public
-    function onFinal(): void
+    public function onFinal(): void
     {
     }
 
@@ -216,8 +204,7 @@ abstract class wrapper
      * Used to execute code when an exception is thrown.
      *
      */
-    public
-    function onException(Exception $e): void
+    public function onException(Exception $e): void
     {
     }
 }
