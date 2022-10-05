@@ -65,31 +65,31 @@ abstract class wrapper
             echo $event_name;
             switch ($event_name) {
                 case EVENT_BUILD_CACHE: /* Calling the `onCheck` method and then the `onCache` method. */
-                    $this->onCheck()->onCache();
+                    $this->onCache();
                     break;
                 case EVENT_BUILD_CONTEXT: /* Calling the `onCheck` method and then the `onContext` method. */
-                    $this->onCheck()->onContext();
+                    $this->onContext();
                     break;
                 case EVENT_BUILD_INCLUDES: /* Calling the `onCheck` method and then the `onIncludes` method. */
-                    $this->onCheck()->onIncludes();
+                    $this->onIncludes();
                     break;
                 case EVENT_BUILD_HEADERS: /* Calling the `onCheck` method and then the `onHeaders` method. */
-                    $this->onCheck()->onHeaders();
+                    $this->onHeaders();
                     break;
                 case EVENT_BUILD_REQUEST: /* Calling the `onCheck` method and then the `onRequest` method. */
-                    $this->onCheck()->onRequest();
+                    $this->onRequest();
                     break;
                 case EVENT_BEFORE_SEND: /* Calling the `onCheck` method and then the `onBeforeSend` method. */
-                    $this->onCheck()->onBeforeSend();
+                    $this->onBeforeSend();
                     break;
                 case EVENT_SEND: /* Calling the `onCheck` method and then the `onSend` method. */
-                    $this->onCheck()->onSend();
+                    $this->onSend();
                     break;
                 case EVENT_SENT: /* Calling the `onCheck` method and then the `onSent` method. */
-                    $this->onCheck()->onSent();
+                    $this->onSent();
                     break;
                 case EVENT_WRITE: /* Calling the `onCheck` method and then the `onWrite` method. */
-                    $this->onCheck()->onWrite();
+                    $this->onWrite();
                     break;
                 case EVENT_COMPLETE: /* Calling the `onComplete` method. */
                     $this->onComplete();
@@ -109,15 +109,6 @@ abstract class wrapper
      */
     public function onCache(): void
     {
-    }
-
-    /**
-     * Used to check if the event should be executed.
-     *
-     */
-    public function onCheck(): self
-    {
-        return $this;
     }
 
     /**
