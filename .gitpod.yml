@@ -4,3 +4,6 @@
 
 tasks:
   - init: cp ./.env.example ./.env
+ports:
+  - port: 9003,9004
+    onOpen: open-preview
