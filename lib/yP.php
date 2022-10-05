@@ -75,7 +75,7 @@ class yP
      */
     private function init(?array $request): void
     {
-        echo 1;
+
         /**
          * Checking if the files exist in the directory.
          */
@@ -90,7 +90,7 @@ class yP
         /**
          * Loading the actions.
          */
-
+        echo 1;
         self::loadActions();
         /**
          * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
