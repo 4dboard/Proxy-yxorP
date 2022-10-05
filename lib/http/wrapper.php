@@ -62,7 +62,6 @@ abstract class wrapper
              * Used to route the events to the appropriate methods.
              */
 
-            echo $event_name;
             switch ($event_name) {
                 case EVENT_BUILD_CACHE: /* Calling the `onCheck` method and then the `onCache` method. */
                     $this->onCache();
