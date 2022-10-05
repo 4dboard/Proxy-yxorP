@@ -352,10 +352,12 @@ class helpers
          * It's defining the `YXORP_SITE_SYSTEM_INSTALL` constant as `true` .
          */
         define(YXORP_SITE_SYSTEM_INSTALL, true);
-        
+
         /**
          * It's copying the files from the `local` directory to the `APP` directory.
          */
+        echo store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_SITE_SYSTEM_USERS)->count();
+        echo 1;
 
         if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_SITE_SYSTEM_USERS)->count() || !is_dir(PATH_DIR_APP . DIR_STORAGE . SITE_CONTENT)) self::migrate(PATH_SITE_LOCAL, PATH_DIR_APP);
 
