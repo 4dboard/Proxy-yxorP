@@ -59,7 +59,7 @@ class yP
         define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
         define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
         define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
-
+        echo 3;
         /**
          * It's checking if the `$instance` variable is null, and if it is, it's setting it to a new instance of the `self`
          * class.
