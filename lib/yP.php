@@ -166,7 +166,7 @@ class yP
         /**
          * It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
          * function.
-         */echo 1;
+         */
         self::$instance->addSubscriber(new $action());
     }
 
