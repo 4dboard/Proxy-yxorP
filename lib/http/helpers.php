@@ -399,7 +399,6 @@ class helpers
 
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_OVERRIDE . \str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
 
-        echo 1;
         /**
          * Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the
          * value of the constant YXORP_REQUEST_URI.
@@ -415,7 +414,6 @@ class helpers
          */
         store::handler(VAR_PROXY, new client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_IDN_CONVERSION => true]));
 
-        echo 1;
 
     }
 
