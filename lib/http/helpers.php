@@ -358,7 +358,7 @@ class helpers
          */
 
         if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_SITE_SYSTEM_USERS)->count() || !is_dir(PATH_DIR_APP . DIR_STORAGE . SITE_CONTENT)) self::migrate(PATH_SITE_LOCAL, PATH_DIR_APP);
-        echo 1;
+        
 
         /**
          * Defining a constant called store::handler(YXORP_SERVER) and setting it to the value of $req.
