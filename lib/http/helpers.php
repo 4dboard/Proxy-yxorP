@@ -356,6 +356,7 @@ class helpers
         /**
          * It's copying the files from the `local` directory to the `APP` directory.
          */
+        print_r(store::handler(YXORP_APP)->dataStorage);
         echo store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_SITE_SYSTEM_USERS)->count();
         echo 1;
 
