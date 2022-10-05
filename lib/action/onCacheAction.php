@@ -3,7 +3,6 @@
  * Importing the wrapper class from the yxorP\lib\http namespace.
  */
 
-
 use yxorP\lib\http\wrapper;
 
 /**
