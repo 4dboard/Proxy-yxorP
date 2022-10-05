@@ -196,7 +196,7 @@ class yP
         /**
          * It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
          * them.
-         */echo 1;
+         */
         if (isset(self::$instance->listeners[$event_name])) foreach ((array)self::$instance->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
     }
 
