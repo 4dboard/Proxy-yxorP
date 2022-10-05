@@ -4,4 +4,4 @@
 
 tasks:
   - init: npm install && npm run build
-    command: npm run watch
+    command: npm run watch & cp ./.env.example ./.env
