@@ -21,7 +21,7 @@
       "serverReadyAction": {
         "pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
         "uriFormat": "http://localhost:%s",
-        "action": "open-preview"
+        "action": "openExternally"
       }
     },
     {
@@ -40,7 +40,7 @@
       "serverReadyAction": {
         "pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
         "uriFormat": "http://localhost:%s",
-        "action": "open-preview"
+        "action": "openExternally"
       }
     }
   ]
