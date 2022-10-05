@@ -46,7 +46,7 @@ class yP
      */
     public function __construct(string $root, array|null $request = null)
     {
-
+echo 1;
         /**
          * Defining the root directory of the website.
          */
