@@ -29,6 +29,10 @@ plug-and-play program was designed to give a system that is simply extensible an
 
 ![image](https://user-images.githubusercontent.com/6468571/193482334-6007f4da-47b0-4c4c-80f6-f35c44d7745b.png)
 
+![image](https://user-images.githubusercontent.com/6468571/194124476-77bca332-2a84-4b11-8971-acfb52d63afe.png)
+
+![image](https://user-images.githubusercontent.com/6468571/194124494-f204941b-3ec7-4a1b-b401-e4731a21ba98.png)
+
 <table style="border:none;border-collapse:collapse">
 <tr>
 <td>
@@ -247,10 +251,10 @@ docker run
 
 - Verify that the computer has been outfitted with all the necessary PHP extensions, such as the following:
 
-    - PHP Pdo mod, and this is for the sqlite database 'apt install php8.1-common'
+  - PHP Pdo mod, and this is for the sqlite database 'apt install php8.1-common'
 
-    - PHP Intl mod, this is for puny domain names, Punycode or IDN, or install it with 'php-intl' if you want to use it
-      with IDN.
+  - PHP Intl mod, this is for puny domain names, Punycode or IDN, or install it with 'php-intl' if you want to use it
+    with IDN.
 
 - You need to check that the "./app" submodule was properly retrieved; the directory should already be present at the
   top level of the project and have some information. If the directory is not there, you may quickly initialize the
