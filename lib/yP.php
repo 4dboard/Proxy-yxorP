@@ -161,7 +161,7 @@ class yP
         /**
          * It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
          * if the class exists in the yxorP namespace, if it does, it creates an instance of it */
-echo DIR_ROOT . $root . $action . EXT_PHP;
+
         require(DIR_ROOT . $root . $action . EXT_PHP);
         /**
          * It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
