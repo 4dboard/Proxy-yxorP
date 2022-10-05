@@ -65,7 +65,7 @@ class Cockpit {
             'app.name' => 'yxorP',
             'app.version'  => APP_VERSION,
             'session.name' => md5($envDir),
-            'sec-key' => 'c3b40c4c-db44-s5h7-a814-b5931a15e5e1', // change me in custom config
+            'sec-key' => 'c3b40c4c-db44-s5h7-1524-b5931a15e5e1', // change me in custom config
             'i18n' => 'en',
 
             'database' => [
