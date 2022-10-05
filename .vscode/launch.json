@@ -6,6 +6,10 @@
       "name": "Admin Dashboard",
       "type": "php",
       "request": "launch",
+      "env": {
+        "XDEBUG_MODE": "debug,develop",
+        "XDEBUG_CONFIG": "client_port=${port}"
+      },
       "runtimeArgs": [
         "-dxdebug.mode=debug",
         "-dxdebug.start_with_request=yes",
@@ -25,6 +29,10 @@
       "name": "Site Proxy",
       "type": "php",
       "request": "launch",
+      "env": {
+        "XDEBUG_MODE": "debug,develop",
+        "XDEBUG_CONFIG": "client_port=${port}"
+      },
       "runtimeArgs": [
         "-dxdebug.mode=debug",
         "-dxdebug.start_with_request=yes",
