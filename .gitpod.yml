@@ -4,6 +4,9 @@
 
 tasks:
   - init: cp ./.env.example ./.env
+  - command: echo 'left'
+  - command: echo 'right'
+    openMode: split-right
 ports:
   - port: 9003,9004
     onOpen: open-preview
