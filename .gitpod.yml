@@ -3,6 +3,7 @@
 # and commit this file to your remote git repository to share the goodness with others.
 
 tasks:
+  - command: php -S localhost:8000 router.php
   - command: gp preview $(gp url 9003)
   - command: gp preview $(gp url 9004)
     openMode: split-right
