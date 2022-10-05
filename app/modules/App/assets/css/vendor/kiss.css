@@ -1,0 +1,394 @@
+
+:root {
+    --kiss-base-font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --kiss-base-background-color: #131720;
+    --kiss-base-text-color: #fafafa;
+    --kiss-base-font-size: 15px;
+    --kiss-font-size-1: 2rem;
+    --kiss-hr-color: rgba(255,255,255,.1);
+    --kiss-link-color: var(--kiss-color-primary);
+    --kiss-link-hover-color: #1994ff;
+
+    --kiss-block-element-margin: 1.5rem;
+
+    --kiss-button-default-background: #2b2d42;
+
+    --kiss-color-alternate: var(--kiss-base-text-color);
+    --kiss-color-contrast: #10131a;
+    --kiss-color-primary: #0e8fff;
+    --kiss-color-success: #4caf50;
+    --kiss-color-warning: orange;
+    --kiss-color-danger: #f91941;
+    --kiss-color-muted: rgba(255,255,255,.5);
+    --kiss-color-overlay: rgba(0, 0, 0, .6);
+
+    --kiss-container-max-width: 1800px;
+    --kiss-container-small-max-width: 900px;
+
+    --kiss-input-border-color: rgba(255,255,255,.1);
+    --kiss-input-background: rgba(255,255,255,.05);
+
+    --kiss-badge-bgcolor: var(--kiss-color-primary);
+
+    --kiss-button-primary-background: var(--kiss-color-primary);
+    --kiss-button-large-padding-horizontal: 5em;
+    --kiss-button-large-font-size: 5em;
+
+    --kiss-dialog-background: var(--kiss-color-overlay);
+    --kiss-dialog-content-background: var(--kiss-color-contrast);
+    --kiss-dialog-content-spacing: 20px;
+    --kiss-dialog-large-width: 840px;
+    --kiss-dialog-xlarge-width: var(--kiss-container-max-width);
+
+    --kiss-dropdown-background: #030915f2;
+
+    --kiss-offcanvas-content-background: var(--kiss-base-background-color);
+    --kiss-offcanvas-background: var(--kiss-color-overlay);
+    --kiss-offcanvas-content-color: var(--kiss-base-text-color);
+
+    --kiss-popoutmenu-background: var(--kiss-color-overlay);
+    --kiss-popoutmenu-content-background: var(--kiss-color-contrast);
+
+    --kiss-navlist-font-size: 14px;
+    --kiss-navlist-padding-vertical: 8px;
+
+    --kiss-card-shadowed-color: rgba(0, 0, 0, 0.85);
+    --kiss-card-bordered-color: rgb(106, 85, 85, .15);
+
+    --kiss-breadcrumbs-size: 11px;
+    --kiss-table-heading-background-color: #171b24;
+    --kiss-table-row-hover-color: #222;
+}
+
+[kiss-container="medium"],
+kiss-container[size="medium"] {
+    max-width: var(--kiss-container-medium-max-width, 1200px);
+}
+
+kiss-card,
+.kiss-button,
+.kiss-badge,
+kiss-dialog kiss-content,
+kiss-popoutmenu kiss-content,
+kiss-tooltip {
+    border-radius: var(--app-border-radius);
+}
+
+.kiss-has-transition {
+    transition: all 300ms;
+}
+
+.kiss-inactive {
+    opacity: .2;
+    filter: grayscale(1);
+}
+
+.kiss-bgcolor-transparentimage {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%), linear-gradient(-45deg, rgba(255, 255, 255, .15) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, .15) 75%), linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, .15) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.kiss-height-30vh { min-height: 30vh; }
+.kiss-height-50vh { min-height: 50vh; }
+.kiss-height-100vh { min-height: 100vh; }
+
+kiss-dialog,
+kiss-offcanvas,
+kiss-popoutmenu {
+    backdrop-filter: grayscale(1) blur(1.5px);
+}
+
+kiss-offcanvas kiss-content,
+kiss-dialog kiss-content,
+kiss-popoutmenu kiss-content {
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+kiss-popoutmenu kiss-content {
+    border-top: 2px var(--kiss-color-primary) solid;
+}
+
+kiss-popoutmenu kiss-navlist > ul > li > a > icon {
+    transform: scale(1.2);
+}
+
+.kiss-input {
+    padding: .6em .6em;
+    color: var(--kiss-base-text-color);
+    background: var(--kiss-input-background);
+    border: 1px var(--kiss-input-border-color) solid;
+    border-radius: var(--app-border-radius);
+    transition: all 250ms;
+    font-size: .9em;
+    line-height: 2;
+}
+
+/*
+ * Fix select boxes in dark theme (chrome on windows)
+ */
+select.kiss-input optgroup,
+select.kiss-input option {
+    background: var(--kiss-base-background-color);
+}
+
+.kiss-input[type="text"],
+.kiss-input[type="password"] {
+    width: 100%;
+}
+
+.kiss-input:focus {
+    background: var(--kiss-input-background-active, rgba(255,255,255,.15));
+    border-color: var(--kiss-input-border-color-active, var(--kiss-color-primary));
+}
+
+.kiss-input[seamless="true"]:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.12);
+}
+
+.kiss-input::placeholder {
+    color: var(--kiss-input-placeholder-color, rgba(255,255,255,.2));
+}
+
+.kiss-input-small {
+    padding: .3em .3em;
+}
+
+.kiss-disabled { opacity: .6; }
+
+kiss-offcanvas kiss-navlist ul > li > a,
+kiss-dropdownbox kiss-navlist ul > li > a {
+    color: inherit;
+    opacity: .65;
+    transition: all 250ms;
+}
+
+kiss-offcanvas kiss-navlist ul > li > a:hover,
+kiss-dropdownbox kiss-navlist ul > li > a:hover {
+    color: inherit;
+    opacity: 1;
+}
+
+kiss-offcanvas kiss-navlist ul > li.active > a {
+    color: var(--kiss-color-primary);
+    font-weight: bold;
+    opacity: 1;
+}
+
+kiss-offcanvas kiss-navlist ul > li > * {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    letter-spacing: 1.5px;
+}
+
+kiss-offcanvas kiss-navlist[space="small"] ul > li > * {
+    padding: 6px 0;
+}
+
+kiss-offcanvas kiss-navlist .kiss-nav-header {
+    padding: 8px 0;
+    color: var(--kiss-color-muted);
+    margin-top: .6rem;
+}
+
+kiss-offcanvas kiss-navlist .kiss-nav-divider {
+    margin-left: calc(-1 * var(--kiss-padding, 1rem));
+    margin-right: calc(-1 * var(--kiss-padding, 1rem));
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+kiss-dropdownbox kiss-navlist ul > li a icon,
+kiss-offcanvas kiss-navlist ul > li a icon,
+kiss-offcanvas kiss-navlist ul > li a kiss-svg {
+    font-size: 1.2em;
+    margin-right: 5px;
+}
+
+.kiss-nav-spacer {
+    margin-top: 5px;
+}
+
+kiss-card[hover="shadow"]:hover {
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+kiss-card[theme*="contrast"],
+kiss-card[hover*="contrast"]:hover {
+    background: var(--kiss-card-theme-contrast-color, #141923);
+    background: var(--kiss-card-theme-contrast-color, #171d28);
+}
+
+.kiss-button-group {
+    display: inline-flex;
+}
+
+.kiss-button-group .kiss-button {
+    border-radius: 0;
+}
+
+.kiss-button-group .kiss-button:not(:last-child) {
+    border-right-width: 1px;
+    border-right-color: rgba(0,0,0,.08);
+    border-right-style: solid;
+}
+
+.kiss-button-group .kiss-button:first-child {
+    border-top-left-radius: var(--app-border-radius);
+    border-bottom-left-radius: var(--app-border-radius);
+}
+
+.kiss-button-group .kiss-button:last-child {
+    border-top-right-radius: var(--app-border-radius);
+    border-bottom-right-radius: var(--app-border-radius);
+}
+
+.kiss-button icon {
+    transform: scale(2);
+    line-height: 1;
+}
+
+.kiss-breadcrumbs {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.kiss-breadcrumbs > *:not(.active) > *  {
+    opacity: .6;
+    transition: opacity .3s;
+}
+
+.kiss-breadcrumbs > *:not(.active):hover > *  {
+    opacity: 1;
+    color: inherit;
+}
+
+.kiss-breadcrumbs > .active > *  {
+    font-weight: bold;
+}
+
+.kiss-tabs-nav {
+    border-bottom: 1px var(--kiss-hr-color) solid;
+}
+
+.kiss-tabs-nav-link {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 25px;
+    text-transform: uppercase;
+}
+
+[active="true"] > .kiss-tabs-nav-link:after {
+    bottom: -0.5px;
+}
+
+.kiss-table {
+    width: 100%;
+    background: var(--kiss-color-contrast);
+}
+
+.kiss-table th {
+    color: inherit;
+    font-size: .6em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: 12px 8px;
+}
+
+.kiss-table thead {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: var(--app-border-radius);
+}
+
+.kiss-table thead tr {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 22%);
+}
+
+.kiss-table td {
+    font-size: .9em;
+    border-bottom: 1px var(--kiss-hr-color) solid;
+    padding: 16px 8px;
+}
+
+.kiss-table th,
+.kiss-table td {
+    text-align: left;
+    vertical-align: middle;
+}
+
+.kiss-table tbody tr:hover td {
+    background-color: var(--kiss-table-row-hover-color);
+}
+
+.kiss-checkbox {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    margin: 0;
+    width: 1.2em;
+    height: 1em;
+    border: none;
+    cursor: pointer;
+    color: var(--kiss-base-text-color);
+}
+.kiss-checkbox:focus { outline: none; }
+
+.kiss-checkbox:before {
+    font-family: 'Material Icons Outlined';
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: 0;
+    z-index: 1;
+    width: 1.2em;
+    height: 1.2em;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.kiss-checkbox:checked:before {
+    background: var(--kiss-color-primary);
+}
+
+.kiss-checkbox:checked:after {
+    font-family: 'Material Icons Outlined';
+    content: "done";
+    position: absolute;
+    box-sizing: border-box;
+    top: 60%;
+    left: 50%;
+    z-index: 1;
+    font-size: 1em;
+    text-align: center;
+    transform: translateY(-50%) translateX(-50%);
+    color: #fff;
+}
+
+.kiss-checkbox[disabled] {
+    opacity: .6;
+}
+
+.kiss-dialog-overflow {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.kiss-dialog-overflow[expand="true"] {
+    height: 60vh;
+}
