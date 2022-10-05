@@ -85,12 +85,12 @@ class yP
          * appended to it.
          */
 
-        echo 1;
+
         helpers::define($request);
         /**
          * Loading the actions.
          */
-        echo 1;
+
         self::loadActions();
         /**
          * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
