@@ -7,8 +7,8 @@
       "type": "php",
       "request": "launch",
       "env": {
-        "XDEBUG_MODE": "debug,develop",
-        "XDEBUG_CONFIG": "client_port=${port}"
+        "DEFAULT_HOST": "localhost",
+        "DEFAULT_TARGET": "example.com"
       },
       "runtimeArgs": [
         "-dxdebug.mode=debug",
@@ -30,8 +30,8 @@
       "type": "php",
       "request": "launch",
       "env": {
-        "XDEBUG_MODE": "debug,develop",
-        "XDEBUG_CONFIG": "client_port=${port}"
+        "DEFAULT_HOST": "localhost",
+        "DEFAULT_TARGET": "example.com"
       },
       "runtimeArgs": [
         "-dxdebug.mode=debug",
