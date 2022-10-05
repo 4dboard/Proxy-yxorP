@@ -14,7 +14,7 @@ class onCacheAction extends wrapper
      * A function that is called when the event is checked.
      *
      */
-    public function onCache(): self
+    public function onCache(): void
     {
     }
 }
