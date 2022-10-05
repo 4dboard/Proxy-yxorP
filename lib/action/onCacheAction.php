@@ -1,8 +1,4 @@
 <?php
-/**
- * Importing the cache class from the cache namespace.
- */
-
 use yxorP\lib\http\wrapper;
 
 /**
