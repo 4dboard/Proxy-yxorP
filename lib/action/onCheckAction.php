@@ -22,6 +22,5 @@ class onCheckAction extends wrapper
         /**
          * Checking if the cache is valid, and if it is, it returns the cached data.
          */
-        return $this;
     }
 }
