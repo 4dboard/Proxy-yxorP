@@ -3,18 +3,19 @@
  * Importing the wrapper class from the yxorP\lib\http namespace.
  */
 
+
 use yxorP\lib\http\wrapper;
 
 /**
- * Importing the wrapper class from the yxorP\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.
+ * Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.
  */
-class onCacheAction extends wrapper
+class onCachedAction extends wrapper
 {
     /**
-     * A function that is called when the event is checked.
+     * A method that is called when the request is completed.
      *
      */
-    public function onCache(): void
+    public function onCached(): void
     {
     }
 }
