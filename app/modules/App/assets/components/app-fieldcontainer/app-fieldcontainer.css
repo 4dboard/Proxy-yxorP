@@ -1,0 +1,37 @@
+app-fieldcontainer {
+    display: block;
+}
+
+app-field[disabled="true"] {
+    opacity: .6;
+}
+
+.app-fieldcontainer-visible-hover {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+
+app-fieldcontainer:not([disabled="true"]):hover  .app-fieldcontainer-visible-hover {
+    opacity: 1;
+    pointer-events: all;
+}
+
+@media (min-width:1220px) {
+
+    app-fieldcontainer {
+        padding-left: 15px;
+        border-left: 2px var(--app-fieldcontainer-border-color-inactive, rgba(0,0,0,.1)) solid;
+        transition: border-color 200ms, opacity 100ms ease;
+        opacity: .7;
+    }
+
+    app-fieldcontainer:hover {
+        opacity: 1;
+    }
+
+    app-fieldcontainer[active="true"] {
+        border-color: var(--app-fieldcontainer-border-color-active, blue);
+        opacity: 1;
+    }
+}
