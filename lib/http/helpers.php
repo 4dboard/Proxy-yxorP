@@ -338,12 +338,12 @@ class helpers
          * Storing the app object in the cache store.
          */
         store::handler(YXORP_APP, Cockpit::instance());
-        echo 1;
+
         /**
          * Reading the file and then calling the env function on each line.
          */
         foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
-        echo 1;
+
         /**
          * Installing the plugin.
          */
