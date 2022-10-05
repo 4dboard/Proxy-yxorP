@@ -62,7 +62,7 @@ class Cockpit {
 
             'docs_root' => defined('APP_DOCUMENT_ROOT') ? APP_DOCUMENT_ROOT : null,
             'debug' => APP_CLI ? true : preg_match('/(localhost|::1|\.local)$/', $_SERVER['SERVER_NAME'] ?? ''),
-            'app.name' => 'Cockpit',
+            'app.name' => 'yxorP',
             'app.version'  => APP_VERSION,
             'session.name' => md5($envDir),
             'sec-key' => 'c3b40c4c-db44-s5h7-a814-b5931a15e5e1', // change me in custom config
