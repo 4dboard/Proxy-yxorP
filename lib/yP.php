@@ -17,7 +17,7 @@ include 'constants.php';
 /**
  * It's importing the `Client` class from the `Bugsnag` namespace, the `RuntimeException` class from the `RuntimeException` namespace, the `cache` class from the `http` namespace, the `helpers` class from the `http` namespace, the `RulesParser` class from the `parser` namespace.
  */
-
+echo 2;
 use yxorP\lib\http\helpers;
 use yxorP\lib\http\store;
 use yxorP\lib\proxy\FileCookieJar;
