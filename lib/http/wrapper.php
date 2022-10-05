@@ -99,7 +99,6 @@ abstract class wrapper
                     break;
             }
         } catch (Exception $e) {
-            print_r($e);
             $this->onException($e);
         }
     }
