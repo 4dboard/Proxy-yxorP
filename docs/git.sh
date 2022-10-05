@@ -1,6 +1,7 @@
 #!/bin/bash
 while true
 do
+  git gc
   git add . --all
 	git push origin HEAD:main
 	git add .  || git commit -m "update"
