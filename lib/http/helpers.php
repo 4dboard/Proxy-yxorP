@@ -363,26 +363,22 @@ class helpers
          */
         store::handler(VAR_SERVER, $request ?: $_SERVER);
 
-        echo 1;
         /**
          * Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method.
          */
         define('YXORP_SITE_DOMAIN', domain::domain_host());
 
 
-        echo 1;
         /**
          * Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method.
          */
         define('YXORP_SITE_SUB_DOMAIN', domain::domain_sub());
 
-        echo 1;
         /**
          * Setting the pattern, replace, and plugins variables.
          */
         foreach ([TARGET_BUTTON_HOVER => VAR_BUTTON_HOVER, TARGET_BUTTON => VAR_BUTTON, TARGET_LINK_HOVER => VAR_LINK_HOVER, TARGET_LINK_VISITED => VAR_LINK_VISITED, TARGET_LINK => VAR_LINK, TARGET_HTML_MENU => VAR_HTML_MENU, TARGET_MENU => VAR_MENU, TARGET_FOOT_HTML => VAR_FOOT_HTML, TARGET_FOOT => VAR_FOOT, TARGET_HEAD => VAR_HEAD, TARGET_HEAD_HTML => VAR_HEAD_HTML, TARGET_MENU => VAR_MENU, TARGET_MENU_HTML => VAR_MENU_HTML, TARGET_BG_COLOR => VAR_BG_COLOR, TARGET_BG_IMG => VAR_BG_IMG, TARGET_JS => VAR_JS, TARGET_CSS => VAR_CSS, VAR_TARGET_PATTERN => VAR_PATTERN, VAR_TARGET_REPLACE => VAR_REPLACE, YXORP_TARGET_PLUGINS => VAR_PLUGINS, YXORP_TARGET_CSS => VAR_CSS, YXORP_TARGET_JS => VAR_JS] as $key => $value) store::handler($key, store::handler(SITE_DETAILS, store::handler(YXORP_APP)->dataStorage->findOne(SITE_CONTENT . CHAR_SLASH . SITE_COLLECTIONS . CHAR_SLASH . SITE_SITES, [SITE_HOST => strtok(YXORP_SITE_DOMAIN, CHAR_COLON)]))[$value]);
 
-        echo 1;
         /**
          * Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array.
          */
@@ -403,6 +399,7 @@ class helpers
 
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_OVERRIDE . \str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
 
+        echo 1;
         /**
          * Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the
          * value of the constant YXORP_REQUEST_URI.
@@ -418,6 +415,7 @@ class helpers
          */
         store::handler(VAR_PROXY, new client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_IDN_CONVERSION => true]));
 
+        echo 1;
 
     }
 
