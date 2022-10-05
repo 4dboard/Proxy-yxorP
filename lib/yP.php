@@ -90,7 +90,7 @@ class yP
         /**
          * Loading the actions.
          */
-        
+
         self::loadActions();
         /**
          * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
@@ -131,7 +131,7 @@ class yP
          * It's setting the `YXORP_EVENT_LIST` constant to an array of events.
          */
         store::handler(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
-
+        echo 1;
         /**
          * It's setting the `YXORP_ACTIONS` constant to an array of files in the `DIR_ROOT . DIR_APP .  DIR_LIB . DIR_ACTION`
          * directory, then looping through all the files in the `DIR_ROOT . DIR_LIB . DIR_ACTION` directory, and if the file is a
