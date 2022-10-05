@@ -1,0 +1,35 @@
+#!/usr/bin/env php
+<?php
+
+if (PHP_SAPI !== 'cli') {
+    exit('Script needs to be run from Command Line Interface (cli)');
+}
+
+define('APP_CLI', true);
+
+require __DIR__.'/bootstrap.php';
+
+use Symfony\Component\Console\Application;
+
+$app = Cockpit::instance();
+$cli = new Application("
+  _|_|_|                      _|                  _|    _|
+_|          _|_|      _|_|_|  _|  _|    _|_|_|        _|_|_|_|
+_|        _|    _|  _|        _|_|      _|    _|  _|    _|
+_|        _|    _|  _|        _|  _|    _|    _|  _|    _|
+  _|_|_|    _|_|      _|_|_|  _|    _|  _|_|_|    _|      _|_|
+                                        _|
+                                        _|
+
+_|_|_|_|_|
+    _|      _|_|    _|      _|      _|    _|_|    _|  _|_|
+    _|    _|    _|  _|      _|      _|  _|_|_|_|  _|_|
+    _|    _|    _|    _|  _|  _|  _|    _|        _|
+    _|      _|_|        _|      _|        _|_|_|  _|
+
+
+{$app['app.name']} Tower", $app['app.version']);
+
+$app->trigger('app.cli.init', [$cli]);
+
+$cli->run();

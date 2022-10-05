@@ -1,0 +1,43 @@
+/* fallback */
+@font-face {
+    font-family: 'Material Icons Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url(material-icons-outlined.woff2) format('woff2');
+}
+
+icon {
+    display: inline-block;
+    user-select: none;
+    -moz-user-select: none;
+}
+
+icon,
+.material-icons-outlined {
+    font-family: 'Material Icons Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    line-height: inherit;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    vertical-align: middle;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    font-feature-settings: 'liga';
+    -webkit-font-feature-settings: 'liga';
+}
+
+icon[size="larger"] {
+    transform: scale(1.2);
+}

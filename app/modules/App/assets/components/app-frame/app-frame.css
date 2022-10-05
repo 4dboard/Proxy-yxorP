@@ -1,0 +1,14 @@
+app-frame {
+    display: block;
+}
+
+app-frame iframe {
+    border:none;
+    width:100%;
+    height:auto;
+    padding: 0px;
+    background-color: transparent;
+    overflow:visible;
+    overflow-y:visible;
+    overflow-x:visible;
+}
