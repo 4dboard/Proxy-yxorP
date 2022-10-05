@@ -91,14 +91,11 @@ class yP
          * Loading the actions.
          */
 
-        echo 1;
         self::loadActions();
-        echo 1;
         /**
          * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (store::handler(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
 
-        echo 1;
     }
 
     /**
