@@ -3,8 +3,6 @@
  * Importing the cache class from the cache namespace.
  */
 
-
-use yxorP\lib\http\cache;
 use yxorP\lib\http\wrapper;
 
 /**
