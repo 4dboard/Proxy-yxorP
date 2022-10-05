@@ -21,7 +21,7 @@
       "serverReadyAction": {
         "pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
         "uriFormat": "http://localhost:%s",
-        "action": "open"
+        "action": "open-preview"
       }
     },
     {
@@ -39,7 +39,8 @@
       "port": 9004,
       "serverReadyAction": {
         "pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
-        "uriFormat": "http://localhost:%s"
+        "uriFormat": "http://localhost:%s",
+        "action": "open-preview"
       }
     }
   ]
