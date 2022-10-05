@@ -4,29 +4,28 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+
     {
-      "name": "Listen for Xdebug",
+      "name": "Admin Dashboard",
       "type": "php",
       "request": "launch",
-      "port": 9003
-    },
-    {
-      "name": "Launch currently open script",
-      "type": "php",
-      "request": "launch",
-      "program": "${file}",
-      "cwd": "${fileDirname}",
-      "port": 0,
       "runtimeArgs": [
-        "-dxdebug.start_with_request=yes"
+        "-dxdebug.mode=debug",
+        "-dxdebug.start_with_request=yes",
+        "-S",
+        "localhost:0"
       ],
-      "env": {
-        "XDEBUG_MODE": "debug,develop",
-        "XDEBUG_CONFIG": "client_port=${port}"
+      "program": "",
+      "cwd": "${workspaceRoot}/app",
+      "port": 9003,
+      "serverReadyAction": {
+        "pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
+        "uriFormat": "http://localhost:%s",
+        "action": "open"
       }
     },
     {
-      "name": "Launch Built-in web server",
+      "name": "Site Proxy",
       "type": "php",
       "request": "launch",
       "runtimeArgs": [
@@ -37,11 +36,10 @@
       ],
       "program": "",
       "cwd": "${workspaceRoot}",
-      "port": 9003,
+      "port": 9004,
       "serverReadyAction": {
         "pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
-        "uriFormat": "http://localhost:%s",
-        "action": "openExternally"
+        "uriFormat": "http://localhost:%s"
       }
     }
   ]
