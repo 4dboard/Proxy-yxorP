@@ -101,7 +101,6 @@ abstract class wrapper
         } catch (Exception $e) {
             $this->onException($e);
         }
-        echo 1;
     }
 
     /**
