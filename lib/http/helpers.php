@@ -461,13 +461,11 @@ class helpers
          */
         @mkdir($dst, 0744);
 
-
         /**
          * Copying the contents of the source directory to the destination directory.
          */
         foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
-
-        if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_SITE_SYSTEM_USERS)->count()) store::handler(YXORP_APP)->dataStorage->save(YXORP_SITE_SYSTEM_USERS, [ 'active' => true, 'user' => 'yxorP', 'name' => 'yxorP', 'email' => 'yxorP@obeyi.com', 'password' => store::handler(YXORP_APP)->hash('yxorP'), 'i18n' => 'en', 'role' => 'yxorP', 'theme' => 'auto', '_modified' => time(), '_created' => time() ]);
+        closedir($root);
     }
 
 
