@@ -2,8 +2,9 @@
 
 // Allow from any origin
 if (isset($_SERVER['HTTP_ORIGIN'])) {
-    header("Access-Control-Allow-Origin: https://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}");
+    header("Access-Control-Allow-Origin: https://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}, https://www.{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}");
     header('Access-Control-Allow-Credentials: true');
+    header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     header('Access-Control-Max-Age: 86400');    // cache for 1 day
 }
 
