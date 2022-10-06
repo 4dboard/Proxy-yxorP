@@ -7,7 +7,7 @@ tasks:
   - command: cd ./app && php -S localhost:9004 index.php && gp preview $(gp url 9004)
     openMode: split-right
 ports:
-  - port: 9003
-    onOpen: open-preview
   - port: 9004
-    onOpen: open-preview
+    onOpen: open-browser
+  - port: 9003
+    onOpen: open-browser

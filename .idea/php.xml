@@ -45,5 +45,5 @@
       <path value="$PROJECT_DIR$/app/lib/vendor/jean85/pretty-package-versions" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
 </project>
