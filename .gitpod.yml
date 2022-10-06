@@ -3,8 +3,8 @@
 # and commit this file to your remote git repository to share the goodness with others.
 
 tasks:
-  - command: cp ./.env.example ./.env && php -S localhost:9003 index.php && gp preview $(gp url 9003) && echo "ATTENTION - Thank you for testing the new yxorP Web proxy. Please be aware that Gitpod is now attempting to open two new tabs in your web browser concurrently. If this does not work, check that the pop-up window option is enabled in your web browser, and then go to the "ports" tab to manually open each preview."
-  - command: cd ./app && php -S localhost:9004 index.php && gp preview $(gp url 9004) echo "ATTENTION - Thank you for testing the new yxorP Web proxy. Please be aware that Gitpod is now attempting to open two new tabs in your web browser concurrently. If this does not work, check that the pop-up window option is enabled in your web browser, and then go to the "ports" tab to manually open each preview."
+  - command: cp ./.env.example ./.env && php -S localhost:9003 index.php && gp preview $(gp url 9003) && echo "ATTENTION - Thank you for testing the new yxorP Web proxy. Please be aware that Gitpod is now attempting to open two new tabs in your web browser concurrently. If this does not work, check that the pop-up window option is enabled in your web browser, and then go to the "ports" tab to manually open each preview. (This terminal may be used to control the 'Admin Proxy' example that is now running on port 9003. Both Debug and Run have been configured automatically)."
+  - command: cd ./app && php -S localhost:9004 index.php && gp preview $(gp url 9004) echo "ATTENTION - Thank you for testing the new yxorP Web proxy. Please be aware that Gitpod is now attempting to open two new tabs in your web browser concurrently. If this does not work, check that the pop-up window option is enabled in your web browser, and then go to the "ports" tab to manually open each preview. (This terminal may be used to control the 'Site Proxy' example that is now running on port 9003. Both Debug and Run have been configured automatically)."
     openMode: split-right
 ports:
   - port: 9004
